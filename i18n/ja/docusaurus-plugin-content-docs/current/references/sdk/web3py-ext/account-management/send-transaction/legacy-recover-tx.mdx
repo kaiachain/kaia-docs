@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -39,7 +39,7 @@ web3_tx_sign_recover_legacy()
 
 ```zsh output
 ❯ py web3_legacy_value_transfer_sign_recover.py
-tx hash:  0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74 receipt:  AttributeDict({'blockHash': HexBytes('0xfa5dc338557b4bb74ed640bb95f3249f258469e2ff805f38b437287dce4a5d73'), 'blockNumber': 150557816, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74'), 'transactionIndex': 0, 'type': 2})
+tx hash：  0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74 receipt:  AttributeDict({'blockHash'：HexBytes('0xfa5dc338557b4bb74ed640bb95f3249f258469e2ff805f38b437287dce4a5d73'), 'blockNumber':150557816, 'contractAddress'：なし, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0x26e3137f5a44e64c7238367dc9d4270e63aaedd584ad7854509612fe82d24f74'), 'transactionIndex':0, 'type': 2})
 
 sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
@@ -49,7 +49,7 @@ recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=1:2
 
@@ -57,7 +57,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=3:6
 
@@ -65,7 +65,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=8:10
 
@@ -73,7 +73,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quickode**
+また、プロバイダのURLを**kairos**から**quickode**に変更することもできます。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=8:10
 from web3py_ext import extend
@@ -104,12 +104,12 @@ def web3_legacy_value_transfer_sign_recover():
     recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
     print("\nsender", user.address, "\nrecovered", recovered_tx)
 
-web3_legacy_value_transfer_sign_recover()\
+web3_legacy_value_transfer_sign_recover() \
 ```
 
 ---
 
-Define a sender's wallet from private key using **Account.from_key**
+**Account.from_key**を使用して、秘密鍵から送信者のウォレットを定義する。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=13
 
@@ -117,7 +117,7 @@ Define a sender's wallet from private key using **Account.from_key**
 
 ---
 
-Create a **transaction** with **from**, **to** and **value** fields to transfer.
+転送する **from**、**to**、**value** フィールドを指定して、**transaction** を作成する。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=14:18
 
@@ -125,7 +125,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive kaia.
+**from**：送信者のアドレス、**to**：カイアを受信するターゲットのアドレス。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=15:16
 
@@ -133,7 +133,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
+**value**フィールドは、送信したいKaiaの数を意味し、KaiaをPeb単位に変換するには**Web3.to_peb**ユーティルを使用します。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=17
 
@@ -141,7 +141,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=4:6,19
 
@@ -149,7 +149,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 ---
 
-Sign the transaction with **sender** private key
+**sender**の秘密鍵でトランザクションに署名する。
 
 ```py web3_legacy_value_transfer_sign_recover.py focus=20
 
@@ -157,7 +157,7 @@ Sign the transaction with **sender** private key
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+署名済みのトランザクションをネットワークに**送信**し、ブロックチェーンで完全に実行されるまで受領を**待機**する。
 
 <CH.Code>
 ```py web3_legacy_value_transfer_sign_recover.py focus=22:24
@@ -172,7 +172,7 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 
 ---
 
-Recover sender address with **Account.recover_transaction** from signed transaction
+署名済みトランザクションから**Account.recover_transaction**を使用して送信者アドレスを回復する。
 
 <CH.Code>
 ```py web3_legacy_value_transfer_sign_recover.py focus=26:27

@@ -1,34 +1,34 @@
-# Wallets
+# 財布
 
-Wallets on Klaytn allows for access to accounts controlled by private keys, thus facilitating private key management, signing crypto transactions and also provides an interface to access(i.e send and receive) digital assets. This section provides a list of Klaytn supported wallets. Lets get started!
+カイアのウォレットは、秘密鍵で管理されたアカウントへのアクセスを可能にし、秘密鍵の管理、暗号トランザクションへの署名を容易にし、デジタル資産へのアクセス（送受信）のインターフェースも提供します。 このセクションでは、カイアがサポートしているウォレットのリストを提供します。 始めよう！
 
-> **Note**: The wallets provided below are third party wallets that have integrated with Klaytn and as such it’s much advised for users to do their due diligence before using them.
+> **注意**：下記のウォレットはカイアと統合されたサードパーティーウォレットです。
 
-| Wallet                                             | Custody       | Account Type   | Platforms                | Multi-sig | Browser Extension | NFT     | Bridge Support |
-| -------------------------------------------------- | ------------- | -------------- | ------------------------ | --------- | ----------------- | ------- | -------------- |
-| [1inch](https://1inch.io/wallet/)                  | Non-custodial | EOA            | Mobile                   | No        | Yes               | Support | No             |
-| [ABC Wallet](https://myabcwallet.io/en/)           | Non-custodial | EOA            | Mobile, Browser          | No        | No                | Support | Yes            |
-| [Alpha Wallet](https://alphawallet.com/)           | Non-custodial | EOA            | Broswer, Mobile, API-SDK | No        | No                | Support | Yes            |
-| [Bit2Me](https://bit2me.com/suite/wallet-klaytn)   | Non-custodial | EOA            | Mobile, Web App          | No        | No                | No      | No             |
-| [BitKeep](https://bitkeep.com/)                    | Non-custodial | EOA            | Browser, Mobile, Desktop | No        | Yes               | Support | Yes            |
-| [Biport](https://biport.io/#/)                     | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Burrito Wallet](https://www.burritowallet.com/en) | Non-custodial | EOA            | Browser, Mobile          | No        | Yes               | Support | Yes            |
-| [Coin98](https://coin98.com/)                      | Non-custodial | EOA            | Browser, Mobile, Web App | No        | Yes               | Support | Yes            |
-| [D'cent](https://dcentwallet.com/)                 | Hybrid        | EOA            | Mobile                   | No        | No                | Support | Yes            |
-| [DeFi Wallet](https://crypto.com/defi-wallet)      | Non-custodial | EOA            | Mobile, Desktop          | No        | No                | Support | Yes            |
-| [DeKeys](https://www.atomrigs.io/)                 | Non-custodial | EOA            | Browser                  | No        | Yes               | Support | No             |
-| [Favorlet](https://favorlet.io/)                   | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Huobi Wallet](https://www.itoken.com/en)          | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | No             |
-| [Kaia Safe](https://safe.kaia.io/)                 | Non-custodial | Smart Contract | Web App                  | Yes       | No                | Support | No             |
-| [Klip Wallet](https://klipwallet.com/)             | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Krystal DeFi](https://krystal.app/)               | Non-custodial | EOA            | Mobile, Web App          | No        | No                | Support | Yes            |
-| [Math Wallet](https://mathwallet.org/en-us/)       | Custodial     | EOA            | Mobile, Web App, Browser | No        | Yes               | Support | Yes            |
-| [MetaMask](https://metamask.io/)                   | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | No             |
-| [Midas Protocol](https://midasprotocol.io/)        | Non-custodial | EOA            | Mobile                   | No        | No                | Support | Yes            |
-| [NOW Wallet](https://walletnow.app/)               | Non-custodial | EOA            | Mobile, Desktop          | No        | No                | Support | No             |
-| [OKX Wallet](https://www.okx.com/web3)             | Non-custodial | EOA            | Mobile, Browser          | No        | Yes               | Support | Yes            |
-| [Rabby Wallet](https://rabby.io/)                  | Non-custodial | EOA            | Browser, Desktop         | No        | Yes               | Support | No             |
-| [Token Pocket](https://www.tokenpocket.pro/en)     | Non-custodial | EOA            | Mobile, Browser, API-SDK | No        | Yes               | Support | Yes            |
-| [TrustKeys](https://trustkeys.network/)            | Non-custodial | EOA            | Mobile                   | No        | No                | Support | No             |
-| [Welldone Wallet](https://welldonestudio.io/)      | Non-custodial | EOA            | Browser                  | No        | Yes               | No      | Yes            |
+| 財布                                                 | 親権       | 口座種別   | プラットフォーム             | マルチシグ | ブラウザ拡張機能 | エヌエフティー | ブリッジサポート |
+| -------------------------------------------------- | -------- | ------ | -------------------- | ----- | -------- | ------- | -------- |
+| [1inch](https://1inch.io/wallet/)                  | 非監護      | イーオーエー | モバイル                 | いいえ   | はい       | サポート    | いいえ      |
+| [ABC Wallet](https://myabcwallet.io/en/)           | 非監護      | イーオーエー | モバイル, ブラウザ           | いいえ   | いいえ      | サポート    | はい       |
+| [Alpha Wallet](https://alphawallet.com/)           | 非監護      | イーオーエー | Broswer、モバイル、API-SDK | いいえ   | いいえ      | サポート    | はい       |
+| [Bit2Me](https://bit2me.com/suite/wallet-klaytn)   | 非監護      | イーオーエー | モバイル、ウェブアプリ          | いいえ   | いいえ      | いいえ     | いいえ      |
+| [BitKeep](https://bitkeep.com/)                    | 非監護      | イーオーエー | ブラウザ、モバイル、デスクトップ     | いいえ   | はい       | サポート    | はい       |
+| [Biport](https://biport.io/#/)                     | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | いいえ      |
+| [Burrito Wallet](https://www.burritowallet.com/en) | 非監護      | イーオーエー | ブラウザ、モバイル            | いいえ   | はい       | サポート    | はい       |
+| [Coin98](https://coin98.com/)                      | 非監護      | イーオーエー | ブラウザ、モバイル、ウェブアプリ     | いいえ   | はい       | サポート    | はい       |
+| [D'cent](https://dcentwallet.com/)                 | ハイブリッド   | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | はい       |
+| [DeFi Wallet](https://crypto.com/defi-wallet)      | 非監護      | イーオーエー | モバイル、デスクトップ          | いいえ   | いいえ      | サポート    | はい       |
+| [DeKeys](https://www.atomrigs.io/)                 | 非監護      | イーオーエー | ブラウザ                 | いいえ   | はい       | サポート    | いいえ      |
+| [Favorlet](https://favorlet.io/)                   | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | いいえ      |
+| [Huobi Wallet](https://www.itoken.com/en)          | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | いいえ      |
+| [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | 非監護      | イーオーエー | モバイル, ブラウザ           | いいえ   | はい       | サポート    | いいえ      |
+| [Kaia Safe](https://safe.kaia.io/)                 | 非監護      | スマート契約 | ウェブアプリ               | はい    | いいえ      | サポート    | いいえ      |
+| [Klip Wallet](https://klipwallet.com/)             | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | いいえ      |
+| [Krystal DeFi](https://krystal.app/)               | 非監護      | イーオーエー | モバイル、ウェブアプリ          | いいえ   | いいえ      | サポート    | はい       |
+| [Math Wallet](https://mathwallet.org/en-us/)       | カストーディアル | イーオーエー | モバイル、ウェブアプリ、ブラウザ     | いいえ   | はい       | サポート    | はい       |
+| [MetaMask](https://metamask.io/)                   | 非監護      | イーオーエー | モバイル, ブラウザ           | いいえ   | はい       | サポート    | いいえ      |
+| [Midas Protocol](https://midasprotocol.io/)        | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | はい       |
+| [NOW Wallet](https://walletnow.app/)               | 非監護      | イーオーエー | モバイル、デスクトップ          | いいえ   | いいえ      | サポート    | いいえ      |
+| [OKX Wallet](https://www.okx.com/web3)             | 非監護      | イーオーエー | モバイル, ブラウザ           | いいえ   | はい       | サポート    | はい       |
+| [Rabby Wallet](https://rabby.io/)                  | 非監護      | イーオーエー | ブラウザ、デスクトップ          | いいえ   | はい       | サポート    | いいえ      |
+| [Token Pocket](https://www.tokenpocket.pro/en)     | 非監護      | イーオーエー | モバイル、ブラウザ、API-SDK    | いいえ   | はい       | サポート    | はい       |
+| [TrustKeys](https://trustkeys.network/)            | 非監護      | イーオーエー | モバイル                 | いいえ   | いいえ      | サポート    | いいえ      |
+| [Welldone Wallet](https://welldonestudio.io/)      | 非監護      | イーオーエー | ブラウザ                 | いいえ   | はい       | いいえ     | はい       |

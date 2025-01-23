@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -91,7 +91,7 @@ recoveredAddr rpc 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e true
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SignTxWithMultiSigExample.js focus=1
 
@@ -99,7 +99,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender's **address**, **private key** and others **weighted multi-sig** private keys
+送信者の**address**、**private key**、その他の**重み付きマルチシグ**秘密鍵を定義する。
 
 ```js SignTxWithMultiSigExample.js focus=3:6
 
@@ -107,7 +107,7 @@ Define sender's **address**, **private key** and others **weighted multi-sig** p
 
 ---
 
-Define receiver's **address**
+受信者の**address**を定義します。
 
 ```js SignTxWithMultiSigExample.js focus=7
 
@@ -115,7 +115,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js SignTxWithMultiSigExample.js focus=9
 
@@ -123,7 +123,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SignTxWithMultiSigExample.js focus=9
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -177,7 +177,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+プロバイダーを使って**web3インスタンス**を定義する
 
 ```js SignTxWithMultiSigExample.js focus=10
 
@@ -185,7 +185,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create 3 different wallets with the **weighted multi-sig** private keys and provider
+**Weighted Multi-Sig**のプライベートキーとプロバイダーを使用して、3種類の異なるウォレットを作成します。
 
 ```js SignTxWithMultiSigExample.js focus=11:13
 
@@ -193,7 +193,7 @@ Create 3 different wallets with the **weighted multi-sig** private keys and prov
 
 ---
 
-Create a value transfer transaction with `type: TxType.ValueTransfer`
+`type.ValueTransfer`で値移転トランザクションを作成する：TxType.ValueTransfer\`の値転送トランザクションを作成する。
 
 ```js SignTxWithMultiSigExample.js focus=16:22
 
@@ -201,7 +201,7 @@ Create a value transfer transaction with `type: TxType.ValueTransfer`
 
 ---
 
-Sign the transaction with **first** wallet
+最初の\*\*ウォレットで取引に署名する。
 
 <CH.Code>
 ```js SignTxWithMultiSigExample.js focus=27:29
@@ -217,7 +217,7 @@ rawTx1 0x08f88676850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e98
 
 ---
 
-Sign the transaction with **second** wallet
+**番目の**ウォレットで取引に署名する。
 
 <CH.Code>
 ```js SignTxWithMultiSigExample.js focus=31:33
@@ -233,7 +233,7 @@ rawTx2 0x08f8cd76850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e98
 
 ---
 
-Sign the transaction with the **third** wallet
+**番目の**ウォレットで取引に署名する。
 
 <CH.Code>
 ```js SignTxWithMultiSigExample.js focus=35:37
@@ -249,7 +249,7 @@ signedTx3 0x1b3b4b8a177ead1602c5052d8c1145a2e9ffc53ac4ce208f4730177486726c6a
 
 ---
 
-Send the **signed transaction** to kaia network and print the **receipt**
+カイヤネットワークに**署名した取引**を送信し、**領収書**を印刷する。
 
 <CH.Code>
 ```js SignTxWithMultiSigExample.js focus=39:40
@@ -282,7 +282,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `web3.klay.recoverFromTransaction`
+`web3.klay.recoverFromTransaction`を使用して、署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
 ```js SignTxWithMultiSigExample.js focus=42:44

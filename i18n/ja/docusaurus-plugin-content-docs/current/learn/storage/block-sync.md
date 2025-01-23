@@ -1,60 +1,60 @@
-# Block Synchronization
+# ブロック同期
 
-Block synchronization is the process of updating a node with the latest blocks and states from the Kaia blockchain. Node operators can choose from various synchronization methods based on their hardware specifications and service requirements.
+ブロック同期とは、Kaiaブロックチェーンの最新のブロックとステートでノードを更新するプロセスです。 ノードオペレータは、ハードウェアの仕様やサービス要件に応じて、さまざまな同期方法を選択できる。
 
-## Full Sync
+## フルシンク
 
-Full sync is the default synchronization method in Kaia, activated by either using the `--syncmode full` flag or omitting the flag altogether. This method involves downloading and executing every block (header and transactions) from p2p peers to generate the block states.
+フルシンクはKaiaのデフォルトの同期方法で、`--syncmode full`フラグを使うか、フラグを完全に省略することで有効になります。 この方法では、p2pピアからすべてのブロック（ヘッダーとトランザクション）をダウンロードして実行し、ブロックの状態を生成する。
 
-### State Persistence Options
+### ステート・パーシステンス・オプション
 
-While Full Sync processes every block, Kaia provides flexibility in how much state data is persistently stored on disk. This allows node operators to balance data accessibility with storage capacity. The following diagram illustrates these options:
+フル・シンクがすべてのブロックを処理するのに対し、カイアは状態データをどの程度ディスクに永続的に保存するかについて柔軟性を提供する。 これにより、ノードオペレータは、データへのアクセス性とストレージ容量のバランスをとることができる。 以下の図は、これらのオプションを示している：
 
 ![Block sync options](/img/learn/block_sync.png)
 
-- **Archive Mode**: This mode persists every block state to disk. To enable it, use the `--gcmode archive` flag. Nodes operating in this mode are referred to as **Archive Nodes**.
-- **Full Mode**: This mode persists block states at specific intervals to optimize disk usage. To enable it, use the `--gcmode full` flag or omit the `--gcmode` flag altogether. Nodes operating in this mode are referred to as **Full Nodes**. Don't confuse this with the general "full sync" method.
+- **アーカイブ・モード**：このモードはすべてのブロックの状態をディスクに永続化する。 これを有効にするには、`--gcmode archive`フラグを使う。 このモードで動作するノードは**アーカイブ・ノード**と呼ばれる。
+- **フル・モード**：このモードは、ディスク使用量を最適化するために、特定の間隔でブロック状態を持続させる。 これを有効にするには、`--gcmode full`フラグを使うか、`--gcmode`フラグを完全に省略する。 このモードで動作するノードは**フルノード**と呼ばれる。 一般的な「完全同期」の方法と混同しないように。
 
-In a full node, block states are persisted to disk every multiple of the number specified by `--state.block-interval NNN` (default: 128). Also the block states of the recent `--state.tries-in-memory NNN` (default: 128) blocks are kept in memory to serve APIs. Therefore, block states are available only when it is a multiple of block interval or recently processed.
+フルノードでは、`--state.block-interval NNN` で指定された数（デフォルト：128）の倍数ごとにブロック状態がディスクに永続化される。 また、最近の`--state.tries-in-memory NNN`（デフォルト：128）ブロックのブロック状態は、APIに提供するためにメモリに保持される。 したがって、ブロックの状態は、ブロック間隔の倍数か、最近処理された場合にのみ利用可能である。
 
 ```js
-// State available
+// 状態あり
 > eth.getBalance('0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 150000000)
 735000000000002
 
-// State absent
+// 状態なし
 > eth.getBalance('0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 150000001)
 Error: missing trie node 64380a8de7bd83a6421c9ad45ae596a0eebbc7b504d061f4a57c61742eadc804 (path )
 	at web3.js:6812:9(39)
 	at send (web3.js:5223:62(29))
-	at <eval>:1:15(4)
+	at<eval>:1:15(4)
 ```
 
 :::info
 
-Applications should not assume a fixed block interval of 128. While it's the default, nodes can be configured to use different intervals.
+アプリケーションは128の固定ブロック間隔を想定すべきではない。 これはデフォルトだが、ノードは異なる間隔を使用するように設定できる。
 
 :::
 
-#### Choosing the Right Option
+#### 正しいオプションの選択
 
-Applications typically need access to the latest state data, including nonces, balances, and contract storage. While apps and developers may occasionally utilize debug tracing APIs for historical blocks, these blocks can generally be recreated by re-executing transactions from the nearest stored state (e.g., up to 127 blocks prior under the default block interval). Therefore, running a full node is a cost-effective choice for most applications.
+通常、アプリケーションは、nonces、残高、コントラクト・ストレージを含む最新のステート・データにアクセスする必要がある。 アプリや開発者は時折、履歴ブロックのデバッグトレースAPIを利用するかもしれないが、これらのブロックは一般に、最も近い保存状態（例えば、デフォルトのブロック間隔では最大127ブロック前）からトランザクションを再実行することで再作成できる。 そのため、フルノードを稼働させることは、ほとんどのアプリケーションにとって費用対効果の高い選択となる。
 
-However, data analysis often requires using an archive node. It's important to note that even when querying historical consensus data, such as validator information or rewards, an archive node is still required. This is because consensus data is derived from the state of the blockchain at specific block heights.
+しかし、データ分析にはしばしばアーカイブ・ノードが必要になる。 バリデータ情報や報酬など、過去のコンセンサスデータを照会する場合でも、アーカイブノードが必要であることに注意することが重要だ。 なぜなら、コンセンサスデータは特定のブロックの高さにおけるブロックチェーンの状態から得られるからである。
 
-To summarize:
+要約すると
 
-- Full Node: Suitable for most applications requiring access to the latest state data and occasional historical data access via tracing APIs.
-- Archive Node: Essential for applications requiring comprehensive historical state access, such as data analysis tools.
+- フルノード：最新の状態データへのアクセスや、トレースAPIを介した履歴データへのアクセスを必要とするほとんどのアプリケーションに適しています。
+- アーカイブ・ノード：データ分析ツールなど、包括的な履歴状態へのアクセスを必要とするアプリケーションに不可欠。
 
-### Hybrid Option: Upstream EN
+### ハイブリッド・オプション上流のEN
 
-If your node mostly serves the latest data but occasionally serves historic data, then try the [Upstream EN](../../misc/operation/upstream-en.md) feature. This feature allows you to balance the storage requirements of an archive node with the performance of a full node.
+お使いのノードが主に最新データを配信し、たまに履歴データを配信する場合は、[Upstream EN](../../misc/operation/upstream-en.md)機能をお試しください。 この機能により、アーカイブノードのストレージ要件とフルノードのパフォーマンスのバランスをとることができます。
 
-## Chaindata Snapshot
+## チェーンデータ・スナップショット
 
-Chaindata snapshots offer a faster alternative to Full Sync. A snapshot is a compressed archive (e.g. `.tar.gz` file) of a synced node's data directory. Downloading and extracting a snapshot allows a new node to quickly catch up to the blockchain without processing every block individually. See [Use Chaindata Snapshots](../../misc/operation/chaindata-snapshot.md) for more information.
+Chaindata スナップショットは、フル・シンクより高速な代替手段を提供します。 スナップショットとは、同期されたノードのデータ・ディレクトリの圧縮アーカイブ（`.tar.gz`ファイルなど）である。 スナップショットをダウンロードして抽出することで、新しいノードはすべてのブロックを個別に処理することなく、ブロックチェーンに素早く追いつくことができる。 詳しくは[Chaindata Snapshotsを使用する](../../misc/operation/chaindata-snapshot.md)を参照してください。
 
-## Snap Sync
+## スナップ・シンク
 
-Currently, Kaia nodes do not support the [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) method. However, using a chaindata snapshot provides a comparable advantage in terms of faster initial synchronization.
+現在、Kaia ノードは [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) メソッドをサポートしていません。 しかし、chaindata snapshotを使用することで、初期同期の高速化という点で同等の利点が得られる。

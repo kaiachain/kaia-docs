@@ -1,6 +1,6 @@
-# Write (Fee Delegation)
+# 書き込み（手数料の委任）
 
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**トランザクション**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -117,7 +117,7 @@ number after 297
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWriteFeeDelegated.js focus=1
 
@@ -125,7 +125,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js smartContractWriteFeeDelegated.js focus=3:6
 
@@ -133,7 +133,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js smartContractWriteFeeDelegated.js focus=8:9
 
@@ -141,7 +141,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractWriteFeeDelegated.js focus=8:9
 const { Web3, TxType } = require("@kaiachain/web3js-ext");
@@ -215,7 +215,7 @@ main();
 
 ---
 
-Create a **sender** and **fee payer** account from defined private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、定義された秘密鍵から**sender**と**fee payer**のアカウントを作成する。
 
 ```js smartContractWriteFeeDelegated.js focus=10:11
 
@@ -223,7 +223,7 @@ Create a **sender** and **fee payer** account from defined private key using `we
 
 ---
 
-Define contract **Abi** and **contract address**
+契約**Abi**と**契約アドレス**の定義
 
 ```js smartContractWriteFeeDelegated.js focus=37:38
 
@@ -231,7 +231,7 @@ Define contract **Abi** and **contract address**
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractWriteFeeDelegated.js focus=41
 
@@ -239,7 +239,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Get the value of **number** before update
+更新前の**number**の値を取得する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=43
@@ -258,7 +258,7 @@ number before 296
 
 ---
 
-Encoded the contract method data with `contract.methods.increment().encodeABI()`
+contract.methods.increment().encodeABI()\`でコントラクト・メソッド・データをエンコードする。
 
 ```js smartContractWriteFeeDelegated.js focus=45
 
@@ -266,7 +266,7 @@ Encoded the contract method data with `contract.methods.increment().encodeABI()`
 
 ---
 
-Create a transaction to update the value **number** with `type: FeeDelegatedSmartContractExecution`
+値 **number** を `type：タイプ: FeeDelegatedSmartContractExecution` である。
 
 ```js smartContractWriteFeeDelegated.js focus=46:51
 
@@ -274,7 +274,7 @@ Create a transaction to update the value **number** with `type: FeeDelegatedSmar
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=53:55
@@ -291,7 +291,7 @@ senderTxHashRLP 0x31f8844c850ba43b7400830111939495be48607498109030592c08adc9577c
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=57:59
@@ -308,7 +308,7 @@ signedTx 0x66f7d99d2236145baa4bb84f66d283c508639bd6150c68b300323f7aa016676f
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=61:62
@@ -351,7 +351,7 @@ receipt {
 
 ---
 
-Get the updated value of **number**
+**number**の更新値を取得する。
 
 <CH.Code>
 ```js smartContractWriteFeeDelegated.js focus=64

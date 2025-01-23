@@ -1,97 +1,97 @@
-# Kaia Chain DLT Framework
+# カイアチェーンDLTフレームワーク
 
-Our Distributed Ledger Technology (DLT) framework is designed to provide an efficient and reliable digital ledger system. The framework consists of the following key features:
+当社の分散型台帳技術（DLT）フレームワークは、効率的で信頼性の高いデジタル台帳システムを提供するように設計されています。 このフレームワークは、次のような主要機能で構成されている：
 
-## Layer Structure
+## レイヤー構造
 
-- Our DLT framework operates in three layers of nodes: consensus nodes (CN), proxy nodes (PN), and endpoint nodes (EN). CN is managed by a Validator and is responsible for block creation. These blocks are verified by all the nodes within the network.
-- A Core Cell (CC) is composed of a single Consensus Node (CN) and two Proxy Nodes (PNs). Consensus Nodes are participating in the block generation process, while Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
-- Endpoint Nodes (ENs) serve as endpoints for Kaia network handling RP API requests and processing data sent to and from service chains.
+- 我々のDLTフレームワークは、コンセンサスノード（CN）、プロキシノード（PN）、エンドポイントノード（EN）の3層のノードで構成されている。 CNはバリデーターによって管理され、ブロックの作成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。
+- コアセル（CC）は、1つのコンセンサスノード（CN）と2つのプロキシノード（PN）で構成される。 コンセンサスノードはブロック生成プロセスに参加し、プロキシノードはネットワークとのインターフェースを提供する。 PNはトランザクション要求をコンセンサスノードに送信し、ブロックをエンドポイントノードに伝搬する。
+- エンドポイントノード（EN）は、RP APIリクエストを処理し、サービスチェーンとの間で送受信されるデータを処理する、Kaiaネットワークのエンドポイントとして機能します。
 
 ![](/img/misc/kaia-nodes.jpg)
 
-## Consensus algorithm
+## コンセンサス・アルゴリズム
 
-Blockchains use a “distributed ledger,” which consists of a connected network between individuals with several network participants to record and manage the transaction information. Each blockchain adopts a consensus algorithm that is most suitable for it, with the aim of efficient and smooth consensus on transaction validation and block generation among network participants.
+ブロックチェーンは「分散型台帳」を使用し、複数のネットワーク参加者による個人間の接続されたネットワークで構成され、取引情報を記録・管理する。 各ブロックチェーンは、そのブロックチェーンに最適なコンセンサスアルゴリズムを採用し、ネットワーク参加者間での取引検証とブロック生成に関する効率的かつ円滑なコンセンサスを目指している。
 
-- Kaia uses an optimized version of Istanbul BFT, which implements PBFT (Practical Byzantine Fault Tolerance) with modifications to suit the characteristics of blockchain networks.
+- カイアはイスタンブールBFTの最適化版を使用しており、これはブロックチェーン・ネットワークの特性に合わせて修正を加えたPBFT（Practical Byzantine Fault Tolerance）を実装している。
 
-The performance of Kaia is as follows:
+カイアのパフォーマンスは以下の通り：
 
-- Process 4,000 transactions/sec
-- Instant transaction finality
-- Creation time of 1 second/block
+- 4,000トランザクション/秒の処理
+- 取引の即時確定
+- 作成時間1秒/ブロック
 
-## Smart Contract
+## スマート契約
 
-- Kaia supports a distributed virtual machine for executing smart contracts, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
+- Kaiaはスマートコントラクトを実行するための分散型仮想マシンをサポートしており、高速かつ効率的に設計されているため、dApp開発者やプロジェクトに最適かつ迅速な開発環境を提供します。
 
-- The current version of Kaia Virtual Machine (KVM) is a derivative of the Ethereum Virtual Machine (EVM). It supports all Opcodes of the Ethereum Virtual Machine equally while providing additional precompiled contracts unique to the Kaia Virtual Machine.
+- 現在のバージョンのカイア仮想マシン（KVM）は、イーサリアム仮想マシン（EVM）の派生版である。 Ethereum仮想マシンのすべてのOpcodeを同等にサポートし、Kaia仮想マシンに固有のプリコンパイルされたコントラクトを追加提供します。
 
-- Kaia supports Solidity and maintains interoperability with Ethereum development toolkits such as Remix, Hardhat, Truffle, and Foundry. A Smart Contract written with Solidity can be compiled using the existing Solidity compiler and can be run on Kaia without additional work.
+- KaiaはSolidityをサポートし、Remix、Hardhat、Truffle、Foundryなどのイーサリアム開発ツールキットとの相互運用性を維持しています。 Solidityで記述されたスマートコントラクトは、既存のSolidityコンパイラを使用してコンパイルすることができ、追加作業なしでKaia上で実行することができます。
 
-## Security measures
+## セキュリティ対策
 
-- We introduced a VRF(Verifiable Random Function) with the selection of the committee leader for the block generation consensus algorithm. VRF is a technology that randomly selects proposer nodes that generate blocks on each round, making it impossible to predict which nodes will be selected.
+- 我々は、ブロック生成コンセンサスアルゴリズムの委員会リーダーの選択にVRF(Verifiable Random Function)を導入した。 VRFは、各ラウンドでブロックを生成する提案者ノードをランダムに選択する技術であり、どのノードが選択されるかを予測することは不可能である。
 
-- Kaia chain has a clear separation between the validator keys and rewards keys to protect them from stealing. Validator signatures need to be verified by all the committee members verifying the block creation.
+- カイアチェーンでは、バリデータ・キーとリワード・キーを明確に分離し、盗難から保護している。 検証者の署名は、ブロック作成を検証する委員会メンバー全員によって検証される必要がある。
 
-## Interoperability
+## 相互運用性
 
-- Kaia Blockchain is based on EVM so its compatible with Ethereum and all contracts developed in Solidity can run seamlessly with in Kaia Ecosystem.
+- カイア・ブロックチェーンはEVMをベースにしているのでイーサリアムと互換性があり、Solidityで開発されたすべてのコントラクトはカイア・エコシステムでシームレスに実行できる。
 
-- Our DLT framework is designed based on EVM-SDK(Software Development Kit) technology, and is designed to interoperate with the same EVM-SDK based chains to deploy smart contracts without any code changes.
+- 当社のDLTフレームワークは、EVM-SDK（ソフトウェア開発キット）技術に基づいて設計されており、同じEVM-SDKベースのチェーンと相互運用できるように設計されているため、コードを変更することなくスマートコントラクトを導入することができます。
 
-- It facilitates cross-platform transactions and smart contracts by enabling mutual asset movement, message exchange, and contract execution via inter.
+- 相互のアセット移動、メッセージ交換、インターを介した契約実行を可能にすることで、クロスプラットフォーム取引とスマートコントラクトを促進する。
 
-## Tokenization
+## トークン化
 
-- Kaia chain supports native coins as KAIA.
+- カイアチェーンはKAIAとしてネイティブコインをサポートしている。
 
-- The framework provides the ability to issue and manage tokens, which can represent a variety of assets, including but not limited to cryptocurrencies, utility tokens, or asset-backed tokens, or NFTs.
+- このフレームワークはトークンを発行・管理する機能を提供し、トークンは暗号通貨、ユーティリティ・トークン、資産担保型トークン（NFT）など、さまざまな資産を表すことができるが、これらに限定されるものではない。
 
-## Governance Protocol
+## ガバナンス・プロトコル
 
-- The on-chain governance of Kaia is designed to be fair and to ensure diverse opinions are shared. Voting entities can vote on all agenda items. Voting rights are calculated in proportion to the amount of staking. However, there is a cap on voting rights to prevent minority opinions from being ignored. Voters can delegate their staking amount to other voters.
+- カイアのオン・チェーン・ガバナンスは、公正で多様な意見が共有されるように設計されている。 投票権を有する団体は、すべての議題について投票することができる。 議決権は賭け金額に応じて計算される。 ただし、少数意見が無視されるのを防ぐため、投票権には上限が設けられている。 投票者は、自分の賭け金額を他の投票者に委任することができる。
 
-- The submitted proposal is on-chain data that anyone can inquire about, and the description and information of the proposal, the result of the vote and the execution history of the proposal are recorded and transparently disclosed.
+- 提出されたプロポーザルは、誰でも照会できるオンチェーンデータであり、プロポーザルの説明や情報、投票結果、実行履歴などが記録され、透明性をもって開示される。
 
-## Validators
+## バリデーター
 
-The consensus process consists of the following three stages:
+コンセンサスのプロセスは、以下の3段階からなる：
 
-- Step 1 – Election: A committee consisting of one proposer and several nodes is selected. This is a similar task to the leader election in a generally distributed system. The proposer and the committee are randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
+- ステップ1 - 選挙：提案者1名とノード数名で構成される委員会が選出される。 これは、一般的な分散システムにおけるリーダー選出と同様の作業である。 提案者と委員会は、事前に知っていると標的型DoS（サービス拒否）に遭いやすくなるため、VRFによってランダムに選ばれる。
 
-- Step 2 - Block Generation: Elected proposers create a block and make a proposal to the committee. The block proposal made through the P2P network is sent to the committee.
+- ステップ2 - ブロック作成：選出された提案者がブロックを作成し、委員会に提案する。 P2Pネットワークを通じて提案されたブロックは、委員会に送られる。
 
-- Step 3 - Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
+- ステップ3 - ブロックの検証：委員会は、提案者によって提案されたブロックを検証し、署名する。 ブロックは、定足数以上の署名が集まった時点で完了となる。
 
-## Token Economy
+## トークン・エコノミー
 
-- The framework is automatically issued by the native token, KAIA, at the creation of each block, and the amount of KAIA issuance in each block is determined by the inflation ratio to the total supply. Kaia Blockchain provides incentives through newly minted KAIA and transaction fees.
+- フレームワークは各ブロックの生成時にネイティブトークンであるKAIAによって自動的に発行され、各ブロックにおけるKAIAの発行量は総供給量に対するインフレ率によって決定される。 カイア・ブロックチェーンは、新たに鋳造されたKAIAと取引手数料を通じてインセンティブを提供する。
 
-- On the mainnet of Kaia Blockchain, a certain amount of KAIA is issued whenever a new block is created. Each time a new block is created, a certain amount of KAIA will be newly issued, and the target initial annual inflation rate (amount of KAIA newly issued per year / total KAIA token in the market) of Kaia Blockchain will be set at 5.2% .
+- カイア・ブロックチェーンのメインネットでは、新しいブロックが作成されるたびに一定量のKAIAが発行される。 新しいブロックが作成されるたびに、一定量のKAIAが新たに発行され、カイアブロックチェーンの当初の目標年間インフレ率（1年間に新たに発行されるKAIAの量/市場のKAIAトークンの合計）は5.2％に設定されます。
 
-- Block Reward for each block will be distributed in prespecified percentages (that can be changed subject to on-chain governance voting).
+- 各ブロックのブロック報酬は、あらかじめ指定されたパーセンテージで分配される（チェーン上のガバナンス投票によって変更可能）。
 
-  1. CCO and Community: 50%
-     1. Of the 50%, 20% is Block Creator rewards
-     2. Of the 50%, 80% is Staking rewards
-  2. KEF (Kaia Ecosystem Fund): 25%
-  3. KIF (Kaia Infrastructure Fund): 25%
+  1. CCOとコミュニティ：50
+     1. 50％のうち、20％がブロック・クリエーターの報酬となる。
+     2. 50％のうち、80％がステーキング報酬である。
+  2. KEF（カイア・エコシステム・ファンド）：25%
+  3. KIF（カイア・インフラストラクチャー・ファンド）：25%
 
-## Auditability and transparency
+## 監査可能性と透明性
 
-- All transactions provide an immutable and verifiable history of all state changes by recording the process from submission to execution in a block and transparently disclosing the entire past block history.
+- すべてのトランザクションは、投稿から実行までのプロセスをブロック内に記録し、過去のブロック履歴全体を透過的に開示することで、すべての状態変更の不変かつ検証可能な履歴を提供する。
 
-- Kaia chain provides KaiaScope and Kaiascan to view all the transactions happening on the blockchain.
+- カイアチェーンは、ブロックチェーン上で起きているすべての取引を閲覧するために、カイアスコープとカイアスキャンを提供している。
 
-- The data recorded in each block in the past can be viewed by anyone through the query function, thereby increasing transparency and confidence in the system.
+- 各ブロックで過去に記録されたデータは、クエリー機能によって誰でも見ることができ、システムの透明性と信頼性を高める。
 
-- Kaia Chain provides voting platform “Square” to disclose all the expenses incurred and quarterly known transactions.
+- カイアチェーンは、発生したすべての経費と四半期ごとに判明する取引を開示するために、議決権行使プラットフォーム「Square」を提供している。
 
-## Network Monitoring:
+## ネットワーク監視：
 
-- Kaia Blockchain adopts a multi-channel approach to deal with network congestion. By allocating separate propagation channels to transactions and blocks, the Kaia network can propagate newly created blocks in a timely manner even when the network faces severe congestion due to a large number of transactions. In turn, Kaia guarantees the dApps on the network to continue responding to end-user requests despite intermittent network traffic surges.
+- カイア・ブロックチェーンは、ネットワークの混雑に対処するためにマルチチャネル・アプローチを採用している。 トランザクションとブロックに別々の伝搬チャネルを割り当てることで、Kaiaネットワークは、ネットワークが大量のトランザクションによる深刻な輻輳に直面しても、新しく作成されたブロックをタイムリーに伝搬することができる。 さらにカイアは、断続的なネットワークトラフィックの急増にもかかわらず、ネットワーク上のdAppsがエンドユーザーのリクエストに応答し続けることを保証する。
 
-- Kaia chain deploys the network monitoring for all the validators in the blockchain.
+- カイアチェーンは、ブロックチェーン内のすべてのバリデータに対してネットワーク監視を展開する。

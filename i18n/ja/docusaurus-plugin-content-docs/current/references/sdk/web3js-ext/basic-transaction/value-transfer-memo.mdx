@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 価値移転メモ
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
 <CH.Spotlight>
 <CH.Code>
@@ -64,7 +64,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeValueTransferMemo.js focus=1:2
 
@@ -72,7 +72,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender, receiver address and sender private key**
+**送信者、受信者アドレス、送信者秘密鍵**を定義する。
 
 ```js TxTypeValueTransferMemo.js focus=4:6
 
@@ -80,7 +80,7 @@ Define **sender, receiver address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js TxTypeValueTransferMemo.js focus=9
 
@@ -88,7 +88,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```js TxTypeValueTransferMemo.js focus=9
 const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -124,7 +124,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js TxTypeValueTransferMemo.js focus=10
 
@@ -132,7 +132,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Define the transaction object.
+トランザクションオブジェクトを定義する。
 
 ```js TxTypeValueTransferMemo.js focus=13:20
 
@@ -140,7 +140,7 @@ Define the transaction object.
 
 ---
 
-Sign the transaction with the sender's account.
+送信者のアカウントで取引に署名する。
 
 <CH.Code>
 ```js TxTypeValueTransferMemo.js focus=22
@@ -160,7 +160,7 @@ rawTx 0x10f88d8202fd852e69f6baec82c35094c40b6909eb7085590e1c26cb3becc25368e249e9
 
 ---
 
-Send the signed transaction to the kaia network.
+署名されたトランザクションをkaiaネットワークに送信する。
 
 <CH.Code>
 ```node TxTypeValueTransferMemo.js focus=25:26

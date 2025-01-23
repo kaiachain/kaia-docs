@@ -2,84 +2,84 @@
 
 ![](/img/banners/kaia-kcw.png)
 
-## Introduction
+## はじめに
 
-Kaia prioritizes providing a seamless developer experience, which is the driving force behind the creation of the Kaia Contracts Wizard (KCW). It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts.
+カイアは、シームレスな開発者体験を提供することを優先しており、これがカイア・コントラクト・ウィザード（KCW）創設の原動力となっています。 In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts).
 
-In this guide you will:
+このガイドでは、次のことを学ぶ：
 
-- Understand the basic functionality of Kaia Contracts Wizard.
-- Generate and customize smart contract code using Kaia Contracts Wizard.
-- Deploy Kaia contracts to the Kaia Network (Kairos) using Foundry Scripting System.
+- カイヤ契約ウィザードの基本機能を理解する。
+- Kaiaコントラクトウィザードを使用してスマートコントラクトコードを生成し、カスタマイズします。
+- Foundry Scripting Systemを使用して、KaiaコントラクトをKaia Network (Kairos)にデプロイする。
 
-## Exploring Kaia Contracts Wizard
+## カイアの契約ウィザードを探る
 
-Kaia Contracts Wizard posits itself as the fastest and easiest way to write your smart contract using Kaia Contracts. In this section, we will dive into the various components and segments of the Kaia Contract Wizard.
+Kaiaコントラクトウィザードは、Kaiaコントラクトを使用してスマートコントラクトを記述する最も速く簡単な方法です。 このセクションでは、カイア・コントラクト・ウィザードの様々なコンポーネントとセグメントについて説明します。
 
-As it is, the Kaia contracts wizard supports the following token standards:
+現状では、カイアのコントラクトウィザードは以下のトークン標準をサポートしています：
 
-- [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
-- [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
-- [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - カイアのカンジブルトークン規格。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつが不換紙幣で、同額紙幣はそれぞれ同じ価値を持つ。
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアの非腐敗性トークン規格である。 菌類でないとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでカビるトークンとカビないトークンの両方を表現できるからだ。
 
-In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Kaia contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/).
+[Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9)のサポートに伴い、Kaiaコントラクトウィザードは[ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)もサポートしています。
 
-Kaia Contracts Wizard is comprised of the following sections:
+カイア契約ウィザードは以下のセクションで構成されています：
 
-- **Token standard section**: This tab comprises all the different token standards supported by the Kaia contracts wizard.
+- **トークン標準セクション**：このタブは、カイアのコントラクトウィザードでサポートされているすべての異なるトークン標準から構成されています。
 
-- **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
+- **設定セクション**：このセクションでは、トークン名、シンボル、プレミント（コントラクトがデプロイされたときにトークンが供給される）、URI（腐敗しないトークンの場合）など、各トークン標準の事前設定を提供します。
 
-- **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
+- **特徴セクション**：各トークン規格で利用可能なすべての特徴から構成されています。 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください：
 
   - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
   - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
   - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
-- **Access Control section**: comprises all the available access control mechanisms for each token standard.
+- **アクセス制御セクション**：各トークン規格で利用可能なすべてのアクセス制御メカニズムから構成される。
 
-- **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
+- **インタラクティブ・コード表示セクション**：ユーザーが設定したコンフィギュレーションで生成されたスマート・コントラクト・コードが表示されます。
 
 ![](/img/build/tools/kcw-image.png)
 
-Having explored the different parts of the Kaia contracts wizard, you can now select the kind of contract that you want (current support for **KIP7**, **KIP17**, **KIP37**, **ERC20**, **ERC721**, **ERC1155**, **Governor**, and custom contracts), set your parameters and desired features (token name, symbol, pre-mint amount, access control, etc.), and Contracts Wizard will generate all of the code necessary. The generated code is thus ready to be compiled and deployed, or it can serve as a starting point and customized further with application specific logic.
+カイアのコントラクトウィザードの様々な部分を探索した後、ご希望のコントラクトの種類を選択し（現在サポートされているのは、**KIP7**、**KIP17**、**KIP37**、**ERC20**、**ERC721**、**ERC1155**、**Governor**、およびカスタムコントラクト）、パラメータとご希望の機能（トークン名、シンボル、プレミント量、アクセス制御など）を設定すると、コントラクトウィザードが必要なコードをすべて生成します。 こうして生成されたコードは、すぐにコンパイルしてデプロイすることもできるし、出発点として利用し、アプリケーション固有のロジックでさらにカスタマイズすることもできる。
 
-## Customizing and Deploying Kaia Contracts on Kaia Network
+## カイアネットワーク上でのカイア契約のカスタマイズと展開
 
-In this section, you will deploy the generated code from kaia contracts wizard to the Kaia Testnet Kairos using Foundry. The generated code will serve as a starting point and customized further to fit an airdrop contract for KIP7 and KIP17 tokens.  While on the other end the generated code for KIP37 will be used as it is.
+このセクションでは、Kaiaコントラクトウィザードから生成されたコードを、Foundryを使用してKaia Testnet Kairosにデプロイします。 生成されたコードは出発点となり、KIP7とKIP17トークンのエアドロップ契約に合わせてさらにカスタマイズされる。  もう一方では、KIP37用に生成されたコードがそのまま使われる。
 
-Let’s get started!
+始めよう！
 
-### Prerequisites
+### 前提条件
 
-To follow along in this tutorial, the prerequisites are highlighted below:
+このチュートリアルに沿って進むために、前提条件を以下に示します：
 
-- Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
-- Clone the [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) code.
-- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
+- [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) コードをクローンします。
+- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)の1つから取得できます。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
-### Getting Started
+### はじめに
 
-This guide walks you through a simple implementation of an airdrop contract for KIP7 and KIP17 token standard. In the airdrop contract, the creator of the project mints each respective tokens directly to a certain selection of wallets. In the next sections, we will be looking at how to customize and deploy each token airdrop contract respectively.
+このガイドでは、KIP7とKIP17トークン標準のエアドロップ契約の簡単な実装方法を説明します。 エアドロップ契約では、プロジェクトの作成者は、各トークンをウォレットの特定の選択に直接鋳造します。 次のセクションでは、それぞれのトークン・エアードロップ・コントラクトをカスタマイズし、デプロイする方法を見ていきます。
 
-### Customizing Token contracts
+### トークン契約のカスタマイズ
 
-**Customizing KIP7 contract to KIP7 Airdrop contract.**
+\*\*KIP7契約をKIP7 Airdrop契約にカスタマイズする。
 
-You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below:
+エアドロップ契約に変更する前に、KIP7契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
-1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
-2. On the **Contracts** tab select **KIP7**
-3. Next is to fill the name (KIP7 Token Airdrop) and symbol (KTA) in the **SETTINGS** tab. The pre-mint field is left empty
-4. Subsequently on the **FEATURES** tab, tick the **Mintable** feature box, it then automatically selects the Ownable feature in **ACCESS CONTROL** tab.
+1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+2. **契約**タブで**KIP7**を選択する。
+3. 次に、**SETTINGS**タブに名前(KIP7 Token Airdrop)とシンボル(KTA)を入力します。 プレミントの欄は空のまま
+4. その後、**FEATURES**タブで**Mintable**機能にチェックを入れると、自動的に**ACCESS CONTROL**タブでOwnable機能が選択されます。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+これらの設定を行った後のカイアの契約ウィザードはこのようになる：
 
 ![](/img/build/tools/kip7-kcw.png)
 
-Here is the generated code:
+以下は生成されたコードである：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -104,7 +104,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-The next thing is to modify the code above to suit our airdrop implementation which looks like this:
+次にすることは、上記のコードをエアドロップの実装に合うように修正することだ：
 
 ```solidity
 //SPDX-License-Identifier: MIT
@@ -137,26 +137,26 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 }
 ```
 
-From the code modified above, you can see that we added a new function called `airdropTokens()`. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - `onlyOwner`.
+上で修正したコードから、`airdropTokens()`という新しい関数を追加したことがわかります。 この関数は特定の選択されたアドレスにトークンをミン トし、コントラクトの作成者である`onlyOwner`によってのみ呼び出される。
 
-Subsequently, we modified the _public_ **mint()** _onlyOwner_ function to **_mintSingleTokens()** private.
+その後、_public_ **mint()** _onlyOwner_ 関数を **_mintSingleTokens()** private に変更しました。
 
-Now that we have our KIP7 airdrop contract code ready, the next step is to create a new file named airdropKIP7.sol in the src folder of your project directory and paste the modified code in the file.
+KIP7エアドロップ契約コードの準備ができたので、次のステップは、プロジェクトディレクトリのsrcフォルダにairdropKIP7.solという名前の新しいファイルを作成し、修正したコードをそのファイルに貼り付けることです。
 
-**Customizing KIP17 contract to KIP17 Airdrop contract.**
+\*\*KIP17契約をKIP17 Airdrop契約にカスタマイズする。
 
-You need to customize your KIP17 contract before modifying it to an airdrop contract. To do that, follow the steps below:
+エアドロップ契約に変更する前に、KIP17契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください：
 
-1. Navigate to [wizard.klaytn.foundation](https://wizard.klaytn.foundation/).
-2. On the **Contracts** tab select **KIP17**
-3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty.
-4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected.
+1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+2. **契約**タブで**KIP17**を選択する。
+3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
+4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+これらの設定を行った後のカイアの契約ウィザードはこのようになる：
 
 ![](/img/build/tools/kip17-kcw.png)
 
-Here is the generated code:
+以下は生成されたコードである：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -192,7 +192,7 @@ contract KIP17NFTAirdrop is KIP17, KIP17Enumerable, Ownable {
 }
 ```
 
-The next thing is to modify the code above to suit our airdrop implementation which looks like this:
+次にすることは、上記のコードをエアドロップの実装に合うように修正することだ：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -235,26 +235,26 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 }
 ```
 
-From the code modified above, you can see that we added a new function called **airdropNfts()**. This function mints tokens to certain selected addresses and can only be called by the creator of the contract - onlyOwner.
+上で修正したコードから、\*\*airdropNfts()\*\*という新しい関数を追加したことがわかる。 この関数は、特定の選択されたアドレスにトークンを鋳造し、コントラクトの作成者であるonlyOwnerによってのみ呼び出される。
 
-Subsequently, we modified the **safeMint()** _public onlyOwner_ function to **_mintSingleTokens()** **private**.
+その後、**safeMint()** _public onlyOwner_ 関数を **_mintSingleTokens()** **private** に変更しました。
 
-Now that we have our KIP17 airdrop contract code ready, the next step is to create a new file named airdropKIP17.sol in the src folder of your project directory and paste the modified code in the file.
+KIP17のエアドロップ契約コードの準備ができたので、次のステップは、プロジェクト・ディレクトリのsrcフォルダにairdropKIP17.solという名前の新しいファイルを作成し、修正したコードをそのファイルに貼り付けることです。
 
-**Customizing KIP37 contract.**
+\*\*KIP37契約のカスタマイズ
 
-Because KIP37 supports batch minting, we will only customize the contract and use it as it is. To customize our KIP37Contract, follow the steps below:
+KIP37は一括鋳造に対応しているため、契約書だけをカスタマイズしてそのまま使用する。 KIP37Contractをカスタマイズするには、以下の手順に従ってください：
 
-1. Navigate to [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/)
-2. On the **Contracts** tab select **KIP37**
-3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty.
-4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected.
+1. [wizard.klaytn.foundation.]に移動する(https://wizard.klaytn.foundation/)
+2. 契約**タブで**KIP37\*\*を選択する。
+3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
+4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。
 
-This is how Kaia contracts wizard would look like after making these configurations:
+これらの設定を行った後のカイアの契約ウィザードはこのようになる：
 
 ![](/img/build/tools/kip37-kcw.png)
 
-Here is the generated code:
+以下は生成されたコードである：
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -281,51 +281,51 @@ contract KIP37MultiToken is KIP37, Ownable {
 }
 ```
 
-Now that we have our KIP37 contract code ready, the next step is to create a new file named KIP37MultiToken.sol in the src folder of your project directory and paste the generated code in it.
+KIP37コントラクト・コードの準備ができたので、次のステップは、プロジェクト・ディレクトリのsrcフォルダにKIP37MultiToken.solという名前の新しいファイルを作成し、生成されたコードを貼り付けることだ。
 
-Having generated the contract code for all our Kaia contracts, the next step is to deploy to the Kaia Testnet Kairos using Foundry solidity scripts.
+すべてのKaiaコントラクトのコントラクトコードを生成した次のステップは、Foundry solidityスクリプトを使用してKaia Testnet Kairosにデプロイすることです。
 
-## Deploying generated smart contracts code using Foundry Scripts
+## Foundryスクリプトを使用して生成されたスマートコントラクトコードをデプロイする
 
-In this section we will go through deploying our generated smart contract code using Foundry; specifically the foundry script to deploy on-chain.
+このセクションでは、生成したスマート・コントラクトのコードをFoundryを使ってデプロイする方法を説明します。
 
-### Getting Started
+### はじめに
 
-While getting started with foundry, you must have been exposed to the preliminary way of delaying contracts using [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html). Recently, the Foundry team came up with a more user friendly way of declaratively deploying contracts using Solidity called [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting) i.e writing deployment scripts in solidity instead of JavaScript.
+ファウンドリーを使い始めるにあたって、[forge create](https://book.getfoundry.sh/reference/forge/forge-create.html)を使って契約を遅らせるという予備的な方法に触れたはずだ。 最近、FoundryチームはSolidityを使用してコントラクトを宣言的にデプロイする、よりユーザーフレンドリーな方法として[Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting)を開発しました。
 
-In this section, we will deploy our contract using solidity scripting in Foundry.
+このセクションでは、Foundryのsolidityスクリプトを使用してコントラクトをデプロイします。
 
-### Environment Configuration
+### 環境設定
 
-We’re going to deploy our generated smart contract to the Kaia Kairos Testnet, but to do this we’ll need to configure Foundry a bit, by setting things like a Kairos RPC URL, the private key of an account that’s funded with test KAIA.
+生成したスマートコントラクトをKaia Kairosテストネットにデプロイするつもりですが、そのためにはKairos RPC URLやテストKAIAで資金調達しているアカウントの秘密鍵などを設定して、Foundryを少し設定する必要があります。
 
-Once you have all that, create a .env file and add the variables. Foundry automatically loads in a .env file present in your project directory.
+それができたら、.envファイルを作成し、変数を追加する。 Foundryはプロジェクトディレクトリにある.envファイルを自動的に読み込みます。
 
-The .env file should follow this format:
+.envファイルはこのフォーマットに従っている必要がある：
 
 ```code
 KAIROS_RPC_URL=
-// if you want to deploy to mainnet
+// メインネットにデプロイする場合
 MAINNET_RPC_URL=
 PRIVATE_KEY=
 ```
 
-We now need to edit the `foundry.toml` file. There should already be one in the root of the project. Paste the following lines to the end of the file
+次に`foundry.toml`ファイルを編集する必要がある。 プロジェクトのルートにすでに1つあるはずだ。 以下の行をファイルの最後に貼り付ける。
 
 ```code
 [rpc_endpoints]
 kairos = "${KAIROS_RPC_URL}"
-// if you want to deploy to mainnet
+// メインネットにデプロイする場合
 mainnet = "${MAINNET_RPC_URL}"
 ```
 
-### Writing the Script
+### 脚本を書く
 
-Next, we have to create a folder and name it script  if it doesn’t already exist. We then need to create a script file for our contracts namely:
+次に、フォルダを作成し、まだ存在していなければscriptという名前をつける。
 airdropKIP7.s.sol
 airdropKIP17.s.sol
 KIP37MultiToken.s.sol
-This is where we will write the deployment script itself.  The contents of each file should look like this:
+ここにデプロイスクリプト自体を記述する。  各ファイルの内容は以下のようになるはずだ：
 
 1. airdropKIP7.s.sol
 
@@ -400,31 +400,31 @@ contract KIP37MultiTokenDeployScript is Script {
 }
 ```
 
-Let’s go through what each line of code does.
+各コード行が何をするのかを見ていこう。
 
-First we declared the SPDX-license and pragma version for each script file. Note that because each script file is a solidity program, we still need to declare the SPDX-license and pragma version, making it work like a smart contract, but is never deployed.
+まず、各スクリプト・ファイルのSPDXライセンスとプラグマ・バージョンを宣言した。 各スクリプトファイルはsolidityプログラムであるため、SPDX-licenseとプラグマ・バージョンを宣言する必要があり、スマート・コントラクトのように動作するが、決してデプロイされないことに注意。
 
-Next we imported [Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol) which provides some scripting utilities to use for deploying our contracts. Subsequently, we imported the contract to be deployed. In this case **airdropKIP7**, **airdropKIP17**, **KIP37MultiToken** for each script.
+次に、コントラクトのデプロイに使用するスクリプト・ユーティリティを提供する[Forge Std/Script.sol](https://github.com/foundry-rs/forge-std/blob/master/src/Script.sol)をインポートしました。 その後、配備する契約をインポートした。 この場合、各スクリプトに対して、**airdropKIP7**、**airdropKIP17**、**KIP37MultiToken**を使用する。
 
-We then created a contract called **KIP7AirdropDeployScript**, **KIP17AirdropDeployScript**, **KIP37MultiTokenDeployScript** for each script file which inherits Script from Forge Std library.
+次に、Forge Std ライブラリから Script を継承する各スクリプト ファイルに対して、**KIP7AirdropDeployScript**、**KIP17AirdropDeployScript**、**KIP37MultiTokenDeployScript** というコントラクトを作成しました。
 
-Next we declared the **run()** function. The function run() is the entry point for scripts to be executed. We
-then declared a **deployerPrivateKey** variable that loads in the private key from our .env file.
+次に、**run()**関数を宣言した。 run()関数は、スクリプトを実行するためのエントリー・ポイントである。
+次に、.envファイルから秘密鍵をロードする**deployerPrivateKey**変数を宣言します。
 
-Subsequently, we called the **vm.startBroadcast(deployerPrivateKey)** special cheat code that records calls and contract creations made by our main script contract, having passed the deployerPrivateKey for signing the transactions.
+その後、\*\*vm.startBroadcast(deployerPrivateKey)\*\*という特殊なチートコードを呼び出し、メインスクリプト・コントラクトが行った呼び出しとコントラクトの作成を記録する。このコードは、トランザクションに署名するためのdeployerPrivateKeyを渡している。
 
-We then created the respective contract. This contract creation will be recorded by forge because we previously called the vm.startBroadcast() cheat code.
+そして、それぞれの契約書を作成した。 以前にvm.startBroadcast()というチートコードを呼び出したので、このコントラクト作成はforgeによって記録される。
 
-Now that we have gotten an overview of what each line entails, you can move on to deploy the contracts.  Click this [link](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script), to learn more about writing scripts and other details.
+各ラインの概要が分かったところで、契約の展開に移ろう。  この[リンク](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script)をクリックして、スクリプトの書き方やその他の詳細をご覧ください。
 
-At the root of the project run
+プロジェクトのルートで
 
 ```bash
 // To load the variables in the .env file
 source .env
 ```
 
-To deploy the each contract run the command below:
+各契約をデプロイするには、以下のコマンドを実行する：
 
 1. airdropKIP7
 
@@ -441,21 +441,21 @@ forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $KAIRO
 3. KIP37MultiToken
 
 ```bash
-forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
+スクリプトを偽造する script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
-If the command was successful for each command, your terminal should look like this:
+各コマンドが成功すれば、ターミナルは次のようになるはずだ：
 
 ![](/img/build/tools/deploy-kcw-contracts.png)
 
-Refer to this [guide](https://book.getfoundry.sh/reference/forge/forge-script), to learn more about the script command.
+スクリプトコマンドの詳細については、こちらの[ガイド](https://book.getfoundry.sh/reference/forge/forge-script)を参照してください。
 
-## Conclusion
+## 結論
 
-In this tutorial, you learned about the Kaia contracts wizard, its functionality and how to customize contracts using KCW. This guide also demonstrated how to generate smart contract code and also how the generated smart contract code can serve as a starting point and customized further with application specific logic.
+このチュートリアルでは、Kaiaコントラクトウィザードとその機能、KCWを使用したコントラクトのカスタマイズ方法について学びました。 このガイドでは、スマート・コントラクト・コードを生成する方法と、生成されたスマート・コントラクト・コードを出発点として、アプリケーション固有のロジックでさらにカスタマイズする方法も示した。
 
-Further, we deployed the generated contracts to Kaia Kairos Testnet using Foundry solidity scripting. You can make use of Remix IDE or any smart contract development environment to deploy smart contract derived or customized using from Kaia Contracts Wizard. You can find corresponding tutorials in the following links:
+さらに、Foundry solidityスクリプトを使用して、生成されたコントラクトをKaia Kairos Testnetにデプロイしました。 Remix IDEやその他のスマートコントラクト開発環境を利用して、Kaiaコントラクトウィザードから派生またはカスタマイズしたスマートコントラクトをデプロイできます。 対応するチュートリアルは以下のリンクからご覧いただけます：
 
-- [Connecting to Remix](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [Deploying smart contract using Hardhat](../get-started/hardhat.md)
-- [Deploying smart contract using Truffle](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [リミックスにつなげる](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [Hardhatを使用したスマートコントラクトのデプロイ](../get-started/hardhat.md)
+- [Truffleを使用したスマートコントラクトのデプロイ](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)

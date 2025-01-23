@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -65,7 +65,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと**@kaiachain/ethers-ext**モジュールをインポートします。
 
 ```js TxTypeSmartContractDeploy.js focus=1:2
 
@@ -73,7 +73,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender address and sender private key**
+**送信者アドレスと送信者秘密鍵**の定義
 
 ```js TxTypeSmartContractDeploy.js focus=4:5
 
@@ -81,7 +81,7 @@ Define **sender address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js TxTypeSmartContractDeploy.js focus=7
 
@@ -89,7 +89,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeSmartContractDeploy.js focus=7
 const ethers = require("ethers");
@@ -124,7 +124,7 @@ main();
 
 ---
 
-Create a sender's wallet using the sender's private key and the provider
+送信者の秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
 ```js TxTypeSmartContractDeploy.js focus=8
 
@@ -132,7 +132,7 @@ Create a sender's wallet using the sender's private key and the provider
 
 ---
 
-Declare a transaction object
+トランザクションオブジェクトの宣言
 
 ```js TxTypeSmartContractDeploy.js focus=11:20
 
@@ -140,7 +140,7 @@ Declare a transaction object
 
 ---
 
-Specify the transaction type as SmartContractDeploy
+トランザクション・タイプをSmartContractDeployに指定する。
 
 ```js TxTypeSmartContractDeploy.js focus=12
 
@@ -148,7 +148,7 @@ Specify the transaction type as SmartContractDeploy
 
 ---
 
-Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+ブロックチェーン・ネットワークにデプロイしたいsolidityコードから**コンパイル済みバイトコード**を設定する。
 
 ```js TxTypeSmartContractDeploy.js focus=16
 
@@ -156,7 +156,7 @@ Set the **compiled bytecode** from the solidity code you want to deploy to the b
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js TxTypeSmartContractDeploy.js focus=21:22
@@ -171,7 +171,7 @@ sentTx 0x609538b72ced9bf103ae69032155cdf5a34e8458d389ce38cdec21b4aa107b55
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+**wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 

@@ -1,33 +1,33 @@
-# Kaia Wallet
+# カイア・ウォレット
 
 ![](/img/banners/kaia-kaiawallet.png)
 
-Kaia Wallet is a browser extension wallet for the Kaia Network. Available in Google Chrome, Kaia Wallet provides a secure and usable means to interact with the Kaia network via web browser. With Kaia Wallet, you are able to store and transact with your KAIA and Kaia-based tokens. You are also able to sign requests from web-based dApps (Decentralized Applications) in
-realtime.
+カイアウォレットは、カイアネットワークのためのブラウザ拡張ウォレットです。 グーグル・クロームで利用可能なカイア・ウォレットは、ウェブ・ブラウザを通じてカイア・ネットワークとやりとりするための安全で使い勝手の良い手段を提供します。 KAIAウォレットを使えば、KAIAとKAIAベースのトークンを保管し、取引することができます。 また、ウェブベースのdApp（分散型アプリケーション）からのリクエストに
+リアルタイムで署名することもできる。
 
-- Download from Chrome Web Store: [link](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+- Chrome ウェブストアからダウンロードしてください：[リンク](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 
-For developers, please visit [https://docs.kaiawallet.io](https://docs.kaiawallet.io) to learn how you can develop dApps using Kaia Wallet.
+開発者の方は、[https://docs.kaiawallet.io](https://docs.kaiawallet.io)でカイアウォレットを使ったdAppsの開発方法をご覧ください。
 
-## PC web browser based decentralized HD wallet
+## PCウェブブラウザベースの分散型HDウォレット
 
-Kaia Wallet is a web browser extension available in Chrome. Kaia Wallet is optimized for the desktop environment.
+カイア・ウォレットはクロームで利用可能なウェブ・ブラウザの拡張機能です。 カイアウォレットはデスクトップ環境に最適化されています。
 
-Kaia Wallet offers manageability of user accounts and keys. All transactions are transparently recorded on the Kaia blockchain, so anybody can access the transaction history by using [Kaiascope].
+カイアウォレットは、ユーザーアカウントとキーの管理性を提供します。 すべての取引はカイア・ブロックチェーン上に透過的に記録されるため、[Kaiascope]を使えば誰でも取引履歴にアクセスできる。
 
-Kaia Wallet is a Hierarchical Deterministic (HD) wallet, meaning that it generates a hierarchical tree-like structure of private/public keys indefinitely from a single seed phrase. The seed phrase consists of mnemonic code words, which makes it easier to remember than phrases made of random alphanumerics. Users' private keys are encrypted and stored in their browsers.
+カイアウォレットは階層的決定論的（HD）ウォレットで、1つのシードフレーズから秘密鍵/公開鍵の階層ツリー構造を無限に生成します。 シードフレーズはニーモニックコードワードで構成されているため、ランダムな英数字で構成されたフレーズよりも覚えやすい。 ユーザーの秘密鍵は暗号化され、ブラウザに保存される。
 
-With the features described above, Kaia Wallet has improved the security, transparency, and user-friendliness of the current blockchain experience. However, it is vital for users to be responsible for managing their personal accounts. For example, if a user couldn't remember his/her seed phrase, there would be no other way to restore his/her accounts.
+上記の機能により、カイア・ウォレットは現在のブロックチェーン体験の安全性、透明性、使いやすさを改善した。 しかし、利用者は個人アカウントの管理に責任を持つことが不可欠である。 例えば、ユーザーが自分のシードフレーズを思い出せなかった場合、アカウントを復元する他の方法はない。
 
-## Supporting various Kaia networks and tokens
+## 様々なカイアネットワークとトークンに対応
 
-Kaia Wallet allows you to store and transact with all Kaia-based tokens including KAIA. Tokens that are not loaded by default can be inserted by pasting in their contract address. You can even store and transact your own Kaia-based custom tokens on Kaia Wallet!
+カイア・ウォレットは、KAIAを含むすべてのカイアベーストークンの保管と取引を可能にします。 デフォルトでロードされていないトークンは、そのコントラクトアドレスを貼り付けることで挿入できる。 Kaiaウォレットには、独自のKaiaベースのカスタムトークンを保存して取引することもできる！
 
-Kaia Wallet supports Kaia's Kairos testnet as well as the Mainnet. Moreover, Kaia Wallet supports the private chains for Kaia-based dApp developers who may wish to circulate custom tokens in their private network.
+Kaiaウォレットはメインネットと同様にKaiaのKairosテストネットをサポートしています。 さらに、カイアウォレットは、プライベートネットワークでカスタムトークンを流通させたいカイアベースのdApp開発者のためのプライベートチェーンをサポートしています。
 
-## Signing web-based dApp transactions
+## ウェブベースのdAppトランザクションへの署名
 
-Kaia Wallet simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaia Wallet account.
-Kaia Wallet is also an aidful utility for developers to handle [fee-delegated transactions](../../../learn/transactions/transactions.md#fee-delegation). Using Kaia Wallet, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
+カイアウォレットは、あなたとdAppsの間のギャップを埋めるだけで、カイアウォレットのアカウントでdAppsからあなたに流れる取引/データに署名する権限を与えます。
+カイア・ウォレットはまた、開発者が[手数料委任取引](../../../learn/transactions/transactions.md#fee-delegation)を処理するのに役立つユーティリティでもある。 カイア・ウォレットを使えば、取引の送り手と手数料の支払い手の双方が、手数料を委任された取引に迅速に署名することができる。
 
 [Kaiascope]: ../block-explorers/kaiascope.md

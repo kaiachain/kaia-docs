@@ -2,26 +2,26 @@
 
 ![](/img/banners/kaia-supra.png)
 
-## Introduction
+## はじめに
 
-[SupraOracles](https://supraoracles.com/) is a novel, high-throughput Oracle & IntraLayer: a vertically integrated toolkit of cross-chain solutions (data oracles, asset bridges, automation network, and more) that interlink all blockchains, public (L1s and L2s) or private (enterprises). It provides smart contracts with a next-generation cross chain oracle solution that has superior data accuracy, speed, scalability and security.
+[SupraOracles](https://supraoracles.com/)は、新しい、高スループットのオラクル＆イントラレイヤー：パブリック（L1とL2）またはプライベート（企業）のすべてのブロックチェーンを相互リンクするクロスチェーンソリューション（データオラクル、アセットブリッジ、オートメーションネットワークなど）の垂直統合ツールキットです。 スマートコントラクトに、データ精度、スピード、スケーラビリティ、セキュリティに優れた次世代クロスチェーン・オラクル・ソリューションを提供する。
 
-With SupraOracles, your smart contract can get access to price data feeds to build your various decentralized finance(DeFi) use cases. In this tutorial, you will use SupraOracles  to get price feeds easily on Klaytn blockchain using Remix IDE.
+SupraOraclesを使えば、スマートコントラクトは価格データフィードにアクセスし、様々な分散型金融（DeFi）のユースケースを構築することができます。 このチュートリアルでは、Remix IDEを使ってKaiaブロックチェーンの価格フィードを簡単に取得するためにSupraOraclesを使用します。
 
-## Prerequisites
+## 前提条件
 
-- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+- [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Klaytn Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KAIA from [Faucet](https://faucet.kaia.io)
+- [KaiaプラグインをRemixで](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 
-## Getting Started
+## はじめに
 
-In the following steps, you will request an ETH/USD price feed in your smart contract using SupraOracles. Let's get started!
+以下のステップでは、SupraOraclesを使用してスマートコントラクトにETH/USD価格フィードを要求します。 始めよう！
 
-### Step 1: Create The S-Value Interface
+### ステップ1：S値インタフェースの作成
 
-This creates the interface that will be used to fetch prices from SupraOracles. Add the following code to the solidity smart contract that you wish to retrieve an S-Value.
+これは、SupraOraclesから価格を取得するために使用されるインターフェイスを作成します。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。
 
 ```solidity
 interface ISupraSValueFeed {
@@ -29,9 +29,9 @@ function checkPrice(string memory marketPair) external view returns (int256 pric
 }
 ```
 
-### Step 2: Configure The S-Value Feed Address
+### ステップ2：S値フィードアドレスの設定
 
-To fetch the S-Value from a SupraOracles smart contract, first find the S-Value Feed Address for the chain of your choice. When you have the right address, create an instance of the S-Value Feed using the interface we previously defined as such:
+SupraOraclesスマートコントラクトからS-Valueを取得するには、まず選択したチェーンのS-Valueフィードアドレスを見つけます。 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する：
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -42,11 +42,11 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-In this example, we are implementing the S-Value Feed on the Klaytn Baobab TestNet. You can verify the Klaytn Baobab S-Value Feed Address [here](https://supraoracles.com/docs/get-started/networks/).
+この例では、Kaia Kairos TestNetにS-Value Feedを実装しています。 カイア・カイロスS-Valueのフィードアドレスは[こちら](https://supraoracles.com/docs/get-started/networks/)で確認できます。
 
-### Step 3: Get The S-Value Crypto Price
+### ステップ3: S-Value暗号価格を取得する
 
-Now you can simply access the S-Value Crypto Price of our supported market pairs. In this step, you'll get the price of ETH/USDT (eth_usdt) by applying the following code to your Smart Contract.
+S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 このステップでは、スマートコントラクトに以下のコードを適用することで、ETH/USDT（eth_usdt）の価格を取得します。
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -58,24 +58,24 @@ return price;
 }
 ```
 
-## Practical implementation
+## 実践
 
-In the example below, we will be deploying the S-Value Price Feed Contract and also executing the getEthUsdtPrice() function to get the price ETH/USDT pairs.
+以下の例では、S-Value Price Feed Contract をデプロイし、getEthUsdtPrice() 関数を実行して ETH/USDT ペアの価格を取得します。
 
-### Create and Deploy Sample Code
+### サンプルコードの作成とデプロイ
 
 **Remix IDE**
 
-- Navigate to [Remix IDE](https://remix.ethereum.org/)
-- Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
-- Paste the code below in your newly created file
-- In Remix, click **Compile contract**.
-- Click the Klaytn tab on your left having installed the plugin
-- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
-- In **Contract**, select your contract. For example, ISupraSValueFeedExample.
-- Click **Deploy**.
+- Remix IDE](https://remix.ethereum.org/) に移動する。
+- ファイルエクスプローラタブをクリックし、contractsフォルダに`demoSupraPriceFeed.sol`という新しいファイルを作成する。
+- 新しく作成したファイルに以下のコードを貼り付けます。
+- Remixで、**Compile contract**をクリックします。
+- プラグインをインストールしたら、左側のKaiaタブをクリックします。
+- **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
+- **Contract**で、契約を選択します。 例えば、ISupraSValueFeedExample。
+- **Deploy**をクリックします。
 
-**Sample Code**
+**サンプルコード**
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -98,19 +98,19 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-### Interact with Smart Contract
+### スマートコントラクトとの対話
 
-To get the price feed for the selected currency pair, you have to execute the `getEthUsdtPrice()` function.
+選択した通貨ペアの価格フィードを取得するには、`getEthUsdtPrice()`関数を実行する必要があります。
 
 ![](/img/build/tools/sPriceFeed.png)
 
-Tada 🎉! You just requested for a currency price feed (ETH/USDT)  in your smart contract.
+多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
 
-As of the time of writing, getEthUsdtPrice() returned "185795966200", an 8-point precision figure. To get the actual ETH/USD value, you need to divide the figure by 10^8 which equals $1857.95966200.
+本稿執筆時点では、getEthUsdtPrice()は "185795966200 "という8ポイント精度の数値を返している。 実際のETH/USDの値を得るには、この数字を10^8で割る必要があり、これは$1857.95966200に相当する。
 
-## More Ways To Use SupraOracles Crypto Price Feeds
+## SupraOraclesの暗号通貨価格フィードを利用するその他の方法
 
-### S-Value Feeds With Web3.js
+### Web3.jsによるS-Valueフィード
 
 ```javascript
 // example assumes that the web3 library has been imported and is accessible within your scope
@@ -125,7 +125,7 @@ console.log(`The price is: ${price}`)
 getEthUsdtPrice()
 ```
 
-### S-Value Feeds With ethers.js
+### ethers.jsによるS-Valueフィード
 
 ```javascript
 // example assumes that the ethers library has been imported and is accessible within your scope
@@ -143,6 +143,6 @@ console.log(`The price is: ${price.toString()}`)
 getEthUsdtPrice()
 ```
 
-## Conclusion
+## 結論
 
-In this tutorial, you learned how to request an ETH/USD price using the SupraOracle price feed solution. With SupraOracle, you can also generate random numbers in your smart contract. Curious about this process, visit this [guide](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial) on integrating SupraVRF on Klaytn. For more in-depth guides on SupraOracles, please refer to the [SupraOracles Docs](https://supraoracles.com/docs/development-guides).
+このチュートリアルでは、SupraOracle 価格フィードソリューションを使用して ETH/USD 価格を要求する方法を学びました。 SupraOracleを使えば、スマートコントラクト内で乱数を生成することもできる。 このプロセスに興味がある方は、カイアにSupraVRFを統合するための[ガイド](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)をご覧ください。 SupraOraclesに関するより詳細なガイドについては、[SupraOracles Docs](https://supraoracles.com/docs/development-guides) を参照してください。

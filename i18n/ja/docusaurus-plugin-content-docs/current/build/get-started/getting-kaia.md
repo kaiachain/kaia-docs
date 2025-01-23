@@ -1,15 +1,15 @@
-# Get KAIA
+# KAIAを入手
 
-## Kairos Testnet and Faucet <a id="kairos-testnet-and-faucet"></a>
+## カイロス・テストネットと蛇口<a id="kairos-testnet-and-faucet"></a>
 
-The **testnet KAIA** faucet runs on the Kairos network. The faucet can be accessed from the [Kairos Kaia Faucet](https://faucet.kaia.io). To receive testnet KAIA, you should have a valid Kaia account.
+水栓はKairosネットワーク上で動作します。 この蛇口は[Kairos Kaia Faucet](https://faucet.kaia.io)からアクセスできる。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。
 
-- Load your account into the wallet using your private key or keystore file. Testnet KAIA will be sent to the loaded account.
-- Clicking `Run Faucet` button will send you 50 testnet KAIA and update your balance. Note that you can run the faucet for each account once every 24 hours.
+- 秘密鍵またはキーストアファイルを使用して、アカウントをウォレットにロードします。 Testnet KAIAはロードされたアカウントに送信されます。
+- `Run Faucet`ボタンをクリックすると、50テストネットKAIAが送信され、残高が更新されます。 なお、各アカウントの蛇口は24時間に1回だけ動かすことができる。
 
-## KAIA Exchange List <a id="kaia-exchange-list"></a>
+## KAIA交換リスト<a id="kaia-exchange-list"></a>
 
-KAIA is listed on various exchanges.  Please find the list of KAIA exchanges through the following links.
+KAIAは様々な取引所に上場している。  KAIAの交換リストは以下のリンクからご覧ください。
 
-- [KAIA exchanges listed at CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
-- [KAIA exchanges listed at CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
+- [CoinGeckoにリストされているKAIA取引所](https://www.coingecko.com/en/coins/klay#markets)
+- [CoinMarketCapに掲載されているKAIA取引所](https://coinmarketcap.com/currencies/klaytn/markets/)

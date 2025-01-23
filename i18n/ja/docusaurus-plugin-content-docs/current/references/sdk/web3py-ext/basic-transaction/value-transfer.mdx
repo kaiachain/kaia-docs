@@ -1,8 +1,8 @@
-# Value Transfer
+# 価値移転
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
 <CH.Spotlight>
 <CH.Code>
@@ -55,35 +55,35 @@ web3_value_transfer_sign_recover()
 
 ```zsh output
 ❯ node txTypeValueTransferTransaction.py
-raw transaction of signed tx: 0x08f888820365850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0fa9c7e720916e53b587bebc1b6dfdf3fa75c4390936353f4f9e9c446688be6a4a00ac3553e050f18a566541ffa15d6dd36566c077059514c90ad2570a36b29df2c
+signed txのrawトランザクション：0x08f888820365850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0fa9c7e720916e53b587bebc1b6dfdf3fa75c4390936353f4f9e9c446688be6a4a00ac3553e050f18a566541ffa15d6dd36566c077059514c90ad2570a36b29df2c
 
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-decoded transaction: {
-  "type": 8,
-  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "value": 10000000000000000000,
-  "nonce": 869,
-  "gasPrice": 50000000000,
-  "gas": 63000,
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "signatures": [
+decoded transaction：{
+  "type"：8,
+  "to"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 1000000000000000,
+  "nonce"：869,
+  "gasPrice"：50000000000,
+  "gas"：63000,
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures"：[
     {
-      "v": 2038,
-      "r": 113354712982352869976369229827103350581481011848350586238649071308501699782308,
-      "s": 4868251983953391094440263137126339926417283017062042162724837386880119594796
-    }
+      "v"：2038,
+      "r"：113354712982352869976369229827103350581481011848350586238649071308501699782308,
+      "s"：48682519839533910944402631371263369926417283017062042162724837386880119594796
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f receipt:  AttributeDict({'blockHash': HexBytes('0xe873b7f3bb39ce89131fbbfc727bca00f1998a4b617e89d1db20d55fc479e32d'), 'blockNumber': 147339314, 'contractAddress': None, 'cumulativeGasUsed': 352123, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f'), 'transactionIndex': 2, 'type': 0})
+tx ハッシュ：  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f receipt:  AttributeDict({'blockHash'：HexBytes('0xe873b7f3bb39ce89131fbbfc727bca00f1998a4b617e89d1db20d55fc479e32d'), 'blockNumber':147339314, 'contractAddress'：None, 'cumulativeGasUsed'：352123, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f'), 'transactionIndex': 2, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py txTypeValueTransferTransaction.py focus=1,2
 
@@ -91,7 +91,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+**eth_account**、**web3py_ext**、および cytoolz から必要な utils をインポートする。
 
 ```py txTypeValueTransferTransaction.py focus=3:10
 
@@ -99,7 +99,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py txTypeValueTransferTransaction.py focus=12:14
 
@@ -107,7 +107,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```python txTypeValueTransferTransaction.py focus=12:14
 from web3py_ext import extend
@@ -155,7 +155,7 @@ web3_value_transfer_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```python txTypeValueTransferTransaction.py focus=17
 
@@ -163,7 +163,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py txTypeValueTransferTransaction.py focus=4,5,8,19
 
@@ -171,7 +171,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **emp
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**from**、**to**、**value**などの**追加フィールド**を空のtxにマージします。
 
 ```py txTypeValueTransferTransaction.py focus=10,20:24
 
@@ -179,7 +179,7 @@ Merge the **additional fields** like **from**, **to** and **value** into the emp
 
 ---
 
-You can use the **Web3.to_peb** util to convert decimal
+**Web3.to_peb**ユーティリティを使用すると、10進数の変換が可能です。
 
 ```py txTypeValueTransferTransaction.py focus=23
 
@@ -187,7 +187,7 @@ You can use the **Web3.to_peb** util to convert decimal
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python txTypeValueTransferTransaction.py focus=4,6,8,25
 
@@ -195,7 +195,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=27:29
@@ -211,7 +211,7 @@ raw transaction of signed tx: 0x08f888820365850ba43b740082f61894a2a8854b1802d8cd
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=31:32
@@ -227,7 +227,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=34:35
@@ -258,7 +258,7 @@ decoded transaction: {
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに送信する。 このハッシュは受信を待つために使用される。
 
 ```python txTypeValueTransferTransaction.py focus=37
 
@@ -266,7 +266,7 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=38:39
@@ -281,7 +281,7 @@ tx hash:  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f rec
 
 ---
 
-Finally, get the result.
+最後に結果を出す。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=41

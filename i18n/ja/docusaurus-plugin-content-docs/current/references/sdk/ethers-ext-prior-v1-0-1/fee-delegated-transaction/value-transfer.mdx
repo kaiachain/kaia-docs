@@ -1,10 +1,10 @@
-# Value Transfer
+# 価値移転
 
 TxTypeValueTransfer is used when a user wants to send KLAY.
 
-* As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+* kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
-# Fee Delegation
+# 手数料の委任
 
 <CH.Spotlight>
   <CH.Code>
@@ -75,28 +75,28 @@ TxTypeValueTransfer is used when a user wants to send KLAY.
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=1:2
   ```
 
   ---
 
-  Define **sender address, sender private key and reciever address**
+  **送信者アドレス、送信者秘密鍵、受信者アドレス**を定義する。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=4:8
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=11:11
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=11:11
   const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext");
@@ -138,21 +138,21 @@ TxTypeValueTransfer is used when a user wants to send KLAY.
 
   ---
 
-  Create sender and fee payer wallets from private keys.
+  秘密鍵から送信者ウォレットと料金支払者ウォレットを作成する。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=12:13
   ```
 
   ---
 
-  Declare transaction with the fields such as **type, from, to, value**.
+  **type、from、to、value**のようなフィールドでトランザクションを宣言する。
 
   ```js TxTypeFeeDelegatedValueTransfer.js focus=15:20
   ```
 
   ---
 
-  Populating transaction with additional information with **senderWallet.populateTransaction**
+  **senderWallet.populateTransaction**でトランザクションに追加情報を入力する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransfer.js focus=22:23
@@ -181,7 +181,7 @@ TxTypeValueTransfer is used when a user wants to send KLAY.
 
   ---
 
-  Signing the transaction with the **sender's private key**
+  **送信者の秘密鍵**でトランザクションに署名する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransfer.js focus=25:26
@@ -190,14 +190,14 @@ TxTypeValueTransfer is used when a user wants to send KLAY.
     ---
 
     ```zsh output
-    ❯ node TxTypeFeeDelegatedValueTransfer.js
-    senderTxHashRLP 0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6a0427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c
+    ノード TxTypeFeeDelegatedValueTransfer.js
+    senderTxHashRLP0x09f8878202f8850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a06021c9de1bd99691fbb97161b63ed11cb15a5729fd9ba5cdee1611884700b1f6a0427b48381bbeb437a63fcfe0f7ba4d641f9ab8fa8dd3e25ade4c83944b3f2c2c
     ```
   </CH.Code>
 
   ---
 
-  Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+  手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransfer.js focus=28:29
@@ -233,7 +233,7 @@ TxTypeValueTransfer is used when a user wants to send KLAY.
 
   ---
 
-  Wait for the transaction receipt.
+  取引レシートを待つ。
 
   <CH.Code>
     ```js TxTypeFeeDelegatedValueTransfer.js focus=31:32

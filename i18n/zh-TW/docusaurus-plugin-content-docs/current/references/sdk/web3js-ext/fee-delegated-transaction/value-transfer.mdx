@@ -1,0 +1,248 @@
+# Value Transfer
+
+TxTypeValueTransfer 用於用戶發送 KAIA。
+
+- 由於 kaia 提供了多種交易類型，使每種交易類型只服務於一個目的，因此 TxTypeValueTransfer 只限於將 KAIA 發送到外部擁有的賬戶（EOA）。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeFeeDelegatedValueTransfer.js
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x09f8878203b6850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0119485c48b7587a7ba6358f759c0a31e7de94fea77ba28089e20135156af7d94a07c497057653e76b9646bf5cc2024aa6d58cba23d4b2fec932e61e288cb2513f9
+signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
+receipt {
+  blockHash: '0x442774c57650ef18338bea13ad069428acf8a6c8da5e7eb104dd1d961972400a',
+  blockNumber: 148744776n,
+  cumulativeGasUsed: 177286n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 31000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae',
+  transactionIndex: 1n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+導入 **web3** 和 **@kaiachain/web3js-ext** 軟件包，在 web3 上添加 kaia 功能
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=1
+
+```
+
+---
+
+定義**發送方**、**付費方**地址和私人密鑰
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=3:6
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 web3 中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=8:9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=8
+const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: toPeb("0.01"),
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用 "web3.eth.accounts.privateKeyToAccount "創建帶有私鑰的**發件人錢包**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=10
+
+```
+
+---
+
+使用 "web3.eth.accounts.privateKeyToAccount "用私鑰創建**付費者錢包**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=11
+
+```
+
+---
+
+定義事務對象。
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=14:20
+
+```
+
+---
+
+設置 \`type：為交易設置 "TxType.FeeDelegatedValueTransfer"，以發送有付費方的價值轉移
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=15
+
+```
+
+---
+
+設置 `value: toPeb("0.01")` 以定義要轉換的值，使用 `toPeb` 將 Klay 轉換為 Peb
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=18
+
+```
+
+---
+
+設置其他參數，如 **從**、**到**
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=16:17
+
+```
+
+---
+
+使用 `signTransaction` 在**發送方**賬戶上籤署交易
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=21:23
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f5a0fbd13725c0e913f564469d43e6e928514caca92ca5d5fcc18c493445d2bd3f00a065980c9c0ea0bcfa4324c23b21d45acaa8a64d1d47d45a6730774756be794e86
+````
+
+</CH.Code>
+
+---
+
+使用 "signTransactionAsFeePayer "以**付費方**賬戶簽署交易
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=25:27
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
+````
+
+</CH.Code>
+
+---
+
+將交易發送到區塊鏈。 它將返回交易收據
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=29:30
+
+````
+---
+
+```zsh output
+❯ node TxTypeFeeDelegatedValueTransfer.js
+receipt {
+  blockHash: '0x442774c57650ef18338bea13ad069428acf8a6c8da5e7eb104dd1d961972400a',
+  blockNumber: 148744776n,
+  cumulativeGasUsed: 177286n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 31000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xc40b6909eb7085590e1c26cb3becc25368e249e9',
+  transactionHash: '0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae',
+  transactionIndex: 1n,
+  type: 0n
+}
+````
+
+</CH.Code>
+</CH.Spotlight>

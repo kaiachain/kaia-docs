@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -76,43 +76,43 @@ web3_account_update_multisig()
 ---
 
 ```zsh output
-❯ py web3_account_update_multisig.py
+❯ web3_account_update_multisig.py
 {
-  "from": "0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E",
-  "gas": 159000,
-  "gasPrice": 50000000000,
-  "nonce": 103,
-  "chainId": 1001,
-  "type": 32,
-  "key": {
-    "type": 4,
-    "threshold": 2,
-    "keys": [
+  "from"："0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E",
+  "gas"：159000,
+  "gasPrice"：50000000000,
+  "nonce"：103,
+  "chainId"：1001,
+  "type"：32,
+  "key"：{
+    "type"：4,
+    "threshold"：2,
+    "keys"：[
       {
-        "weight": 1,
-        "key": "0x021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82"
+        "weight"：1,
+        "key"："0x021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82"
       },
       {
-        "weight": 1,
-        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+        "weight"：1,
+        "key"："0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
       },
       {
-        "weight": 1,
-        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
-      }
+        "weight"：1,
+        "key"："0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      }.
     ]
   }
 }
 
-rawTransaction: 20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af8d5f8458207f6a0978b0c4dcfb9dfd4351842463519f7913a9653bb3954fde04e8c81b59c5f0138a04384e1e3436a43d165f4a03cac64f4a60fbd237d7473f58016bda5381c33a1d2f8458207f6a0431be32222e5dea7d4126254fea9784f9b55171948506477b876995cf04e8185a06d755a79656a7e32f179548e00e314bc37c78d67918b89abc7390083a64c91dcf8458207f5a0c4bc3a38652ede87c9c1f7057b63c9d4ae1bb694d722c36b6901b4ec0b258dbca02559cae1ebcf3baa23a9cbe6fddb81d652f44636534cc9214c26d6127be5b849
-tx hash:  0x0774fac9bc9f1b49b4fb4b7a9af87fef52f298e2cbdeb61491eab7bdc401758d receipt:  AttributeDict({'blockHash': HexBytes('0xd15a2095f70243121b427aeeebb507937c8bc808526bfa5990806a12df8a3d6f'), 'blockNumber': 150554112, 'contractAddress': None, 'cumulativeGasUsed': 111000, 'effectiveGasPrice': 25000000000, 'from': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'gasUsed': 111000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'transactionHash': HexBytes('0x0774fac9bc9f1b49b4fb4b7a9af87fef52f298e2cbdeb61491eab7bdc401758d'), 'transactionIndex': 0, 'type': 0})
+rawTransaction：20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af8d5f8458207f6a0978b0c4dcfb9dfd4351842463519f7913a9653bb3954fde04e8c81b59c5f0138a04384e1e3436a43d165f4a03cac64f4a60fbd237d7473f58016bda5381c33a1d2f8458207f6a0431be32222e5dea7d4126254fea9784f9b55171948506477b876995cf04e8185a06d755a79656a7e32f179548e00e314bc37c78d67918b89abc7390083a64c91dcf8458207f5a0c4bc3a38652ede87c9c1f7057b63c9d4ae1bb694d722c36b6901b4ec0b258dbca02559cae1ebcf3baa23a9cbe6fddb81d652f44636534cc9214c26d6127be5b849
+txハッシュ  0x0774fac9bc9f1b49b4fb4b7a9af87fef52f298e2cbdeb61491eab7bdc401758d receipt:  AttributeDict({'blockHash'：HexBytes('0xd15a2095f70243121b427aeeebb507937c8bc808526bfa5990806a12df8a3d6f'), 'blockNumber':150554112, 'contractAddress'：なし, 'cumulativeGasUsed': 111000, 'effectiveGasPrice': 25000000000, 'from': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'gasUsed': 111000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'transactionHash'：HexBytes('0x0774fac9bc9f1b49b4fb4b7a9af87fef52f298e2cbdeb61491eab7bdc401758d'), 'transactionIndex':0, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_account_update_multisig.py focus=1
 
@@ -120,7 +120,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **web3py_ext**
+必要なutilsを**web3**と**web3py_ext**からインポートする。
 
 ```py web3_account_update_multisig.py focus=3:16
 
@@ -128,7 +128,7 @@ Import necessary utils from **web3** and **web3py_ext**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py web3_account_update_multisig.py focus=17:19
 
@@ -136,7 +136,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py web3_account_update_multisig.py focus=17:19
 from web3py_ext import extend
@@ -204,7 +204,7 @@ web3_account_update_multisig()
 
 ---
 
-Define 3 different accounts using `Account.from_key`
+`Account.from_key`を使用して3つの異なるアカウントを定義する。
 
 ```py web3_account_update_multisig.py focus=22:24
 
@@ -212,7 +212,7 @@ Define 3 different accounts using `Account.from_key`
 
 ---
 
-Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成しています。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_account_update_multisig.py focus=26
 
@@ -220,7 +220,7 @@ Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **e
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**sender**や**keys**のような**追加フィールド**を空のtxにマージする。
 
 ```py web3_account_update_multisig.py focus=27:47
 
@@ -228,7 +228,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account keys to update is the **mutisig** key and each key inside contains a compressed public key and its weight. The **compressed_key** util will extract the compressed public key from the key
+この場合、更新するアカウント・キーは**mutisig**キーであり、中の各キーは圧縮された公開キーとそのウェイトを含む。 **compressed_key**ユーティリティは、圧縮された公開鍵を鍵から抽出する。
 
 ```py web3_account_update_multisig.py focus=34:35,38:39,42:43
 
@@ -236,7 +236,7 @@ In this case, the account keys to update is the **mutisig** key and each key ins
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_account_update_multisig.py focus=8,48
 
@@ -244,7 +244,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+**to_pretty**ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=12,49
@@ -289,7 +289,7 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You must sign it with the all 3 loaded accounts
+アカウント更新TXタイプに署名する。 ロードした3つのアカウントすべてで署名する必要があります。
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=51:55
@@ -309,7 +309,7 @@ rawTransaction: 20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa6
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=57:59

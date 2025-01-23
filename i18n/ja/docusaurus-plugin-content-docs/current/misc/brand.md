@@ -1,30 +1,30 @@
 ---
-sidebar_label: Brand Guidelines
+sidebar_label: ブランド・ガイドライン
 ---
 
-# Kaia Brand Guidelines and Assets
+# カイア・ブランド・ガイドラインとアセット
 
-Consistency strengthens our brand.
+一貫性がブランドを強化する
 
-## Logo and Symbol Usage
+## ロゴとシンボルの使用
 
-The Kaia logo and token symbol represent our project's identity.  Adhering to these guidelines ensures consistent and impactful branding across all platforms.
+カイアのロゴとトークンのシンボルは、私たちのプロジェクトのアイデンティティを表しています。  これらのガイドラインを遵守することで、すべてのプラットフォームで一貫性のあるインパクトのあるブランディングが可能になります。
 
-- **Primary Color Scheme:** We recommend using the dark version over the light version.
-- **Default Color Combination:** Neon lime on a black background.
-- **Color Usage Priority:**
+- \*\*主な配色：\*\*ライトバージョンよりもダークバージョンを使用することをお勧めします。
+- \*\*デフォルトの色の組み合わせ：\*\*黒地にネオンライム。
+- **色使用優先度：**。
   1. ![](/img/misc/kaia_brandmark_neonlime_on_black.png) Neon lime on black background
   2. ![](/img/misc/kaia_brandmark_black_on_neonlime.png) Black on neon lime background
   3. ![](/img/misc/kaia_brandmark_white_on_black.png) White on black background
   4. ![](/img/misc/kaia_brandmark_black_on_white.png) Black on white background
 
-## Logo Usage Best Practices
+## ロゴ使用のベストプラクティス
 
-The following guidelines ensure the Kaia logo is presented correctly and effectively:
+以下のガイドラインは、カイアのロゴが正しく効果的に表示されることを保証するものです：
 
-- **Correct Variations:**  Kaia provides various logo versions for different applications. Please select the appropriate version for your specific use case.  The provided asset pack contains all available variations.
-- **No Modifications:**  Do not modify or alter the logo in any way. This includes resizing (unless proportionally), changing colors, adding effects, or distorting the original artwork.
-- **Placement and Visibility:**  Place the logo prominently and ensure it's clearly visible and unobstructed.  Avoid cluttered backgrounds or placements that make the logo difficult to identify.
-- **Attribution:** When using the Kaia logo, please acknowledge the Kaia project and, if possible, link to relevant resources such as the official website or documentation. This helps build community and awareness.
+- \*\*Correct Variations:\*\*カイアは様々な用途に合わせたロゴバージョンを提供しています。 特定の使用ケースに適したバージョンを選択してください。  提供されるアセットパックには、利用可能なすべてのバリエーションが含まれています。
+- \*\*修正禁止:\*\*いかなる方法でもロゴを修正または変更しないでください。 これには、サイズ変更（プロポーショナルな場合を除く）、色の変更、エフェクトの追加、元のアートワークの歪曲などが含まれます。
+- \*\*配置と視認性： \*\*ロゴは目立つように配置し、はっきりと見え、邪魔にならないようにする。  ごちゃごちゃした背景や、ロゴがわかりにくい配置は避ける。
+- \*\*Attribution:\*\*カイアのロゴを使用する際は、カイア・プロジェクトに謝意を表し、可能であれば公式ウェブサイトやドキュメントなどの関連リソースへのリンクを張ってください。 これはコミュニティと意識の形成に役立つ。
 
-Download the complete Kaia Brand Guidelines and Asset Pack [here](https://drive.google.com/drive/folders/1Ia9R44Aw4TQRyupqPDCQ5qaeuk-0iWr2?usp=drive_link).
+カイア・ブランド・ガイドラインとアセットパックのダウンロードはこちらから(https://drive.google.com/drive/folders/1Ia9R44Aw4TQRyupqPDCQ5qaeuk-0iWr2?usp=drive_link)。

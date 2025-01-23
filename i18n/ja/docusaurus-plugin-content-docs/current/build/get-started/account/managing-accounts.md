@@ -1,12 +1,12 @@
-# Manage Accounts
+# アカウント管理
 
-## List Your Accounts <a id="list-your-accounts"></a>
+## 口座リスト<a id="list-your-accounts"></a>
 
-This will return the list of all accounts created under the data directory.
+これは、データ・ディレクトリの下に作成されたすべてのアカウントのリストを返す。
 
 ### ken <a id="ken"></a>
 
-From the command line, call the CLI with:
+コマンドラインから、次のようにCLIを呼び出す：
 
 ```bash
 $ ken account list --datadir <DATADIR>
@@ -15,26 +15,26 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-**NOTE**: This order of returned account list can change if you copy keystore files from other nodes or remove the files. Therefore, make sure you either do not rely on the index or make sure if you copy or remove keystore files you check and update your account indexes in your scripts.
+**注**：他のノードからキーストア・ファイルをコピーしたり、ファイルを削除したりすると、返されるアカウント・リストの順序が変わることがあります。 したがって、インデックスに依存しないようにするか、キーストア・ファイルをコピーまたは削除した場合は、スクリプトでアカウント・インデックスをチェックして更新するようにしてください。
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScriptコンソール<a id="javascript-console"></a>
 
-When using the console:
+コンソールを使用する場合
 
 ```javascript
-> klay.accounts
+> kaia.accounts
 ["bfc22a57999459b0c2ce6337deb9287e7a970e02", "47bd2e9565cbe1789454718d6cf1778d7ea557aa"]
 ```
 
-## Unlock Accounts <a id="unlock-accounts"></a>
+## アカウントのロック解除<a id="unlock-accounts"></a>
 
-If you want to use an account non-interactively, you need to unlock it.
+アカウントをインタラクティブに使用しない場合は、ロックを解除する必要があります。
 
 ### ken <a id="ken"></a>
 
-You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. This is useful if you want to use your account from dApps via RPC. `--unlock` will unlock the first account in the list. This is useful when you created your account programmatically, you do not need to know the actual account to unlock it.
+You can unlock accounts and start the EN on the command line with the `--unlock "{address},{address}"` option which takes a comma-separated list of accounts (in hex or index) as an argument so you can unlock the accounts programmatically for one session. これは、RPC経由でdAppsからアカウントを使用したい場合に便利です。 `unlock`はリストの最初のアカウントのロックを解除する。 これは、プログラムでアカウントを作成した場合に便利で、実際のアカウントを知らなくてもロックを解除できる。
 
-Create an account and start a node with the account unlocked:
+アカウントを作成し、ロックを解除した状態でノードを開始する：
 
 ```bash
 $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
@@ -49,15 +49,15 @@ $ ken --unlock "2" --datadir <DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir <DATADIR>
 ```
 
-The command line allows you to unlock multiple accounts. In this case, the argument to unlock is a comma-separated list of account addresses or indexes.
+コマンドラインを使えば、複数のアカウントのロックを解除できる。 この場合、unlockの引数は、アカウント・アドレスまたはインデックスをカンマで区切ったリストである。
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir <DATADIR>
 ```
 
-If this construction is used non-interactively, your password file will need to contain the respective passwords for the accounts in question, one per line.
+この構文を非対話的に使用する場合、パスワードファイルには、該当するアカウントのパスワードを1行に1つずつ記述する必要がある。
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScriptコンソール<a id="javascript-console"></a>
 
 On the console you can also unlock accounts (one at a time) for a duration (in seconds).
 
@@ -65,59 +65,59 @@ On the console you can also unlock accounts (one at a time) for a duration (in s
 > personal.unlockAccount(address, "password", 300)
 ```
 
-Note that we do NOT recommend using the password argument here, since the console history is logged, so you may compromise your account. You have been warned.
+コンソールの履歴が記録されるため、アカウントが危険にさらされる可能性があります。 あなたは警告されている。
 
-## Check Account Balance <a id="check-account-balance"></a>
+## 口座残高の確認<a id="check-account-balance"></a>
 
 ### ken <a id="ken"></a>
 
-n/a
+該当なし
 
-### JavaScript Console <a id="javascript-console"></a>
+### JavaScriptコンソール<a id="javascript-console"></a>
 
-To check your account balance:
+口座残高の確認
 
 ```javascript
-> klay.fromPeb(klay.getBalance("{account}"), "KLAY")
+> kaia.fromPeb(kaia.getBalance("{account}"), "KAIA")
 6.5
 ```
 
-Print all balances with a JavaScript function:
+JavaScript関数ですべての残高を表示する：
 
 ```javascript
 function checkAllBalances() {
     var totalBal = 0;
-    for (var acctNum in klay.accounts) {
-        var acct = klay.accounts[acctNum];
+    for (var acctNum in kaia.accounts) {
+        var acct = kaia.accounts[acctNum];
 
-        var acctBal = klay.fromPeb(klay.getBalance(acct), "KLAY");
+        var acctBal = kaia.fromPeb(kaia.getBalance(acct), "KAIA");
         totalBal += parseFloat(acctBal);
 
-        console.log("klay.accounts[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KLAY");
+        console.log("kaia.accounts[" + acctNum + "]: \t" + acct + " \tbalance: " + acctBal + "KAIA");
 
     }
 
-    console.log("Total balance: " + totalBal + " KLAY");
+    console.log("Total balance: " + totalBal + " KAIA");
 };
 ```
 
-That can then be executed with:
+と実行することができる：
 
 ```javascript
 > checkAllBalances();
-klay.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KLAY
-klay.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KLAY
-klay.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KLAY
-klay.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KLAY
+kaia.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719  balance: 63.11848 KAIA
+kaia.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0  balance: 0 KAIA
+kaia.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32  balance: 1 KAIA
+kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 ```
 
-Since this function will disappear after restarting `ken`, it can be helpful to store commonly used functions to be called later.
+この関数は `ken` を再起動すると消えてしまうので、よく使う関数を保存しておくと後で呼び出すときに便利である。
 
-First, save the `checkAllBalances()` function definition to a file on your computer. For example, `/Users/username/klayload.js`. Then load the file from the interactive console:
+まず、`checkAllBalances()`関数の定義をコンピューター上のファイルに保存する。 例えば、`/Users/username/klayload.js`である。 その後、対話型コンソールからファイルをロードする：
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-The file will modify your JavaScript environment as if you have typed the commands manually. Feel free to experiment!
+このファイルは、あたかも手動でコマンドを入力したかのように、あなたのJavaScript環境を変更する。 自由に実験してほしい！

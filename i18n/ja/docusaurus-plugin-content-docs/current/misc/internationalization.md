@@ -1,36 +1,36 @@
-# Internationalization
+# 国際化
 
-KlaytnDocs is available in the following languages:
+KaiaDocsに関する製造業者、販売業者、サービス提供業者は次の言語でも提供されます：
 
-- [English](https://docs.kaia.io/)
+- [英語](https://docs.kaia.io/)
 - [한국어](https://docs.kaia.io/ko/)
 - [Tiếng Việt](https://docs.kaia.io/vi/)
 
-## Get involved! <a href="#get-involved" id="get-involved"></a>
+## 参加する <a href="#get-involved" id="get-involved"></a>
 
-If you are fluent and confident in a language and are willing to contribute to translate or to improve the quality of the localized documents, see [the list of languages currently being translated](https://crowdin.com/project/klaytn-docs).
+もしあなたが言語に堪能で自信があり、ローカライズされたドキュメントの翻訳や品質向上に貢献する意思があるのであれば、[現在翻訳中の言語リスト](https://crowdin.com/project/kaia-docs)をご覧ください。
 
-### How to contribute KaiaDocs localization via Crowdin [![](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs) <a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
+### Crowdinを通じたKaiaDocsのローカライゼーションへの貢献方法 [!](https://badges.crowdin.net/kaia-docs/localized.svg)](https://crowdin.com/project/kaia-docs)<a href="#how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd" id="how-to-contribute-kaiadocs-localization-via-crowdin-crowdin-https-badges-crowd"></a>
 
-Crowdin is a web service for collaborative translation. To contribute to localization, please follow these steps:
+Crowdinは共同翻訳のためのウェブサービスです。 ローカライゼーションに貢献するには、以下の手順に従ってください：
 
-1. Go to [Klaytn-Docs project at Crowdin](https://crowdin.com/project/klaytn-docs).
-2. Create an account there.
-3. Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
-4. Join the translator team. Wait until one of the managers approves your request.
-5. Choose the file you want to contribute.
-6. You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Klaytn Terminologies.
+1. CrowdinのKaia-Docsプロジェクト](https://crowdin.com/project/kaia-docs)へ。
+2. そこでアカウントを作成する。
+3. 投稿したい言語を選択してください。 言語が見つかりませんか？ プロジェクトオーナーに新しい言語の翻訳を開始するリクエストを送信します。
+4. 翻訳者チームに参加 マネージャーの誰かがあなたのリクエストを承認するまで待つ。
+5. 投稿したいファイルを選択してください。
+6. 文字列に翻訳を投稿したり、翻訳に投票したり、コメントを残したりすることができます。 翻訳を提出する際は、単語の選択がカイア用語集に準拠していることを確認してください。
 
 ![](/img/misc/crowdin-editor.png)
 
-For detailed usage guidelines for the online-editor, please refer to the official [Crowdin document](https://support.crowdin.com/online-editor/).
+オンラインエディターの詳しい使用方法については、公式の[Crowdinドキュメント](https://support.crowdin.com/online-editor/)をご参照ください。
 
-Translation suggestions will be reviewed and approved by the maintainers in a couple of days, then, will be made available to the web site. The list of localized web sites are listed above.
+翻訳提案は、2、3日中にメンテナによって見直され、承認された後、ウェブサイトに掲載される。 ローカライズされたウェブサイトのリストは上記の通り。
 
-### Discussion <a href="#discussion" id="discussion"></a>
+### ディスカッション<a href="#discussion" id="discussion"></a>
 
-Join the [discussion board](https://crowdin.com/project/klaytn-docs/discussions) and meet the fellow contributors.
+ディスカッションボード](https://crowdin.com/project/kaia-docs/discussions)に参加して、投稿者仲間に会いましょう。
 
-### Code of conduct <a href="#code-of-conduct" id="code-of-conduct"></a>
+### 行動規範<a href="#code-of-conduct" id="code-of-conduct"></a>
 
-Please be respectful to fellow community members. Project managers may delete any offensive posts or comments without notice and reserve the right to revoke the membership.
+他のコミュニティーのメンバーに敬意を払ってください。 プロジェクトマネージャーは、不快な投稿やコメントを予告なく削除し、会員資格を剥奪する権利を有します。

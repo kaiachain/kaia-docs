@@ -1,78 +1,78 @@
-# Deploying smart contract using Thirdweb
+# Thirdwebを使ったスマートコントラクトのデプロイ
 
 ![](/img/banners/kaia-thirdweb.png)
 
-## Introduction <a id="introduction"></a>
+## はじめに<a id="introduction"></a>
 
-This section will guide you through deploying a Marketplace contract and a corresponding NFT collection contract to Klaytn Network using [ThirdWeb](https://portal.thirdweb.com/). Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
+このセクションでは、[ThirdWeb](https://portal.thirdweb.com/)を使用して、マーケットプレイス契約と対応するNFTコレクション契約をカイアネットワークにデプロイする方法を説明します。 Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
 
-Marketplace contract allows users to list NFTs for direct sale or auction, thus enhancing the buying and selling of NFTs, just like it’s done on OpenSea.
+マーケットプレイス契約により、ユーザーはNFTを直接販売やオークションに出品することができ、OpenSeaで行われているのと同様にNFTの売買を強化することができます。
 
-By the end of this guide, you will be able to:
+このガイドの終わりには、あなたは次のことができるようになる：
 
-- create and customize contracts using thirdweb.
-- compile, deploy, and interact with your smart contract using thirdweb.
+- サードウェブを使用して契約を作成し、カスタマイズします。
+- thirdwebを使用してスマートコントラクトをコンパイル、デプロイ、対話します。
 
-## Getting Started <a id="getting-started"></a>
+## はじめに<a id="getting-started"></a>
 
-In this article, we will explore the different means to create, customize, and deploy contracts using thirdweb, viz.
+この記事では、サードウェブを使ってコントラクトを作成、カスタマイズ、デプロイするためのさまざまな手段を探ります。
 
-- Using the thirdweb dashboard
-- Using the thirdweb CLI
+- サードウェブダッシュボードの使用
+- thirdweb CLIを使う
 
-For this guide, we will be demonstrating how to deploy a MarketPlace contract using the thirdweb dashboard and also deploying a corresponding nft collection to be listed on the marketplace using the thirdweb CLI.
+このガイドでは、thirdwebダッシュボードを使用してMarketPlaceコントラクトをデプロイする方法と、thirdweb CLIを使用してマーケットプレイスに掲載される対応するnftコレクションをデプロイする方法を示します。
 
-> Note: We will not be explaining the mechanics of the marketplace contract as our focus is to explore thirdweb dashboard and CLI for creating, deploying, and interacting with smart contracts.
+> 注：スマート・コントラクトの作成、デプロイ、相互作用のためのサードウェブ・ダッシュボードとCLIを探求することに重点を置くため、マーケットプレイス・コントラクトの仕組みについては説明しない。
 
-## Creating and deploying marketplace contract using thirdweb dashboard <a id="creating-and-deploying-thirdweb-dashboard"></a>
+## サードウェブダッシュボードを使用したマーケットプレイス契約の作成と展開<a id="creating-and-deploying-thirdweb-dashboard"></a>
 
-In this section, we will create and deploy a marketplace contract using thirdweb dashboard. To do this, follow the steps below:
+このセクションでは、thirdwebダッシュボードを使用してマーケットプレイス契約を作成し、デプロイします。 そのためには、以下の手順に従ってください：
 
-1. Head over to [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com) and select the **MarketPlace** contract from the list of contracts.
+1. [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)にアクセスし、契約リストから**MarketPlace**契約を選択します。
 
 ![](/img/build/get-started/marketplace-explore.png)
 
-2. Click **Deploy Now** in the contract overview dashboard.
+2. 契約概要ダッシュボードの**Deploy Now**をクリックします。
 
 ![](/img/build/get-started/marketplace-deploy.png)
 
-3. Configure the marketplace contract to include the following parameters: the **name** of the marketplace, its **description**, and **image**.
+3. マーケットプレイスの**名**、**説明**、**画像**というパラメータを含むように、マーケットプレイスの契約を設定します。
 
 ![](/img/build/get-started/marketplace-contract-details.png)
 
-4. Click **Deploy Now** as seen in the image above and wait for the transaction to complete.
+4. 上の画像のように**Deploy Now**をクリックし、トランザクションが完了するのを待ちます。
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Kaiascope](https://kaiascope.com/).
+トランザクションが正常に実行されると、[Kaiascope](https://kaiascope.com/)の検索バーに契約アドレスを貼り付けることで、デプロイメントを確認することができます。
 
-## Creating and deploying an NFT collection contract using thirdweb CLI <a id="creating-deploying-using-thirdweb-cli"></a>
+## thirdweb CLIを使用したNFTコレクション契約の作成とデプロイ<a id="creating-deploying-using-thirdweb-cli"></a>
 
-In this section, we will create and deploy the NFT collection to be listed in our Marketplace using [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com). To do this, follow the steps below:
+このセクションでは、[thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)を使用して、マーケットプレイスに掲載するNFTコレクションを作成し、デプロイします。 そのためには、以下の手順に従ってください：
 
-### Creating the contract <a id="creating-the-contract"></a>
+### 契約書の作成<a id="creating-the-contract"></a>
 
-1. Run this command in your terminal to create your contract:
+1. ターミナルでこのコマンドを実行し、契約書を作成する：
 
 ```bash
 npx thirdweb create --contract
 ```
 
-2. Enter your preferred values for the command-line prompts:
+2. コマンドラインのプロンプトにお好みの値を入力してください：
 
-   i. Give your project a name.
+   i. プロジェクトに名前をつける。
 
-   ii. Choose your preferred framework: **Hardhat** or **Foundry**.
+   ii. お好きなフレームワークをお選びください：**Hardhat**または**Foundry**。
 
-   iii. Name your smart contract.
+   iii. スマート・コントラクトに名前を付ける。
 
-   iv. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**. Add any desired **extensions**. For this tutorial, we will select ERC721 and setting the extension to none.
+   iv. ベース契約のタイプを選択する：**Empty**、**ERC20**、**ERC721**、**ERC1155**。 必要な**拡張機能**を追加する。 このチュートリアルでは、ERC721を選択し、拡張子をnoneに設定します。
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
-3. Once created, navigate to your project’s root directory and open your project in your preferred code editor.
+3. 作成したら、プロジェクトのルート・ディレクトリに移動し、お好みのコード・エディタでプロジェクトを開いてください。
 
-4. If you open the contracts folder, your contract should look like this:
+4. 契約書フォルダを開くと、契約書はこのようになっているはずだ：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -97,73 +97,73 @@ contract nftcollection is ERC721Base {
 }
 ```
 
-The contract above demonstrates basic [ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) functionality. It imports and inherits the **ERC721Base** contract, and it also implements the required methods, including the constructor and its dependent parameters.
+上記のコントラクトは、基本的な[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol)の機能を示している。 これは **ERC721Base** 契約をインポートして継承し、コンストラクタとその従属パラメータを含む必要なメソッドも実装している。
 
-You can modify the contract to your desired custom logic, and once done, your contract is ready for deployment.
+コントラクトを希望のカスタム・ロジックに変更することができ、それが完了すれば、コントラクトをデプロイする準備が整う。
 
-### Deploying the contract <a id="deploying-the-contracts"></a>
+### 契約の展開<a id="deploying-the-contracts"></a>
 
-1. Navigate to your project root folder and run the command in your terminal:
+1. プロジェクトのルート・フォルダーに移動し、ターミナルでコマンドを実行する：
 
 ```bash
 npx thirdweb deploy
 ```
 
-Executing this command will trigger the following actions:
+このコマンドを実行すると、以下のアクションがトリガーされる：
 
-- detects the framework (hardhat, foundry)
-- compiles all the contracts in the current directory.
-- allows you to select which contract(s) you wish to deploy.
-- upload your compiled smart contract code (in the form of an Application Binary Interface, or ABI) to IPFS.
+- フレームワークを検出する（ハードハット、ファウンドリー）
+- は、カレント・ディレクトリにあるすべてのコントラクトをコンパイルする。
+- をクリックすると、配備する契約を選択できます。
+- コンパイルしたスマートコントラクトのコードを（アプリケーション・バイナリ・インターフェース（ABI）の形で）IPFSにアップロードします。
 
-2. When deployment is complete, a dashboard interface will open to fill out the remaining parameters.
-   - **_name**: contract name
-   - **_symbol**: symbol or "ticker"
-   - **_royaltyRecipient**: wallet address to receive royalties from secondary sales
-   - **_royaltyBps**: basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g., 500 = 5%
+2. 配備が完了すると、ダッシュボードのインターフェイスが開き、残りのパラメータを入力する。
+   - **_name**：契約名
+   - **_symbol**：シンボルまたは "ティッカー"
+   - **__royaltyRecipient**：二次販売からのロイヤルティを受け取るウォレットアドレス
+   - **ロイヤリティBps**：二次販売ごとにロイヤリティ受取人に付与されるベーシス・ポイント（bps）。
 
-3. Select `Klaytn Mainnet Cypress` as the network to deploy the contract to.
+3. 契約を展開するネットワークとして`Kaia Mainnet`を選択する。
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
-4. Once your smart contract is deployed, you can manage additional settings and functionalities through its dashboard. For example, you can upload NFTs, configure permissions and access control, and add new features.
+4. スマート・コントラクトがデプロイされると、ダッシュボードから追加設定や機能を管理できる。 例えば、NFTのアップロード、権限やアクセス制御の設定、新機能の追加などが可能です。
 
-You can learn more about thirdweb deploy command in this [deploy guide](https://portal.thirdweb.com/deploy/getting-started).
+thirdwebのデプロイコマンドについては、こちらの[デプロイガイド](https://portal.thirdweb.com/deploy/getting-started)を参照してください。
 
-## Interacting with deployed contracts <a id="interacting-with-deployed-contracts"></a>
+## 配備された契約とのやり取り<a id="interacting-with-deployed-contracts"></a>
 
-In this section, we will mint an NFT and also transferring it to another account using the **mint** and **transferfrom** function respectively. Let's go over it in the following steps:
+このセクションでは、**mint**関数と**transferfrom**関数をそれぞれ使用して、NFTの造幣と別の口座への移管を行います。 次のステップで説明しよう：
 
-### Minting the NFT <a id="minting-nft"></a>
+### NFTの鋳造<a id="minting-nft"></a>
 
-1. Navigate to the newly deployed contract (**puppyKlan-NC**) dashboard.
-2. Click on the **mint** function in the **NFTs** tab under the contract dashboard.
+1. 新しく配置された契約 (**puppyKlan-NC**) のダッシュボードに移動して下さい。
+2. 契約ダッシュボードの**NFTs**タブにある**mint**機能をクリックします。
 
 ![](/img/build/get-started/puppy-mint-btn.png)
 
-3. Fill in the parameters needed for minting the NFT: **name**, **media**, **description**, and **properties**.
+3. NFTの造幣に必要なパラメータを入力する：**name**、**media**、**description**、**properties**。
 
 ![](/img/build/get-started/puppy-mint-details.png)
 
-4. Verify your input and click the **Mint NFT** button.
-5. Confirm the transaction and wait for it to complete. Once done, you should see your NFT added to the dashboard, like below:
+4. 入力内容を確認し、**Mint NFT**ボタンをクリックします。
+5. 取引を確認し、完了するまで待つ。 完了すると、以下のようにダッシュボードにNFTが追加されます：
 
 ![](/img/build/get-started/puppy-minted.png)
 
-### Transferring the NFT to a new owner <a id="transferring-nft-to-new-owner"></a>
+### 新オーナーへのNFT譲渡<a id="transferring-nft-to-new-owner"></a>
 
-1. Head to the Explorer tab in the contract (**puppyKlan-NC**) dashboard.
-2. Select the **transferFrom** function under the Write tab, as shown below.
-3. Fill in the necessary function arguments: from (address), to (address), and id (uint256).
+1. 契約(**puppyKlan-NC**)ダッシュボードのエクスプローラタブに向かう。
+2. 以下のように、Writeタブで**transferFrom**関数を選択する。
+3. 必要な関数の引数を記入する：from（アドレス）、to（アドレス）、id（uint256）。
 
 ![](/img/build/get-started/puppy-transferfrom.png)
 
-4. Confirm the transaction and wait for it to complete.
+4. 取引を確認し、完了するまで待つ。
 
-## Conclusion <a id="conclusion"></a>
+## 結論<a id="conclusion"></a>
 
-Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/) or reach out to the [official thirdweb support](https://support.thirdweb.com/). However, below is a list of useful resources you might need while further building with Thirdweb on Klaytn.
+おめでとう！ このガイドを最後まで読んでくれたなら。 ご不明な点がございましたら、[カイアフォーラム](https://devforum.kaia.io/)、または[サードウェブ公式サポート](https://support.thirdweb.com/)までお問い合わせください。 しかし、以下は、Kaia上でThirdwebをさらに構築する際に必要となる可能性がある便利なリソースの一覧です。
 
-- [Thirdweb Docs](https://portal.thirdweb.com/)
-- [How to build a dApp using Thirdweb](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
-- [Create your own NFT marketplace with NextJS and TypeScript](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
+- [サードウェブ・ドックス](https://portal.thirdweb.com/)
+- [Thirdwebを使ったdAppの作り方](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
+- [NextJSとTypeScriptで独自のNFTマーケットプレイスを作ろう](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)

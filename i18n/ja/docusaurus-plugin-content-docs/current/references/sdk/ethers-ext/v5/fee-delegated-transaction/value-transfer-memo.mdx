@@ -1,8 +1,8 @@
-# Value Transfer With Memo
+# メモによる価値移転
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
-# Fee Delegation
+# 手数料の委任
 
 <CH.Spotlight>
     <CH.Code>
@@ -76,7 +76,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1:2
 
@@ -84,7 +84,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define **sender address, sender private key, fee payer address, fee payer private key and reciever address**
+送信者アドレス、送信者秘密鍵、料金支払者アドレス、料金支払者秘密鍵、受信者アドレスを定義する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=4:8
 
@@ -92,7 +92,7 @@ Define **sender address, sender private key, fee payer address, fee payer privat
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
 
@@ -100,7 +100,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
 const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
@@ -143,7 +143,7 @@ main();
 
 ---
 
-Create a sender's wallet from private key
+秘密鍵から送信者のウォレットを作成する
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=12
 
@@ -151,7 +151,7 @@ Create a sender's wallet from private key
 
 ---
 
-Create fee payer's wallet from private key
+秘密鍵から料金支払者のウォレットを作成する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=13
 
@@ -159,7 +159,7 @@ Create fee payer's wallet from private key
 
 ---
 
-Declare transaction with the fields such as **type, from, to, value, input**.
+**type、from、to、value、input**などのフィールドを持つトランザクションを宣言する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15:21
 
@@ -167,7 +167,7 @@ Declare transaction with the fields such as **type, from, to, value, input**.
 
 ---
 
-Populating transaction with additional information using **senderWallet.populateTransaction**
+**senderWallet.populateTransaction**を使用してトランザクションに追加情報を入力する。
 
 <CH.Code>
 
@@ -196,7 +196,7 @@ Populating transaction with additional information using **senderWallet.populate
 
 ---
 
-Signing the transaction with the **sender's private key**
+**送信者の秘密鍵**でトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:27
@@ -205,15 +205,15 @@ Signing the transaction with the **sender's private key**
 ---
 
 ```zsh output
-❯ node TxTypeFeeDelegatedValueTransferMemo.js
-senderTxHashRLP 0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a055c20733cb08839d352e8ccbfd9f977ea8ba6cdf1dfad117931a5ca2a6e0b58aa06a777f842b4f23f4ad24309408c78b315f788bcca60826bd68083827f070ee49
+ノード TxTypeFeeDelegatedValueTransferMemo.js
+senderTxHashRLP0x11f88d8202fa850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094a2a8854b1802d8cd5de631e690817c253d6a9153851234567890f847f8458207f6a055c20733cb08839d352e8ccbfd9f977ea8ba6cdf1dfad117931a5ca2a6e0b58aa06a777f842b4f23f4ad24309408c78b315f788bcca60826bd68083827f070ee49
 ```
 
 </CH.Code>
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 
@@ -232,7 +232,7 @@ sentTx 0xac225ead53297c95b747abd84e7224ecbc1b40f459a532fd22a67143aa83b4ae
 
 ---
 
-The **wait** function returns the tx receipt if the tx was sent to the blockchain successfully.
+**wait**関数は、txがブロックチェーンに正常に送信された場合、txレシートを返す。
 
 <CH.Code>
 

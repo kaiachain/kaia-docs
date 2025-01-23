@@ -1,12 +1,12 @@
-# Oracles
+# 神託
 
-Blockchain oracles serve as a link between the blockchain and other external data sources. In actuality, the blockchain is a closed system; as such, it is unable to pull data into or out of any external systems (off-chain data) and only has access to data that is already present within the original blockchain context. This creates a blockchain-oracle issue where the blockchain is unable to obtain data from actual occurrences. Smart contracts must, however, connect to a wide range of external data sources in order to fulfill a number of useful functions. As an illustration, a [hybrid smart contract](https://chain.link/education-hub/hybrid-smart-contracts) that uses oracles to give asset prices for finance, weather data for insurance, randomness for gaming, IoT sensors for supply chain management, etc.
+ブロックチェーンオークルは、ブロックチェーンと他の外部データソースをつなぐ役割を果たす。 実際のところ、ブロックチェーンはクローズド・システムであり、外部システム（オフチェーン・データ）にデータを取り込んだり、外部システムから取り出したりすることはできず、元のブロックチェーンのコンテキスト内にすでに存在するデータにしかアクセスできない。 これは、ブロックチェーンが実際に発生したデータを取得できないというブロックチェーン・オラクルの問題を引き起こす。 しかし、スマートコントラクトは、多くの有用な機能を果たすために、さまざまな外部データソースに接続しなければならない。 例として、[ハイブリッド・スマート・コントラクト](https://chain.link/education-hub/hybrid-smart-contracts)は、金融のための資産価格、保険のための気象データ、ゲームのためのランダム性、サプライチェーン管理のためのIoTセンサーなどを与えるために託宣を使用する。
 
-The need for blockchains to access and connect to external data sources, legacy systems, and advanced computation brought about oracles. The benefits of oracles in the blockchain industry cannot be underestimated, and it is therefore crucial to do your research before choosing your oracles when creating hybrid smart contracts. Avoiding centralized oracles is therefore encouraged since leveraging decentralized oracles is important for developing your decentralized apps. On one hand, centralized oracles are controlled by a single entity and, as such, have a single point of failure, making smart contracts vulnerable to attacks. On the other hand, decentralized oracles are designed to fly above the limitations of centralized oracles by eliminating the single point of failure. A decentralized oracle comprises multiple participants in a peer-to-peer network that form consensus on off-chain data before sending it to a smart contract.
+ブロックチェーンが外部のデータソース、レガシーシステム、高度な計算にアクセスし、接続する必要性が、オラクルをもたらした。 ブロックチェーン業界におけるオラクルの利点は過小評価できないため、ハイブリッドスマートコントラクトを作成する際には、オラクルを選択する前に調査を行うことが極めて重要である。 分散型オラクルを活用することは分散型アプリを開発する上で重要であるため、中央集権型オラクルは避けることが推奨される。 一方では、中央集権的なオラクルは単一のエンティティによって制御されるため、単一障害点となり、スマートコントラクトを攻撃に対して脆弱にする。 一方、分散型オラクルは単一障害点を排除することで、集中型オラクルの限界を超えるように設計されている。 分散型オラクルは、スマートコントラクトにデータを送信する前に、オフチェーンデータについてコンセンサスを形成するピアツーピアネットワークの複数の参加者から構成される。
 
-The following providers have integrated with Klaytn to deliver decentralized oracle services:
+以下のプロバイダーは、分散型オラクルサービスを提供するためにKaiaと統合しています：
 
-- [Pyth Network](https://docs.pyth.network/home)
+- [パイス・ネットワーク](https://docs.pyth.network/home)
 - [Orakl Network](https://docs.orakl.network)
 - [Witnet](https://docs.witnet.io/)
 - [SupraOracles](https://supraoracles.com/docs/overview)

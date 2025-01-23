@@ -1,44 +1,44 @@
-# viem
+# ヴィエム
 
 ![](/img/references/kaiaXviem.png)
 
-[Viem](https://viem.sh/) is a typescript interface for Ethereum that provides low-level primitives for interacting with Ethereum and other EVM-Compatible blockchain. With kaia supporting features for [Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04), Ethereum tools such as viem can be used on kaia without any significant modifications.
+[Viem](https://viem.sh/) はイーサリアム用のタイプスクリプト・インターフェースで、イーサリアムや他のEVM互換ブロックチェーンとやり取りするための低レベルのプリミティブを提供する。 kaiaは[Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04)の機能をサポートしているため、viemのようなEthereumツールはkaia上で大きな変更を加えることなく使用することができる。
 
-For that reason, developers can leverage this compatibility and use the viem library to interact with a kaia node.
+そのため、開発者はこの互換性を活用し、viemライブラリを使ってkaiaノードとやりとりすることができる。
 
-In this guide, you'll learn how to use the viem library to read data from the blockchain, send a transaction, and interact with an existing contract on the kaia Network.
+このガイドでは、viemライブラリを使用してブロックチェーンからデータを読み取り、トランザクションを送信し、kaia Network上の既存のコントラクトとやり取りする方法を学びます。
 
-## Prerequisites
+## 前提条件
 
-- Code-Editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
-- [Metamask](../../../build/tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
-- [NodeJS and NPM](https://nodejs.org/en/)
-- [TS-node](https://www.npmjs.com/package/ts-node): used for running TypeScript scripts.
+- コードエディタ：[VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
+- [メタマスク](../../../build/tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダ](../public-en.md)の1つから取得できます。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [NodeJSとNPM](https://nodejs.org/en/)
+- [TS-node](https://www.npmjs.com/package/ts-node): TypeScriptスクリプトの実行に使用される。
 
-## Setup Project
+## セットアップ・プロジェクト
 
-To get started, you need to create a project directory to house the files to be created in this guide.
+始めるには、このガイドで作成するファイルを格納するプロジェクト・ディレクトリを作成する必要がある。
 
 ```bash
 mkdir viem-example
 cd viem-example
 ```
 
-### 1. Install viem
+### 1. viemをインストールする
 
-To install viem run the following command in your terminal:
+viemをインストールするには、ターミナルで以下のコマンドを実行する：
 
 ```bash
 npm i viem
 ```
 
-In this tutorial, we will create a bunch of scripts file to read data from the blockchain, send transactions, and also interact with existing smart contract. To get started, you need to know how to set up viem for each of your script files.
+このチュートリアルでは、ブロックチェーンからデータを読み取り、トランザクションを送信し、また既存のスマート・コントラクトとやり取りするためのスクリプト・ファイルを大量に作成する。 始めるには、スクリプト・ファイルごとにviemを設定する方法を知っておく必要がある。
 
-### 2. Set up Public Client & Transport
+### 2. パブリッククライアントとトランスポートの設定
 
-Firstly, you need to set up your Public [Client](https://viem.sh/docs/clients/intro) with a desired [Transport](https://viem.sh/docs/clients/intro) & [Chain](https://viem.sh/docs/chains/introduction). A Public Client is an interface to **public** [JSON-RPC API](https://docs.kaia.io/references/public-en/) methods such as retrieving block numbers, transactions, reading from smart contracts, etc through [Public Actions](https://viem.sh/docs/actions/public/introduction).
+まず、Public [Client](https://viem.sh/docs/clients/intro)に、希望する [Transport](https://viem.sh/docs/clients/intro)と [Chain](https://viem.sh/docs/chains/introduction)を設定する必要があります。 パブリッククライアントとは、[パブリックアクション](https://viem.sh/docs/actions/public/introduction)を通じて、ブロック番号やトランザクションの取得、スマートコントラクトからの読み取りなど、**パブリック** [JSON-RPC API](https://docs.kaia.io/references/public-en/)メソッドへのインターフェイスである。
 
 ```ts
 import { createPublicClient, http } from 'viem'
@@ -51,9 +51,9 @@ const client = createPublicClient({
 
 ```
 
-### 3. Set up Wallet Client and account
+### 3. ウォレットクライアントとアカウントの設定
 
-Secondly, you need to set a wallet client to interact with an account. With wallet client, you can perform actions such as retrieving accounts, executing transactions, signing messages, etc through [Wallet Actions](https://viem.sh/docs/actions/wallet/introduction).
+次に、アカウントとやりとりするウォレット・クライアントを設定する必要がある。 ウォレットクライアントでは、[Wallet Actions](https://viem.sh/docs/actions/wallet/introduction)を通じて、アカウントの取得、トランザクションの実行、メッセージの署名などのアクションを実行できます。
 
 ```ts
 import { createWalletClient } from 'viem'
@@ -67,17 +67,17 @@ const walletClient = createWalletClient({
 const account = privateKeyToAccount("PASTE PRIVATE KEY HERE");
 ```
 
-## Reading data from the blockchain
+## ブロックチェーンからデータを読み取る
 
-To read data from the blockchain, create a new `read.ts` file in your project folder by running this command:
+ブロックチェーンからデータを読み込むには、次のコマンドを実行してプロジェクトフォルダーに新しい`read.ts`ファイルを作成する：
 
 ```bash
 touch read.ts
 ```
 
-After creating this file, set up your public client as done in the **set up section** above. In this section, you will learn how to read data from the blockchain (e.g., blockNumber, KAIA balance).
+このファイルを作成したら、上記の**セットアップセクション**で行ったように、パブリッククライアントをセットアップします。 このセクションでは、ブロックチェーンからデータを読み取る方法を学びます（例：ブロック番号、KAIA残高）。
 
-To see this in action, paste the following code in your `read.ts`.
+これを実際に見るには、`read.ts`に以下のコードを貼り付ける。
 
 ```ts
 import { createPublicClient, http, formatEther } from 'viem'
@@ -107,29 +107,29 @@ getBlockNumber();
 getKlayBalance();
 ```
 
-**Output**
+**出力**
 
-To run the script and read data from the blockchain, paste the following command in your terminal:
+スクリプトを実行し、ブロックチェーンからデータを読み取るには、ターミナルに以下のコマンドを貼り付ける：
 
 ```
 npx ts-node read.ts
 ```
 
-If the transaction was successful, you'll see the block number and user’s KAIA balance in your terminal.
+取引が成功すると、ブロック番号とユーザーのKAIA残高が端末に表示されます。
 
 ![](/img/references/viem-read.png)
 
-## Sending a transaction to the blockchain
+## ブロックチェーンにトランザクションを送信する
 
-To send a transaction to the blockchain, create a new `send.ts` file in your project folder by running this command:
+ブロックチェーンにトランザクションを送信するには、次のコマンドを実行してプロジェクトフォルダーに新しい`send.ts`ファイルを作成する：
 
 ```bash
 touch send.ts 
 ```
 
-After creating this file, set up your wallet client as done in the **set up section** above. In this section, you will learn how to send a transaction to the blockchain (for example, send KAIA to an address).
+このファイルを作成した後、上記の**セットアップセクション**で行ったようにウォレットクライアントをセットアップします。 このセクションでは、ブロックチェーンにトランザクションを送信する（例えば、アドレスにKAIAを送信する）方法を学びます。
 
-To see this in action, paste the following code in your `send.ts`.
+これを実際に見るには、`send.ts`に以下のコードを貼り付ける。
 
 ```ts
 import { createWalletClient, http, parseEther } from 'viem'
@@ -158,36 +158,36 @@ sendKlayToRecipient();
 
 ```
 
-**Output**
+**出力**
 
-To run the script and send transaction to the blockchain, paste the following command in your terminal:
+スクリプトを実行してブロックチェーンにトランザクションを送信するには、ターミナルに以下のコマンドを貼り付ける：
 
 ```
 npx ts-node send.ts
 ```
 
-If the transaction was successful, you'll see the transaction hash logged in your terminal.
+トランザクションが成功した場合、トランザクションのハッシュがターミナルに記録されます。
 
 ![](/img/references/viem-send.png)
 
-## Interacting with smart contracts
+## スマートコントラクトとの対話
 
-To interact with an existing smart contract on kaia, create a new `interact.ts` file in your project folder by running this command:
+kaia上の既存のスマートコントラクトと対話するには、以下のコマンドを実行して、プロジェクトフォルダに新しい`interact.ts`ファイルを作成する：
 
 ```bash
 touch interact.ts
 ```
 
-After creating this file, set up your public and wallet client as done in the **set up section** above. In this section, you will use viem to both:
+このファイルを作成した後、上記の**セットアップセクション**で行ったように、パブリッククライアントとウォレットクライアントをセットアップします。 このセクションでは、viemを両方のために使用します：
 
-- Read from the contract; and
-- Write to a contract.
+- 契約書を読む。
+- 契約書を書く。
 
-For the purpose of this guide, a simple_storage contract was compiled and deployed on [Remix IDE](https://remix.ethereum.org/). For that reason, we will read from this contract by calling the `retrieve` function, and also send a transaction to this contract by calling the `store` function.
+このガイドのために、simple_storageコントラクトをコンパイルし、[Remix IDE](https://remix.ethereum.org/)上にデプロイした。 そのため、 `retrieve`関数を呼び出してこのコントラクトから読み取りを行い、`store`関数を呼び出してこのコントラクトにトランザクションを送信する。
 
-### 1. Read from contract
+### 1. 契約書を読む
 
-To read from the contract, we used [readContract](https://viem.sh/docs/contract/readContract#readcontract) method which Internally  uses a [Public Client](https://viem.sh/docs/clients/public) to call the [call action](https://viem.sh/docs/actions/public/call) with [ABI-encoded data](https://viem.sh/docs/contract/encodeFunctionData). To see this in action, paste the following code in your `interact.js`.
+ABIエンコードされたデータ](https://viem.sh/docs/contract/encodeFunctionData)を使って[コールアクション](https://viem.sh/docs/actions/public/call)を呼び出すために、内部的に[パブリッククライアント](https://viem.sh/docs/clients/public)を使用する[readContract](https://viem.sh/docs/contract/readContract#readcontract)メソッドを使用した。 これを実際に見るには、`interact.js`に以下のコードを貼り付ける。
 
 ```ts
 import { createPublicClient, http } from 'viem'
@@ -241,9 +241,9 @@ async function readFromContract() {
 
 ```
 
-### 2. Write to contract
+### 2. 契約書
 
-To write to the contract, we used [writeContract](https://viem.sh/docs/contract/writeContract#writecontract) method which Internally uses a [Wallet Client](https://viem.sh/docs/clients/wallet) to call the [sendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction) with [ABI-encoded data](https://viem.sh/docs/contract/encodeFunctionData). To see this in action, paste the following code in your `interact.js`.
+コントラクトに書き込むには、[writeContract](https://viem.sh/docs/contract/writeContract#writecontract)メソッドを使用しました。このメソッドは内部的に[Wallet Client](https://viem.sh/docs/clients/wallet)を使用し、[sendTransaction アクション](https://viem.sh/docs/actions/wallet/sendTransaction)を[ABIエンコードされたデータ](https://viem.sh/docs/contract/encodeFunctionData)で呼び出します。 これを実際に見るには、`interact.js`に以下のコードを貼り付ける。
 
 ```ts
 import { createWalletClient, http } from 'viem'
@@ -306,16 +306,16 @@ async function writeToContract() {
 writeToContract();
 ```
 
-**Output**
+**出力**
 
-To run the script and interact with smart contracts, paste the following command in your terminal:
+スクリプトを実行してスマート・コントラクトとやり取りするには、ターミナルに以下のコマンドを貼り付ける：
 
 ```bash
 npx ts-node interact.ts
 ```
 
-If the transaction was successful, you'll see the transaction hash and the value stored in your terminal.
+トランザクションが成功した場合、トランザクションハッシュとターミナルに保存された値が表示されます。
 
 ![](/img/references/viem-interact.png)
 
-For more in-depth guide on viem, please refer to [viem docs](https://viem.sh/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem).
+viemに関するより詳細なガイドについては、[viem docs](https://viem.sh/docs/getting-started)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem)にあります。

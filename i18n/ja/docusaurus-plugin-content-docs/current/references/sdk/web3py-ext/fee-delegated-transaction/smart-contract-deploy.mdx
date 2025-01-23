@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -65,7 +65,7 @@ output
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=1:2
 
@@ -73,7 +73,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=3:10
 
@@ -81,7 +81,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=12
 
@@ -89,7 +89,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=12
 from web3py_ext import extend
@@ -141,7 +141,7 @@ web3_fee_delegated_smart_contract_deploy_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=15
 
@@ -149,7 +149,7 @@ Load an account from private key
 
 ---
 
-Load a fee payer account from private key
+秘密鍵から料金支払い者アカウントを読み込む
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=16
 
@@ -157,7 +157,7 @@ Load a fee payer account from private key
 
 ---
 
-Create an empty transaction of type **TxType.TX_TYPE_FEE_DELEGATED_SMART_CONTRACT_DEPLOY**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.TX_TYPE_FEE_DELEGATED_SMART_CONTRACT_DEPLOY**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=18
 
@@ -165,7 +165,7 @@ Create an empty transaction of type **TxType.TX_TYPE_FEE_DELEGATED_SMART_CONTRAC
 
 ---
 
-Merge the **additional fields** like **from** and **data** into the empty tx by using the **merge** util.
+**from**や**data**のような**追加フィールド**を、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=19:22
 
@@ -173,7 +173,7 @@ Merge the **additional fields** like **from** and **data** into the empty tx by 
 
 ---
 
-Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+ブロックチェーン・ネットワークにデプロイしたいsolidityコードから**コンパイル済みバイトコード**を設定する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=21
 
@@ -181,7 +181,7 @@ Set the **compiled bytecode** from the solidity code you want to deploy to the b
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=23
 
@@ -189,7 +189,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=25:27
 
@@ -197,7 +197,7 @@ Sign the value transfer tx by user's private key
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=29:30
 
@@ -205,7 +205,7 @@ Recover the **signer's address** from the signature in signed tx
 
 ---
 
-Sign the last raw transaction with **fee payer's account**
+最後の生取引に**手数料支払人の口座**で署名する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=32:33
 
@@ -213,7 +213,7 @@ Sign the last raw transaction with **fee payer's account**
 
 ---
 
-Recover the **fee payer's address** from the signature in signed tx
+署名入りTXの署名から**料金支払い者の住所**を復元する。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=35:36
 
@@ -221,7 +221,7 @@ Recover the **fee payer's address** from the signature in signed tx
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=38:39
 
@@ -229,7 +229,7 @@ You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util
 
 ---
 
-Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに**tx**を送信する。 このハッシュは受信を待つために使用される。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=41
 
@@ -237,7 +237,7 @@ Send the **tx** to the blockchain. It will return the tx hash, which will be use
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 ```py fee_delegated_smart_contract_deploy_sign_recover.py focus=42:43
 

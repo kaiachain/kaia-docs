@@ -1,0 +1,623 @@
+# 更新賬戶
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+from eth_utils.address import to_checksum_address
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_account_update_role_based():
+    transaction_key = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    update_key = Account.from_key('0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda')
+    fee_payer_key = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.FEE_DELEGATED_ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : to_checksum_address("0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea"),
+        'key' : {
+            "type": KeyType.ROLE_BASED,
+            "keys": {
+                "roleTransactionKey": {
+                    "type":KeyType.PUBLIC,
+                    "key": compressed_key(transaction_key)
+                },
+                "roleAccountUpdateKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(update_key)
+                },
+                "roleFeePayerKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(fee_payer_key)
+                }
+            }
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, update_key.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address: ", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_account_update_role_based()
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+{
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 41,
+  "chainId": 1001,
+  "type": 33,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  }
+}
+
+rawTransaction: 21f8da29850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a974
+
+recovered sender address:  0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+
+decoded transaction: {
+  "type": 33,
+  "nonce": 41,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 18727347918799676494996859755384456453784169075037049001717055518319697284617,
+      "s": 38296213664480012201573534359692265422031797825224297482338061132889882798452
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+
+raw transaction of feePayer signed tx: 0x21f9013829850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a97494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a093423ed669c0c0c76c53c17660b6644b3e6d4dd3b9ff79e2a0e806ed7f00f120a00e934491ed6b9caa974132ac5418cedbcc69fc4b1f0ba8967486b9d56a5ec4f2
+recovered feepayer address: ['0xA2a8854b1802D8Cd5De631E690817c253d6a9153']
+
+decoded transaction: {
+  "type": 33,
+  "nonce": 41,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "feePayer": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 18727347918799676494996859755384456453784169075037049001717055518319697284617,
+      "s": 38296213664480012201573534359692265422031797825224297482338061132889882798452
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2037,
+      "r": 66607034336854704869676726256115158277487333092054504647329956124483114823968,
+      "s": 6592579651635282554362947641586686897275388037603811376489932442025345336562
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+tx hash:  0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69 receipt:  AttributeDict({'blockHash': HexBytes('0x2b85cd7babae3f2d49405da8f4d5500ae3bc2462bccf1c46b3a1e3b0cb7fb7c5'), 'blockNumber': 148223525, 'contractAddress': None, 'cumulativeGasUsed': 483882, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 91000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69'), 'transactionIndex': 2, 'type': 0})
+```
+
+</CH.Code>
+
+---
+
+Import **extend** from **web3py_ext** to extend web3 to kaia web3
+
+```py web3_fee_delegated_account_update_role_based.py focus=1:2
+
+```
+
+---
+
+Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
+
+```py web3_fee_delegated_account_update_role_based.py focus=2:16
+
+```
+
+---
+
+Create a Web3 instance with the specified **kairos** testnet URL
+
+```py web3_fee_delegated_account_update_role_based.py focus=18
+
+```
+
+---
+
+Also, you can change the provider URL from **kairos** to **quicknode**.
+
+```py web3_fee_delegated_account_update_role_based.py focus=18
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.klaytn_account.utils import compressed_key
+from web3py_ext.klaytn_account.account_key import KeyType
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from web3py_ext.utils.klaytn_utils import (
+    to_pretty,
+    bytes_to_hex_str
+)
+from cytoolz import merge
+from eth_utils.address import to_checksum_address
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_fee_delegated_account_update_role_based():
+    transaction_key = Account.from_key('0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac')
+    update_key = Account.from_key('0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda')
+    fee_payer_key = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    fee_delegator = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+
+    account_update_tx = empty_tx(TxType.FEE_DELEGATED_ACCOUNT_UPDATE)
+    account_update_tx = merge(account_update_tx, {
+        'from' : to_checksum_address("0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea"),
+        'key' : {
+            "type": KeyType.ROLE_BASED,
+            "keys": {
+                "roleTransactionKey": {
+                    "type":KeyType.PUBLIC,
+                    "key": compressed_key(transaction_key)
+                },
+                "roleAccountUpdateKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(update_key)
+                },
+                "roleFeePayerKey": {
+                    "type": KeyType.PUBLIC,
+                    "key": compressed_key(fee_payer_key)
+                }
+            }
+        }
+    })
+    account_update_tx = fill_transaction(account_update_tx, w3)
+    print(to_pretty(account_update_tx))
+
+    # sign the kaia specific transaction type with web3py
+    signed_tx = Account.sign_transaction(account_update_tx, update_key.key)
+    print('\nrawTransaction:', bytes_to_hex_str(signed_tx.rawTransaction))
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address: ", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(signed_tx.rawTransaction, fee_delegator.address, fee_delegator.key)
+    print("\nraw transaction of feePayer signed tx:", feepayer_signed_tx.rawTransaction.hex())
+
+    feepayer_recovered_tx = Account.recover_transaction_as_feepayer(feepayer_signed_tx.rawTransaction)
+    print("recovered feepayer address:", feepayer_recovered_tx)
+
+    decoded_tx = Account.decode_transaction(feepayer_signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_fee_delegated_account_update_role_based()
+```
+
+---
+
+Load **transaction** key from a private key to use it as **transaction role key**. 您可以用它來簽署交易
+
+```py web3_fee_delegated_account_update_role_based.py focus=21
+
+```
+
+---
+
+Load **update** key from a private key to use it as **update role key**. 您可以用它來簽署該賬戶的賬戶更新交易。 這意味著只有擁有此密鑰的人才能更新此賬戶。
+z
+
+```py web3_fee_delegated_account_update_role_based.py focus=22
+
+```
+
+---
+
+從私人密鑰中加載**繳費人**密鑰，將其用作**繳費人角色密鑰**。 您可以用它作為付費方簽署交易。
+
+```py web3_fee_delegated_account_update_role_based.py focus=23
+
+```
+
+---
+
+從私人密鑰加載 ** fee_delegator** 密鑰
+
+```py web3_fee_delegated_account_update_role_based.py focus=24
+
+```
+
+---
+
+創建**TxType.FEE_DELEGATED_ACCOUNT_UPDATE**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+
+```py web3_fee_delegated_account_update_role_based.py focus=26
+
+```
+
+---
+
+使用 **merge** 工具，將 **sender** 和 **keys** 等附加字段合併到空 tx 中。
+
+```py web3_fee_delegated_account_update_role_based.py focus=27:46
+
+```
+
+---
+
+在這種情況下，要更新的賬戶密鑰是基於**角色的**密鑰，每個角色都有**公鑰**類型。 每個角色都可以使用發佈密鑰或多重身份驗證。
+
+```py web3_fee_delegated_account_update_role_based.py focus=30,32:33,36:37,40:41
+
+```
+
+---
+
+您可以使用 **compressed_key** 工具來設置每個角色的密鑰。 它將從密鑰中提取壓縮公鑰
+
+```py web3_fee_delegated_account_update_role_based.py focus=34,38,42
+
+```
+
+---
+
+使用 **fill_transaction** 為交易對象添加更多參數，如gas限制...
+
+```py web3_fee_delegated_account_update_role_based.py focus=47
+
+```
+
+---
+
+您可以使用 **to_pretty** 工具打印格式化的 tx。
+
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py focus=48
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+ {
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "gas": 159000,
+  "gasPrice": 50000000000,
+  "nonce": 41,
+  "chainId": 1001,
+  "type": 33,
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  }
+}
+```
+
+</CH.Code>
+
+---
+
+簽署賬戶更新 tx 類型。 您應使用 ** 更新角色密鑰** 簽名，因為賬戶 "0x5bd2...cea "已是基於角色的賬戶，以更新該賬戶
+
+<CH.Code>
+```py web3_fee_delegated_account_update_role_based.py focus=50:52
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+
+rawTransaction: 21f8da29850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a974
+````
+
+</CH.Code>
+
+---
+
+**Recovering** the sender's address from the signed transaction
+
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py focus=54:55
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+recovered sender address:  0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+```
+
+</CH.Code>
+
+---
+
+If you want to see the RLP-encoded signed tx, use the **decode_transaction** util
+
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py focus=57:58
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+decoded transaction: {
+  "type": 33,
+  "nonce": 41,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 18727347918799676494996859755384456453784169075037049001717055518319697284617,
+      "s": 38296213664480012201573534359692265422031797825224297482338061132889882798452
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+```
+
+</CH.Code>
+
+---
+
+使用收費委託人賬戶簽署**signed_tx.rawTransaction**。
+
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py focus=60:61
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+
+raw transaction of feePayer signed tx: 0x21f9013829850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238c4cceab86f05f86ca302a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2aa302a10263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a029674da4dd604844d0ba315984d03d5bed928d17e687a99d6daf8193e6c94e09a054aae388b9297d80186595a8c4e25a9a5317ab022965db737a1c10bf4dd6a97494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a093423ed669c0c0c76c53c17660b6644b3e6d4dd3b9ff79e2a0e806ed7f00f120a00e934491ed6b9caa974132ac5418cedbcc69fc4b1f0ba8967486b9d56a5ec4f2
+```
+
+</CH.Code>
+
+---
+
+**從已簽署的交易中恢復**收費委託人的地址
+
+<CH.Code>
+
+```py web3_fee_delegated_account_update_role_based.py focus=63:64
+
+```
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+recovered feepayer address: ['0xA2a8854b1802D8Cd5De631E690817c253d6a9153']
+```
+
+</CH.Code>
+
+---
+
+If you want to see the RLP-encoded signed tx, use the **decode_transaction** util
+
+<CH.Code>
+```py web3_fee_delegated_account_update_role_based.py focus=66:67
+
+````
+
+
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+decoded transaction: {
+  "type": 33,
+  "nonce": 41,
+  "gasPrice": 50000000000,
+  "gas": 159000,
+  "from": "0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA",
+  "feePayer": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures": [
+    {
+      "v": 2037,
+      "r": 18727347918799676494996859755384456453784169075037049001717055518319697284617,
+      "s": 38296213664480012201573534359692265422031797825224297482338061132889882798452
+    }
+  ],
+  "feePayerSignatures": [
+    {
+      "v": 2037,
+      "r": 66607034336854704869676726256115158277487333092054504647329956124483114823968,
+      "s": 6592579651635282554362947641586686897275388037603811376489932442025345336562
+    }
+  ],
+  "key": {
+    "type": 5,
+    "keys": {
+      "roleTransactionKey": {
+        "type": 2,
+        "key": "0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a"
+      },
+      "roleAccountUpdateKey": {
+        "type": 2,
+        "key": "0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3"
+      },
+      "roleFeePayerKey": {
+        "type": 2,
+        "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+      }
+    }
+  },
+  "chainId": 1001
+}
+
+
+````
+
+</CH.Code>
+
+---
+
+**使用收費委託人賬戶向網絡發送\***已簽署的交易，並**_等待_**接收，直到交易在區塊鏈中完全執行為止
+
+<CH.Code>
+```py web3_fee_delegated_account_update_role_based.py focus=69:71
+
+````
+---
+
+```zsh output
+❯ py web3_fee_delegated_account_update_role_based.py
+tx hash:  0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69 receipt:  AttributeDict({'blockHash': HexBytes('0x2b85cd7babae3f2d49405da8f4d5500ae3bc2462bccf1c46b3a1e3b0cb7fb7c5'), 'blockNumber': 148223525, 'contractAddress': None, 'cumulativeGasUsed': 483882, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 91000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0x78dc150b70538beed168e5f673bd6a058287bb6177295e9117771ac3e9e31d69'), 'transactionIndex': 2, 'type': 0})
+````
+
+</CH.Code>
+
+</CH.Spotlight>

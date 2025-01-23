@@ -4,7 +4,7 @@
 
 Transaction Builder를 사용하면 토큰 전송부터 복잡한 컨트랙트 트랜잭션까지 트랜잭션을 구성하고 단일 트랜잭션으로 일괄 처리할 수 있습니다.
 
-## KLAY Token Transfer <a id="token-transfer"></a>
+## KAIA 토큰 전송 <a id="token-transfer"></a>
 
 You can perform token transfer using transaction builder by following the steps below:
 
@@ -12,13 +12,13 @@ You can perform token transfer using transaction builder by following the steps 
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+**Step 2:** Enter the recipient wallet address. 이 가이드에서는 KAIA 송금 거래를 실행하려고 하므로 ABI 필드는 건너뛰셔도 됩니다.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**Step 3:** Enter the KLAY value you want to send.
+\*\*3단계: \*\*전송하려는 KAIA 값을 입력합니다.
 
-> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+> 참고: 이 가이드에서는 KAIA 1개를 전송하므로 **KAIA 값** 입력란에 1을 입력했습니다. 금고의 KAIA 잔액에 따라 여기에 원하는 금액을 입력할 수 있습니다.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 

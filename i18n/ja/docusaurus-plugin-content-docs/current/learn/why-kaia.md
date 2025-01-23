@@ -1,55 +1,55 @@
-# Why Kaia
+# カイアを建てる理由
 
-Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web3 by providing a robust infrastructure for projects of all sizes. This document explains how Kaia is different based on its key design principles and value propositions.
+カイア・ブロックチェーンはアジアNo.1のブロックチェーンになることを目指し、あらゆる規模のプロジェクトに堅牢なインフラを提供することで、Web3の導入をリードしている。 本書では、主要な設計原則と価値提案に基づき、カイアがどのように異なるかを説明する。
 
-## Wide User Base
+## 幅広いユーザーベース
 
-1. **Web2 User Accessibility**: Kaia provides easy access to existing Web2 users through messenger-integrated wallets, collaborating with Kakao (50 million Korean users) and LINE (200 million users in Japan, Taiwan, Indonesia, and Thailand).
+1. **Web2ユーザーへのアクセシビリティ**：カイアは、メッセンジャーと統合されたウォレットを通じて、カカオ（韓国で5,000万人のユーザー）やLINE（日本、台湾、インドネシア、タイで2億人のユーザー）と連携し、既存のWeb2ユーザーへの容易なアクセスを提供する。
 
-2. **Web3 User Accessibility**: Kaia offers more than 1.2 million active wallet addresses and interfaces connecting users to projects, facilitating quick attraction of Web3 users.
+2. **Web3ユーザーアクセシビリティ**：カイアは120万を超えるアクティブなウォレットアドレスと、ユーザーとプロジェクトをつなぐインターフェースを提供し、Web3ユーザーの迅速な取り込みを促進します。
 
-3. **Community Building Support**: Joint marketing with Kaia Foundation helps users gather and build projects, providing an environment with easy access for users from various chains.
+3. **コミュニティ構築支援**：カイア財団との共同マーケティングにより、様々なチェーンからユーザーが集まりやすい環境を提供し、プロジェクト構築を支援。
 
-## Abundant Liquidity Support
+## 豊富な流動性サポート
 
-1. **Real World Asset (RWA) Linkage**: Kaia Blockchain hosts various real-world assets like gold, ships, and real estate. Future plans include on-chaining fiat-backed stablecoins and bonds, expanding the range of assets available to developers.
+1. **実世界資産（RWA）連携**：カイア・ブロックチェーンは金、船、不動産など様々な現実世界の資産をホストしています。 今後の計画としては、フィアットに裏打ちされたステーブルコインや債券をオンチェーン化し、開発者が利用できる資産の範囲を拡大することが挙げられる。
 
-2. **Large-Scale Ecosystem Fund**: The Kaia Ecosystem Fund, based on KAIA tokens, supports various sectors requiring liquidity, such as DeFi and GameFi.
+2. **大規模エコシステム・ファンド**：KAIAトークンに基づくカイア・エコシステム・ファンドは、DeFiやGameFiなど流動性を必要とする様々なセクターを支援する。
 
-3. **Chain Native Yield**: Built-in MEV (Maximal Extractable Value) extraction allows KAIA Stakers to automatically earn MEV profits, increasing chain liquidity and providing a token burning mechanism.
+3. **チェーン・ネイティブ利回り**：内蔵のMEV（Maximal Extractable Value）抽出により、KAIAステーカーは自動的にMEVの利益を得ることができ、チェーンの流動性を高め、トークンの燃焼メカニズムを提供します。
 
-## Top-Level Core Technology and Development Convenience
+## トップレベルのコア技術と開発の利便性
 
-1. **High Performance**:
-   - Main chain handles at least 4,000 TPS with immediate transaction finality and one-second block generation time.
-   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
+1. **高性能**：
+   - メインチェーンは少なくとも4,000TPSを処理し、トランザクションは即座に完了し、ブロック生成時間は1秒である。
+   - <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>ソリューションとして、カスタマイズ可能で展開が容易な[サービスチェーン](scaling-solutions.md#service-chain)による拡張性。
 
-2. **Ethereum Compatibility**:
-   - 100% compatibility ensures EVM-based dApps can be onboarded without modifications.
-   - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. See [Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md), and [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
+2. **イーサリアム互換性**：
+   - 100％の互換性により、EVMベースのdAppを変更することなく搭載できる。
+   - 開発ツール、EVM、APIはイーサリアムと同等であり、シームレスな統合と両エコシステムの相互利益を可能にする。 Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md)、[Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)を参照。
 
-3. **Convenient Account Model**: Enables assigning various keys to accounts, strengthening security and improving user experience.
+3. **便利なアカウントモデル**：アカウントに様々なキーを割り当てることができ、セキュリティを強化し、ユーザーエクスペリエンスを向上させます。
 
-4. **Permissionless and Decentralized Structure**: Kaia is transitioning to a permissionless validator structure, increasing network decentralization.
+4. **パーミッションレスで分散化された構造**：カイアはパーミッションレスのバリデータ構造に移行し、ネットワークの分散化を進めている。
 
-## Low Cost and Enhanced User Experience
+## 低コストとユーザー・エクスペリエンスの向上
 
-1. **Affordable Transaction Fees**: End-users are not burdened with high transaction fees. Costs are stable and determined by transaction complexity. See [Affordable Smart Contract Execution Cost](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) and [Transaction Fees](transaction-fees/transaction-fees.md).
+1. **手頃な取引手数料**：エンドユーザーに高額な取引手数料を負担させることはありません。 コストは安定しており、取引の複雑さによって決まる。 手頃なスマートコントラクト実行コスト](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia)および[取引手数料](transaction-fees/transaction-fees.md)を参照。
 
-2. **[Fee Delegation](./transactions/transactions.md#fee-delegation)**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
+2. **手数料の委任**：アプリケーションがユーザーの取引手数料を負担することで、柔軟なビジネスモデルを可能にし、ユーザー獲得の障壁を下げることができる。
 
-## Open-Source Infrastructure and Ecosystem Support
+## オープンソースのインフラとエコシステムのサポート
 
-1. **Primary Infrastructure**: Includes SDKs, smart contract libraries, wallets, chain explorers, distributed storage solutions, Oracle support, and bridges.
+1. **主要インフラ**：SDK、スマート・コントラクト・ライブラリ、ウォレット、チェーン・エクスプローラー、分散ストレージ・ソリューション、オラクル・サポート、ブリッジを含む。
 
-2. **Secondary Infrastructure**: Ecosystem for supporting products and services, including integration services, stablecoin integrations, DAOs, NFT marketplaces, DEX, DeFi, and traditional finance interfaces.
+2. **二次インフラ**：統合サービス、ステーブルコイン統合、DAO、NFTマーケットプレイス、DEX、DeFi、伝統的な金融インターフェースなど、製品やサービスをサポートするエコシステム。
 
-3. **Ecosystem Fund**: 50% of newly minted tokens are reinvested in the ecosystem through [Kaia Ecosystem Fund](token-economy.md#kaia-ecosystem-fund) and [Kaia Infrastructure Fund](token-economy.md#kaia-infrastructure-fund).
+3. **エコシステム・ファンド**：新たに鋳造されたトークンの50%は、[Kaia Ecosystem Fund](./token-economics/token-economy.md#kaia-ecosystem-fund)と[Kaia Infrastructure Fund](./token-economics/token-economy.md#kaia-infrastructure-fund)を通じてエコシステムに再投資されます。
 
-## Community Co-Building and Governance
+## コミュニティの共同構築とガバナンス
 
-1. **Diverse Community Engagement**: Kaia expands its ecosystem through collaboration with game guilds, investment DAOs, community DAOs, and global alliances.
+1. **多様なコミュニティとの関わり**：カイアは、ゲームギルド、投資DAO、コミュニティDAO、グローバルアライアンスとのコラボレーションを通じてエコシステムを拡大しています。
 
-2. **Decentralized Governance**: The Kaia Governance Council (GC) includes traditional enterprises, DAOs, and builders, creating a unique governance structure with hundreds of participants.
+2. **分散型ガバナンス**：Kaia Governance Council（GC）には、伝統的な企業、DAO、ビルダーが含まれ、数百人の参加者が集うユニークなガバナンス構造を作り出しています。
 
-In summary, Kaia maintains blockchain's core characteristics of transparency, security, and decentralization while providing these enhancements. The protocol remains stable with strongly committed stakeholders, creating an ideal environment for builders to bring innovative Web3 ideas to life.
+要約すると、カイアはブロックチェーンの中核的な特徴である透明性、安全性、分散性を維持しながら、これらの拡張機能を提供している。 プロトコルは関係者の強いコミットメントによって安定しており、構築者にとって革新的なWeb3のアイデアを実現するための理想的な環境を作り出している。

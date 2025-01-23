@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -77,18 +77,18 @@ public class SignTxWithLegacyExample implements keySample {
 ---
 
 ```zsh output
-❯ java SignTxWithLegacyExample.java
+java SignTxWithLegacyExample.java
 TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
-Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
-Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+オリジナルアドレス ：0xa2a8854b1802d8cd5de631e690817c253d6a9153
+結果アドレス : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java SignTxWithLegacyExample.java focus=1:19
 
@@ -96,7 +96,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java SignTxWithLegacyExample.java focus=30
 
@@ -104,7 +104,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java SignTxWithLegacyExample.java focus=30
 package org.web3j.example.accountKey;
@@ -179,7 +179,7 @@ public class SignTxWithLegacyExample implements keySample {
 
 ---
 
-Create a **credential** from private key
+秘密鍵から**クレデンシャル**を作成する。
 
 ```java SignTxWithLegacyExample.java focus=31
 
@@ -187,7 +187,7 @@ Create a **credential** from private key
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java SignTxWithLegacyExample.java focus=33:34
 
@@ -195,7 +195,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Set the **sender** address equal to the loaded credential's address
+**sender**アドレスをロードされたクレデンシャルのアドレスと等しく設定する。
 
 ```java SignTxWithLegacyExample.java focus=35
 
@@ -203,7 +203,7 @@ Set the **sender** address equal to the loaded credential's address
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java SignTxWithLegacyExample.java focus=36:37
 
@@ -211,7 +211,7 @@ Get **chain ID** from the network
 
 ---
 
-Set the **receiver** address equal to any valid address
+レシーバー\*\*アドレスを任意の有効なアドレスに設定する。
 
 ```java SignTxWithLegacyExample.java focus=38
 
@@ -219,7 +219,7 @@ Set the **receiver** address equal to any valid address
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java SignTxWithLegacyExample.java focus=39:40
 
@@ -227,7 +227,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Set the value to transfer
+転送する値を設定する
 
 ```java SignTxWithLegacyExample.java focus=41
 
@@ -235,7 +235,7 @@ Set the value to transfer
 
 ---
 
-Set transaction type as **VALUE_TRANSFER**
+トランザクション・タイプを **VALUE_TRANSFER** に設定する。
 
 ```java SignTxWithLegacyExample.java focus=43
 
@@ -243,7 +243,7 @@ Set transaction type as **VALUE_TRANSFER**
 
 ---
 
-Create a raw transaction for value transfer
+価値移転のための生のトランザクションを作成する
 
 ```java SignTxWithLegacyExample.java focus=45:52
 
@@ -251,7 +251,7 @@ Create a raw transaction for value transfer
 
 ---
 
-Sign the transaction
+取引に署名する
 
 ```java SignTxWithLegacyExample.java focus=54
 
@@ -259,7 +259,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```java SignTxWithLegacyExample.java focus=55:57
@@ -280,7 +280,7 @@ TxHash :
 
 ---
 
-Recover the sender address from signed transaction and compare it to the **from** address
+署名されたトランザクションから送信者アドレスを復元し、それを**from**アドレスと比較する。
 
 <CH.Code>
 ```java SignTxWithLegacyExample.java focus=59:62
@@ -300,7 +300,7 @@ Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java SignTxWithLegacyExample.java focus=64
 

@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -70,7 +70,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=1:2
 
@@ -78,7 +78,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=3:6
 
@@ -86,7 +86,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=8:9
 
@@ -94,7 +94,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=8
 const { Web3, TxType } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=10
 
@@ -143,7 +143,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=11
 
@@ -151,7 +151,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define a transaction object
+トランザクションオブジェクトの定義
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=14:19
 
@@ -159,7 +159,7 @@ Define a transaction object
 
 ---
 
-Set `type: TxType.FeeDelegatedSmartContractDeploy` for transaction to deploy a new contract with a fee payer
+typeを設定する：TxType.FeeDelegatedSmartContractDeploy\`を設定する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=15
 
@@ -167,7 +167,7 @@ Set `type: TxType.FeeDelegatedSmartContractDeploy` for transaction to deploy a n
 
 ---
 
-Set `data: "0x60806040...` is the bytecode of the compile solidity source code
+データをセットする："0x60806040...\`はコンパイルされたソリッドソースコードのバイトコードです。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=17
 
@@ -175,7 +175,7 @@ Set `data: "0x60806040...` is the bytecode of the compile solidity source code
 
 ---
 
-Set others required parameters such as **senderAddr**, **humanReadable**, **codeFormat**
+その他、**senderAddr**、**humanReadable**、**codeFormat**などの必要なパラメータを設定する。
 
 ```js FeeDelegatedSmartContractDeployExample.js focus=16,18,19
 
@@ -183,7 +183,7 @@ Set others required parameters such as **senderAddr**, **humanReadable**, **code
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractDeployExample.js focus=22:24
@@ -202,7 +202,7 @@ senderTxHashRLP 0x29f901888203b9850ba43b74008304f8a1808094a2a8854b1802d8cd5de631
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractDeployExample.js focus=26:28
@@ -221,7 +221,7 @@ signedTx 0x57cf3bfddf3e72effc39e80b9cb6995273822e51d50f55da93a14574b5dae9d1
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 

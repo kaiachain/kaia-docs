@@ -1,3 +1,3 @@
-# State Migration
+# 国家移動
 
-See [Storage Optimization](../state-pruning/#state-batch-pruning-state-migration).
+ストレージの最適化](state-pruning.md#state-batch-pruning-state-migration)を参照。

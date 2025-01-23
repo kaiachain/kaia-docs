@@ -1,41 +1,41 @@
-# Import Ethereum Contracts
+# イーサリアム契約のインポート
 
-In most cases, you can use Ethereum contracts on Klaytn without any modification.
-However, be aware of the following two issues.
+ほとんどの場合、Ethereumの契約はKaia上で修正せずにそのまま使用できます。
+ただし、以下の2点には注意すること。
 
-## Solidity Support <a id="solidity-support"></a>
+## ソリディティ・サポート<a id="solidity-support"></a>
 
-- Cypress network is currently compatible with **London** Ethereum Virtual Machine (EVM).
-- Baobab network is currently compatible with **London** Ethereum Virtual Machine (EVM).
+- Kairosネットワークは現在、**ロンドン**イーサリアム仮想マシン（EVM）と互換性があります。
+- メインネットは現在、**ロンドン**イーサリアム仮想マシン（EVM）と互換性があります。
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+v1.7.0プロトコルアップグレード - **Istanbul**ハードフォークアイテムとKaia自身のアイテムを含む互換性のない変更。
 It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+v1.8.0プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 :::
 
-Backward compatibility is not guaranteed with other EVM versions on Klaytn.
-Thus, it is highly recommended compiling Solidity code with the correct target option according to the protocol upgrade status.
+Kaia上の他のEVMバージョンとの後方互換性は保証されていません。
+したがって、プロトコルのアップグレード状況に応じて、正しいターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。
 
-- Cypress: --evm-version london
-- Baobab: --evm-version london
-- Others(private/service chain): determined according to the protocol upgrade status
+- Kairos: --evm-version london
+- Mainnet: --evm-version london
+- その他（プライベート／サービスチェーン）：プロトコルのアップグレード状況に応じて決定
 
-Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+[solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
-An example command is shown below:
+コマンドの例を以下に示す：
 
 ```
 $ solc --evm-version london contract.sol
 ```
 
-## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
+## 分離されたキー・ペア<a id="decoupled-key-pairs"></a>
 
-Klaytn [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](../../learn/computation/precompiled-contracts.md).
+カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は[こちら](../../learn/computation/precompiled-contracts.md)を参照。

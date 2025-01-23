@@ -1,0 +1,173 @@
+# 基於角色的賬戶密鑰
+
+**AccountKeyRoleBased** 表示基於角色的密鑰。 如果賬戶有一個**AccountKeyRoleBased**對象，且交易類型為**except account update**，那麼驗證過程將根據每個角色進行，如下所示：
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_role_based_value_transfer_message_recover.py
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_role_based_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # role-based account address
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+        # transaction role key of role-based account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_role_based_value_transfer_message_recover()
+```
+
+---
+
+```zsh output
+❯ python web3_public_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+
+sender 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+從 **eth_utils**、**web3** 和 **eth_account** 中導入必要的實用程序
+
+```py web3_role_based_value_transfer_message_recover.py focus=1:4
+
+```
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py web3_role_based_value_transfer_message_recover.py focus=5
+
+```
+
+---
+
+使用 **Web3.HTTPProvider** 和 RPC 端點定義 web3 連接
+
+```py web3_role_based_value_transfer_message_recover.py focus=7
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```py web3_role_based_value_transfer_message_recover.py focus=7
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_role_based_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # role-based account address
+        '0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea',
+        # transaction role key of role-based account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_role_based_value_transfer_message_recover()
+```
+
+---
+
+使用 **賬戶.from_key_pair**（基於角色的賬戶的角色密鑰）從私鑰定義錢包
+
+```py web3_role_based_value_transfer_message_recover.py focus=10:13
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```py web3_role_based_value_transfer_message_recover.py focus=16
+
+```
+
+---
+
+使用**encode_defunct**對報文進行格式化，使其與 EIP-191 標準兼容。
+
+```py web3_role_based_value_transfer_message_recover.py focus=17
+
+```
+
+---
+
+使用創建的賬戶簽署交易
+
+```py web3_role_based_value_transfer_message_recover.py focus=18
+
+```
+
+---
+
+打印簽名及其長度
+
+<CH.Code>
+```py web3_role_based_value_transfer_message_recover.py focus=20:21
+
+````
+
+---
+
+```zsh output
+❯ python web3_role_based_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+````
+
+</CH.Code>
+
+---
+
+使用**Account.rec recover_message**從簽名郵件中恢復發件人地址
+
+<CH.Code>
+```py web3_role_based_value_transfer_message_recover.py focus=20:21
+
+````
+---
+
+```zsh output
+❯ python web3_role_based_value_transfer_message_recover.py
+sender 0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+</CH.Spotlight>

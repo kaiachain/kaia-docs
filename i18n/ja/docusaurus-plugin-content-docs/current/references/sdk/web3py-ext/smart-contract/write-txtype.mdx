@@ -1,4 +1,4 @@
-# Write with TxType
+# TxTypeで書き込む
 
 <CH.Spotlight>
 <CH.Code>
@@ -45,18 +45,18 @@ contract_interaction_with_klaytn_type()
 ---
 
 ```zsh output
-❯ py contract_interaction_with_kaia_type.py
-number before:  295
-receipt:  AttributeDict({'blockHash': HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'blockNumber': 147325275, 'contractAddress': None, 'cumulativeGasUsed': 497423, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000128'), 'blockNumber': 147325275, 'transactionHash': HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex': 3, 'blockHash': HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'logIndex': 9, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex': 3, 'type': 0})
+❯ contract_interaction_with_kaia_type.py
+number before: 295
+receipt：  AttributeDict({'blockHash'：HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'blockNumber':147325275, 'contractAddress'：None, 'cumulativeGasUsed'：497423, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2d505', 'topics'：[HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000128'), 'blockNumber':147325275, 'transactionHash'：HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex':3, 'blockHash'：HexBytes('0xe12ce22f39c5104ceae275bd326e6aef8378ca4cf750bec87d28f5bc8416c09b'), 'logIndex':9, 'removed'：False})], 'logsBloom'：HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'),'status'：1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash'：HexBytes('0x1eff7f363dc48eb91fe825939097ee8795f4a080339a9173cfdba444de69e61e'), 'transactionIndex':3, 'type': 0})
 
-number before:  296
+数値前: 296
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py contract_interaction_with_kaia_type.py focus=1:2
 
@@ -64,7 +64,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py contract_interaction_with_kaia_type.py focus=3:7
 
@@ -72,7 +72,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Create a Web3 instance with the **kairos** testnet endpoint
+**kairos**テストネットエンドポイントでWeb3インスタンスを作成する
 
 ```py contract_interaction_with_kaia_type.py focus=9:11
 
@@ -80,7 +80,7 @@ Create a Web3 instance with the **kairos** testnet endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py contract_interaction_with_kaia_type.py focus=9:11
 from web3py_ext import extend
@@ -123,7 +123,7 @@ contract_interaction_with_klaytn_type()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py contract_interaction_with_kaia_type.py focus=12
 
@@ -131,7 +131,7 @@ Load an account from private key
 
 ---
 
-Create a **contract instance** with its address and ABI
+アドレスとABIを持つ**契約インスタンス**を作成する。
 
 ```py contract_interaction_with_kaia_type.py focus=15:18
 
@@ -139,7 +139,7 @@ Create a **contract instance** with its address and ABI
 
 ---
 
-Set the **contract address** that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+デプロイチュートリアルでデプロイした**契約アドレス**を設定します（**カウンター契約**）。 デプロイされたTXの領収書に住所が記載されています。
 
 ```py contract_interaction_with_kaia_type.py focus=16
 
@@ -147,7 +147,7 @@ Set the **contract address** that you deployed in the deploy tutorial (**Counter
 
 ---
 
-Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+契約アビを設定する。 remixまたはsolcコンパイラでコンパイル後、ABIを取得できます。
 
 ```py contract_interaction_with_kaia_type.py focus=17
 
@@ -155,7 +155,7 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 
 ---
 
-Call the view function of the contract and **print** the result before it is updated
+コントラクトのビュー関数を呼び出し、更新される前に結果を**印刷**する。
 
 <CH.Code>
 ```py contract_interaction_with_kaia_type.py focus=20:21
@@ -170,7 +170,7 @@ number before:  295
 
 ---
 
-Make a tx with **build_transaction** that returns the tx instance along with the additional fields passed as parameter
+**build_transaction**でtxを作成し、txインスタンスとパラメータとして渡された追加フィールドを返す。
 
 ```py contract_interaction_with_kaia_type.py focus=23:27
 
@@ -178,7 +178,7 @@ Make a tx with **build_transaction** that returns the tx instance along with the
 
 ---
 
-You should pass **TxType.SMART_CONTRACT_EXECUTION** type to make a kaia tx contract execution type
+カイアのTxコントラクト実行タイプを作成するには、**TxType.SMART_CONTRACT_EXECUTION**タイプを渡す必要があります。
 
 ```py contract_interaction_with_kaia_type.py focus=25
 
@@ -186,7 +186,7 @@ You should pass **TxType.SMART_CONTRACT_EXECUTION** type to make a kaia tx contr
 
 ---
 
-Use **fill_transaction** util to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py contract_interaction_with_kaia_type.py focus=5,28
 
@@ -194,7 +194,7 @@ Use **fill_transaction** util to add **rest of the fields** of the transaction l
 
 ---
 
-Sign the tx with the user's private key
+ユーザーの秘密鍵でtxに署名する。
 
 ```py contract_interaction_with_kaia_type.py focus=29
 
@@ -202,7 +202,7 @@ Sign the tx with the user's private key
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash
+ブロックチェーンに送信する。 TXハッシュを返す
 
 ```py contract_interaction_with_kaia_type.py focus=30
 
@@ -210,7 +210,7 @@ Send the tx to the blockchain. It will return the tx hash
 
 ---
 
-Wait the tx **receipt** from the blockchain and **print** after received the tx receipt
+ブロックチェーンからの**受信**を待ち、受信後**印刷**する。
 
 <CH.Code>
 ```py contract_interaction_with_kaia_type.py focus=31
@@ -225,7 +225,7 @@ receipt:  AttributeDict({'blockHash': HexBytes('0xe12ce22f39c5104ceae275bd326e6a
 
 ---
 
-Call the view function again to see **what number** the counter have after the tx
+Txの後にカウンタが何番\*\*かを見るために、もう一度ビュー関数を呼び出す。
 
 <CH.Code>
 ```py contract_interaction_with_kaia_type.py focus=33:34

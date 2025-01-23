@@ -1,6 +1,6 @@
-# Units
+# 単位
 
-For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+単位変換のために、Kaia-SDKは`kaia`、`Gkei`、`kei`の変換ユーティルをサポートしている。 対応ユニット](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-)を参照。
 
 <CH.Spotlight>
   <CH.Code>
@@ -40,35 +40,35 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
   ---
 
-  Import the `formatKlay`, `parseKlay`, `formatKlayUnits`, from **@kaiachain/web3js-ext** packages
+  `formatKlay`、`parseKlay`、`formatKlayUnits` を **@kaiachain/web3js-ext** パッケージからインポートする。
 
   ```js unitUtils.js focus=1
   ```
 
   ---
 
-  To convert **peb** to other units, use `formatKlayUnits`. For example, using `formatKlayUnits` converting **peb** to **ston**
+  **peb**を他の単位に変換するには、`formatKlayUnits`を使用する。 例えば、`formatKlayUnits` を使って、**peb** を **ston** に変換する。
 
   ```js unitUtils.js focus=8:11
   ```
 
   ---
 
-  Using `formatKlay` converts **peb** to **klay**
+  `formatKlay`を使用すると、**peb**は**klay**に変換される。
 
   ```js unitUtils.js focus=12
   ```
 
   ---
 
-  Using `parseKlayUnits` to convert value from one unit to **peb**. The first param is the **value**, the second param is the unit to **be converted**
+  `parseKlayUnits`を使用して、値を1つの単位から**peb**に変換する。 最初のparamは**value**、2番目のparamは**変換する単位**である。
 
   ```js unitUtils.js focus=13:16
   ```
 
   ---
 
-  Using `parseKlay` to convert **klay** to **peb**
+  `parseKlay`を使用して**klay**を**peb**に変換する。
 
   ```js unitUtils.js focus=17
   ```

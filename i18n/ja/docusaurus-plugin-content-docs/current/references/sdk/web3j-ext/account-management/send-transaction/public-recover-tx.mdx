@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 <CH.Spotlight>
 <CH.Code>
@@ -81,18 +81,18 @@ public class SignTxWithPubkeyExample implements keySample {
 ---
 
 ```zsh output
-❯ java SignTxWithPubkeyExample.java
+java SignTxWithPubkeyExample.java
 TxHash :
  0xcb3c9869bdb600e6fdb74fe06a727900f8beb3126b5a8e899e29d5fbba7873f6
-Original address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
-Result address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+オリジナルアドレス ：0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+結果アドレス : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java SignTxWithPubkeyExample.java focus=1:19
 
@@ -100,7 +100,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java SignTxWithPubkeyExample.java focus=30
 
@@ -108,7 +108,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java SignTxWithPubkeyExample.java focus=30
 package org.web3j.example.accountKey;
@@ -185,7 +185,7 @@ public class SignTxWithPubkeyExample implements keySample {
 
 ---
 
-Create a **credential** from a key pair which is a **public** key type
+**public**キー・タイプのキー・ペアから**クレデンシャル**を作成する。
 
 ```java SignTxWithPubkeyExample.java focus=31:32
 
@@ -193,7 +193,7 @@ Create a **credential** from a key pair which is a **public** key type
 
 ---
 
-**Gas price** and **gas limit** settings
+**ガス料金**とガス上限\*\*の設定
 
 ```java SignTxWithPubkeyExample.java focus=34:35
 
@@ -201,7 +201,7 @@ Create a **credential** from a key pair which is a **public** key type
 
 ---
 
-Set the **sender** address equal to the loaded credential's address
+**sender**アドレスをロードされたクレデンシャルのアドレスと等しく設定する。
 
 ```java SignTxWithPubkeyExample.java focus=36
 
@@ -209,7 +209,7 @@ Set the **sender** address equal to the loaded credential's address
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java SignTxWithPubkeyExample.java focus=37:38
 
@@ -217,7 +217,7 @@ Get **chain ID** from the network
 
 ---
 
-Set the **receiver** address equal to any valid address
+レシーバー\*\*アドレスを任意の有効なアドレスに設定する。
 
 ```java SignTxWithPubkeyExample.java focus=39
 
@@ -225,7 +225,7 @@ Set the **receiver** address equal to any valid address
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java SignTxWithPubkeyExample.java focus=40:41
 
@@ -233,7 +233,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Set the value to transfer
+転送する値を設定する
 
 ```java SignTxWithPubkeyExample.java focus=42
 
@@ -241,7 +241,7 @@ Set the value to transfer
 
 ---
 
-Set transaction type as **VALUE_TRANSFER**
+トランザクション・タイプを **VALUE_TRANSFER** に設定する。
 
 ```java SignTxWithPubkeyExample.java focus=44
 
@@ -249,7 +249,7 @@ Set transaction type as **VALUE_TRANSFER**
 
 ---
 
-Create a raw transaction for value transfer
+価値移転のための生のトランザクションを作成する
 
 ```java SignTxWithPubkeyExample.java focus=46:53
 
@@ -257,7 +257,7 @@ Create a raw transaction for value transfer
 
 ---
 
-Sign the transaction
+取引に署名する
 
 ```java SignTxWithPubkeyExample.java focus=55
 
@@ -265,7 +265,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```java SignTxWithPubkeyExample.java focus=56:58
@@ -285,7 +285,7 @@ TxHash :
 
 ---
 
-Recover the sender address from signed transaction and compare it to the **from** address
+署名されたトランザクションから送信者アドレスを復元し、それを**from**アドレスと比較する。
 
 <CH.Code>
 ```java SignTxWithPubkeyExample.java focus=60:64
@@ -305,7 +305,7 @@ Result address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java SignTxWithPubkeyExample.java focus=66
 

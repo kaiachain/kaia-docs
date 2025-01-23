@@ -1,35 +1,35 @@
-# Terms of Use
+# 利用規約
 
-## 1. Your Use of Open Source Software <a id="1-your-use-of-open-source-software"></a>
+## 1. オープンソース・ソフトウェアの使用<a id="1-your-use-of-open-source-software"></a>
 
-We may make (but are not obligated to make) the source code of Klaytn Blockchain Network Platform ("Platform"), the software on the Platform, etc. for download as open source software. If you use this open source software, you agree to be bound by and comply with any license that applies to this open source software. You will not indicate that you are associated with us in connection with your use, modifications or distributions of this open source software.
+当社は、Kaia Blockchain Network Platform（以下「本プラットフォーム」といいます）のソースコード、本プラットフォーム上のソフトウェア等を、オープンソースソフトウェアとしてダウンロードできるようにすることがあります（ただし、公開する義務を負うものではありません）。 本オープンソースソフトウェアを使用する場合、お客様は、本オープンソースソフトウェアに適用されるライセンスに拘束され、これを遵守することに同意するものとします。 本オープンソースソフトウェアの使用、改変、配布に関連して、あなたが当社と関係があることを示すことはできません。
 
-## 2. Services Provided on the Platform <a id="2-services-provided-on-the-platform"></a>
+## 2. プラットフォームで提供されるサービス<a id="2-services-provided-on-the-platform"></a>
 
-The Platform is a combination of peer-to-peer subnetworks of nodes transmitting transactions and blocks to execute value transfers and run smart contracts. The Core Cell Network ("CCN"), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. The CCN is operated by Klaytn Governance Council, which is a collective group of Core Cell Operators, and Klaytn is not directly involved in any services that are provided in or individual transactions that occur on the Platform.
+プラットフォームは、価値の移転とスマートコントラクトの実行のために、トランザクションとブロックを送信するノードのピアツーピア・サブネットワークの組み合わせである。 The Core Cell Network ("CCN"), which is one of the subnetworks that constitute the Platform, verifies and executes transactions that occur on the Platform. CCNは、コアセル事業者の集合体であるカイア・ガバナンス・カウンシルによって運営されており、カイアは、本プラットフォームにおいて提供されるサービス及び本プラットフォーム上で発生する個々の取引には直接関与しません。
 
-## 3. Your Installation of dApp on the Platform <a id="3-your-installation-of-dapp-on-the-platform"></a>
+## 3. プラットフォームへのdAppのインストール<a id="3-your-installation-of-dapp-on-the-platform"></a>
 
-Your use of open source software is free of charge. However, you may be required to pay a certain number of KLAY as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
+オープンソースソフトウェアの使用は無料です。 However, you may be required to pay a certain number of KLAY as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
 
-Once transaction is executed successfully and respective block generation is verified successfully by the Platform’s mechanism, the block is irreversibly stored in the blockchain. As such, your installation of the dApp and any other transactions on the Platform, as well as the submission of transaction fee is final and irrevocable.
+トランザクションが正常に実行され、それぞれのブロック生成がプラットフォームのメカニズムによって正常に検証されると、そのブロックはブロックチェーンに不可逆的に保存される。 そのため、お客様によるdAppのインストール、プラットフォーム上でのその他の取引、および取引手数料の提出は、最終的なものであり、取り消すことはできません。
 
-## 4. User Content <a id="4-user-content"></a>
+## 4. ユーザーコンテンツ<a id="4-user-content"></a>
 
-If you or the users of your dApp post, upload, input, provide or submit any content on the Platform (collectively, your "User Content"), you must ensure that the User Content provided by you or the users of your dApp at that or at any other time is true, accurate, up to date and complete and that any User Content you or the users of your dApp post, upload, input, provide or submit via the Platform do not breach or infringe legal rights of any third party. To the extent that is technically possible, you agree to prevent, remove or block access of any User Content that you or the users of your dApp post, upload, input, provide or submit via the Platform that violate or may violate legal rights (such as rights of privacy and publicity) of others or any applicable laws or regulations. We do not own, control or endorse any User Content that is transmitted, stored or processed via the Platform or sent to us and we are not responsible or liable for any User Content. We make no assurance that any of Your Content will be secured or that such content will remain confidential.
+If you or the users of your dApp post, upload, input, provide or submit any content on the Platform (collectively, your "User Content"), you must ensure that the User Content provided by you or the users of your dApp at that or at any other time is true, accurate, up to date and complete and that any User Content you or the users of your dApp post, upload, input, provide or submit via the Platform do not breach or infringe legal rights of any third party. To the extent that is technically possible, you agree to prevent, remove or block access of any User Content that you or the users of your dApp post, upload, input, provide or submit via the Platform that violate or may violate legal rights (such as rights of privacy and publicity) of others or any applicable laws or regulations. 当社は、本プラットフォームを介して送信、保存、または処理される、または当社に送信されるユーザーコンテンツを所有、管理、または保証するものではなく、いかなるユーザーコンテンツに対しても責任を負いません。 当社は、お客様のコンテンツが保護されること、または当該コンテンツが機密性を保持することを保証しません。
 
 You are solely responsible and liable for all of your User Content and for your use of any interactive features, links or information or content on the Platform, and you represent and warrant that (i) you own all intellectual property rights (or have obtained all necessary permissions) to provide your User Content and to grant the licenses in these Terms of Use; (ii) your User Content will not violate any agreements or confidentiality obligations; and (iii) your User Content will not violate, infringe or misappropriate any intellectual property right or other proprietary right, including the right of publicity or privacy, of any person or entity.
 
-You shall not include in User Content, or upload, transmit to or create or include in the Services environment any production data or any sensitive, proprietary, confidential or other data with particular data protection requirements such as personal data or personally identifiable information relating to an identified or identifiable natural person.
+ユーザーは、ユーザーコンテンツに生産データ、機密データ、専有データ、秘密データ、または特定もしくは識別可能な自然人に関する個人情報など、データ保護が特に要求されるその他のデータをアップロード、送信、または本サービス環境に作成もしくは含めることはできません。
 
-You are prohibited from using the Platform to post or transmit any threatening, libellous, defamatory, obscene, scandalous, inflammatory, pornographic or profane material, any material that is contrary to applicable local, federal, or international laws and regulations, or any material that could constitute or encourage unlawful conduct. You must ensure that your User Content do not include such materials. We may from time to time monitor or review material transmitted or posted using the Network, and we reserve the right to delete any material we deem inappropriate.
+お客様は、本プラットフォームを使用して、脅迫的、中傷的、名誉毀損的、わいせつ的、スキャンダラス、扇動的、ポルノ的、または冒涜的な素材、適用される地域、連邦、または国際的な法律および規制に反する素材、または違法行為を構成または助長する可能性のある素材を投稿または送信することは禁じられています。 利用者は、利用者のユーザーコンテンツにそのような素材が含まれないようにしなければなりません。 当社は、本ネットワークを使用して送信または投稿されたマテリアルを随時監視または確認することができ、当社が不適切と判断したマテリアルを削除する権利を留保します。
 
-We are under no obligation to do so and assume no responsibility or liability arising from any material transmitted or posted using the Platform.
+当社は、本プラットフォームを使用して送信または投稿されたマテリアルから生じるいかなる責任または義務も負いません。
 
-You understand that any information you or users of your dApp upload to the Platform will be distributed among the blockchain nodes and may not removable due to technical limitations of the blockchain technology.
+お客様は、お客様またはお客様のdAppのユーザーが本プラットフォームにアップロードする情報は、ブロックチェーンノード間で分散され、ブロックチェーン技術の技術的制限により削除できない場合があることを理解するものとします。
 
-You are entirely responsible for any and all activities that occur under your account or your dApp (if any). You agree to notify us immediately of any unauthorized use of your User Content, your dApp or account or any other breach of security. We will not be liable for any loss or damages that you may incur as a result of someone else using your User Content, your dApp or account, either with or without your knowledge. However, you could be held liable for losses incurred by us or another party due to someone else using your User Content, your dApp or account. You may not use anyone else’s User Content, your dApp or account at any time without the permission of such person or entity.
+You are entirely responsible for any and all activities that occur under your account or your dApp (if any). お客様は、お客様のユーザーコンテンツ、お客様のdAppまたはアカウントが不正に使用された場合、またはその他のセキュリティ違反があった場合、直ちに当社に通知することに同意するものとします。 当社は、お客様のユーザーコンテンツ、お客様のdAppまたはアカウントを他人が使用した結果、お客様が被る可能性のある損失または損害について、お客様の認識の有無にかかわらず、一切責任を負いません。 ただし、他者がお客様のユーザーコンテンツ、お客様のdAppまたはアカウントを使用したことにより当社または他者が被った損失については、お客様が責任を負う可能性があります。 お客様は、他人のユーザーコンテンツ、お客様のdAppまたはアカウントを、当該個人または事業体の許可なく、いつでも使用することはできません。
 
-By posting, uploading, inputting, providing or submitting your User Content to the Platform, you grant to participants of the Platform and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display your User Content and sub-license such rights to others.
+お客様は、お客様のユーザーコンテンツを本プラットフォームに投稿、アップロード、入力、提供または送信することにより、本プラットフォームの参加者および必要なサブライセンシーに対し、お客様のユーザーコンテンツを使用、複製、コピー、編集、変更、翻訳、再フォーマット、派生物の作成、配布、送信、公に上演および公に展示する非独占的、世界的、永続的な権利および許可を付与し、かかる権利を他者にサブライセンスするものとします。
 
-If we have reason to believe that there is likely to be a breach of security, breach or misuse of the Platform or if you breach any of your obligations under these terms, we may suspend your use of the Platform at any time and for any reason.
+本プラットフォームのセキュリティ違反、違反もしくは誤用が発生する可能性があると信じるに足る理由がある場合、またはお客様が本規約に基づくお客様の義務に違反した場合、当社はいつでも、いかなる理由によっても、お客様の本プラットフォームの使用を停止することができます。

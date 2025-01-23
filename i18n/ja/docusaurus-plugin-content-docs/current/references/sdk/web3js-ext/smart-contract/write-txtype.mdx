@@ -1,4 +1,4 @@
-# Write with TxType
+# TxTypeで書き込む
 
 <CH.Spotlight>
 <CH.Code>
@@ -104,7 +104,7 @@ number after 296
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractWriteWithTxType.js focus=1
 
@@ -112,7 +112,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define sender's **address** and **private key**
+送信者の**address**と**private key**を定義する。
 
 ```js smartContractWriteWithTxType.js focus=3:4
 
@@ -120,7 +120,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js smartContractWriteWithTxType.js focus=6:7
 
@@ -128,7 +128,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractWriteWithTxType.js focus=6
 const { Web3, TxType } = require("@kaiachain/web3js-ext");
@@ -197,7 +197,7 @@ main();
 
 ---
 
-Create a sender's account using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使って送信者アカウントを作成する。
 
 ```js smartContractWriteWithTxType.js focus=8
 
@@ -205,7 +205,7 @@ Create a sender's account using `web3.eth.accounts.privateKeyToAccount`
 
 ---
 
-Define contract **Abi** and **address** to interact with
+契約**Abi**と**address**を定義する。
 
 ```js smartContractWriteWithTxType.js focus=33:34
 
@@ -213,7 +213,7 @@ Define contract **Abi** and **address** to interact with
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractWriteWithTxType.js focus=37
 
@@ -221,7 +221,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Get the **number** before update
+更新前に**number**を取得
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=39
@@ -238,7 +238,7 @@ number before 295
 
 ---
 
-Encoded the contract method data with `contract.methods.increment().encodeABI()`
+contract.methods.increment().encodeABI()\`でコントラクト・メソッド・データをエンコードする。
 
 ```js smartContractWriteWithTxType.js focus=41
 
@@ -246,7 +246,7 @@ Encoded the contract method data with `contract.methods.increment().encodeABI()`
 
 ---
 
-Create a transaction to update the value **number** with `type: FeeDelegatedSmartContractExecution`
+値 **number** を `type：タイプ: FeeDelegatedSmartContractExecution` である。
 
 ```js smartContractWriteWithTxType.js focus=42:47
 
@@ -254,7 +254,7 @@ Create a transaction to update the value **number** with `type: FeeDelegatedSmar
 
 ---
 
-Sign the transaction with **sender** account
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=49:50
@@ -271,7 +271,7 @@ signedTx 0xb4e2f9d3a6c3d24a318028ff904f2d21e79ca6f2adc41aa099cd1be70f7952b9
 
 ---
 
-Send the transaction to network and wait for the receipt
+トランザクションをネットワークに送信し、レシートを待つ。
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=52:53
@@ -314,7 +314,7 @@ receipt {
 
 ---
 
-Get the **number** after update
+アップデート後の**number**を取得
 
 <CH.Code>
 ```js smartContractWriteWithTxType.js focus=55

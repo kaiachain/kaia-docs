@@ -1,6 +1,6 @@
-TxTypeLegacyTransaction represents a type of transactions existed previously in kaia.
+TxTypeLegacyTransactionは、kaiaに以前存在したトランザクションのタイプを表す。
 
-\*\*This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
+\*\*このタイプのトランザクションは、アカウントの作成、トークンの転送、スマート・コントラクトのデプロイ、スマート・コントラクトの実行、または前述の混合を実行できる。
 
 <CH.Spotlight>
 
@@ -55,7 +55,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js txTypeLegacyTransaction.js focus=1
 
@@ -63,7 +63,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender, reciver address and sender private key**
+**送信者、受信者アドレス、送信者秘密鍵**を定義する。
 
 ```js txTypeLegacyTransaction.js focus=2:4
 
@@ -71,7 +71,7 @@ Define **sender, reciver address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js txTypeLegacyTransaction.js focus=6
 
@@ -79,7 +79,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js txTypeLegacyTransaction.js focus=6
 const { Web3, KlaytnWeb3, toPeb } = require("@kaiachain/web3js-ext");
@@ -106,7 +106,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js txTypeLegacyTransaction.js focus=7
 
@@ -114,7 +114,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Define transaction data with from (the sender address), to (receiver address), value (amount to transfer, use **toPeb** to set the value in Klay then it will be converted)
+from(送信者アドレス)、to(受信者アドレス)、value(送金額。**toPeb**を使用してKlayに値を設定し、その後変換される)で取引データを定義する。
 
 ```js txTypeLegacyTransaction.js focus=8:12
 
@@ -122,7 +122,7 @@ Define transaction data with from (the sender address), to (receiver address), v
 
 ---
 
-The **privateKeyToAccount** method create account instance from sender's private key.
+**privateKeyToAccount**メソッドは、送信者の秘密鍵からアカウント・インスタンスを作成する。
 
 ```js txTypeLegacyTransaction.js focus=13
 
@@ -130,7 +130,7 @@ The **privateKeyToAccount** method create account instance from sender's private
 
 ---
 
-The **signTransaction** method signs transaction with sender account.
+**signTransaction**メソッドはトランザクションに送信者アカウントで署名する。
 
 <CH.Code>
 ```js txTypeLegacyTransaction.js focus=14:15
@@ -147,7 +147,7 @@ signedTx 0x96b41f32f35f38ddd3e21aed8e8aa929ea6514ecf9f0b898014b00734056cc47
 
 ---
 
-The **sendSignedTransaction** method send the signed transaction into blockchain.
+**sendSignedTransaction**メソッドは署名されたトランザクションをブロックチェーンに送信する。
 
 ```js txTypeLegacyTransaction.js focus=16
 
@@ -155,7 +155,7 @@ The **sendSignedTransaction** method send the signed transaction into blockchain
 
 ---
 
-The **getTransactionReceipt** method returns the receipt of transaction.
+**getTransactionReceipt**メソッドは、トランザクションのレシートを返す。
 
 ```js txTypeLegacyTransaction.js focus=17
 
@@ -163,7 +163,7 @@ The **getTransactionReceipt** method returns the receipt of transaction.
 
 ---
 
-Finally, get the result.
+最後に結果を出す。
 
 <CH.Code>
 

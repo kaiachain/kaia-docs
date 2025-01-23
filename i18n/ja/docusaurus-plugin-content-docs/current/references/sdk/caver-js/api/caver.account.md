@@ -1,8 +1,8 @@
 # caver.account
 
-`caver.account` is a package that provides functionality related to Account that is used when updating an account.
+`caver.account` はアカウントを更新する際に使用するアカウントに関する機能を提供するパッケージである。
 
-## Class <a id="class"></a>
+## クラス<a id="class"></a>
 
 ### Account <a id="account"></a>
 
@@ -10,14 +10,14 @@
 const account = new caver.account(address, accountKey)
 ```
 
-`Account` is a class that contains information needed to update the [AccountKey] of the account in the kaia blockchain platform (kaia). This is the default class for the `caver.account` package. To create an Account instance with public key string(s), please refer to [caver.account.create](#caver-account-create).
+`Account`は、kaiaブロックチェーンプラットフォーム（kaia）のアカウントの[AccountKey]を更新するために必要な情報を含むクラスです。 これは `caver.account` パッケージのデフォルトクラスである。 公開鍵文字列を持つアカウント・インスタンスを作成するには、[caver.account.create](#caver-account-create) を参照。
 
-**properties**
+**プロパティ**
 
-| Name       | Type   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address    | string | The address of account to be updated.                                                                                                                                                                                                                                                                                                                                                                                                  |
-| accountKey | object | The new accountKey to be used in account. This can be an instance of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased). When the transaction is executed, the accountKey of the account stored in the kaia is changed to this. |
+| 名称      | タイプ    | 説明                                                                                                                                                                                                                                                                                                                     |
+| ------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 住所      | ストリング  | 更新するアカウントのアドレス。                                                                                                                                                                                                                                                                                                        |
+| アカウントキー | オブジェクト | アカウントで使用する新しい accountKey。 これは、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)、または[AccountKeyRoleBased](#accountkeyrolebased)のインスタンスである。 トランザクションが実行されると、kaiaに保存されているアカウントのaccountKeyがこれに変更される。 |
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
@@ -25,7 +25,7 @@ const account = new caver.account(address, accountKey)
 const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 ```
 
-`AccountKeyLegacy` is used to update the AccountKey of an account in the kaia with [AccountKeyLegacy]. To create an Account instance with `AccountKeyLegacy`, please refer to [caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy).
+`AccountKeyLegacy`は、KaiaのアカウントのAccountKeyを[AccountKeyLegacy]で更新するために使用される。 `AccountKeyLegacy`を持つAccountインスタンスを作成するには、[caver.account.createWithAccountKeyLegacy](#caver-account-createwithaccountkeylegacy) を参照してください。
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
@@ -33,15 +33,15 @@ const accountKeyLegacy = new caver.account.accountKey.accountKeyLegacy()
 const accountKeyPublic = new caver.account.accountKey.accountKeyPublic(publicKey)
 ```
 
-`AccountKeyPublic` is used to update the AccountKey of an account in the kaia with [AccountKeyPublic]. By updating AccountKey to `AccountKeyPublic`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in kaia. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for details.
+`AccountKeyPublic`は、kaiaのアカウントのAccountKeyを[AccountKeyPublic]で更新するために使用される。 AccountKeyを`AccountKeyPublic`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
 
-To create an Account instance with `AccountKeyPublic`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic).
+`AccountKeyPublic`を持つAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyPublic](#caver-account-createwithaccountkeypublic)を参照してください。
 
-**properties**
+**プロパティ**
 
-| Name      | Type   | Description                            |
-| --------- | ------ | -------------------------------------- |
-| publicKey | string | The public key string. |
+| 名称      | タイプ   | 説明       |
+| ------- | ----- | -------- |
+| パブリックキー | ストリング | 公開鍵の文字列。 |
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
@@ -49,7 +49,7 @@ To create an Account instance with `AccountKeyPublic`, please refer to [caver.ac
 const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 ```
 
-`AccountKeyFail` is used to update AccountKey of an account in the kaia with [AccountKeyFail]. To create an Account instance with `AccountKeyFail`, please refer to [caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail).
+`AccountKeyFail`は、[AccountKeyFail]でカイアのアカウントのAccountKeyを更新するために使用される。 `AccountKeyFail`付きのAccountインスタンスを作成するには、[caver.account.createWithAccountKeyFail](#caver-account-createwithaccountkeyfail) を参照してください。
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
@@ -57,16 +57,16 @@ const accountKeyFail = new caver.account.accountKey.accountKeyFail()
 const accountKeyWeightedMultiSig = new caver.account.accountKey.accountKeyWeightedMultiSig(threshold, weightedPublicKeys)
 ```
 
-`AccountKeyWeightedMultiSig` is used to update AccountKey of an account in the kaia with [AccountKeyWeightedMultiSig]. By updating your AccountKey to `AccountKeyWeightedMultiSig`, you can change your existing AccountKey into the new public key, which will be used to validate a transaction in kaia. This change is necessary when you decouple your private key from the address of your account. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for details.
+`AccountKeyWeightedMultiSig`は、[AccountKeyWeightedMultiSig]を使用してkaiaのアカウントのAccountKeyを更新するために使用される。 `AccountKeyWeightedMultiSig`に更新することで、既存のAccountKeyを新しい公開鍵に変更することができます。 この変更は、秘密鍵をアカウントのアドレスから切り離すときに必要です。 詳細は[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照。
 
-To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig).
+`AccountKeyWeightedMultiSig`を使用してAccountインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyWeightedMultiSig](#caver-account-createwithaccountkeyweightedmultisig)を参照してください。
 
-**properties**
+**プロパティ**
 
-| Name               | Type   | Description                               |
-| ------------------ | ------ | ----------------------------------------- |
-| threshold          | number | The validation threshold. |
-| weightedPublicKeys | Array  | The array of [WeightedPublicKey].         |
+| 名称                 | タイプ | 説明                      |
+| ------------------ | --- | ----------------------- |
+| 閾値                 | 番号  | 検証のしきい値。                |
+| weightedPublicKeys | 配列  | WeightedPublicKey] の配列。 |
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
@@ -74,15 +74,15 @@ To create an Account instance with `AccountKeyWeightedMultiSig`, please refer to
 const accountKeyRoleBased = new caver.account.accountKey.accountKeyRoleBased(accountKeyArray)
 ```
 
-`AccountKeyRoleBased` is used to update AccountKey of an account in the kaia with [AccountKeyRoleBased]. By updating your AccountKey to `AccountKeyRoleBased`, you can change the AccountKey(s) assigned for each role, all of which are used to validate a transaction in kaia. See [AccountUpdate](../get-started.md#account-update) and [AccountKey] for more details.
+`AccountKeyRoleBased`は、[AccountKeyRoleBased]でカイアのアカウントのAccountKeyを更新するために使用される。 AccountKeyを`AccountKeyRoleBased`に更新すると、ロールごとに割り当てられたAccountKeyを変更することができます。 詳しくは[AccountUpdate](../get-started.md#account-update)および[AccountKey]を参照のこと。
 
-To create an Account instance with `AccountKeyRoleBased`, please refer to [caver.account.create](#caver-account-create) or [caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased).
+`AccountKeyRoleBased`を使用してアカウントインスタンスを作成するには、[caver.account.create](#caver-account-create)または[caver.account.createWithAccountKeyRoleBased](#caver-account-createwithaccountkeyrolebased)を参照してください。
 
-**properties**
+**プロパティ**
 
-| Name            | Type  | Description                                                                                                                                                                                                                                                            |
-| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accountKeyArray | Array | The array defining accountKey to be used for each [role]. Each role can be defined with [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), or [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig). |
+| 名称        | タイプ | 説明                                                                                                                                                                                                                         |
+| --------- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| アカウントキー配列 | 配列  | 各 [role] で使用する accountKey を定義する配列。 各ロールは、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、または[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)で定義できる。 |
 
 ### WeightedPublicKey <a id="weightedpublickey"></a>
 
@@ -90,14 +90,14 @@ To create an Account instance with `AccountKeyRoleBased`, please refer to [caver
 const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight, publicKey)
 ```
 
-`WeightedPublicKey` contains a public key and its weight. `WeightedPublicKey` is a class that contains the public key and the weight of the key, and it is used in [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig).
+`WeightedPublicKey`は公開鍵とその重みを含む。 `WeightedPublicKey`は公開鍵と鍵の重みを含むクラスで、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)で使用される。
 
-**properties**
+**プロパティ**
 
-| Name      | Type   | Description                                                                                                                                                            |
-| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| weight    | number | The weight of public key. The weight is used to check whether the weighted sum of public keys is larger than the threshold of the [AccountKeyWeightedMultiSig] object. |
-| publicKey | string | The public key string.                                                                                                                                 |
+| 名称      | タイプ   | 説明                                                                                      |
+| ------- | ----- | --------------------------------------------------------------------------------------- |
+| 重量      | 番号    | 公開鍵の重さ。 ウェイトは、公開鍵の重み付き合計が[AccountKeyWeightedMultiSig]オブジェクトの閾値より大きいかどうかをチェックするために使用される。 |
+| パブリックキー | ストリング | 公開鍵の文字列。                                                                                |
 
 ### WeightedMultiSigOptions <a id="weightedmultisigoptions"></a>
 
@@ -105,14 +105,14 @@ const weightedPublicKey = new caver.account.accountKey.weightedPublicKey(weight,
 const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(threshold, weights)
 ```
 
-`WeightedMultiSigOptions` contains a threshold and weights. `WeightedMultiSigOptions` is a class for defining the options of AccountKeyWeightedMultiSig.
+`WeightedMultiSigOptions`は閾値と重みを含む。 `WeightedMultiSigOptions` は AccountKeyWeightedMultiSig のオプションを定義するクラスである。
 
-**properties**
+**プロパティ**
 
-| Name      | Type   | Description                                  |
-| --------- | ------ | -------------------------------------------- |
-| threshold | number | The validation threshold.    |
-| weights   | Array  | An array of weights of keys. |
+| 名称   | タイプ | 説明        |
+| ---- | --- | --------- |
+| 閾値   | 番号  | 検証のしきい値。  |
+| ウェイト | 配列  | キーの重みの配列。 |
 
 ## caver.account.create <a id="caver-account-create"></a>
 
@@ -120,25 +120,25 @@ const weightedMultiSigOptions = new caver.account.weightedMultiSigOptions(thresh
 caver.account.create(address, accountKey [, options])
 ```
 
-Generates an Account instance with an address and an accountKey.
+アドレスと accountKey を持つ Account インスタンスを生成します。
 
-If accountKey is a public key string, an Account instance with [AccountKeyPublic](#accountkeypublic) as accountKey is created. If accountKey is an array containing public key strings, an Account instance with [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) as accountKey is created. If options are not defined as the last parameter, it is created using a default option with a threshold of 1 and a weight of 1 for each key. If accountKey is an array containing accountKeys that are used for each role, an Account instance with [AccountKeyRoleBased](#accountkeyrolebased) is created. Options must be defined for each role with [WeightedMultiSigOptions]. If options are not defined, the default option is used for roles that use multiple public keys. Please refer to the example below for how to use it.
+accountKey が公開鍵文字列の場合、[AccountKeyPublic](#accountkeypublic) を accountKey とする Account インスタンスが作成される。 accountKey が公開鍵文字列を含む配列の場合、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) を accountKey とする Account インスタンスが生成される。 最後のパラメータとしてオプションが定義されていない場合、各キーに対して、しきい値1、重み付け1のデフォルト・オプションを使用して作成される。 accountKey が、ロールごとに使用される accountKey を含む配列である場合、[AccountKeyRoleBased](#accountkeyrolebased) を持つ Account インスタンスが作成されます。 オプションは[WeightedMultiSigOptions]でロールごとに定義されなければならない。 オプションが定義されていない場合、複数の公開鍵を使用するロールにはデフォルトのオプションが使用されます。 使い方は下記の例を参考にしてください。
 
-**Parameters**
+**パラメーター**
 
-| Name       | Type                           | Description                                                                                                                                                                |
-| ---------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address    | string                         | The address of account to be updated.                                                                                                                      |
-| accountKey | string \\                    | A public key string, an array of public keys, or a 2D array of which each element contains an array of key(s) to be used for each role. |
-| options    | [WeightedMultiSigOptions] \\ | (optional) Options for AccountKeyWeigthedMultiSig.                                                                                      |
+| 名称      | タイプ                            | 説明                                                            |
+| ------- | ------------------------------ | ------------------------------------------------------------- |
+| 住所      | ストリング                          | 更新するアカウントのアドレス。                                               |
+| アカウントキー | string \\                    | 公開鍵文字列、公開鍵の配列、または各要素が各役割に使用される鍵の配列を含む2次元配列。                   |
+| オプション   | [WeightedMultiSigOptions] \\ | (オプション) AccountKeyWeigthedMultiSig のオプション。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 // Create an Account instance with a public key string -> Account with AccountKeyPublic
@@ -248,37 +248,37 @@ Account {
 ## caver.account.createFromRLPEncoding <a id="caver-account-createfromrlpencoding"></a>
 
 ```javascript
-caver.account.createFromRLPEncoding(address, rlpEncodedKey)
+caver.account.createFromRLPEncoding(アドレス、rlpEncodedKey)
 ```
 
-Creates an Account instance from RLP-encoded AccountKey.
+RLP エンコードされた AccountKey から Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name          | Type   | Description                                              |
-| ------------- | ------ | -------------------------------------------------------- |
-| address       | string | The address of an account to be updated. |
-| rlpEncodedKey | string | The RLP-encoded string of AccountKey.    |
+| 名称            | タイプ   | 説明                        |
+| ------------- | ----- | ------------------------- |
+| 住所            | ストリング | 更新するアカウントのアドレス。           |
+| rlpEncodedKey | ストリング | AccountKeyをRLPエンコードした文字列。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
-> caver.account.createFromRLPEncoding('0x{address in hex}', '0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
+> caver.account.createFromRLPEncoding('0x{address in hex}'、'0x04f84b02f848e301a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9e301a1021769a9196f523c419be50c26419ebbec34d3d6aa8b59da834212f13dbec9a9c1')
 Account {
-    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-    _accountKey: 
+    _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey： 
         AccountKeyWeightedMultiSig { 
             _threshold: 2, 
-            _weightedPublicKeys: [ 
+            _weightedPublicKeys：[ 
                 WeightedPublicKey { _weight: 1, _publicKey: '0x02c10...' },
                 WeightedPublicKey { _weight: 1, _publicKey: '0x02176...' }
-            ]
+            ]。
         }
 }
 ```
@@ -286,91 +286,91 @@ Account {
 ## caver.account.createWithAccountKeyLegacy <a id="caver-account-createwithaccountkeylegacy"></a>
 
 ```javascript
-caver.account.createWithAccountKeyLegacy(address)
+caver.account.createWithAccountKeyLegacy(アドレス)
 ```
 
-Creates an Account instance which has AccountKeyLegacy as an accountKey.
+AccountKeyLegacy を accountKey として持つ Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name    | Type   | Description                                              |
-| ------- | ------ | -------------------------------------------------------- |
-| address | string | The address of an account to be updated. |
+| 名称 | タイプ   | 説明              |
+| -- | ----- | --------------- |
+| 住所 | ストリング | 更新するアカウントのアドレス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.account.createWithAccountKeyLegacy('0x{address in hex}')
 Account {
-  _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-  _accountKey: AccountKeyLegacy {}
+  _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+  _accountKey：AccountKeyLegacy {}。
 }
 ```
 
 ## caver.account.createWithAccountKeyPublic <a id="caver-account-createwithaccountkeypublic"></a>
 
 ```javascript
-caver.account.createWithAccountKeyPublic(address, publicKey)
+caver.account.createWithAccountKeyPublic(アドレス、publicKey)
 ```
 
-Creates an Account instance which has AccountKeyPublic as an accountKey.
+AccountKeyPublic を accountKey として持つ Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                              |
-| --------- | ------ | -------------------------------------------------------- |
-| address   | string | The address of an account to be updated. |
-| publicKey | string | The public key string.                   |
+| 名称      | タイプ   | 説明              |
+| ------- | ----- | --------------- |
+| 住所      | ストリング | 更新するアカウントのアドレス。 |
+| パブリックキー | ストリング | 公開鍵の文字列。        |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.account.createWithAccountKeyPublic('0x{address in hex}', '0xb5a9a...')
 Account {
-    _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-    _accountKey: AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
-}
+    _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+    _accountKey：AccountKeyPublic { _publicKey: ,'0xb5a9a...' }
+}.
 ```
 
 ## caver.account.createWithAccountKeyFail <a id="caver-account-createwithaccountkeyfail"></a>
 
 ```javascript
-caver.account.createWithAccountKeyFail(address)
+caver.account.createWithAccountKeyFail(アドレス)
 ```
 
-Creates an Account instance which has AccountKeyFail as an accountKey.
+AccountKeyFail を AccountKey として持つ Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name    | Type   | Description                                              |
-| ------- | ------ | -------------------------------------------------------- |
-| address | string | The address of an account to be updated. |
+| 名称 | タイプ   | 説明              |
+| -- | ----- | --------------- |
+| 住所 | ストリング | 更新するアカウントのアドレス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.account.createWithAccountKeyFail('0x{address in hex}')
 Account {
-  _address: '0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
-  _accountKey: AccountKeyFail {}
+  _address：'0x9ea5b871e7bef65868a0d278be3fc6cdbee543ee',
+  _accountKey：AccountKeyFail {}。
 }
 ```
 
@@ -380,23 +380,23 @@ Account {
 caver.account.createWithAccountKeyWeightedMultiSig(address, publicKeyArray [, options])
 ```
 
-Creates an Account instance which has AccountKeyWeightedMultiSig as an accountKey.
+AccountKeyWeightedMultiSig を accountKey とする Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name           | Type                      | Description                                                                                |
-| -------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
-| address        | string                    | The address of an account to be updated.                                   |
-| publicKeyArray | Array                     | The array that includes multiple public key strings.                       |
-| options        | [WeightedMultiSigOptions] | (optional) The [WeightedMultiSigOptions] instance that defines threshold and weight array. |
+| 名称        | タイプ                                        | 説明                                                        |
+| --------- | ------------------------------------------ | --------------------------------------------------------- |
+| 住所        | ストリング                                      | 更新するアカウントのアドレス。                                           |
+| パブリックキー配列 | 配列                                         | 複数の公開鍵文字列を含む配列。                                           |
+| オプション     | [WeightedMultiSigOptions] (重み付きマルチシグオプション) | (オプション) しきい値と重みの配列を定義する [WeightedMultiSigOptions] インスタンス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 // create an Account instance without options
@@ -435,23 +435,23 @@ Account {
 caver.account.createWithAccountKeyRoleBased(address, roledBasedPublicKeyArray [, options])
 ```
 
-Creates an Account instance which has AccountKeyRoleBased as an accountKey.
+AccountKeyRoleBased を accountKey とする Account インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name                     | Type   | Description                                                                                    |
-| ------------------------ | ------ | ---------------------------------------------------------------------------------------------- |
-| address                  | string | The address of an account to be updated.                                       |
-| roledBasedPublicKeyArray | Array  | A two-dimensional array containing arrays of public key strings for each role. |
-| options                  | Array  | (optional) An array that contains [WeightedMultiSigOptions] instances for each role.           |
+| 名称                       | タイプ   | 説明                                                   |
+| ------------------------ | ----- | ---------------------------------------------------- |
+| 住所                       | ストリング | 更新するアカウントのアドレス。                                      |
+| roledBasedPublicKeyArray | 配列    | 各ロールの公開鍵文字列の配列を含む二次元配列。                              |
+| オプション                    | 配列    | (オプション) 各ロールの [WeightedMultiSigOptions] インスタンスを含む配列。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type      | Description                                       |
-| --------- | ------------------------------------------------- |
-| [Account] | The account instance is returned. |
+| タイプ      | 説明                 |
+| -------- | ------------------ |
+| \[アカウント］ | アカウントのインスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 // create an Account instance without options
@@ -528,21 +528,21 @@ Account {
 caver.account.accountKey.decode(rlpEncodedAccountKey)
 ```
 
-Decodes an RLP-encoded string of AccountKey and returns an [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) or [AccountKeyRoleBased](#accountkeyrolebased) instance.
+AccountKey の RLP エンコード文字列をデコードし、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultiSig](#accountkeyweightedmultisig)、または [AccountKeyRoleBased](#accountkeyrolebased) インスタンスを返す。
 
-**Parameters**
+**パラメーター**
 
-| Name                 | Type   | Description                                          |
-| -------------------- | ------ | ---------------------------------------------------- |
-| rlpEncodedAccountKey | string | An RLP-encoded string of AccountKey. |
+| 名称                   | タイプ   | 説明                        |
+| -------------------- | ----- | ------------------------- |
+| rlpEncodedAccountKey | ストリング | AccountKeyをRLPエンコードした文字列。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type                                                           | Description                                          |
-| -------------------------------------------------------------- | ---------------------------------------------------- |
-| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\ | The AccountKey instance is returned. |
+| タイプ                                                            | 説明                      |
+| -------------------------------------------------------------- | ----------------------- |
+| [AccountKeyWeightedMultiSig](#accountkeyweightedmultisig) \\ | AccountKey インスタンスが返される。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.account.accountKey.decode('0x02a102c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5599f420cccc3291f9bf9')
@@ -555,15 +555,15 @@ AccountKeyPublic { _publicKey: '0x02c10b598a1a3ba252acc21349d61c2fbd9bc8c15c50a5
 account.getRLPEncodingAccountKey()
 ```
 
-Return RLP-encoded string of AccountKey.
+AccountKey を RLP エンコードした文字列を返します。
 
-**Return Value**
+**リターン・バリュー**
 
-| Type   | Description                                          |
-| ------ | ---------------------------------------------------- |
-| string | A RLP-encoded string of AccountKey . |
+| タイプ   | 説明                           |
+| ----- | ---------------------------- |
+| ストリング | AccountKey を RLP エンコードした文字列。 |
 
-**Example**
+**例**
 
 ```javascript
 > const account = caver.account.create('0x{address in hWeightedMultiSigOptionsex}', '0x034f1...')
@@ -572,12 +572,12 @@ Return RLP-encoded string of AccountKey.
 ```
 
 [AccountKey]: ../../../../learn/accounts.md#account-key
-[AccountKeyLegacy]: ../../../../learn/accounts.md#accountkeylegacy
+[AccountKeyLegacy]: .../.../.../.../学習/アカウント.md#accountkeylegacy
 [AccountKeyPublic]: ../../../../learn/accounts.md#accountkeypublic
 [AccountKeyFail]: ../../../../learn/accounts.md#accountkeyfail
 [AccountKeyWeightedMultiSig]: ../../../../learn/accounts.md#accountkeyweightedmultisig
 [AccountKeyRoleBased]: ../../../../learn/accounts.md#accountkeyrolebased
-[WeightedPublicKey]: #weightedpublickey
-[WeightedMultiSigOptions]: #weightedmultisigoptions
-[Account]: #account
+[WeightedPublicKey]: #重み付きパブリックキー
+[WeightedMultiSigOptions]: #加重マルチシグオプション
+[Account]: #アカウント
 [role]: ../../../../learn/accounts.md#roles

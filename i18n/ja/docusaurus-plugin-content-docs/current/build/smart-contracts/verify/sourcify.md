@@ -1,18 +1,18 @@
 ---
-sidebar_label: Using Sourcify
+sidebar_label: Sourcifyの使用
 ---
 
-# How to Verify Smart Contracts Using Sourcify
+# Sourcifyを使用してスマートコントラクトを検証する方法
 
-[Sourcify](sourcify.dev) is a Solidity (smart contracts) source code verification service for Ethereum and EVM-compatible chains like Kaia. One of its unique features is that it leverages the [Solidity metadata](https://docs.sourcify.dev/docs/metadata/) file to ["fully verify"](https://docs.sourcify.dev/docs/full-vs-partial-match/) the contracts.
+[Sourcify](sourcify.dev)は、イーサリアムとKaiaのようなEVM互換チェーンのためのSolidity（スマートコントラクト）ソースコード検証サービスです。 そのユニークな特徴の 1 つは、[Solidity メタデータ](https://docs.sourcify.dev/docs/metadata/) ファイルを活用してコントラクトを [完全に検証](https://docs.sourcify.dev/docs/full-vs-partial-match/) することです。
 
-In this guide, we'll take a look at how to verify a smart contract on Foundry using Sourcify. 
+このガイドでは、Sourcifyを使用してFoundry上でスマートコントラクトを検証する方法を見ていきます。
 
-## Getting started
+## スタート
 
-This guide expects that you have an idea of developing smart contracts with Foundry. See [Deploy smart contract using Foundry](../deploy/foundry.md) to get started. Foundry provides native support for Sourcify verification—all you need to do is add a few flags to your forge command. To verify contracts with Sourcify using Foundry, see the steps below:
+このガイドでは、Foundryを使用したスマートコントラクトの開発について理解していることを想定しています。 Foundryを使用したスマートコントラクトのデプロイ](../deploy/foundry.md)をご覧ください。 FoundryはSourcify検証のネイティブサポートを提供しています。必要なのは、forgeコマンドにいくつかのフラグを追加するだけです。 Foundryを使用してSourcifyとの契約を確認するには、以下の手順を参照してください：
 
-## Deploy and verify a contract:
+## 契約を展開し、検証する：
 
 ```bash
 /* deploy */
@@ -30,11 +30,11 @@ forge verify-contract 0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2 src/Counter.sol
 
 ![](/img/build/smart-contracts/verify/sourcify-verify.png)
 
-You can look up the verified contract [here](https://sourcify.dev/#/lookup/0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2)
+確認された契約書は[こちら](https://sourcify.dev/#/lookup/0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2)で調べることができる。
 
 ![](/img/build/smart-contracts/verify/sourcify-lookup-verify.png)
 
-## Check if a contract is verified
+## 契約が確認されているかどうかをチェックする
 
 ```bash
 forge verify-check 0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2 --chain-id 1001 --verifier sourcify
@@ -42,10 +42,10 @@ forge verify-check 0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2 --chain-id 1001 --
 
 ![](/img/build/smart-contracts/verify/sourcify-verify.png)
 
-## Useful links
+## お役立ちリンク
 
-- [Sourcify Verifier](https://sourcify.dev/#/verifier)
-- [Using Sourcify UI Verification](https://docs.sourcify.dev/docs/how-to-verify/#using-the-ui-legacy)
-- [Verifying on Hardhat with Sourcify](https://docs.sourcify.dev/docs/how-to-verify/#hardhat)
-- [Verifying on Remix using Sourcify](https://docs.sourcify.dev/docs/how-to-verify/#remix-plugin)
+- [ソーシファイの検証者](https://sourcify.dev/#/verifier)
+- [Sourcify UI検証の使用](https://docs.sourcify.dev/docs/how-to-verify/#using-the-ui-legacy)
+- [Sourcifyを使ったハードハットでの検証](https://docs.sourcify.dev/docs/how-to-verify/#hardhat)
+- [Sourcifyを使ったRemixでの検証](https://docs.sourcify.dev/docs/how-to-verify/#remix-plugin)
 - [Sourcify Playground](https://playground.sourcify.dev/)

@@ -1,30 +1,30 @@
-# caver.rpc.net
+# ケイバドットアールピーネット
 
-`caver.rpc.net` provides JSON-RPC call with `net` name space.
+`caver.rpc.net` は `net` 名前空間を使用して JSON-RPC コールを提供する。
 
 ## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
 ```javascript
-caver.rpc.net.getNetworkId([callback])
+caver.rpc.net.getNetworkId([コールバック])
 ```
 
-Returns the network identifier (network ID) of the kaia Node.
+kaiaノードのネットワーク識別子（ネットワークID）を返します。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称     | タイプ | 説明                                                                                  |
+| ------ | --- | ----------------------------------------------------------------------------------- |
+| コールバック | 機能  | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `number`
+プロミス`は `number\` を返す。
 
-| Type   | Description                     |
-| ------ | ------------------------------- |
-| number | The network id. |
+| タイプ | 説明        |
+| --- | --------- |
+| 番号  | ネットワークID。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getNetworkId().then(console.log)
@@ -34,26 +34,26 @@ Returns the network identifier (network ID) of the kaia Node.
 ## caver.rpc.net.isListening <a id="caver-rpc-net-islistening"></a>
 
 ```javascript
-caver.rpc.net.isListening([callback])
+caver.rpc.net.isListening([コールバック])
 ```
 
-Returns `true` if the kaia Node is actively listening for network connections.
+kaia ノードがアクティブにネットワーク接続をリッスンしていれば `true` を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称     | タイプ | 説明                                                                                  |
+| ------ | --- | ----------------------------------------------------------------------------------- |
+| コールバック | 機能  | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`
+`Promise` は `boolean` を返す。
 
-| Type    | Description                                               |
-| ------- | --------------------------------------------------------- |
-| boolean | `true` when listening, otherwise `false`. |
+| タイプ   | 説明                                |
+| ----- | --------------------------------- |
+| ブーリアン | リスニング中は `true`、それ以外は `false` である。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.isListening().then(console.log)
@@ -63,26 +63,26 @@ true
 ## caver.rpc.net.getPeerCount <a id="caver-rpc-net-getpeercount"></a>
 
 ```javascript
-caver.rpc.net.getPeerCount([callback])
+caver.rpc.net.getPeerCount([コールバック])
 ```
 
-Returns the number of peers currently connected to the kaia Node.
+現在kaiaノードに接続しているピア数を返します。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称     | タイプ | 説明                                                                                  |
+| ------ | --- | ----------------------------------------------------------------------------------- |
+| コールバック | 機能  | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `string`
+`Promise` は `string` を返す。
 
-| Type   | Description                                           |
-| ------ | ----------------------------------------------------- |
-| string | The number of connected peers in hex. |
+| タイプ   | 説明                 |
+| ----- | ------------------ |
+| ストリング | 接続されているピアの数（16進数）。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getPeerCount().then(console.log)
@@ -92,26 +92,26 @@ Returns the number of peers currently connected to the kaia Node.
 ## caver.rpc.net.getPeerCountByType <a id="caver-rpc-net-getpeercountbytype"></a>
 
 ```javascript
-caver.rpc.net.getPeerCountByType([callback])
+caver.rpc.net.getPeerCountByType([コールバック])
 ```
 
-Returns the number of connected nodes by type and the total number of connected nodes with key/value pairs.
+タイプ別の接続ノード数と、キーと値のペアを持つ接続ノードの総数を返します。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type     | Description                                                                                                                                   |
-| -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second. |
+| 名称     | タイプ | 説明                                                                                  |
+| ------ | --- | ----------------------------------------------------------------------------------- |
+| コールバック | 機能  | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object`
+`Promise` は `object` を返す。
 
-| Type   | Description                                                                                           |
-| ------ | ----------------------------------------------------------------------------------------------------- |
-| object | The number of connected peers by type as well as the total number of connected peers. |
+| タイプ    | 説明                 |
+| ------ | ------------------ |
+| オブジェクト | タイプ別の接続ピア数と接続ピア総数。 |
 
-**Example**
+**例**
 
 ```javascript
 > caver.rpc.net.getPeerCountByType().then(console.log)

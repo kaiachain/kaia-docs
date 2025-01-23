@@ -1,83 +1,83 @@
-# Build a Buy-Me-A-Coffee DApp
+# Buy-Me-A-Coffee DAppの構築
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents"></a>
+## 目次<a href="#table-of-contents" id="table-of-contents"></a>
 
-- [1. Project Setup](#1-project-setup)
-- [2. Creating a Buy Me A Coffee Smart Contract](#2-creating-a-buy-me-a-coffee-smart-contract)
-- [3. Testing the contract’s functionalities using scripts](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. Deploying BMC Smart contract to Klaytn Testnet ](#4-deploying-bmc-smart-contract)
-- [5. Building the BMC Frontend with React and Web3Onboard](#5-building-the-bmc-frontend-with-react-and-web3onboard)
-- [6. Deploying Frontend code on IPFS using Fleek](#6-deploying-frontend-code-on-ipfs-using-fleek)
-- [7. Conclusion](#7-conclusion)
+- [1. プロジェクト・セットアップ](#1-project-setup)
+- [2. コーヒーを買うスマートコントラクトの作成](#2-creating-a-buy-me-a-coffee-smart-contract)
+- [3. スクリプトを使った契約の機能テスト](#3-testing-the-contracts-functionalities-using-scripts)
+- [4. カイア・テストネットへのBMCスマート・コントラクトの導入 ](#4-deploying-bmc-smart-contract)
+- [5. ReactとWeb3OnboardによるBMCフロントエンドの構築](#5-building-the-bmc-frontend-with-react-and-web3onboard)
+- [6. Fleekを使ってフロントエンドのコードをIPFSにデプロイする](#6-deploying-frontend-code-on-ipfs-using-fleek)
+- [7. 結論](#7-conclusion)
 
-## Introduction <a href="#1-introduction" id="1-introduction"></a>
+## はじめに<a href="#1-introduction" id="1-introduction"></a>
 
-Buy Me a Coffee (BMC) is a platform where creators get monetary support and donations from their fans or audience. These creators could be writers, artists, musicians, video creators, et al. With the help of this platform, fans may play a significant role in the success stories of creators, audiences can express their appreciation for the job that creators accomplish, and creators can monetize their work.
+Buy Me a Coffee（BMC）は、クリエイターがファンや視聴者から金銭的な支援や寄付を得るプラットフォームである。 このプラットフォームの助けを借りて、ファンはクリエイターのサクセスストーリーに重要な役割を果たすことができ、観客はクリエイターが成し遂げた仕事に対して感謝の意を表すことができ、クリエイターは自分の作品を収益化することができる。
 
-On a high level, Buy-me-a-Coffee simplifies the process of accepting payments for creators and enhances interactions between creators and audiences. These and more are some of the exciting features on the BMC platform. On the bright side, imagine this platform on the blockchain. Creators will now get access to more benefits, such as:
+高いレベルでは、Buy-me-a-Coffeeは、クリエイターの支払いを受け入れるプロセスを簡素化し、クリエイターとオーディエンスの間の相互作用を強化する。 この他にも、BMCプラットフォームにはエキサイティングな機能がある。 明るい面としては、このプラットフォームをブロックチェーン上で想像してみてほしい。 クリエイターは、より多くの特典を利用できるようになった：
 
-- Complete payment, as opposed to traditional BMC, which charges 5% on any support received by the creator.
-- Transparency because all transactions are recorded on the blockchain.
-- Directly receive support fees from fans without any intermediary.
-- Decentralization, i.e., there is no central authority controlling the platform.
+- 従来のBMCが、クリエイターが受けたサポートに対して5％を請求するのとは対照的に、完全な支払い。
+- すべての取引がブロックチェーンに記録されるため、透明性が高い。
+- ファンからの支援金を仲介なしに直接受け取ることができる。
+- 分散化、つまり、プラットフォームをコントロールする中央当局が存在しない。
 
-In this tutorial. you will build a decentralized version of the Buy Me a Coffee (BMC) platform (frontend + smart contract). This platform will be a minimalistic implementation of the traditional BMC platform where supporters can tip you, and you will be able to withdraw any tips that are delivered to the BMC smart contract as the contract's owner. Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
+このチュートリアルでは あなたは、Buy Me a Coffee (BMC)プラットフォームの分散型バージョン（フロントエンド＋スマートコントラクト）を構築します。 このプラットフォームは、従来のBMCプラットフォームの最小限の実装となり、支援者はあなたにチップを渡すことができ、あなたは契約の所有者としてBMCスマートコントラクトに届けられたチップを引き出すことができる。 Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
 
-By the end of this guide, you will have used the following to create this dApp:
+このガイドが終わるまでに、このdAppを作成するために以下を使用することになる：
 
-- Solidity: to write the BMC smart contract
-- NextJs and Tailwind: for building a frontend website for our BMC dApp
-- Web3Onboard: to enable multiple wallet connections to Klaytn Testnet Baobab.
-- Fleek: with Fleek we can host our BMC dApp on IPFS.
+- Solidity：BMCスマートコントラクトを記述する
+- NextJsとTailwind：BMC dAppのフロントエンドウェブサイト構築用
+- Web3Onboard: Kaia Testnet Kairosへの複数のウォレット接続を可能にする。
+- Fleek：Fleekを使えば、IPFS上でBMC dAppをホストできる。
 
-## Prerequisites <a href="#2-prerequisites" id="2-prerequisites"></a>
+## 前提条件<a href="#2-prerequisites" id="2-prerequisites"></a>
 
-To complete this tutorial, you will need:
+このチュートリアルを完了するには、以下のものが必要です：
 
 - [Node.js](https://nodejs.org/en/download/package-manager)
-- Familiarity with Javascript and React basics such as hooks etc
-- Installation of  the necessary wallets, such as [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask Wallet](https://metamask.io/download/)
-- Test KAIA from [Faucet](https://faucet.kaia.io).
-- RPC Endpoint: you can obtain this from one of the supported [endpoint providers](../../references/public-en.md).
-- Creation of an account on [Fleek](https://app.fleek.co/).
+- フックなど、JavascriptとReactの基本に精通していること
+- Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、【Metamask Wallet](https://metamask.io/download/)など、必要なウォレットのインストール。
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)のいずれかから取得できます。
+- Fleek](https://app.fleek.co/)にアカウント作成。
 
-## 1. Project Setup <a id="1-project-setup"></a>
+## 1. プロジェクト設定<a id="1-project-setup"></a>
 
-In this section, we will initialize our project folder. This folder will contain two separate folders:
+このセクションでは、プロジェクト・フォルダーを初期化します。 このフォルダには2つの別々のフォルダが含まれる：
 
-1. frontend folder - which contains the code for the frontend implementation of our dApp
-2. smart-contract folder - which contains the smart contract code for our BMC dApp.
+1. frontendフォルダ - 私たちのdAppのフロントエンド実装のコードが含まれています。
+2. smart-contractフォルダ - BMC dAppのスマートコントラクトコードが格納されています。
 
-To create our project folder, paste this code in your terminal
+プロジェクトフォルダを作成するには、次のコードをターミナルに貼り付けます。
 
 ```bash
 mkdir BuyMeACoffee
 cd BuyMeACoffee
 ```
 
-### 1.1. Frontend folder
+### 1.1. フロントエンドフォルダ
 
-This folder contains the tools to build our project frontend website. For the sake of this guide, we will be using Next's [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) utility to bootstrap our Next.js and Tailwind CSS project. Follow the steps below to install the necessary dependencies and get our frontend folder created:
+このフォルダには、プロジェクトのフロントエンドウェブサイトを構築するためのツールが含まれています。 このガイドでは、Next.jsとTailwind CSSプロジェクトをブートストラップするために、Nextの[create-next-app](https://nextjs.org/docs/api-reference/create-next-app)ユーティリティを使用します。 以下の手順に従って、必要な依存関係をインストールし、フロントエンドフォルダを作成します：
 
-#### Step 1 - Creating a frontend folder
+#### ステップ1 - フロントエンドフォルダの作成
 
-Paste the code below in your BuyMeACoffee folder to create a frontend folder using create-next-app utility:
+以下のコードをBuyMeACoffeeフォルダに貼り付け、create-next-appユーティリティを使ってフロントエンドフォルダを作成します：
 
 ```bash
 npx create-next-app frontend
 cd frontend
 ```
 
-#### Step 2 - Downloading the Tailwind dependencies and setting up its config
+#### ステップ2 - Tailwindの依存関係のダウンロードと設定
 
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-#### Step 3 - Modifying `tailwind.config.js`
+#### ステップ3 - `tailwind.config.js` を修正する
 
-Navigate to the `tailwind.config.js` file and replace with the code below:
+`tailwind.config.js`ファイルに移動し、以下のコードに置き換える：
 
 ```js
 module.exports = {
@@ -92,9 +92,9 @@ module.exports = {
 }
 ```
 
-#### Step 4 - Replacing the code in styles/global.css
+#### ステップ4 - styles/global.cssのコードを置き換える
 
-Navigate to the styles/global.css file and replace with the code below:
+styles/global.cssファイルに移動し、以下のコードに置き換える：
 
 ```css
 @tailwind base;
@@ -102,15 +102,15 @@ Navigate to the styles/global.css file and replace with the code below:
 @tailwind utilities;
 ```
 
-We have successfully set up our frontend project folder. More will be discussed later on. The next step is to set up the smart contract folder.
+フロントエンドのプロジェクトフォルダのセットアップが完了しました。 詳しくは後述する。 次のステップは、スマート・コントラクト・フォルダーを設定することだ。
 
-### 1.2. Smart Contract Folder
+### 1.2. スマートコントラクトフォルダ
 
-This folder contains the smart contract for our BuyMeACoffee functionality. Follow the steps below to install the necessary dependencies and get our smart contract folder created:
+このフォルダには、BuyMeACoffee機能のスマートコントラクトが含まれています。 以下の手順に従って、必要な依存関係をインストールし、スマート・コントラクト・フォルダーを作成する：
 
-#### Step 1 - Creating the smart contract folder
+#### ステップ1 - スマート・コントラクト・フォルダーの作成
 
-To create this folder, navigate to the project directory: BuyMeACoffee and create a smart-contract folder by running the command below:
+このフォルダを作成するには、プロジェクト・ディレクトリに移動します：BuyMeACoffeeに移動し、以下のコマンドを実行してsmart-contractフォルダを作成します：
 
 ```bash
 cd ..
@@ -118,15 +118,15 @@ mkdir smart-contract
 cd smart-contract
 ```
 
-#### Step 2 - Generating a hardhat project template
+#### ステップ2 - ハードハット・プロジェクト・テンプレートの作成
 
-This template is suitable for writing, testing and deploying smart contracts. Firstly, start a new npm project  by running the code below in your terminal:
+このテンプレートは、スマート・コントラクトの記述、テスト、デプロイに適している。 まず、ターミナルで以下のコードを実行して、新しいnpmプロジェクトを開始する：
 
 ```bash
 npm init -y
 ```
 
-This should create a package.json file for you that looks like this:
+これで、次のようなpackage.jsonファイルが作成されるはずだ：
 
 ```json
 {
@@ -143,7 +143,7 @@ This should create a package.json file for you that looks like this:
 }
 ```
 
-Then, install hardhat and other dependencies such as hardhat-toolbox and dotenv. To do so, replace your package.json file with the code below:
+次に、hardhatと、hardhat-toolboxやdotenvなどの依存関係をインストールする。 そのためには、package.jsonファイルを以下のコードで置き換えてください：
 
 ```json
 {
@@ -158,29 +158,29 @@ Then, install hardhat and other dependencies such as hardhat-toolbox and dotenv.
 }
 ```
 
-Finally, run `npm install` in your terminal.
+最後に、ターミナルで `npm install` を実行する。
 
-After successfully installing all the dependencies(hardhat, hardhat-toolbox, dotenv), you can confirm hardhat installation by:
+すべての依存関係（hardhat、hardhat-toolbox、dotenv）のインストールに成功したら、以下の方法でhardhatのインストールを確認できる：
 
-a. Checking the current version:
+a. 現在のバージョンをチェックする：
 
 ```bash
  npx hardhat --version 
 ```
 
-Your console should print out the current version installed which in our case is **2.14.0.**
+コンソールには、インストールされている現在のバージョンが印刷されるはずです。私たちの場合は**2.14.0**です。
 
-b. Viewing your project directory. Your current directory should include:
+b. プロジェクトディレクトリの表示 あなたのカレント・ディレクトリは、以下を含むべきである：
 
-- **contracts/** – this is the folder containing the smart contract.
-- **scripts/** – this folder contains code that deploys your contracts on the blockchain network
-- **test/** – this folder contains all unit tests that test your smart contract
-- **hardhat.config.ts** – this file contains configurations important for the work of Hardhat and
-  the deployment of smart contracts.
+- **contracts/**-これはスマート・コントラクトを含むフォルダである。
+- **スクリプト/** - このフォルダには、あなたのコントラクトをブロックチェーン・ネットワーク上にデプロイするコードが含まれています。
+- **test/** - このフォルダには、スマートコントラクトをテストするすべてのユニットテストが含まれています。
+- **hardhat.config.ts** - このファイルには、Hardhatの作業に重要な設定が含まれており、
+  、スマート・コントラクトのデプロイが行われます。
 
-## 2. Creating a Buy Me A Coffee Smart Contract <a id="creating-a-buy-me-a-coffee-contract"></a>
+## 2. コーヒーを買うスマートコントラクトの作成<a id="creating-a-buy-me-a-coffee-contract"></a>
 
-In this section we will be creating the smart contract that houses the BMC functionality. To get started, navigate to your **contracts** folder, create a new file named `BuyMeACoffee.sol` and paste this code below:
+このセクションでは、BMC機能を格納するスマート・コントラクトを作成する。 `BuyMeACoffee.sol`という名前の新しいファイルを作成し、以下のコードを貼り付けてください：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -243,37 +243,37 @@ contract BuyMeACoffee {
 }
 ```
 
-Let's quickly go over what each line of code does:
+各コードが何をするのか、手短に説明しよう：
 
-The **NewCoffee** event is emitted when a buyCoffee function is executed. It logs out the address of the sender, the name of the sender, the message sent, and the timestamp.
+BuyCoffee関数が実行されると、**NewCoffee**イベントが発生します。 送信者のアドレス、送信者の名前、送信されたメッセージ、タイムスタンプがログアウトされる。
 
-Next is the **owner** variable, which represents the contract deployer. We then set the **msg.sender** to be the owner of the contract in our constructor.
+次に**owner**変数であるが、これはコントラクトのデプロイ先を表す。 次に、コンストラクタで**msg.sender**をコントラクトのオーナーに設定する。
 
-The **coffeeId** was created to keep track of the coffee transaction created.
+**coffeeId**は、作成されたコーヒーのトランザクションを追跡するために作成された。
 
-Subsequently we declared a **buyMeACoffee struct**, which stores all the data related to a coffee transaction; address sender, string name, uint timestamp, string message. We then mapped this struct to an id using the **idToBuyCoffee** variable.
+buyMeACoffee構造体\*\*を宣言し、コーヒー取引に関連するすべてのデータ（送信者アドレス、文字列名、uintタイムスタンプ、文字列メッセージ）を格納する。 次に、**idToBuyCoffee**変数を使用して、この構造体をidにマッピングしました。
 
-The buyCoffee function is the core implementation of BMC smart contract. It is a payable function which takes in two parameters, the name and address of the sender. It checks if the KLAY amount sent in is greater than zero. Next it increments the coffeeId, then  it adds the coffee tx or info to the blockchain. Finally it emits a NewCoffee event, which entails the details of the coffee tx.
+buyCoffee機能は、BMCスマートコントラクトのコア実装である。 これは支払い可能な関数で、送信者の名前と住所の2つのパラメータを受け取る。 It checks if the KLAY amount sent in is greater than zero. 次に coffeeId をインクリメントし、コーヒーの Tx や情報をブロックチェーンに追加する。 最後に、NewCoffeeイベントを発行し、コーヒーtxの詳細を伝える。
 
-We created a **withdraw()** function to withdraw the total balance of the contract (`address(this).balance`) to the owner.
+契約残高の合計（`address(this).balance`）をオーナーに引き出すために、\*\*withdraw()\*\*関数を作りました。
 
-Finally, a **getAllCoffee()** function was created. It returns all the coffee transactions created overtime.
+最後に、\*\*getAllCoffee()\*\*関数が作られた。 これは、時間外に作成されたすべてのコーヒー・トランザクションを返す。
 
-Now that we have completed writing our BMC smart contract, the next step is to test the functionalities of our smart contract, deploy and interact with the smart contract on **Klaytn Testnet Baobab**.
+BMCスマートコントラクトの記述が完了したので、次のステップはスマートコントラクトの機能をテストし、**Kaia Testnet Kairos**にデプロイしてスマートコントラクトとやり取りすることです。
 
-## 3. Testing the contract’s functionalities using scripts <a id="testing-bmc-contract-using-scripts"></a>
+## 3. スクリプトを使った契約書の機能テスト<a id="testing-bmc-contract-using-scripts"></a>
 
-In this section, we will be writing scripts to test the functionality of our smart contract . To get started, navigate to your scripts folder, create a new file named `bmc-sample.js` and paste the following code in it:
+このセクションでは、スマート・コントラクトの機能をテストするためのスクリプトを書く。 まず、scriptsフォルダに移動し、`bmc-sample.js`という名前のファイルを新規作成し、以下のコードを貼り付けます：
 
 ```js
 const hre = require("hardhat");
-// Logs the KLAY balances of a specific address.
+// Logs the KAIA balances of a specific address.
 async function getBalance(address) {
     const balanceBigInt = await hre.ethers.provider.getBalance(address);
     return hre.ethers.utils.formatEther(balanceBigInt)
 }
 
-// Logs the KLAY balances for a list of addresses.
+// Logs the KAIA balances for a list of addresses.
 async function getBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
@@ -333,27 +333,27 @@ main().catch((error) => {
 });
 ```
 
-As always, lets go over what each line of code does:
+いつものように、各コード行が何をするのかを説明しよう：
 
-You will notice that at the top of the code, there exist some helper functions for getting the balances of both a single address and multiple addresses. Also in the code exists the main function which houses the functionality of testing our smart contract.
+コードの先頭には、単一アドレスと複数アドレスの残高を取得するためのヘルパー関数がいくつか用意されていることにお気づきだろう。 このコードには、スマート・コントラクトをテストする機能を持つメイン関数も含まれている。
 
-Let's do a walk through of the code in the **main()** function.
+では、\*\*main()\*\*関数のコードを一通り見てみよう。
 
-First we set the list of accounts (owner, tipper1, tipper2, tipper3) for test purposes by calling `await hre.ethers.getSigners()`
+まず、`await hre.ethers.getSigners()`を呼び出して、テスト用のアカウントリスト(owner, tipper1, tipper2, tipper3)を設定します。
 
-Next we created a contract instance and deployed it. In this case the BuyMeACoffee.sol contract.
+次にコントラクト・インスタンスを作成し、デプロイした。 この場合はBuyMeACoffee.solの契約である。
 
-Then, we set a list of addressees, checked their balances using the **getBalances()** function. We then called the **buyCoffee** function on three different instances. Next we checked each addresses balance after the coffee transaction.
+次に、宛先のリストを設定し、**getBalances()**関数を使って残高をチェックする。 次に、3つの異なるインスタンスで**buyCoffee**関数を呼び出した。 次に、コーヒー取引後に各住所の残高をチェックした。
 
-That said, we then called the **withdraw** function to withdraw all funds to the owner address. Next we checked the addresses balance after withdrawal.
+つまり、次に**withdraw**関数を呼び出し、すべての資金をオーナーのアドレスに引き出した。 次に、出金後のアドレスの残高を確認した。
 
-Finally, we got all the coffee transactions in the smart contract by calling the **getAllCoffee()** function. To see the script in action, run the command below:
+最後に、\*\*getAllCoffee()\*\*関数を呼び出すことで、スマート・コントラクト内のすべてのコーヒー・トランザクションを取得した。 スクリプトの動作を見るには、以下のコマンドを実行する：
 
 ```bash
 npx hardhat run scripts/bmc-coffee.js
 ```
 
-You should have an output in your terminal that looks like this:
+ターミナルに次のような出力が出るはずだ：
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/bmc-sample.js
@@ -376,32 +376,32 @@ At 1686307886, Bob, with 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC, said: "Hi A
 At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "Hi Ox"
 ```
 
-## 4. Deploying BMC Smart contract
+## 4. BMCスマートコントラクトの導入
 
-### 4.1 Deploying BMC Smart contract to Klaytn Testnet  <a id="deploying-bmc-contract"></a>
+### 4.1 BMCスマートコントラクトをKaia Testnetにデプロイする <a id="deploying-bmc-contract"></a>
 
-After successfully testing the functionalities of our BMC smart contract, let’s proceed to deploy to the Klaytn Testnet Baobab in the following steps:
+BMCスマートコントラクトの機能テストに成功したら、次のステップでKaia Testnet Kairosにデプロイしましょう：
 
-#### Step 1 - Creating a .env file
+#### ステップ1 - .envファイルの作成
 
-Now create your .env file in the project folder. This file helps us load environment variables from a .env file into process.env.
+プロジェクト・フォルダーに.envファイルを作成する。 このファイルは、.envファイルからprocess.envに環境変数をロードするのに役立つ。
 
-Paste this command in your terminal to create a .env file
+以下のコマンドをターミナルに貼り付け、.envファイルを作成する。
 
 ```bash
 touch .env
 ```
 
-After creating your file, lets configure our .env file to look like this:
+ファイルを作成したら、.envファイルを次のように設定しよう：
 
 ```bash
-KAIROS_TESTNET_URL= "Your RPC URL"
-PRIVATE_KEY= "your private key copied from metamask wallet"
+KAIROS_TESTNET_URL= "あなたのRPC URL"
+PRIVATE_KEY= "メタマスク・ウォレットからコピーしたあなたの秘密鍵"
 ```
 
-#### Step 2 - Setting up Hardhat Configs
+#### ステップ2 - ハードハットの設定
 
-Paste this configurations in your hardhat.config.js file
+この設定をhardhat.config.jsファイルに貼り付けます。
 
 ```
 require("@nomicfoundation/hardhat-toolbox");
@@ -421,9 +421,9 @@ module.exports = {
 };
 ```
 
-#### Step 3 - Creating deployment scripts
+#### ステップ3 - デプロイメントスクリプトの作成
 
-To create a new deployment script that deploys this smart contract to a specified network, create a new file scripts/deploy.js and paste in the code below:
+このスマート・コントラクトを指定したネットワークにデプロイする新しいデプロイ・スクリプトを作成するには、新しいファイルscripts/deploy.jsを作成し、以下のコードを貼り付ける：
 
 ```js
 const hre = require("hardhat");
@@ -441,23 +441,23 @@ main().catch((error) => {
 });
 ```
 
-Now that we have our configurations all set, let’s deploy to Klaytn Testnet Baobab by running the command below:
+これで設定がすべて整ったので、以下のコマンドを実行してKaia Testnet Kairosにデプロイしてみよう：
 
 ```bash
 npx hardhat run scripts/deploy.js --network baobab
 ```
 
-Once the contract deploys successfully, your terminal should look like this:
+コントラクトが正常にデプロイされると、ターミナルは次のようになるはずだ：
 
 ```bash
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-Congratulations on deploying your BMC smart contract on Klaytn Baobab Network! You can verify this transaction on Klaytnscope  by pasting your address in the search field.
+BMCスマートコントラクトのKaia Kairos Networkへのデプロイおめでとうございます！ 検索フィールドにあなたのアドレスを貼り付けると、Kaiascopeでこの取引を確認することができます。
 
-### 4.2 Interacting with BMC Smart Contract  <a id="interacting-with-bmc-contract"></a>
+### 4.2 BMCスマートコントラクトとの対話 <a id="interacting-with-bmc-contract"></a>
 
-In this section, you will learn how to use hardhat scripts to withdraw the coffee tips sent into the smart contract. To get started, create a new file `withdraw.js` in your scripts folder and paste the code below:
+このセクションでは、スマートコントラクトに送られたコーヒーチップを引き出すために、ハードハットスクリプトを使用する方法を学びます。 まず、scriptsフォルダに新規ファイル`withdraw.js`を作成し、以下のコードを貼り付けます：
 
 ```js
 const hre = require("hardhat");
@@ -486,8 +486,8 @@ async function main() {
 
   const balanceBefore = await getBalance(signer.address);
   const contractBalance = await getBalance(BuyMeACoffee.address);
-  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KLAY`);
-  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KLAY`);
+  console.log(`Owner balance before withdrawing tips: ${balanceBefore} KAIA`);
+  console.log(`Contract balance before withdrawing tips:  ${contractBalance} KAIA`);
 
     // Withdraw funds if there are funds to withdraw.
     if (contractBalance !== "0.0") {
@@ -496,7 +496,7 @@ async function main() {
         await withdrawCoffeTxn.wait();
         // check owner's balance after withdrawing coffee tips
         const balanceAfter = await getBalance(signer.address);
-        console.log(`Owner balance after withdrawing tips ${balanceAfter} KLAY`);
+        console.log(`Owner balance after withdrawing tips ${balanceAfter} KAIA`);
       } else {
         console.log("no funds to withdraw!");
       }
@@ -509,17 +509,17 @@ main().catch((error) => {
 });
 ```
 
-As you can see from the code above, having instantiated the BMC contract, the scripts will execute the withdrawCoffeTips function only when the contract balance is greater than zero.  Makes sense right?
+上のコードからわかるように、BMC 契約をインスタンス化すると、スクリプトは契約残高がゼロより大きいときだけ withdrawCoffeTips 関数を実行します。  理にかなっているだろう？
 
-Yes! In the event where the contract has no funds, it prints "No funds to withdraw" hence saving us some gas from contract invocation.
+そうだ！ コントラクトに資金がない場合、「引き出す資金がありません」と表示されるため、コントラクトを起動する手間が省ける。
 
-To see this in action, lets run the script below:
+これを実際に見てみるために、以下のスクリプトを実行してみよう：
 
 ```bash
 npx hardhat run scripts/withdraw.js --network baobab
 ```
 
-On successful execution of the scripts, your terminal should look like this:
+スクリプトの実行に成功すると、ターミナルは次のようになるはずだ：
 
 ```bash
 Ayomitans-MacBook-Pro:smart-contract oxpampam$ npx hardhat run scripts/withdraw.js --network baobab
@@ -531,46 +531,46 @@ Owner balance after withdrawing tips 157.83298835 KLAY
 
 You can see from the output that the owner balance increased by 2 KLAY after withdrawing the coffee tips.
 
-Now that we have our contract deployed and all functionalities tested, it is time to build out the frontend.
+契約がデプロイされ、すべての機能がテストされたので、次はフロントエンドを構築する番だ。
 
-The frontend will bring the BMC functionality to live i.e we can now visualize how we interact with the BMC smart contract.
+つまり、BMCスマートコントラクトとどのようにやりとりするかを可視化できるようになる。
 
-## 5. Building the BMC Frontend with React and Web3Onboard <a id="builidng-bmc-frontend-with-react-and-web3onboard"></a>
+## 5. ReactとWeb3OnboardでBMCフロントエンドを構築する<a id="builidng-bmc-frontend-with-react-and-web3onboard"></a>
 
-In this section, we will be building our dApp frontend website with Next.js and Web3Onbaord. To get started, you have to navigate to the frontend folder previously created.
+このセクションでは、Next.jsとWeb3Onbaordを使ってdAppのフロントエンドウェブサイトを構築します。 開始するには、以前に作成したフロントエンドフォルダに移動する必要があります。
 
 ```bash
 cd ..
 cd frontend 
 ```
 
-The next step is to install the necessary dependencies to get our BMC frontend website up and running.  The following are the packages to be installed:
+次のステップは、BMCフロントエンドのウェブサイトを立ち上げて実行するために必要な依存関係をインストールすることだ。  インストールするパッケージは以下の通り：
 
-1. Web3Onboard packages: Web3-Onboard is a chain-agnostic wallet library that supports multi-wallet compatibility in your dApp built on EVM-compatible networks like Klaytn Blockchain.
-2. ethers.js: Web3-Onboard provider can be used with libraries like [ethers.js](https://docs.ethers.org/v6/) and[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html). In this guide, we will use ethers.js to make Klaytn blockchain calls like getting the user's account, fetch balance, sign transaction, send transaction, read from and write to the smart contract.
+1. Web3Onboardパッケージ：Web3-Onboardはチェーンに依存しないウォレットライブラリで、Kaia BlockchainのようなEVM互換ネットワーク上に構築されたdAppでマルチウォレットの互換性をサポートします。
+2. ethers.jsを使用しています：Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。
 
-Important Note: We need to edit 2 files in the  frontend/pages folder
+重要：frontend/pagesフォルダ内の2つのファイルを編集する必要があります。
 
 - **_app.js**
 - **index.js**
 
-### 5.1 Setting up Web3Onboard Provider and Wallet Modules <a id="setting-up-web3onboard-provider-and-wallet-modules"></a>
+### 5.1 Web3Onboardプロバイダとウォレットモジュールのセットアップ<a id="setting-up-web3onboard-provider-and-wallet-modules"></a>
 
-#### Step 1 - Installing @web3-onboard/react
+#### ステップ1 - @web3-onboard/reactをインストールする
 
 ```bash
 npm install @web3-onboard/react
 ```
 
-In your `_app.js` file, import the web3OnboardProvider and init function. More to be discussed later.
+`_app.js`ファイルで、web3OnboardProviderとinit関数をインポートする。 詳細は後述する。
 
 ```js
 import { Web3OnboardProvider, init } from '@web3-onboard/react'
 ```
 
-#### Step 2 - Installing and Instantiating Wallet Modules
+#### ステップ2 - ウォレットモジュールのインストールとインスタンス化
 
-In this step, you can add as many wallets to be supported in your dApp using the wallet modules. But for this guide, you will add Coinbase Wallet, WalletConnect, Injected Wallets to your web3-Onboard implementation.
+このステップでは、ウォレットモジュールを使ってdAppでサポートするウォレットをいくつでも追加できます。 しかし、このガイドでは、Coinbase Wallet、WalletConnect、Injected Walletsをweb3-Onboardの実装に追加します。
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -578,7 +578,7 @@ npm install @web3-onboard/walletconnect // WalletConnect
 npm install @web3-onboard/injected-wallets  // Used to connect to Metamask
 ```
 
-In your `_app.js` file, import and instantiate the wallet modules to integrate with your dApp. Note that each module has its own unique options parameters to pass in, such as a fallback JSON RPC URL or default chain ID.
+`_app.js`ファイルで、dAppと統合するためのウォレットモジュールをインポートし、インスタンス化します。 各モジュールには、フォールバックJSON RPC URLやデフォルト・チェーンIDなど、渡すべき独自のオプション・パラメータがあることに注意してください。
 
 ```js
 import coinbaseWalletModule from "@web3-onboard/coinbase";
@@ -590,19 +590,19 @@ const injected = injectedModule();
 const modules = [coinbaseWalletSdk, walletConnect, injected];
 ```
 
-#### Step 3 - Installing ethers
+#### ステップ3 - エーテルの取り付け
 
 ```bash
 npm install --save ethers
 ```
 
-#### Step 4 - Instantiating Web3Onboard using the Web3OnboardProvider
+#### ステップ4 - Web3OnboardProviderを使用してWeb3Onboardをインスタンス化する
 
-Web3OnboardProvider provides a better way to manage global state. It simplifies wrapping the provider object around your App and the initialized Web3Onboard instance will be available in all children components.
+Web3OnboardProviderは、グローバルな状態を管理するためのより良い方法を提供します。 これは、プロバイダオブジェクトをアプリにラップすることを簡素化し、初期化されたWeb3Onboardインスタンスは、すべての子コンポーネントで利用できるようになります。
 
-Init function initializes web3-Onboard and makes it available for all hooks to use.
+Init関数はweb3-Onboardを初期化し、すべてのフックが使用できるようにします。
 
-To see this in action, paste the code below the previous code in your `_app.js `file:
+これを実際に見るには、`_app.js `ファイルに、前のコードの下にあるコードを貼り付ける：
 
 ```js
 const ETH_MAINNET_RPC_URL = `https://eth-mainnet.g.alchemy.com/v2/demo`;
@@ -654,11 +654,11 @@ export default function App({ Component, pageProps }) {
 }
 ```
 
-Having set up our _app.js file which grants our  App a provider object  and  web3Onboard instance available in all children components, next is to build out front-end logic in our `index.js` file
+アプリにプロバイダオブジェクトと、すべての子コンポーネントで利用可能な web3Onboard インスタンスを付与する _app.js ファイルをセットアップしたら、次は `index.js` ファイルでフロントエンドのロジックを構築します。
 
 - Index.js
 
-This page handles wallet connection and sending of coffee to the BMC smart contract which is to be withdrawn by the contract deployer.
+このページは、BMCスマートコントラクトへのウォレット接続とコーヒーの送信を処理します。
 
 ```js
 import React, { useEffect, useState } from 'react';
@@ -800,40 +800,40 @@ export default function Home() {
 }
 ```
 
-### Important notes from the code above
+### 上記のコードからの重要な注意事項
 
-1. Get your contract ABI:  The contract ABI specifies to the frontend code what functions are available to call on the smart contract. To get your contract abi, navigate to your smart-contract folder and copy the text  in this file following this path **artifacts/contracts/BuyMeACoffee.sol/BuyMeACoffee.json**.  Next we created a utils folder in the **frontend/src** folder. Then pasted it in a newly created file named BuyMeACoffee.json file.
+1. コントラクトABIを取得する：  コントラクトABIは、スマートコントラクト上でどのような関数を呼び出せるかをフロントエンドのコードに指定する。 契約アビを取得するには、スマート契約フォルダに移動し、以下のパスにしたがってこのファイルのテキストをコピーしてください。  次に、**frontend/src**フォルダにutilsフォルダを作成した。 そして、新しく作成したBuyMeACoffee.jsonファイルという名前のファイルに貼り付けた。
 
-2. Change BMC Contract address to the address of your BMC deployed contract.
+2. BMC契約の住所を、BMCで展開されている契約の住所に変更します。
 
-Now if the app isn't already running, you can go to the shell and use `npm run dev` to start a local server to test out your changes. The website should load in a few seconds and UI should look like this:
+アプリがまだ起動していなければ、シェルで `npm run dev` を使ってローカルサーバーを起動し、変更をテストすることができる。 ウェブサイトは数秒でロードされ、UIはこのようになるはずです：
 
-Connect Wallet Page:
+コネクトウォレットのページ
 
 ![](/img/build/tutorials/bmc-cw.png)
 
 ![](/img/build/tutorials/bmc-connect.png)
 
-Frontend website to send coffee:
+コーヒーを送るフロントエンドのウェブサイト：
 
 ![](/img/build/tutorials/bmc-frontend.png)
 
-Now let's explore through our website and the code.
+では、ウェブサイトとコードを見てみよう。
 
-You can already see from the above screenshot that when you first visit the dApp, it will ask you to connect a wallet.  Next it pops up the list of available wallets initialized in the Web3Onboard instance.
+上のスクリーンショットを見れば、dAppに初めてアクセスしたときに、ウォレットを接続するよう求められることがもうお分かりだろう。  次に、Web3Onboardインスタンスで初期化された利用可能なウォレットのリストがポップアップ表示されます。
 
-Then you select the wallet of your choice; from the image above, we selected MetaMask. Once you have connected your wallet, you get to see a UI component on the upper right of your website which contains the details of the connected wallet. Also on the page, you will  see the coffee transaction form which contains the name and message of the sender, as well as the previous coffee paid into the smart contract by other visitors.
+上の画像ではMetaMaskを選択しています。 ウォレットを接続すると、ウェブサイトの右上に接続されたウォレットの詳細を含むUIコンポーネントが表示されます。 また、このページにはコーヒー取引フォームが表示され、送信者の名前とメッセージ、他の訪問者がスマートコントラクトに支払った以前のコーヒーが表示されます。
 
-## 6. Deploying Frontend code on IPFS using Fleek <a id="deploying-bmc-frontend-to-ipfs-using-fleek"></a>
+## 6. Fleekを使ってフロントエンドのコードをIPFSにデプロイする<a id="deploying-bmc-frontend-to-ipfs-using-fleek"></a>
 
-Fleek is an infrastructure that enables us to build modern sites and apps on IPFS. With fleek your sites or app becomes permissionless, trustless, censorship resistant, and free of centralized gatekeepers. In this tutorial we will be deploying our Next js app to Fleek other than the traditional platforms like Vercel.
-Yeah you got it! We are deploying a decentralized application to a decentralized hosting platform!
+Fleekは、IPFS上にモダンなサイトやアプリを構築するためのインフラです。 fleekを使えば、あなたのサイトやアプリはパーミッションレス、トラストレス、検閲耐性、そして中央集権的なゲートキーパーから解放される。 このチュートリアルでは、Vercelのような従来のプラットフォームではなく、FleekにNext jsアプリをデプロイします。
+ああ、そうだね！ 私たちは分散型アプリケーションを分散型ホスティング・プラットフォームにデプロイしています！
 
-The following are the steps to deploy your BMC dApp to Fleek:
+以下は、BMC dAppをFleekにデプロイする手順です：
 
-1. Make sure to confirm these configurations in your frontend code:
+1. フロントエンドのコードでこれらの設定を確認してください：
 
-   a. Open package.json and add in the following scripts:
+   a. package.jsonを開き、以下のスクリプトを追加する：
 
    ```js
    	"scripts": {
@@ -844,7 +844,7 @@ The following are the steps to deploy your BMC dApp to Fleek:
    	}
    ```
 
-   b. Paste the code below in your next.config.js file in the root directory:
+   b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
 
    ```js
    	module.exports = {
@@ -852,41 +852,41 @@ The following are the steps to deploy your BMC dApp to Fleek:
    	};
    ```
 
-For more information, visit this [guide](https://blog.fleek.co/posts/fleek-nextJS)
+詳しくはこちらの[ガイド](https://blog.fleek.co/posts/fleek-nextJS)をご覧ください。
 
-2. Navigate to your dashboard on Fleek and click on **Add new Site**
+2. Fleekのダッシュボードに移動し、**新しいサイトを追加**をクリックします。
 
 ![](/img/build/tutorials/fleek-addsite.png)
 
-3. Connect your GitHub account to access your repositories.
+3. GitHubアカウントに接続してリポジトリにアクセスします。
 
 ![](/img/build/tutorials/fleek-cg.png)
 
-4. Select the repository you intend to deploy.
+4. デプロイするリポジトリを選択します。
 
-5. On the next page,select the **Next Js** framework  in the **Basic build setting** tab, and Fleek will automatically populate the other fields.
+5. 次のページで、**基本ビルド設定**タブで**Next Js**フレームワークを選択すると、Fleekが自動的に他のフィールドに入力します。
 
-6. Click deploy site
+6. サイトをクリック
 
-7. In the event of an **npm WARN EBADENGINE Unsupported engine** as shown in the image below:
+7. 以下の画像のように、**npm WARN EBADENGINE Unsupported engine**が発生した場合：
 
 ![](/img/build/tutorials/fleek-err.png)
 
-Head over to **Deploy setting** in the **Deploy** tab and change the **Docker image Name** to **node:latest** as shown in the image below:
+**Deploy**タブの**Deploy setting**に移動し、以下の画像のように**Docker image Name**を**node:latest**に変更します：
 
 ![](/img/build/tutorials/fleek-err-fix.png)
 
-8. Now your site should build and deploy to IPFS easily.
-9. Click the link generated to view your website.
+8. これで、あなたのサイトは簡単にビルドされ、IPFSにデプロイされるはずだ。
+9. 生成されたリンクをクリックすると、ウェブサイトが表示されます。
 
 ![](/img/build/tutorials/fleek-site-url.png)
 
-Voila! We have our BMC dApp deployed and hosted on IPFS.
+どうだ！ 私たちはBMC dAppをIPFS上にデプロイし、ホストしています。
 
-## 7. Conclusion <a id="conclusion"></a>
+## 7. 結論<a id="conclusion"></a>
 
-If you’ve made it this far, congratulations! In this tutorial, you have learned how to create a full stack Buy Me A Coffee dApp using Solidity, NextJs, Web3Onboard and Fleek. This is the first step in creating a decentralized application hosted on a decentralized platform.
+ここまで来たなら、おめでとう！ このチュートリアルでは、Solidity、NextJs、Web3Onboard、Fleek を使用してフルスタックの Buy Me A Coffee dApp を作成する方法を学びました。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。
 
-From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
+From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
 
-If you want more information, visit [Klaytn Docs](https://docs.klaytn.foundation/), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react), and [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).
+より詳細な情報をお知りになりたい方は、[Kaia Docs](https://docs.klaytn.foundation/)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ご質問は[カイアフォーラム](https://devforum.kaia.io/)まで。

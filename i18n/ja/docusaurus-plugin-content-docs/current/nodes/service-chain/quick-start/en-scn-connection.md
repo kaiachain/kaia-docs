@@ -1,52 +1,52 @@
-# Connect to Kairos
+# カイロスにつながる
 
 This section covers how to connect your 4-node ServiceChain network to the Baobab network.
 You will set up a Baobab EN and connect the EN with one of your SCNs. Then you will enable the anchoring feature to put ServiceChain block information onto the Baobab network.
 
 ![](/img/nodes/sc-en-scn-arch.png)
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件<a id="prerequisites"></a>
 
-- 1 Linux or MacOS server for EN
-- Minimum hardware requirements for testing
-  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-  - Please refer to the [System Requirements](../system-requirements.md) for more explanation.
-- Download the Baobab EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
-- Assumptions and Limitations
-  - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
-  - A Kairos EN.
-  - One EN can only connect to one SCN since only one-to-one connection is supported.
-  - Every SCN does not have to connect to the EN.
+- EN用LinuxまたはMacOSサーバー1台
+- テストに最低限必要なハードウェア
+  - CPU：4コア（Intel Xeonまたは同等）、RAM：16GB、HDD：50GB
+  - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
+- Download the Baobab EN executable. ダウンロード可能なバイナリの全リストは、[Download](../../downloads/downloads.md) を参照のこと。
+- 仮定と限界
+  - ServiceChainネットワークがインストールされ、実行されている。 ネットワークのセットアップについては、「4ノードサービスチェーンのセットアップ」(4nodes-setup-guide.md)を参照してください。
+  - カイロスEN。
+  - 1対1の接続しかサポートされていないため、1つのENは1つのSCNにしか接続できません。
+  - すべてのSCNがENに接続する必要はない。
 
 ## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
 
-The installation is the uncompression of the downloaded package. Extract the archive on the EN server.
+インストールとは、ダウンロードしたパッケージを解凍することである。 EN サーバー上のアーカイブを展開する。
 
 ```bash
 EN-01$ tar xvf ken-baobab-vX.X.X-XXXXX-amd64.tar.gz
 ```
 
-## Step 1: Preparing genesis.json <a id="step-1-preparing-genesis-json"></a>
+## ステップ1：genesis.jsonの準備<a id="step-1-preparing-genesis-json"></a>
 
-From the EN server, download the `genesis.json` for `Baobab` network.
+ENサーバーから、`Kairos`ネットワーク用の`genesis.json`をダウンロードする。
 
 ```
 EN-01$ curl -X GET https://packages.kaia.io/kairos/genesis.json -o ~/genesis.json
 ```
 
-## Step 2: EN Node Initialization <a id="step-2-en-node-initialization"></a>
+## ステップ 2：EN ノードの初期化<a id="step-2-en-node-initialization"></a>
 
-Now, we will initialize the EN node using the genesis file. Execute the following command.
-It will create the data folder storing the chain data and logs on your home directory.
-You can change the data folder using the `--datadir` directive.
+次に、genesisファイルを使用してENノードを初期化する。 以下のコマンドを実行する。
+チェーンデータとログを保存するデータフォルダがホームディレクトリに作成されます。
+データフォルダは `--datadir` ディレクティブを使って変更できる。
 
 ```
 EN-01$ ken init --datadir ~/data ~/genesis.json
 ```
 
-## Step 3: Configure the EN Node <a id="step-3-configure-the-en-node"></a>
+## ステップ3：ENノードの設定<a id="step-3-configure-the-en-node"></a>
 
-Go to the ken installation folder and rename `mv kend_baobab.conf kend.conf`, then edit `conf/kend.conf` as follows.
+ken のインストールフォルダーに移動し、`mv kend_baobab.conf kend.conf`という名前に変更してから、`conf/kend.conf` を以下のように編集する。
 
 ```
 ...
@@ -58,26 +58,26 @@ DATA_DIR=~/data
 ...
 ```
 
-## Step 4: Start the EN Node <a id="step-4-start-the-en-node"></a>
+## ステップ4：ENノードの起動<a id="step-4-start-the-en-node"></a>
 
 ```
 EN-01$ kend start
 Starting kscnd: OK
 ```
 
-You can check block sync status by watching `klay.blockNumber`. If this number is not 0, the node is working fine. Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
+ブロックの同期状況は `kaia.blockNumber` を見ることで確認できる。 この数値が0でなければ、ノードは正常に動作している。 Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
 
 ```
 EN-01$ ken attach --datadir ~/data
-> klay.blockNumber
+> kaia.blockNumber
 21073
 ```
 
-If you want to stop a node, you can use the command `kend stop`
+ノードを停止したい場合は、`kend stop`コマンドを使うことができる。
 
-## Step 5: Check KNI of EN Node <a id="step-5-check-kni-of-en-node"></a>
+## ステップ5：ENノードのKNIのチェック<a id="step-5-check-kni-of-en-node"></a>
 
-Take note of EN-01's KNI which is the information used to connect from an SCN-L2-01 node. This value will be used in the next step when generating `main-bridges.json`.
+SCN-L2-01ノードからの接続に使用されるEN-01のKNIに注意してください。 この値は次のステップで `main-bridges.json` を生成する際に使用される。
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -87,19 +87,19 @@ EN-01$ ken attach --datadir ~/data
 
 ![](/img/nodes/sc-en-scn-nodeInfo.png)
 
-## Step 6: Create main-bridges.json <a id="step-6-create-main-bridges-json"></a>
+## ステップ6：main-bridges.jsonの作成<a id="step-6-create-main-bridges-json"></a>
 
-Log on to an SCN-L2-01 (note: not the EN-01 node) and create `main-bridges.json` on `~/data`. Replace `[::]` located after `@` letter with EN-01 node's IP address.
+SCN-L2-01 (注: EN-01 ノードではありません) にログオンし、`~/data` に `main-bridges.json` を作成します。 の後にある`[::]`をEN-01ノードのIPアドレスに置き換える。
 
 ```
 SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-## Step 7: Configure SCN then Restart kscn <a id="step-7-configure-scn-then-restart-kscn"></a>
+## ステップ 7: SCNの設定とkscnの再起動<a id="step-7-configure-scn-then-restart-kscn"></a>
 
-From the SCN-L2-01 node's shell, edit `kscn-XXXXX-amd64/conf/kscnd.conf`.
-If `SC_SUB_BRIDGE` is set to 1, data anchoring starts automatically when the SCN-L2-01 node starts. In this example, `SC_PARENT_CHAIN_ID` is set to 1001 because the `chainID` of the parent chain, Baobab, is 1001.
-`SC_ANCHORING_PERIOD` is the parameter that decides the period to send an anchoring tx to the main chain. By setting the value to 10, you configure the node to perform anchoring every 10 blocks. The default value is 1.
+SCN-L2-01 ノードのシェルから `kscn-XXXXX-amd64/conf/kscnd.conf` を編集します。
+SC_SUB_BRIDGE`を 1 に設定すると、SCN-L2-01 ノードの起動時に自動的にデータアンカリングを開始する。 In this example,`SC_PARENT_CHAIN_ID`is set to 1001 because the`chainID` of the parent chain, Baobab, is 1001.
+SC_ANCHORING_PERIOD`はメインチェーンにアンカリングTXを送信する期間を決めるパラメータである。 値を10に設定すると、ノードは10ブロックごとにアンカリングを実行するように設定される。 デフォルト値は1である。
 
 ```
 ...
@@ -111,7 +111,7 @@ SC_ANCHORING_PERIOD=10
 ...
 ```
 
-Restart kscn by executing the following command:
+以下のコマンドを実行してkscnを再起動する：
 
 ```
 SCN-L2-01$ kscnd stop
@@ -120,7 +120,7 @@ SCN-L2-01$ kscnd start
 Starting kscnd: OK
 ```
 
-Check if the SCN-L2-01 is connected to the EN-01 by checking `subbridge.peers.length`
+SCN-L2-01がEN-01に接続されているかどうかを`subbridge.peers.length`で確認する。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -128,14 +128,14 @@ SCN-L2-01$ kscn attach --datadir ~/data
 1
 ```
 
-## Anchoring  <a id="anchoring"></a>
+## アンカーリング <a id="anchoring"></a>
 
-After finishing the EN-01 and SCN-L2-01 connection, you can log ServiceChain block information on the parent chain via Anchoring.
-In this section, you will top up a parent operator account, enable Anchoring, and check the anchored block number.
+EN-01とSCN-L2-01の接続が完了したら、アンカリングにより親チェーンのServiceChainブロック情報を記録します。
+このセクションでは、親オペレーターのアカウントをトップアップし、アンカリングを有効にし、アンカリングされたブロック番号を確認します。
 
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. So `subbridge.parentOperator` account should have enough KLAY to pay the transaction fee. Get some KAIA from [Kairos Faucet](https://faucet.kaia.io/) and transfer some KAIA to the `parentOperator`. For data anchoring in real service, `parentOperator` needs to have enough KLAY for transaction fee.
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. そのため、`subbridge.parentOperator`アカウントは、取引手数料を支払うのに十分なKAIAを持っていなければならない。 [Kairos Faucet](https://faucet.kaia.io/)からKAIAを取得し、`parentOperator`にKAIAを転送する。 実サービスでのデータアンカリングのために、`parentOperator`はトランザクション料金に十分なKAIAを持つ必要がある。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -145,9 +145,9 @@ SCN-L2-01$ kscn attach --datadir ~/data
 
 ![](/img/nodes/sc-en-scn-faucet.png)
 
-### Step 2: Start Anchoring <a id="step-2-start-anchoring"></a>
+### ステップ2：アンカー開始<a id="step-2-start-anchoring"></a>
 
-To start anchoring, execute the following command:
+アンカリングを開始するには、以下のコマンドを実行する：
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -155,7 +155,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 true
 ```
 
-After anchoring starts, you can check the latest block anchored to Baobab by using `subbridge.latestAnchoredBlockNumber`. Please note that this only works after the EN already followed up on the latest block of Baobab. By default, SCN-L2-01 tries anchoring on every block from the block on which anchoring is turned on. The anchoring period can be set by changing `SC_ANCHORING_PERIOD`. If the value is set to 10, the node tries anchoring when the block number is a multiple of 10.
+アンカー開始後、`subbridge.latestAnchoredBlockNumber`を使用することで、Kairosにアンカーされた最新のブロックを確認することができます。 Please note that this only works after the EN already followed up on the latest block of Baobab. デフォルトでは、SCN-L2-01はアンカーをオンにしたブロックからすべてのブロックでアンカーを試行する。 SC_ANCHORING_PERIOD\`を変更することで、アンカー期間を設定することができる。 値が10に設定されている場合、ノードはブロック番号が10の倍数のときにアンカリングを試みる。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data

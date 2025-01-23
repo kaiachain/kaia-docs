@@ -1,6 +1,6 @@
-# Address
+# 住所
 
-Utils for compressing public key.
+公開鍵を圧縮するユーティリティ。
 
 <CH.Spotlight>
   <CH.Code>
@@ -37,14 +37,14 @@ Utils for compressing public key.
 
   ---
 
-  Import necessary classes from the Web3j and kaia libraries(`web3j-ext`)
+  Web3jとkaiaライブラリから必要なクラスをインポートする(`web3j-ext`)
 
   ```java PublicKeyUtilsExample.java focus=1:4
   ```
 
   ---
 
-  For convert from `compressed public key` to an `AccountPublicKey` with `{x, y}` format, use `AccountKeyPublicUtils.decompressKey`
+  圧縮された公開鍵から `{x, y}` 形式の `AccountPublicKey` に変換するには、`AccountKeyPublicUtils.decompressKey` を使用します。
 
   <CH.Code>
     ```java PublicKeyUtilsExample.java focus=10:11
@@ -61,7 +61,7 @@ Utils for compressing public key.
 
   ---
 
-  For compressing `AccountKeyPublic` to `compressed public key` string, uses `AccountKeyPublicUtils.toCompressedPublicKey`
+  `AccountKeyPublic`を`圧縮公開鍵`文字列に圧縮するには、`AccountKeyPublicUtils.toCompressedPublicKey`を使用する。
 
   <CH.Code>
     ```java PublicKeyUtilsExample.java focus=13:15

@@ -1,6 +1,6 @@
-# SDKs and Libraries
+# SDKとライブラリ
 
-This section gives the API references of the libraries for interacting with kaia nodes and some tutorials on how to use them to send a transaction, read data from the blockchain, and communicate with an existing contract on the kaia Network.
+このセクションでは、kaiaノードとやり取りするためのライブラリのAPIリファレンスと、それらを使用してトランザクションを送信したり、ブロックチェーンからデータを読み取ったり、kaiaネットワーク上の既存のコントラクトと通信したりする方法についてのチュートリアルを提供します。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

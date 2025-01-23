@@ -1,6 +1,6 @@
-# Write
+# 書く
 
-You can make a **"transaction"** interacting with a Smart Contract when you \*\*need to update some state \*\* in the contract.
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**transaction**を行うことができる。
 
 <CH.Spotlight>
   <CH.Code>
@@ -115,28 +115,28 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
 
   ```js smartContractWrite.js focus=1:2
   ```
 
   ---
 
-  Define **sender address** and **private key**
+  **送信者アドレス**と**private key**の定義
 
   ```js smartContractWrite.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js smartContractWrite.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js smartContractWrite.js focus=7
   const ethers = require("ethers");
@@ -191,35 +191,35 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  create a wallet from sender **private key** and **web3 provider**
+  送信者の**private key**と**web3プロバイダー**からウォレットを作成する。
 
   ```js smartContractWrite.js focus=8
   ```
 
   ---
 
-  Set the **Abi** generated from solidity code
+  solidityコードから生成された**Abi**を設定する。
 
   ```js smartContractWrite.js focus=33
   ```
 
   ---
 
-  Define **contract address** to interact with
+  相互作用する**契約アドレス**を定義する
 
   ```js smartContractWrite.js focus=34
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  **Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js smartContractWrite.js focus=37
   ```
 
   ---
 
-  Get the **number** value before updated by using method **counter.number()**
+  **counter.number()**メソッドで更新前の**number**値を取得する。
 
   <CH.Code>
     ```js smartContractWrite.js focus=39
@@ -235,14 +235,14 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  Create a transaction data to update the **number** value
+  **number**の値を更新するためのトランザクションデータを作成する。
 
   ```js smartContractWrite.js focus=41
   ```
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js smartContractWrite.js focus=42:43
@@ -306,7 +306,7 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
   ---
 
-  Get the updated value **number** by using method **counter.number()**
+  メソッド**counter.number()**で更新値**number**を取得する。
 
   <CH.Code>
     ```js smartContractWrite.js focus=45
@@ -316,7 +316,7 @@ You can make a **"transaction"** interacting with a Smart Contract when you \*\*
 
     ```zsh output
     ❯ node smartContractWrite.js
-    number after 294
+    294 以降の番号
     ```
   </CH.Code>
 </CH.Spotlight>

@@ -1,113 +1,116 @@
-# Transaction Fees
+# 取引手数料
 
-The transaction fee of one transaction is calculated as follows:
+1回の取引にかかる取引手数料は以下のように計算される：
 
 ```text
 Transaction fee := (Gas used) x (GasPrice)
 ```
 
-As an easy-to-understand analogy in this regard, suppose you're filling up gas at a gas station. The gas price is determined by the refinery every day, and today's price is $2. If you fill 15L up, then you would pay $30 = 15L x $2/1L for it, and the $30 will be paid out of your bank account. Also, the transaction will be recorded in the account book.
+わかりやすい例えとして、ガソリンスタンドでガソリンを入れているとしよう。 ガス価格は毎日製油所によって決定され、今日の価格は2ドルだ。 15Lを満タンにすれば、30ドル＝15L×2ドル／1Lを支払うことになり、30ドルは銀行口座から支払われる。 また、その取引は帳簿に記録される。
 
-Transaction fee works just the same as above. Suppose a transaction spent 21000 gas and the effective gas price of the transaction was 25 Gkei. Then the gas fee is 525000 Gkei. This amount would be deducted from the sender (`from` account) balance.
+取引手数料は上記と同じ。 ある取引で21000ガスが使われ、その取引の実効ガス価格が25Gkeiだったとする。 そうなると、ガソリン代は525000Gkeiとなる。 この金額は差出人（`from`口座）の残高から差し引かれる。
 
 ## Gas Overview <a id="gas-overview"></a>
 
-Every action that changes the state of the blockchain requires gas. While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. The payment amount is decided by the amount of `gas` required. The gas has no unit, and we just say like "21000 gas".
+ブロックチェーンの状態を変更するすべてのアクションにはガスが必要だ。 While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. 支払額は必要な「ガス」の量によって決まる。 ガスには単位がないから、"21000ガス "とか言うんだ。
 
-Gas of a transaction comprises of two components:
+取引のガスは2つの要素からなる：
 
-- `IntrinsicGas` is a gas that is statically charged based on the configuration of the transaction, such as the datasize of the transaction. For more details, please refer to [Intrinsic Gas](intrinsic-gas.md).
-- `ExecutionGas`, on the other hand, is a gas that is dynamically calculated due to the contract execution. For more details, please refer to [Execution Gas](execution-gas.md).
+- `IntrinsicGas`は、入力のサイズなど、トランザクション本体に基づいて静的にチャージされるガスである。 詳しくは[固有ガス](intrinsic-gas.md)をご参照ください。
+- `ExecutionGas`は実行中に動的に計算されるガスである。 詳しくは[「実行ガス」](execution-gas.md)をご覧ください。
 
-The gas used amount is only determined after the transaction is executed. As such, you can find the gas used amount of a transaction from its receipt.
+ガスの使用量は、取引が実行された後にのみ決定される。 そのため、レシートから取引のガス使用量を調べることができる。
 
-### Finding the appropriate gasLimit
+### 適切なガスリミットを見つける
 
-Every transaction must specify a gasLimit which is the maximum gas the transaction can spend. The sender can also utilize the `eth_estimateGas` and `kaia_estimateGas` RPCs to find the appropriate gasLimit for a transaction. Alternatively, the sender can manually specify a big enough number. Specifying a high gasLimit does not automatically charge high gas fee, so using a fixed number is a viable option. However, the sender having only a few tokens cannot specify too high gasLimit because the sender has to own at least `gasLimit * effectiveGasPrice` in its balance regardless of the actual gasUsed.
+すべてのトランザクションは、そのトランザクショ ンが使用できる最大ガス量であるgasLimitを指定しなければならない。 送信者は、トランザクションの適切な gasLimit を見つけるために `eth_estimateGas` と `kaia_estimateGas` RPC を利用することもできる。 あるいは、送信者が手動で十分な大きさの数字を指定することもできる。 高いガスリミットを指定しても、自動的に高いガス料金が請求されるわけではないので、固定の数値を使用することは有効な選択肢である。 しかし、数トークンしか持っていない送信者は、実際のガス使用量に関係なく、少なくとも`gasLimit * effectiveGasPrice`を残高に所有していなければならないので、高すぎるgasLimitを指定することはできない。
 
 ## GasPrice Overview <a id="gas-price-overview"></a>
 
-Effective gas price of a transaction is calculated from many variables:
+取引の有効ガス価格は多くの変数から計算される：
 
-- Hardfork level
-- Gas price fields in the transaction submitted by the sender
-  - `maxFeePerGas` (often referred to as feeCap) field exists in the type 2 transactions.
-  - `maxPriorityFeePerGas` (often referred to as tipCap) field exists in the type 2 transactions.
-  - `gasPrice` field exists in every other transaction types.
-- `baseFeePerGas` (often referred to as baseFee) of the block the transaction is executed in
+- ハードフォーク・レベル
+- 送信者によって提出されたトランザクションのガス価格フィールド
+  - `maxFeePerGas`（しばしばfeeCapと呼ばれる）フィールドはタイプ2のトランザクションに存在する。
+  - `maxPriorityFeePerGas`（しばしばtipCapと呼ばれる）フィールドはタイプ2の取引に存在する。
+  - `gasPrice`フィールドは他のすべてのトランザクションタイプに存在する。
+- トランザクションが実行されるブロックの `baseFeePerGas` (しばしば baseFee と呼ばれる)
 
-### Before Magma hardfork (fixed unit price)
+### マグマ・ハードフォーク前（固定単価）
 
-Before Magma hardfork, the transaction fee of all transactions is the fixed value called `unitPrice`. The values can be changed by governance. All transactions must submit the gas price field that equals to the current unitPrice. The unit price mechanism avoids UX frustration due to gas price estimation in the gas fee auction market and allows service providers to easily predict gas fee budget.
+Magmaのハードフォーク以前は、すべてのトランザクションの取引手数料は`unitPrice`と呼ばれる固定値である。 The values can be changed by governance. すべての取引は、現在の単価と等しいガス価格フィールドを提出しなければならない。 単価メカニズムは、ガス料金オークション市場でのガス料金見積もりによるUXの不満を回避し、サービス提供者がガス料金予算を容易に予測できるようにする。
 
-The `unitPrice` at a given block can be found through the `kaia_getParams` API.
+指定したブロックの `unitPrice` は `kaia_getParams` API で取得できる。
 
-### After Magma hardfork (KIP-71 dynamic base fee)
+### マグマ・ハードフォーク後（KIP-71ダイナミック・ベース料金）
 
-The network determines the gas price for every block. The baseFee increases if the transaction traffic is higher than a threshold, and decreases otherwise. The transaction traffic is measured in the block gas used. As transaction executions in a block gets heavier, the network perceives higher congestion, likely to increase the baseFee.
+The network determines the gas price for every block. 基本料金は、トランザクションのトラフィックが閾値より高ければ増加し、そうで なければ減少する。 トランザクション・トラフィックは、使用されるブロック・ガスで測定される。 ブロック内のトランザクションの実行が重くなるにつれて、ネットワークはより高い輻輳を認識し、基本料金が増加する可能性が高い。
 
-Unlike [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md), Magma gas policy has no tip (tip is introduced since Kaia hardfork). Instead, the FCFS (first-come first-serve) policy is implemented to protect the network from spamming.
+EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)と異なり、マグマ・ガス・ポリシーにはチップがない（チップはカイアのハードフォークから導入された）。 その代わりに、FCFS（先着順）ポリシーがスパム行為からネットワークを守るために導入されている。
 
-#### baseFee calculation
+#### 基本料金の計算
 
-The baseFee calculation depends on following parameters:
+基本料金の計算は、以下のパラメータに依存する：
 
-- Block congestion data
-  - PREVIOUS_BASE_FEE: Base fee of the previous block
+- ブロック混雑データ
+  - previous_base_fee：前のブロックの基本料金
   - GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
-- Tuning parameters which can be changed later via governance
+- 後からガバナンスで変更可能なチューニング・パラメーター
   - GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
-  - MAX_BLOCK_GAS_USED_FOR_BASE_FEE: Implicit block gas limit to enforce the max basefee change rate.
+  - max_block_gas_used_for_base_fee：最大ベースフィー変更率を強制するための暗黙のブロックガス制限。
   - BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
   - UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
   - LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
 
-Below is an oversimplified version of the baseFee calculation. In its essense, the base fee change is proportional to the difference between GAS_TARGET and PREVIOUS_BLOCK_GAS_USED, and other parameters controls the change speed or bounds the baseFee. Refer to [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for the exact formula.
+以下は、基本料金の計算を簡略化したものである。 その本質において、基本料金の変化はGAS_TARGETとPREVIOUS_BLOCK_GAS_USEDの差に比例し、他のパラメータは基本料金の変化速度または境界を制御する。 正確な計算式は[KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)を参照。
 
 ```
-(BASE_FEE_CHANGE_RATE) = (GAS_USED_FOR_THE_PREVIOUS_BLOCK - GAS_TARGET)
-(ADJUSTED_BASE_FEE_CHANGE_RATE) = (BASE_FEE_CHANGE_RATE) / (GAS_TARGET) / (BASE_FEE_DELTA_REDUCING_DENOMINATOR)
-(BASE_FEE_CHANGE_RANGE) = (PREVIOUS_BASE_FEE) * (ADJUSTED_BASE_FEE_CHANGE_RATE)
-(BASE_FEE) = (PREVIOUS_BASE_FEE) + (BASE_FEE_CHANGE_RANGE) 
+              min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
+changeRate = ----------------------------------------------------------------------------
+                                BASE_FEE_DENOMINATOR * GAS_TARGET
+
+nextBaseFeeBeforeBound = PREVIOUS_BASE_FEE * (1 + changeRate)
+
+nextBaseFee = max(min(nextBaseFeeBeforeBound, UPPER_BOUND_BASE_FEE), LOWER_BOUND_BASE_FEE)
 ```
 
-The tuning parameters at a given block can be found through the `kaia_getParams` API. The `baseFeePerGas` of each block can be found through the `kaia_getBlock*` and `eth_getBlock*` APIs.
+指定したブロックのチューニングパラメータは `kaia_getParams` API で取得できる。 各ブロックの `baseFeePerGas` は `kaia_getBlock*` と `eth_getBlock*` API を使って調べることができる。
 
-#### Gas fee burn
+#### ガス代
 
-Since Magma hardfork, half of the block gas fee is burnt. See [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for details.
+マグマはハードフォークなので、ブロックのガス料金の半分は燃えてしまう。 詳細は[KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)を参照。
 
-Since Kore hardfork, most of the block gas fee is burnt. See [KIP-82](https://kips.kaia.io/KIPs/kip-82) for details.
+コレはハードフォークなので、ブロックガス代はほとんど燃えてしまう。 詳細は[KIP-82](https://kips.kaia.io/KIPs/kip-82)を参照。
 
-### After Kaia hardfork (KIP-162 priority fee)
+### カイアハードフォーク後（KIP-162優先料金）
 
-Since Kaia hardfork, the transactions can specify nonzero priority fee (or simply tip) to increase the block inclusion possibility. The Kaia gas policy is similar to [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md) in that transactions pay the baseFee plus the effective tip.
+Kaiaのハードフォーク以降、トランザクションはブロック包含の可能性を高めるために、ゼロ以外の優先手数料（または単にチップ）を指定することができる。 カイアのガス・ポリシーは、トランザクションが基本料金プラス実効チップを支払うという点で、 [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)に似ている。
 
-The effective gas price of a transaction is defined as `min(baseFee + tipCap, feeCap)`. For type-2 transactions, the transaction fields `maxPriorityFeePerGas` and `maxFeePerGas` naturally becomes the tipCap and feeCap. However, other transaction types only have one `gasPrice` field. For those types, tipCap and feeCap are both equals to `gasPrice`. Consequently their effective gas price becomes `min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice`, which is identical to gas price auction mechanism.
+取引の有効ガス価格は`min(baseFee + tipCap, feeCap)`として定義される。 タイプ2のトランザクションでは、トランザクションフィールド `maxPriorityFeePerGas` と `maxFeePerGas` は当然ながら tipCap と feeCap になる。 しかし、他のトランザクションタイプでは、`gasPrice`フィールドは1つしかない。 これらのタイプでは、tipCapとfeeCapはどちらも`gasPrice`に等しい。 その結果、実効ガス料金は「min(baseFee + tipCap, feeCap) = min(baseFee + gasPrice, gasPrice) = gasPrice\`」となり、ガス料金オークションの仕組みと同じになる。
 
-See [KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) for details.
+詳細は[KIP-162](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md)を参照。
 
-### Finding the appropriate gas price after Kaia
+### カイアの後、適切なガス料金を見つける
 
-If your application or wallet utilizes type-2 transactions (EIP-1559 type), ensure you set a reasonable priority fee. You can also call the `eth_maxPriorityFeePerGas` RPC to retrieve the recommended priority fee (tx.maxPriorityFeePerGas). When the network is uncongested, a zero priority fee transaction should have no disadvantage in transaction processing. When the network is congested it is safer to specify a nonzero priority fee to compete with other transactions.
+アプリケーションやウォレットがタイプ2のトランザクション（EIP-1559タイプ）を利用する場合は、合理的な優先手数料を設定してください。 また、`eth_maxPriorityFeePerGas` RPC を呼び出して、推奨優先料金 (tx.maxPriorityFeePerGas) を取得することもできます。 ネットワークが混雑していない場合、ゼロプライオリティの手数料取引は取引処理において不利になることはないはずである。 ネットワークが混雑している場合は、他のトランザクションと競合するため、ゼロ以外の優先料金を指定した方が安全である。
 
-The Kaia node's `eth_maxPriorityFeePerGas` RPC shall:
+Kaiaノードの `eth_maxPriorityFeePerGas` RPCは、以下のようにしなければならない：
 
-- Return 0 if the network is uncongested. The network is considered uncongested when the next baseFeePerGas equals the UPPER_BOUND_BASE_FEE.
-- Otherwise return P percentile effective priority fees among the transactions in the last N blocks. Kaia nodes with default settings uses P=60 and N=20 but the configuration can differ by nodes.
+- ネットワークが混雑していなければ0を返す。 次のbaseFeePerGasがUPPER_BOUND_BASE_FEEと等しいとき、ネットワークは混雑していないとみなされる。
+- そうでない場合は、直近のNブロックのトランザクションのうち、Pパーセンタイルの実効優先料金を返す。 デフォルト設定のKaiaノードはP=60、N=20を使用するが、ノードによって設定は異なる。
 
-A type-2 transaction's `maxFeePerGas` should be higher than the network's next baseFee to ensure the transaction gets processed even if the baseFee rises. A common formula is `lastBaseFee*2 + maxPriorityFeePerGas`. It takes at least 15 seconds for baseFee to double when BASE_FEE_DENOMINATOR is 20. Another option is to use `eth_gasPrice` RPC.
+Type-2トランザクションの`maxFeePerGas`は、ベースフィーが上昇してもトランザクションが確実に処理されるように、ネットワークの次のベースフィーよりも高くすべきである。 一般的な計算式は、`lastBaseFee*2 + maxPriorityFeePerGas`である。 BASE_FEE_DENOMINATORが20の場合、baseFeeが2倍になるには少なくとも15秒かかります。 もう一つの方法は、`eth_gasPrice` RPCを使うことである。
 
-For transactions of other tx types, more care should be taken when choosing an appropriate `gasPrice`. Because for these tx types, the gasPrice is spent as-is regardless of the baseFee. On the other hand, gasPrice must be at least network's baseFee. Therefore, applications and users would want to avoid setting gasPrice too high, while at the same time matching the network's baseFee. One strategy would be setting the `gasPrice` a slightly higher than the next baseFee so it can accommodate a few baseFee rises. You can call `eth_gasPrice` RPC to retrieve the recommended gas price.
+他のtxタイプのトランザクションの場合、適切な`gasPrice`を選択する際にはより注意が必要である。 なぜなら、これらのTXタイプでは、gasPriceはbaseFeeに関係なくそのまま使われるからである。 一方、gasPriceは少なくともネットワークの基本料金でなければならない。 したがって、アプリケーションとユーザーは、gasPriceを高く設定しすぎることを避け、同時にネットワークの基本料金に合わせることを望むだろう。 一つの戦略として、`gasPrice`を次の基本料金より少し高めに設定し、数回の基本料金の上昇に対応できるようにする。 `eth_gasPrice`RPCを呼び出すことで、推奨ガス価格を取得することができる。
 
-The Kaia node's `eth_gasPrice` RPC shall:
+Kaiaノードの`eth_gasPrice` RPCは次のようにする：
 
-- Return (next baseFee) \* M + (eth_maxPriorityFeePerGas). Multiplier M is heuristically chosen as 1.10 under uncongested network and 1.15 under congested network. When BASE_FEE_DENOMINATOR is 20, the M=1.10 can withstand at least one baseFee increase (1.05) and M=1.15 can withstand at least two consecutive baseFee increase (1.05\*1.05). Considering that the baseFee usually does not rise at top speed of 5%, the multiplier should actually be enough for a few baseFee increases.
+- (next baseFee) \* M + (eth_maxPriorityFeePerGas) を返す。 乗数Mは、混雑していないネットワークでは1.10、混雑しているネットワークでは1.15とヒューリスティックに選択される。 BASE_FEE_DENOMINATORが20の場合、M=1.10は少なくとも1回の基本料金の値上げ(1.05)に耐えることができ、M=1.15は少なくとも2回の連続した基本料金の値上げ(1.05\*1.05)に耐えることができる。 通常、基本料金が5％の最高速度で上昇することはないことを考慮すると、この倍率は実際には数回の基本料金の値上げに十分なはずだ。
 
-### Gas price summary
+### ガス価格の概要
 
-| Hardfork     | `gasPrice` requirement                                                                           | `maxFeePerGas` requirement                                                                       | `maxPriorityFeePerGas` requirement                                                                                                | calculated `effectiveGasPrice`                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Before Magma | must be unitPrice                                                                                | must be unitPrice<br/>(only after EthTxType fork)                             | must be unitPrice<br/>(only after EthTxType fork)                                                              | unitPrice                                                                                                                 |
-| After Magma  | at least baseFee<br/>(recommended: 2\*baseFee)                | at least baseFee<br/>(recommended: 2\*baseFee)                | ignored                                                                                                                           | After BaseFee                                                                                                             |
-| After Kaia   | at least baseFee<br/>(recommended: baseFee\*M + suggestedTip) | at least baseFee<br/>(recommended: baseFee\*2 + suggestedTip) | up to users, wallets, and SDKs<br/>(recommended: suggestedTip = 0 or P percentile in N blocks) | tx type 2: min(baseFee + feeCap, tipCap),<br/>other tx types: gasPrice |
+| ハードフォーク | `gasPrice`要件                                                 | `maxFeePerGas`要件                                             | `MaxPriorityFeePerGas` 要件。                                                                            | 計算された「実効ガス価格                                                                                                      |
+| ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| マグマの前   | 単価でなければならない                                                  | must be unitPrice<br/>(EthTxType フォーク後のみ) | must be unitPrice<br/>(EthTxType フォーク後のみ)                                          | 単価                                                                                                                |
+| マグマの後   | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 無視                                                                                                    | After BaseFee                                                                                                     |
+| カイアのその後 | 少なくとも基本料金<br/>(推奨：基本料金\*M + suggestedTip) | 少なくとも基本料金<br/>(推奨：基本料金\*2 + suggestedTip) | ユーザー、ウォレット、SDK まで<br/>(推奨: suggestedTip = 0 または N ブロックの P パーセンタイル) | txタイプ2: min(baseFee + feeCap, tipCap),<br/>その他のtxタイプ: gasPrice |

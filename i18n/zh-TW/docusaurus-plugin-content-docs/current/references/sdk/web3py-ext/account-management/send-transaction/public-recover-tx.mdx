@@ -1,0 +1,212 @@
+# Public Account Key
+
+**AccountKeyPublic** 用於有一個公鑰的賬戶。 如果賬戶有一個 AccountKeyPublic 對象，交易驗證過程如下：
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_public_value_transfer_sign_recover.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_tx_sign_recover_pubkey():
+    user = Account.from_key_pair(
+        '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+        '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+    )
+
+    value_transfer_tx = empty_tx(TxType.VALUE_TRANSFER)
+    value_transfer_tx = merge(value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address,
+        'value' : Web3.to_peb(10, "klay"),
+    })
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+    recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered)
+
+web3_tx_sign_recover_pubkey()
+```
+
+---
+
+```zsh output
+❯ python txTypeLegacyTransaction.py
+tx hash:  0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3 receipt:  AttributeDict({'blockHash': HexBytes('0x1731103ca6b336d0b1f6731632e7339f710f2316b5efb63882108bd0a5207f45'), 'blockNumber': 150557786, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash': HexBytes('0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3'), 'transactionIndex': 0, 'type': 0})
+
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py web3_public_value_transfer_sign_recover.py focus=1:2
+
+```
+
+---
+
+從 **web3** 和 **eth_account** 導入必要的實用程序
+
+```py web3_public_value_transfer_sign_recover.py focus=3:8
+
+```
+
+---
+
+使用 **Web3.HTTPProvider** 和 RPC 端點定義 web3 連接
+
+```py web3_public_value_transfer_sign_recover.py focus=11
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```py web3_public_value_transfer_sign_recover.py focus=11
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    empty_tx,
+    fill_transaction,
+    TxType
+)
+from cytoolz import merge
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_tx_sign_recover_pubkey():
+    user = Account.from_key_pair(
+        '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+        '0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8'
+    )
+
+    value_transfer_tx = empty_tx(TxType.VALUE_TRANSFER)
+    value_transfer_tx = merge(value_transfer_tx, {
+        'from' : user.address,
+        'to' : user.address,
+        'value' : Web3.to_peb(10, "klay"),
+    })
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+    recovered = w3.klay.recover_from_transaction(signed_tx.rawTransaction.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered)
+
+web3_tx_sign_recover_pubkey()
+```
+
+---
+
+使用 **Account.from_key_pair ** 從地址和私人密鑰定義錢包
+
+```py web3_public_value_transfer_sign_recover.py focus=14:17
+
+```
+
+---
+
+創建一個**TxType.VALUE_TRANSFER**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+
+```py web3_public_value_transfer_sign_recover.py focus=19
+
+```
+
+---
+
+創建一個**事務**，其中包含**from**、**to**和**value**字段以進行傳輸。
+
+```py web3_public_value_transfer_sign_recover.py focus=20:24
+
+```
+
+---
+
+**from**：發件人地址，**to**：接收 kaia 的目標地址。
+
+```py web3_public_value_transfer_sign_recover.py focus=21:22
+
+```
+
+---
+
+**value** 字段表示要發送多少 kaia，您可以使用 **Web3.to_peb** 工具將 kaia 轉換為 peb 單位。
+
+```py web3_public_value_transfer_sign_recover.py focus=23
+
+```
+
+---
+
+使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。 如果您想查看以下內容，可以打印這一行之後的所有字段
+
+```py web3_public_value_transfer_sign_recover.py focus=4:6,25
+
+```
+
+---
+
+用定義的賬戶簽署交易
+
+```py web3_public_value_transfer_sign_recover.py focus=26
+
+```
+
+---
+
+**向網絡發送\***已簽名的交易，並**_等待_**接收，直到交易在區塊鏈中完全執行為止
+
+<CH.Code>
+```py web3_public_value_transfer_sign_recover.py focus=28:30
+
+````
+---
+```zsh output
+tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a receipt:  AttributeDict({'blockHash': HexBytes('0xcd0b362591ab28e4c5c423561ea525ad7f19e1fbc177aeef640aece7d53fc83d'), 'blockNumber': 147156811, 'contractAddress': None, 'cumulativeGasUsed': 271841, 'effectiveGasPrice': 25000000000, 'from': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'gasUsed': 81000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA', 'transactionHash': HexBytes('0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a'), 'transactionIndex': 1, 'type': 0})
+````
+
+</CH.Code>
+
+---
+
+使用 **Account.recover_transaction** 從簽名交易中恢復發件人地址
+
+<CH.Code>
+```py web3_public_value_transfer_sign_recover.py focus=32:33
+
+````
+---
+
+```zsh output
+❯ python web3_public_value_transfer_sign_recover.py
+sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+</CH.Spotlight>

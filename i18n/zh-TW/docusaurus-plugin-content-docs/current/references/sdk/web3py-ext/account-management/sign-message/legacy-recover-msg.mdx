@@ -1,0 +1,99 @@
+# Legacy Account Key
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_legacy_value_transfer_message_recover.py
+from eth_account import Account
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+def web3_legacy_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    message_text = "I♥KLAYTN"
+    msghash = encode_defunct(text=message_text)
+    signature = Account.sign_message(msghash, user.key)
+
+    recovered = Account.recover_message(msghash, signature=signature.signature)
+    print("\nsender", user.address, "\nrecovered", recovered)
+
+web3_legacy_value_transfer_sign_recover()
+```
+
+---
+
+```zsh output
+python web3_legacy_value_transfer_message_recover.py
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+從 **eth_utils** 和 **eth_account** 導入必要的實用程序
+
+```py web3_legacy_value_transfer_message_recover.py focus=1:3
+
+```
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py web3_legacy_value_transfer_message_recover.py focus=4
+
+```
+
+---
+
+使用 **Account.from_key ** 從私人密鑰定義錢包
+
+```py web3_legacy_value_transfer_message_recover.py focus=7
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```py web3_legacy_value_transfer_message_recover.py focus=8
+
+```
+
+---
+
+使用**encode_defunct**對報文進行格式化，使其與 EIP-191 標準兼容。
+
+```py web3_legacy_value_transfer_message_recover.py focus=9
+
+```
+
+---
+
+使用創建的賬戶簽署交易
+
+```py web3_legacy_value_transfer_message_recover.py focus=10
+
+```
+
+---
+
+使用**Account.rec recover_message**從簽名郵件中恢復發件人地址
+
+<CH.Code>
+```py web3_legacy_value_transfer_message_recover.py focus=12:13
+
+````
+---
+
+```zsh output
+❯ python web3_legacy_value_transfer_message_recover.py
+sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
+
+</CH.Code>
+</CH.Spotlight>

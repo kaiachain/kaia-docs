@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -57,48 +57,48 @@ web3_fee_delegated_smart_contract_execution_sign_recover()
 ---
 
 ```zsh output
-❯ py delegated_smart_contract_execution_sign_recover.py
-raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a
+/ py delegated_smart_contract_execution_sign_recover.py
+署名済みtxのrawトランザクション：0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a
 
-recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+回収された送信者アドレス 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
-recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+feePayer 署名済み tx の raw トランザクション：0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
+feepayerアドレスを回復した：['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
-decoded transaction: {
-  "type": 49,
+decoded transaction:{
+  "type"：49,
   "value": 0,
-  "gasPrice": 50000000000,
-  "nonce": 931,
-  "gas": 110685,
-  "to": "0x108bF12b50c9ef65525F0495C721aEc55015e111",
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "data": "0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000",
-  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
-  "signatures": [
+  "gasPrice"：50000000000,
+  "nonce"：931,
+  "gas"：110685,
+  "to"："0x108bF12b50c9ef65525F0495C721aEc55015e111",
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data"："0x3d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000",
+  "feePayer":"0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures"：[
     {
-      "v": 2037,
-      "r": 4632139155753288816177914350449378738873058722929189649296670464490515662685,
-      "s": 36273349621051746908322095917532842606006460166655513683041721600219371823498
-    }
+      "v"：2037,
+      "r"：4632139155753288816177914350449378738873058722929189649296670464490515662685,
+      "s"：36273349621051746908322095917532842606006460166655513683041721600219371823498
+    }.
   ],
-  "feePayerSignatures": [
+  "feePayerSignatures"：[
     {
-      "v": 2037,
-      "r": 59008994161645925359182568890805662549212009998969311671295364669364719147680,
-      "s": 48760043609336873845154832650749116609475268552379125539006421213296675173404
-    }
+      "v"：2037,
+      "r"：590089941645925359182568890805662549212009998969311671295364669364719147680,
+      "s"：48760043609336873845154832650749116609475268552379125539006421213296675173404
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash': HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber': 148225895, 'contractAddress': None, 'cumulativeGasUsed': 44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 44742, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash': HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex': 0, 'type': 0})
+tx ハッシュ：  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash'：HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber':148225895, 'contractAddress'：None, 'cumulativeGasUsed'：44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed'：44742, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash'：HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex':0, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=1:2
 
@@ -106,7 +106,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=3:10
 
@@ -114,7 +114,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=12
 
@@ -122,7 +122,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=12
 from web3py_ext import extend
@@ -175,7 +175,7 @@ web3_fee_delegated_smart_contract_execution_sign_recover()
 
 ---
 
-Load an **account** from private key
+秘密鍵から**account**を読み込む
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=15
 
@@ -183,7 +183,7 @@ Load an **account** from private key
 
 ---
 
-Load a **fee payer account** from private key
+秘密鍵から**料金支払い者アカウント**をロードする。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=16
 
@@ -191,7 +191,7 @@ Load a **fee payer account** from private key
 
 ---
 
-Create an **empty transaction** of type **TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**型の**空のトランザクション**を作成します。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=18
 
@@ -199,7 +199,7 @@ Create an **empty transaction** of type **TxType.FEE_DELEGATED_SMART_CONTRACT_EX
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **data** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**from**、**to**、**data**などの**追加フィールド**を空のtxにマージする。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=19:23
 
@@ -207,7 +207,7 @@ Merge the **additional fields** like **from**, **to** and **data** into the empt
 
 ---
 
-Set the **contract address** you want to execute into the **to** field
+実行したい**契約アドレス**を**to**フィールドに設定する。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=21
 
@@ -215,7 +215,7 @@ Set the **contract address** you want to execute into the **to** field
 
 ---
 
-In this tutorial, the **data to call a function** of the contract is **encoded** into **bytes** stream. Please refer to the **write tutorial** in the **Smart Contract section** to make the encoded data
+このチュートリアルでは、契約の関数**を呼び出すための**データは、**バイト**ストリームに**エンコード**される。 エンコードされたデータを作成するには、**スマートコントラクトセクション**の**ライトチュートリアル**を参照してください。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=22
 
@@ -223,7 +223,7 @@ In this tutorial, the **data to call a function** of the contract is **encoded**
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=24
 
@@ -231,7 +231,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 <CH.Code>
 ```py delegated_smart_contract_execution_sign_recover.py focus=26:28
@@ -248,7 +248,7 @@ raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```py delegated_smart_contract_execution_sign_recover.py focus=30:31
@@ -267,7 +267,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Sign the value transfer tx by fee payer's private key
+料金支払者の秘密鍵でバリュー移転txに署名する。
 
 <CH.Code>
 ```py delegated_smart_contract_execution_sign_recover.py focus=33:34
@@ -287,7 +287,7 @@ raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108
 
 ---
 
-Recover the **fee payer's address** from the signature in signed tx
+署名入りTXの署名から**料金支払い者の住所**を復元する。
 
 <CH.Code>
 ```py delegated_smart_contract_execution_sign_recover.py focus=36:37
@@ -307,7 +307,7 @@ recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```py delegated_smart_contract_execution_sign_recover.py focus=39:40
@@ -349,7 +349,7 @@ decoded transaction: {
 
 ---
 
-Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに**tx**を送信する。 このハッシュは受信を待つために使用される。
 
 ```py delegated_smart_contract_execution_sign_recover.py focus=42
 
@@ -357,7 +357,7 @@ Send the **tx** to the blockchain. It will return the tx hash, which will be use
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 
@@ -369,7 +369,7 @@ The **wait_for_transaction_receipt** method returns the tx receipt if it is comp
 
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
-tx hash:  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash': HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber': 148225895, 'contractAddress': None, 'cumulativeGasUsed': 44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 44742, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash': HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex': 0, 'type': 0})
+tx ハッシュ：  0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd receipt:  AttributeDict({'blockHash'：HexBytes('0x83d5276dc3fec557740a2d25c8f076aba11c022e7021b71bd95a76318c4ff5c9'), 'blockNumber':148225895, 'contractAddress'：None, 'cumulativeGasUsed'：44742, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed'：44742, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x108bF12b50c9ef65525F0495C721aEc55015e111', 'transactionHash'：HexBytes('0x3569f46bb885eb4c849e10009ec7096530fa44ef7ee1287df83820fcef8d0ebd'), 'transactionIndex':0, 'type': 0})
 
 ```
 

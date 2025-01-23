@@ -1,26 +1,26 @@
-# Core Cell
+# コアセル
 
-## Intended Audience  <a id="intended-audience"></a>
+## 対象読者 <a id="intended-audience"></a>
 
-- Core Cell Operators
-- If your interest is in making and running Blockchain Applications on Klaytn, you don't need to maintain a Core Cell. You need to run an [Endpoint Node](../endpoint-node/endpoint-node.md) instead to make your application interact with Klaytn network.
+- コアセル・オペレーター
+- カイア上でブロックチェーン・アプリケーションを作成・実行することに興味があるのであれば、コアセルを維持する必要はありません。 アプリケーションをKaiaネットワークと連動させるには、代わりに[Endpoint Node](../endpoint-node/endpoint-node.md)を実行する必要があります。
 
-## Core Cell Overview <a id="core-cell-overview"></a>
+## コアセルの概要<a id="core-cell-overview"></a>
 
-Core Cell (CC) is an entity that is participating in the consensus process, and is in charge of executing transactions and generating blocks.
-A Klaytn Core Cell (CC) consists of the following components.
+コアセル（CC）は、コンセンサス・プロセスに参加するエンティティであり、トランザクションの実行とブロックの生成を担当する。
+カイア・コアセル（CC）は以下のコンポーネントで構成されている。
 
-- Consensus Node (CN): Consensus Nodes are participating in the block generation process.
-- Proxy Node (PN): Proxy Nodes provide the interface to the network. PNs transmit the transaction requests to the Consensus Nodes, and propagate the blocks down to the Endpoint Nodes.
+- コンセンサス・ノード（CN）：コンセンサスノードはブロック生成プロセスに参加する。
+- プロキシノード（PN）：プロキシノードはネットワークへのインターフェースを提供する。 PNはトランザクション要求をコンセンサスノードに送信し、ブロックをエンドポイントノードに伝搬する。
 
-It is recommended that a Core Cell consists of one CN with two or more PNs.
-A CN connects to other CNs within the Core Cell Network to perform consensus.
-CNs only accept connections from their PNs in the same Core Cell to receive transaction requests and propagate blocks to the network.
-PNs accepts connections from any ENs within the Endpoint Node Network.
+コアセルは、1つのCNと2つ以上のPNで構成されることが推奨される。
+CNはコアセルネットワーク内の他のCNと接続してコンセンサスを行う。
+CNは同じコアセル内のPNからの接続のみを受け入れ、トランザクション要求を受信し、ブロックをネットワークに伝搬する。
+PNは、エンドポイント・ノード・ネットワーク内のどのENからの接続も受け入れる。
 
 ![Core Cell Overview](/img/nodes/cn_set.png)
 
-| Name | Description                                                                                                                                                                                                                                                                                                             | Network Security                                                                                                                                                                                                                                                                                                                  | Quantity                                                                               |
-| :--- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
-| CN   | A node that creates a new block with other CNs in the Core Cell Network                                                                                                                                                                                                                                                 | A network is composed of permissioned CNs. (Requires IP access control).                                                                                                                                                                                                       | 1 unit                                                                                 |
-| PN   | - A node that submits transactions received from the Klaytn Endpoint Node Network to the CN. <br/>- It propagates the created blocks to Klaytn Endpoint Node Network. <br/>- It can scale out horizontally depending on the number of ENs in the Endpoint Node Network. | \* It is connected to the CN in the Core Cell, and its IP and Ports are required to be public to accept connections from other Klaytn nodes on the Internet. <br/>- It can connect to other PNs in other Core Cell via PN bootnode. <br/>- It can connect to ENs via EN bootnode. | At least 1 PN required. 2 or more PNs are recommended. |
+| 名称 | 説明                                                                                                                                                          | ネットワーク・セキュリティ                                                                                                                                          | 数量                         |
+| :- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------- |
+| CN | コアセルネットワークの他のCNと新しいブロックを作成するノード。                                                                                                                            | ネットワークは許可されたCNで構成される。 (IPアクセスコントロールが必要）。                                                                                            | 1ユニット                      |
+| PN | - カイア・エンドポイント・ノード・ネットワークから受信したトランザクションをCNに提出するノード。 <br/>- 作成されたブロックはKaia Endpoint Node Networkに伝搬される。 <br/>- エンドポイント・ノード・ネットワークの EN の数に応じて、水平方向にスケールアウトできる。 | - コアセル内のCNに接続され、インターネット上の他のKaiaノードからの接続を受け入れるため、IPとポートはパブリックである必要があります。 <br/>- PNブートノードを介して、他のコアセル内の他のPNと接続することができる。 <br/>- ENブートノードを介してENに接続することができる。 | 少なくとも1つのPNが必要。 2人以上のPNを推奨。 |

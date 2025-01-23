@@ -1,6 +1,6 @@
-# Write (Fee Delegation)
+# 書き込み（手数料の委任）
 
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -102,16 +102,16 @@ public class WriteContractWithFeeDelegationExample {
 ---
 
 ```zsh output
-❯ java WriteContractWithFeeDelegationExample.java
-number before : 298
-number after : 50
+java WriteContractWithFeeDelegationExample.java
+数字の前 : 298
+数字の後 : 50
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java WriteContractWithFeeDelegationExample.java focus=1:28
 
@@ -119,7 +119,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=37
 
@@ -127,7 +127,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Creating **sender** and **fee payer** credentials using private keys.
+秘密鍵を使用して、**sender**および**fee payer**のクレデンシャルを作成する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=38:39
 
@@ -135,7 +135,7 @@ Creating **sender** and **fee payer** credentials using private keys.
 
 ---
 
-Specify the **address** of the deployed contract
+配備された契約の\*\*アドレスを指定する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=38
 
@@ -143,7 +143,7 @@ Specify the **address** of the deployed contract
 
 ---
 
-Define gas price and gas limit for the transaction
+取引に必要なガス価格とガスの上限を設定する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=41:42
 
@@ -151,7 +151,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=43
 
@@ -159,7 +159,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Getting the **nonce** for the sender's address
+送信者アドレスの**nonce**取得
 
 ```java WriteContractWithFeeDelegationExample.java focus=44:45
 
@@ -167,7 +167,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Get the chain ID from the **Kaia** network
+**Kaia**ネットワークからチェーンIDを取得する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=46:47
 
@@ -175,7 +175,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Initialize variables for transaction parameters
+トランザクション・パラメータ用の変数を初期化する
 
 ```java WriteContractWithFeeDelegationExample.java focus=48
 
@@ -183,7 +183,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a gas provider with static gas price and gas limit
+静的なガス価格とガス制限を持つガス・プロバイダーを作成する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=49
 
@@ -191,7 +191,7 @@ Create a gas provider with static gas price and gas limit
 
 ---
 
-Load the contract using **contact address**, **Web3j instance**, **credentials**, and **gas provider**. You can read and write the contract through this instance
+**コンタクトアドレス**、**Web3jインスタンス**、\*認証情報**、および**ガスプロバイダー\*\*を使用して、契約をロードします。 このインスタンスを通じて、契約の読み書きができる。
 
 ```java WriteContractWithFeeDelegationExample.java focus=50
 
@@ -199,7 +199,7 @@ Load the contract using **contact address**, **Web3j instance**, **credentials**
 
 ---
 
-Get the current **number** stored in the contract before writing
+を書き込む前に、コントラクトに格納されている現在の**number**を取得する。
 
 <CH.Code>
 ```java WriteContractWithFeeDelegationExample.java focus=52:53
@@ -219,7 +219,7 @@ number before : 298
 
 ---
 
-Set params for calling method `setNumber` to the contract
+メソッド `setNumber` を呼び出すためのパラメータを契約に設定する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=55:60
 
@@ -227,7 +227,7 @@ Set params for calling method `setNumber` to the contract
 
 ---
 
-Define the transaction type as **FEE_DELEGATED_SMART_CONTRACT_EXECUTION**
+トランザクション・タイプを**FEE_DELEGATED_SMART_CONTRACT_EXECUTION**と定義する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=62
 
@@ -235,7 +235,7 @@ Define the transaction type as **FEE_DELEGATED_SMART_CONTRACT_EXECUTION**
 
 ---
 
-Create a raw transaction
+生のトランザクションを作成する
 
 ```java WriteContractWithFeeDelegationExample.java focus=64:72
 
@@ -243,7 +243,7 @@ Create a raw transaction
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+`KlayTransactionEncoder.signMessage` を使用して、**sender** としてトランザクションに署名する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=74:75
 
@@ -251,7 +251,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+`KlayTransactionEncoder.signMessageAsFeePayer` を使用して、トランザクションを料金支払者として署名する。
 
 ```java WriteContractWithFeeDelegationExample.java focus=77:78
 
@@ -259,7 +259,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+署名されたトランザクションをkaiaネットワークに送信する
 
 ```java WriteContractWithFeeDelegationExample.java focus=80
 
@@ -267,7 +267,7 @@ Sending the signed transaction to kaia network
 
 ---
 
-Delay for a short time to ensure the transaction is completed
+取引完了を確実にするため、短時間遅らせる
 
 ```java WriteContractWithFeeDelegationExample.java focus=81:85
 
@@ -275,7 +275,7 @@ Delay for a short time to ensure the transaction is completed
 
 ---
 
-Get the updated **number** stored in the contract after writing
+を書いた後、コントラクトに格納されている更新された**number**を取得する。
 
 <CH.Code>
 ```java WriteContractWithFeeDelegationExample.java focus=86:87
@@ -295,7 +295,7 @@ number after : 50
 
 ---
 
-Shutting down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java WriteContractWithFeeDelegationExample.java focus=89
 

@@ -234,7 +234,7 @@ web3_fee_delegated_smart_contract_execution_sign_recover()
 用用户的私人密钥签署值传输 tx
 
 <CH.Code>
-``py delegated_smart_contract_execution_sign_recover.py focus=26:28
+```py delegated_smart_contract_execution_sign_recover.py focus=26:28
 
 ````
 ---
@@ -251,7 +251,7 @@ raw transaction of signed tx: 0x31f8e78203a3850ba43b74008301b05d94108bf12b50c9ef
 从已签署的 tx 中的签名中恢复**签名人地址**
 
 <CH.Code>
-``py delegated_smart_contract_execution_sign_recover.py focus=30:31
+```py delegated_smart_contract_execution_sign_recover.py focus=30:31
 
 ````
 
@@ -270,7 +270,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 用缴费人的私人密钥签署价值转移 tx
 
 <CH.Code>
-``py delegated_smart_contract_execution_sign_recover.py focus=33:34
+```py delegated_smart_contract_execution_sign_recover.py focus=33:34
 
 ````
 
@@ -280,6 +280,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
 raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108bf12b50c9ef65525f0495c721aec55015e1118094a2a8854b1802d8cd5de631e690817c253d6a9153b8643d7403a30000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000c48656c6c6f204b6c6179746e0000000000000000000000000000000000000000f847f8458207f5a00a3db2a6793df0b256e2a81bce7ae3780783fcf58cc8326a14371c3413f3075da05031fd033453cf9a7be888b1db3812193d00221e299b483aa4e80a850664618a94cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a08275e838e70da6b1c590f6a8ee5a545ddf93963c5d62bc423835930b91295aa0a06bcd34e8a2a9114c15311e2d7b3004c041410cecb3452349a6e82e09b736b41c
+
 ````
 
 </CH.Code>
@@ -289,7 +290,7 @@ raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108
 从已签署的 tx 中的签名中恢复**缴费人地址**
 
 <CH.Code>
-``py delegated_smart_contract_execution_sign_recover.py focus=36:37
+```py delegated_smart_contract_execution_sign_recover.py focus=36:37
 
 ````
 
@@ -299,6 +300,7 @@ raw transaction of feePayer signed tx: 0x31f901458203a3850ba43b74008301b05d94108
 ```zsh output
 ❯ py delegated_smart_contract_execution_sign_recover.py
 recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+
 ````
 
 </CH.Code>
@@ -308,7 +310,7 @@ recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 您可以使用**Account.decode_transaction**工具对 RLP 编码的 tx 进行**解码**，如果您想让输出格式更漂亮，请使用**to_pretty**工具。
 
 <CH.Code>
-``py delegated_smart_contract_execution_sign_recover.py focus=39:40
+```py delegated_smart_contract_execution_sign_recover.py focus=39:40
 
 ````
 ---

@@ -1,49 +1,49 @@
-# Deploying smart contract using Private Network
+# プライベートネットワークを使用したスマートコントラクトの展開
 
 <!-- ![](/img/banners/kaia-ken.png) -->
 
-## Introduction <a id="introduction"></a>
+## はじめに<a id="introduction"></a>
 
-In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
+このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる：
 
-- Set up a Hardhat project.
-- Launch a private network simulating the Kairos Testnet.
-- Utilize Hardhat utils to deploy smart contracts on this private network.
+- ハードハット・プロジェクトを立ち上げる。
+- Kairos Testnetをシミュレートしたプライベートネットワークを立ち上げる。
+- Hardhatユーティリティを利用して、このプライベート・ネットワーク上にスマート・コントラクトをデプロイする。
 
-## Prerequisite <a id="prerequisites"></a>
+## 前提条件<a id="prerequisites"></a>
 
-To follow this tutorial, the following are the prerequisites:
+このチュートリアルに従うには、次のことが前提条件となる：
 
-- Code editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
-- Docker: if you don’t have docker installed, kindly install using this [link](https://docs.docker.com/desktop/)
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node version 18 and above.
+- コードエディタ：[VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
+- Docker: dockerがインストールされていない場合は、こちらの[リンク](https://docs.docker.com/desktop/)からインストールしてください。
+- [Node.jsとnpm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)：Node バージョン 18 以上。
 
-## Setting Up your Development Environment <a id="setting-up-dev-environment"></a>
+## 開発環境のセットアップ<a id="setting-up-dev-environment"></a>
 
-In this section, we will install hardhat, Kaia hardhat utils and other necessary dependencies needed for bootstrapping our project.
+このセクションでは、hardhat、Kaia hardhat utils、その他プロジェクトのブートストラップに必要な依存関係をインストールする。
 
-**Step 1: Create a project directory**
+**ステップ1：プロジェクト・ディレクトリを作成する**。
 
 ```js
 mkdir $HOME/kaia-greeter
 cd kaia-greeter 
 ```
 
-**Step 2: Initialize an npm project**
+**ステップ2: npmプロジェクトの初期化**.
 
 ```js
 npm init -y
 ```
 
-**Step 3: Install hardhat, hardhat-utils and other dependencies**
+**ステップ3: hardhat、hardhat-utils、その他の依存関係をインストールする**。
 
-- Copy and paste the code below in your terminal to install hardhat and hardhat-utils
+- 以下のコードをターミナルにコピー＆ペーストして、hardhatとhardhat-utilsをインストールする。
 
 ```js
 npm i hardhat @klaytn/hardhat-utils
 ```
 
-- Copy and paste the code below to install other dependencies
+- 他の依存関係をインストールするには、以下のコードをコピー＆ペーストしてください。
 
 ```js
 npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
@@ -51,13 +51,13 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-The hardhat-utils plugin depends on  [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) and [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) plugin.  Make sure to require or import them in your `hardhat.config.js` or `hardhat.config.ts`.
+hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) と [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) プラグインに依存しています。  `hardhat.config.js`または`hardhat.config.ts`で、これらをrequireまたはimportしてください。
 
 :::
 
 :::info
 
-(Recommended) Install hardhat shorthand. But you can still use the tasks with npx hardhat.
+(推奨）ハードハットの速記をインストールする。 しかし、npxのハードハットでもタスクは可能だ。
 
 ```js
 npm install hardhat-shorthand --save
@@ -65,58 +65,58 @@ npm install hardhat-shorthand --save
 
 :::
 
-**Step 4: Initialize a hardhat project**
+**ステップ4：ハードハット・プロジェクトを初期化する**。
 
-Run the command below to initiate an hardhat project:
-
-```js
-npx hardhat init 
-```
-
-For this guide, you'll be selecting "create an empty hardhat.config.js" project as seen below:
+以下のコマンドを実行して、ハードハット・プロジェクトを開始する：
 
 ```js
-888    888                      888 888               888
-888    888                      888 888               888
-8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888
-888    888     "88b 888P"  d88" 888 888 "88b     "88b 888
-888    888 .d888888 888    888  888 888  888 .d888888 888
-888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.
-888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888
-👷 Welcome to Hardhat v2.22.9 👷‍
-? What do you want to do? … 
-  Create a JavaScript project
-  Create a TypeScript project
-  Create a TypeScript project (with Viem)
-❯ Create an empty hardhat.config.js
-  Quit
+npxハードハット 
 ```
 
-**Step 5: Create a .env file**
-
-Now create your `.env` file in the project folder. This file helps us load environment variables from an `.env` file into process.env.
-
-Copy and paste this command in your terminal to create a `.env` file
+このガイドでは、以下のように「空のhardhat.config.jsを作成する」プロジェクトを選択する：
 
 ```js
-touch .env
+888 888 888
+888 888 888
+88888888 8888b.  888d888 .d88888 88888b.   8888b.  888888
+888 888 "88b 888P" d88" 888 888 "88b "88b 888
+888 888 .d888888 888 888 .d888888 888
+888 888 888 888 Y88b 888 888 Y88b.
+888 888 "Y88888 888 888 "Y88888
+👷 ようこそHardhat v2.22.9 👷‍
+?何をしたいのですか？ … 
+  JavaScriptプロジェクトを作成する
+  TypeScriptプロジェクトを作成する
+  TypeScriptプロジェクトを作成する(Viemを使用)
+❯ 空のhardhat.config.jsを作成する
+  終了する
 ```
 
-Configure your .env file to look like this:
+**ステップ5：.envファイルを作成する**。
+
+プロジェクトフォルダーに `.env` ファイルを作成する。 このファイルは、`.env`ファイルからprocess.envに環境変数をロードするのに役立つ。
+
+以下のコマンドをターミナルにコピー＆ペーストして、`.env` ファイルを作成する。
+
+```js
+タッチ.env
+```
+
+.envファイルを次のように設定する：
 
 ```
-PRIVATE_KEY="COPY & PASTE ANY OF THE PRIVATE KEY PROVIDED BY LOCAL PRIVATE NETWORK"
+private_key="ローカル・プライベート・ネットワークから提供された秘密鍵のコピー＆ペースト"
 ```
 
 :::note
 
-When you launch the private network in the next section, you will be able to access the private key provided by the local network.
+次のセクションでプライベート・ネットワークを起動すると、ローカル・ネットワークが提供する秘密鍵にアクセスできるようになる。
 
 :::
 
-**Step 6: Setup Hardhat Configs**
+**ステップ6: ハードハット設定の設定**」。
 
-Modify your `hardhat.config.js` with the following configurations:
+以下の設定で `hardhat.config.js` を修正する：
 
 ```js
 require("@nomiclabs/hardhat-ethers");
@@ -153,9 +153,9 @@ module.exports = {
 };
 ```
 
-## Launching the Private Network <a id="launching-private-network"></a>
+## プライベートネットワークの立ち上げ<a id="launching-private-network"></a>
 
-To launch a  private network, the hardhat utils plugin provides us a task to easily launch one viz:
+プライベート・ネットワークを立ち上げるために、hardhat utilsプラグインは簡単に立ち上げるタスクを提供してくれる：
 
 ```js
 hh klaytn-node
@@ -163,9 +163,9 @@ hh klaytn-node
 
 ![](/img/build/smart-contracts/pn-run-node.png)
 
-## Attaching Console <a id="attaching-console"></a>
+## コンソールの取り付け<a id="attaching-console"></a>
 
-The private network comes with a JavaScript console. From the console command line, you can initiate part of Kaia API calls to your network. To attach to the JavaScript console, execute the following command:
+プライベート・ネットワークにはJavaScriptのコンソールが付属している。 コンソールのコマンドラインから、ネットワークへのKaia APIコールの一部を開始することができます。 JavaScriptコンソールに接続するには、以下のコマンドを実行する：
 
 ```js
 hh klaytn-node --attach
@@ -180,15 +180,15 @@ Welcome to the Kaia JavaScript console!
 
 :::note
 
-Type **kaia** or **personal** to get the list of available functions.
+**kaia**または**personal**と入力すると、利用可能な機能のリストが表示されます。
 
 :::
 
-## Checking the Balance in your account <a id="checking-balance-in-account"></a>
+## 口座残高の確認<a id="checking-balance-in-account"></a>
 
-When we launched the private network, it provided us with a list of accounts, private key and  pre-funded values for each account.
+プライベート・ネットワークを立ち上げると、アカウントのリスト、秘密鍵、各アカウントの事前入金額が提供された。
 
-To see the balance of the account, execute the following command.
+口座の残高を見るには、以下のコマンドを実行する。
 
 ```js
 kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
@@ -196,9 +196,9 @@ kaia.getBalance("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
 
 ![](/img/build/smart-contracts/pn-check-balance.png)
 
-## Configuring hardhat network environment <a id="configuring-hardhat-network-environment"></a>
+## ハードハット・ネットワーク環境の設定<a id="configuring-hardhat-network-environment"></a>
 
-Now that we are running a stand alone local network, which external clients (wallets, dApp) can connect to, we need to configure hardhat to use this network by running this command:
+外部クライアント（ウォレットやdApp）が接続できるスタンドアローン・ローカル・ネットワークが稼働しているので、このコマンドを実行して、ハードハットがこのネットワークを使用するように設定する必要がある：
 
 ```js
 export HARDHAT_NETWORK=localhost
@@ -211,13 +211,13 @@ hh --network localhost accounts
 
 ![](/img/build/smart-contracts/pn-lh-accounts.png)
 
-## Creating KaiaGreeter Smart Contract <a id="creating-kaiagreeter-smart-contract"></a>
+## KaiaGreeterスマートコントラクトの作成<a id="creating-kaiagreeter-smart-contract"></a>
 
-In this section, you will create a KaiaGreeter smart contract.
+このセクションでは、KaiaGreeterスマート・コントラクトを作成する。
 
-**Step 1:** Create a new folder named  **contracts** folder in the Explorer pane, click the New File button and create a new file named `KaiaGreeter.sol`
+**ステップ1：** エクスプローラーペインに**contracts**フォルダという新しいフォルダを作成し、新規ファイルボタンをクリックし、`KaiaGreeter.sol`という名前の新規ファイルを作成します。
 
-**Step 2:** Open the file and paste the following code:
+\*\*ステップ2：\*\*ファイルを開き、以下のコードを貼り付ける：
 
 ```js
 // SPDX-License-Identifier: UNLICENSED
@@ -239,13 +239,13 @@ contract KaiaGreeter {
 }
 ```
 
-## Deploying KaiaGreeter <a id="deploying-kaiagreeter"></a>
+## KaiaGreeterを展開する<a id="deploying-kaiagreeter"></a>
 
-In this section we will use the hardhat-deploy plugin to deploy our contracts.
+このセクションでは、hardhat-deployプラグインを使ってコントラクトをデプロイする。
 
-**Step 1:** In the Explorer pane, Create a new folder called **deploy** and click the New File button to create a new file named `deploy.js`.
+**ステップ1:** エクスプローラーペインで、**deploy** という新しいフォルダーを作成し、新規ファイルボタンをクリックして `deploy.js` という名前の新規ファイルを作成します。
 
-**Step 2:** Copy and paste the following code inside the file.
+\*\*ステップ2：\*\*以下のコードをコピーし、ファイル内に貼り付ける。
 
 ```js
 module.exports = async ({getNamedAccounts, deployments}) => {
@@ -260,93 +260,93 @@ module.exports = async ({getNamedAccounts, deployments}) => {
 module.exports.tags = ['KaiaGreeter'];
 ```
 
-**Step 3:** In the terminal, run the following command which tells Hardhat to deploy your KaiaGreeter contract on the private network.
+\*\*ターミナルで、以下のコマンドを実行し、Hardhatにプライベートネットワーク上にKaiaGreeter契約を展開するように指示します。
 
 ```js
-hh deploy 
+hh 配備 
 ```
 
 ![](/img/build/smart-contracts/pn-deployed-tx.png)
 
-## Verifying transaction using Block Explorer <a id="verifying-transaction-using-block-explorer"></a>
+## ブロックエクスプローラを使用したトランザクションの検証<a id="verifying-transaction-using-block-explorer"></a>
 
-**Step 1:** To verify our transactions using a local blockscout explorer, run the command below in a new terminal:
+\*\*ステップ1：ローカルのblockscoutエクスプローラーを使用してトランザクションを検証するには、新しいターミナルで以下のコマンドを実行します：
 
 ```js
-hh explorer --network localhost
+hhエクスプローラ --ネットワーク localhost
 ```
 
 ```js
-[+] Using env: {
-  DOCKER_RPC_HTTP_URL: 'http://host.docker.internal:8545/',
+[+] env: {
+  DOCKER_RPC_HTTP_URL：'http://host.docker.internal:8545/',
   DOCKER_LISTEN: '0.0.0.0:4000',
   DOCKER_DISABLE_TRACER: 'false',
   DOCKER_DEBUG: '0'
-}
-[+] Open in the browser: http://localhost:4000
- Network blockscout_default  Creating
- Network blockscout_default  Created
- Container blockscout-db-1  Creating
- Container blockscout-frontend-1  Creating
- Container blockscout-smart-contract-verifier-1  Creating
- Container blockscout-redis_db-1  Creating
- Container blockscout-smart-contract-verifier-1  Created
- Container blockscout-db-1  Created
- Container blockscout-frontend-1  Created
- Container blockscout-redis_db-1  Created
- Container blockscout-backend-1  Creating
- Container blockscout-backend-1  Created
- Container blockscout-frontend-1  Starting
- Container blockscout-redis_db-1  Starting
- Container blockscout-smart-contract-verifier-1  Starting
- Container blockscout-db-1  Starting
- Container blockscout-db-1  Started
- Container blockscout-redis_db-1  Started
- Container blockscout-smart-contract-verifier-1  Started
- Container blockscout-backend-1  Starting
- Container blockscout-frontend-1  Started
- Container blockscout-backend-1  Started
+}.
+[+] ブラウザで開く: http://localhost：4000
+ Network blockscout_default 作成
+ Network blockscout_default 作成
+ Container blockscout-db-1 作成
+ Container blockscout-frontend-1 作成
+ Container blockscout-smart-contract-verifier-1 作成
+ Container blockscout-redis_db-1 作成
+ blockscout-smart-contract-verifier-1 作成
+ コンテナ blockscout-db-1 作成
+ コンテナ blockscout-frontend-1 作成
+ コンテナ blockscout-redis_db-1 作成
+ コンテナ blockscout-backend-1 作成
+ コンテナ blockscout-backend-1 作成
+ コンテナ blockscout-frontend-1 開始
+ コンテナ blockscout-redis_db-1 開始
+ コンテナ blockscout-smart-contract-verifier-1 開始
+ コンテナ blockscout-db-1 開始
+ コンテナ blockscout-db-1 の開始
+ コンテナ blockscout-redis_db-1 の開始
+ コンテナ blockscout-smart-contract-verifier-1 の開始
+ コンテナ blockscout-backend-1 の開始
+ コンテナ blockscout-frontend-1 の開始
+ コンテナ blockscout-backend-1 の開始
 ```
 
-**Step 2:** To access this block explorer, open up [http://localhost:4000](http://localhost:4000) in your browser.
+**ステップ2：** このブロック・エクスプローラーにアクセスするには、ブラウザで [http://localhost:4000](http://localhost:4000) を開いてください。
 
-Step 3: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
+ステップ 3: 配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。
 
 ![](/img/build/smart-contracts/pn-verify-tx-block-explorer.png)
 
-## Interacting with deployed contract <a id="interacting-with-deployed-contract"></a>
+## 配備された契約とのやり取り<a id="interacting-with-deployed-contract"></a>
 
-### using hardhat utils contract task
+### ハードハットユーティル契約タスクの使用
 
-1. To call a read-only function of the deployed contract, run the command below:
+1. デプロイされたコントラクトの読み取り専用関数を呼び出すには、以下のコマンドを実行する：
 
 ```js
-hh call KaiaGreeter getTotalGreetings
+hh call カイアグリーター getTotalGreetings
 ```
 
 ![](/img/build/smart-contracts/pn-read-function.png)
 
-2. To send a function invoking transaction to the deployed contract, run the command below:
+2. 関数を呼び出すトランザクションをデプロイされたコントラクトに送信するには、以下のコマンドを実行する：
 
 ```js
-hh send KaiaGreeter greet
+カイアグリーターに挨拶を送る
 ```
 
 ```jsx title="Result Result "
-sent KaiaGreeter#greet (tx: 0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85)...ok (block 2837, gas used: 47457)
+KaiaGreeter#greetを送信 (tx: 0xc0bd25ffb594c13d5ae1f77f7eb02f2978013c69f9f6e22694b76fa26c329e85)...OK (ブロック 2837、使用ガス数: 47457)
 ```
 
-### using Kaia SDK
+### カイアSDKを使用
 
-**Step 1:** To interact with the deployed contract using [Kaia SDK](https://github.com/kaiachain/kaia-sdk), you need to install Kaia SDK by running this command:
+**ステップ1:** [Kaia SDK](https://github.com/kaiachain/kaia-sdk)を使用してデプロイされたコントラクトと対話するには、以下のコマンドを実行してKaia SDKをインストールする必要があります：
 
 ```js
 npm install --save @kaiachain/ethers-ext
 ```
 
-**Step 2:** In the Explorer pane, Create a new folder called "utils" and click the New File button to create a new file named `kaia-sdk.js` in the utils folder.
+**ステップ2:** エクスプローラーペインで、"utils "という新しいフォルダを作成し、"New File "ボタンをクリックして、utilsフォルダ内に`kaia-sdk.js`という新しいファイルを作成する。
 
-Step 3:  Copy and paste the following code inside the file.
+ステップ3：以下のコードをコピーしてファイル内に貼り付ける。
 
 ```js
 const { JsonRpcProvider, Wallet } = require("@kaiachain/ethers-ext");
@@ -383,12 +383,12 @@ getTotalGreetings(contractAddress);
 // greet(contractAddress);
 ```
 
-**Step 4:** To execute any of the functions declared in this file, make sure to uncomment them as we did for the getTotalGreetings() function, then run the following command in your terminal.
+**ステップ4：** このファイルで宣言されている関数を実行するには、getTotalGreetings()関数で行ったように、必ずコメントを解除してから、ターミナルで以下のコマンドを実行してください。
 
 ```js
-node utils/kaia-sdk.js 
+ノードユーティリティ/kaia-sdk.js 
 ```
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-For a more in-depth guide on hardhat-utils, please refer to [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example)
+hardhat-utilsのより詳細なガイドについては、[hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) にあります。

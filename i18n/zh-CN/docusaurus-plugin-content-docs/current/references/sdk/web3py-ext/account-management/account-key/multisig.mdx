@@ -247,7 +247,7 @@ web3_account_update_multisig()
 您可以使用 **to_pretty** 工具打印格式化的 tx。
 
 <CH.Code>
-``py web3_account_update_multisig.py focus=12,49
+```py web3_account_update_multisig.py focus=12,49
 
 ````
 
@@ -282,6 +282,7 @@ web3_account_update_multisig()
     ]
   }
 }
+
 ````
 
 </CH.Code>
@@ -291,7 +292,7 @@ web3_account_update_multisig()
 签署账户更新 tx 类型。 您必须用全部 3 个已加载的账户签名
 
 <CH.Code>
-``py web3_account_update_multisig.py focus=51:55
+```py web3_account_update_multisig.py focus=51:55
 
 ````
 
@@ -301,6 +302,7 @@ web3_account_update_multisig()
 ```zsh output
 ❯
 rawTransaction: 20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb87204f86f02f86ce301a1021473839f05083617d532325ce8aa40edffb2bc79f1ce17c77cc41f92f027dd82e301a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cde301a103f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2af8d5f8458207f6a0978b0c4dcfb9dfd4351842463519f7913a9653bb3954fde04e8c81b59c5f0138a04384e1e3436a43d165f4a03cac64f4a60fbd237d7473f58016bda5381c33a1d2f8458207f6a0431be32222e5dea7d4126254fea9784f9b55171948506477b876995cf04e8185a06d755a79656a7e32f179548e00e314bc37c78d67918b89abc7390083a64c91dcf8458207f5a0c4bc3a38652ede87c9c1f7057b63c9d4ae1bb694d722c36b6901b4ec0b258dbca02559cae1ebcf3baa23a9cbe6fddb81d652f44636534cc9214c26d6127be5b849
+
 ````
 
 </CH.Code>
@@ -310,7 +312,7 @@ rawTransaction: 20f9016b67850ba43b740083026d189482c6a8d94993d49cfd0c1d30f0f8caa6
 **向网络发送\***已签名的交易，并**_等待_**接收，直到交易在区块链中完全执行为止
 
 <CH.Code>
-``py web3_account_update_multisig.py focus=57:59
+```py web3_account_update_multisig.py focus=57:59
 
 ````
 

@@ -1,157 +1,157 @@
-# Glossary
+# 用語集
 
-This glossary provides explanation on technical terms specific to the Klaytn Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Klaytn documentation, guides and tutorials.
+この用語集は、カイア・ブロックチェーンに特有の専門用語に関する説明を提供します。 これは、Kaiaのドキュメント、ガイド、チュートリアルを探索中に遭遇する多くの用語を理解するための、あなたのゴーサインです。
 
-### anchor
+### アンカー
 
-A cryptographically secure reference to data stored outside of a blockchain. Anchors can be used to link data from different systems together, or to provide tamper-proof evidence of the existence of data at a specific point in time.
+ブロックチェーンの外部に保存されているデータへの暗号的に安全な参照。 アンカーは、異なるシステムのデータをリンクさせたり、特定の時点におけるデータの存在を改ざんできない証拠とするために使用することができる。
 
-### anchoring
+### アンカーリング
 
-The process of storing an anchor on a blockchain. This can be done by creating a transaction that contains the hash of the external data, or by creating a smart contract that references the external data (for example, [Anchoring in service chain](../nodes/service-chain/configure/anchoring.md)).
+ブロックチェーンにアンカーを保存するプロセス。 これは、外部データのハッシュを含むトランザクションを作成するか、外部データを参照するスマートコントラクトを作成することで可能である（例えば、[サービスチェーンにおけるアンカリング](../nodes/service-chain/configure/anchoring.md)）。
 
-### BFT-based public blockchain
+### BFTベースのパブリック・ブロックチェーン
 
-This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring consensus can be reached even if some nodes fail or act maliciously. The system relies on algorithms designed to handle up to ⅓ of nodes behaving incorrectly or dishonestly, without compromising the integrity of the network.
+これはビザンチン・フォールト・トレランス（BFT）を利用したブロックチェーンで、一部のノードが故障したり悪意のある行動をとったりしてもコンセンサスに達することができる。 このシステムは、ネットワークの完全性を損なうことなく、不正または不誠実な振る舞いをするノードを最大で!まで扱えるように設計されたアルゴリズムに依存している。
 
-### block explorer
+### ブロックエクスプローラ
 
-A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status.
+ブロックチェーン上のデータを閲覧・検索できるウェブベースのツール。 ブロックエクスプローラは通常、ブロックの高さ、ブロックハッシュ、トランザクションハッシュ、トランザクションの送信者と受信者、トランザクションの金額、トランザクションのステータスなどの情報を表示する。
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
+カイアで利用可能なブロック・エクスプローラーは、[Kaiascope](../build/tools/block-explorers/kaiascope.md)と[Kaiascan](https://www.kaiascan.io/)です。
 
-### core cell (CC)
+### コアセル（CC）
 
-An entity in the Klaytn blockchain architecture that is responsible for executing transactions and generating blocks. A core cell typically consists of a consensus node and multiple proxy nodes.
+Kaiaブロックチェーンアーキテクチャにおける、トランザクションの実行とブロックの生成を担うエンティティ。 コアセルは通常、コンセンサスノードと複数のプロキシノードで構成される。
 
-See also [consensus node (CN)](#consensus-node-cn), [proxy node (PN)](#proxy-node-pn).
+コンセンサスノード(CN)](#consensus-node-cn)、[プロキシノード(PN)](#proxy-node-pn)も参照。
 
-### core cell node network (CCN)
+### コアセルノードネットワーク（CCN）
 
-A group of core cell nodes that are interconnected
+相互接続されたコアセルノードのグループ
 
-### consensus node (CN)
+### コンセンサスノード（CN）
 
-A node that is responsible for generating and propagating blocks, and for reaching consensus on the state of the Klaytn blockchain. Consensus nodes validate submitted transactions and execute valid transactions.
+ブロックの生成と伝播、およびKaiaブロックチェーンの状態に関する合意形成に責任を持つノード。 コンセンサスノードは提出されたトランザクションを検証し、有効なトランザクションを実行する。
 
-### endpoint node (EN)
+### エンドポイントノード（EN）
 
-A node that serves as an entry point for service chains and DApps to interact with the Klaytn blockchain through its exposed RPC APIs. Endpoint nodes synchronize the entire blockchain ledger and allow reading blockchain data or submitting transactions directly to the network without going through a proxy node.
+サービスチェーンやDAppが、公開されているRPC APIを通じてKaiaブロックチェーンとやり取りするためのエントリーポイントとして機能するノード。 エンドポイントノードはブロックチェーン台帳全体を同期し、プロキシノードを介さずにブロックチェーンのデータを読んだり、ネットワークに直接トランザクションを送信したりできる。
 
-### endpoint node network (ENN)
+### エンドポイントノードネットワーク（ENN）
 
-A group of endpoint nodes that are interconnected
+相互に接続されたエンドポイントノードのグループ
 
-### externally owned account (EOA)
+### 外部所有口座（EOA）
 
-An account on a blockchain that is controlled by a private key. The private key is held by the user and is used to sign transactions. EOAs are the most common type of account on blockchains and are used by individuals and businesses to interact with the blockchain.
+秘密鍵によって管理されるブロックチェーン上のアカウント。 秘密鍵はユーザーが保持し、トランザクションに署名するために使用される。 EOAはブロックチェーン上で最も一般的なタイプのアカウントであり、個人や企業がブロックチェーンとやり取りするために使用される。
 
-See also [smart contract account (SCA)](#smart-contract-account-sca).
+スマートコントラクトアカウント（SCA）](#smart-contract-account-sca)も参照。
 
-### fee delegation
+### 手数料委任
 
-A mechanism in some blockchain networks that enables a user to nominate another account to pay transaction fees on their behalf. This allows the user to submit transactions and have them processed without needing to pay fees directly from their own account balance.
+一部のブロックチェーンネットワークでは、ユーザーが取引手数料の支払いを代行する別のアカウントを指名できる仕組み。 これにより、利用者は自分の口座残高から直接手数料を支払うことなく、取引を提出し、処理することができる。
 
-### governance council (GC)
+### ガバナンス・カウンシル（GC）
 
-A group or organization formed to establish and maintain oversight and decision-making authority over a blockchain network. A blockchain governance council typically defines tasks such as establishing operational procedures, resolving disputes, approving protocol upgrades, and representing the interests of all stakeholders in the network.
+ブロックチェーン・ネットワークの監督と意思決定の権限を確立し、維持するために結成されたグループまたは組織。 ブロックチェーンガバナンス評議会は通常、運用手順の確立、紛争の解決、プロトコルのアップグレードの承認、ネットワーク内のすべての利害関係者の利益の代表といったタスクを定義する。
 
-### inter-process communication (IPC)
+### プロセス間通信
 
-A set of techniques for the exchange of data among two or more processes in one or more computers. It is a fundamental part of operating systems and distributed systems, and is used by many different types of software, including web servers, databases, and graphical user interfaces.
+1つまたは複数のコンピュータ内の2つまたは複数のプロセス間でデータを交換するための一連の技術。 オペレーティング・システムや分散システムの基本的な部分であり、ウェブ・サーバー、データベース、グラフィカル・ユーザー・インターフェースなど、さまざまな種類のソフトウェアで使用されている。
 
-### interplanetary file system (IPFS)
+### 惑星間ファイルシステム（IPFS）
 
-A peer-to-peer distributed file system that enables users to store and share files in a decentralized manner. IPFS uses a content-addressing scheme to uniquely identify each file, and it stores files in a distributed network of nodes.
+ピアツーピアの分散ファイルシステムで、ユーザーがファイルを分散して保存・共有できる。 IPFSは、各ファイルを一意に識別するためにコンテンツアドレス付けスキームを使用し、ノードの分散ネットワークにファイルを格納する。
 
-### Kaia Ecosystem Fund (KEF)
+### カイア・エコシステム・ファンド（KEF）
 
-A fund established by the Klaytn Foundation to support initiatives that contribute to the growth and development of the Klaytn blockchain ecosystem. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
+カイア・ブロックチェーン・エコシステムの成長と発展に貢献するイニシアチブを支援するために、カイア財団によって設立されたファンド。 KEFは、カイアの利用拡大と普及に取り組むプロジェクト、組織、個人に助成金と財政支援を提供している。 KEFの目標は、資金提供されたイニシアチブを通じて、カイア周辺のイノベーションとコミュニティの成長を促進することである。
 
-### Klaytn endpoint node (KEN)
+### カイアエンドポイントノード (KEN)
 
-See [endpoint node (EN)](#endpoint-node-en).
+エンドポイントノード(EN)](#endpoint-node-en)を参照のこと。
 
-### Kaia Infrastructure Fund (KIF)
+### カイア・インフラストラクチャー・ファンド（KIF）
 
-A reserve fund established by the Klaytn Foundation to support its operating expenses and long-term initiatives. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
+カイア財団が運営費と長期的なイニシアチブを支援するために設立した準備基金。 KIFは、研究、ビジネス開発活動、教育プログラムなどを通じて、カイア・ブロックチェーン・プロトコルとエコシステムをさらに発展させ、強化するための財団の活動資金を援助する。
 
-### Klaytn Governance Council (KGC)
+### カイア・ガバナンス・カウンシル (KGC)
 
-A council of organizations that are responsible for governing the Klaytn blockchain. The GC members are selected by the Klaytn Foundation and are required to operate a consensus node on the Klaytn network. The GC is responsible for making decisions about the development and operation of the Klaytn blockchain, including upgrades, partnerships, and ecosystem development initiatives.
+Kaiaブロックチェーンを管理する責任を負う組織の協議会。 GCのメンバーはカイア財団によって選ばれ、カイアネットワーク上でコンセンサスノードを運営することが要求される。 GCは、アップグレード、パートナーシップ、エコシステム開発イニシアチブを含む、Kaiaブロックチェーンの開発と運用に関する決定を行う責任があります。
 
-### Klaytn Improvement Proposal (KIP)
+### カイア改善提案書（KIP）
 
-A design document providing information to Klaytn stakeholders regarding new features or processes for the Klaytn blockchain network. KIPs are intended to provide a consistent and controlled mechanism for proposing, reviewing and adopting protocol upgrades and innovations. They allow advocates to collaborate with the Klaytn community to refine any potential protocol upgrades before being considered for inclusion in the software.
+Kaiaブロックチェーンネットワークの新しい機能やプロセスに関する情報をKaiaのステークホルダーに提供する設計文書。 KIPは、プロトコルのアップグレードや技術革新を提案、検討、採用するための一貫した管理されたメカニズムを提供することを目的としている。 これらは、ソフトウェアに含めることを検討する前に、プロトコルのアップグレードの可能性を改良するために、支持者がKaiaコミュニティと協力することを可能にする。
 
-Some of typical examples of KIP are [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), and [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37).
+KIPの代表的な例としては、[KIP-7](http://kips.klaytn.foundation/KIPs/kip-7)、[KIP-17](http://kips.klaytn.foundation/KIPs/kip-17)、[KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)などがある。
 
-### Klaytn State
+### カイア州
 
-This is the world state of accounts in Klaytn containing the balances, storage variables of the account and the hash of the code or bytecode depending on if the account is an EOA or SCA.
+これは、残高、口座のストレージ変数、口座がEOAかSCAかに応じたコードまたはバイトコードのハッシュを含むカイアの口座の世界状態です。
 
-### Kaia virtual machine (KVM)
+### カイア仮想マシン（KVM）
 
-A virtual state machine that executes Klaytn smart contracts. It is a quasi-Turing-complete stack-based virtual machine that is derived from the Ethereum Virtual Machine (EVM). The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
+Kaiaスマートコントラクトを実行する仮想ステートマシン。 イーサリアム仮想マシン（EVM）から派生した準チューリング完全スタックベースの仮想マシンである。 KVMはカイア・ブロックチェーン上のスマート・コントラクトの処理と実行を担う。
 
-### Klaytn network identifier (KNI)
+### カイアネットワーク識別子 (KNI)
 
-A unique resource identifier scheme to identify a Klaytn node. It consists of nodeID, hostname, port, and discport.
+Kaiaノードを識別するための一意なリソース識別子スキーム。 nodeID、ホスト名、ポート、ディスクポートで構成される。
 
 ### Kairos
 
-The public testnet of the Klaytn platform. It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
+Kaiaプラットフォームの公開テストネット。 It is used by developers to test and verify their applications before deploying them to the Cypress mainnet.
 
-### proposer
+### 提出者
 
-A role assigned to a consensus node (CN) in each round of block creation. The proposer is randomly but deterministically selected to create the next block. The probability of a CN being enlisted as the proposer is determined by the amount of Klaytn tokens, or KLAY, that the CN stakes.
+ブロック生成の各ラウンドでコンセンサスノード（CN）に割り当てられる役割。 提案者はランダムに、しかし決定論的に次のブロックを作るために選ばれる。 CNが提案者として参加する確率は、CNが賭けるKAIAトークンの量によって決まる。
 
-### proxy node (PN)
+### プロキシノード
 
-A node that is responsible for relaying transactions from endpoint nodes (ENs) to consensus nodes (CNs). It aids in enhancing the performance of the network by reducing the direct communication load between ENs and CNs.
+エンドポイントノード（EN）からコンセンサスノード（CN）へのトランザクションの中継を担当するノード。 ENとCN間の直接的な通信負荷を軽減することで、ネットワークの性能向上を支援する。
 
-### recursive-length prefix (RLP)
+### 再帰長プレフィックス (RLP)
 
-An address prefix format where the length of the prefix is included as part of the address information in computer networking, It allows for more efficient routing by eliminating the need to store prefix lengths separately for each route. Klaytn uses recursive-length prefix to represent blockchain addresses.
+コンピュータネットワークにおいて、プレフィックスの長さがアドレス情報の一部として含まれるアドレスプレフィックス形式。ルートごとにプレフィックスの長さを別々に保存する必要がなくなるため、より効率的なルーティングが可能になる。 Kaiaはブロックチェーンのアドレスを表すために再帰的長さの接頭辞を使用する。
 
-### remote procedure call (RPC)
+### リモートプロシージャコール
 
-A communication protocol that allows a program on one computer to execute code or request services from a program located on another, often remote, computer within a network.
+あるコンピューター上のプログラムが、ネットワーク内の別のコンピューター（多くの場合リモート）にあるプログラムからコードを実行したりサービスを要求したりできるようにする通信プロトコル。
 
-### soul-bound token (SBT)
+### ソウルバインドトークン（SBT）
 
-A non-transferable token that represents a person's identity and achievements in the Web3 ecosystem. It is a type of non-fungible token (NFT) that is permanently tied to a specific individual or crypto wallet.
+Web3エコシステムにおける個人のアイデンティティと実績を表す譲渡不可能なトークン。 これは、特定の個人や暗号ウォレットに恒久的に結び付けられる非可溶性トークン（NFT）の一種です。
 
-### smart contract account (SCA)
+### スマートコントラクトアカウント（SCA）
 
-An account on a blockchain that is controlled by a smart contract. A smart contract is a self-executing contract with the terms of the agreement between buyer and seller directly written into lines of code. SCAs are used to automate transactions and agreements on the blockchain.
+スマートコントラクトによって管理されるブロックチェーン上のアカウント。 スマートコントラクトは、買い手と売り手の間の契約条件がコード行に直接書き込まれた、自己実行型の契約である。 SCAはブロックチェーン上の取引や合意を自動化するために使用される。
 
-See also [externally owned account (EOA)](#externally-owned-account-eoa).
+外部保有口座（EOA）](#externally-owned-account-eoa)も参照のこと。
 
-### service chain
+### サービスチェーン
 
-A sidechain or auxiliary blockchain that is connected to the Klaytn mainnet. Service chains are designed to meet the specific needs of different applications or industries, such as immediate finality, cross-chain token transfer, and data anchoring to the main chain.
+カイアのメインネットに接続されているサイドチェーンまたは補助ブロックチェーン。 サービス・チェーンは、即時のファイナリティ、クロス・チェーンでのトークン転送、メイン・チェーンへのデータ・アンカリングなど、さまざまなアプリケーションや業界の特定のニーズを満たすように設計されている。
 
-### service chain consensus node (SCN)
+### サービスチェーンコンセンサスノード（SCN）
 
-A node that is responsible for participating in the consensus process in a Klaytn service chain.
+Kaiaサービスチェーンにおけるコンセンサスプロセスへの参加を担当するノード。
 
-See also [consensus node (CN)](#consensus-node-cn), [service chain](#service-chain).
+コンセンサスノード(CN)](#consensus-node-cn)、[サービスチェーン](#service-chain)も参照。
 
-### service chain endpoint node (SEN)
+### サービスチェーンエンドポイントノード（SEN）
 
-A node in a Klaytn service chain that provides a public interface for interacting with the service chain.
+サービスチェーンと相互作用するためのパブリックインターフェースを提供するKaiaサービスチェーンのノード。
 
-See also [endpoint node (EN)](#endpoint-node-en), [service chain](#service-chain).
+エンドポイントノード(EN)](#endpoint-node-en)、[サービスチェーン](#service-chain)も参照のこと。
 
-### state migration
+### 国家移動
 
-This process involves removing unnecessary or outdated data from the blockchain to reduce the amount of required storage space and improve efficiency.
+このプロセスでは、不要なデータや古いデータをブロックチェーンから削除することで、必要なストレージ容量を減らし、効率を向上させる。
 
-### transaction pool
+### トランザクションプール
 
-A critical component for managing pending and queued transactions awaiting inclusion in the next blocks within the network.
+ネットワーク内で次のブロックに組み入れられるのを待つ保留中のトランザクションやキューに入れられたトランザクションを管理するための重要なコンポーネント。
 
-### validator
+### バリデータ
 
-A node that verifies the accuracy of data contained in new blocks and ensures that blocks are processed efficiently across the network. In Klaytn's permissionless validation structure, anyone can act as a block validator if they meet certain qualifications while maintaining the existing Governance Council structure and roles.
+新しいブロックに含まれるデータの正確性を検証し、ネットワーク全体でブロックが効率的に処理されるようにするノード。 Kaiaのパーミッションレス検証構造では、既存のガバナンス評議会の構造と役割を維持しつつ、一定の資格を満たせば誰でもブロック検証者として活動できる。

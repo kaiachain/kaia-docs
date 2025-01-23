@@ -1,69 +1,69 @@
-# Network Configuration
+# ネットワーク構成
 
-A Core Cell can be made up of:
+コア・セルは以下のメンバーで構成される：
 
-- multiple subnets (recommended)
-- a single subnet
+- 複数のサブネット（推奨）
+- 単一のサブネット
 
-## A Core Cell with Multiple Subnets <a id="a-core-cell-with-multiple-subnets"></a>
+## 複数のサブネットを持つコアセル<a id="a-core-cell-with-multiple-subnets"></a>
 
-It is recommended to have a two-layer subnet which is used in general web services such as DB + AppServer and Proxy Web Servers. This design of the subnet has more advantages on the security.
+DB + AppServerやProxy Web Serversのような一般的なWebサービスでは、2層のサブネットを持つことが推奨されている。 このサブネットの設計は、セキュリティー面でより有利である。
 
-Since monitoring servers are also required for managing all servers as another layer, the following section describes how to setup a Core Cell with a three-layer subnet.
+全サーバを管理するための監視サーバも別のレイヤとして必要なので、以下では3レイヤのサブネットを持つコアセルのセットアップ方法について説明する。
 
-The three-layer subnet consists of the following:
+3層サブネットの構成は以下の通り：
 
-- CN Subnet
-- PN Subnet
-- Management (Mgmt) Subnet
+- CNサブネット
+- PNサブネット
+- 管理 (Mgmt) サブネット
 
-### CN Subnet <a id="cn-subnet"></a>
+### CNサブネット<a id="cn-subnet"></a>
 
-A CN Subnet consists of CN servers in Core Cells. The working CN in a Core Cell is only one, but spare one should be prepared for high availability. IP/Port of all CNs within the Core Cell Network (CCN) must be opened to each other because they try to connect to the others from the outside of the Core Cell. (This connection information can be received from Baobab operators.) The internal communication with other subnets in the Core Cell requires to open default port (32323: default Klaytn P2P port number) in order to connect to PNs of the PN Subnet. Furthermore, it is necessary to open other ports such as the CN monitoring port (61001) for the monitoring server and the SSH port (22) for the management purpose. If the multichannel feature is used, another port (32324: default multichannel port) should be opened as well.
+CNサブネットはコアセル内のCNサーバーで構成される。 コアセルで稼働するCNは1つだけだが、高可用性のために予備のCNを用意しておく必要がある。 コアセル・ネットワーク（CCN）内のすべてのCNは、コアセルの外から他のCNに接続しようとするため、IP/Portを互いにオープンにしておく必要がある。 (This connection information can be received from Baobab operators.) コアセル内の他のサブネットとの内部通信では、PNサブネットのPNに接続するためにデフォルトポート（32323：デフォルトのKaia P2Pポート番号）を開放する必要がある。 さらに、監視サーバー用のCN監視ポート（61001）や管理用のSSHポート（22）など、他のポートを開く必要があります。 マルチチャンネル機能を使用する場合は、別のポート（32324：デフォルトのマルチチャンネルポート）も開く必要がある。
 
 ![CN Subnet](/img/nodes/cn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| CN Subnet     | PN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| CN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| CN Subnet     | Public (Internet) | each CN's IP and P2P port                                              | All    |
+| オリジン・サブネット | 対象サブネット        | Ingress                               | Egress |
+| :--------- | :------------- | :------------------------------------ | :----- |
+| CNサブネット    | PNサブネット        | P2P：32323（マルチチャンネルは32324）             | すべて    |
+| CNサブネット    | 管理サブネット        | SSH: 22, モニタリング：61001 | すべて    |
+| CNサブネット    | パブリック（インターネット） | 各CNのIPとP2Pポート                         | すべて    |
 
-### PN Subnet <a id="pn-subnet"></a>
+### PNサブネット<a id="pn-subnet"></a>
 
-A PN Subnet consists of the PN servers to provide services in order to connect to the external ENs.
+PNサブネットは、外部ENに接続するためのサービスを提供するPNサーバーで構成される。
 
-A PN subnet is connected to the following nodes:
+PNサブネットは以下のノードに接続されている：
 
-- CNs in Core Cells
-- Some PNs of other Core Cells
-- Core Cell Management Servers (Mgmt, Monitoring)
-- EN nodes
+- コア細胞のCN
+- 他のコアセルのPNの一部
+- コアセル管理サーバー（管理、監視）
+- ENノード
 
 ![PN Subnet](/img/nodes/pn_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                | Egress |
-| :------------ | :----------------------------------- | :--------------------------------------------------------------------- | :----- |
-| PN Subnet     | CN Subnet                            | P2P: 32323 (32324 for multichannel) | All    |
-| PN Subnet     | Mgmt Subnet                          | SSH: 22, Monitoring: 61001             | All    |
-| PN Subnet     | Public (Internet) | P2P: 32323                                             | All    |
+| オリジン・サブネット | 対象サブネット        | Ingress                               | Egress |
+| :--------- | :------------- | :------------------------------------ | :----- |
+| PNサブネット    | CNサブネット        | P2P：32323（マルチチャンネルは32324）             | すべて    |
+| PNサブネット    | 管理サブネット        | SSH: 22, モニタリング：61001 | すべて    |
+| PNサブネット    | パブリック（インターネット） | P2P: 32323            | すべて    |
 
-### Mgmt Subnet <a id="mgmt-subnet"></a>
+### 管理サブネット<a id="mgmt-subnet"></a>
 
-A Mgmt Subnet is a gateway subnet for the operator to enter into the Core Cell nodes through ssh. A VPN server may be necessary to make the connection together with a monitoring server and a management server installed with a tool to manage the Core Cell nodes.
+Mgmt Subnetは、オペレーターがsshを通してコアセルノードに入るためのゲートウェイサブネットです。 コアセルノードを管理するツールをインストールした監視サーバーや管理サーバーと接続するために、VPNサーバーが必要になる場合がある。
 
 ![Management Subnet](/img/nodes/admin_subnet.png)
 
-| Origin Subnet | Target Subnet                        | Ingress                                                                                               | Egress |
-| :------------ | :----------------------------------- | :---------------------------------------------------------------------------------------------------- | :----- |
-| Mgmt Subnet   | CN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | PN Subnet                            | All                                                                                                   | All    |
-| Mgmt Subnet   | Public (Internet) | VPN (tcp): 443, VPN (udp): 1194 | All    |
+| オリジン・サブネット | 対象サブネット        | Ingress                                                                                               | Egress |
+| :--------- | :------------- | :---------------------------------------------------------------------------------------------------- | :----- |
+| 管理サブネット    | CNサブネット        | すべて                                                                                                   | すべて    |
+| 管理サブネット    | PNサブネット        | すべて                                                                                                   | すべて    |
+| 管理サブネット    | パブリック（インターネット） | VPN (tcp): 443, VPN (udp): 1194 | すべて    |
 
-## A Core Cell with a Single Subnet <a id="a-core-cell-with-a-single-subnet"></a>
+## 単一のサブネットを持つコアセル<a id="a-core-cell-with-a-single-subnet"></a>
 
-A single subnet of a Core Cell is built for the development/test purpose or under the difficult circumstances to create multiple subnets.
+コアセルの1つのサブネットは、開発／テスト目的、あるいは複数のサブネットを作成する困難な状況下で構築される。
 
-All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port (32323, 32324 for multichannel option). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network (ENN) and PNs in the Core Cell Network (CNN). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
+すべてのノードは1つのCCサブネットの下にセットアップされる。 CNがP2Pポート（マルチチャンネルオプションの場合は32323、32324）を使ってCNN内の他のCNに接続するためには、ファイアウォールの設定も必要である。 PNのP2Pポートは、ENN（Endpoint Node Network）のENやCNN（Core Cell Network）のPNと接続するために開放される。 さらに、リモートで管理するためには、オプションのVPNと監視サーバーが必要です。
 
 ![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)

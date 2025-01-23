@@ -628,5 +628,9 @@
   "theme.blog.author.noPosts": {
     "message": "该作者尚未发表任何文章。",
     "description": "The text for authors with 0 blog post"
+  },
+  "theme.feedback.helpful": {
+    "message": "本页对您有帮助吗？",
+    "description": "The text asking if the page is helpful"
   }
 }

@@ -1,156 +1,156 @@
-# Accounts
+# アカウント
 
-## Klaytn Accounts <a id="klaytn-accounts"></a>
+## カイアアカウント<a id="kaia-accounts"></a>
 
-### Overview of Account, State, and Address <a id="overview-of-account-state-and-address"></a>
+### 口座、都道府県、住所の概要<a id="overview-of-account-state-and-address"></a>
 
-An account in Klaytn is a data structure containing information about a person's balance or a smart contract. Klaytn's state is the collection of all its accounts' states - that is, the past and current state of all data stored across Klaytn's accounts. When a transaction is executed on a Klaytn node, the state of Klaytn consequently changes across all its nodes. The state should be the same across all nodes in the Klaytn network if they have processed the same blocks in the same order. State information of each account is associated with a 20-byte address, which is used to identify each account.
+カイアのアカウントは、個人の残高やスマートコントラクトに関する情報を含むデータ構造です。 つまり、カイアのアカウントに保存されているすべてのデータの過去と現在の状態です。 トランザクションがKaiaノード上で実行されると、Kaiaの状態は結果的にすべてのノードで変更されます。 Kaiaネットワーク内のすべてのノードが同じブロックを同じ順序で処理した場合、状態は同じになるはずです。 各アカウントの状態情報は、各アカウントを識別するために使用される20バイトのアドレスに関連付けられている。
 
-### Decoupling Key Pairs From Addresses <a id="decoupling-key-pairs-from-addresses"></a>
+### アドレスからキー・ペアを切り離す<a id="decoupling-key-pairs-from-addresses"></a>
 
-An account in a typical blockchain platform is associated with a cryptographically processed address of a certain length that usually looks like this: "0x0fe2e20716753082222b52e753854f40afddffd2". This address is strongly coupled with a key pair. If a key pair is chosen, the address is derived from the public key. This has many disadvantages in terms of user experience. Some of them are the following:
+一般的なブロックチェーンプラットフォームのアカウントは、暗号処理された一定の長さのアドレスに関連付けられており、通常は次のようになります："0x0fe2e20716753082222b52e753854f40afddffd2". このアドレスはキー・ペアと強く結びついている。 鍵ペアが選ばれた場合、アドレスは公開鍵から導き出される。 これは、ユーザーエクスペリエンスの面で多くの欠点がある。 そのいくつかを紹介しよう：
 
-- It is impossible for users to have addresses they want.
-- It is impossible for users to use multiple key pairs to increase security of their accounts.
-- It is impossible for users to change the account's key pair when the private key is accidentally exposed or when users want to update the private key periodically to increase the account's security.
+- ユーザーが望むアドレスを持つことは不可能だ。
+- ユーザーがアカウントのセキュリティを高めるために複数のキー・ペアを使用することは不可能である。
+- 秘密鍵が誤って公開されたときや、アカウントのセキュリティを高めるために秘密鍵を定期的に更新したいときに、ユーザーがアカウントの鍵ペアを変更することは不可能である。
 
-Those are big hurdles that users cannot think of an address as an identifier in the blockchain platform. To clear this hurdle, Klaytn provides a feature that users can choose their addresses and key pairs. With this feature, users can choose addresses that they want and they can use multiple key pairs to increase security. The number of key pairs can be one or more, and the key pairs can have different roles. For details of multiple key pairs or role-based keys, please refer to [Multiple Key Pairs & Role-Based Keys](#multiple-key-pairs-and-role-based-keys).
+これらは、ユーザーがブロックチェーン・プラットフォームにおける識別子として住所を考えることができないという大きなハードルである。 このハードルをクリアするために、カイアはユーザーがアドレスとキー・ペアを選択できる機能を提供している。 この機能を使えば、ユーザーは好きなアドレスを選ぶことができ、セキュリティを高めるために複数のキー・ペアを使うことができる。 キー・ペアの数は1つでも複数でもよく、キー・ペアは異なる役割を持つことができる。 複数キー・ペアまたはロール・ベース・キーの詳細については、[「複数キー・ペアおよびロール・ベース・キー」](#multiple-key-pairs-and-role-based-keys)を参照されたい。
 
-It is worth noting that Klaytn also supports the old scheme that a key pair and an address are strongly coupled.
+Kaiaは、鍵ペアとアドレスが強く結合しているという古いスキームもサポートしていることは注目に値する。
 
-### Multiple Key Pairs and Role-Based Keys <a id="multiple-key-pairs-and-role-based-keys"></a>
+### 複数の鍵ペアと役割ベースの鍵<a id="multiple-key-pairs-and-role-based-keys"></a>
 
-As described before, when the private key is stolen, exposed, or somehow compromised, there is nothing to do to restore the account’s security: the best option is to generate another key pair to create a new account, and migrate the balance from the old compromised account to the new one. Lack of support for advanced key schemes such as multi-sig or usage-specific key is yet another source of major inconvenience. To address those problems more efficiently, Klaytn accounts provide the following capabilities:
+前述したように、秘密鍵が盗まれたり、公開されたり、何らかの形で漏洩した場合、アカウントのセキュリティを回復するためにできることは何もない。最善の選択肢は、別の鍵ペアを生成して新しいアカウントを作成し、漏洩した古いアカウントから新しいアカウントに残高を移行することである。 マルチシグや用途別キーのような高度な鍵スキームをサポートしていないことも、大きな不便の原因となっている。 これらの問題をより効率的に解決するために、Kaiaアカウントは以下の機能を提供します：
 
-- Klaytn account allows the key pair associated with the account to be changed.
-- Klaytn account supports multiple key pairs, along with the ability to assign each key with different purpose.
-- Klaytn account maintains compatibility with accounts having a single key that is strongly coupled with the address.
+- Kaiaアカウントでは、アカウントに関連付けられたキーペアを変更することができます。
+- カイアカウントは複数のキーペアをサポートしており、それぞれのキーに異なる目的を割り当てることができます。
+- カイアカウントは、アドレスと強く結合された単一のキーを持つアカウントとの互換性を維持します。
 
-By utilizing Klaytn account’s role-based multi-key support, end-users can better handle real-life security risk situations such as private key mismanagement. For example, when a user realizes that his or her private key has been exposed, the user can simply replace the compromised private key by removing the exposed key pair from his or her account and creating a new key pair to replace them. This could be achieved by using a dedicated key used for updating account information, created in advance and stored separately from the compromised private key.
+Kaiaアカウントのロールベースのマルチキーサポートを利用することで、エンドユーザは秘密鍵の誤操作などの現実のセキュリティリスク状況にうまく対処することができます。 例えば、ユーザが自分の秘密鍵が漏洩したことに気づいた場合、ユーザは、漏洩した鍵ペアを自分のアカウントから削除し、新しい鍵ペアを作成することで、漏洩した秘密鍵を単純に置き換えることができる。 これは、アカウント情報の更新に使用する専用の鍵をあらかじめ作成し、漏洩した秘密鍵とは別に保管することで実現できる。
 
-### Klaytn Wallet Key Format <a id="klaytn-wallet-key-format"></a>
+### Kaia 財布キーフォーマット <a id="kaia-wallet-key-format"></a>
 
-Klaytn wallet key format is provided to easily handle a private key along with the corresponding address. It makes easier for a user to maintain his/her private key with an address. The format is `0x{private key}0x{type}0x{address in hex}` in hexadecimal notation, where `{type}` must be `00`. Other values are reserved. An example is shown below:
+Kaiaウォレット鍵フォーマットは、対応するアドレスと共に秘密鍵を簡単に扱うために提供されます。 これによって、ユーザーは自分の秘密鍵をアドレスで管理しやすくなる。 フォーマットは16進数表記で`0x{private key}0x{type}0x{address in hex}`で、`{type}`は`00`でなければならない。 その他の値は予約されている。 以下に例を示す：
 
 ```text
 0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d80x000xa94f5374fce5edbc8e2a8697c15331677e6ebf0b
 ```
 
-### Klaytn Account Types <a id="klaytn-account-types"></a>
+### Kaiaアカウントの種類 <a id="kaia-account-types"></a>
 
-There are two types of accounts in Klaytn: <LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">externally owned accounts</LinkWithTooltip> \(EOAs\), and <LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">smart contract accounts</LinkWithTooltip> \(SCAs\).
+Kaiaのアカウントには、<LinkWithTooltip to="../../misc/glossary#externally-owned-account-eoa" tooltip="User-controlled blockchain accounts for transactions,<br /> secured by a private key.">外部所有アカウント</LinkWithTooltip>(EOAs)と<LinkWithTooltip to="../../misc/glossary#smart-contract-account-sca" tooltip="Blockchain account with programmable logic <br />for automated transactions.">スマートコントラクトアカウント</LinkWithTooltip>(SCAs)がある。
 
-#### Externally Owned Accounts \(EOAs\) <a id="externally-owned-accounts-eoas"></a>
+#### 外部保有口座数<a id="externally-owned-accounts-eoas"></a>
 
-Externally owned accounts have information such as nonce and balance. This type of accounts does not have code or storage. EOAs are controlled by private keys and do not have code associated with them. An EOA can be created using key pairs and subsequently controlled by anyone with the key pairs. The account key is described in the section [Account Key](#account-key).
+外部所有のアカウントは、nonceや残高などの情報を持っている。 このタイプのアカウントは、コードやストレージを持たない。 EOAは秘密鍵で管理され、それに関連するコードはない。 EOAは、キー・ペアを使用して作成することができ、その後、キー・ペアを持つ誰でも制御することができる。 アカウント・キーについては、[アカウント・キー](#account-key)のセクションで説明しています。
 
-**Attributes**
+**属性**
 
-| Attribute     | Type                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :---------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                     | The type of externally owned accounts. It must be **0x1** for EOAs.                                                                                                                                                                                                                                                                                            |
-| nonce         | uint64 \(Go\)                    | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
-| balance       | \*big.Int \(Go\) | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool \(Go\)                      | A boolean value indicating that the account is associated with a human-readable address. Since HRA (human-readable address) is not supported yet, this value is false for all accounts.                                                                                                                                                     |
-| key           | [AccountKey](#account-key)                            | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
+| 属性            | タイプ                                                   | 説明                                                                                                                                                                                                                                                                               |
+| :------------ | :---------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| タイプ           | uint8 \(Go\)                     | 外部所有口座の種類。 EOAの場合は**0x1**でなければならない。                                                                                                                                                                                                                                              |
+| nonce         | uint64 \(Go\)                    | トランザクションの順序を決定するために使用されるシーケンス番号。 次に処理されるトランザクションは、この値と同じnonceを持つ。                                                                                                                                                                                                                |
+| balance       | \*big.Int \(Go\) | The amount of KLAY the account has.                                                                                                                                                                                                                              |
+| humanReadable | bool \(Go\)                      | アカウントが人間が読める住所に関連付けられていることを示すブール値。 HRA（人間が読めるアドレス）はまだサポートされていないため、この値はすべてのアカウントでfalseになります。                                                                                                                                                                                      |
+| key           | [AccountKey](#account-key)                            | このアカウントに関連付けられたキー。 このフィールドには、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultisig](#accountkeyweightedmultisig)、[AccountKeyRoleBased](#accountkeyrolebased)のいずれかを指定する。 取引における署名は、この鍵で検証される。 |
 
-#### Smart Contract Accounts \(SCAs\) <a id="smart-contract-accounts-scas"></a>
+#### スマートコントラクトアカウント<a id="smart-contract-accounts-scas"></a>
 
-In contrast to EOAs, SCAs have code associated with them and are controlled by their code. SCAs are created by smart contract deployment transactions; once deployed, an SCA cannot initiate new transactions by itself and must be triggered by another account, either by an EOA or another SCA.
+EOAとは対照的に、SCAはそれらに関連するコードを持ち、そのコードによって制御される。 SCAはスマートコントラクトのデプロイメントトランザクションによって作成される。一旦デプロイされると、SCAはそれ自体で新しいトランザクションを開始することはできず、EOAまたは別のSCAによって、別のアカウントによってトリガーされなければならない。
 
-**Attributes**
+**属性**
 
-| Attribute     | Type                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------ | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | uint8 \(Go\)                                                            | The type of smart contract accounts. It must be **0x2** for SCAs.                                                                                                                                                                                                                                                                                              |
-| nonce         | uint64 \(Go\)                                                           | A sequence number used to determine the order of transactions. The transaction to be processed next has the same nonce with this value.                                                                                                                                                                                                                        |
-| balance       | \*big.Int \(Go\)                                        | The amount of KLAY the account has.                                                                                                                                                                                                                                                                                                                                            |
-| humanReadable | bool \(Go\)                                                             | A boolean value indicating that the account is associated with a human-readable address. Since HRA (human-readable address) is not supported yet, this value is false for all accounts.                                                                                                                                                     |
-| key           | [AccountKey](#account-key)                                                                   | The key associated with this account. This field can be any of [AccountKeyLegacy](#accountkeylegacy), [AccountKeyPublic](#accountkeypublic), [AccountKeyFail](#accountkeyfail), [AccountKeyWeightedMultisig](#accountkeyweightedmultisig), [AccountKeyRoleBased](#accountkeyrolebased). Signatures in transactions are verified with this key. |
-| codeHash      | \[\]byte \(Go\)   | The hash of the account's smart contract code. This value is immutable, which means it is set only when the smart contract is created.                                                                                                                                                                                                                         |
-| storageRoot   | \[32\]byte \(Go\) | A 256-bit hash of the root of the Merkle Patricia Trie that contains the values of all the storage variables in the account.                                                                                                                                                                                                                                                   |
-| codeFormat    | uint8 \(Go\)                                                            | Supporting interpreter version. Up to 16 can be set. Currently, it supports EVM\(0x00\) only.                                                                                                                                                                                                                             |
-| vmVersion     | uint8 \(Go\)                                                            | The protocol upgrade (hard fork) information at contract deployment time (ex. 0x0(constantinople), 0x1(istanbul,london,...)). Up to 16 can be used. It is automatically created with the contract. |
+| 属性            | タイプ                                                                                          | 説明                                                                                                                                                                                                                                                                               |
+| :------------ | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| タイプ           | uint8 \(Go\)                                                            | スマート・コントラクトのアカウントの種類。 SCAの場合は**0x2**でなければならない。                                                                                                                                                                                                                                   |
+| nonce         | uint64 \(Go\)                                                           | トランザクションの順序を決定するために使用されるシーケンス番号。 次に処理されるトランザクションは、この値と同じnonceを持つ。                                                                                                                                                                                                                |
+| balance       | \*big.Int \(Go\)                                        | The amount of KLAY the account has.                                                                                                                                                                                                                              |
+| humanReadable | bool \(Go\)                                                             | アカウントが人間が読める住所に関連付けられていることを示すブール値。 HRA（人間が読めるアドレス）はまだサポートされていないため、この値はすべてのアカウントでfalseになります。                                                                                                                                                                                      |
+| key           | [AccountKey](#account-key)                                                                   | このアカウントに関連付けられたキー。 このフィールドには、[AccountKeyLegacy](#accountkeylegacy)、[AccountKeyPublic](#accountkeypublic)、[AccountKeyFail](#accountkeyfail)、[AccountKeyWeightedMultisig](#accountkeyweightedmultisig)、[AccountKeyRoleBased](#accountkeyrolebased)のいずれかを指定する。 取引における署名は、この鍵で検証される。 |
+| codeHash      | \[\]byte \(Go\)   | アカウントのスマート・コントラクト・コードのハッシュ。 この値は不変であり、スマート・コントラクトの作成時にのみ設定される。                                                                                                                                                                                                                   |
+| storageRoot   | \[32\]byte \(Go\) | アカウント内のすべてのストレージ変数の値を含むMerkle Patricia Trieのルートの256ビットハッシュ。                                                                                                                                                                                                                      |
+| codeFormat    | uint8 \(Go\)                                                            | サポートするインタープリターのバージョン。 最大16個まで設定可能。 現在、EVM(0x00)のみをサポートしている。                                                                                                                                                                                                   |
+| vmVersion     | uint8 \(Go\)                                                            | 契約展開時のプロトコルアップグレード（ハードフォーク）情報（例：0x0(constantinople)、0x1(istanbul,london,...)）。 最大16本まで使用可能。 契約書とともに自動的に作成される。                                                                              |
 
 :::note
 
-NOTE: From kaia v1.7.0 onwards, vmVersion attribute will be added to the Smart Contract Account.
+注意：kaia v1.7.0以降、スマートコントラクトアカウントにvmVersion属性が追加されます。
 
 :::
 
-### Klaytn Account Type ID <a id="klaytn-account-type-id"></a>
+### Kaia アカウント タイプ ID <a id="kaia-account-type-id"></a>
 
-Below are the Account Type ID assigned to each Account Type.
+以下は、各アカウント・タイプに割り当てられたアカウント・タイプIDです。
 
-| Account Type                                      | Account Type ID |
-| ------------------------------------------------- | --------------- |
-| Externally Owned Account (EOA) | 0x1             |
-| Smart Contract Account (SCA)   | 0x2             |
+| 口座種別                 | 口座タイプID |
+| -------------------- | ------- |
+| 外部所有口座（EOA）          | 0x1     |
+| スマートコントラクトアカウント（SCA） | 0x2     |
 
-## Account Key <a id="account-key"></a>
+## アカウント・キー<a id="account-key"></a>
 
-An account key represents the key structure associated with an account.
+アカウント・キーは、アカウントに関連するキー構造を表す。
 
 ### AccountKeyNil <a id="accountkeynil"></a>
 
-AccountKeyNil represents an empty key. If an account tries to have an AccountKeyNil object, the transaction will be failed. AccountKeyNil is used only for TxTypeAccountUpdate transactions with role-based keys. For example, if an account tries to update RoleAccountUpdate key only, the key field of the TxTypeAccountUpdate transaction would be:
+AccountKeyNil は空のキーを表します。 アカウントが AccountKeyNil オブジェクトを持とうとすると、トランザクションは失敗する。 AccountKeyNil は、ロールベースのキーを持つ TxTypeAccountUpdate トランザクションにのみ使用される。 例えば、アカウントがRoleAccountUpdateキーのみを更新しようとする場合、 TxTypeAccountUpdateトランザクションのキーフィールドは以下のようになる：
 
 `[AccountKeyNil, NewKey, AccountKeyNil]`
 
-Then, only the RoleAccountUpdate key is updated. Other roles are not updated. Refer to the [AccountKeyRoleBased](#accountkeyrolebased) for more detail.
+そして、RoleAccountUpdateキーのみが更新される。 その他の役割は更新されない。 詳細は[AccountKeyRoleBased](#accountkeyrolebased)を参照。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-No attributes for AccountKeyNil.
+AccountKeyNil の属性はありません。
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x80`
 
 ### AccountKeyLegacy <a id="accountkeylegacy"></a>
 
-AccountKeyLegacy is used for the account having an address derived from the corresponding key pair. If an account has AccountKeyLegacy, the transaction validation process is done like below \(as typical Blockchain platforms did\):
+AccountKeyLegacyは、対応するキー・ペアから派生したアドレスを持つアカウントに使用される。 アカウントに AccountKeyLegacy がある場合、トランザクションの検証は以下のように行われる：
 
-- Get the public key from `ecrecover(txhash, txsig)`.
-- Get the address of the public key.
-- The address is the sender.
+- ecrecover(txhash, txsig)\`から公開鍵を取得する。
+- 公開鍵のアドレスを取得する。
+- アドレスは送信者である。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                              | Description                                                                          |
-| :-------- | :-------------------------------- | :----------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AccountKeyLegacy. This must be **0x01**. |
+| 属性  | タイプ                               | 説明                                           |
+| :-- | :-------------------------------- | :------------------------------------------- |
+| タイプ | uint8 \(Go\) | AccountKeyLegacy のタイプ。 これは**0x01**でなければならない。 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x01c0`
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic is used for accounts having one public key.\
+AccountKeyPublicは、1つの公開鍵を持つアカウントに使用される。\
 AccountKeyPublic is used for accounts having one public key.\
 AccountKeyPublic is used for accounts having one public key.\
 If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
-- Get the public key derived from `ecrecover(txhash, txsig)`.
-- Check that the derived public key is the same as the corresponding
+- ecrecover(txhash, txsig)\`から公開鍵を取得する。
+- 派生した公開鍵が、対応する
 
   account's public key.
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                                                                                         | Description                                                                          |
-| :-------- | :------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)                                                            | The type of AccountKeyPublic. This must be **0x02**. |
-| Key       | \[33\]byte \(Go\) | Key should be a compressed public key on S256 curve.                 |
+| 属性  | タイプ                                                                                          | 説明                                         |
+| :-- | :------------------------------------------------------------------------------------------- | :----------------------------------------- |
+| タイプ | uint8 \(Go\)                                                            | AccountKeyPublic の型。 これは**0x02**でなければならない。 |
+| Key | \[33\]byte \(Go\) | 鍵はS256カーブで圧縮された公開鍵でなければならない。               |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x02 + encode(CompressedPubKey)`
 
-**NOTE**: CompressedPubKey is a public key in a compressed format defined in [SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf). In short, 0x02`{PubkeyX}` if PubkeyY is an even number or 0x03`{PubkeyX}` otherwise.
+**注**：CompressedPubKey は、[SEC1](https://www.secg.org/SEC1-Ver-1.0.pdf) で定義されている圧縮形式の公開鍵である。 つまり、PubkeyY が偶数であれば 0x02`{PubkeyX}`、そうでなければ 0x03`{PubkeyX}` となる。
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example)<a id="rlp-encoding-example"></a>
 
 ```javascript
 prvkey 0xf8cc7c3813ad23817466b1802ee805ee417001fcce9376ab8728c92dd8ea0a6b
@@ -162,49 +162,49 @@ RLP: 0x02a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8
 
 ### AccountKeyFail <a id="accountkeyfail"></a>
 
-If an account has the key AccountKeyFail, the transaction validation process always fails. It can be used for smart contract accounts so that a transaction sent from the smart contract account always fails.
+アカウントがAccountKeyFailキーを持つ場合、トランザクション検証処理は常に失敗する。 スマート・コントラクトのアカウントから送信された取引が常に失敗するように、スマート・コントラクトのアカウントに使用することができる。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                              | Description                                                                       |
-| :-------- | :-------------------------------- | :-------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
+| 属性  | タイプ                               | 説明                                      |
+| :-- | :-------------------------------- | :-------------------------------------- |
+| タイプ | uint8 \(Go\) | AcccountKeyFail のタイプ。 それは**0x03**に違いない。 |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x03c0`
 
 ### AccountKeyWeightedMultiSig <a id="accountkeyweightedmultisig"></a>
 
-AccountKeyWeightedMultiSig is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
-In order for a transaction to be valid for an account associated with AccountKeyWeightedMultiSig, the following conditions should be satisfied:
+AccountKeyWeightedMultiSigは、閾値と、公開鍵とその重みからなるリストを含むWeightedPublicKeysを含むアカウント鍵タイプである。
+トランザクションが AccountKeyWeightedMultiSig に関連付けられたアカウントに対して有効であるためには、以下の条件を満たす必要がある：
 
-- The weighted sum of the signed public keys should be larger than the threshold.
-- The invalid signature should not be included in the transaction.
-- The number of signed public keys should be less than the number of weightedPublicKeys.
+- 署名された公開鍵の加重和は、閾値より大きくなければならない。
+- 無効な署名はトランザクションに含めるべきでない。
+- 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 :::note
 
-The following multiSig validation logic has been added with the [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) hardfork.
+[IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) ハードフォークにより、以下のマルチシグ検証ロジックが追加された。
 
-- The invalid signature should not be included in the transaction.
-- The number of signed public keys should be less than the number of weightedPublicKeys.
+- 無効な署名はトランザクションに含めるべきでない。
+- 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 :::
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute          | Type                                                                                                                                                               | Description                                                                                                                                                    |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type               | uint8 \(Go\)                                                                                                                                  | The type of AccountKeyWeightedMultiSig. This must be **0x04**.                                                                 |
-| Threshold          | uint \(Go\)                                                                                                                                   | Validation threshold. To be a valid transaction, the weight sum of signatures should be larger than or equal to the threshold. |
-| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | A list of weighted public keys. A weighted public key contains a compressed public key and its weight.                         |
+| 属性                 | タイプ                                                                                                                                                                | 説明                                                   |
+| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------- |
+| タイプ                | uint8 \(Go\)                                                                                                                                  | AccountKeyWeightedMultiSig の型。 これは**0x04**でなければならない。 |
+| Threshold          | uint \(Go\)                                                                                                                                   | 検証のしきい値。 有効なトランザクションであるためには、署名の重みの合計が閾値以上でなければならない。  |
+| WeightedPublicKeys | \[\]\{uint, \[33\]byte\} \(Go\) | 重み付けされた公開鍵のリスト。 重み付き公開鍵には、圧縮された公開鍵とその重みが含まれる。        |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x04 + encode([threshold, [[weight, CompressedPubKey1], [weight2, CompressedPubKey2]]])`
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example)<a id="rlp-encoding-example"></a>
 
 ```javascript
 Threshold 3
@@ -226,38 +226,38 @@ RLP: 0x04f89303f890e301a102c734b50ddb229be5e929fc4aa8080ae8240a802d23d3290e5e615
 
 ### AccountKeyRoleBased <a id="accountkeyrolebased"></a>
 
-AccountKeyRoleBased represents a role-based key. The roles are specified at [Roles](#roles).
+AccountKeyRoleBasedはロールベースのキーを表します。 ロールは[Roles](#roles)で指定される。
 
-#### Attributes <a id="attributes"></a>
+#### 属性<a id="attributes"></a>
 
-| Attribute | Type                                                                                                 | Description                                                                                                                                                            |
-| :-------- | :--------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type      | uint8 \(Go\)                                                                    | The type of AccountKeyRoleBased. It must be **0x05**.                                                                                  |
-| Keys      | \[\]`{AccountKey}` \(Go\) | A list of keys. A key can be any of AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig. |
+| 属性   | タイプ                                        | 説明                                                                                                                 |
+| :--- | :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------- |
+| タイプ  | uint8 \(Go\)          | AccountKeyRoleBased の型。 それは**0x05**に違いない。                                                                          |
+| Keys | \{AccountKey}\` ︓︓(Go) | キーのリスト。 鍵は、AccountKeyNil、AccountKeyLegacy、AccountKeyPublic、AccountKeyFail、および AccountKeyWeightedMultiSig のいずれでもよい。 |
 
-#### Roles <a id="roles"></a>
+#### 役割<a id="roles"></a>
 
-Roles of AccountKeyRoleBased are defined as below:
+AccountKeyRoleBased のロールは以下のように定義される：
 
-| Role              | Description                                                                                                                                                                                                                                                                        |
-| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| RoleTransaction   | Index 0. Default key. Transactions other than TxTypeAccountUpdate should be signed by the key of this role.                                                                                                                        |
-| RoleAccountUpdate | Index 1. TxTypeAccountUpdate transaction should be signed by this key. If this key is not present in the account, TxTypeAccountUpdate transaction is validated using RoleTransaction key.                                          |
-| RoleFeePayer      | Index 2. If this account wants to send tx fee instead of the sender, the transaction should be signed by this key.  If this key is not present in the account, a fee-delegated transaction is validated using RoleTransaction key. |
+| 役割                | 説明                                                                                                                                                |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| RoleTransaction   | インデックス 0. デフォルトのキー。 TxTypeAccountUpdate以外のトランザクションは、このロールのキーによって署名されなければならない。                                                     |
+| RoleAccountUpdate | インデックス 1. TxTypeAccountUpdateトランザクションはこの鍵で署名されるべきである。 このキーがアカウントに存在しない場合、TxTypeAccountUpdateトランザクションはRoleTransactionキーを使用して検証される。 |
+| RoleFeePayer      | インデックス 2. このアカウントが送信者の代わりにtx料金を送りたい場合、トランザクションはこの鍵で署名されるべきである。  このキーが口座に存在しない場合、料金委譲取引はRoleTransactionキーを使用して検証される。               |
 
-#### RLP Encoding <a id="rlp-encoding"></a>
+#### RLPエンコーディング<a id="rlp-encoding"></a>
 
 `0x05 + encode([key1, key2, key3])`
 
-Note that key1, key2, and key3 can be any of above keys \(AccountKeyNil, AccountKeyLegacy, AccountKeyPublic, AccountKeyFail, and AccountKeyWeightedMultiSig\).
+key1、key2、key3 は、上記の鍵のいずれかであることに注意。
 
-#### Omissible and Expandable Roles <a id="omissible-and-expandable-roles"></a>
+#### 許される役割と拡大可能な役割<a id="omissible-and-expandable-roles"></a>
 
-The roles can be omitted from the last index, and the omitted roles are mapped to the first role. However, a role in the middle cannot be omitted, which means RoleTransaction and RoleFeePayer cannot be set without RoleAccountUpdate. For example, if a role-based key is set to `0x05 + encode([key1, key2])`, RoleFeePayer works as if the key is set like `0x05 + encode([key1, key2, key1])`.
+ロールは最後のインデックスから省略することができ、省略されたロールは最初のロールにマップされます。 つまり、RoleTransaction と RoleFeePayer は RoleAccountUpdate なしでは設定できない。 例えば、ロールベースのキーが`0x05 + encode([key1, key2])`に設定されている場合、RoleFeePayerはキーが`0x05 + encode([key1, key2, key1])`のように設定されているかのように動作する。
 
-This feature allows for more roles to be added in the future. If a new role is provided, the new role of accounts already created with old roles is mapped to the first role.
+この機能により、将来的に役割を増やすことができる。 新しいロールが提供された場合、既に古いロールで作成されたアカウントの新しいロールは最初のロールにマップされます。
 
-#### RLP Encoding \(Example\) <a id="rlp-encoding-example"></a>
+#### RLP Encoding \(Example)<a id="rlp-encoding-example"></a>
 
 ```javascript
 RoleTransaction Key
@@ -278,14 +278,14 @@ PubkeyY 0x94c27901465af0a703859ab47f8ae17e54aaba453b7cde5a6a9e4a32d45d72b2
 RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512db84e04f84b02f848e301a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf01512de301a10336f6355f5b532c3c1606f18fa2be7a16ae200c5159c8031dd25bfa389a4c9c06a302a102c8785266510368d9372badd4c7f4a94b692e82ba74e0b5e26b34558b0f081447
 ```
 
-## Account Key Type ID <a id="account-key-type-id"></a>
+## アカウント・キー・タイプID<a id="account-key-type-id"></a>
 
-Below are the Account Key Type ID assigned to each Account Key Type.
+以下は、各アカウント・キー・タイプに割り当てられたアカウント・キー・タイプIDである。
 
-| Account Key Type           | Account Key Type ID |
-| -------------------------- | ------------------- |
-| AccountKeyLegacy           | 0x01                |
-| AccountKeyPublic           | 0x02                |
-| AccountKeyFail             | 0x03                |
-| AccountKeyWeightedMultiSig | 0x04                |
-| AccountKeyRoleBased        | 0x05                |
+| アカウント・キー・タイプ               | アカウント・キー・タイプID |
+| -------------------------- | -------------- |
+| AccountKeyLegacy           | 0x01           |
+| AccountKeyPublic           | 0x02           |
+| AccountKeyFail             | 0x03           |
+| AccountKeyWeightedMultiSig | 0x04           |
+| AccountKeyRoleBased        | 0x05           |

@@ -1,116 +1,116 @@
-# Genesis File
+# ジェネシスファイル
 
-This page describes the details of `genesis.json` file.
+このページでは、`genesis.json`ファイルの詳細について説明する。
 
-## Genesis JSON File Structure <a id="genesis-json-file-structure"></a>
+## ジェネシスのJSONファイル構造<a id="genesis-json-file-structure"></a>
 
-The `genesis.json` file structure is described in the following table.
+`genesis.json`ファイルの構造は以下の表のとおりである。
 
-| Field Name | Description                                                                                                                                                  |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| config     | The blokchain configuration. See the section [Config](#config).                                                              |
-| nonce      | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
-| timestamp  | The unix time when a block is created.                                                                                                       |
-| extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
-| gasLimit   | The maximum gas amount that used in a block.                                                                                                 |
-| difficulty | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
-| mixhash    | (deprecated) This field is derived from the Ethereum, but not used in Klaytn.                                             |
-| coinbase   | An address to which miner receives the reward. This field is only used for Clique consensus engine.                          |
-| alloc      | The predefined accounts.                                                                                                                     |
-| number     | The block number field.                                                                                                                      |
-| gasUsed    | The amount of the gas which used for a block.                                                                                                |
-| parentHash | The hash value of the previous block.                                                                                                        |
+| フィールド名     | 説明                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------- |
+| config     | blokchainのコンフィギュレーション。 Config](#config) の項を参照。 |
+| nonce      | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| timestamp  | ブロックが作成されたunix時間。                                                                           |
+| extraData  | 署名者の虚栄心とRLPエンコードされたistanbulの追加データを含むデータ結合フィールドで、バリデータリスト、提案者シール、コミットシールを含む。                 |
+| gasLimit   | ブロック内で使用されるガスの最大量。                                                                          |
+| difficulty | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| mixhash    | (非推奨) このフィールドはイーサリアムに由来するが、カイアでは使用されない。                                  |
+| coinbase   | マイナーが報酬を受け取るアドレス。 このフィールドは Clique コンセンサスエンジンのみに使用される。                                       |
+| alloc      | 定義済みのアカウント。                                                                                 |
+| number     | ブロック番号フィールド。                                                                                |
+| gasUsed    | ブロックに使用されるガスの量。                                                                             |
+| parentHash | 前のブロックのハッシュ値。                                                                               |
 
 ### Config <a id="config"></a>
 
-The `config` field stores the information related to the chain.
+`config`フィールドはチェーンに関連する情報を格納する。
 
-| Field Name              | Description                                                                                        |
-| ----------------------- | -------------------------------------------------------------------------------------------------- |
-| chainId                 | It identifies the current chain and is used for prevention from the replay attack. |
-| istanbulCompatibleBlock | A block number to which istanbul change is applied.                                |
-| istanbul, clique        | The type of consensus engine.                                                      |
-| unitPrice               | Unit price.                                                                        |
-| deriveShaImpl           | Defines a method to generate transaction hash and receipt hash.                    |
-| governance              | Governance information of the network. See the section [Governance](#governance)   |
+| フィールド名                  | 説明                                                                                     |
+| ----------------------- | -------------------------------------------------------------------------------------- |
+| chainId                 | これは現在のチェーンを識別し、リプレイ攻撃を防ぐために使用される。                                                      |
+| istanbulCompatibleBlock | イスタンブール・チェンジが適用されるブロック番号。                                                              |
+| istanbul, clique        | コンセンサスエンジンのタイプ。                                                                        |
+| unitPrice               | 単価。                                                                                    |
+| deriveShaImpl           | トランザクションハッシュとレシートハッシュを生成するメソッドを定義する。                                                   |
+| governance              | ネットワークのガバナンス情報。 ガバナンス](#governance)の項を参照。 |
 
 ### extraData <a id="extradata"></a>
 
-The field `extraData` is a concatenation of the proposer vanity and the RLP-encoded istanbul extra data:
+フィールド `extraData` は提案者のバニティとRLPでエンコードされたistanbulのエクストラデータを連結したものである：
 
-- The proposer vanity is 32-byte data which contains arbitrary proposer vanity data.
-- The rest of the data is RLP-encoded istanbul extra data containing:
-  - Validators: the list of validators in ascending order.
-  - Seal: the proposer signature of the header. For `genesis.json`, it is a byte array initialized with 65 `0x0`.
-  - CommittedSeal: the list of commitment signature seals as consensus proof. For `genesis.json`, it is an empty array.
+- プロポーザ・バニティは32バイトのデータで、任意のプロポーザ・バニティ・データを含む。
+- 残りのデータは、RLPエンコードされたイスタンブールの追加データである：
+  - バリデータ: バリデータの昇順リスト。
+  - 捺印：ヘッダーの提案者署名。 `genesis.json`の場合は、65個の `0x0` で初期化されたバイト配列である。
+  - CommittedSeal: コンセンサス証明としてのコミットメント署名シールのリスト。 `genesis.json`の場合は空の配列である。
 
-**Example**
+**例**
 
-| Field         | Type                                                                                                             | Value                                                                                                                                       |
+| フィールド         | タイプ                                                                                                              | 価値                                                                                                                                          |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Vanity        | 32-byte hex string                                                                                               | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
+| バニティー         | 32バイトの16進文字列                                                                                                     | 0x0000000000000000000000000000000000000000000000000000000000000000                                                                          |
 | Validators    | []address                                                    | [0x48009b4e20ec72aadf306577cbe2eaf54b0ebb16,0x089fcc42fd83baeee4831319375413b8bae3aceb] |
-| Seal          | byte array of 65 elements                                                                                        | [0x0,...,0x0]                           |
+| Seal          | 65要素のバイト配列                                                                                                       | [0x0,...,0x0]                           |
 | CommittedSeal | [][]byte | []                                                                                      |
 
-`extraData` with the above data is created by
+上記のデータを持つ`extraData`は、次のようにして作成される。
 
 ```
 concat('0x',Vanity,RLPEncode({Validators,Seal,CommittedSeal}))
 ```
 
-where `concat` is a string concatenation function, and `RLPEncode` is a function to convert a given structure to an RLP-encoded string.
+ここで、`concat`は文字列の連結関数であり、`RLPEncode`は与えられた構造体をRLPエンコードされた文字列に変換する関数である。
 
 With this function, the output `extraData` for this example is 0x0000000000000000000000000000000000000000000000000000000000000000f86fea9448009b4e20ec72aadf306577cbe2eaf54b0ebb1694089fcc42fd83baeee4831319375413b8bae3acebb8410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0.
 
-## Consensus Engine <a id="consensus-engine"></a>
+## コンセンサス・エンジン<a id="consensus-engine"></a>
 
-The available consensus engines for Klaytn network are Clique and Istanbul. Each engine is explained as follows.
+Kaiaネットワークで利用可能なコンセンサスエンジンは、CliqueとIstanbulである。 各エンジンの説明は以下の通り。
 
 ### Clique <a id="clique"></a>
 
-The `clique` field stores the configuration for Proof-Of-Authority (POA) based sealing.
+`clique` フィールドには、Proof-Of-Authority (POA) ベースの封印のための設定が格納される。
 
-| Fields | Description                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| period | The minimum time interval between the consecutive blocks (unit: second). |
-| epoch  | The number of blocks to reset votes and marked as a checkpoint.                                             |
+| フィールド  | 説明                             |
+| ------ | ------------------------------ |
+| period | 連続するブロック間の最小時間間隔（単位：秒）。        |
+| epoch  | 票をリセットし、チェックポイントとしてマークするブロック数。 |
 
 ### Istanbul <a id="istanbul"></a>
 
-The `istanbul` field stores the configuration for Istanbul based sealing.
+`istanbul`フィールドには、イスタンブールを拠点とするシーリングの設定が保存される。
 
-| Fields | Description                                                                                                                                                                                              |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| epoch  | The number of blocks to reset votes to be a checkpoint.                                                                                                                                  |
-| policy | The block proposer selection policy. [0: Round Robin, 1: Sticky, 2: Weighted Random] |
-| sub    | Committee size.                                                                                                                                                                          |
+| フィールド  | 説明                                                                       |
+| ------ | ------------------------------------------------------------------------ |
+| epoch  | チェックポイントとなる票をリセットするブロック数。                                                |
+| policy | ブロック提案者の選択方針。 [0：ラウンドロビン、1：スティッキー、2：ウェイトランダム］。 |
+| sub    | 委員会の規模                                                                   |
 
 ## Governance <a id="governance"></a>
 
-The `governance` field stores governance information for a network.
+`governance`フィールドはネットワークのガバナンス情報を格納する。
 
-| Fields         | Description                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| governanceMode | One of three governance modes. [`none`, `single`, `ballot`] |
-| governingNode  | Designated governing node's address. It only works if the governance mode is `single`.          |
-| reward         | It stores the reward configuration. See the section [Reward](#reward).                          |
+| フィールド          | 説明                                                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------------------------------------- |
+| governanceMode | 3つのガバナンス・モードのうちの1つ。 [`none`, `single`, `ballot`]                |
+| governingNode  | 指定管理ノードのアドレス。 ガバナンスモードが`シングル`の場合のみ機能する。                                                                             |
+| reward         | It stores the reward configuration. 報酬](#reward)の項を参照。 |
 
 ### Reward <a id="reward"></a>
 
-The `reward` field stores the information about the network's token economy.
+`reward`フィールドはネットワークのトークンエコノミーに関する情報を格納する。
 
-| Fields                 | Description                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| mintingAmount          | Amount of peb minted when a block is generated. Double quotation marks are needed for a value. |
-| ratio                  | Distribution rate for a `CN/KIR/PoC` separated by `/`. The sum of all values has to be 100.    |
-| useGiniCoeff           | Use GINI coefficient or not.                                                                                   |
-| deferredTxFee          | A way to distribute TX fee for a block.                                                                        |
-| stakingUpdateInterval  | Time interval in block height to update staking information.                                                   |
-| proposerUpdateInterval | Time interval in block height to update proposer information.                                                  |
-| minimumStake           | Minimum amount of peb to join Core Cell Operators.                                                             |
+| フィールド                  | 説明                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| mintingAmount          | Amount of peb minted when a block is generated. 値にはダブルクォーテーションが必要です。 |
+| ratio                  | で区切られた `CN/KIR/PoC` の分配率。 すべての値の合計は100でなければならない。                                     |
+| useGiniCoeff           | GINI係数を使うかどうか。                                                                       |
+| deferredTxFee          | ブロックのTX料金を分配する方法。                                                                    |
+| stakingUpdateInterval  | ステーキング情報を更新するブロックの高さでの時間間隔。                                                          |
+| proposerUpdateInterval | 提案者情報を更新するブロックの高さでの時間間隔。                                                             |
+| minimumStake           | Minimum amount of peb to join Core Cell Operators.                   |
 
-## Example <a id="example"></a>
+## 例<a id="example"></a>
 
 ```
 {

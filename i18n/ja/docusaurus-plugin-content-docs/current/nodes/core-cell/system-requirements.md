@@ -1,29 +1,29 @@
-# System Requirements
+# システム要件
 
-## H/W Specification <a id="h-w-specification"></a>
+## H/W仕様<a id="h-w-specification"></a>
 
-The network performance is measured based on the worst hardware specification within the network. According to the blockchain network structure, it is only possible to be scaled up vertically (increasing hardware capacity). Hence, it is recommended that all the nodes within the network should have the best hardwares having the similar specifications with each other at least.
+ネットワークの性能は、ネットワーク内の最悪のハードウェア仕様に基づいて測定される。 According to the blockchain network structure, it is only possible to be scaled up vertically (increasing hardware capacity). したがって、ネットワーク内のすべてのノードは、少なくとも互いに似たような仕様を持つ最高のハードウエアを持つことが推奨される。
 
-If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Klaytn node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
+このハードウェア仕様の根拠が気になる方は、MEDIAの記事[Kaiaノード運用者に最適なハードウェア仕様の決定](https://klaytn.foundation/node-operator-optimal-specs/)が参考になるだろう。
 
-The following sections show the recommended specifications for both CNs and PNs.
+以下のセクションでは、CNとPNの推奨仕様を示す。
 
-### Bare-metal Server <a id="bare-metal-server"></a>
+### ベアメタルサーバー<a id="bare-metal-server"></a>
 
-| Category | Specification                                                                                                                                                                                                                                     |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Server   | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html)                                                                                              |
-| CPU      | Intel® Xeon 8358 2.60 GHz (32-core/64-thread)                                                                                                                                                                  |
-| Memory   | 128GB (32GB \* 4)                                                                                                                                                                                                              |
-| Storage  | 4TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Klaytn Team for more information.) |
+| カテゴリー | 仕様                                                                                                                                              |
+| :---- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| サーバー  | インテル® サーバー・システム [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
+| CPU   | Intel® Xeon 8358 2.60 GHz (32-core/64-thread)                                                                |
+| メモリー  | 128GB (32GB \* 4)                                                                                                            |
+| ストレージ | 4TB（またはそれ以上のサイズ）のSSD（チェーンデータのサイズによって、望ましいストレージのサイズと構成は異なる可能性があります。 詳しくはカイア・チームにご相談ください)。                                                        |
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+これはCNとPNの推奨ハードウェア仕様であり、厳密な要件ではないことに注意。 同様のハードウェア構成を持つ物理的なマシンであれば、CNやPNを操作するのに十分だろう。
 
-You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
+ライブ刈り込みDBを使用するには、ライブ刈り込みオプションを使用し、適用することができます。 詳細はhttps://docs.kaia.io/learn/storage/live-pruning/。 ただし、ライブ・プルーニング仕様はCNには推奨されていないが、将来的には変更される可能性がある。
 
-### Cloud VM <a id="cloud-vm"></a>
+### クラウドVM<a id="cloud-vm"></a>
 
-#### Recommended Specification for AWS<a id="recommended-specification-for-aws"></a>
+#### AWSの推奨仕様<a id="recommended-specification-for-aws"></a>
 
 |                   Node Type                  |            Model            | vCPU | Memory (GiB) | Storage size (GiB) | Storage speed (IOPS) | Price (Seoul region, USD/h) |
 | :------------------------------------------: | :-------------------------: | :--: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :--------------------------------------------: |
@@ -31,11 +31,11 @@ You can use and apply a live-pruning option to use live-pruning DB. For more det
 |                      PN                      | m6i.4xlarge |  16  |                64               |   4,000 (Minimum)  |                  9,000                  |              0.944             |
 | PN (with Live Pruning DB) | m6i.2xlarge |   8  |                32               |   3,500 (Minimum)  |                  9,000                  |              0.472             |
 
-This storage specification is derived from AWS EBS SSD (gp3) specification.
+このストレージ仕様は、AWS EBS SSD (gp3)仕様から派生したものです。
 
-The information above is from [https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/) and [https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/) and may be changed by AWS.
+上記の情報は[https://aws.amazon.com/ec2/instance-types/](https://aws.amazon.com/ec2/instance-types/)および[https://aws.amazon.com/ec2/pricing/on-demand/](https://aws.amazon.com/ec2/pricing/on-demand/)のものであり、AWSによって変更される可能性がある。
 
-#### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
+#### アジュール推奨仕様<a id="recommended-specification-for-azure"></a>
 
 |                   Node Type                  |  Model  | vCPU | Memory (GiB) | Storage type (GiB) | Storage speed (IOPS) | Price (Korea Central, USD/h) |
 | :------------------------------------------: | :-----: | :--: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :---------------------------------------------: |
@@ -43,25 +43,25 @@ The information above is from [https://aws.amazon.com/ec2/instance-types/](https
 |                      PN                      | D16s v5 |  16  |                64               |     P50 (4096)     |                   7500                  |              0.944              |
 | PN (with Live Pruning DB) |  D8s v5 |   8  |                32               |     P50 (4096)     |                   7500                  |              0.472              |
 
-This storage specification is derived from Azure Premium Disk specification.
+このストレージ仕様は、Azure Premium Disk仕様から派生したものである。
 
-The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
+上記の情報は[https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/)および[https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing)のものであり、マイクロソフト社によって変更されている可能性があります。
 
-#### Recommended Specification for GCP<a id="recommended-specification-for-gcp"></a>
+#### GCPの推奨仕様<a id="recommended-specification-for-gcp"></a>
 
-|                   Node Type                  |      Model     | vCPU | Memory (GiB) | Storage type (GiB) | Storage speed (IOPS) | Price (asia-northeast3, USD/h) |
-| :------------------------------------------: | :------------: | :--: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :-----------------------------------------------: |
-|                      CN                      | n2-standard-32 |  32  |               128               |   4,000 (Minimum)  |                   7500                  |              2.032486             |
-|                      PN                      | n2-standard-16 |  16  |                64               |   4,000 (Minimum)  |                   7500                  |              1.016243             |
-| PN (with Live Pruning DB) |  n2-standard-8 |   8  |                32               |   3,500 (Minimum)  |                   7500                  |              0.508121             |
+|     ノードタイプ    |     モデル     | ブイシーピーユー | Memory (GiB) | Storage type (GiB) | Storage speed (IOPS) | Price (asia-northeast3, USD/h) |
+| :-----------: | :---------: | :------: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :-----------------------------------------------: |
+|       CN      |  N2スタンダード32 |    32    |               128               |              4,000ドル（最低額）             |                   7500                  |              2.032486             |
+|       名詞      | N2スタンダード-16 |    16    |                64               |              4,000ドル（最低額）             |                   7500                  |              1.016243             |
+| PN（ライブ剪定DB付き） | n2-スタンダード-8 |     8    |                32               |              3,500ドル（最低額）             |                   7500                  |              0.508121             |
 
-The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
+上記の情報は[https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) と[https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) のもので、Googleによって変更されている可能性があります。
 
-## Storage Requirements <a id="storage-requirements"></a>
+## 保管条件<a id="storage-requirements"></a>
 
 Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second block latency, the expected daily storage requirement is about 2.5 GB/day (=300x100x86400).
 
-## Operating System <a id="operating-system"></a>
+## オペレーティングシステム<a id="operating-system"></a>
 
-Recommended environment is compatible with RHEL (7.8 or later).
-Klaytn binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well. macOS binaries are also provided for development purpose.
+推奨環境はRHEL（7.8以降）です。
+KaiaのバイナリはAmazon Linux 2で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。 開発用にmacOSのバイナリも提供されている。

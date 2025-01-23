@@ -1,0 +1,161 @@
+# Write
+
+當您**需要更新合約中的某些狀態**時，可以與智能合約進行**"事務 "**交互。
+
+<CH.Spotlight>
+<CH.Code>
+
+```java WriteContractExample.java
+package org.web3j.example.contracts;
+
+import java.math.BigInteger;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.tx.gas.StaticGasProvider;
+
+public class WriteContractExample {
+    /**
+     * @throws Exception
+     *
+     */
+    public static void run() throws Exception {
+
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+        BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+        StaticGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
+        Counter counter = Counter.load(contractAddr, web3j, credentials.convertToCredentials(), gasProvider);
+
+        // Get number before Contract Write
+        System.out.println("number before : " + counter.number().send());
+
+        // Contract Write (increment function)
+        counter.increment().send();
+
+        // Get number after Contract Write
+        System.out.println("number after : " + counter.number().send());
+    }
+
+}
+```
+
+---
+
+```zsh output
+❯ java WriteContractExample.java
+number before : 297
+number after : 298
+```
+
+</CH.Code>
+
+---
+
+從 Web3j 和 kaia 庫（`web3j-ext`）中導入必要的類。
+
+```java WriteContractExample.java focus=1:10
+
+```
+
+---
+
+使用 Web3j 連接到 kaia 區塊鏈並指定 URL
+
+```java WriteContractExample.java focus=19
+
+```
+
+---
+
+使用私鑰創建 KlayCredentials
+
+```java WriteContractExample.java focus=20
+
+```
+
+---
+
+定義與之交互的智能合約地址
+
+```java WriteContractExample.java focus=21
+
+```
+
+---
+
+確定合約交易的gas價格和gas限額
+
+```java WriteContractExample.java focus=22:23
+
+```
+
+---
+
+創建gas供應商，並設定靜態gas價格和gas限額
+
+```java WriteContractExample.java focus=24
+
+```
+
+---
+
+使用**聯繫地址**、**Web3j 實例**、**憑據**和**gas提供商**加載合約。 您可以通過該實例讀寫合約
+
+```java WriteContractExample.java focus=25
+
+```
+
+---
+
+在寫入之前，獲取合約中存儲的當前**數字**
+
+<CH.Code>
+```java WriteContractExample.java focus=27:28
+
+````
+
+
+---
+
+```zsh output
+❯ java WriteContractExample.java
+number before : 297
+
+````
+
+</CH.Code>
+
+---
+
+調用 "counter.increment().send() "來遞增合約中存儲的\*\*\*數字
+
+```java WriteContractExample.java focus=30:31
+
+```
+
+---
+
+寫入後，獲取存儲在合約中的更新**號**
+
+<CH.Code>
+```java WriteContractExample.java focus=33:34
+
+````
+
+
+---
+
+```zsh output
+❯ java WriteContractExample.java
+number after : 298
+````
+
+</CH.Code>
+
+</CH.Spotlight>

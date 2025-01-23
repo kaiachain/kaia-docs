@@ -1,6 +1,6 @@
-# Klaytn Network Identifier
+# カイアネットワーク識別子
 
-**KNI (Klaytn Network Identifier)** is a URL scheme to identify a Klaytn node. Its syntax is shown below:
+\*\*KNI (Kaia Network Identifier)\*\*はKaiaノードを識別するためのURLスキームです。 その構文を以下に示す：
 
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
@@ -8,35 +8,35 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 
 ![KNI scheme](/img/learn/kni_scheme.png)
 
-**nodeID** is a 512-bit public key corresponding to the node's private key. It is used to verify communication with peers on p2p network.
+**nodeID**はノードの秘密鍵に対応する512ビットの公開鍵である。 p2pネットワーク上のピアとの通信を検証するために使用される。
 
-**hostname** describes the address of a node, located between `@` and `:`. The address format can be one of the following:
+**hostname**はノードのアドレスを記述するもので、`@`と`:`の間に位置する。 アドレスの形式は以下のいずれか：
 
-- IPv4 dotted decimal (`192.0.2.1`)
+- IPv4 ドット付き10進数 (`192.0.2.1`)
 - IPv6 (`[2001:db8::68]`)
-- IPv4-mapped IPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
-- Domain name (`your.node.com`)
+- IPv4マップされたIPv6 (`[2001:db8:3c4d:15::abcd:ef12]`)
+- ドメイン名 (`your.node.com`)
 
-**port** is used to make connections with peer nodes through TCP. In Klaytn, the default `port` is `32323` and the default `subport` is `32324`. Note that the default `subport` is configured as `port + 1` in `kend.conf`. Depending on the number of TCP listening ports, Klaytn offers two [types of connections](./multiport.md).
+**ポート**は、TCPを介してピアノードと接続するために使用される。 Kaia では、デフォルトの `port` は `32323` で、デフォルトの `subport` は `32324` である。 デフォルトの `subport` は `kend.conf` で `port + 1` として設定されていることに注意すること。 TCPリスニングポートの数に応じて、カイアは2つの[接続タイプ](scaling-solutions.md#multi-channel-communication)を提供します。
 
-**discport** is used for checking if the known neighbors are reachable kaia nodes and fetching their neighbors' addresses for new connections. Note that this is a UDP port.
-By default, the UDP port, or `discport`, uses the same port with the TCP port.
-If the node uses a different port for `discport`, it can be specified by the `discport` query parameter.
+**discport**は、既知の隣人が到達可能なカイア・ノードかどうかをチェックし、新しい接続のために隣人のアドレスを取得するために使用される。 これはUDPポートであることに注意。
+デフォルトでは、UDPポート（`discport`）はTCPポートと同じポートを使用する。
+ノードが `discport` に別のポートを使用する場合は、`discport` クエリパラメータで指定することができる。
 
-The following two URLs shows a KNI example of a node having IP address `10.0.0.1` and TCP listening port `32323` and `32324`.
-If `discport` is omitted, it is set to the UDP port of `32323`, same as the value of `port`.
+次の2つのURLは、IPアドレス`10.0.0.1`とTCPリスニングポート`32323`と`32324`を持つノードのKNIの例を示している。
+`discport`が省略された場合は、`port`の値と同じUDPポート`32323`が設定される。
 
 ```
 kni://a979...163c@10.0.0.1:32323                 # either single-channel or multi-channel peer with omitted subport
 kni://a979...163c@10.0.0.1:32323?subport=32324   # multi-channel peer
 ```
 
-The next two shows KNI examples of nodes having `discport` of `30301`.
+次の2つは、`30301`の`discport`を持つノードのKNIの例である。
 
 ```
 kni://a979...163c@10.0.0.1:32323?discport=30301                 # either single-channel or multi-channel peer with omitted subport
 kni://a979...163c@10.0.0.1:32323?subport=32324&discport=30301   # multi-channel peer
 ```
 
-If you want to know how to generate a KNI of a node, please refer to [Node Key & Node URI Creation](../nodes/core-cell/install/before-you-install.md#node-key-node-uri-creation).
-The KNI scheme is used in node discovery protocol, [setting `static-nodes.json` file](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodes-json), [addPeer API](../references/json-rpc/admin/add-peer), [bootnodes option](../misc/operation/configuration.md#properties) and etc.
+ノードのKNIを生成する方法については、[ノードキーとノードURIの作成](../nodes/core-cell/install/before-you-install.md#node-key--node-uri-creation)を参照してください。
+KNIスキームは、ノード発見プロトコル、[`static-nodes.json`ファイルの設定](../nodes/core-cell/install/install-proxy-nodes.md#install-static-nodesjson)、[addPeer API](../references/json-rpc/admin/add-peer)、[bootnodesオプション](../misc/operation/configuration.md#properties)などで使用されています。

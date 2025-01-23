@@ -234,7 +234,7 @@ main().catch(console.error);
 与第一个钱包签署交易
 
 <CH.Code>
-``js AccountUpdateWithMultiSigExample.js focus=41:44
+```js AccountUpdateWithMultiSigExample.js focus=41:44
 
 ````
 ---
@@ -250,7 +250,7 @@ rawTx1 0x20f8dd74850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7eb
 与第二个钱包签署交易
 
 <CH.Code>
-``js AccountUpdateWithMultiSigExample.js focus=46:48
+```js AccountUpdateWithMultiSigExample.js focus=46:48
 
 ````
 ---
@@ -266,13 +266,13 @@ rawTx2 0x20f9012474850ba43b7400830f42409482c6a8d94993d49cfd0c1d30f0f8caa65782cc7
 在第三个钱包中签署交易，并将其发送至 kaia 网络
 
 <CH.Code>
-``js AccountUpdateWithMultiSigExample.js focus=50:52
+```js AccountUpdateWithMultiSigExample.js focus=50:52
 
 ````
 ---
 
 ```zsh output
-signedTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
+sentTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
 ````
 
 </CH.Code>
@@ -282,7 +282,7 @@ signedTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
 如果已在区块链中完成发送，**wait**函数将返回发送回执。
 
 <CH.Code>
-``js AccountUpdateWithMultiSigExample.js focus=54:55
+```js AccountUpdateWithMultiSigExample.js focus=54:55
 
 ````
 ---

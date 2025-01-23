@@ -1,20 +1,20 @@
-# Create nested service chain
+# ネストされたサービスチェーンの作成
 
-This chapter explains how to build ServiceChain networks in a hierarchical structure by adding a new ServiceChain network to the ServiceChain network built in the previous chapter. The ServiceChain network to be added also consists of 4 SCNs in this example. The ServiceChain network constructed in the previous chapter is defined as L2, and the ServiceChain network to be newly constructed is defined as L3. We are going to connect a bridge between L2 and L3 to create a hierarchical structure. The overall structure of the ServiceChain network to be constructed in this chapter is shown in the figure below.
+この章では、前章で構築したServiceChainネットワークに新たなServiceChainネットワークを追加し、階層構造でServiceChainネットワークを構築する方法を説明します。 追加するServiceChainネットワークも、この例では4つのSCNで構成される。 前章で構築したServiceChainネットワークをL2、新たに構築するServiceChainネットワークをL3と定義する。 L2とL3の間にブリッジをつなぎ、階層構造を作るつもりだ。 本章で構築するServiceChainネットワークの全体構造を下図に示す。
 
 ![](/img/nodes/sc-nestedsc-arch.png)
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件<a id="prerequisites"></a>
 
-- Assume that you have progressed to the ServiceChain configuration and Kairos EN described in [Nested ServiceChain](nested-sc.md). So we will briefly explain what was explained in the previous section.
-- Assumptions and Limitations
-  - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
-  - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
-  - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Kairos and L2.
+- Nested ServiceChain](nested-sc.md)で説明したServiceChainの設定とKairos ENまで進んだと仮定します。 そこで、前節で説明したことを簡単に説明する。
+- 仮定と限界
+  - 1つのENは、ServiceChain L2のSCNの1つに1対1でブリッジできる。 同様に、ServiceChainのL2の1つのSCNは、L3のSCNの1つに1対1でブリッジできる。
+  - SCNノードはメインブリッジとサブブリッジを同時に持つことができる。 ただし、メイン・ブリッジとサブ・ブリッジのポート番号は別々に設定する必要がある。 (例：メインブリッジ：50505、サブブリッジ：50506）
+  - L2のすべてのSCNがENにブリッジされる必要はなく、同様にL3のSCNがすべてL2にブリッジされる必要もない。 しかし、高い可用性を確保するためには、チェーン間に2組以上のメインブリッジとサブブリッジのペアがあることが推奨される。 本章では、L2-L3間を1ペアのみ接続し、L2-L3間の高可用性はKairos-L2間のHAと同じとする。
 
-## Step 1: Create and update Homi data for L3 <a id="step-1-create-and-update-homi"></a>
+## ステップ1：L3のHomiデータの作成と更新<a id="step-1-create-and-update-homi"></a>
 
-As when configuring ServiceChain L2, execute the `homi` command to create scripts and configuration files for building L3. You can run `homi` on any Linux/Mac PC. Kairos's `chainID` is `1001`, and L2's `chainID` was set to `1002` in the previous example, so for convenience, L3's `chainID` is set to `1003`. When operating a blockchain for an actual service, you must register a new `chainID` value at https://chainlist.defillama.com/ to avoid the `chainID` conflict with other ServiceChains and EVM chains.
+ServiceChain L2 を設定するときと同様に、`homi` コマンドを実行して L3 を構築するためのスクリプトと設定ファイルを作成する。 `homi`はLinux/MacのどのPCでも実行できる。 Kairos の `chainID` は `1001` で、L2 の `chainID` は前の例では `1002` に設定されていたので、便宜上 L3 の `chainID` は `1003` に設定する。 実際のサービスでブロックチェーンを運用する場合、他の ServiceChain や EVM チェーンとの `chainID` の衝突を避けるために、https://chainlist.defillama.com/ で新しい `chainID` 値を登録する必要があります。
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1003 --p2p-port 22323 -o homi-output
@@ -40,7 +40,7 @@ Created :  homi-output/Kaia_txpool.json
 
 ![](/img/nodes/sc-nestedsc-ip.png)
 
-Update `IP address` and `port` information of ServiceChain L3 nodes in `homi-output/scripts/static-nodes.json`.
+`homi-output/scripts/static-nodes.json`のServiceChain L3ノードの`IPアドレス`と`ポート`情報を更新する。
 
 ```json
 [
@@ -51,7 +51,7 @@ Update `IP address` and `port` information of ServiceChain L3 nodes in `homi-out
 ]
 ```
 
-Copy `homi-output` to all SCN nodes (SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04) of ServiceChain L3.
+`homi-output`をServiceChain L3の全SCNノード(SCN-L3-01, SCN-L3-02, SCN-L3-03, SCN-L3-04)にコピーする。
 
 ```console
 $ scp -r path/to/homi-output user@192.168.0.21:~/ 
@@ -60,7 +60,7 @@ $ scp -r path/to/homi-output user@192.168.0.23:~/
 $ scp -r path/to/homi-output user@192.168.0.24:~/ 
 ```
 
-Initialize all nodes.
+すべてのノードを初期化する。
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -68,16 +68,16 @@ $ ls ~/data
 keystore	klay		kscn
 ```
 
-Connect to all SCNs (SCN-L3-01, SCN-L3-02, SCN-L3-03, and SCN-L3-04), copy `static-nodes.json` to the data folder `~/data`, and copy `nodekeys` one by one.
+すべてのSCN（SCN-L3-01、SCN-L3-02、SCN-L3-03、SCN-L3-04）に接続し、`static-nodes.json`をデータフォルダ`~/data`にコピーし、`nodekeys`を一つずつコピーします。
 
 ```console
 $ cp   ~/homi-output/scripts/static-nodes.json   ~/data/
 $ cp   ~/homi-output/keys/nodekey{1..4}   ~/data/klay/nodekey
 ```
 
-## Step 2: SCN configuration in L3 <a id="step-2-scn-configuration"></a>
+## ステップ2：L3のSCNコンフィギュレーション<a id="step-2-scn-configuration"></a>
 
-Edit `conf/kscnd.conf` on all SCNs in ServiceChain L3 as follows: The `PORT` uses 22323, the default port of the ServiceChain. `DATA_DIR` is `~/data`.
+ServiceChain L3のすべてのSCNで`conf/kscnd.conf`を以下のように編集します：PORT`には ServiceChain のデフォルトポートである 22323 を使用します。`DATA_DIR`は`~/data\` である。
 
 ```
 ...
@@ -87,7 +87,7 @@ DATA_DIR=~/data
 ...
 ```
 
-Run the ServiceChain on all SCN nodes in L3 and check if it works properly.
+L3のすべてのSCNノードでServiceChainを実行し、正しく動作するか確認する。
 
 ```console
 $ kscnd start
@@ -97,28 +97,28 @@ $ kscn attach --datadir ~/data
 10
 ```
 
-## Step 3: Restart after setting L2 main bridge <a id="step-3-restart-after-setting-L2-main-bridge"></a>
+## ステップ3：L2メインブリッジ設定後の再起動<a id="step-3-restart-after-setting-L2-main-bridge"></a>
 
-Connect to the console of SCN-L2-03 node, (Note: this is not in L3 but in L2) that will act as the main bridge in the ServiceChain L2.
+ServiceChain L2 のメインブリッジとして機能する SCN-L2-03 ノード（注：これは L3 ではなく L2 にある）のコンソールに接続する。
 
 ![](/img/nodes/sc-nestedsc-id.png)
 
-Edit the kscn configuration file `conf/kscnd.conf` of SCN-L2-03 as follows.
+SCN-L2-03のkscn設定ファイル`conf/kscnd.conf`を以下のように編集します。
 
 ```console
 SC_MAIN_BRIDGE=1
 ```
 
-Restart kscnd on SCN-L2-03.
+SCN-L2-03でkscndを再起動する。
 
 ```console
 SCN-L2-03$ kscnd stop
 SCN-L2-03$ kscnd start
 ```
 
-## Step 4: Check KNI of Main Bridge Node <a id="step-4-check-kni-of-main-bridge-node"></a>
+## ステップ4：メインブリッジノードのKNIをチェックする<a id="step-4-check-kni-of-main-bridge-node"></a>
 
-Check the KNI information of SCN-L2-03 node. This value will be used to create the `main-bridges.json` file of SCN-L2-03 node, which will be set up the subbridge in the ServiceChain L3.
+SCN-L2-03 ノードの KNI 情報をチェックする。 この値は SCN-L2-03 ノードの `main-bridges.json` ファイルを作成する際に使用され、ServiceChain L3 のサブブリッジを設定する。
 
 ![](/img/nodes/sc-nestedsc-nodeinfo.png)
 
@@ -128,15 +128,15 @@ SCN-L2-03$ kscn   attach   --datadir   ~/data
 "kni://87989a5a5dcc165...85b16b@[::]:50505?discport=0"
 ```
 
-## Step 5: Configure L3 sub-bridge <a id="step-5-configure-l3-sub-bridge"></a>
+## ステップ5：L3サブブリッジの設定<a id="step-5-configure-l3-sub-bridge"></a>
 
-Connect to SCN-L3-01 node that will have a subbridge of the ServiceChain L3 (Note: this is not L2). Create `main-bridges.json` under `~/data` folder. Replace \[::\] after @ with the IP address of the node you checked in step 4.
+ServiceChain L3のサブブリッジを持つSCN-L3-01ノードに接続する（注：これはL2ではない）。 フォルダ `~/data` の下に `main-bridges.json` を作成する。 の後ろを手順4で確認したノードのIPアドレスに置き換えてください。
 
 ```console
 SCN-L3-01$ echo '["kni://87989a5a5dcc165...85b16b@192.168.0.13:50505?discport=0"]' > ~/data/main-bridges.json
 ```
 
-Edit the configuration file `conf/kscnd.conf` of the SCN-L3-01 node with subbridge as follows. set `SC_SUB_BRIDGE`to 1 for activating the bridge connection, and `SC_PARENT_CHAIN_ID` is `1002`, `chainID` of L2, Set `SC_ANCHORING` to 1 to automatically anchor data upon restart. You can also access the SCN-L3-01 shell and turn on data anchoring with the `subbridge.anchoring(true)` command or turn it off with the `subbridge.anchoring(false)` command. `SC_ANCHORING_PERIOD` is a parameter that determines how often anchoring transactions are sent to the parent chain. Set the node to anchor every 10 blocks by specifying a value of 10. Default is 1.
+サブブリッジを持つ SCN-L3-01 ノードの設定ファイル `conf/kscnd.conf` を以下のように編集します。 SC_PARENT_CHAIN_ID`を`1002`、`chainID` を L2 とし、`SC_ANCHORING` を 1 に設定する。 また、SCN-L3-01 のシェルにアクセスして、`subbridge.anchoring(true)` コマンドでデータアンカリングをオンにしたり、`subbridge.anchoring(false)` コマンドでオフにすることもできます。 SC_ANCHORING_PERIOD`は、アンカリング・トランザクションが親チェーンに送信される頻度を決定するパラメータである。 10を指定して、10ブロックごとにアンカーするようにノードを設定する。 デフォルトは1。
 
 ```console
 SC_SUB_BRIDGE=1
@@ -147,7 +147,7 @@ SC_ANCHORING=1
 SC_ANCHORING_PERIOD=10
 ```
 
-Restart kscnd on SCN-L3-01 after completing the setup.
+セットアップ完了後、SCN-L3-01 の kscnd を再起動します。
 
 ```console
 SCN-L3-01$ kscnd stop
@@ -156,7 +156,7 @@ SCN-L3-01$ kscnd start
 Starting kscnd: OK
 ```
 
-Check `subbridge.peers.length` to see if SCN-L3-01 is connected to SCN-L2-03, check `subbridge.latestAnchoredBlockNumber` to check the latest anchored block number to see if anchoring is in progress.
+`subbridge.peers.length`をチェックしてSCN-L3-01がSCN-L2-03に接続されているかどうかを確認し、`subbridge.latestAnchoredBlockNumber`をチェックして最新のアンカーブロック番号を確認し、アンカーリングが進行中かどうかを確認する。
 
 ```console
 SCN-L3-01$ kscn attach --datadir ~/data

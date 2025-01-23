@@ -1,204 +1,204 @@
 export const sidebar = {
-  type: 'category',
-  label: 'ethers-ext',
+  type: 'カテゴリー',
+  label: 'エーテルエクスト',
   link: {
-    type: 'doc',
-    id: 'references/sdk/ethers-ext/getting-started'
+    type: 'ドク',
+    id: 'リファレンス/sdk/ethers-ext/getting-started'
   },
   items: [
     {
-      type: 'doc',
-      label: 'Getting-Started',
-      id: 'references/sdk/ethers-ext/getting-started'
+      type: 'ドク',
+      label: 'はじめに',
+      id: 'リファレンス/sdk/ethers-ext/getting-started'
     },
     {
-      type: 'category',
+      type: 'カテゴリー',
       label: 'v5',
       items: [
         {
-          type: 'category',
-          label: 'Account Management',
+          type: 'カテゴリー',
+          label: 'アカウント管理',
           items: [
             {
-              type: 'category',
-              label: 'Account Key',
+              type: 'カテゴリー',
+              label: 'アカウント・キー',
               items: [
-                'references/sdk/ethers-ext/v5/account-management/account-key/legacy',
-                'references/sdk/ethers-ext/v5/account-management/account-key/public',
-                'references/sdk/ethers-ext/v5/account-management/account-key/multisig',
-                'references/sdk/ethers-ext/v5/account-management/account-key/role-based'
+                '参考文献/sdk/ethers-ext/v5/アカウント管理/アカウントキー/レガシー',
+                '参考文献/sdk/ethers-ext/v5/アカウント管理/アカウントキー/公開',
+                '参考文献/sdk/ethers-ext/v5/アカウント管理/アカウントキー/マルチシグ',
+                '参考文献/sdk/ethers-ext/v5/アカウント管理/アカウントキー/ロールベース'
               ]
             },
             {
-              type: 'category',
-              label: 'Sign Transaction',
+              type: 'カテゴリー',
+              label: 'サイン取引',
               items: [
-                'references/sdk/ethers-ext/v5/account-management/send-transaction/legacy-recover-tx',
-                'references/sdk/ethers-ext/v5/account-management/send-transaction/public-recover-tx',
-                'references/sdk/ethers-ext/v5/account-management/send-transaction/multisig-recover-tx',
-                'references/sdk/ethers-ext/v5/account-management/send-transaction/role-based-recover-tx'
+                'レファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/レガシーリカバー-tx',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/パブリック-リカバー-tx',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/マルチシグ-リカバー-tx',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/ロールベース回復-tx'
               ]
             },
             {
-              type: 'category',
-              label: 'Sign Message',
+              type: 'カテゴリー',
+              label: 'サインメッセージ',
               items: [
-                'references/sdk/ethers-ext/v5/account-management/sign-message/legacy-recover-msg',
-                'references/sdk/ethers-ext/v5/account-management/sign-message/multisig-recover-msg',
-                'references/sdk/ethers-ext/v5/account-management/sign-message/public-recover-msg',
-                'references/sdk/ethers-ext/v5/account-management/sign-message/role-based-recover-msg'
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/サインメッセージ/レガシー回復メッセージ',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/サインメッセージ/マルチシグ-リカバー-msg',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/サインメッセージ/公開回復メッセージ',
+                '参考文献/sdk/ethers-ext/v5/アカウント管理/サインメッセージ/ロールベースの回復メッセージ'
               ]
             },
             {
-              type: 'category',
-              label: 'keystore',
+              type: 'カテゴリー',
+              label: 'キーストア',
               items: [
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
-                'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-multi'
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/キーストア/キーストアV3',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/キーストア/キーストアV4-シングル',
+                'リファレンス/sdk/ethers-ext/v5/アカウント管理/キーストア/キーストアV4-マルチ'
               ]
             }
           ]
         },
         {
-          type: 'category',
-          label: 'Basic Transaction',
+          type: 'カテゴリー',
+          label: '基本取引',
           items: [
-            'references/sdk/ethers-ext/v5/basic-transaction/legacy',
-            'references/sdk/ethers-ext/v5/basic-transaction/value-transfer',
-            'references/sdk/ethers-ext/v5/basic-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v5/basic-transaction/account-update',
-            'references/sdk/ethers-ext/v5/basic-transaction/smart-contract-deploy',
-            'references/sdk/ethers-ext/v5/basic-transaction/smart-contract-execution',
-            'references/sdk/ethers-ext/v5/basic-transaction/cancel-transaction'
+            'リファレンス/sdk/ethers-ext/v5/basic-transaction/legacy',
+            'リファレンス/sdk/ethers-ext/v5/基本トランザクション/値転送',
+            'リファレンス/sdk/ethers-ext/v5/basic-transaction/value-transfer-memo',
+            'リファレンス/sdk/ethers-ext/v5/基本トランザクション/アカウント更新',
+            'リファレンス/sdk/ethers-ext/v5/ベーシック・トランザクション/スマート・コントラクト・デプロイ',
+            'リファレンス/sdk/ethers-ext/v5/基本トランザクション/スマート契約実行',
+            'リファレンス/sdk/ethers-ext/v5/基本トランザクション/キャンセルトランザクション'
           ]
         },
         {
-          type: 'category',
-          label: 'Fee Delegated Transaction',
+          type: 'カテゴリー',
+          label: '手数料 委任取引',
           items: [
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer',
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/account-update',
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/smart-contract-deploy',
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/smart-contract-execution',
-            'references/sdk/ethers-ext/v5/fee-delegated-transaction/cancel-transaction'
+            'リファレンス/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer',
+            '参考文献/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer-memo',
+            'リファレンス/sdk/ethers-ext/v5/fee-delegated-transaction/account-update',
+            'リファレンス/sdk/ethers-ext/v5/fee-delegated-transaction/smart-contract-deploy',
+            '参考文献/sdk/ethers-ext/v5/fee-delegated-transaction/smart-contract-execution',
+            'リファレンス/sdk/ethers-ext/v5/fee-delegated-transaction/cancel-transaction'
           ]
         },
         {
-          type: 'category',
-          label: 'Smart Contract',
+          type: 'カテゴリー',
+          label: 'スマート契約',
           items: [
-            'references/sdk/ethers-ext/v5/smart-contract/deploy',
-            'references/sdk/ethers-ext/v5/smart-contract/read',
-            'references/sdk/ethers-ext/v5/smart-contract/write',
-            'references/sdk/ethers-ext/v5/smart-contract/write-txtype',
-            'references/sdk/ethers-ext/v5/smart-contract/write-with-fee-delegation'
+            'リファレンス/sdk/ethers-ext/v5/スマート契約/デプロイ',
+            '参考文献/sdk/ethers-ext/v5/smart-contract/read',
+            '参考文献/sdk/ethers-ext/v5/smart-contract/write',
+            '参考文献/sdk/ethers-ext/v5/スマート契約/write-txtype',
+            '参考文献/sdk/ethers-ext/v5/スマートコントラクト/ライトウィズフィーデリゲーション'
           ]
         },
         {
-          type: 'category',
-          label: 'Utils',
+          type: 'カテゴリー',
+          label: 'ユーティリティ',
           items: [
-            'references/sdk/ethers-ext/v5/utils/address',
-            'references/sdk/ethers-ext/v5/utils/signature',
-            'references/sdk/ethers-ext/v5/utils/unit'
+            'リファレンス/sdk/ethers-ext/v5/utils/address',
+            '参考文献/sdk/ethers-ext/v5/utils/signature',
+            '参考文献/sdk/ethers-ext/v5/utils/unit'
           ]
         }
       ]
     },
     {
-      type: 'category',
+      type: 'カテゴリー',
       label: 'v6',
       items: [
         {
-          type: 'category',
-          label: 'Account Management',
+          type: 'カテゴリー',
+          label: 'アカウント管理',
           items: [
             {
-              type: 'category',
-              label: 'Account Key',
+              type: 'カテゴリー',
+              label: 'アカウント・キー',
               items: [
-                'references/sdk/ethers-ext/v6/account-management/account-key/legacy',
-                'references/sdk/ethers-ext/v6/account-management/account-key/public',
-                'references/sdk/ethers-ext/v6/account-management/account-key/multisig',
-                'references/sdk/ethers-ext/v6/account-management/account-key/role-based'
+                '参考文献/sdk/ethers-ext/v6/アカウント管理/アカウントキー/レガシー',
+                '参考文献/sdk/ethers-ext/v6/アカウント管理/アカウントキー/公開',
+                '参考文献/sdk/ethers-ext/v6/アカウント管理/アカウントキー/マルチシグ',
+                '参考文献/sdk/ethers-ext/v6/アカウント管理/アカウントキー/ロールベース'
               ]
             },
             {
-              type: 'category',
-              label: 'Sign Transaction',
+              type: 'カテゴリー',
+              label: 'サイン取引',
               items: [
-                'references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx',
-                'references/sdk/ethers-ext/v6/account-management/send-transaction/public-recover-tx',
-                'references/sdk/ethers-ext/v6/account-management/send-transaction/multisig-recover-tx',
-                'references/sdk/ethers-ext/v6/account-management/send-transaction/role-based-recover-tx'
+                'レファレンス/sdk/ethers-ext/v6/アカウント管理/センドトランザクション/レガシーリカバー-tx',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/センド・トランザクション/パブリック・リカバー・TX',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/センドトランザクション/マルチシグ-リカバー-tx',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/センドトランザクション/ロールベース回復-tx'
               ]
             },
             {
-              type: 'category',
-              label: 'Sign Message',
+              type: 'カテゴリー',
+              label: 'サインメッセージ',
               items: [
-                'references/sdk/ethers-ext/v6/account-management/sign-message/legacy-recover-msg',
-                'references/sdk/ethers-ext/v6/account-management/sign-message/multisig-recover-msg',
-                'references/sdk/ethers-ext/v6/account-management/sign-message/public-recover-msg',
-                'references/sdk/ethers-ext/v6/account-management/sign-message/role-based-recover-msg'
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/サインメッセージ/レガシー回復メッセージ',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/サインメッセージ/マルチシグ-リカバー-msg',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/サインメッセージ/公開回復メッセージ',
+                '参考文献/sdk/ethers-ext/v6/アカウント管理/サインメッセージ/ロールベースの回復メッセージ'
               ]
             },
             {
-              type: 'category',
-              label: 'keystore',
+              type: 'カテゴリー',
+              label: 'キーストア',
               items: [
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
-                'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi'
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/キーストア/キーストアV3',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/キーストア/キーストアV4-シングル',
+                'リファレンス/sdk/ethers-ext/v6/アカウント管理/キーストア/キーストアV4-マルチ'
               ]
             }
           ]
         },
         {
-          type: 'category',
-          label: 'Basic Transaction',
+          type: 'カテゴリー',
+          label: '基本取引',
           items: [
-            'references/sdk/ethers-ext/v6/basic-transaction/legacy',
-            'references/sdk/ethers-ext/v6/basic-transaction/value-transfer',
-            'references/sdk/ethers-ext/v6/basic-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v6/basic-transaction/account-update',
-            'references/sdk/ethers-ext/v6/basic-transaction/smart-contract-deploy',
-            'references/sdk/ethers-ext/v6/basic-transaction/smart-contract-execution',
-            'references/sdk/ethers-ext/v6/basic-transaction/cancel-transaction'
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/レガシー',
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/値転送',
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/値転送メモ',
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/アカウント更新',
+            'リファレンス/sdk/ethers-ext/v6/ベーシック・トランザクション/スマート・コントラクト・デプロイ',
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/スマート契約実行',
+            'リファレンス/sdk/ethers-ext/v6/基本トランザクション/キャンセルトランザクション'
           ]
         },
         {
-          type: 'category',
-          label: 'Fee Delegated Transaction',
+          type: 'カテゴリー',
+          label: '手数料 委任取引',
           items: [
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer',
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer-memo',
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/account-update',
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/smart-contract-deploy',
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/smart-contract-execution',
-            'references/sdk/ethers-ext/v6/fee-delegated-transaction/cancel-transaction'
+            'リファレンス/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer',
+            '参考文献/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer-memo',
+            'リファレンス/sdk/ethers-ext/v6/fee-delegated-transaction/account-update',
+            'リファレンス/sdk/ethers-ext/v6/fee-delegated-transaction/smart-contract-deploy',
+            '参考文献/sdk/ethers-ext/v6/fee-delegated-transaction/smart-contract-execution',
+            'リファレンス/sdk/ethers-ext/v6/fee-delegated-transaction/cancel-transaction'
           ]
         },
         {
-          type: 'category',
-          label: 'Smart Contract',
+          type: 'カテゴリー',
+          label: 'スマート契約',
           items: [
-            'references/sdk/ethers-ext/v6/smart-contract/deploy',
-            'references/sdk/ethers-ext/v6/smart-contract/read',
-            'references/sdk/ethers-ext/v6/smart-contract/write',
-            'references/sdk/ethers-ext/v6/smart-contract/write-txtype',
-            'references/sdk/ethers-ext/v6/smart-contract/write-with-fee-delegation'
+            'リファレンス/sdk/ethers-ext/v6/スマート契約/デプロイ',
+            '参考文献/sdk/ethers-ext/v6/smart-contract/read',
+            '参考文献/sdk/ethers-ext/v6/smart-contract/write',
+            '参考文献/sdk/ethers-ext/v6/スマート契約/write-txtype',
+            '参考文献/sdk/ethers-ext/v6/スマートコントラクト/ライトウィズフィーデリゲーション'
           ]
         },
         {
-          type: 'category',
-          label: 'Utils',
+          type: 'カテゴリー',
+          label: 'ユーティリティ',
           items: [
-            'references/sdk/ethers-ext/v6/utils/address',
-            'references/sdk/ethers-ext/v6/utils/signature',
-            'references/sdk/ethers-ext/v6/utils/unit'
+            'リファレンス/sdk/ethers-ext/v6/utils/address',
+            'リファレンス/sdk/ethers-ext/v6/utils/signature',
+            '参考文献/sdk/ethers-ext/v6/utils/unit'
           ]
         }
       ]

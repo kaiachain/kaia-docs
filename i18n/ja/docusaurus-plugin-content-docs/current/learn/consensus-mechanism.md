@@ -1,52 +1,52 @@
-# Consensus Mechanism
+# コンセンサス・メカニズム
 
-A consensus mechanism (algorithm) is a way of reaching a consensus between trustless entities. In blockchain technology, it is used to reach a consensus about if a block is valid or not. The performance of blockchain networks relies on the performance of the adopted consensus mechanisms, and it has a significant impact on the perceived usability of the Blockchain Applications.
+コンセンサスメカニズム（アルゴリズム）とは、信頼のないエンティティ間でコンセンサスを得るための方法である。 ブロックチェーン技術では、ブロックが有効かどうかのコンセンサスを得るために使われる。 ブロックチェーン・ネットワークの性能は、採用されたコンセンサス・メカニズムの性能に依存し、ブロックチェーン・アプリケーションのユーザビリティに大きな影響を与える。
 
-Klaytn Mainnet Cypress exhibits the following performance.
+カイヤメインネットは以下の性能を発揮する。
 
-- Handles 4,000 transactions per second.
-- Immediate transaction finality.
-- One-second block generation time.
-- Over 50 consensus nodes can participate in the consensus process.
+- 毎秒4,000トランザクションを処理。
+- 取引の即時確定。
+- ブロック生成時間は1秒。
+- 50以上のコンセンサスノードがコンセンサスプロセスに参加できる。
 
-In the document, we will go over how Klaytn implemented the high-performing consensus process.
+この文書では、カイアがどのように高パフォーマンスのコンセンサスプロセスを実施したかを説明する。
 
-## Background <a id="background"></a>
+## 背景<a id="background"></a>
 
-[Bitcoin](https://en.wikipedia.org/wiki/Bitcoin) is using [PoW](https://en.wikipedia.org/wiki/Proof_of_work) (Proof-of-Work), whereas Ethereum has recently shifted to [PoS](https://en.wikipedia.org/wiki/Proof_of_stake) (Proof-of-Stake), which decides on the block generating nodes by the stake of the node. Usually, these algorithms involve no communication between nodes in determining the validities of blocks.
+[ビットコイン](https://en.wikipedia.org/wiki/Bitcoin)は[PoW](https://en.wikipedia.org/wiki/Proof_of_work)（Proof-of-Work）を採用しているが、イーサリアムは最近、ブロック生成ノードをノードの賭け金で決める[PoS](https://en.wikipedia.org/wiki/Proof_of_stake)（Proof-of-Stake）に移行した。 通常、これらのアルゴリズムは、ブロックの有効性を決定する際にノード間の通信を伴わない。
 
-So in these systems, a fork can happen which means two or more different blocks can be made on the same height. Usually, the "Longest chain wins" rule is applied to solve the fork condition. It means that those forks will be merged into a single canonical chain eventually, but it also means a list of blocks can be reverted in some period of time when it belongs to the shorter chain. So in these algorithms, there is no guarantee of the finality of blocks and transactions. The finality can only be achieved probabilistically after a period of time, which is still can't be 100% guaranteed.
+つまり、これらのシステムでは、2つ以上の異なるブロックが同じ高さにできるフォークが起こり得るのだ。 通常、フォーク条件を解決するために「最も長い鎖が勝つ」ルールが適用される。 これは、これらのフォークが最終的に単一の正規のチェーンにマージされることを意味するが、ブロックのリストが短いチェーンに属している場合、ある程度の期間で差し戻すことができることも意味する。 そのため、これらのアルゴリズムでは、ブロックとトランザクションの最終性は保証されない。 最終的な結末は、一定期間後に確率的に達成されるものであり、100％保証されるものではない。
 
-This lack of finality is a very difficult issue in customer-facing services that use blockchain platforms. Because it has to wait until forks are resolved and enough blocks are stacked after the transfer to believe the transaction is not reversible. This has a negative effect both on users and service providers.
+この最終性の欠如は、ブロックチェーンプラットフォームを使用する顧客向けサービスでは非常に難しい問題である。 なぜなら、フォークが解決され、トランザクションが可逆的でないと考えられるだけのブロックが転送後にスタックされるまで待たなければならないからである。 これは利用者とサービス提供者の双方に悪影響を及ぼす。
 
-A simple example of this issue can be demonstrated in financial services. Say a user transferred money to someone, and the service can't verify that the transfer is valid until 30 to 60 minutes have passed. Because it has to wait until the forks have been merged into a single chain and several blocks are stacked after the transfer to be sure that the transaction is not reversible.
+この問題の単純な例は、金融サービスにおいて示すことができる。 あるユーザーが誰かに送金したとする。その送金が有効かどうかは、30分から60分経たないとサービスが確認できない。 なぜなら、フォークが単一のチェーンにマージされ、トランザクションがリバーシブルでないことを確認するために、転送後にいくつかのブロックがスタックされるまで待たなければならないからだ。
 
-### PBFT (Practical Byzantine Fault Tolerance)  <a id="pbft-practical-byzantine-fault-tolerance"></a>
+### PBFT（実用的ビザンチン耐障害性） <a id="pbft-practical-byzantine-fault-tolerance"></a>
 
-To prevent the above issues, we need other algorithms that guarantee the finality. BFT algorithm is one of those, first [published](https://dl.acm.org/citation.cfm?doid=357172.357176) in 1982 by Lamport, Shostak, Pease. In 1999, Miguel Castro and Barbara Liskov introduced "Practical Byzantine Fault Tolerance" ([PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf)) which provides high-performance state machine replication.
+上記の問題を防ぐためには、最終性を保証する他のアルゴリズムが必要である。 BFTアルゴリズムはその一つで、1982年にLamport, Shostak, Peaseによって初めて[公開](https://dl.acm.org/citation.cfm?doid=357172.357176)された。 1999年、Miguel CastroとBarbara Liskovは、高性能なステートマシン・レプリケーションを提供する "Practical Byzantine Fault Tolerance" ([PBFT](http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf))を発表した。
 
-In the PoW algorithm stated above, though each node receives and validates blocks, there are no message exchanges between nodes to reach a consensus. But in PBFT, each node communicates with other participating nodes to reach a consensus and the finality of the block can be guaranteed as soon as nodes were able to reach a consensus.
+上記のPoWアルゴリズムでは、各ノードがブロックを受信して検証するものの、コンセンサスを得るためのノード間のメッセージ交換は行われない。 しかしPBFTでは、各ノードが他の参加ノードと通信してコンセンサスを得るため、ノードがコンセンサスに達した時点でブロックの最終性が保証される。
 
-The communication between nodes basically progresses as shown below. But there are some variants which reflect each system's characteristics.
+ノード間の通信は基本的に以下のように進行する。 しかし、それぞれのシステムの特徴を反映したいくつかのバリエーションがある。
 
 ![PBFT message flow](/img/learn/pbft.png)
 
-As shown above, a participating node in PBFT basically communicates with all nodes in the network in several phases. This characteristic limits the number of nodes because the communication volume increases exponentially as the number of nodes increases.
+このように、PBFTに参加するノードは、基本的にネットワーク上のすべてのノードといくつかのフェーズに分けて通信を行う。 この特性により、ノード数が増加すると通信量が指数関数的に増加するため、ノード数が制限される。
 
-## Consensus Mechanism in Klaytn <a id="consensus-mechanism-in-klaytn"></a>
+## カイアのコンセンサスメカニズム<a id="consensus-mechanism-in-kaia"></a>
 
-Klaytn is aiming to be an Enterprise-ready and Service-centric platform. Therefore we need to solve the finality problem written above and the network should be able to allow many nodes to participate in the network. To make this possible, Klaytn is using an optimized version of Istanbul BFT, which implements PBFT with modifications to deal with blockchain network's characteristics.
+Kaiaはエンタープライズ対応でサービス中心のプラットフォームを目指している。 したがって、上に書いた最終性の問題を解決し、多くのノードがネットワークに参加できるようなネットワークにする必要がある。 これを可能にするため、Kaiaはブロックチェーン・ネットワークの特性に対応するよう修正されたPBFTを実装するIstanbul BFTの最適化バージョンを使用している。
 
-In Klaytn, there are three types of nodes, CN (Consensus Node), PN (Proxy Node) and EN (Endpoint Node). CNs are managed by CCOs (Core Cell Operators) and are in charge of block generation. These blocks are verified by all nodes in the network. Please refer to [here](./learn.md#klaytn-network-topology) to know more about this network topology.
+Kaiaには、CN(Consensus Node)、PN(Proxy Node)、EN(Endpoint Node)の3種類のノードがある。 CNはCCO（コアセルオペレーター）によって管理され、ブロック生成を担当する。 これらのブロックは、ネットワーク内のすべてのノードによって検証される。 このネットワーク・トポロジーの詳細については、[こちら](learn.md#network-architecture)を参照されたい。
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 
-Klaytn achieves fast finality by adopting and improving Istanbul BFT. Because validation and consensus are done for each block there is no fork and the block's finality is guaranteed instantly as soon as the consensus is made.
+カイアはイスタンブールBFTを採用し、改良することで、高速決勝を実現した。 検証とコンセンサスはブロックごとに行われるため、フォークが発生することはなく、コンセンサスが得られ次第、即座にブロックの最終性が保証される。
 
-And also the issue of increasing communication volume in the BFT algorithm is solved by utilizing randomly selected `Committee`. CNs collectively form a `Council` and on each block generation, part of them are selected as a member of `Committee` using a VRF (Verifiable Random Function).
+また、BFTアルゴリズムにおける通信量の増大の問題は、ランダムに選択された「委員会」を利用することで解決している。 CNは集合的に「協議会」を形成し、ブロック生成ごとに、その一部がVRF（検証可能ランダム関数）を使って「委員会」のメンバーとして選ばれる。
 
 ![Concept of council and committee](/img/learn/council-committee.png)
 
-Because consensus messages are exchanged only between the committee members, the communication volume can be limited under the designed level even though the total number of CNs increases.
+コンセンサスメッセージは委員間でしかやり取りされないため、CNの総数が増えても通信量は設計レベル以下に抑えることができる。
 
-Currently, Klaytn Mainnet Cypress can provide a high throughput of 4,000 transactions per second with one-second block generation interval. More than 50 consensus nodes can participate in the CNN (Consensus Node Network) at the moment and the number will continuously increase as Klaytn continues to aggressively optimize the algorithm.
+現在、カイア・メインネットは、1秒間のブロック生成間隔で1秒間に4,000件のトランザクションという高いスループットを提供できる。 現在50以上のコンセンサスノードがCNN（コンセンサスノードネットワーク）に参加することができ、カイアがアルゴリズムを積極的に最適化し続けるにつれて、その数は継続的に増加する。

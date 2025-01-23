@@ -1,4 +1,4 @@
-# 常见问题
+# Frequently Asked Questions
 
 ## 创建保险箱后可以添加新的所有者吗？ <a id="Can i add new owners after creating a safe"></a>
 

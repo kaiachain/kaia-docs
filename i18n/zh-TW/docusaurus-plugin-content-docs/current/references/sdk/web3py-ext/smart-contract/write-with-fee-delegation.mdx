@@ -1,0 +1,271 @@
+# 撰寫（費用委託）
+
+當您要執行智能合約時，您可以向 feepayer 發送**"交易 "**，其中包括**支付請求**。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py contract_interaction_with_fee_delegation_kaia_type.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    fill_transaction,
+    TxType
+)
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def contract_interaction_with_fee_delegation_klaytn_type():
+    user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+
+    # view before write transaction
+    print('\nnumber before: ', c.functions.number().call())
+
+    # sender sign with fee delegated smart contract execution type
+    tx = c.functions.increment().build_transaction({
+        "type":TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION,
+        "from":user.address,
+    })
+    tx = fill_transaction(tx, w3)
+    user_signed_tx = Account.sign_transaction(tx, user.key)
+
+    # feePayer sign
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(
+        user_signed_tx.rawTransaction,
+        fee_delegator.address,
+        fee_delegator.key
+    )
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
+
+    # view after write transaction
+    print('\nnumber after: ', c.functions.number().call())
+
+contract_interaction_with_fee_delegation_klaytn_type()
+```
+
+---
+
+```zsh output
+❯ py contract_interaction_with_fee_delegation_kaia_type.py
+
+number before:  294
+receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'blockNumber': 147174601, 'contractAddress': None, 'cumulativeGasUsed': 377941, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 38014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000127'), 'blockNumber': 147174601, 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'type': 0})
+
+number after:  295
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=1:2
+
+```
+
+---
+
+從 **web3** 和 **eth_account** 導入必要的實用程序
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=3:7
+
+```
+
+---
+
+使用 **kairos** testnet 端點創建 Web3 實例
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=9:11
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    fill_transaction,
+    TxType
+)
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def contract_interaction_with_fee_delegation_klaytn_type():
+    user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
+    fee_delegator = Account.from_key('0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4')
+
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+
+    # view before write transaction
+    print('\nnumber before: ', c.functions.number().call())
+
+    # sender sign with fee delegated smart contract execution type
+    tx = c.functions.increment().build_transaction({
+        "type":TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION,
+        "from":user.address,
+    })
+    tx = fill_transaction(tx, w3)
+    user_signed_tx = Account.sign_transaction(tx, user.key)
+
+    # feePayer sign
+    feepayer_signed_tx = Account.sign_transaction_as_feepayer(
+        user_signed_tx.rawTransaction,
+        fee_delegator.address,
+        fee_delegator.key
+    )
+    tx_hash = w3.eth.send_raw_transaction(feepayer_signed_tx.rawTransaction)
+    print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
+
+    # view after write transaction
+    print('\nnumber after: ', c.functions.number().call())
+
+contract_interaction_with_fee_delegation_klaytn_type()
+```
+
+---
+
+從每個私人密鑰加載**用戶**和**收費委託人**賬戶
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=14:15
+
+```
+
+---
+
+創建**合同實例**，並提供其地址和 ABI
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=17:20
+
+```
+
+---
+
+設置在部署教程中部署的合約地址（**計數器合同**）。 您可以在部署 tx 收據中看到地址
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=18
+
+```
+
+---
+
+設置合約 abi。 使用 remix 或 solc 編譯器編譯後，可以獲得 ABI
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=19
+
+```
+
+---
+
+調用合約的視圖函數並**打印**結果
+
+<CH.Code>
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=22:23
+
+````
+---
+```zsh output
+
+number before:  294
+````
+
+</CH.Code>
+
+---
+
+使用 **build_transaction**創建一個 tx，返回 tx 實例和作為參數傳遞的字段。 您應設置**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**類型，以便向費用支付方申請費用委託。
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=26:29
+
+```
+
+---
+
+**increment()** 會自動讓函數調用數據並將其設置到 **data** 字段中
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=26
+
+```
+
+---
+
+使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。 如果您想查看以下內容，可以打印這一行之後的所有字段
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
+
+```
+
+---
+
+用**用戶的**私鑰簽署交易
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=31
+
+```
+
+---
+
+使用收費委託人的密鑰，以**收費人**的身份簽署交易。 您還需要提供繳費人的地址。
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
+
+```
+
+---
+
+發送原始交易並獲取**交易哈希值**
+
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=39
+
+```
+
+---
+
+等待交易**收據**
+
+<CH.Code>
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=40
+
+````
+---
+```zsh output
+receipt:  AttributeDict({'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'blockNumber': 147174601, 'contractAddress': None, 'cumulativeGasUsed': 377941, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 38014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000127'), 'blockNumber': 147174601, 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'blockHash': HexBytes('0xa1ecb35a068736c6257915f8a89dfeec30cace985dc244a1b82c887fd9360f3a'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xded6817cb1c5112a2a4c8aebd0c74a56bfcdde10c393261b7e8212db67958743'), 'transactionIndex': 2, 'type': 0})
+````
+
+</CH.Code>
+
+---
+
+檢查合約是否已**更新**狀態
+
+<CH.Code>
+```py contract_interaction_with_fee_delegation_kaia_type.py focus=42:43
+
+````
+---
+```zsh output
+number after:  295
+````
+
+</CH.Code>
+
+</CH.Spotlight>

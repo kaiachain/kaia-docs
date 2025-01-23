@@ -37,7 +37,7 @@ Kaia Mainnet 具有以下性能。
 
 Kaia 的目标是成为一个企业就绪、以服务为中心的平台。 因此，我们需要解决上面所写的终结性问题，而且网络应该能够允许许多节点参与其中。 为了实现这一点，Kaia 使用了伊斯坦布尔 BFT 的优化版本，该版本实现了 PBFT，并针对区块链网络的特点进行了修改。
 
-在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [此处](./learn.md#kaia-network-topology），了解有关该网络拓扑的更多信息。
+在 Kaia 中，有三种节点：CN（共识节点）、PN（代理节点）和 EN（端点节点）。 CN 由 CCO（核心小区运营商）管理，负责区块生成。 这些区块由网络中的所有节点验证。 请参阅 [here](learn.md#network-architecture) 了解有关该网络拓扑的更多信息。
 
 ![Network topology](/img/learn/klaytn_network_node.png)
 

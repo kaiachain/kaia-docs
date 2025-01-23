@@ -1,3 +1,3 @@
-# Live Pruning
+# ライブ剪定
 
-See [Storage Optimization](../state-pruning/#state-live-pruning).
+ストレージの最適化](state-pruning.md#state-live-pruning)を参照。

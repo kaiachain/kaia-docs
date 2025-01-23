@@ -1,6 +1,6 @@
-# Address
+# 住所
 
-Utils for compressing public key.
+公開鍵を圧縮するユーティリティ。
 
 <CH.Spotlight>
   <CH.Code>
@@ -39,14 +39,14 @@ Utils for compressing public key.
 
   ---
 
-  Import the **getCompressedPublicKey** from **@kaiachain/ethers-ext** packages
+  **getCompressedPublicKey**を**kaiachain/ethers-ext**パッケージからインポートする。
 
   ```js addressUtils.js focus=1
   ```
 
   ---
 
-  To compress a public key from `{x, y}` format to hexadecimal, use `getCompressedPublicKey` with the **public key object** as param
+  `{x, y}` フォーマットの公開鍵を16進数に圧縮するには、 **公開鍵オブジェクト** をパラメータとして `getCompressedPublicKey` を使用する。
 
   <CH.Code>
     ```js addressUtils.js focus=4:11
@@ -76,7 +76,7 @@ Utils for compressing public key.
 
   ---
 
-  Otherwise if you want to compress the **public key** from **uncompressed hexadecimal**, use `getCompressedPublicKey` with the **uncompress public key** as param
+  そうでなければ、**圧縮されていない16進数**から**public key**を圧縮したい場合、**圧縮されていない公開鍵**を引数として、`getCompressedPublicKey`を使用する。
 
   <CH.Code>
     ```js addressUtils.js focus=4:9

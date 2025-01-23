@@ -1,0 +1,114 @@
+---
+id: connecting-metamask
+title: 將 MetaMask 連接到 Kaia
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# 將 MetaMask 連接到 Kaia
+
+![](/img/banners/kaia-metamask.png)
+
+> **注意**\*：MetaMask 主要用作以太坊錢包，但由於地址結構相同，它也與 Kaia 兼容。 Kaia 還有一個名為 [Kaia Wallet] 的瀏覽器擴展錢包(../tools/wallets/kaia-wallet.md)，因此除了 Remix 之外，它基本上提供了與 MetaMask 相同的功能。
+
+## 步驟 1. I安裝 MetaMask <a href="#install-metamask" id="install-metamask" />
+
+* 本例中我們將使用 Chrome 瀏覽器。 ([**安裝 Chrome**](https://www.google.com/intl/en_us/chrome/))。
+* 將 [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) 添加到 Chrome 瀏覽器。
+
+  > **注意：** 如果使用其他瀏覽器，可能需要額外安裝。
+* 點擊 Chrome 瀏覽器右上角的圖標，即可啟動 MetaMask。
+
+## 步驟 2. 生成 MetaMask 錢包<a href="#generate-a-metamask" id="generate-a-metamask" />
+
+![Create a Wallet](/img/build/tutorials/new-to-metamask.png)
+
+* 點擊[創建錢包]。
+* 設置密碼
+* 您將得到一個 12 個字的種子短語；請將其備份到安全的地方。
+
+  > **注意：** 您只能使用種子短語恢復錢包。 與他人共享您的種子短語可能會導致您失去所有資金。 因此，建議您手動寫下來或存儲在離線設備中。
+
+![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
+
+## 步驟 3. 連接至 Kaia 網絡<a href="#connect-to-kaia-network" id="connect-to-kaia-network" />
+
+### A. 快速配置
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">使用<a href="https://chainlist.org/chain/8217">ChainList</a>進行一鍵配置，並按照說明操作。</TabItem>
+
+  <TabItem value="kairos-testnet" label="Kaia Kairos Testnet">Use <a href="https://chainlist.org/chain/1001">ChainList</a> for a one-click configuration and follow the instructions.</TabItem>
+</Tabs>
+
+### B. 手動配置
+
+1. 點擊上方的網絡選項卡（默認為以太坊主網），然後選擇 [添加網絡]。
+
+![Add Network](/img/build/tutorials/mm-network-btn.png)
+
+2. 在**手動添加網絡**頁面輸入以下 Kaia 網絡詳細信息，然後單擊**保存**
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">
+    ```jsx title="Network Name "
+    Kaia Mainnet
+    ```
+
+    ```jsx title="New RPC URL "
+    https://public-en.node.kaia.io
+    ```
+
+    ```jsx title="Chain ID "
+    8217
+    ```
+
+    ```jsx title="Network Symbol "
+    KAIA
+    ```
+
+    ```jsx title="Block Explorer URL"
+    https://kaiascan.io
+    ```
+  </TabItem>
+
+  <TabItem value="開羅測試網" label="Kaia Kairos Testnet">
+    ```jsx title="Network Name "
+    Kaia Kairos Testnet
+    ```
+
+    ```jsx title="New RPC URL "
+    https://public-en-kairos.node.kaia.io
+    ```
+
+    ```jsx title="Chain ID "
+    1001
+    ```
+
+    ```jsx title="Network Symbol "
+    KAIA
+    ```
+
+    ```jsx title="Block Explorer URL"
+    https://kairos.kaiascan.io
+    ```
+  </TabItem>
+</Tabs>
+
+## 步驟 4. 發送 KAIA<a href="#send-klay" id="send-klay" />
+
+**注意：** 以下步驟需要 KAIA。 在本指南中，我們將使用 Kairos Testnet。 您可以在 [**Kaia Faucet**](https://faucet.kaia.io) 中獲得 Test KAIA。
+
+* 單擊主頁面上的[發送]，然後輸入收件人地址和 KAIA 金額。
+
+![Send KAIA 1](/img/build/tutorials/kairos-metamask-send.png)
+
+**注意：** 發送 KAIA 屬於支付交易，您需要使用 KAIA。
+
+* 自 Kaia v1.9.0 起，[動態燃氣費機制](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) 已取代現有的固定價格政策。
+* 因此，您不必手動設置固定的燃氣費。
+* 檢查要發送的金額和交易費用，然後點擊[確認]完成 KAIA 轉賬，之後您將被轉到主頁面。
+* 點擊主頁面上的[活動]確認交易歷史。
+
+![Send KAIA 2](/img/build/tutorials/kairos-metamask-send-ii.png)

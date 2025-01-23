@@ -1,0 +1,188 @@
+# Public Account Key
+
+**AccountKeyPublic** 用於有一個公鑰的賬戶。 如果賬戶有一個 AccountKeyPublic 對象，交易驗證過程如下：
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignMsgWithPubkeyExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithPubkeyExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run() throws Exception {
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials1 = KlayCredentials.create(keySample.PUBLIC_KEY_privkey,
+                keySample.PUBLIC_KEY_address);
+        String from = credentials1.getAddress();
+        String message = "0xdeadbeef";
+        String blockNumber = "latest";
+
+        SignatureData signature = KlaySignatureData.signPrefixedMessage(message, credentials1);
+        String result = KlaySignatureData.getSignatureString(signature);
+
+        KlayRecoverFromMessageResponse response = web3j.klayRecoverFromMessage(from, message, result, blockNumber)
+                .send();
+        System.out.println("Original address : " + from);
+        System.out.println("Result address : " + response.getResult());
+
+        web3j.shutdown();
+
+    }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignMsgWithPubkeyExample.java
+Original address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+從 Web3j 和 kaia 庫（`web3j-ext`）中導入必要的類。
+
+```java SignMsgWithPubkeyExample.java focus=1:12
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 創建 Web3j 實例
+
+```java SignMsgWithPubkeyExample.java focus=23
+
+```
+
+---
+
+此外，您還可以更改默認提供商。 例如，使用alchemy提供商。
+
+```java SignMsgWithPubkeyExample.java focus=23
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithPubkeyExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run() throws Exception {
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials1 = KlayCredentials.create(keySample.PUBLIC_KEY_privkey,
+                keySample.PUBLIC_KEY_address);
+        String from = credentials1.getAddress();
+        String message = "0xdeadbeef";
+        String blockNumber = "latest";
+
+        SignatureData signature = KlaySignatureData.signPrefixedMessage(message, credentials1);
+        String result = KlaySignatureData.getSignatureString(signature);
+
+        KlayRecoverFromMessageResponse response = web3j.klayRecoverFromMessage(from, message, result, blockNumber)
+                .send();
+        System.out.println("Original address : " + from);
+        System.out.println("Result address : " + response.getResult());
+
+        web3j.shutdown();
+
+    }
+
+}
+```
+
+---
+
+從**公鑰的**密鑰對中加載\*\*憑據，並獲取其地址
+
+```java SignMsgWithPubkeyExample.java focus=24:26
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```java SignMsgWithPubkeyExample.java focus=27
+
+```
+
+---
+
+設置**區塊編號**為 kaia 網絡中的最新區塊
+
+```java SignMsgWithPubkeyExample.java focus=28
+
+```
+
+---
+
+使用 `KlaySignatureData.signPrefixedMessage` 簽署\*\*信息
+
+```java SignMsgWithPubkeyExample.java focus=30:31
+
+```
+
+---
+
+恢復**地址**，並與原始地址進行比較
+
+<CH.Code>
+```java SignMsgWithPubkeyExample.java focus=33:36
+
+````
+
+
+---
+
+```zsh output
+❯ java SignMsgWithPubkeyExample.java
+Original address : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+關閉 Web3j 實例
+
+```java SignMsgWithPubkeyExample.java focus=38
+
+```
+
+</CH.Spotlight>

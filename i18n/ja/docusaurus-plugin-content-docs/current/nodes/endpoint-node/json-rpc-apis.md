@@ -1,65 +1,65 @@
-# JSON-RPC APIs
+# JSON-RPC API
 
-Endpoint Node exposes JSON-RPC APIs. You can enable/disable APIs as follows. For the detailed API specification, please refer to the [JSON-RPC APIs](../../../references/json-rpc/klay/account-created).
+Endpoint NodeはJSON-RPC APIを公開します。 APIの有効／無効は以下のように設定できる。 APIの詳細仕様については、[JSON-RPC API](../../../references/json-rpc/klay/account-created)をご参照ください。
 
-**NOTE**: Offering an API over the HTTP (`rpc`) or WebSocket (`ws`) interfaces will give everyone
-access to the APIs who can access this interface (DApps, browser tabs, etc). Be careful about which APIs
-you enable. By default, Klaytn enables all APIs over the IPC (`ipc`) interface but for `rpc` and `ws` required modules have to be explicitly enabled.
+**注**：注意: HTTP (`rpc`) または WebSocket (`ws`) インターフェース上で API を提供すると、このインターフェースにアクセスできるすべての人 (DApps, ブラウザのタブなど) に
+アクセス権が与えられます。 どのAPI（
+）を有効にするかは注意してください。 デフォルトでは、Kaia は IPC (`ipc`) インターフェース上のすべての API を有効にするが、`rpc` と `ws` については必要なモジュールを明示的に有効にする必要がある。
 
-## Enabling APIs  <a id="enabling-apis"></a>
+## APIの有効化 <a id="enabling-apis"></a>
 
-### From Commandline <a id="from-commandline"></a>
+### コマンドラインから<a id="from-commandline"></a>
 
-To offer the APIs over the Klaytn RPC endpoints, please specify them with the `--${interface}api`
-command-line argument where `${interface}` can be `rpc` for the HTTP endpoint or `ws` for the WebSocket endpoint.
+KaiaのRPCエンドポイント上でAPIを提供するには、`--${interface}api`
+コマンドライン引数で指定してください。ここで `${interface}` はHTTPエンドポイントの場合は `rpc` 、WebSocketエンドポイントの場合は `ws` となります。
 
-`ipc` offers all APIs over the unix socket (Unix) or named pipe (Windows) endpoint without any flag.
+ipc\` は、フラグなしで unix ソケット (Unix) または名前付きパイプ (Windows) のエンドポイントを介してすべての API を提供する。
 
-You can launch a Klaytn node with specific APIs you want to add like the example below. But keep in mind that you can't change APIs once you launch the node.
+以下の例のように、追加したい特定のAPIを持つKaiaノードを起動することができます。 しかし、一度ノードを立ち上げるとAPIを変更することはできないことを覚えておいてほしい。
 
-Example) launching a Klaytn node with `klay` and `net` modules enabled:
+例) `kaia` と `net` モジュールを有効にして Kaia ノードを起動する：
 
 ```shell
 $ ken --rpcapi klay,net --rpc --{other options}
 ```
 
-The HTTP RPC interface must be explicitly enabled using the `--rpc` flag.
+HTTPのRPCインターフェイスは、`--rpc`フラグを使って明示的に有効にしなければならない。
 
-### Using Configuration <a id="using-configuration"></a>
+### コンフィギュレーションの使用<a id="using-configuration"></a>
 
-Please update the `RPC_ENABLE`, `RPC_API`, `WS_ENABLE` and  `WS_API` properties in the [Configuration File](../../misc/operation/configuration.md).
+設定ファイル](../../misc/operation/configuration.md)の `RPC_ENABLE`、`RPC_API`、`WS_ENABLE`、`WS_API` プロパティを更新してください。
 
-## Querying Enabled APIs <a id="querying-enabled-apis"></a>
+## 有効なAPIを問い合わせる<a id="querying-enabled-apis"></a>
 
-To determine which APIs an interface provides, the `modules` JSON-RPC method can be invoked. For
-example over an `rpc` interface:
+インターフェースが提供するAPIを決定するには、 `modules` JSON-RPCメソッドを呼び出すことができる。
+`rpc` インターフェース上の例：
 
 **IPC**
 
 ```javascript
-$ ken attach --datadir <DATA_DIR>
-Welcome to the Kaia JavaScript console!
+$ ken attach --datadir<DATA_DIR>
+カイアJavaScriptコンソールへようこそ！
 
- instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
-  datadir: /var/kend/data
+ インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+  datadir：/var/kend/data
   modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 
 >
 ```
 
-will list all enabled modules in the console output.
+は、コンソール出力に有効なモジュールをすべてリストアップする。
 
 ```
-  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
+  モジュール: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
 ```
 
 **HTTP**
 
 ```shell
-$ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rpc_modules","params":[],"id":1}' https://public-en-kairos.node.kaia.io
+$ curl -H "Content-Type: application/json" --data '{"jsonrpc": "2.0", "method": "rpc_modules", "params":[], "id":1}' https://public-en-kairos.node.kaia.io
 ```
 
-will give all enabled modules including the version number:
+をクリックすると、バージョン番号を含む有効なモジュールがすべて表示される：
 
 ```
 {
@@ -79,21 +79,21 @@ will give all enabled modules including the version number:
 }
 ```
 
-## Disabling unsafe debug APIs <a id="disabling-unsafe-debug-apis"></a>
+## 安全でないデバッグAPIを無効にする<a id="disabling-unsafe-debug-apis"></a>
 
-Some debug namespace APIs are unsafe/unappropriate to be opened to public.
-We recommend you to provide the debug namespace APIs to authorized users only.
-However, if you want to maintain a public EN and provide debug namespace APIs to the public,
-we strongly recommend you to set the `rpc.unsafe-debug.disable` flag which will disable APIs
-that are unsafe/unappropriate to be opened to the public and enable only a subset of the debug namespace APIs.
+一部のデバッグ名前空間APIは、公開するには安全でない／不適切である。
+デバッグ・ネームスペース API は、許可されたユーザーだけに提供することをお勧めします。
+しかし、公開ENを維持し、デバッグネームスペースのAPIを公開したい場合は、
+`rpc.unsafe-debug.disable` フラグを設定することを強く推奨する。このフラグを設定すると、公開するには安全でない/不適切なAPI
+が無効になり、デバッグネームスペースのAPIのサブセットのみが有効になる。
 
-The enabled APIs are as follows:
+有効なAPIは以下の通り：
 
-- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) APIs, however with limited functionality (only [pre-defined tracers](../../../references/json-rpc/debug/trace-bad-block) are allowed. See params/tracingOptions)
+- [VMトレース](../../../references/json-rpc/debug/trace-bad-block)API、ただし機能は制限される（[定義済みトレーサー](../../../references/json-rpc/debug/trace-bad-block)のみ使用可能）。 params/tracingOptions 参照)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
-To set the `rpc.unsafe-debug.disable` flag, append the following line in the `kend.conf` file.
+`rpc.unsafe-debug.disable` フラグを設定するには、`kend.conf` ファイルに以下の行を追加する。
 
 ```
 ADDITIONAL="$ADDITIONAL --rpc.unsafe-debug.disable"

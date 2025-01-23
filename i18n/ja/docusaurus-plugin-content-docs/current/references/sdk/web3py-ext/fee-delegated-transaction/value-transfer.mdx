@@ -1,8 +1,8 @@
-# Value Transfer
+# 価値移転
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
 <CH.Spotlight>
 <CH.Code>
@@ -59,47 +59,47 @@ web3_fee_delegated_value_transfer_sign_recover()
 ---
 
 ```zsh output
-❯ python txTypeFeeDelegatedValueTransferTransaction.py
-raw transaction of signed tx: 0x09f8888203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a7
+❯ txTypeFeeDelegatedValueTransferTransaction.py
+署名付きtxの生トランザクション：0x09f8888203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a7
 
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-raw transaction of signed tx: 0x09f8e68203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a794cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a06de7be192af966e8790828854abe89e1d24a435e68c0e7ea6c715c5766d53535a06e0db3c509ac8cc7a7bb8e0fda203e9c27d24720b0dd977ac5ef2a88e2733d74
-recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+signed tx の raw トランザクション：0x09f8e68203a1850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a07006976a09e86e21411150cd88e1fec86665e6f41fed2ff66a69ba9071703e60a0147322d15ebaa18232e7347fab53fb776580e8b03901b6f597be727cb927c2a794cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f5a06de7be192af966e8790828854abe89e1d24a435e68c0e7ea6c715c5766d53535a06e0db3c509ac8cc7a7bb8e0fda203e9c27d24720b0dd977ac5ef2a88e2733d74
+feepayerアドレスを回復した：['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
-decoded transaction: {
-  "type": 9,
-  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+decoded transaction:{
+  "type"：9,
+  "to"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
   "value": 100000000000000000,
-  "nonce": 929,
-  "gasPrice": 50000000000,
-  "gas": 63000,
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
-  "signatures": [
+  "nonce"：929,
+  "gasPrice"：50000000000,
+  "gas"：63000,
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "feePayer"："0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+  "signatures"：[
     {
-      "v": 2038,
-      "r": 50670685146210644758155850867516770752523795105304292948335149879423302385248,
-      "s": 9249684688095617192077356690924587996686692201721973364886864134587743191719
-    }
+      "v"：2038,
+      "r"：50670685146210644758155850867516770752523795105304292948335149879423302385248,
+      "s"：9249684688095617192077356690924587996686692201721973364886864134587743191719
+    }.
   ],
-  "feePayerSignatures": [
+  "feePayerSignatures"：[
     {
-      "v": 2037,
-      "r": 49711554177870114274420139373315961015019733371259804520392461387625282221365,
-      "s": 49778623080725784202508291278316385863345609698048394072298591254748381527412
-    }
+      "v"：2037,
+      "r"：49711554177870114274420139373315961015019733371259804520392461387625282221365,
+      "s"：49778623080725784202508291278316385863345609698048394072298591254748381527412
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab receipt:  AttributeDict({'blockHash': HexBytes('0x2704d8b059545722008a338a1678d1dced73e8a96fb456e7b4cde051b9b9bbc0'), 'blockNumber': 148222496, 'contractAddress': None, 'cumulativeGasUsed': 31000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 31000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab'), 'transactionIndex': 0, 'type': 0})
+tx ハッシュ：  0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab receipt:  AttributeDict({'blockHash'：HexBytes('0x2704d8b059545722008a338a1678d1dced73e8a96fb456e7b4cde051b9b9bbc0'), 'blockNumber':148222496, 'contractAddress'：None, 'cumulativeGasUsed'：31000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed'：31000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0x5234733f874f5c8a77d6628be9958166f039f82a278888c4a6acaab17c2509ab'), 'transactionIndex':0, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=1:2
 
@@ -107,7 +107,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+**eth_account**、**web3py_ext**、および cytoolz から必要な utils をインポートする。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=3:10
 
@@ -115,7 +115,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
 
@@ -123,7 +123,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=12
 from web3py_ext import extend
@@ -175,7 +175,7 @@ web3_fee_delegated_value_transfer_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=15
 
@@ -183,7 +183,7 @@ Load an account from private key
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=16
 
@@ -191,7 +191,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.FEE_DELEGATED_VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.FEE_DELEGATED_VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=18
 
@@ -199,7 +199,7 @@ Create an empty transaction of type **TxType.FEE_DELEGATED_VALUE_TRANSFER**. You
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**from**、**to**、**value**などの**追加フィールド**を空のtxにマージします。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=10,19:23
 
@@ -207,7 +207,7 @@ Merge the **additional fields** like **from**, **to** and **value** into the emp
 
 ---
 
-You can use the **Web3.to_peb** util to convert decimal
+**Web3.to_peb**ユーティリティを使用すると、10進数の変換が可能です。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=22
 
@@ -215,7 +215,7 @@ You can use the **Web3.to_peb** util to convert decimal
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=6,24
 
@@ -223,7 +223,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=26:28
@@ -242,7 +242,7 @@ raw transaction of signed tx: 0x09f88882030e850ba43b740082f61894a2a8854b1802d8cd
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 
@@ -254,14 +254,14 @@ Recover the **signer's address** from the signature in signed tx
 
 ```zsh output
 ❯ py txTypeFeeDelegatedValueTransferTransaction.py
-recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+回収された送信者アドレス 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```
 
 </CH.Code>
 
 ---
 
-Sign the value transfer tx by fee payer's private key
+料金支払者の秘密鍵でバリュー移転txに署名する。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=32:33
 
@@ -269,7 +269,7 @@ Sign the value transfer tx by fee payer's private key
 
 ---
 
-Recover the **fee payer's address** from the signature in signed tx
+署名入りTXの署名から**料金支払い者の住所**を復元する。
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=35:36
@@ -288,7 +288,7 @@ recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=38:39
@@ -331,7 +331,7 @@ decoded transaction: {
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに送信する。 このハッシュは受信を待つために使用される。
 
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=41
 
@@ -339,7 +339,7 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43

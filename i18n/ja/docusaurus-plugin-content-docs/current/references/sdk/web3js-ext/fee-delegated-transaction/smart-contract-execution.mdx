@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -75,7 +75,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js FeeDelegatedSmartContractExecution.js focus=1
 
@@ -83,7 +83,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=3:6
 
@@ -91,7 +91,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Define contract address and abi
+契約住所とアビ
 
 ```js FeeDelegatedSmartContractExecution.js focus=8:23
 
@@ -99,7 +99,7 @@ Define contract address and abi
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js FeeDelegatedSmartContractExecution.js focus=8:9
 
@@ -107,7 +107,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js FeeDelegatedSmartContractExecution.js focus=8
 const { Web3, TxType } = require("@kaiachain/web3js-ext");
@@ -153,7 +153,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=10
 
@@ -161,7 +161,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=11
 
@@ -169,7 +169,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define **contractAddr** and **contractAbi**, you can get the contract address and Abi from compiled solidity code or blockchain explorer
+**contractAddr**と**contractAbi**を定義します。contractAddrとAbiはコンパイルされたsolidityコードまたはブロックチェーンエクスプローラから取得できます。
 
 ```js FeeDelegatedSmartContractExecution.js focus=13:14
 
@@ -177,7 +177,7 @@ Define **contractAddr** and **contractAbi**, you can get the contract address an
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js FeeDelegatedSmartContractExecution.js focus=17
 
@@ -185,7 +185,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Encode the function data for the `setNumber` function, `encodeABI` convert the data into bytecode
+`setNumber` 関数のデータをエンコードし、`encodeABI` でバイトコードに変換する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=18
 
@@ -193,7 +193,7 @@ Encode the function data for the `setNumber` function, `encodeABI` convert the d
 
 ---
 
-Create the transaction object to interact with the contract
+契約とやりとりするトランザクション・オブジェクトを作成する
 
 ```js FeeDelegatedSmartContractExecution.js focus=20:25
 
@@ -201,7 +201,7 @@ Create the transaction object to interact with the contract
 
 ---
 
-Set `type: TxType.FeeDelegatedSmartContractExecution` for transaction to change contract state with a fee payer
+タイプを設定する：料金支払者との契約状態を変更するトランザクションのために `type: TxType.FeeDelegatedSmartContractExecution` を設定する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=21
 
@@ -209,7 +209,7 @@ Set `type: TxType.FeeDelegatedSmartContractExecution` for transaction to change 
 
 ---
 
-Set `data: data` for earlier encoded function data
+先にエンコードされた関数データには `data: data` を設定する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=24
 
@@ -217,7 +217,7 @@ Set `data: data` for earlier encoded function data
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=27:29
@@ -236,7 +236,7 @@ senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fd
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=31:33
@@ -255,7 +255,7 @@ signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=35:36

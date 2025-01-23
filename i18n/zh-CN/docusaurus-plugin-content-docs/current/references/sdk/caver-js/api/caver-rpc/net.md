@@ -2,7 +2,7 @@
 
 caver.rpc.net "使用 "net "名称空间提供 JSON-RPC 调用。
 
-## caver.rpc.net.getNetworkId<a id="caver-rpc-net-getnetworkid"></a>
+## caver.rpc.net.getNetworkId <a id="caver-rpc-net-getnetworkid"></a>
 
 ```javascript
 caver.rpc.net.getNetworkId([callback])
@@ -31,7 +31,7 @@ caver.rpc.net.getNetworkId([callback])
 1001
 ```
 
-## caver.rpc.net.isListening<a id="caver-rpc-net-islistening"></a>
+## caver.rpc.net.isListening <a id="caver-rpc-net-islistening"></a>
 
 ```javascript
 caver.rpc.net.isListening([callback])
@@ -60,7 +60,7 @@ caver.rpc.net.isListening([callback])
 true
 ```
 
-## caver.rpc.net.getPeerCount<a id="caver-rpc-net-getpeercount"></a>
+## caver.rpc.net.getPeerCount <a id="caver-rpc-net-getpeercount"></a>
 
 ```javascript
 caver.rpc.net.getPeerCount([callback])
@@ -89,7 +89,7 @@ caver.rpc.net.getPeerCount([callback])
 0x3
 ```
 
-## caver.rpc.net.getPeerCountByType<a id="caver-rpc-net-getpeercountbytype"></a>
+## caver.rpc.net.getPeerCountByType <a id="caver-rpc-net-getpeercountbytype"></a>
 
 ```javascript
 caver.rpc.net.getPeerCountByType([callback])

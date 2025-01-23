@@ -1,47 +1,47 @@
-# Solidity - Smart Contract Language
+# Solidity - スマートコントラクト言語
 
-This chapter describes only the high-level concepts, development processes, and examples written in Solidity because Solidity is already well documented on its official websites. For language specifications or implementations, please refer to the [References](#references) below. The content of this chapter is based on various websites listed in the [References](#references).
+この章では、Solidity で記述された高レベルの概念、開発プロセス、例のみを説明します。 言語の仕様や実装については、以下の[参考文献](#references)をご参照ください。 本章の内容は、[参考文献](#references)に掲載されている様々なウェブサイトに基づいている。
 
-## Solidity and Klaytn <a id="solidity-and-klaytn"></a>
+## SolidityとKaia <a id="solidity-and-kaia"></a>
 
-[Solidity](https://github.com/ethereum/solidity) is a high-level, statically typed, contract-oriented language for implementing smart contracts on the Ethereum platform. Although Solidity was originally designed for Ethereum, it is general enough to write smart contracts; therefore, it can also be used for other blockchain platforms, such as Klaytn.
+[Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Solidityはもともとイーサリアム用に設計されたものだが、スマートコントラクトを記述するのに十分な汎用性があるため、Kaiaなど他のブロックチェーンプラットフォームにも使用できる。
 
-Klaytn is officially compatible with **London** Ethereum Virtual Machine (EVM) version. Backward compatibility is not guaranteed with other EVM versions on Klaytn. Thus, it is highly recommended to compile Solidity code with the Istanbul target option. Please refer to [how to set the EVM version of solc](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target).
+Kaiaは、**ロンドン**のEthereum Virtual Machine (EVM) バージョンと正式に互換性があります。 カイアの他のEVMバージョンとの後方互換性は保証されません。 したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
 :::note
 
-v1.7.0 Protocol Upgrade - incompatible changes including **Istanbul** hard fork items and Klaytn's own items.
+v1.7.0プロトコルアップグレード - **Istanbul**ハードフォークアイテムとKaia自身のアイテムを含む互換性のない変更。
 It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.7.3 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
-v1.8.0 Protocol Upgrade - incompatible changes including Base Fee from the **London** hard fork.
+v1.8.0プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 :::
 
-Development tools such as [Remix](https://remix.ethereum.org/) (a browser-based IDE) and [Truffle](https://github.com/trufflesuite/truffle) (a development framework) can be utilized when developing smart contracts for Klaytn. The Klaytn team will attempt to maintain compatibility between Ethereum's development tools and Klaytn's but may elect to provide the Klaytn smart contract developers with enhanced or updated versions of those tools when necessary.
+Kaiaのスマートコントラクトを開発する際には、[Remix](https://remix.ethereum.org/) ㊨や[Truffle](https://github.com/trufflesuite/truffle) ㊨などの開発ツールを利用することができます。 KaiaチームはEthereumの開発ツールとKaiaの開発ツール間の互換性を維持するよう努めますが、必要に応じてKaiaスマートコントラクト開発者にこれらのツールの拡張版または更新版を提供することを選択する可能性があります。
 
-It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
+スマートコントラクトの開発には、RemixやTruffleを利用するのが便利ですが、Solidityコンパイラは、以下のウェブページに記載されている手順に従ってビルドまたはインストールすることで、ローカルで使用することができます：
 
-- [Installing the Solidity Compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html)
+- [Solidityコンパイラのインストール](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
-Note that there are two command-line Solidity compilers:
+コマンドラインのSolidityコンパイラーは2つあります：
 
-- _solc_: the full-featured compiler
-  - Covered in the Solidity documentation
-- _solcjs_: Javascript binding for _solc_
-  - Maintained as a separate project [solc-js](https://github.com/ethereum/solc-js)
-  - _solcjs_'s command-line options are not compatible with those of _solc_.
+- _solc_: 高機能コンパイラ
+  - Solidity ドキュメント
+- solcjs_：solc_のJavascriptバインディング
+  - 別プロジェクト[solc-js](https://github.com/ethereum/solc-js)として管理されている。
+  - solcjs_のコマンドラインオプションは_solc_のものと互換性がない。
 
-Other materials that are useful for getting started with Solidity include the following:
+その他、Solidity を使い始めるのに役立つ資料には次のようなものがあります：
 
-- [Top Solidity tutorials](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
+- [トップ・ソリディのチュートリアル](https://medium.com/coinmonks/top-solidity-tutorials-4e7adcacced8)
 
-## How to Write a Smart Contract <a id="how-to-write-a-smart-contract"></a>
+## スマート・コントラクトの書き方<a id="how-to-write-a-smart-contract"></a>
 
-This section presents an example of Solidity source code to provide readers with an idea of how smart contracts look and how to write a contract. Note that the code included here is provided solely for explanatory purposes; it is not intended for production purposes. In the code, `(require)` means that the line is required for any Solidity source file while `(optional)` indicates that the line is not always needed. The symbol `Ln:` is not part of the Solidity code and is included here only to show the line numbers. Please do not include these symbols in source code intended for real use.
+このセクションでは、スマートコントラクトがどのように見え、どのようにコントラクトを書くかを読者に提供するために、Solidityソースコードの例を示します。 ここに含まれるコードは、説明のためだけに提供されるものであり、本番用ではないことに注意されたい。 コード中の(require)`は、その行がSolidityソースファイルに必要であることを意味し、(optional)`は、その行が必ずしも必要でないことを意味します。 記号 `Ln:` は Solidity のコードの一部ではないので、ここでは行番号を表示するためだけに含まれています。 これらの記号は、実際の使用を目的としたソースコードには含めないでください。
 
 ```text
 L01: pragma solidity 0.5.12;   // (required) version pragma
@@ -66,72 +66,72 @@ L19:    }
 L20: }
 ```
 
-The above code should be self-explanatory; thus people familiar with any other programming language can skip the following explanation in this section and jump to the next section. However, for those who do not gain a clear understanding of what the code does or those for whom Solidity is a first programming language, we include a short description of the source code below:
+したがって、他のプログラミング言語に慣れている人は、このセクションの以下の説明を読み飛ばして、次のセクションに飛んでも構わない。 しかし、コードが何をするのか明確に理解できない人や、Solidityが初めてのプログラミング言語である人のために、以下にソースコードの簡単な説明を記載します：
 
-- The portions of the code starting with a double forward slash (`//`) are comments rather than code; they are used to annotate and explain the code.  The compiler ignores comments.
-- The `pragma` statement in `L01` indicates the minimum compiler version.
-- The `import` statement in `L03` imports all global symbols from "`filename`". The `filename` should be an actual file name.
-- `L05` - `L20` define a smart contract called `UserStorage`.  The keyword `contract` is located before the contract name and declares that the code represents a smart contract.  Contracts in Solidity are similar to classes in object-oriented languages.  Each contract can contain declarations for state variables, functions, function modifiers, events, struct types and enum types.  Furthermore, contracts can inherit from other contracts.  The example code contains one contract definition, but a single Solidity file may contain more than one contract definition.
-- In `L07`, `userData` is a state variable for the mapping type.  State variables are permanently stored in contract storage.  The state variable `userData` maintains a mapping between `address` and a `uint` value.  The `address` type holds a 20-byte address (Klaytn uses a 20-byte address similar to Ethereum).
-- `L09` defines a public function `set` that saves the value `x` in `userData` for the message's sender.  The variable `msg.sender` is a special variable defined in Solidity that represents the address of the message (_i.e._, current call) sender.  The keyword `public` means that the function is part of the contract interface and can be called externally or internally.
-- The functions `get` in `L13` and `getUserData` in `L17` are declared with `view`, which means that the functions promise not to modify any state variable.  Their declarations include `returns (uint)`, which implies that they return a `uint` value.
+- The portions of the code starting with a double forward slash (`//`) are comments rather than code; they are used to annotate and explain the code.  コンパイラーはコメントを無視する。
+- `L01`の`pragma`文は、コンパイラの最小バージョンを示す。
+- `L03` の `import` ステートメントは、"`ファイル名`" からすべてのグローバルシンボルをインポートする。 `filename`は実際のファイル名でなければならない。
+- `L05` - `L20` は `UserStorage` というスマートコントラクトを定義している。  キーワード `contract` はコントラクト名の前にあり、コードがスマート・コントラクトを表すことを宣言する。  Solidity のコントラクトは、オブジェクト指向言語のクラスに似ています。  各コントラクトには、ステート変数、関数、関数修飾子、イベント、構造体タイプ、enumタイプの宣言を含めることができる。  さらに、契約は他の契約を継承することができる。  サンプルコードには 1 つのコントラクト定義が含まれていますが、1 つの Solidity ファイルには複数のコントラクト定義が含まれている場合があります。
+- `L07`では、`userData`はマッピングタイプの状態変数である。  状態変数はコントラクト・ストレージに恒久的に保存される。  状態変数 `userData` は `address` と `uint` 値の対応を保持する。  `address` 型は20バイトのアドレスを保持します（KaiaはEthereumと同様の20バイトのアドレスを使用します）。
+- `L09` では、メッセージの送信者の値 `x` を `userData` に保存するパブリック関数 `set` を定義しています。  変数 `msg.sender` は、Solidityで定義された特別な変数であり、メッセージ（つまり、現在のコール）の送信者のアドレスを表します。  `public`というキーワードは、その関数がコントラクト・インターフェースの一部であり、外部からも内部からも呼び出せることを意味する。
+- `L13` の `get` 関数と `L17` の `getUserData` 関数は `view` で宣言されている。  これらの宣言には `returns (uint)` が含まれており、これは `uint` 値を返すことを意味している。
 
-For more information concerning the syntax and semantics of the Solidity language, please refer to the [Solidity documentation](https://docs.soliditylang.org/).
+Solidity 言語の構文とセマンティクスの詳細については、[Solidity ドキュメント](https://docs.soliditylang.org/) を参照してください。
 
-## How to Compile, Deploy, and Execute <a id="how-to-compile-deploy-and-execute"></a>
+## コンパイル、デプロイ、実行の方法<a id="how-to-compile-deploy-and-execute"></a>
 
-One way to compile Solidity code is to use the command-line compiler _solc_. This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). Assuming that the code above is saved in `UserStorage.sol` (`L03` is excluded in the source file shown above), some examples of compiling the file `UserStorage.sol` are as follows.
+Solidityコードをコンパイルする一つの方法は、コマンドラインコンパイラ_solc_を使用することです。 This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). 上記のコードを`UserStorage.sol`に保存すると仮定した場合（上記のソースファイルでは `L03` は除外されている）、`UserStorage.sol`をコンパイルする例を以下に示す。
 
 ```bash
 $ solc --bin UserStorage.sol
 ```
 
-- This command will print the compilation output as a binary, _i.e._, bytecode.
+- このコマンドはコンパイル出力をバイナリ、すなわちバイトコードとして表示する。
 
 ```bash
 solc -o output --bin --ast --asm UserStorage.sol
 ```
 
-- The compiler generates a binary (by `--bin`), an abstract syntax tree (by `--ast`), and assembly code (by `--asm`) as separate files in the `output` directory.
+- コンパイラは、バイナリの(`--bin`)ファイル、抽象構文木の(`--ast`)ファイル、アセンブ リコードの(`--asm`)ファイルを、それぞれ別のファイルとして `output` ディレクトリに生成します。
 
 ```bash
 solc --optimize --bin UserStorage.sol
 ```
 
-- For better performance, the optimizer can be activated during compilation using the `--optimize` flag.
+- より良いパフォーマンスを得るためには、コンパイル時に `--optimize` フラグを使ってオプティマイザを有効にすることができる。
 
-Some resources for compiling, deploying, and executing smart contracts are listed below.
+スマート・コントラクトをコンパイル、デプロイ、実行するためのリソースを以下にいくつか挙げる。
 
-- [Using the Solidity command-line compiler](https://docs.soliditylang.org/en/latest/using-the-compiler.html)
-- [Compiling contracts using Remix](https://remix-ide.readthedocs.io/en/stable/compile.html)
-- [Running transactions with Remix](https://remix-ide.readthedocs.io/en/stable/run.html)
-- [Remix Learneth Tutorials](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [Compiling contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [Deploying contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
+- [Solidityコマンドラインコンパイラの使用](https://docs.soliditylang.org/en/latest/using-the-compiler.html)
+- [Remixを使った契約のコンパイル](https://remix-ide.readthedocs.io/en/stable/compile.html)
+- [リミックスによる取引の実行](https://remix-ide.readthedocs.io/en/stable/run.html)
+- [リミックス・ラーネス・チュートリアル](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
+- [Truffle による契約のコンパイル](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
+- [Truffleでコントラクトを展開する](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
-NOTE: This section will be updated in the future.
+注：このセクションは将来更新される予定です。
 
-## Debugging Smart Contracts <a id="debugging-smart-contracts"></a>
+## スマートコントラクトのデバッグ<a id="debugging-smart-contracts"></a>
 
-It is more difficult to debug Solidity code than to debug code written in other programming languages due to the lack of mature debugging tools. Below, we list some resources for Solidity debugging.
+Solidity のコードをデバッグするのは、他のプログラミング言語で書かれたコードをデバッグするよりも難しい。 以下に、Solidity のデバッグに関するリソースをいくつか示します。
 
-- [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
-- [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [Remixによるトランザクションのデバッグ](https://remix-ide.readthedocs.io/en/latest/debugger.html)
+- [Remixによるトランザクションのデバッグに関するチュートリアル](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
+- [Truffleによる契約のデバッグ](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
 
-NOTE: This section will be updated in the future.
+注：このセクションは将来更新される予定です。
 
-## Smart Contract Best Practices <a id="smart-contract-best-practices"></a>
+## スマート・コントラクトのベスト・プラクティス<a id="smart-contract-best-practices"></a>
 
-To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
+スマートコントラクトからセキュリティの懸念とコード品質の問題を取り除くには、Solidityプログラミングのベストプラクティスを学び、それに従うことが重要です。 ここでは、Solidityのベストプラクティスのリファレンスを示します。
 
-- [Smart Contract Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
+- [スマート・コントラクト・セキュリティのベスト・プラクティス](https://github.com/ConsenSys/smart-contract-best-practices)
 
-NOTE: This section will be updated in the future.
+注：このセクションは将来更新される予定です。
 
-## References <a id="references"></a>
+## 参考文献<a id="references"></a>
 
-- [Solidity GitHub page](https://github.com/ethereum/solidity)
-- [Solidity documentation](https://solidity.readthedocs.io/en/latest/index.html)
-- [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
-- [Truffle documentation](https://trufflesuite.com/docs/truffle/)
+- [Solidity GitHubページ](https://github.com/ethereum/solidity)
+- [Solidity ドキュメント](https://solidity.readthedocs.io/en/latest/index.html)
+- [リミックス・ドキュメント](https://remix-ide.readthedocs.io/en/latest/)
+- [トリュフ・ドキュメント](https://trufflesuite.com/docs/truffle/)

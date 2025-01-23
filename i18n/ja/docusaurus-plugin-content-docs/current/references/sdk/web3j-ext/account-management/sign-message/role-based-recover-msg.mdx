@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -74,18 +74,18 @@ public class SignMsgWithRoleBasedExample implements keySample {
 ---
 
 ```zsh output
-❯ java SignMsgWithRoleBasedExample.java
-Original address : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
-Result address for transaction key : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
-Result address for update key : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
-Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+java SignMsgWithRoleBasedExample.java
+元のアドレス : 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+トランザクションキーの結果アドレス : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+更新キーの結果アドレス ：0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea
+feepayer key の結果アドレス : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java SignMsgWithRoleBasedExample.java focus=1:12
 
@@ -93,7 +93,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java SignMsgWithRoleBasedExample.java focus=23
 
@@ -101,7 +101,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java SignMsgWithRoleBasedExample.java focus=23
 package org.web3j.example.accountKey;
@@ -171,7 +171,7 @@ public class SignMsgWithRoleBasedExample implements keySample {
 
 ---
 
-Load different **role-based credentials** from theirs key pairs
+それぞれのキー・ペアから異なる**ロール・ベースの認証情報**をロードする。
 
 ```java SignMsgWithRoleBasedExample.java focus=24:29
 
@@ -179,7 +179,7 @@ Load different **role-based credentials** from theirs key pairs
 
 ---
 
-Get the first credential **address**
+最初のクレデンシャル\*\*アドレスを取得する。
 
 ```java SignMsgWithRoleBasedExample.java focus=30
 
@@ -187,7 +187,7 @@ Get the first credential **address**
 
 ---
 
-Define any message to sign
+署名するメッセージを定義する
 
 ```java SignMsgWithRoleBasedExample.java focus=31
 
@@ -195,7 +195,7 @@ Define any message to sign
 
 ---
 
-Set the **block number** to be the latest block in the kaia network
+**ブロック番号**をkaiaネットワークの最新ブロックに設定する。
 
 ```java SignMsgWithRoleBasedExample.java focus=32
 
@@ -203,7 +203,7 @@ Set the **block number** to be the latest block in the kaia network
 
 ---
 
-Sign the **message** with all 3 role-based credentials in order and get the signature outputs as string
+3つのロールベースの認証情報を順番に使って**メッセージ**に署名し、署名出力を文字列として取得する。
 
 ```java SignMsgWithRoleBasedExample.java focus=34:41
 
@@ -211,7 +211,7 @@ Sign the **message** with all 3 role-based credentials in order and get the sign
 
 ---
 
-Recover the **addresses** from 3 message responses and compare them to the original **from** address
+3つのメッセージ応答から**address**を回復し、それらを元の**from**アドレスと比較する。
 
 <CH.Code>
 ```java SignMsgWithRoleBasedExample.java focus=43:57
@@ -233,7 +233,7 @@ Result address for feepayer key : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java SignMsgWithRoleBasedExample.java focus=59
 

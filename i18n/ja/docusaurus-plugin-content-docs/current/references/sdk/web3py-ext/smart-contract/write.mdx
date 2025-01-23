@@ -1,6 +1,6 @@
-# Write
+# 書く
 
-You can make a **"transaction"** interacting with a Smart Contract when you **need to update some state ** in the contract.
+スマートコントラクトの状態を更新する必要がある場合、スマートコントラクトと**transaction**を行うことができる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -37,18 +37,18 @@ contract_interaction()
 ---
 
 ```zsh output
-❯ py smart_contract_write.py
-number before:  293
-receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber': 147329610, 'contractAddress': None, 'cumulativeGasUsed': 361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber': 147329610, 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
+❯ smart_contract_write.py
+number before: 293
+receipt：  AttributeDict({'blockHash'：HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber':147329610, 'contractAddress'：None, 'cumulativeGasUsed'：361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2d505', 'topics'：[HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber':147329610, 'transactionHash'：HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash':HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex':6, 'removed'：False})], 'logsBloom'：HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'),'status'：1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash'：HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
 
-number after:  294
+以降の番号：  294
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py smart_contract_write.py focus=1:2
 
@@ -56,7 +56,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils
+必要なユーティリティをインポートする
 
 ```py smart_contract_write.py focus=3:4
 
@@ -64,7 +64,7 @@ Import necessary utils
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py smart_contract_write.py focus=6
 
@@ -72,7 +72,7 @@ Load an account from private key
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py smart_contract_write.py focus=7:9
 
@@ -80,7 +80,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py smart_contract_write.py focus=7:9
 from web3py_ext import extend
@@ -113,7 +113,7 @@ contract_interaction()
 
 ---
 
-Define an **account list** as a list type to use **middleware**
+ミドルウェア**を使用するリスト・タイプとして**アカウント・リスト\*\*を定義する。
 
 ```py smart_contract_write.py focus=8
 
@@ -121,7 +121,7 @@ Define an **account list** as a list type to use **middleware**
 
 ---
 
-If you want to automatically sign and send when using **transact** function, use **construct_sign_and_send_raw_middleware**
+**transact**関数を使用する際に自動的に署名と送信を行いたい場合は、**construct_sign_and_send_raw_middleware**を使用してください。
 
 ```py smart_contract_write.py focus=4,11,20:22
 
@@ -129,7 +129,7 @@ If you want to automatically sign and send when using **transact** function, use
 
 ---
 
-Create a **contract instance** with its address and ABI
+アドレスとABIを持つ**契約インスタンス**を作成する。
 
 ```py smart_contract_write.py focus=14:17
 
@@ -137,7 +137,7 @@ Create a **contract instance** with its address and ABI
 
 ---
 
-Set the **contract address** that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+デプロイチュートリアルでデプロイした**契約アドレス**を設定します（**カウンター契約**）。 デプロイされたTXの領収書に住所が記載されています。
 
 ```py smart_contract_write.py focus=15
 
@@ -145,7 +145,7 @@ Set the **contract address** that you deployed in the deploy tutorial (**Counter
 
 ---
 
-Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+契約アビを設定する。 remixまたはsolcコンパイラでコンパイル後、ABIを取得できます。
 
 ```py smart_contract_write.py focus=16
 
@@ -153,7 +153,7 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 
 ---
 
-Call the view function of the contract and **print** the result before it is updated
+コントラクトのビュー関数を呼び出し、更新される前に結果を**印刷**する。
 
 <CH.Code>
 ```py smart_contract_write.py focus=18:19
@@ -168,7 +168,7 @@ number before:  293
 
 ---
 
-Send a **tx** to **update** the contract **state**. This automatically sign and send the tx that includes the data **calling** the **increment function**
+tx**を送り、**契約を**update**する。 これは自動的に署名し、データを含むTxを送信する。
 
 ```py smart_contract_write.py focus=20:22
 
@@ -176,7 +176,7 @@ Send a **tx** to **update** the contract **state**. This automatically sign and 
 
 ---
 
-Wait the tx **receipt** from the blockchain and **print** the receipt after received
+ブロックチェーンからの受信を待ち、受信後にレシートを印刷する。
 
 <CH.Code>
 ```py smart_contract_write.py focus=23
@@ -192,7 +192,7 @@ receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf83
 
 ---
 
-Call the view function again to see **what number** the counter have after the tx
+Txの後にカウンタが何番\*\*かを見るために、もう一度ビュー関数を呼び出す。
 
 <CH.Code>
 ```py smart_contract_write.py focus=24

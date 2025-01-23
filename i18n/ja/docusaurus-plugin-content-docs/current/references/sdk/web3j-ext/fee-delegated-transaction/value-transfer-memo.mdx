@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 価値移転メモ
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
 <CH.Spotlight>
 <CH.Code>
@@ -90,15 +90,15 @@ public class FeeDelegatedValueTransferMemoExample {
 ---
 
 ```zsh output
-❯ java FeeDelegatedValueTransferMemo.java
-output
+java FeeDelegatedValueTransferMemo.java
+出力。
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java FeeDelegatedValueTransferMemo.java focus=1:21s
 
@@ -106,7 +106,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=26
 
@@ -114,7 +114,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Creating **sender** and **fee payer** credentials using private keys.
+秘密鍵を使用して、**sender**および**fee payer**のクレデンシャルを作成する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=27:28
 
@@ -122,7 +122,7 @@ Creating **sender** and **fee payer** credentials using private keys.
 
 ---
 
-Define gas price and gas limit for the transaction
+取引に必要なガス価格とガスの上限を設定する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=30:31
 
@@ -130,7 +130,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=32
 
@@ -138,7 +138,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Get the chain ID from the **Kaia** network
+**Kaia**ネットワークからチェーンIDを取得する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=33:34
 
@@ -146,7 +146,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Initialize variables for transaction parameters
+トランザクション・パラメータ用の変数を初期化する
 
 ```java FeeDelegatedValueTransferMemo.java focus=35:42
 
@@ -154,7 +154,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a raw transaction object.
+生のトランザクションオブジェクトを作成する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=44:52
 
@@ -162,7 +162,7 @@ Create a raw transaction object.
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+`KlayTransactionEncoder.signMessage` を使用して、**sender** としてトランザクションに署名する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=54:55
 
@@ -170,7 +170,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+`KlayTransactionEncoder.signMessageAsFeePayer` を使用して、トランザクションを料金支払者として署名する。
 
 ```java FeeDelegatedValueTransferMemo.java focus=57:58
 
@@ -178,7 +178,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+署名されたトランザクションをkaiaネットワークに送信する
 
 <CH.Code>
 
@@ -189,7 +189,7 @@ Sending the signed transaction to kaia network
 ---
 
 ```zsh output
-❯ java FeeDelegatedValueTransferMemo.java
+java FeeDelegatedValueTransferMemo.java
 TxHash :
  0x3daa6c374bcd7407ff7dbd1403e9644d3551de8968601e5ab6fb779baf8caf19
 ```
@@ -198,7 +198,7 @@ TxHash :
 
 ---
 
-Getting the transaction receipt
+取引レシートの取得
 
 <CH.Code>
 
@@ -249,7 +249,7 @@ class TransactionReceipt {
 
 ---
 
-Shutting down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java FeeDelegatedValueTransferMemo.java focus=71
 
@@ -257,7 +257,7 @@ Shutting down the Web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
 
@@ -268,8 +268,8 @@ Decoding the raw transaction to get the transaction type
 ---
 
 ```zsh output
-❯ java FeeDelegatedValueTransferMemo.java
-txType: FEE_DELEGATED_VALUE_TRANSFER_MEMO
+java FeeDelegatedValueTransferMemo.java
+txType：Fee_delegated_value_transfer_memo
 ```
 
 </CH.Code>

@@ -1,0 +1,104 @@
+# Address
+
+用於壓縮公鑰的工具。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js addressUtils.js
+    const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      const publicKeyObject = {
+        x: '0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+        y: '0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79',
+      }
+      console.log(
+        'pubkey from { x, y } object =',
+        getCompressedPublicKey(publicKeyObject)
+      )
+
+      const uncompressedPublicKeyString =
+        '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      console.log(
+        'pubkey from uncompressed format =',
+        getCompressedPublicKey(uncompressedPublicKeyString)
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node addressUtils.js
+    pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+
+  ---
+
+  從\*\*@kaiachain/ethers-ext**軟件包中導入**getCompressedPublicKey\*\*。
+
+  ```js addressUtils.js focus=1
+  ```
+
+  ---
+
+  要將公鑰從`{x, y}`格式壓縮為十六進制，請使用 `getCompressedPublicKey` 並將**公鑰對象**作為參數
+
+  <CH.Code>
+    ```js addressUtils.js focus=4:11
+    const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      const publicKeyObject = {
+        x: '0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd',
+        y: '0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79',
+      }
+      console.log(
+        'pubkey from { x, y } object =',
+        getCompressedPublicKey(publicKeyObject)
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node addressUtils.js
+    pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+
+  ---
+
+  否則，如果要壓縮未壓縮十六進制**的**公鑰\*\*，請使用 `getCompressedPublicKey` 並將**未壓縮公鑰**作為參數
+
+  <CH.Code>
+    ```js addressUtils.js focus=4:9
+    const { getCompressedPublicKey } = require('@kaiachain/ethers-ext/v5')
+
+    async function main() {
+      const uncompressedPublicKeyString =
+        '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      console.log(
+        'pubkey from uncompressed format =',
+        getCompressedPublicKey(uncompressedPublicKeyString)
+      )
+    }
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node addressUtils.js
+    pubkey from uncompressed format = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+</CH.Spotlight>

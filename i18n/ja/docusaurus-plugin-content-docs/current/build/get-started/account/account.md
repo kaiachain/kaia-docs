@@ -1,20 +1,20 @@
-# Account Basics
+# 口座の基本
 
-**`WARNING`**: Remember your password. If you lose the password of your account, you will not be able to access that account. **There is no** _**forgot my password**_ **option here. Never forget it.**
+\*\*警告パスワードを忘れないでください。 アカウントのパスワードを紛失すると、そのアカウントにアクセスできなくなります。 \*\*パスワードを忘れました。 決して忘れてはならない。
 
-Klaytn provides two handy command-line tools, `ken` and `JavaScript console`, for developers to manage accounts. Note that exporting your private key in an unencrypted format is NOT supported.
+Kaiaは開発者がアカウントを管理するために、`ken`と`JavaScript console`という2つの便利なコマンドラインツールを提供している。 暗号化されていない形式で秘密鍵をエクスポートすることはサポートされていません。
 
 ## ken <a id="ken"></a>
 
-The Klaytn Endpoint Node binary `ken` provides account management via the `account` command. The command `account` lets you create new accounts, lists all existing accounts, imports a private key into a new account, migrates to the newest key format, and changes your password.
+Kaia エンドポイントノードのバイナリ `ken` は `account` コマンドでアカウント管理を行う。 `account`コマンドを使うと、新しいアカウントの作成、既存のアカウントの一覧表示、秘密鍵の新しいアカウントへのインポート、最新の鍵フォーマットへの移行、パスワードの変更ができます。
 
-### Usage <a id="usage"></a>
+### 使用方法<a id="usage"></a>
 
 ```bash
 $ ken account <command> [options...] [arguments...]
 ```
 
-**Commands**
+\*\*コマンド
 
 ```bash
 $ ken account -help
@@ -27,7 +27,7 @@ COMMANDS:
 ...
 ```
 
-You can get info about subcommands by `ken account <command> --help`.
+`ken account<command> --help`でサブコマンドの情報を得ることができる。
 
 ```text
 $ ken account list --help
@@ -35,7 +35,7 @@ list [command options] [arguments...]
 
 Print a short summary of all accounts
 
-KLAY OPTIONS:
+KAIA OPTIONS:
   --dbtype value                        Blockchain storage database type ("leveldb", "badger") (default: "leveldb")
   --datadir "/Users/ethan/Library/KEN"  Data directory for the databases and keystore
   --keystore                            Directory for the keystore (default = inside the datadir)
@@ -44,25 +44,25 @@ DATABASE OPTIONS:
   --db.no-partitioning  Disable partitioned databases for persistent storage
 ```
 
-### Data Directory <a id="data-directory"></a>
+### データディレクトリ<a id="data-directory"></a>
 
-Keystore files are stored under `<DATADIR>/keystore`. You can specify the data directory as below. It is highly recommended to execute `ken account` command with `--datadir` option. Make the data directory point to the `DATA_DIR` set in the `kend.conf` to seamlessly share the accounts with your Endpoint Node.
+キーストア・ファイルは、`<DATADIR>/keystore`に保存される。 データ・ディレクトリは以下のように指定できます。 `ken account`コマンドに--datadir`オプションを付けることを強く推奨する。 Endpoint Node とシームレスにアカウントを共有するために、`kend.conf`で設定した`DATA_DIR\` をデータディレクトリの指すようにします。
 
 ```bash
 $ ken account new --datadir <DATADIR>
 $ ken account new --datadir "~/kend_home"
 ```
 
-If you do not specify the data directory, the default location is as follows.
+データ・ディレクトリを指定しない場合、デフォルトの場所は以下のようになる。
 
 - Mac: `~/Library/KEN`
 - Linux: `~/.ken`
 
-## JavaScript Console <a id="javascript-console"></a>
+## JavaScriptコンソール<a id="javascript-console"></a>
 
-To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../../smart-contracts/deploy/ken.md). Start an EN and attach to the console as follows.
+JavaScriptコンソールに接続するには、ENが実行中でなければなりません。 詳しくは、[ENを起動する](../../smart-contracts/deploy/ken.md)を参照してください。 ENを起動し、以下のようにコンソールに接続する。
 
-### Usage <a id="usage"></a>
+### 使用方法<a id="usage"></a>
 
 ```bash
 $ kend start
@@ -78,18 +78,18 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 >
 ```
 
-**Commands**
+\*\*コマンド
 
-Type `personal` or `klay` to get the list of available functions. In this tutorial, we are going to visit the following functions.
+`personal`または`kaia`と入力すると、利用可能な機能のリストが表示される。 このチュートリアルでは、以下の関数を訪ねます。
 
 ```bash
 > personal.newAccount()
 > personal.importRawKey()
 > personal.unlockAccount()
-> klay.accounts
-> klay.getBalance()
+> kaia.accounts
+> kaia.getBalance()
 ```
 
-### Data Directory <a id="data-directory"></a>
+### データディレクトリ<a id="data-directory"></a>
 
-When you create an account, the keystore file is stored under `<DATADIR>/keystore`. The `<DATADIR>` is the `DATA_DIR` set in the `kend.conf`. If you follow the quick start guide with the given example, it must be `~/kend_home`.
+アカウントを作成すると、キーストア・ファイルは`<DATADIR>/keystore`に保存される。 `<DATADIR>` は `kend.conf` で設定した `DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home`でなければならない。

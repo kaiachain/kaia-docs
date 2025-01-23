@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
   <CH.Code>
@@ -69,28 +69,28 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxFeeDelegatedCancelType.js focus=1:3
   ```
 
   ---
 
-  Define **sender**, **fee payer** addresses and private keys
+  **sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
   ```js TxFeeDelegatedCancelType.js focus=5:8
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxFeeDelegatedCancelType.js focus=10
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxFeeDelegatedCancelType.js focus=10
   const ethers = require("ethers");
@@ -130,28 +130,28 @@
 
   ---
 
-  Create a **sender**'s wallet with the private key and the provider
+  秘密鍵とプロバイダーを使って**sender**のウォレットを作成する。
 
   ```js TxFeeDelegatedCancelType.js focus=11
   ```
 
   ---
 
-  Create a **fee payer**'s wallet with the private key and the provider
+  **fee payer**のウォレットを秘密鍵とプロバイダーで作成する。
 
   ```js TxFeeDelegatedCancelType.js focus=12
   ```
 
   ---
 
-  Declare a transaction with the **from** field as **sender address** and the **type** field as **TxType.FeeDelegatedCancel**
+  **from**フィールドを**sender address**とし、**type**フィールドを**TxType.FeeDelegatedCancel** とするトランザクションを宣言する。
 
   ```js TxFeeDelegatedCancelType.js focus=15:18
   ```
 
   ---
 
-  Sign the transaction with **sender** wallet and print out the **senderTxHashRLP**
+  **sender**ウォレットでトランザクションに署名し、**senderTxHashRLP**をプリントアウトする。
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=20:23
@@ -160,14 +160,14 @@
     ---
 
     ```zsh output
-    ❯ node TxFeeDelegatedCancelType.js
-    senderTxHashRLP 0x39f86a820356850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0ec92eaed1a4b88de5645122b78f1f060aa44e9a6f35d1804ed624dbf74e0c59fa01a9b1e1a4bc35fdb4d1d71ead6be57a15fd06945cf486cf3d0f10f11099db878
+    ノード TxFeeDelegatedCancelType.js
+    senderTxHashRLP0x39f86a820356850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0ec92eaed1a4b88de5645122b78f1f060aa44e9a6f35d1804ed624dbf74e0c59fa01a9b1e1a4bc35fdb4d1d71ead6be57a15fd06945cf486cf3d0f10f11099db878
     ```
   </CH.Code>
 
   ---
 
-  Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+  手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=25:27
@@ -183,7 +183,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=29:30

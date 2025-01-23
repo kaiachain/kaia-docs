@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 価値移転メモ
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
 <CH.Spotlight>
 <CH.Code>
@@ -54,36 +54,36 @@ web3_value_transfer_with_memo_sign_recover()
 
 ````zsh output
 ❯ node ValueTransferWithMemo.py
-raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
+signed tx の raw トランザクション：0x10f896820366850ba43b74008301042894a2a8854b1802d8cd5de631e690817c253d6a915388016345785d8a000094a2a8854b1802d8cd5de631e690817c253d6a91538c546573744d656d6f44617461f847f8458207f6a00daff49a09fbb8382654be6461d75e67def4d26442bf7bc8014da04d9d3b6f6da044fb682a3cd21e94e4dcf97cde1e0416d96dad2f15d353529a5db85873192c5b
 
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-decoded transaction: {
-  "type": 16,
-  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+decoded transaction：{
+  "type"：16,
+  "to"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
   "value": 100000000000000000,
-  "nonce": 870,
-  "gasPrice": 50000000000,
-  "gas": 66600,
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "data": "0x546573744d656d6f44617461",
-  "signatures": [
+  "nonce"：870,
+  "gasPrice"：50000000000,
+  "gas"：66600,
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data"："0x546573744d656d6f44617461",
+  "signatures"：[
     {
-      "v": 2038,
-      "r": 6190953446910446010339588924128856456849311270962439470585054122192743919469,
-      "s": 31201471237264490747209103173489052293037646153294155398956746212102253390939
-    }
+      "v"：2038,
+      "r"：6190953446910446010339588924128856456849311270962439470585054122192743919469,
+      "s"：31201471237264490747209103173489052293037646153294155398956746212102253390939
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash': HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber': 147340972, 'contractAddress': None, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex': 0, 'type': 0})```
+tx ハッシュ：  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 receipt:  AttributeDict({'blockHash'：HexBytes('0x2ff2f47d724ccd645010adde8cebdb88edc4a31ffa415b34230f620544ecea6c'), 'blockNumber':147340972, 'contractAddress'：なし, 'cumulativeGasUsed': 22200, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 22200, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28'), 'transactionIndex':0, 'type': 0})```.
 ````
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py ValueTransferWithMemo.py focus=1,2
 
@@ -91,7 +91,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
+**eth_account**、**web3py_ext**、および cytoolz から必要な utils をインポートする。
 
 ```py ValueTransferWithMemo.py focus=3:10
 
@@ -99,7 +99,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and cytoolz
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py ValueTransferWithMemo.py focus=12:14
 
@@ -107,7 +107,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```python ValueTransferWithMemo.py focus=12:14
 from web3py_ext import extend
@@ -156,7 +156,7 @@ web3_value_transfer_with_memo_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```python ValueTransferWithMemo.py focus=17
 
@@ -164,7 +164,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER_MEMO**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.VALUE_TRANSFER_MEMO**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py ValueTransferWithMemo.py focus=4,5,8,19
 
@@ -172,7 +172,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER_MEMO**. You can use 
 
 ---
 
-Merge the **additional fields** like **from**, **to** and **value** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**from**、**to**、**value**などの**追加フィールド**を空のtxにマージします。
 
 ```py ValueTransferWithMemo.py focus=10,20:24
 
@@ -180,7 +180,7 @@ Merge the **additional fields** like **from**, **to** and **value** into the emp
 
 ---
 
-You can use the **Web3.to_peb** util to convert decimal
+**Web3.to_peb**ユーティリティを使用すると、10進数の変換が可能です。
 
 ```py ValueTransferWithMemo.py focus=23
 
@@ -188,7 +188,7 @@ You can use the **Web3.to_peb** util to convert decimal
 
 ---
 
-Especially **write down** what you want to record in the **data** field in a binary format
+特に、バイナリ形式で**データ**フィールドに記録したい内容を**書き留めること**。
 
 ```py ValueTransferWithMemo.py focus=24
 
@@ -196,7 +196,7 @@ Especially **write down** what you want to record in the **data** field in a bin
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python ValueTransferWithMemo.py focus=4,6,8,26
 
@@ -204,7 +204,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=28:30
@@ -219,7 +219,7 @@ raw transaction of signed tx: 0x10f896820366850ba43b74008301042894a2a8854b1802d8
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=32:33
@@ -234,7 +234,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=35:36
@@ -266,7 +266,7 @@ decoded transaction: {
 
 ---
 
-Send the tx to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに送信する。 このハッシュは受信を待つために使用される。
 
 ```python ValueTransferWithMemo.py focus=38
 
@@ -274,7 +274,7 @@ Send the tx to the blockchain. It will return the tx hash, which will be used to
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=39:40
@@ -289,7 +289,7 @@ tx hash:  0x5b29f3dbc2f0d79dee4338a556eeb33c9d2dea9d0602882d44c307a2f25bce28 rec
 
 ---
 
-Finally, get the result.
+最後に結果を出す。
 
 <CH.Code>
 ```python ValueTransferWithMemo.py focus=42

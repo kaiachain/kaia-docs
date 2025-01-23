@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -72,7 +72,7 @@ recoveredAddr rpc 0xb2ba72e1f84b7b8cb15487a2bf20328f2cf40c25 true
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js SignTxWithLegacyExample.js focus=1:3
 
@@ -80,7 +80,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender's **address** and **private key**
+送信者の**address**と**private key**を定義する。
 
 ```js SignTxWithLegacyExample.js focus=5:6
 
@@ -88,7 +88,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Define receiver's **address**
+受信者の**address**を定義します。
 
 ```js SignTxWithLegacyExample.js focus=7
 
@@ -96,7 +96,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**Kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js SignTxWithLegacyExample.js focus=9
 
@@ -104,7 +104,7 @@ Set up the provider with the specified **Kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SignTxWithLegacyExample.js focus=9
 const { ethers } = require("ethers");
@@ -146,7 +146,7 @@ main().catch(console.error);
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js SignTxWithLegacyExample.js focus=10
 
@@ -154,7 +154,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Create a value transfer transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+`type: TxType.ValueTransfer` を使用して価値移転トランザクションを作成し、後で `klay_recoverFromTransaction` で回復できるようにします。
 
 ```js SignTxWithLegacyExample.js focus=13:19
 
@@ -162,7 +162,7 @@ Create a value transfer transaction with `type: TxType.ValueTransfer` so that it
 
 ---
 
-Sign the transaction with sender's **wallet**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+`populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=21:23
@@ -178,7 +178,7 @@ rawTx 0x08f87e05850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e98094
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=25:26
@@ -194,7 +194,7 @@ sentTx 0xecb117338d7a0e7e9444886ebdab5d0e14fd1b02fa476fee839a2fc3b105f391
 
 ---
 
-Wait for the transaction to be **completed** and print the **receipt**
+取引が**完了**するのを待って、**領収書**を印刷する。
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=28:29
@@ -227,7 +227,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `klay_recoverFromMessage`
+`klay_recoverFromMessage`を使用して、署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
 ```js SignTxWithLegacyExample.js focus=31:32

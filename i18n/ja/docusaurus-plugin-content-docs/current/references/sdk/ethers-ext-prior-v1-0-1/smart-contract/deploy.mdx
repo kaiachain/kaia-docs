@@ -1,6 +1,6 @@
-# Deploy
+# デプロイ
 
-Web3 SDKs support to interact with Smart Contract via contract instance, not low-level transaction.
+Web3 SDKは、低レベルのトランザクションではなく、コントラクトインスタンスを介してスマートコントラクトと対話することをサポートしています。
 
 <CH.Spotlight>
   <CH.Code>
@@ -82,28 +82,28 @@ Web3 SDKs support to interact with Smart Contract via contract instance, not low
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js smartContractDeploy.js focus=1:2
   ```
 
   ---
 
-  Define sender address, sender private key
+  送信者アドレス、送信者秘密鍵の定義
 
   ```js smartContractDeploy.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js smartContractDeploy.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js smartContractDeploy.js focus=7
   const ethers = require("ethers");
@@ -156,42 +156,42 @@ Web3 SDKs support to interact with Smart Contract via contract instance, not low
 
   ---
 
-  Init Wallet instance with the private key and provider.
+  秘密鍵とプロバイダでWalletインスタンスを初期化します。
 
   ```js smartContractDeploy.js focus=8
   ```
 
   ---
 
-  Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+  ブロックチェーン・ネットワークにデプロイしたいsolidityコードから**コンパイル済みバイトコード**を設定する。
 
   ```js smartContractDeploy.js focus=33
   ```
 
   ---
 
-  Set the **Abi** generated from solidity code
+  solidityコードから生成された**Abi**を設定する。
 
   ```js smartContractDeploy.js focus=34
   ```
 
   ---
 
-  Create a contract factory which deploys a contract instance with the Abi and byte code
+  アビとバイトコードでコントラクト・インスタンスをデプロイするコントラクト・ファクトリーを作成する。
 
   ```js smartContractDeploy.js focus=37
   ```
 
   ---
 
-  Deploy the contract with initialize number value equal to 100
+  初期化数を100に設定してコントラクトをデプロイする。
 
   ```js smartContractDeploy.js focus=38
   ```
 
   ---
 
-  Send the transaction to the blockchain and wait for the receipt
+  ブロックチェーンにトランザクションを送信し、レシートを待つ。
 
   <CH.Code>
     ```js smartContractDeploy.js focus=40:42
@@ -225,7 +225,7 @@ Web3 SDKs support to interact with Smart Contract via contract instance, not low
 
   ---
 
-  Get the address of the new contract
+  新契約の住所取得
 
   <CH.Code>
     ```js smartContractDeploy.js focus=43
@@ -235,7 +235,7 @@ Web3 SDKs support to interact with Smart Contract via contract instance, not low
 
     ```zsh output
     ❯ node smartContractDeploy.js
-    deployed address 0x9C28fD38a94145fEb0E24F2d188540D7FDDbE288
+    配置アドレス 0x9C28fD38a94145fEb0E24F2d188540D7FDDbE288
     ```
   </CH.Code>
 </CH.Spotlight>

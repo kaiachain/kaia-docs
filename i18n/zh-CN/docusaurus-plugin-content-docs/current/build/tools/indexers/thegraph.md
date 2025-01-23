@@ -116,7 +116,7 @@ $ graph deploy --studio<SUBGRAPH_SLUG>
 
 该子图的查询 URL 为
 
-`https://gateway-arbitrum.network.thegraph.com/api/`**[api-key]**`/subgraphs/id/HdVdERFUe8h61vm2fDycgxjsde5PbB832NHgJfZNqK`
+`https://gateway-arbitrum.network.thegraph.com/api/`**[api-key]**`/subgraphs/id/HdVdERFUe8h61vm2fDyycgxjsde5PbB832NHgJfZNqK`
 
 现在，您只需填写自己的 API 密钥，即可开始向该端点发送 GraphQL 查询。
 

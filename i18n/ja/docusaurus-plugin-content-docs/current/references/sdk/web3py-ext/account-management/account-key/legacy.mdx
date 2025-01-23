@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 **AccountKeyLegacy**
 
@@ -54,29 +54,29 @@ web3_account_update_legacy()
 ---
 
 ```zsh output
-❯ py web3_account_update_legacy.py
+❯ web3_account_update_legacy.py
 # {
-#   "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-#   "gas": 159000,
-#   "gasPrice": 50000000000,
-#   "nonce": 990,
-#   "chainId": 1001,
-#   "type": 32,
-#   "key": {
-#     "type": 1,
-#     "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
-#   }
+# "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+# "gas"：159000,
+# "gasPrice"：50000000000,
+# "nonce"：990,
+# "chainId"：1001,
+# "type"：32,
+# "key"：{
+# "type"：1,
+# "key"："0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+# }.
 # }
 
-# rawTransaction: 20f86e8203de850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a91538201c0f847f8458207f5a0a37fa3b1882109cab6d565b869d217a80bae7ac6dd1b8361729f81925520d48ca0049b1ebfbe19a7b57d8ff0ea965581f6b02c4b5ac0c08b3c1925e030d05d1444
-# tx hash:  0x2e1b5ccc12057297db5bac624085532e302ff75b20fb36fe3728efe7a7904ef1 receipt:  AttributeDict({'blockHash': HexBytes('0xbb9fc21ef1793f4c03492e2293dfdcc6d4392cd40a781a33fbebf96bbf032490'), 'blockNumber': 150553739, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x2e1b5ccc12057297db5bac624085532e302ff75b20fb36fe3728efe7a7904ef1'), 'transactionIndex': 0, 'type': 0})
+# rawTransaction：20f86e8203de850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a91538201c0f847f8458207f5a0a37fa3b1882109cab6d565b869d217a80bae7ac6dd1b8361729f81925520d48ca0049b1ebfbe19a7b57d8ff0ea965581f6b02c4b5ac0c08b3c1925e030d05d1444
+# tx ハッシュ  0x2e1b5ccc12057297db5bac624085532e302ff75b20fb36fe3728efe7a7904ef1 receipt:  AttributeDict({'blockHash'：HexBytes('0xbb9fc21ef1793f4c03492e2293dfdcc6d4392cd40a781a33fbebf96bbf032490'), 'blockNumber':150553739, 'contractAddress'：なし, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0x2e1b5ccc12057297db5bac624085532e302ff75b20fb36fe3728efe7a7904ef1'), 'transactionIndex':0, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_account_update_legacy.py focus=1:2
 
@@ -84,7 +84,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
+**eth_account**、**web3py_ext**、**cytools**から必要なutilsをインポートする。
 
 ```py web3_account_update_legacy.py focus=3:16
 
@@ -92,7 +92,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytools**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py web3_account_update_legacy.py focus=18
 
@@ -100,7 +100,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py web3_account_update_legacy.py focus=18:20
 from web3py_ext import extend
@@ -150,7 +150,7 @@ web3_account_update_legacy()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py web3_account_update_legacy.py focus=22
 
@@ -158,7 +158,7 @@ Load an account from private key
 
 ---
 
-Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成しています。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_account_update_legacy.py focus=6:7,10,24
 
@@ -166,7 +166,7 @@ Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **e
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**sender**や**keys**のような**追加フィールド**を空のtxにマージする。
 
 ```py web3_account_update_legacy.py focus=15,25:31
 
@@ -174,7 +174,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account key to update is the **legacy** key.
+この場合、更新するアカウント・キーは**legacy**キーである。
 
 ```py web3_account_update_legacy.py focus=28
 
@@ -182,7 +182,7 @@ In this case, the account key to update is the **legacy** key.
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_account_update_legacy.py focus=6,8,10,32
 
@@ -190,7 +190,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+**to_pretty**ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
 
 <CH.Code>
 ```py web3_account_update_legacy.py focus=11,12,14,33
@@ -230,7 +230,7 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You must sign it with the loaded account
+アカウント更新TXタイプに署名する。 ロードされたアカウントで署名する必要があります。
 
 <CH.Code>
 ```py web3_account_update_legacy.py focus=22,35:37
@@ -245,7 +245,7 @@ rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
 ```py web3_account_update_legacy.py focus=39:41

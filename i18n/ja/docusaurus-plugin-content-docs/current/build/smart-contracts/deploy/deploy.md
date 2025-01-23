@@ -1,16 +1,16 @@
-# Deploy Smart Contracts
+# スマートコントラクトの導入
 
-There are various ways of deploying a smart contract on Klaytn. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Klaytn account with enough KLAY to pay the transaction fee. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
+スマート・コントラクトをカイアにデプロイするには、さまざまな方法がある。 この文書では、さまざまなツールを使用してサンプル契約を展開するためのステップバイステップのガイドを提供します。 取引手数料を支払うのに十分なKAIAアカウントをお持ちであることを前提としています。 アカウントを作成するには、[Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)をご利用ください。"
 
-## Remix Online IDE <a id="remix-ide"></a>
+## リミックス・オンラインIDE<a id="remix-ide"></a>
 
-Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io).
+インターネットブラウザを開き、[Kaia Plugin for Remix](https://ide.kaia.io)にアクセスします。
 
-1. Add a new file.
+1. 新しいファイルを追加する。
 
 ![](/img/build/smart-contracts/01_deployment_ide.png)
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KlaytnGreeter, and it allows you to run a simple "Hello World!".
+2. 以下のサンプルコード（または配置したいコード）をコピーして、新しいファイルに貼り付けます。 このコードはMortalとKaiaGreeterと呼ばれる2つのコントラクトで構成されており、シンプルな "Hello World!"を実行することができる。
 
 ```
 pragma solidity 0.5.12;
@@ -24,7 +24,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -38,42 +38,42 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Klaytn networks, you can choose between Baobab (testnet) and Cypress (mainnet). Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. アイコンパネルでコンパイラを選択します。 必要なEVM環境を選択します。 Kaiaネットワークでは、Kairos（テストネット）とMainnetのいずれかを選択できます。 実際のデプロイ前にサンプルコードをコンパイルする準備ができたら、`Compile`をクリックする。
 
 ![](/img/build/smart-contracts/02_deployment_compile.png)
 
-4. Now we can deploy the contract. Click on the Klaytn logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
+4. これで契約を展開できる。 アイコンパネルのKaiaロゴをクリックします。 アカウント\`の横にあるプラスボタンをクリックしてアカウントをインポートします。 Make sure that the account has sufficient KLAY to pay for the transaction of deploying the smart contracts required.
 
 ![](/img/build/smart-contracts/05_deployment_account.png)
 
-5. Set Gas limit and Value to send.
+5. ガスリミットと送信する値を設定します。
 
-- You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-- Set `Value` to 0 unless you want to send `KLAY` to the contract at the time of deployment.
+- より複雑な契約を展開する場合は、ガス上限を高く設定する必要があるかもしれません。 この例では、そのままでいい。
+- デプロイ時にコントラクトに `KAIA` を送信したくない場合は `Value` を 0 に設定する。
 
-6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+6. コンストラクタ関数の引数に "Hello World!"を入力し、`Deploy`ボタンをクリックする。
 
 ![](/img/build/smart-contracts/03_deployment_hello.png)
 
-7. If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal.
+7. コントラクトが正常にデプロイされると、対応するトランザクションのレシートと詳細な結果がターミナルに表示されます。
 
-8. You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+8. 機能ボタンをクリックすることで、契約を操作することができます。 各機能は異なる色で表現されている。 Solidityの `constant` または `pure` 関数はブルーボトルを持ち（例では `greet`）、新しいトランザクションを作成しないので、ガソリンを消費しません。 赤いボタン（例では`kill`）は、ブロックチェーン上の状態を変更し、ガスを消費し、価値を受け入れることができる`支払い可能な`機能を表している。 オレンジ色のボタンは、契約状態を変更するが、値を受け付けない`non-payable`関数用です。
 
 ![](/img/build/smart-contracts/06_deployment_functions.png)
 
-For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
+詳しくはこちらの[リンク](../ide-and-tools/ide-and-tools.md)をご参照ください。
 
 ## VVISP <a id="vvisp"></a>
 
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Klaytn smart contracts with a single command. Refer to the following link for more details.
+vvispは、HEACHI LABSが提供する、スマートコントラクトを開発するための使いやすいCLIツール／フレームワークです。 Kaiaスマートコントラクトの環境設定、デプロイ、実行は1つのコマンドで簡単に行える。 詳細は以下のリンクを参照。
 
-- https\://henesis.gitbook.io/vvisp/deploying-smart-contracts
+- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
 
 ## solc & caver-js <a id="solc-caver-js"></a>
 
-Another way to deploy contracts is manually compiling contracts with solc and deploying them with caver-js.
+コントラクトをデプロイするもう一つの方法は、solcでコントラクトを手動でコンパイルし、caver-jsでデプロイすることです。
 
-1. Create `KlaytnGreeter.sol` and write the following code.
+1. `KaiaGreeter.sol`を作成し、以下のコードを記述する。
 
 ```
 pragma solidity 0.5.6;
@@ -87,7 +87,7 @@ contract Mortal {
     function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract KlaytnGreeter is Mortal {
+contract KaiaGreeter is Mortal {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs when the contract is executed */
@@ -101,25 +101,25 @@ contract KlaytnGreeter is Mortal {
 }
 ```
 
-2. Install solc 0.5.6.
+2. solc 0.5.6をインストールする。
 
 ```
 $ sudo npm install -g solc@0.5.6
 ```
 
-3. Compile the contract.
+3. 契約書をまとめる。
 
 ```
-$ solcjs KlaytnGreeter.sol --bin
+$ solcjs KaiaGreeter.sol --bin
 ```
 
-4. Install caver-js.
+4. caver-jsをインストールする。
 
 ```
 $ npm install caver-js.
 ```
 
-5. Create `deploy.js` in the same directory with the following code.
+5. 同じディレクトリに以下のコードで `deploy.js` を作成する。
 
 ```
 const Caver = require("caver-js");
@@ -151,9 +151,9 @@ caver.kaia.sendTransaction({
 })
 ```
 
-_NOTE_: This example is not recommended for production use. Be very careful when dealing with private keys.
+_NOTE_: This example is not recommended for production use. 秘密鍵の取り扱いには十分注意すること。
 
-6. Deploy the contract using node environment.
+6. ノード環境を使ってコントラクトをデプロイする。
 
 ```
 $ node deploy.js

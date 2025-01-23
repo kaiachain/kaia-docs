@@ -1,8 +1,8 @@
 # KaiaGreeter
 
-`KaiaGreeter` is a simple contract that returns a greeting message. Greeting message is set when the contract is deployed.
+`KaiaGreeter`は挨拶メッセージを返すシンプルなコントラクトである。 挨拶メッセージは契約展開時に設定されます。
 
-## Writing KaiaGreeter <a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
+## カイアグリーターの執筆<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
 ```
 pragma solidity 0.5.6;
@@ -29,18 +29,18 @@ contract KaiaGreeter is Mortal {
 }
 ```
 
-## Deploying KaiaGreeter using Remix Online IDE <a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
+## RemixオンラインIDEを使ってKaiaGreeterをデプロイする<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. The complete source code was given in the above.
-- Prepare your account which will be used to deploy the contract.
-  - If you do not have an account yet, create one at [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
-  - Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
-- Deploy the contract with initial parameter, a greeting message.
-- After deploying, you can invoke `greet` from the IDE.
+- [Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、`KaiaGreeter`契約を作成してください。 完全なソースコードは上記の通り。
+- 契約を展開するために使用するアカウントを準備します。
+  - まだアカウントをお持ちでない方は、[https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy)からアカウントを作成してください。
+  - 蛇口からKAIAを試す - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+- 初期パラメータである挨拶メッセージを持つコントラクトをデプロイする。
+- デプロイ後、IDEから`greet`を呼び出すことができる。
 
-## References <a href="#references" id="references"></a>
+## 参考文献<a href="#references" id="references"></a>
 
-For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
+契約展開の詳細およびRemix Online IDE利用ガイドラインについては、以下のドキュメントをご参照ください。
 
 - [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [Deploy Guide](../deploy/deploy.md)
+- [デプロイガイド](../deploy/deploy.md)

@@ -1,51 +1,51 @@
-# Getting Started
+# はじめに
 
-## What's new?
+## 何が新しいのか？
 
-In caver-java 1.5.0, we adopt Common Architecture. Common Architecture is a new software architecture for kaia development environment, which is shared by all kaia SDKs (caver-js/caver-java). It is designed for your streamlined development experience and ease of extensibility to other programming languages.
+caver-java 1.5.0では、Common Architectureを採用している。 共通アーキテクチャはkaia開発環境のための新しいソフトウェアアーキテクチャで、すべてのkaia SDK（caver-js/caver-java）で共有されます。 合理的な開発体験と、他のプログラミング言語への拡張のしやすさを考慮して設計されています。
 
-As caver-java is updated to 1.5.0, the APIs used in 1.4.0 are deprecated except for some APIs.
+caver-javaが1.5.0に更新されたため、1.4.0で使用されていたAPIは、一部のAPIを除いて廃止されました。
 
-The APIs newly provided in caver-java 1.5.0 are as follows.
+caver-java 1.5.0で新たに提供されたAPIは以下の通り。
 
-### caver.account
+### ケイバーアカウント
 
-caver.account is a package used to update AccountKey, which could be one or more public keys (AccountKeyPublic, AccountKeyWeightedMultiSig, and AccountKeyRoleBased) or a special type of keys (AccountKeyLegacy and AccountKeyFail), for a kaia account.
+caver.accountは、kaiaアカウントのAccountKeyを更新するためのパッケージである。AccountKeyは、1つ以上の公開鍵(AccountKeyPublic、AccountKeyWeightedMultiSig、AccountKeyRoleBased)、または特殊な鍵(AccountKeyLegacy、AccountKeyFail)である。
 
-- `caver.account` replaces `caver.tx.account` in caver-java 1.4.0
+- caver-java 1.4.0では、`caver.account`は`caver.tx.account`を置き換える。
 
-### caver.wallet
+### ケイバーウォレット
 
-caver.wallet is a package that manages Keyring instances in in-memory wallet. A Keyring is an instance that stores the address of a kaia account and its private key(s), and it is used when the address of this account signs a transaction. caver.wallet accepts all types of Keyring (SingleKeyring, MultipleKeyring, and RoleBasedKeyring) and manages them with their kaia account address.
+caver.walletは、インメモリ・ウォレットでKeyringインスタンスを管理するパッケージです。 キーリングは、カイアカウントのアドレスとその秘密鍵を格納するインスタンスで、このアカウントのアドレスがトランザクションに署名するときに使用されます。 caver.walletはすべてのタイプのキーリング（SingleKeyring、MultipleKeyring、RoleBasedKeyring）を受け入れ、kaiaアカウントアドレスで管理します。
 
-- `caver.wallet` replaces `caver.crypto` in caver-java 1.4.0
-- `caver.wallet.KeyStore` replaces `caver.wallet.WalletFile` in caver-java 1.4.0
+- caver-java 1.4.0 で `caver.wallet` が `caver.crypto` を置き換えた。
+- caver-java 1.4.0 で `caver.wallet.WalletFile` が `caver.wallet.KeyStore` に置き換わった。
 
-### caver.transaction
+### ケイバー・トランザクション
 
-caver.transaction is a package that provides functionality related to [Transaction](../../../learn/transactions/transactions.md#transactions-overview).
+caver.transactionは、[Transaction](../../../learn/transactions/transactions.md#transactions-overview)に関連する機能を提供するパッケージです。
 
-- `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
+- caver-java 1.4.0 では `caver.transaction` が `caver.tx` を置き換える。
 
-### caver.rpc
+### ケイバー
 
-caver.rpc is a package that provides functionality related to rpc call with kaia Node.
+caver.rpcは、kaia Nodeとのrpcコールに関連する機能を提供するパッケージです。
 
-- `caver.rpc.klay` and `caver.rpc.net` replaces `Klay`, `Net` interfaces in caver-java 1.4.0, respectively
+- `caver.rpc.klay`と`caver.rpc.net`は、それぞれcaver-java 1.4.0の`Klay`と`Net`インタフェースを置き換える。
 
-### caver.util
+### ケイバーユーティリティ
 
-caver.utils provides utility functions.
+caver.utilsはユーティリティ関数を提供します。
 
-### caver.contract
+### ケイバー契約
 
-`caver.contract` is a package that makes it easy to handle smart contracts in kaia. With caver.contract, you can deploy smart contracts and execute them by calling their functions. `caver.contract` first converts smart contract functions and events from ABI(Application Binary Interface), calls those functions, and obtains the event information.
+`caver.contract`はkaiaでスマートコントラクトを簡単に扱えるようにするパッケージである。 caver.contractを使えば、スマート・コントラクトをデプロイし、その関数を呼び出して実行することができる。 `caver.contract` first converts smart contract functions and events from ABI(Application Binary Interface), calls those functions, and obtains the event information.
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件<a id="prerequisites"></a>
 
-### Adding a Repository <a id="adding-a-repository"></a>
+### リポジトリの追加<a id="adding-a-repository"></a>
 
-A library repository should be added before using IPFS. Please add the following repository first.
+IPFSを使用する前に、ライブラリ・リポジトリを追加する必要があります。 まず、以下のリポジトリを追加してください。
 
 **maven**
 
@@ -69,7 +69,7 @@ allprojects {
 }
 ```
 
-### Adding a Dependency <a id="adding-a-dependency"></a>
+### 依存関係の追加<a id="adding-a-dependency"></a>
 
 **maven**
 
@@ -87,66 +87,66 @@ allprojects {
 implementation 'com.klaytn.caver:core:1.5.0'
 ```
 
-If you want to use Android dependency, just append -android at the end of the version string. (e.g. 1.0.1-android)
+アンドロイド依存性を使用したい場合は、バージョン文字列の最後に-androidを追加するだけでよい。 (e.g. 1.0.1-android)
 
-If you want to see details of the JSON-RPC requests and responses, please include [LOGBack](https://logback.qos.ch/) dependency in your project. Below is a Gradle build file example. You can add the dependency to Maven as well. Since caver-java uses the [SLF4J](http://www.slf4j.org/) logging facade, you can switch to your preferred logging framework instead of LOGBack.
+JSON-RPCのリクエストとレスポンスの詳細を見たい場合は、プロジェクトに[LOGBack](https://logback.qos.ch/)依存を含めてください。 以下はGradleビルドファイルの例です。 Mavenにも依存関係を追加できる。 caver-javaは[SLF4J](http://www.slf4j.org/)ロギングファサードを使用しているので、LOGBackの代わりにお好みのロギングフレームワークに切り替えることができます。
 
 ```groovy
 implementation "ch.qos.logback:logback-classic:1.2.3"
 ```
 
-**Note**: In the central repository, the RC, Android, and Java versions are listed together. If you use wildcards to get a version, you may be using a version that is not appropriate for your platform.
+**注**：中央リポジトリでは、RC版、Android版、Java版が一緒に表示されています。 ワイルドカードを使ってバージョンを取得した場合、あなたのプラットフォームに適切でないバージョンを使っている可能性があります。
 
-#### Command-line Tool <a id="command-line-tool"></a>
+#### コマンドラインツール<a id="command-line-tool"></a>
 
-The command-line tool allows you to generate Solidity smart contract function wrappers from the command line.
+コマンドラインツールを使用すると、コマンドラインからSolidityスマートコントラクト関数のラッパーを生成できます。
 
 **Installation (Homebrew)**
 
-Java 1.8+ is required to install this.
+インストールにはJava 1.8+が必要です。
 
 ```text
 $ brew tap klaytn/klaytn
 $ brew install caver-java
 ```
 
-After installation you can run command 'caver-java' like below:
+インストールが終わったら、以下のようにコマンド 'caver-java' を実行する：
 
 ```text
-$ caver-java solidity generate -b <smart-contract>.bin -a <smart-contract>.abi -o <outputPath> -p <packagePath>
+caver-java solidity generate -b<smart-contract>.bin -a<smart-contract>.abi -o<outputPath> -p<packagePath>
 ```
 
 **Installation (Other)**
 
-Currently, we do not support other package managers. As another solution, we provide a method to build the CLI below.
+現在のところ、他のパッケージマネージャーはサポートしていません。 もうひとつの解決策として、CLIを構築する方法を以下に示す。
 
-- Download or fork caver-java.
+- caver-javaをダウンロードまたはフォークする。
 
-- Do task 'shadowDistZip' in the console module using Gradle. As a result, `console/build/distributions/console-shadow-{version}.zip` is generated.
+- Gradleを使って、コンソールモジュールでタスク 'shadowDistZip' を実行する。 その結果、`console/build/distributions/console-shadow-{version}.zip` が生成される。
 
   ```text
-  $ ./gradlew :console:shadowDistZip
+  ./gradlew :console:shadowDistZip
   ```
 
-- Unzip the zip file in the build directory
+- ビルド・ディレクトリのzipファイルを解凍する。
 
   ```text
   $ unzip ./console/build/distributions/console-shadow-{version}.zip
   ```
 
-- Execute the binary file to run the command-line tool like below. You can find a shell script file for macOS users and a batch file for Window users.
+- バイナリファイルを実行すると、以下のようにコマンドラインツールが実行される。 macOSユーザーにはシェルスクリプトファイルが、Windowユーザーにはバッチファイルが用意されている。
 
   ```text
-  $ ./console/build/distributions/console-shadow-{version}/bin/caver-java
+  ./console/build/distributions/console-shadow-{version}/bin/caver-java
   ```
 
-## Sending KAIA at a glance
+## KAIAを送る
 
-This section describes a simple example of using a `keystore file` to send KAIA with a value transfer transaction. The keystore file can be exported from  [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md). If you need KAIA for testing, you can get test KAIA from the [Kaia Faucet](https://faucet.kaia.io/).
+このセクションでは、バリュー転送トランザクションでKAIAを送信するために`キーストア ファイル`を使用する簡単な例について説明する。 キーストアファイルは[Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md)からエクスポートできます。 テスト用のKAIAが必要な場合は、[Kaia Faucet](https://faucet.kaia.io/)からテスト用のKAIAを入手できる。
 
 :::note
 
-When developing, it's best practice to use an account that isn't associated with any real funds. A good way to do this is to make a new browser profile (on Chrome, Brave, Firefox, etc) and install Kaia Wallet on that browser, and never send this wallet money.
+開発する際には、実際の資金とは関係のないアカウントを使うのがベストプラクティスだ。 これを行う良い方法は、新しいブラウザプロファイル（Chrome、Brave、Firefoxなど）を作成し、そのブラウザにカイアウォレットをインストールし、このウォレットにお金を送らないことです。
 
 :::
 
@@ -191,50 +191,50 @@ public void sendingKLAY() throws IOException, CipherException, TransactionExcept
     }
 ```
 
-## Starting with caver-java <a id="starting-with-caver-java"></a>
+## caver-javaで始める<a id="starting-with-caver-java"></a>
 
-### Connecting to a kaia Node <a id="connecting-to-a-klaytn-node"></a>
+### kaiaノードへの接続<a id="connecting-to-a-klaytn-node"></a>
 
-If you are running an EN, you can connect it to your own node by changing the host and port like below:
+ENを使用している場合は、以下のようにホストとポートを変更することで、自分のノードに接続することができます：
 
 ```java
 Caver caver = new Caver("http://your.en.url:8551/");
 ```
 
-## Managing Keyrings <a id="managing-keyrings"></a>
+## キーホルダーの管理<a id="managing-keyrings"></a>
 
-`Keyring` is a structure that contains the address of the kaia account and the private key(s).
+`Keyring`はkaiaアカウントのアドレスと秘密鍵を含む構造体である。
 
-`Keyring` can be classified into three types depending on the type of key being stored: `SingleKeyring` to store one address and one private key, `MultipleKeyring` to store one address and multiple private keys, and `RoleBasedKeyring` to store one address and one or more private keys for each role.
+`Keyring`は、保存する鍵の種類によって3つのタイプに分類できる：1つのアドレスと1つの秘密鍵を保存する `SingleKeyring`、1つのアドレスと複数の秘密鍵を保存する `MultipleKeyring`、1つのアドレスとロールごとに1つ以上の秘密鍵を保存する `RoleBasedKeyring` である。
 
-`SingleKeyring` defines `key` property inside, and this `key` stores one private key.
+`SingleKeyring`は内部に`key`プロパティを定義し、この`key`に秘密鍵を1つ格納する。
 
-`MultipleKeyring` defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+`MultipleKeyring`は内部で `keys` プロパティを定義しており、この `keys` は複数の秘密鍵を格納する配列として実装されている。
 
-The `keys` property defined in `RoleBasedKeyring` is implemented as a List object having 3 arrays of private key(s) as its elements (empty `keys` will look like `[ [], [], [] ]`) and so that it can include multiple keys for each `role`. The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+`RoleBasedKeyring` で定義されている `keys` プロパティは、秘密鍵の3つの配列を要素とするリストオブジェクトとして実装されている (空の `keys` は `[ [], [], [] ]` のようになる)。 配列の最初の要素には `roleTransactionKey` に使用する秘密鍵、2 番目の要素には `roleAccountUpdateKey` に使用する秘密鍵、3 番目の要素には `roleFeePayerKey` に使用する秘密鍵が格納される。
 
-### Creating a Keyring <a id="creating-a-keyring"></a>
+### キーホルダーの作成<a id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a id="generating-a-singlekeyring"></a>
+#### シングルキーリングの生成<a id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+以下のように、1つのキーホルダーをランダムに生成することができます。
 
 ```java
 SingleKeyring keyring = caver.wallet.keyring.generate();
 ```
 
-#### Creating a SingleKeyring from private key <a id="creating-a-singlekeyring-from-private-key"></a>
+#### 秘密鍵からSingleKeyringを作成する<a id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+また、特定の秘密鍵を所有している場合は、以下のようにキーホルダーを作成するために使用することができます。
 
 ```java
 String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromPrivateKey(privateKey);
 ```
 
-#### Creating a SingleKeyring with a private key and an address <a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 秘密鍵とアドレスを持つSingleKeyringの作成<a id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your kaia account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+kaiaアカウントの秘密鍵がアドレスから切り離されている場合、以下のように指定されたアドレスと指定された秘密鍵を使ってキーリングを作成することができます。
 
 ```java
 String address = "0x{address in hex}";
@@ -242,16 +242,16 @@ String privateKey = "0x{private key in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createWithSingleKey(address, privateKey);
 ```
 
-Also, you can derive SingleKeyring instance from kaia wallet key.
+また、KaiaウォレットキーからSingleKeyringインスタンスを派生させることもできます。
 
 ```java
 String klaytnWalletKey = "0x{private key}0x{type}0x{address in hex}";
 SingleKeyring keyring = caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey);
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 複数の秘密鍵を持つMultipleKeyringの作成<a id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a `MultipleKeyring` using an address and multiple private keys. The below examples show how to create a `MultipleKeyring` with multiple private keys.
+複数の秘密鍵を使用したい場合は、アドレスと複数の秘密鍵を使用して `MultipleKeyring` を作成することができる。 以下の例は、複数の秘密鍵を持つ `MultipleKeyring` を作成する方法を示している。
 
 ```java
 String address = "0x{address in hex}";
@@ -259,9 +259,9 @@ String[] privateKeyArray = new String[] {"0x{private key#1}", "0x{private key#2}
 MultipleKeyring multipleKeyring = caver.wallet.keyring.createWithMultipleKey(address, privateKeyArray);
 ```
 
-#### Creating a RoleBasedKeyring with private keys <a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### 秘密鍵によるRoleBasedKeyringの作成<a id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each `role`, `caver.wallet.keyring.createWithRoleBasedKey` is used. Each array element represents a role described in `RoleBasedKeyring`. The example below shows how to create a `RoleBasedKeyring` instance from different keys for each role.
+`role`ごとに異なる秘密鍵を使用するには、`caver.wallet.keyring.createWithRoleBasedKey`を使用する。 配列の各要素は `RoleBasedKeyring` に記述されたロールを表す。 以下の例では、ロールごとに異なるキーから `RoleBasedKeyring` インスタンスを作成する方法を示している。
 
 ```java
 String address = "0x{address in hex}";
@@ -289,9 +289,9 @@ String[][] privateKeyArr = new String[][] {
 RoleBasedKeyring keyring = caver.wallet.keyring.createWithRoleBasedKey(address, Arrays.asList(privateKeyArr));
 ```
 
-### Adding Keyrings to caver-java from a keystore json string.<a id="adding-keyrings-to-caver-java"></a>
+### キーストアのjson文字列からcaver-javaにキーリングを追加する。<a id="adding-keyrings-to-caver-java"></a>
 
-You can use a keyring more easily by adding it to the in-memory wallet provided by caver-java. The following examples illustrate how to add a keyring to `caver.wallet` using a keystore JSON file string generated by [Kaia Wallet](https://wallet.klaytn.com/).
+caver-javaが提供するインメモリ・ウォレットにキーリングを追加することで、より簡単にキーリングを使用することができる。 以下の例では、[Kaia Wallet](https://wallet.klaytn.com/) によって生成されたキーストアJSONファイル文字列を使用して、`caver.wallet` にキーリングを追加する方法を説明します。
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -334,13 +334,13 @@ System.out.println("key : " + addedKeyring.getKey().getPrivateKey());
 Decrypted address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
 Decrypted key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 
-address : 0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
+address ：0xc02cec4d0346bf4124deeb55c5216a4138a40a8c
 key : 0x93c90135ae69669e416ba5997d9274f8c8bd60748761fc421e415602d68a13a5
 ```
 
-Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+上の出力を見ると、`caver.wallet`にキーリングを追加した後、`caver.wallet`からキーリングを問い合わせることができる。
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to caver.wallet via caver.wallet.newKeyring.
+使用するアドレスと秘密鍵があれば、簡単にキーリングを作成し、caver.wallet.newKeyringでcaver.walletに直接追加することができます。
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -384,34 +384,34 @@ String[][] privateKeyArr = new String[][] {
 AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', Arrays.asList(privateKeyArr))
 ```
 
-When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created and added to `caver.wallet`. When passing a 2D string array including one or more private keys for each role as an element, a Keyring instance that contains the different private key(s) for each role is created and also added to the `caver.wallet`.
+秘密鍵を指定して `caver.wallet.newKeyring` を実行すると、秘密鍵を1つ持つKeyringインスタンスが作成され、`caver.wallet` に追加される。 複数の秘密鍵を使用する場合は、複数の秘密鍵を持つKeyringインスタンスを作成し、`caver.wallet`に追加します。 要素に各ロールの秘密鍵を1つ以上含む2D文字列配列を渡すと、ロールごとに異なる秘密鍵を含むKeyringインスタンスが作成され、`caver.wallet`にも追加されます。
 
-`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+`caver.wallet.add`または `caver.wallet.newKeyring`は、`caver.wallet`にKeyringを追加した後に、Keyringのインスタンスを返します。
 
-## Sending a Transaction <a id="sending-a-transaction"></a>
+## トランザクションの送信<a id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-java on Kairos Testnet.
+このセクションでは、Kairos Testnetでcaver-javaを使ってKAIAを送信する方法を紹介します。
 
-### Getting KAIA via Kairos Faucet <a id="getting-klay-via-kairos-faucet"></a>
+### カイロス水栓でKAIAを入手する<a id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+テスト用にKAIAが必要な場合は、[Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)からKairos testnet KAIAを入手できます。 秘密鍵またはキーストアファイルを使用してkaiaウォレットにログインし、テスト用の蛇口からKairos testnet KAIAを受信します。
 
-### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
+### バリュー・トランスファー・トランザクションの送信<a id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
+caver-javaウォレットを使用して、取引の署名を生成することができます。 トランザクションをネットワークに送信するには、以下の2つのステップを踏む必要がある。
 
-1. Sign a transaction
-   - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
-   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the kaia via `caver.rpc.klay.sendRawTransaction`.
+1. 取引に署名する
+   - 使いたいキーリングが `caver.wallet` に追加されていれば、`caver.wallet.sign` 関数を使って署名することができる。
+   - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
+2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-**Note:** The sender should have enough number of KAIA to be transferred and also to pay the transaction fee.
+**注意：** 送金者は、送金されるKAIAの十分な数と取引手数料を支払う必要があります。
 
-#### Sign a transaction
+#### 取引に署名する
 
-Before sending a transaction to kaia, you should sign a transaction first.
+kaiaにトランザクションを送信する前に、まずトランザクションに署名してください。
 
-Below is an example of how to sign a transaction if a keyring is added to the `caver.wallet`.
+以下は、`caver.wallet`にキーホルダーを追加した場合のトランザクションの署名方法の例である。
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -435,17 +435,17 @@ String rlpEncoded = valueTransfer.getRLPEncoding();
 System.out.println("RLP-encoded string: " + rlpEncoded)
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+上記のコードでは、`caver.wallet` にキーホルダーを追加し、トランザクションを作成し、`caver.wallet.sign` でトランザクションに署名している。
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+上記のコードを実行すると、次のような結果が得られる。 上記のコードが実行されると、トランザクションのRLPエンコード文字列は以下のようになる。 (あなたが得たRLPエンコードされた文字列出力は、以下に示す文字列出力とは異なる可能性がある)
 
 ```bash
-RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
+RLP エンコード文字列：0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the kaia
+#### 署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace "rlpEncoding" with the value of `rlpEncoded` in the code above.
+これで、以下のように署名されたトランザクションをネットワークに送信できる。 以下の例を実行したい場合は、上記のコードの「rlpEncoding」を「`rlpEncoded`」の値に置き換えてください。
 
 ```java
 public String sendRawTransaction() {
@@ -470,7 +470,7 @@ public String sendRawTransaction() {
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+`caver.wallet`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
 
 ```java
 Caver caver = new Caver(Caver.MAINNET_URL);
@@ -506,17 +506,17 @@ try {
 }
 ```
 
-When the above code is executed, the transaction hash (txHash) is printed like the example below.
+上記のコードが実行されると、トランザクションハッシュ（txHash）が以下の例のように出力される。
 
 ```bash
-Transaction Hash : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
+トランザクションハッシュ : 0x43e8ab1a2365ad598448b4402c1cfce6a71b3a103fce3a69905613e50b978113
 ```
 
-### Checking Receipts <a id="checking-receipts"></a>
+### 領収書のチェック<a id="checking-receipts"></a>
 
-You can use the `TransactionReceiptProcessor` to get the receipt of the transaction when you transfer the transaction to the kaia by `caver.rpc.klay.sendRawTransaction`.
+`caver.rpc.klay.sendRawTransaction`でトランザクションをkaiaに転送する際に、`TransactionReceiptProcessor`を使ってトランザクションのレシートを取得することができる。
 
-The following example shows how to get a receipt using PollingTransactionReceiptProcessor.
+次の例は、PollingTransactionReceiptProcessor を使用してレシートを取得する方法を示しています。
 
 ```java
 Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
@@ -534,9 +534,9 @@ try {
 }
 ```
 
-As described in the example above, you can get the result of sending a transaction through TransactionReceiptProcessor. The `transactionHash` field is defined inside the receipt object.
+上記の例で説明したように、TransactionReceiptProcessorを通してトランザクションの送信結果を得ることができる。 `transactionHash`フィールドはレシートオブジェクトの内部で定義される。
 
-You can use `caver.rpc.klay.getTransactionReceipt` RPC call with `txHash` string to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the `caver.rpc.klay.getTransactionReceipt` RPC call.
+caver.rpc.klay.getTransactionReceipt`RPCコールに `txHash` 文字列を指定すると、トランザクションがブロックに含まれた後、 ネットワークからいつでもトランザクションの受信を問い合わせることができる。 以下の例では、`caver.rpc.klay.getTransactionReceipt\` RPC コールを使用してレシートを取得する方法を示している。
 
 ```java
 Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
@@ -556,15 +556,15 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
 
-## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
+## 他のトランザクション・タイプの実行<a id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-java.
+カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 詳しくは[Transactions](../../../learn/transactions/transactions.md)を参照。 このセクションでは、caver-javaで使用できるいくつかの例について説明する。
 
-### Fee Delegation <a id="fee-delegation"></a>
+### 手数料の委任<a id="fee-delegation"></a>
 
-Kaia provides Fee Delegation feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+カイアはフィー委任機能を提供している。 以下は、あなたがこの種のトランザクションの送信者である場合に、RLPエンコードされたトランザクションを行う例である：
 
 ```java
 Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
@@ -584,13 +584,13 @@ String rlpEncoded = feeDelegatedValueTransfer.getRLPEncoding();
 System.out.println(rlpEncoded);
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+上記のコードが実行されると、RLPエンコードされた文字列がプリントされる。 (あなたが得たRLPエンコードされた文字列出力は、以下に示す文字列出力とは異なる可能性がある)
 
 ```bash
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's keyring, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+料金支払者は、トランザクション送信者によって署名されたRLPエンコード文字列(`rawTransaction`)に`feePayerSignatures`を付加した後、kaiaにトランザクションを送信することができる。 `caver.wallet`が料金支払者のキーリングも持っている場合、`caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`を呼び出すことで、料金支払者の署名を `feeDelegatedTx`に注入することができる。 そうでない場合、料金支払者は、下図のように、送信者によって署名されたRLPエンコー ディング文字列から`feeDelegatedTx`を作成し、料金支払者の署名を追加しなければならない。 以下の例を実行したい場合は、`0x{RLP-encoded string}` を上記の `rlpEncoded` の値に置き換えてください。
 
 ```java
 Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
@@ -607,13 +607,13 @@ caver.wallet.signAsFeePayer(feePayerKeyring.getAddress(), feeDelegatedValueTrans
 System.out.println(feeDelegatedValueTransfer.getRLPEncoding());
 ```
 
-When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+上記のコードが実行されると、送金者の署名と料金支払者の署名を含むRLPエンコードされた文字列が以下のように印刷される。 (あなたが得た出力は、以下に示す文字列出力とは異なる可能性がある）。
 
 ```bash
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+これで取引は、送金者と手数料支払者の双方によって署名され、ネットワーク上で送信できるようになった。 `0x{RLP-encoded string}` を、上記のサンプルコードで出力されたRLPエンコードされた文字列に置き換える。
 
 ```java
 Caver caver = new Caver(Caver.KAIROS_TESTNET_URL);
@@ -637,29 +637,29 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
 
-### Account Update <a id="account-update"></a>
+### アカウント更新<a id="account-update"></a>
 
-If you want to change the private key(s) for your kaia account, there are 3 important things you need to remember:
+kaiaアカウントの秘密鍵を変更したい場合、3つの重要なことを覚えておく必要があります：
 
-1. Kaia validates every transaction you send to it.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+1. カイアは、あなたが送信するすべてのトランザクションを検証します。
+2. 検証には、秘密鍵と正確に対応する公開鍵が必要です。
+3. したがって、秘密鍵を新しいものに変更するには、古い公開鍵を新しいものに変更することが **常に**先行\*\*する。 新しい公開鍵は、新しい秘密鍵から派生したものでなければならない。
 
-Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+上記の3つを念頭に置き、以下の手順で秘密鍵を変更することができます：
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your kaia account.
-4. Send AccountUpdate transaction including Account instance to kaia.
-5. Finally, replace your old keyring to the new one that was created in Step 2.
+1. 新しい秘密鍵を用意し、新しいキーリングを作成する。
+2. 必要なタイプ（単一キーリング、複数キーリング、役割ベースのキーリング）を指定してキーリングを作成します。
+3. 新しいキーリングからアカウントインスタンスを生成する。 このアカウントインスタンスは、あなたのkaiaアカウントの新しい公開鍵を保持します。
+4. Accountインスタンスを含むAccountUpdateトランザクションをkaiaに送信する。
+5. 最後に、古いキーホルダーをステップ2で作成した新しいキーホルダーに付け替えます。
 
-Please check `Account Update` for the details.
+詳細は`Account Update`をご確認ください。
 
-To change your AccountKey, you must provide an `Account` instance for the `account` field in the input argument object of `caver.transaction.type.AccountUpdate`. An `Account` instance contains the address of the kaia account and the AccountKey to be updated.
+AccountKey を変更するには、`caver.transaction.type.AccountUpdate` の入力引数オブジェクトの `account` フィールドに `Account` インスタンスを指定する必要がある。 `Account`インスタンスには、kaiaアカウントのアドレスと更新するAccountKeyが格納される。
 
-The code below is an example code that changes the private key(s) you use for your kaia account along with changing AccountKey of your kaia account to `AccountKeyPublic`. Don't forget to prepare your new private key(s).
+以下のコードは、kaia アカウントの AccountKey を `AccountKeyPublic` に変更するとともに、kaia アカウントで使用する秘密鍵を変更するサンプルコードです。 新しい秘密鍵の準備もお忘れなく。
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -700,11 +700,11 @@ try {
 senderKeyring = (SingleKeyring)caver.wallet.updateKeyring(newKeyring);
 ```
 
-If the above code is executed successfully, you are no longer able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+上記のコードが正常に実行されると、古い秘密鍵を使って古い鍵リングを使ったトランザクションに署名することはできなくなる。 そのため、`caver.wallet.updateKeyring(newKeyring)` を使って、古いキーリングを `newKeyring` で更新する必要がある。 秘密鍵が更新されると、新たに更新された秘密鍵によって署名が行われる。
 
-Here comes how to update AccountKey of your kaia account with multiple `AccountKeys`? The example below explains how to create an `Account` instance with multiple private keys that what you want to use (You can create an `Account` instance with multiple public keys via `caver.account.create`). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+複数の`AccountKey`を持つkaiaアカウントのAccountKeyを更新する方法は？ 以下の例では、使用したい複数の秘密鍵を持つ `Account` インスタンスを作成する方法を説明する（複数の公開鍵を持つ `Account` インスタンスは `caver.account.create` で作成できる）。 繰り返しになるが、トランザクションオブジェクト内の`account`フィールドに作成されたアカウントインスタンスを投入した後、残りの更新処理は上記の例と同じである。
 
-First, let's create an Account instance to update with `AccountKeyWeightedMultiSig`. For `AccountKeyWeightedMultiSig`, a threshold and a weight for each key must be defined. To do this, use `caver.account.weightedMultiSigOptions`. The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+まず、`AccountKeyWeightedMultiSig`で更新するAccountインスタンスを作成しよう。 `AccountKeyWeightedMultiSig`の場合、各キーの閾値と重みを定義しなければならない。 これを行うには、`caver.account.weightedMultiSigOptions`を使用する。 最初のパラメータは閾値で、2番目のパラメータは各キーの重みを含む配列である。
 
 ```java
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -719,7 +719,7 @@ WeightedMultiSigOptions options = new WeightedMultiSigOptions(threshold, Arrays.
 Account account = multipleKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using `AccountKeyRoleBased`. `AccountKeyRoleBased` is an `AccountKey` type that defines the key to use for each `role`.
+では、`AccountKeyRoleBased`を使ってAccountKeyを更新してみよう。 `AccountKeyRoleBased` は `AccountKey` 型で、各 `role` に対して使用するキーを定義する。
 
 ```java
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -729,7 +729,7 @@ RoleBasedKeyring newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, `caver.account.weightedMultiSigOptions` must be defined for each role as shown below.
+上記のAccountKeyRoleBasedは、ロールごとに1つの公開鍵を使用する例である。 上のコードからわかるように、それぞれが1つの秘密鍵に対応している。 役割ごとに複数の秘密鍵を使用する場合は、以下のように役割ごとに `caver.account.weightedMultiSigOptions` を定義する必要がある。
 
 ```java
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -745,7 +745,7 @@ WeightedMultiSigOptions[] options = new WeightedMultiSigOptions[] {
 Account account = newKeyring.toAccount(Arrays.asList(options));
 ```
 
-If you want to update AccountKey to `AccountKeyLegacy` or `accountKeyFail`, create an Account instance as shown below and assign it to the `account` field of the transaction. The rest of the update process is same to that of other AccountKey.
+AccountKey を `AccountKeyLegacy` または `accountKeyFail` に更新したい場合は、以下のように Account インスタンスを作成し、それをトランザクションの `account` フィールドに代入する。 残りの更新プロセスは、他のAccountKeyと同じである。
 
 ```java
 // Create an account with AccountKeyLegacy
@@ -755,11 +755,11 @@ Account account = caver.account.createWithAccountKeyLegacy(keyringToUpdate.addre
 Account account = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Smart Contract <a id="smart-contract"></a>
+### スマート契約<a id="smart-contract"></a>
 
-The `Contract` class in `caver.contract` package makes it easy to interact with smart contracts on kaia. All functions of a smart contract automatically converted and stored inside `contract` instance, when its low-level ABI is given. This allows you to interact with a smart contract like you handle a `contract` instance in Java.
+`caver.contract`パッケージの`Contract`クラスは、kaia上のスマートコントラクトとのやり取りを簡単にする。 スマートコントラクトのすべての関数は、低レベルABIが指定されると自動的に変換され、`contract`インスタンスに格納される。 これにより、Javaで`contract`インスタンスを扱うように、スマート・コントラクトと対話することができる。
 
-We begin our explanation of dealing with a smart contract in Java by writing a simple solidity example code below. Create a 'test.sol' file and write down the example below.
+以下に簡単なsolidityのサンプルコードを書くことで、Javaでスマート・コントラクトを扱う説明を始める。 test.sol'ファイルを作成し、以下の例を書いてください。
 
 ```
 pragma solidity ^0.5.6;
@@ -771,11 +771,11 @@ contract KVstore {
     }
     function set(string memory key, string memory value) public {
         store[key] = value;
-    }
+    }.
 }
 ```
 
-Then, compile this smart contract to get its bytecode and ABI.
+次に、このスマート・コントラクトをコンパイルして、バイトコードとABIを取得する。
 
 ```text
 > solc --abi --bin ./test.sol
@@ -786,16 +786,16 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed. To compile the above program, you need to install solc:0.5.6.
+**注**：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。 上記のプログラムをコンパイルするには、solc:0.5.6をインストールする必要がある。
 
-To deploy a smart contract by its type, you can use caver-java classes described below:
+スマート・コントラクトをタイプ別にデプロイするには、以下のcaver-javaクラスを使用する：
 
-- `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
-- `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-- `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-- `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+- スマートコントラクトのトランザクションの送信者または手数料の支払者が手数料を支払うときに、`caver.contract` パッケージの `Contract` クラスを使用する。
+- スマートコントラクトのトランザクションの送信者が手数料を支払うときに、`caver.transaction` パッケージの `SmartContractDeploy` クラスを使用する。
+- スマートコントラクトトランザクションの手数料支払者が手数料を支払うときに、`caver.transaction` パッケージの `feeDelegatedSmartContractDeploy` クラスを使用する。
+- スマートコントラクトの手数料支払者が手数料を支払うとき、`caver.transaction` パッケージの `feeDelegatedSmartContractDeployWithRatio` クラスを使用する。
 
-Here is an example of exploiting `Contract` class in `caver.contract` package. You can create a `contract` instance like below from the bytecode and ABI you get after compiling the smart contract.
+以下は、`caver.contract` パッケージの `Contract` クラスを悪用した例である。 スマート・コントラクトをコンパイルした後に得られるバイトコードとABIから、以下のような`contract`インスタンスを作成できる。
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -817,7 +817,7 @@ Here is an example of exploiting `Contract` class in `caver.contract` package. Y
     }
 ```
 
-Running the code above gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 function set(string,string)
@@ -825,9 +825,9 @@ function get(string)
 ContractAddress : null
 ```
 
-Looking at the output above, you can see that the `contract` instance owns the smart contract method. And since it hasn't been deployed yet, you can see that the result of `contract.getContractAddress()` is output as null.
+上の出力を見ると、`contract`インスタンスがスマート・コントラクト・メソッドを所有していることがわかる。 そして、まだデプロイされていないので、`contract.getContractAddress()`の結果がnullとして出力されているのがわかる。
 
-If this contract was already deployed and you knew the contract address where this contract was deployed at, pass the contract address as the third parameter of the constructor of the `contract` instance as below.
+このコントラクトがすでにデプロイされていて、このコントラクトがデプロイされたコントラクトアドレスを知っている場合は、以下のように `contract` インスタンスのコンストラクタの 3 番目のパラメータとしてコントラクトアドレスを渡す。
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -851,7 +851,7 @@ If this contract was already deployed and you knew the contract address where th
     }
 ```
 
-Running the code above gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 function set(string,string)
@@ -859,11 +859,11 @@ function get(string)
 ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A `contract` instance stores its contract address as `contractAddress` property when it was created. The address can be accessed through getter / setter function (`getContractAddress()` / `setContractAddress()`).
+`contract`のインスタンスは、生成時に `contractAddress` プロパティとして契約書アドレスを格納する。 アドレスはゲッター/セッター関数（`getContractAddress()` / `setContractAddress()`）でアクセスできる。
 
-Once a `contract` instance is created, you can deploy the smart contract by passing its bytecode and constructor's arguments (when needed for deploying) as the example below.
+いったん `contract` インスタンスが作成されると、以下の例のように、そのバイトコードとコンストラクタの引数（デプロイに必要な場合）を渡すことで、スマート・コントラクトをデプロイできる。
 
-Note that the `deploy()` method of the `contract` instance sends transactions for contract deployment and contract execution. For sending transactions, it uses Keyrings in `caver.wallet` to sign them. The keyring to be used must have been added to `caver.wallet` before signing.
+コントラクトインスタンス `contract` の `deploy()` メソッドは、コントラクトのデプロイとコントラクトの実行のためのトランザクショ ンを送信することに注意すること。 トランザクションの送信には、`caver.wallet`内のKeyringsを使って署名する。 使用するキーホルダーは、署名する前に `caver.wallet` に追加しておく必要がある。
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -889,20 +889,20 @@ Note that the `deploy()` method of the `contract` instance sends transactions fo
     }
 ```
 
-In the code above, the `deployer` deploys the contract to the kaia and returns the deployed `contract` instance.
+上のコードでは、`deployer` がコントラクトを kaia にデプロイし、デプロイされた `contract` インスタンスを返す。
 
 ```bash
-ContractAddress : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
+契約アドレス : 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-A smart contract can be deployed using one of the following classes, depending on the type of contract deploying transaction:
+スマート・コントラクトは、トランザクションをデプロイするコントラクトのタイプに応じて、以下のクラスのいずれかを使ってデプロイできる：
 
-- `Contract` class in the `caver.contract` package when the sender or the fee payer of a smart contract transaction pays the fee
-- `SmartContractDeploy` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-- `feeDelegatedSmartContractDeploy` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-- `feeDelegatedSmartContractDeployWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+- スマートコントラクトのトランザクションの送信者または手数料の支払者が手数料を支払うときに、`caver.contract` パッケージの `Contract` クラスを使用する。
+- スマートコントラクトのトランザクションの送信者が手数料を支払うときに、`caver.transaction` パッケージの `SmartContractDeploy` クラスを使用する。
+- スマートコントラクトトランザクションの手数料支払者が手数料を支払うときに、`caver.transaction` パッケージの `feeDelegatedSmartContractDeploy` クラスを使用する。
+- スマートコントラクトの手数料支払者が手数料を支払うとき、`caver.transaction` パッケージの `feeDelegatedSmartContractDeployWithRatio` クラスを使用する。
 
-To deploy a smart contract through a fee-delegated transaction, define  the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
+手数料を委任したトランザクションでスマートコントラクトをデプロイするには、`SendOptions` クラスの `feeDelegation` フィールドと `feePayer` フィールドを以下の例のように定義する。
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -937,7 +937,7 @@ To deploy a smart contract through a fee-delegated transaction, define  the `fee
     }
 ```
 
-If you want to send a transaction with sender and feePayer signed seperately when deploying a smart contract through `caver.contract`, refer to the code below.
+`caver.contract`を通じてスマートコントラクトをデプロイする際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照のこと。
 
 ```java
     private static final String byteCode = "608060405234801561001057600080fd5b5061051f806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063693ec85e1461003b578063e942b5161461016f575b600080fd5b6100f46004803603602081101561005157600080fd5b810190808035906020019064010000000081111561006e57600080fd5b82018360208201111561008057600080fd5b803590602001918460018302840111640100000000831117156100a257600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506102c1565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610134578082015181840152602081019050610119565b50505050905090810190601f1680156101615780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102bf6004803603604081101561018557600080fd5b81019080803590602001906401000000008111156101a257600080fd5b8201836020820111156101b457600080fd5b803590602001918460018302840111640100000000831117156101d657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561023957600080fd5b82018360208201111561024b57600080fd5b8035906020019184600183028401116401000000008311171561026d57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506103cc565b005b60606000826040518082805190602001908083835b602083106102f957805182526020820191506020810190506020830392506102d6565b6001836020036101000a03801982511681845116808217855250505050505090500191505090815260200160405180910390208054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c05780601f10610395576101008083540402835291602001916103c0565b820191906000526020600020905b8154815290600101906020018083116103a357829003601f168201915b50505050509050919050565b806000836040518082805190602001908083835b6020831061040357805182526020820191506020810190506020830392506103e0565b6001836020036101000a0380198251168184511680821785525050505050509050019150509081526020016040518091039020908051906020019061044992919061044e565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061048f57805160ff19168380011785556104bd565b828001600101855582156104bd579182015b828111156104bc5782518255916020019190600101906104a1565b5b5090506104ca91906104ce565b5090565b6104f091905b808211156104ec5760008160009055506001016104d4565b5090565b9056fea165627a7a723058203ffebc792829e0434ecc495da1b53d24399cd7fff506a4fd03589861843e14990029";
@@ -976,14 +976,14 @@ If you want to send a transaction with sender and feePayer signed seperately whe
     }
 ```
 
-To execute a smart contract's function by its type, you can use caver-java classes described below:
+スマート・コントラクトの機能をタイプ別に実行するには、以下のcaver-javaクラスを使用する：
 
-- `Contract` class in the `caver.contract` package when the sender of a smart contract transaction pays the fee
-- `SmartContractExecution` class in the `caver.transaction` package when the sender of a smart contract transaction pays the fee
-- `FeeDelegatedSmartContractExecution` class in the `caver.transaction` package  when the fee payer of a smart contract transaction pays the fee
-- `FeeDelegatedSmartContractExecutionWithRatio` class in the `caver.transaction` package when the fee payer of a smart contract transaction pays the fee
+- `caver.contract`パッケージの `Contract` クラスは、スマート・コントラクト・トランザクションの送信者が手数料を支払うときに使用する。
+- `caver.transaction`パッケージの `SmartContractExecution` クラスは、スマートコントラクトの送信者が手数料を支払うときに使用する。
+- スマートコントラクトトランザクションの手数料支払者が手数料を支払うときに、`caver.transaction` パッケージの `FeeDelegatedSmartContractExecution` クラスを使用する。
+- スマートコントラクトの手数料支払者が手数料を支払うときに、`caver.transaction` パッケージの `FeeDelegatedSmartContractExecutionWithRatio` クラスを使用する。
 
-To show how to execute a function in a smart contract, here we send a contract execution transaction that puts a string "testValue" as the input parameter of the contract function `set` in the example code below.
+スマートコントラクトで関数を実行する方法を示すために、以下のコード例で、コントラクト関数 `set` の入力パラメータとして文字列 "testValue" を置くコントラクト実行トランザクションを送信する。
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1008,7 +1008,7 @@ To show how to execute a function in a smart contract, here we send a contract e
     }
 ```
 
-To execute a smart contract's function through a fee-delegated transaction, define the `feeDelegation` and `feePayer` fields in the `SendOptions` class like the example below.
+スマートコントラクトの機能を手数料委任トランザクションで実行するには、以下の例のように `SendOptions` クラスで `feeDelegation` フィールドと `feePayer` フィールドを定義する。
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1038,7 +1038,7 @@ To execute a smart contract's function through a fee-delegated transaction, defi
     }
 ```
 
-If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
+`caver.contract`でスマートコントラクトを実行する際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照する：
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1074,7 +1074,7 @@ If you want to send a transaction with sender and feePayer signed separately whe
     }
 ```
 
-To load a `contract` instance and call one of its functions (not sending a transaction but just a call): the below example shows calling a `get` function in a contract.
+コントラクトのインスタンスをロードし、その関数を呼び出す（トランザクションを送信するのではなく、単に呼び出す）：以下の例では、コントラクトの `get` 関数を呼び出している。
 
 ```java
     private static final String ABIJson = "[{\"constant\":true,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"key\",\"type\":\"string\"},{\"name\":\"value\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]\n";
@@ -1093,31 +1093,31 @@ To load a `contract` instance and call one of its functions (not sending a trans
     }
 ```
 
-When the above code is executed, the value is shown as an output below.
+上記のコードが実行されると、以下のように値が出力される。
 
 ```bash
-testValue
+テスト値
 ```
 
-To find more information, see [caver-java API]
+詳細については、[caver-java API]を参照のこと。
 
-## IPFS <a id="ipfs"></a>
+## アイピーエフエス<a id="ipfs"></a>
 
-IPFS (InterPlanetary File System) is a distributed file system for storing and accessing files, websites, application, and data.
+IPFS（InterPlanetary File System）は、ファイル、ウェブサイト、アプリケーション、データの保存とアクセスのための分散ファイルシステムです。
 
-You can upload and download a file through IPFS with Caver.
+Caverを使ってIPFS経由でファイルをアップロードしたりダウンロードしたりすることができます。
 
-### Connecting with IPFS <a id="connecting-with-ipfs"></a>
+### IPFSとの接続<a id="connecting-with-ipfs"></a>
 
-The `IPFS` class in the `caver.ipfs` package is defined as a class member variable in `Caver`, so you can interact with IPFS through `Caver`.
+`caver.ipfs`パッケージの `IPFS` クラスは `Caver` のクラスメンバ変数として定義されているため、`Caver` を通して IPFS とやり取りすることができる。
 
-In order to use an `IPFS` instance through the `Caver` instance, you must call method `setIPFSNode()` first to connect to an IPFS node.
+`Caver` インスタンスを通して `IPFS` インスタンスを使用するには、最初にメソッド `setIPFSNode()` を呼び出して IPFS ノードに接続する必要があります。
 
-The function `setIPFSNode()` requires following parameters:
+関数 `setIPFSNode()` は以下のパラメータを必要とする：
 
-- IPFS HTTP API Host URL
-- IPFS HTTP API Host port number
-- Whether the host use SSL or not.
+- IPFS HTTP APIホストURL
+- IPFS HTTP API ホスト・ポート番号
+- ホストがSSLを使用しているかどうか。
 
 ```java
 String host = "The URL of an IPFS node";
@@ -1127,11 +1127,11 @@ Caver caver = new Caver();
 caver.ipfs.setIPFSNode(host, port, isSSL);
 ```
 
-### Uploading a file through IPFS<a id="uploading-a-file-through-ipfs"></a>
+### IPFSによるファイルのアップロード<a id="uploading-a-file-through-ipfs"></a>
 
-To upload a file through `IPFS`, please use `add()` like below.
+ファイルを `IPFS` 経由でアップロードするには、以下のように `add()` を使用する。
 
-This function returns [CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids) of the uploaded file.
+この関数は、アップロードされたファイルの[CID(Content Identifier)](https://docs.ipfs.io/concepts/content-addressing/#content-addressing-and-cids)を返す。
 
 ```java
 String filePath = "/path/to/file";
@@ -1139,13 +1139,13 @@ String cid = caver.ipfs.add(filePath);
 System.out.println(cid);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-Likewise, you can upload a byte array.
+同様に、バイト配列をアップロードすることもできる。
 
 ```java
 String text = "sample data";
@@ -1155,28 +1155,28 @@ String cid = caver.ipfs.add(data);
 System.out.println(cid);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq
 ```
 
-### Downloading a file from IPFS<a id="downloading-a-file-from-ipfs"></a>
+### IPFSからファイルをダウンロードする<a id="downloading-a-file-from-ipfs"></a>
 
-To download a file from `IPFS`, please use `get()` like below.
+`IPFS` からファイルをダウンロードするには、以下のように `get()` を使用する。
 
-This function requires CID of the file to be downloaded.
+この機能には、ダウンロードするファイルのCIDが必要です。
 
 ```java
 String cid = "QmYzW1fXbapdxkZXMQeCYoDCjVc18H8tLfMfrxXRySmQiq";
 byte[] content = caver.ipfs.get(cid);
 ```
 
-### Conversion between CID and multihash <a id="conversion-between-cid-and-multihash"></a>
+### CIDとマルチハッシュの変換<a id="conversion-between-cid-and-multihash"></a>
 
-You can convert a CID to a [Multihash](https://multiformats.io/multihash/) using `toHex()`.
+`toHex()`を使うと、CIDを[Multihash](https://multiformats.io/multihash/)に変換できる。
 
-A CID is a Base58 encoded value of a multihash. `toHex()` decodes the CID and returns the corresponding multihash.
+CIDはBase58でエンコードされたマルチハッシュの値である。 `toHex()`はCIDをデコードし、対応するマルチハッシュを返す。
 
 ```java
 String cid = "QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk";
@@ -1184,13 +1184,13 @@ String multihash = caver.ipfs.toHex(cid);
 System.out.println(multihash);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47
 ```
 
-To convert a multihash to CID, please use `fromHex()`.
+マルチハッシュをCIDに変換するには `fromHex()` を使う。
 
 ```java
 String multihash = "0x12209cbc07c3f991725836a3aa2a581ca2029198aa420b9d99bc0e131d9f3e2cbe47";
@@ -1198,34 +1198,34 @@ String cid = caver.ipfs.fromHex(multihash);
 System.out.println(cid);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 QmYtUc4iTCbbfVSDNKvtQqrfyezPPnFvE33wFmutw9PBBk
 ```
 
-## Detect KCT interface<a id="detect kct interface"></a>
+## KCTインターフェイスの検出<a id="detect kct interface"></a>
 
-KCT (Kaia Compatible Token) contracts such as [KIP-7], [KIP-17], and [KIP-37] define and provide various interfaces, and [KIP-13] allows you to see whether a contract complies with KCT specifications and which interface it implements, by sending a query to the contract.
+KIP-7]、[KIP-17]、[KIP-37]のようなKCT（Kaia Compatible Token）コントラクトは、様々なインタフェースを定義し提供しており、[KIP-13]では、コントラクトにクエリを送信することで、コントラクトがKCT仕様に準拠しているかどうか、どのインタフェースを実装しているかを確認することができます。
 
-[KIP-13] was implemented in Caver v1.5.7. It could detect interface through `detectInterface()` for any of the KCT contract classes (`KIP7`, `KIP17`, and `KIP37`).
+[KIP-13]はCaver v1.5.7で実装されました。 KCTのコントラクトクラス(`KIP7`, `KIP17`, `KIP37`)の `detectInterface()` からインターフェースを検出することができる。
 
-### Detecting KIP-7 Interfaces <a id="detecting-kip-7-interfaces"></a>
+### KIP-7インターフェースの検出<a id="detecting-kip-7-interfaces"></a>
 
-To detect KIP-7 interfaces, you can use `detectInterface()` in the `KIP7` class.
-It returns the mapping between KIP-7 interface identifier and a boolean that the interface is supported or not.
+KIP-7 インタフェースを検出するには、`KIP7` クラスの `detectInterface()` を使うことができる。
+KIP-7インタフェース識別子と、そのインタフェースがサポートされているかどうかのブール値の対応を返す。
 
-`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()`はスタティック・メソッドとインスタンス・メソッドの両方をサポートしているので、ニーズに合ったメソッドを選んで使うことができる。
 
-The interface detected through `detectInterface()` for `KIP7` is shown in the table below.
+`KIP7`の `detectInterface()` で検出されたインターフェースは以下の表のとおりである。
 
-| Interface     | KIP-13 Identifier |
-| ------------- | ----------------- |
-| IKIP7         | 0x65787371        |
-| IKIP7Metadata | 0xa219a025        |
-| IKIP7Mintable | 0xeab83e20        |
-| IKIP7Burnable | 0x3b5a0bf8        |
-| IKIP7Pausable | 0x4d5507ff        |
+| インターフェース      | KIP-13 識別子 |
+| ------------- | ---------- |
+| イキップ7         | 0x65787371 |
+| IKIP7メタデータ    | 0xa219a025 |
+| IKIP7Mintable | 0xeab83e20 |
+| IKIP7バーナブル    | 0x3b5a0bf8 |
+| IKIP7Pausable | 0x4d5507ff |
 
 ```java
 Caver caver = new Caver(Caver.DEFAULT_URL);
@@ -1244,7 +1244,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 {
@@ -1253,27 +1253,27 @@ The execution result of the above code is shown below.
   "IKIP7" : true,
   "IKIP7Pausable" : true,
   "IKIP7Mintable" : true
-}
+}.
 ```
 
-### Detecting KIP-17 Interfaces <a id="detecting-kip-17-interfaces"></a>
+### KIP-17インターフェイスの検出<a id="detecting-kip-17-interfaces"></a>
 
-To detect the interface implemented in a KIP-17 token contract, you can use `detectInterface()` in the `KIP17` class.
-It returns the mapping between KIP-17 interface identifier and interface support.
+KIP-17 トークンコントラクトに実装されているインタフェースを検出するには、`KIP17` クラスの `detectInterface()` を使用します。
+KIP-17 インタフェース識別子とインタフェース・サポートのマッピングを返す。
 
-`detectInterface()` supports both static and instance methods, so you can select and use the method that suits your needs.
+`detectInterface()`はスタティック・メソッドとインスタンス・メソッドの両方をサポートしているので、ニーズに合ったメソッドを選んで使うことができる。
 
-The interface detect through `detectInterface()` for `KIP17` is shown in the table below.
+`KIP17`の`detectInterface()`で検出されたインターフェースは以下の表の通りである。
 
-| Interface              | KIP-13 Identifier |
-| ---------------------- | ----------------- |
-| IKIP17                 | 0x80ac58cd        |
-| IKIP17Metadata         | 0x5b5e139f        |
-| IKIP17Enumerable       | 0x780e9d63        |
-| IKIP17Mintable         | 0xeab83e20        |
-| IKIP17MetadataMintable | 0xfac27f46        |
-| IKIP17Burnable         | 0x42966c68        |
-| IKIP17Pausable         | 0x4d5507ff        |
+| インターフェース               | KIP-13 識別子 |
+| ---------------------- | ---------- |
+| IKIP17                 | 0x80ac58cd |
+| IKIP17メタデータ            | 0x5b5e139f |
+| IKIP17Enumerable       | 0x780e9d63 |
+| IKIP17Mintable         | 0xeab83e20 |
+| IKIP17MetadataMintable | 0xfac27f46 |
+| IKIP17燃焼可能             | 0x42966c68 |
+| IKIP17Pausable         | 0x4d5507ff |
 
 ```java
 
@@ -1293,7 +1293,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 {
@@ -1304,25 +1304,25 @@ The execution result of the above code is shown below.
   "IKIP17" : true,
   "IKIP17MetadataMintable" : true,
   "IKIP17Pausable" : true
-}
+}.
 ```
 
-### Detecting KIP-37 interfaces <a id="detecting-kip-37-interfaces"></a>
+### KIP-37インターフェースの検出<a id="detecting-kip-37-interfaces"></a>
 
-To detect the interface implemented in a KIP-37 token contract, you can use `detectInterface()` in the `KIP37` class.
-It returns the mapping between KIP-37 interface identifier and interface support.
+KIP-37 のトークンコントラクトに実装されているインタフェースを検出するには、`KIP37` クラスの `detectInterface()` を使用します。
+KIP-37 インタフェース識別子とインタフェースのサポートとの間のマッピングを返す。
 
-`detectInterface()` supports both static and instance methods, so you can select and use the appropriate method.
+`detectInterface()`はスタティック・メソッドとインスタンス・メソッドの両方をサポートしているので、適切なメソッドを選択して使うことができる。
 
-The interface detection through `detectInterface()` for `KIP37` is shown in the table below.
+`KIP37`の`detectInterface()`によるインターフェース検出を以下の表に示す。
 
-| Interface      | KIP-13 Identifier |
-| -------------- | ----------------- |
-| IKIP37         | 0x6433ca1f        |
-| IKIP37Metadata | 0x0e89341c        |
-| IKIP37Mintable | 0xdfd9d9ec        |
-| IKIP37Burnable | 0x9e094e9e        |
-| IKIP37Pausable | 0x0e8ffdb7        |
+| インターフェース       | KIP-13 識別子 |
+| -------------- | ---------- |
+| IKIP37         | 0x6433ca1f |
+| IKIP37メタデータ    | 0x0e89341c |
+| IKIP37Mintable | 0xdfd9d9ec |
+| IKIP37燃焼可能     | 0x9e094e9e |
+| IKIP37Pausable | 0x0e8ffdb7 |
 
 ```java
 
@@ -1342,7 +1342,7 @@ String resultJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r
 System.out.println(resultJson);
 ```
 
-The execution result of the above code is shown below.
+上記のコードの実行結果を以下に示す。
 
 ```java
 {
@@ -1351,7 +1351,7 @@ The execution result of the above code is shown below.
   "IKIP37" : true,
   "IKIP37Pausable" : true,
   "IKIP37Mintable" : true
-}
+}.
 ```
 
 [caver-java API]: https://javadoc.io/doc/com.klaytn.caver/core/

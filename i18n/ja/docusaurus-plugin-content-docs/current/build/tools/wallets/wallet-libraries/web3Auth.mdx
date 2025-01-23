@@ -2,38 +2,38 @@
 sidebar_label: Web3Auth
 ---
 
-# Integrate Web3Auth into a dApp
+# Web3AuthをdAppに統合する
 
 ![](/img/banners/kaia-web3Auth.png)
 
-## Introduction
+## はじめに
 
-[Web3Auth](https://web3auth.io/docs/) is a wallet infrastructure that is plugged into dApps or wallets. It serves as a pluggable authentication infrastructure for web3 wallets and applications. With Web3Auth's excellent user experience, both mainstream and crypto natives may be onboarded in a matter of minutes.
+[Web3Auth](https://web3auth.io/docs/)は、dAppsやウォレットにプラグインされるウォレットインフラストラクチャである。 Web3ウォレットとアプリケーションのためのプラグイン可能な認証インフラストラクチャとして機能します。 Web3Authの優れたユーザーエクスペリエンスにより、メインストリームと暗号化ネイティブの両方が、数分で参加できる可能性がある。
 
-As a wallet infrastructure, it provides out-of-the-box support for all social logins, web and mobile native platforms, wallets, and other key management methods. By the end of this guide, you will have integrated Web3Auth into your decentralized web application built on the Kaia Network. To integrate Web3Auth into other platforms (Android, iOS, React Native, Flutter, & Unity), kindly refer to this [guide](https://web3auth.io/docs/quick-start).
+ウォレット・インフラストラクチャとして、あらゆるソーシャル・ログイン、ウェブおよびモバイルのネイティブ・プラットフォーム、ウォレット、その他の鍵管理方法をすぐにサポートする。 このガイドが終わる頃には、Web3AuthをKaia Network上に構築された分散型ウェブアプリケーションに統合していることでしょう。 Web3Authを他のプラットフォーム（Android、iOS、React Native、Flutter、Unity）に統合するには、こちらの[ガイド](https://web3auth.io/docs/quick-start)を参照してください。
 
-For a quick start, the complete code for this tutorial is available on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md). You can clone or download the repository to follow along.
+手っ取り早く始めるために、このチュートリアルの完全なコードは[GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md)にあります。 レポジトリをクローンするか、ダウンロードすることでフォローすることができる。
 
-## Prerequisite
+## 前提条件
 
-* A working react project (by executing `npm create vite@latest project-name -- --template react-ts`)
-* Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-* Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
-* Get your Client ID from [Web3Auth Dashboard](https://dashboard.web3auth.io/).
+* 動作中のreactプロジェクト（`npm create vite@最新のプロジェクト名 -- --template react-ts` を実行する）。
+* 必要なウォレット（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）をインストールします。
+* RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
+* [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+* Web3Auth Dashboard](https://dashboard.web3auth.io/)からクライアントIDを取得します。
 
-## Installation
+## インストール
 
-To make use of Web3Auth in your dApp, you must install the required libraries and SDK first. Hence, you'll need to set up ethers.js, and the Web3Auth Web SDK. You can use Web3Auth together with either [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) or [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) libraries to communicate with the Kaia blockchain. We'll be using ethers.js for this guide.
+dAppでWeb3Authを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsとWeb3Auth Web SDKをセットアップする必要がある。 Web3Authは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、または[kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/)ライブラリのいずれかと一緒に使用して、カイアブロックチェーンと通信することができます。 このガイドではethers.jsを使用します。
 
 ```bash
 npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
 npm install --save ethers
 ```
 
-## Initializing Web3Auth and Provider Instance
+## Web3Authとプロバイダーインスタンスを初期化する
 
-After successfully installing the needed libraries, next is to initialize the Web3Auth instance, set the Web3Auth **provider** instance in a `useState()` hook and also the `init()` function in a `useEffect()` hook.
+必要なライブラリのインストールに成功したら、次は Web3Auth インスタンスを初期化する。Web3Auth **provider** インスタンスを `useState()` フックに設定し、`init()` 関数を `useEffect()` フックに設定する。
 
 <CH.Spotlight>
   <CH.Code>
@@ -300,7 +300,7 @@ After successfully installing the needed libraries, next is to initialize the We
     import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
     export default defineConfig({
-      plugins: [
+      plugins：[
         react(),
         nodePolyfills({
           globals: {
@@ -311,8 +311,8 @@ After successfully installing the needed libraries, next is to initialize the We
           protocolImports: true,
         }),
       ],
-      define: {
-        'process.env': {},
+      define：{
+        'process.env'：{},
         global: 'globalThis',
       },
     })
@@ -322,45 +322,45 @@ After successfully installing the needed libraries, next is to initialize the We
 
   ---
 
-  Import Web3Auth and other dependent packages.
+  Web3Authとその他の依存パッケージをインポートする。
 
   ```js App.tsx focus=1:10
   ```
 
   ---
 
-  Import React hooks (useState and useEffect) and utility functions:
+  Reactフック（useStateとuseEffect）とユーティリティ関数をインポートする：
 
-  * `useState` and `useEffect`: React hooks for state management and side effects.
-  * `RPC`: Custom utility functions from `etherRPC.ts` for Ethereum-compatible blockchain interactions using ethers.js.
+  * `useState`と `useEffect`：状態管理と副作用のための React フック。
+  * `RPC`：ethers.js を使用したイーサリアム互換ブロックチェーンとのインタラクションのための `etherRPC.ts` からのカスタムユーティリティ関数。
 
   ```js App.tsx focus=13:15
   ```
 
   ---
 
-  Paste your **Client ID** from the Web3Auth Dashboard.
+  Web3Authダッシュボードから**クライアントID**を貼り付けます。
 
   ```js App.tsx focus=16:17
   ```
 
   ---
 
-  Setup **Chain Config**: To use Web3Auth, you need to set up a chain config for the selected chain - Kaia.
+  チェーンコンフィグを設定するWeb3Authを使用するには、選択したチェーン（Kaia）のチェーン設定を行う必要があります。
 
   ```js App.tsx focus=18:27
   ```
 
   ---
 
-  Initialize Web3Auth by using the constructor, where you can pass all the configurations of Web3Auth you want.
+  コンストラクタを使用して Web3Auth を初期化し、Web3Auth のすべての設定を渡します。
 
   ```js App.tsx focus=27:44
   ```
 
   ---
 
-  Set the Web3Auth **provider** instance, **userInfo** in a `useState()` hook and the `init()` function in a `useEffect()` hook.
+  `UseState()` フックに Web3Auth の **provider** インスタンス、**userInfo** を設定し、`useEffect()` フックに `init()` 関数を設定する。
 
   ```js App.tsx focus=53:95 
   ```
@@ -368,9 +368,9 @@ After successfully installing the needed libraries, next is to initialize the We
   ---
 </CH.Spotlight>
 
-## Connecting Wallet
+## コネクティング・ウォレット
 
-Inside your App function in your `App.tsx` file, call the [connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user) method on the web3Auth instance to initiate the connection of your wallet.
+`App.tsx`ファイルのApp関数内で、web3Authインスタンスの[connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user)メソッドを呼び出し、ウォレットの接続を開始します。
 
 ```js
 function App() {
@@ -400,13 +400,13 @@ function App() {
 
 ![](/img/build/tools/web3Auth-login.png)
 
-## Setting up Utils function
+## ユーティリティ機能の設定
 
-In this guide, we will be making use of utils function: `truncateAddress()`. The truncateAddress() function takes in a valid address and returns a more readable format of the address passed in. The following steps below show how to set up and use the utils function in your project.
+このガイドでは、ユーティリティ関数 `truncateAddress()` を使用します。 truncateAddress()関数は、有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
 
-**Step 1**: Create a `utils.ts` file in the `src` root folder.
+**ステップ 1**：ルートフォルダ `src` に `utils.ts` ファイルを作成する。
 
-Paste the following code in the newly created utils.ts file:
+新しく作成したutils.tsファイルに以下のコードを貼り付ける：
 
 ```js
 export const truncateAddress = (address) => {
@@ -419,15 +419,15 @@ export const truncateAddress = (address) => {
 }
 ```
 
-**Step 2**: Import the function in your `App.tsx` file.
+**ステップ 2**：App.tsx\`ファイルに関数をインポートします。
 
 ```js
 import { truncateAddress } from './utils'
 ```
 
-## Getting Account and balance
+## アカウントとバランスの取得
 
-Having connected your wallet successfully by calling the `connect()` method on the Web3Auth instance, you can get the user account and its balance by using the provider and signer object.
+Web3Auth インスタンスで `connect()` メソッドを呼び出してウォレットとの接続に成功したら、プロバイダと署名者オブジェクトを使用してユーザーアカウントとその残高を取得できます。
 
 ```js
 function App() {
@@ -479,9 +479,9 @@ function App() {
 }
 ```
 
-## Disconnecting Wallet
+## ウォレットの切断
 
-Disconnecting from the wallet is achieved by using the [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) method on the Web3Auth instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
+ウォレットとの接続を解除するには、Web3Auth インスタンスの [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) メソッドを使用します。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
 
 ```js
 function App() {
@@ -508,9 +508,9 @@ function App() {
 }
 ```
 
-## Getting User Info
+## ユーザー情報の取得
 
-A unique feature of Web3Auth is social logins. Once a user login using their social platforms, Web3Auth instance returns some information about the logged in user. Getting the logged in user information is as simple as calling the `getUserInfo()` method on the Web3Auth instance.
+Web3Authのユニークな機能は、ソーシャルログインである。 ユーザーがソーシャルプラットフォームを使ってログインすると、Web3Authインスタンスはログインしたユーザーに関する情報を返します。 ログインしているユーザー情報を取得するには、Web3Authインスタンスの `getUserInfo()` メソッドを呼び出すだけです。
 
 ```js
 const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -539,9 +539,9 @@ return (
 )
 ```
 
-## Signing Messages
+## 署名メッセージ
 
-Having initialised the provider and signer object, users can sign an arbitrary string.
+プロバイダーと署名者オブジェクトを初期化すると、ユーザーは任意の文字列に署名できる。
 
 ```js
 // add to the existing useState hook.
@@ -575,9 +575,9 @@ return (
 )
 ```
 
-## Sending Native Transaction
+## ネイティブ・トランザクションの送信
 
-You can perform native transactions, like sending KAIA from one user to another.
+あるユーザーから別のユーザーへKAIAを送信するなど、ネイティブ・トランザクションを実行できる。
 
 ```js
 // add to the existing useState hook.
@@ -620,13 +620,13 @@ return (
 )
 ```
 
-## Working with a Smart Contract
+## スマートコントラクトとの連携
 
-You can interact with a deployed smart contract given its Application Binary Interface(ABI) and contract address. The following steps below show how to set up and use the contract address and ABI in  your project.
+デプロイされたスマートコントラクトは、そのアプリケーション・バイナリ・インターフェース（ABI）とコントラクト・アドレスを指定して対話することができる。 以下のステップは、プロジェクトでコントラクトアドレスとABIを設定し、使用する方法を示しています。
 
-**Step 1**: Create a `constants.ts` file in the `src` root folder.
+**ステップ 1**：ルートフォルダ `src` に `constants.ts` ファイルを作成する。
 
-Paste the following code in the newly created constants.ts file:
+新しく作成したconstants.tsファイルに以下のコードを貼り付ける：
 
 ```js
 export const contractABI = [
@@ -672,13 +672,13 @@ export const contractABI = [
   export const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
 ```
 
-**Step 2**: Import the **contractABI** and **contractAddress** in your `etherRPC.ts` file.
+**ステップ 2**：etherRPC.ts\`ファイルに**contractABI**と**contractAddress**をインポートする。
 
 ```js
-import { contractAddress, contractABI } from "./constants";
+import { contractAddress, contractABI } from "./constants"；
 ```
 
-### 1. Writing to a Contract
+### 1. 契約書への書き込み
 
 ```js
 // add to existing useState hook
@@ -713,7 +713,7 @@ return (
 )
 ```
 
-### 2. Reading from a Contract
+### 2. 契約書を読む
 
 ```js
 // add to existing useState hook
@@ -742,10 +742,10 @@ return (
 )
 ```
 
-## TroubleShooting
+## トラブルシューティング
 
-You can visit the [troubleshooting page](https://web3auth.io/docs/troubleshooting) to explore solutions to common challenges and issues from different bundlers.
+トラブルシューティングページ](https://web3auth.io/docs/troubleshooting)では、様々なバンドルに共通する課題や問題の解決策を調べることができます。
 
-## Next Step
+## 次のステップ
 
-For more in-depth guides on Web3Auth, please refer to the [Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) and [Web3Auth Github repository](https://github.com/web3auth).
+Web3Auth に関するより詳細なガイドについては、[Web3Auth Docs](https://web3auth.io/docs/connect-blockchain/klaytn) および [Web3Auth Github リポジトリ](https://github.com/web3auth) を参照してください。

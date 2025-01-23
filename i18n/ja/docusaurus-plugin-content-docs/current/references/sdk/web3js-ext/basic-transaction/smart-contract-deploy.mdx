@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -63,7 +63,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SmartContractDeploy.js focus=1:2
 
@@ -71,7 +71,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address and sender private key**
+**送信者アドレスと送信者秘密鍵**の定義
 
 ```js SmartContractDeploy.js focus=4:5
 
@@ -79,7 +79,7 @@ Define **sender address and sender private key**
 
 ---
 
-Smart contract **bytecode** to deploy, you can retreive it from compiled solidity code
+スマートコントラクトを**bytecode**でデプロイする。
 
 ```js SmartContractDeploy.js focus=6
 
@@ -87,7 +87,7 @@ Smart contract **bytecode** to deploy, you can retreive it from compiled solidit
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js SmartContractDeploy.js focus=9
 
@@ -95,7 +95,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SmartContractDeploy.js focus=9
 const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
@@ -130,7 +130,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js SmartContractDeploy.js focus=10
 
@@ -138,7 +138,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
+送信者の秘密鍵を、**web3.eth.account.privateKeyToAccount**を使ってアカウントに変換する。
 
 ```js SmartContractDeploy.js focus=11
 
@@ -146,7 +146,7 @@ Convert the sender's private key to an account using **web3.eth.accounts.private
 
 ---
 
-Define a transaction object for the Cancel transaction
+キャンセルトランザクション用にトランザクションオブジェクトを定義する。
 
 ```js SmartContractDeploy.js focus=13:19
 
@@ -154,7 +154,7 @@ Define a transaction object for the Cancel transaction
 
 ---
 
-Set `type: TxType.SmartContractDeploy` for the transaction type of deploying contract
+タイプを設定する：デプロイするコントラクトのトランザクションタイプにTxType.SmartContractDeploy\`を設定する。
 
 ```js SmartContractDeploy.js focus=14
 
@@ -162,7 +162,7 @@ Set `type: TxType.SmartContractDeploy` for the transaction type of deploying con
 
 ---
 
-Set `data: bytecode` or `input: bytecode` for the source of the contract
+コントラクトのソースに `data: バイトコード` または `input: バイトコード` を設定する。
 
 ```js SmartContractDeploy.js focus=16
 
@@ -170,7 +170,7 @@ Set `data: bytecode` or `input: bytecode` for the source of the contract
 
 ---
 
-Set params **from, humanReadable, codeFormat** as value in example
+パラメータ **from、humanReadable、codeFormat** を例の値に設定する。
 
 ```js SmartContractDeploy.js focus=15,17,18
 
@@ -178,7 +178,7 @@ Set params **from, humanReadable, codeFormat** as value in example
 
 ---
 
-Sign the transaction with the **sender**'s account
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 
@@ -197,7 +197,7 @@ signedTx 0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532
 
 ---
 
-Send the signed transaction to the kaia network. It will return the transaction receipt
+署名されたトランザクションをkaiaネットワークに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js SmartContractDeploy.js focus=24:25

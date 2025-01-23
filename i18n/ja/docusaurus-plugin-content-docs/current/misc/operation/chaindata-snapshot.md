@@ -1,111 +1,111 @@
-# Use Chaindata Snapshots
+# チェーンデータスナップショットを使用する
 
-You can start a node from an already-synced database called a chaindata snapshot. A chaindata snapshot is a compressed Kaia data directory.
+チェーンデータスナップショットと呼ばれる、すでに同期されたデータベースからノードを起動することができます。 chaindataスナップショットは、圧縮されたカイアのデータディレクトリです。
 
 :::note
 
-This saves time to [Full Sync](../../learn/storage/block-sync.md#full-sync) the whole blockchain, allowing you to relatively quickly start a new node or recover from corrupt database.
+これにより、ブロックチェーン全体を[Full Sync](../../learn/storage/block-sync.md#full-sync)する時間が節約され、新しいノードを比較的迅速に開始したり、破損したデータベースから回復したりすることができます。
 
 :::
 
-## Prepare Data Directory
+## データディレクトリの準備
 
-Before start, prepare enough disk space to accommodate both compressed file and uncompressed directory.
+開始する前に、圧縮ファイルと非圧縮ディレクトリの両方を収容できる十分なディスク容量を用意してください。
 
-- If you're going to start from an empty machine, simply create a datadir.
+- 空のマシンから始めるなら、datadirを作るだけでいい。
   ```sh
   sudo mkdir /var/kend
   ```
-- If you're going to swap the existing directory, create a temporary directory.
-  - Option 1. Mount a new disk (Recommended for optimal disk utilization)
+- 既存のディレクトリを入れ替える場合は、一時ディレクトリを作成する。
+  - オプション1。 新しいディスクをマウントする。
     ```sh
     $ lsblk
-    NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-    nvme2n1       259:0    0  3500G  0 disk /var/kend2 # New disk at temporary path
-    nvme1n1       259:0    0  4000G  0 disk /var/kcnd  # Old disk at production path
-    nvme0n1       259:2    0    8G  0 disk
-    ├─nvme0n1p1   259:3    0    8G  0 part /
-    └─nvme0n1p128 259:4    0    1M  0 part
+    NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+    nvme2n1 259:0 0 3500G 0 disk /var/kend2 # 一時パスの新しいディスク
+    nvme1n1 259：0 0 4000G 0 disk /var/kcnd # 本番パスの古いディスク
+    nvme0n1 259:2 0 8G 0 disk
+    ├─nvme0n1p1 259:3 0 8G 0 part /
+    └─nvme0n1p128 259:4 0 1M 0 part
 
     ```
-  - Option 2. Use existing disk
+  - オプション2。 既存のディスクを使用
     ```sh
     sudo mkdir /var/kend2/data
     ```
 
-## Download the File
+## ファイルをダウンロードする
 
-Download a compressed file to the new directory. URLs can be found at the bottom of this page.
+新しいディレクトリに圧縮ファイルをダウンロードする。 URLはこのページの下にあります。
 
-- Option 1. curl
+- オプション1。 カール
   ```sh
   curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
-- Option 2. wget
+- オプション2。 ウィジェット
   ```sh
   wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
-- Option 3. axel
+- オプション3。 アクセル
   ```sh
-  # Amazon Linux installation example
+  # Amazon Linux インストール例
   sudo amazon-linux-extras install epel
   sudo yum install axel pigz
 
-  # Multi-threaded download and print status bar
-  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  # マルチスレッドダウンロードとステータスバーの表示
+  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/[/{printf "%s'$'\r''", $0}'.
   ```
-- Option 4. aria2
+- オプション4。 アリア2
   ```sh
-  # Rocky Linux installation example
+  # Rocky Linux インストール例
   sudo yum install epel-release aria2
 
-  # Lightweight, multi-connection download
+  # 軽量、マルチコネクションダウンロード
   aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
 
-## Decompress the File
+## ファイルを解凍する
 
-- Option 1. tar
+- オプション1。 タール
   ```sh
-  tar -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  tar -xvf kaia-mainnet-chaindata-xxxxxxxxxx.tar.gz
   ```
-- Option 2. tar and pigz
+- オプション2。 タールとピッグス
   ```sh
-  # Amazon Linux & Rocky Linux installation example
+  # Amazon Linux & Rocky Linux インストール例
   sudo yum install pigz
 
-  # Multi-threaded decompression
-  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  # マルチスレッド解凍
+  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxx.tar.gz
   ```
 
-## Swap the data directory
+## データ・ディレクトリを入れ替える
 
-- First, stop the node.
-  - **IMPORTANT**: If you are running a consensus node (CN), make sure to remove the node from the Council.
-- Option 1. Swap the content at the same path
-  - If you mounted new disk, change the mount.
+- まず、ノードを停止する。
+  - **重要**：重要\*\*：コンセンサス・ノード(CN)を実行している場合は、必ずそのノードをカウンシルから削除してください。
+- オプション1。 同じパスでコンテンツを入れ替える
+  - 新しいディスクをマウントした場合は、マウントを変更する。
     ```sh
-    umount /var/kend  # Old disk
-    umount /var/kend2 # New disk at temporary path
-    mount /dev/nvme2n1 /var/kend  # New disk at production path
+    umount /var/kend # 古いディスク
+    umount /var/kend2 # 一時パスの新しいディスク
+    mount /dev/nvme2n1 /var/kend # 本番パスの新しいディスク
     ```
-  - If you used existing disk, rename the directory.
+  - 既存のディスクを使用している場合は、ディレクトリ名を変更する。
     ```sh
-    mv /var/kend /var/kend_old  # Old data
-    mv /var/kend2 /var/kend     # New data
+    mv /var/kend /var/kend_old # 古いデータ
+    mv /var/kend2 /var/kend # 新しいデータ
     ```
-- Option 2. Change the path in the node configuraion
-  - Change `DATA_DIR` value in the `kend.conf` file.
-- Optionally delete old data and tar.gz file.
-- Finally, start the node.
+- オプション2。 ノード・コンフィギュレーションのパスを変更する。
+  - `kend.conf` ファイルの `DATA_DIR` の値を変更する。
+- オプションで古いデータとtar.gzファイルを削除する。
+- 最後にノードをスタートさせる。
 
-## Downloads
+## ダウンロード
 
-For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Storage Optimization](../../learn/storage/state-pruning.md) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
+効率化のため、バッチ・プルーニング（状態移行）またはライブ・プルーニングされたデータベースのみが提供される。 その概念については、[ストレージの最適化](../../learn/storage/state-pruning.md)を読んでほしい。 プルーニングもアーカイブデータもない完全なデータベースが必要な場合は、ジェネシスから新たに完全同期を実行してください。
 
-| network | sync options   | download                                                                                            |
-| ------- | -------------- | --------------------------------------------------------------------------------------------------- |
-| mainnet | state migrated | https://packages.kaia.io/mainnet/chaindata/         |
-| mainnet | live pruning   | https://packages.kaia.io/mainnet/pruning-chaindata/ |
-| kairos  | state migrated | https://packages.kaia.io/kairos/chaindata/          |
-| kairos  | live pruning   | https://packages.kaia.io/kairos/pruning-chaindata/  |
+| ネットワーク | 同期オプション | ダウンロード                                                                                              |
+| ------ | ------- | --------------------------------------------------------------------------------------------------- |
+| メインネット | 移行状態    | https://packages.kaia.io/mainnet/chaindata/         |
+| メインネット | 生剪定     | https://packages.kaia.io/mainnet/pruning-chaindata/ |
+| カイロス   | 移行状態    | https://packages.kaia.io/kairos/chaindata/          |
+| カイロス   | 生剪定     | https://packages.kaia.io/kairos/pruning-chaindata/  |

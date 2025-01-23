@@ -33,7 +33,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 true
 ```
 
-## caver.rpc.klay.getAccount<a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
+## caver.rpc.klay.getAccount <a href="#caver-rpc-klay-getaccount" id="caver-rpc-klay-getaccount"></a>
 
 ```javascript
 caver.rpc.klay.getAccount(address [, blockNumber] [, callback])
@@ -297,7 +297,7 @@ caver.rpc.klay.encodeAccountKey(accountKey] [, callback])
 0x02a102f1d2e558cfa07151534cd406b1ac5c25d99e9c1cf925328d14fd15c6fe50df27
 ```
 
-## caver.rpc.klay.decodeAccountKey<a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
+## caver.rpc.klay.decodeAccountKey <a href="#caver-rpc-klay-decodeaccountkey" id="caver-rpc-klay-decodeaccountkey"></a>
 
 ```javascript
 caver.rpc.klay.decodeAccountKey(encodedKey] [, callback])
@@ -412,7 +412,7 @@ caver.rpc.klay.decodeAccountKey(encodedKey] [, callback])
 }
 ```
 
-## caver.rpc.klay.getBalance<a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
+## caver.rpc.klay.getBalance <a href="#caver-rpc-klay-getbalance" id="caver-rpc-klay-getbalance"></a>
 
 ```javascript
 caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
@@ -443,7 +443,7 @@ caver.rpc.klay.getBalance(address [, blockNumber] [, callback])
 0xde0b6b3a7640000
 ```
 
-## caver.rpc.klay.getCode<a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
+## caver.rpc.klay.getCode <a href="#caver-rpc-klay-getcode" id="caver-rpc-klay-getcode"></a>
 
 ```javascript
 caver.rpc.klay.getCode(address [, blockNumber] [, callback])
@@ -474,7 +474,7 @@ caver.rpc.klay.getCode(address [, blockNumber] [, callback])
 0x60806...
 ```
 
-## caver.rpc.klay.getTransactionCount<a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
+## caver.rpc.klay.getTransactionCount <a href="#caver-rpc-klay-gettransactioncount" id="caver-rpc-klay-gettransactioncount"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
@@ -505,7 +505,7 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 0x5f
 ```
 
-## caver.rpc.klay.isContractAccount<a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
+## caver.rpc.klay.isContractAccount <a href="#caver-rpc-klay-iscontractaccount" id="caver-rpc-klay-iscontractaccount"></a>
 
 ```javascript
 caver.rpc.klay.isContractAccount(address [, blockNumber] [, callback])
@@ -539,7 +539,7 @@ false
 true
 ```
 
-## caver.rpc.klay.sign<a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
+## caver.rpc.klay.sign <a href="#caver-rpc-klay-sign" id="caver-rpc-klay-sign"></a>
 
 ```javascript
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
@@ -605,7 +605,7 @@ caver.rpc.klay.getAccounts([callback])
 ]。
 ```
 
-## caver.rpc.klay.getBlockNumber<a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
+## caver.rpc.klay.getBlockNumber <a href="#caver-rpc-klay-getblocknumber" id="caver-rpc-klay-getblocknumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockNumber([callback])
@@ -634,7 +634,7 @@ caver.rpc.klay.getBlockNumber([callback])
 0x5d39
 ```
 
-## caver.rpc.klay.getHeader<a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
+## caver.rpc.klay.getHeader <a href="#caver-rpc-klay-getheader" id="caver-rpc-klay-getheader"></a>
 
 ```javascript
 caver.rpc.klay.getHeader(blockNumberOrHash] [, callback])
@@ -680,7 +680,7 @@ caver.rpc.klay.getHeader(blockNumberOrHash] [, callback])
 }
 ```
 
-## caver.rpc.klay.getHeaderByNumber<a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
+## caver.rpc.klay.getHeaderByNumber <a href="#caver-rpc-klay-getheaderbynumber" id="caver-rpc-klay-getheaderbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, callback])
@@ -726,7 +726,7 @@ caver.rpc.klay.getHeaderByNumber(blockNumber [, returnTransactionObjects] [, cal
 }
 ```
 
-## caver.rpc.klay.getHeaderByHash<a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
+## caver.rpc.klay.getHeaderByHash <a href="#caver-rpc-klay-getheaderbyhash" id="caver-rpc-klay-getheaderbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callback])
@@ -786,7 +786,7 @@ caver.rpc.klay.getHeaderByHash(blockHash [, returnTransactionObjects] [, callbac
 }
 ```
 
-## caver.rpc.klay.getBlock<a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
+## caver.rpc.klay.getBlock <a href="#caver-rpc-klay-getblock" id="caver-rpc-klay-getblock"></a>
 
 ```javascript
 caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callback])
@@ -837,7 +837,7 @@ caver.rpc.klay.getBlock(blockNumberOrHash [, returnTransactionObjects] [, callba
 }
 ```
 
-## caver.rpc.klay.getBlockByNumber<a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
+## caver.rpc.klay.getBlockByNumber <a href="#caver-rpc-klay-getblockbynumber" id="caver-rpc-klay-getblockbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockByNumber(blockNumber [, returnTransactionObjects] [, callback])
@@ -957,7 +957,7 @@ caver.rpc.klay.getBlockByHash(blockHash [, returnTransactionObjects] [, callback
 }
 ```
 
-## caver.rpc.klay.getBlockReceipts<a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
+## caver.rpc.klay.getBlockReceipts <a href="#caver-rpc-klay-getblockreceipts" id="caver-rpc-klay-getblockreceipts"></a>
 
 ```javascript
 caver.rpc.klay.getBlockReceipts(blockHash] [, callback])
@@ -988,16 +988,16 @@ caver.rpc.klay.getBlockReceipts(blockHash] [, callback])
     {
         blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
         blockNumber: '0x5301',
-        contractAddress：null,
+        contractAddress: null,
         from: '0xddc2002b729676dfd906484d35bb02a8634d7040',
         gas: '0x61a8',
         gasPrice: '0x5d21dba00',
-        gasUsed：'0x5208',
-        logs：[],
+        gasUsed: '0x5208',
+        logs: [],
         logsBloom: '0x00000...',
         nonce: '0x5e',
         senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-        signatures：[
+        signatures: [
             { 
                 V: '0x4e44',
                 R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
@@ -1005,17 +1005,17 @@ caver.rpc.klay.getBlockReceipts(blockHash] [, callback])
             }    
         ],
         status: '0x1',
-        to：'0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
+        to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
         transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-        transactionIndex：'0x0'，
-        类型：'TxTypeValueTransfer'，
-        typeInt：8，
-        value：'0xde0b6b3a7640000'
+        transactionIndex: '0x0',
+        type: 'TxTypeValueTransfer',
+        typeInt: 8,
+        value: '0xde0b6b3a7640000'
     }
 ]
 ```
 
-## caver.rpc.klay.getBlockTransactionCountByNumber<a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
+## caver.rpc.klay.getBlockTransactionCountByNumber <a href="#caver-rpc-klay-getblocktransactioncountbynumber" id="caver-rpc-klay-getblocktransactioncountbynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockTransactionCountByNumber(blockNumber] [, callback])
@@ -1077,7 +1077,7 @@ caver.rpc.klay.getBlockTransactionCountByHash(blockHash] [, callback])
 
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByNumber<a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByNumber <a href="#caver-rpc-klay-getblockwithconsensusinfobynumber" id="caver-rpc-klay-getblockwithconsensusinfobynumber"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
@@ -1106,47 +1106,47 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 > caver.rpc.klay.getBlockWithConsensusInfoByNumber(21249).then(console.log)
 {
     blockscore: '0x1',
-    committee：['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
+    committee: ['0xddc2002b729676dfd906484d35bb02a8634d7040', '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e'],
     extraData: '0xd8830...',
-    gasUsed：'0x5208',
+    gasUsed: '0x5208',
     governanceData: '0x',
-    hash：'0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0'，
-    logsBloom：'0x00000...',
+    hash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
+    logsBloom: '0x00000...',
     number: '0x5301',
     parentHash: '0x024f05c0e7428e33331104bedbfc453d481ce6a2f5e57f7fd68a4391ba6c2619',
     proposer: '0xa1d2665c4c9f77410844dd4c22ed11aabbd4033e',
-    receiptsRoot：'0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
+    receiptsRoot: '0xe38e5532717f12f769b07ea016014bd39b74fb72def4de8442114cc2728609f2',
     reward: '0xb74837f495060f3f794dcae8fa3e0c5d3cf99d9f',
-    size：'0x313',
+    size: '0x313',
     stateRoot: '0x9964b2d8f23da7383a32ec33c9700a76ebf4a36315c9067c2fef7568d97e1d55',
-    timestamp：'0x5ee851dd',
+    timestamp: '0x5ee851dd',
     timestampFoS: '0x0',
     totalBlockScore: '0x5302',
-    transactions：[
+    transactions: [
         {
             blockHash: '0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0',
             blockNumber: '0x5301',
-            contractAddress：null,
+            contractAddress: null,
             from: '0xddc2002b729676dfd906484d35bb02a8634d7040',
             gas: '0x61a8',
             gasPrice: '0x5d21dba00',
-            gasUsed：'0x5208',
-            logs：[],
+            gasUsed: '0x5208',
+            logs: [],
             logsBloom: '0x00000...',
             nonce: '0x5e',
             senderTxHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-            signatures： {
+            signatures: {
                 V: '0x4e44',
                 R: '0x98583ffa8d9a6d5f9e60e4daebb33f18e8ad4d32653c4a2fa7f12ce025af763d',
                 S: '0x9b9e5257293e3b986842b6a203dd16ce46f16ed42dd3e9592fcaab9ea2696cb'
             },
             status: '0x1',
-            to：'0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
+            to: '0xc0aabc441129991dd3a9363a9a43b745527ea4e7',
             transactionHash: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
-            transactionIndex：'0x0'，
-            类型：'TxTypeValueTransfer'，
-            typeInt：8，
-            值：'0xde0b6b3a7640000',
+            transactionIndex: '0x0',
+            type: 'TxTypeValueTransfer',
+            typeInt: 8,
+            value: '0xde0b6b3a7640000',
         },
     ],
     transactionsRoot: '0x413f080a498ae3973490c2f80e75e6a492cfcdac8be8051220bb7a964768d28c',
@@ -1154,7 +1154,7 @@ caver.rpc.klay.getBlockWithConsensusInfoByNumber(blockNumber [, callback])
 }
 ```
 
-## caver.rpc.klay.getBlockWithConsensusInfoByHash<a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
+## caver.rpc.klay.getBlockWithConsensusInfoByHash <a href="#caver-rpc-klay-getblockwithconsensusinfobyhash" id="caver-rpc-klay-getblockwithconsensusinfobyhash"></a>
 
 ```javascript
 caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash] [, callback])
@@ -1204,71 +1204,71 @@ caver.rpc.klay.getBlockWithConsensusInfoByHash(blockHash] [, callback])
 > caver.rpc.klay.getBlockWithConsensusInfoByHash('0x4584bea6b8b2abe7f024d1e63dd0571cfd28cd5157b4f6cb2ac4160a7b0057e0').then(console.log)
 {
     blockscore: '0x1',
-    committee：[ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
+    committee: [ '0x571e5...', '0x5cb1a...', '0x99fb1...', '0xb74ff...' ],
     extraData: '0xd8830...',
-    gasUsed：'0x3ea49',
+    gasUsed: '0x3ea49',
     governanceData: '0x',
-    hash：0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566'，
-    logsBloom：'0x00000...',
+    hash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
+    logsBloom: '0x00000...',
     number: '0x3f79aa7',
     originProposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
-    parentHash：'0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
+    parentHash: '0x777d344c8c59c4d8d0041bb4c2ee66e95ec110303fb59d3e329f80e7a9c9c617',
     proposer: '0x99fb17d324fa0e07f23b49d09028ac0919414db6',
-    receiptsRoot：'0xffbae3190f858531ff785bcbdc70278d91c3d9becdd8b134b0ab7974b9ef3641',
+    receiptsRoot: '0xffbae3190f858531ff785bcbdc70278d91c3d9becdd8b134b0ab7974b9ef3641',
     reward: '0xb2bd3178affccd9f9f5189457f1cad7d17a01c9d',
-    round：0,
+    round: 0,
     size: '0x507',
     stateRoot: '0xa60d0868bd41b63b4fd67e5a8f801c5949e89a8994a13426747890b77d6bc0c4',
-    timestamp：0x610b3164',
+    timestamp: '0x610b3164',
     timestampFoS: '0xc',
     totalBlockScore: '0x3f79aa8',
-    transactions：[
+    transactions: [
         {
             blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-            blockNumber：'0x3f79aa7',
+            blockNumber: '0x3f79aa7',
             contractAddress: null,
             feePayer: '0xfee998d423d5bd2bf5b5c0f0acb4e3aae2bd2286',
-            feePayerSignatures：[
+            feePayerSignatures: [
                 {
-                    V：'0x7f5'，
-                    R：'0xf9aff6f39feb7a18d3e1b8ab9f590f0227e465c72cfe05e8d7c9e390cbf1d349'，
-                    S：'0x6e7317d121a3951a8cbca110be8cc86c5314349f8fb1c37f9af4cadf72fe89ec',
+                    V: '0x7f5',
+                    R: '0xf9aff6f39feb7a18d3e1b8ab9f590f0227e465c72cfe05e8d7c9e390cbf1d349',
+                    S: '0x6e7317d121a3951a8cbca110be8cc86c5314349f8fb1c37f9af4cadf72fe89ec',
                 },
             ],
-            from：'0x11eb23f57151a88d4bb53cc9c27355437138c278',
+            from: '0x11eb23f57151a88d4bb53cc9c27355437138c278',
             gas: '0x2dc6c0',
             gasPrice: '0x5d21dba00',
-            gasUsed：'0x3ea49',
+            gasUsed: '0x3ea49',
             input: '0x850ba...',
-            logs：[
+            logs: [
                 {
-                    address：0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
-                    topics：[ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
-                    data：'0x',
+                    address: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+                    topics: [ '0xddf25...', '0x00000...', '0x00000...', '0x00000...' ],
+                    data: '0x',
                     blockNumber: '0x3f79aa7',
                     transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
-                    transactionIndex：0x0',
+                    transactionIndex: '0x0',
                     blockHash: '0x188d4531d668ae3da20d70d4cb4c5d96a0cc5190771f0920c56b461c4d356566',
-                    logIndex：'0x0',
+                    logIndex: '0x0',
                     removed: false,
                 },
             ],
             logsBloom: '0x00000...',
             nonce: '0x0',
             senderTxHash: '0xeca2d3650403a1e27af0bbe9878dcbb248d764fc88751f35a6e05636d2ad9e78',
-            signatures：[
+            signatures: [
                 {
-                    V：'0x7f6'，
-                    R：'0x9ea78985b004afa86acd455c017da374ec1aec885f963ec8134a38f7ede451b0'，
-                    S：'0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
+                    V: '0x7f6',
+                    R: '0x9ea78985b004afa86acd455c017da374ec1aec885f963ec8134a38f7ede451b0',
+                    S: '0xfac0e417f7f7b15023e3f5ac95f1fb5b3280746a2eff04394ddedbdd259fc1',
                 },
             ],
             status: '0x1',
-            to：'0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
+            to: '0x78ca9a1105c3392b56625f3fcfd149b29322c56f',
             transactionHash: '0x109d2836d9fde9d8081a27dd6ac545fd7a53530a56bdc40f2a11e5d6dbc2a09f',
-            transactionIndex：'0x0',
-            类型：'TxTypeFeeDelegatedSmartContractExecution',
-            typeInt：49,
+            transactionIndex: '0x0',
+            type: 'TxTypeFeeDelegatedSmartContractExecution',
+            typeInt: 49,
             value: '0x0',
         },
     ],
@@ -1310,7 +1310,7 @@ caver.rpc.klay.getCommittee([blockNumber] [, callback])
 ]。
 ```
 
-## caver.rpc.klay.getCommitteeSize<a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
+## caver.rpc.klay.getCommitteeSize <a href="#caver-rpc-klay-getcommitteesize" id="caver-rpc-klay-getcommitteesize"></a>
 
 ```javascript
 caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
@@ -1340,7 +1340,7 @@ caver.rpc.klay.getCommitteeSize([blockNumber] [, callback])
 2
 ```
 
-## caver.rpc.klay.getCouncil<a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
+## caver.rpc.klay.getCouncil <a href="#caver-rpc-klay-getcouncil" id="caver-rpc-klay-getcouncil"></a>
 
 ```javascript
 caver.rpc.klay.getCouncil([blockNumber] [, callback])
@@ -1373,7 +1373,7 @@ caver.rpc.klay.getCouncil([blockNumber] [, callback])
 ]。
 ```
 
-## caver.rpc.klay.getCouncilSize<a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
+## caver.rpc.klay.getCouncilSize <a href="#caver-rpc-klay-getcouncilsize" id="caver-rpc-klay-getcouncilsize"></a>
 
 ```javascript
 caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
@@ -1403,7 +1403,7 @@ caver.rpc.klay.getCouncilSize([blockNumber] [, callback])
 2
 ```
 
-## caver.rpc.klay.getStorageAt<a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
+## caver.rpc.klay.getStorageAt <a href="#caver-rpc-klay-getstorageat" id="caver-rpc-klay-getstorageat"></a>
 
 ```javascript
 caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
@@ -1435,7 +1435,7 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 0x033456732123ffff2342342dd12342434324234234fd234fd23fd4f23d4234
 ```
 
-## caver.rpc.klay.isMinting<a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
+## caver.rpc.klay.isMinting <a href="#caver-rpc-klay-isminting" id="caver-rpc-klay-isminting"></a>
 
 ```javascript
 caver.rpc.klay.isMinting([callback])
@@ -1460,7 +1460,7 @@ Promise`返回`boolean`- 如果客户端正在挖矿，则返回`true`，否则�
 true
 ```
 
-## caver.rpc.klay.isSyncing<a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
+## caver.rpc.klay.isSyncing <a href="#caver-rpc-klay-issyncing" id="caver-rpc-klay-issyncing"></a>
 
 ```javascript
 caver.rpc.klay.isSyncing([callback])
@@ -1502,7 +1502,7 @@ caver.rpc.klay.isSyncing([callback])
 false
 ```
 
-## caver.rpc.klay.call<a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
+## caver.rpc.klay.call <a href="#caver-rpc-klay-call" id="caver-rpc-klay-call"></a>
 
 ```javascript
 caver.rpc.klay.call(callObject [, blockNumber] [, callback])
@@ -1547,7 +1547,7 @@ callObject\` 具有以下属性：
 0x000000000000000000000000000000000000000000000de0b6b3a7640000
 ```
 
-## caver.rpc.klay.estimateGas<a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
+## caver.rpc.klay.estimateGas <a href="#caver-rpc-klay-estimategas" id="caver-rpc-klay-estimategas"></a>
 
 ```javascript
 caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
@@ -1577,7 +1577,7 @@ caver.rpc.klay.estimateGas(callObject [, blockNumber] [, callback])
 0xb2a0
 ```
 
-## caver.rpc.klay.estimateComputationCost<a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
+## caver.rpc.klay.estimateComputationCost <a href="#caver-rpc-klay-estimatecomputationcost" id="caver-rpc-klay-estimatecomputationcost"></a>
 
 ```javascript
 caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
@@ -1607,7 +1607,7 @@ caver.rpc.klay.estimateComputationCost(callObject [, blockNumber] [, callback])
 0xd761
 ```
 
-## caver.rpc.klay.getTransactionByBlockHashAndIndex<a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
+## caver.rpc.klay.getTransactionByBlockHashAndIndex <a href="#caver-rpc-klay-gettransactionbyblockhashandindex" id="caver-rpc-klay-gettransactionbyblockhashandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
@@ -1637,23 +1637,23 @@ caver.rpc.klay.getTransactionByBlockHashAndIndex(blockHash, index [, callback])
 > caver.rpc.klay.getTransactionByBlockHashAndIndex('0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576', 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber：'0xb7',
+    blockNumber: '0xb7',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    hash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex：'0x0',
+    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex: '0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000'
 }
 ```
 
-## caver.rpc.klay.getTransactionByBlockNumberAndIndex<a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
+## caver.rpc.klay.getTransactionByBlockNumberAndIndex <a href="#caver-rpc-klay-gettransactionbyblocknumberandindex" id="caver-rpc-klay-gettransactionbyblocknumberandindex"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callback])
@@ -1683,23 +1683,23 @@ caver.rpc.klay.getTransactionByBlockNumberAndIndex(blockNumber, index [, callbac
 > caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber：'0xb7',
+    blockNumber: '0xb7',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    hash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex：'0x0',
+    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex: '0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000'
 }
 ```
 
-## caver.rpc.klay.getTransactionByHash<a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
+## caver.rpc.klay.getTransactionByHash <a href="#caver-rpc-klay-gettransactionbyhash" id="caver-rpc-klay-gettransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
@@ -1751,44 +1751,44 @@ caver.rpc.klay.getTransactionByHash(transactionHash [, callback])
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
-    codeFormat：'0x0',
+    codeFormat: '0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x3d0900',
     gasPrice: '0x5d21dba00',
-    hash：0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
+    hash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
     humanReadable: false,
     input: '0x60806...',
     nonce: '0xa',
     senderTxHash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
-    signatures：[ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
+    signatures: [ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
     to: null,
-    transactionIndex：'0x0',
+    transactionIndex: '0x0',
     type: 'TxTypeSmartContractDeploy',
-    typeInt：40,
+    typeInt: 40,
     value: '0x0',
 }
 
-// 当事务处于待处理状态时，将返回 `blockHash`、`blockNumber` 和 `trasnactionIndex` 的默认值。
+// When transaction is in pending, default values for `blockHash`, `blockNumber` and `trasnactionIndex` are returned.
 > caver.rpc.klay.getTransactionByHash('0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1').then(console.log)
 {
-    blockHash: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+    blockHash: '0x0000000000000000000000000000000000000000000000000000000000000000',
     blockNumber: '0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash：0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
+    hash: '0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
     nonce: '0xd',
     senderTxHash: '0x72e3838a42fbe75724a685ca03e50ff25ebc564e32d06dadf41be2190e5b11d1',
-    signatures：[ { V: '0x4e44', R: '0x73634...', S: '0x479be...' } ],
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex：'0x0',
-    类型：'TxTypeValueTransfer',
-    typeInt：8,
-    值：'0x8ac7230489e80000',
+    signatures: [ { V: '0x4e44', R: '0x73634...', S: '0x479be...' } ],
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionIndex: '0x0',
+    type: 'TxTypeValueTransfer',
+    typeInt: 8,
+    value: '0x8ac7230489e80000',
 }
 ```
 
-## caver.rpc.klay.getTransactionBySenderTxHash<a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
+## caver.rpc.klay.getTransactionBySenderTxHash <a href="#caver-rpc-klay-gettransactionbysendertxhash" id="caver-rpc-klay-gettransactionbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
@@ -1820,25 +1820,25 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 {
     blockHash: '0xb273976bad5f3d40ba46839c020f61b1629e2362d351e3c9cb32268afc7cb477',
     blockNumber: '0x74c',
-    codeFormat：'0x0',
+    codeFormat: '0x0',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x3d0900',
     gasPrice: '0x5d21dba00',
-    hash：0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
+    hash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
     humanReadable: false,
     input: '0x60806...',
     nonce: '0xa',
     senderTxHash: '0x991d2e63b91104264d2886fb2ae2ccdf90551377af4e334b313abe123a5406aa',
-    signatures：[ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
+    signatures: [ { V: '0x4e44', R: '0xe4ac3...', S: '0x5374f...' } ],
     to: null,
-    transactionIndex：'0x0',
+    transactionIndex: '0x0',
     type: 'TxTypeSmartContractDeploy',
-    typeInt：40,
+    typeInt: 40,
     value: '0x0',
 }
 ```
 
-## caver.rpc.klay.getTransactionReceipt<a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
+## caver.rpc.klay.getTransactionReceipt <a href="#caver-rpc-klay-gettransactionreceipt" id="caver-rpc-klay-gettransactionreceipt"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
@@ -1895,58 +1895,58 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 **示例**
 
 ```javascript
-// 在 Magma 硬分叉之前
+// Before the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
     blockNumber: '0xb7',
-    contractAddress：null,
+    contractAddress: null,
     effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    gasUsed：'0x5208',
-    logs：[],
+    gasUsed: '0x5208',
+    logs: [],
     logsBloom: '0x00000...',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
     status: '0x1',
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    transactionIndex：'0x0',
+    transactionIndex: '0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
     value: '0x8ac7230489e80000',
 }
 
-// Magma 硬分叉后
+// After the Magma hard fork
 > caver.rpc.klay.getTransactionReceipt('0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9').then(console.log)
 {
   blockHash: '0xaa358681023db9d967ff44577a34aea487c37433ebf6ef349baee50f9d1d2f03',
   blockNumber: '0x99',
-  contractAddress：null,
+  contractAddress: null,
   effectiveGasPrice: '0x5d21dba00',
   from: '0xca7a99380131e6c76cfa622396347107aeedca2d',
   gas: '0x61a8',
   gasPrice: '0xba43b7400',
-  gasUsed：0x5208',
-  logs：[],
+  gasUsed: '0x5208',
+  logs: [],
   logsBloom: '0x00000...',
   nonce: '0x2',
   senderTxHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
-  signatures：[ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
+  signatures: [ { V: '0x1cb4c6', R: '0x1605e...', S: '0x459cf...' } ],
   status: '0x1',
-  to：'0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
+  to: '0x08ef5d2def29ff4384dd93a73e076d959abbd2f4',
   transactionHash: '0xf0554493c273352eac667eb30a1b70fffa8e8a0f682928b31baaceccc17c64b9',
-  transactionIndex：'0x0'，
-  类型：'TxTypeValueTransfer'，
-  typeInt：8，
-  value：'0xde0b6b3a7640000'
+  transactionIndex: '0x0',
+  type: 'TxTypeValueTransfer',
+  typeInt: 8,
+  value: '0xde0b6b3a7640000'
 }
 ```
 
-## caver.rpc.klay.getTransactionReceiptBySenderTxHash<a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
+## caver.rpc.klay.getTransactionReceiptBySenderTxHash <a href="#caver-rpc-klay-gettransactionreceiptbysendertxhash" id="caver-rpc-klay-gettransactionreceiptbysendertxhash"></a>
 
 ```javascript
 caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
@@ -1976,26 +1976,32 @@ caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 **示例**
 
 ```javascript
-> caver.rpc.klay.getTransactionByBlockNumberAndIndex(183, 0).then(console.log)
+> caver.rpc.klay.getTransactionReceiptBySenderTxHash('0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898').then(console.log)
 {
     blockHash: '0xc9f643c0ebe84932c10695cbc9eb75228af09516931b58952de3e12c21a50576',
-    blockNumber：'0xb7',
+    blockNumber: '0xb7',
+    contractAddress: null,
+    effectiveGasPrice: '0x5d21dba00',
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    hash：0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    gasUsed: '0x5208',
+    logs: [],
+    logsBloom: '0x00000...',
     nonce: '0x0',
     senderTxHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
-    signatures：[ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
-    transactionIndex：'0x0',
+    signatures: [ { V: '0x4e44', R: '0xf1a9a...', S: '0x9116c...' } ],
+    status: '0x1',
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    transactionHash: '0xdb63fb385e51fbfd84a98873c994aef622c5f1c72c5760a9ff95c55bbfd99898',
+    transactionIndex: '0x0',
     type: 'TxTypeValueTransfer',
     typeInt: 8,
-    value: '0x8ac7230489e80000'
+    value: '0x8ac7230489e80000',
 }
 ```
 
-## caver.rpc.klay.sendRawTransaction<a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
+## caver.rpc.klay.sendRawTransaction <a href="#caver-rpc-klay-sendrawtransaction" id="caver-rpc-klay-sendrawtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendRawTransaction(signedTransaction [, callback])
@@ -2032,30 +2038,30 @@ PromiEvent 可用于以下事件：
 {
     blockHash: '0x8bff3eb5444711f53707c1c006dac54164af6f873c0f012aff98479155de3c46',
     blockNumber: '0x18a6',
-    contractAddress：null,
+    contractAddress: null,
     from: '0x3af68ad73f45a1e7686e8fcd23e910625ef2186e',
     gas: '0x61a8',
     gasPrice: '0x5d21dba00',
-    gasUsed：'0x5208',
-    logs：[],
+    gasUsed: '0x5208',
+    logs: [],
     logsBloom: '0x00000...',
     nonce: '0xc',
     senderTxHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
-    signatures：[ { V: '0x4e43', R: '0x3bee4...', S: '0x101a1...' } ],
+    signatures: [ { V: '0x4e43', R: '0x3bee4...', S: '0x101a1...' } ],
     status: '0x1',
-    to：'0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
+    to: '0x1637a2fc3ef9a391b2d8411854167ab3912a2fcc',
     transactionHash: '0x72ea9179350cf2943e966eaf1e1e651d4e1b50ead4b6e6a574a4297c9f0f7017',
-    transactionIndex：'0x0',
-    类型：'TxTypeValueTransfer',
+    transactionIndex: '0x0',
+    type: 'TxTypeValueTransfer',
     typeInt: 8,
-    值：'0x8ac7230489e80000',
+    value: '0x8ac7230489e80000',
 }
 
-// 使用事件发射器
+// Using event emitter
 > caver.rpc.klay.sendRawTransaction('0x08f88...').on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransaction<a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
+## caver.rpc.klay.sendTransaction <a href="#caver-rpc-klay-sendtransaction" id="caver-rpc-klay-sendtransaction"></a>
 
 ```javascript
 caver.rpc.klay.sendTransaction(transaction [, callback])
@@ -2123,7 +2129,7 @@ PromiEvent 可用于以下事件：
 > caver.rpc.klay.sendTransaction(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.sendTransactionAsFeePayer<a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
+## caver.rpc.klay.sendTransactionAsFeePayer <a href="#caver-rpc-klay-sendtransactionasfeepayer" id="caver-rpc-klay-sendtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
@@ -2204,7 +2210,7 @@ PromiEvent 可用于以下事件：
 > caver.rpc.klay.sendTransactionAsFeePayer(tx).on('transactionHash', h => {...}).on('receipt', r => {...}).on('error', console.error)
 ```
 
-## caver.rpc.klay.signTransaction<a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
+## caver.rpc.klay.signTransaction <a href="#caver-rpc-klay-signtransaction" id="caver-rpc-klay-signtransaction"></a>
 
 ```javascript
 caver.rpc.klay.signTransaction(transaction [, callback])
@@ -2260,7 +2266,7 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 }
 ```
 
-## caver.rpc.klay.signTransactionAsFeePayer<a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
+## caver.rpc.klay.signTransactionAsFeePayer <a href="#caver-rpc-klay-signtransactionasfeepayer" id="caver-rpc-klay-signtransactionasfeepayer"></a>
 
 ```javascript
 caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
@@ -2327,7 +2333,7 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 }
 ```
 
-## caver.rpc.klay.getDecodedAnchoringTransactionByHash<a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
+## caver.rpc.klay.getDecodedAnchoringTransactionByHash <a href="#caver-rpc-klay-getdecodedanchoringtransactionbyhash" id="caver-rpc-klay-getdecodedanchoringtransactionbyhash"></a>
 
 ```javascript
 caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback])
@@ -2373,7 +2379,7 @@ caver.rpc.klay.getDecodedAnchoringTransactionByHash(transactionHash [, callback]
 }
 ```
 
-## caver.rpc.klay.getChainId<a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
+## caver.rpc.klay.getChainId <a href="#caver-rpc-klay-getchainid" id="caver-rpc-klay-getchainid"></a>
 
 ```javascript
 caver.rpc.klay.getChainId([callback])
@@ -2402,7 +2408,7 @@ caver.rpc.klay.getChainId([callback])
 0x2710
 ```
 
-## caver.rpc.klay.getClientVersion<a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
+## caver.rpc.klay.getClientVersion <a href="#caver-rpc-klay-getclientversion" id="caver-rpc-klay-getclientversion"></a>
 
 ```javascript
 caver.rpc.klay.getClientVersion([callback])
@@ -2431,7 +2437,7 @@ caver.rpc.klay.getClientVersion([callback])
 kaia/v1.3.0+144494d2aa/linux-amd64/go1.13.1
 ```
 
-## caver.rpc.klay.getGasPrice<a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
+## caver.rpc.klay.getGasPrice <a href="#caver-rpc-klay-getgasprice" id="caver-rpc-klay-getgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getGasPrice([callback])
@@ -2460,7 +2466,7 @@ caver.rpc.klay.getGasPrice([callback])
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getGasPriceAt<a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
+## caver.rpc.klay.getGasPriceAt <a href="#caver-rpc-klay-getgaspriceat" id="caver-rpc-klay-getgaspriceat"></a>
 
 ```javascript
 caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
@@ -2490,7 +2496,7 @@ caver.rpc.klay.getGasPriceAt([blockNumber] [, callback])
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getMaxPriorityFeePerGas<a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
+## caver.rpc.klay.getMaxPriorityFeePerGas <a href="#caver-rpc-klay-getmaxpriorityfeepergas" id="caver-rpc-klay-getmaxpriorityfeepergas"></a>
 
 ```javascript
 caver.rpc.klay.getMaxPriorityFeePerGas([callback])
@@ -2519,7 +2525,7 @@ caver.rpc.klay.getMaxPriorityFeePerGas([callback])
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getLowerBoundGasPrice<a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
+## caver.rpc.klay.getLowerBoundGasPrice <a href="#caver-rpc-klay-getlowerboundgasprice" id="caver-rpc-klay-getlowerboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getLowerBoundGasPrice([callback])
@@ -2548,7 +2554,7 @@ caver.rpc.klay.getLowerBoundGasPrice([callback])
 0x5d21dba00
 ```
 
-## caver.rpc.klay.getUpperBoundGasPrice<a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
+## caver.rpc.klay.getUpperBoundGasPrice <a href="#caver-rpc-klay-getupperboundgasprice" id="caver-rpc-klay-getupperboundgasprice"></a>
 
 ```javascript
 caver.rpc.klay.getUpperBoundGasPrice([callback])
@@ -2577,7 +2583,7 @@ caver.rpc.klay.getUpperBoundGasPrice([callback])
 0xae9f7bcc00
 ```
 
-## caver.rpc.klay.getFeeHistory<a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
+## caver.rpc.klay.getFeeHistory <a href="#caver-rpc-klay-getfeehistory" id="caver-rpc-klay-getfeehistory"></a>
 
 ```javascript
 caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callback])
@@ -2621,7 +2627,7 @@ caver.rpc.klay.getFeeHistory(blockCount, lastBlock, rewardPercentiles [, callbac
 }
 ```
 
-## caver.rpc.klay.createAccessList<a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
+## caver.rpc.klay.createAccessList <a href="#caver-rpc-klay-createaccesslist" id="caver-rpc-klay-createaccesslist"></a>
 
 ```javascript
 caver.rpc.klay.createAccessList(txCallObject [, callback])
@@ -2653,15 +2659,15 @@ caver.rpc.klay.createAccessList(txCallObject [, callback])
 ```javascript
 > caver.rpc.klay.createAccessList({
         from: '0x3bc5885c2941c5cda454bdb4a8c88aa7f248e312',
-        data：'0x20965255',
+        data: '0x20965255',
         gasPrice: '0x3b9aca00',
         gas: '0x3d0900',
-        to：'0x00f5f5f3a25f142fafd0af24a754fafa340f32c7'
+        to: '0x00f5f5f3a25f142fafd0af24a754fafa340f32c7'
     }, 'latest').then(console.log)
-{ accessList：[], gasUsed：'0x0' }
+{ accessList: [], gasUsed: '0x0' }
 ```
 
-## caver.rpc.klay.isParallelDBWrite<a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
+## caver.rpc.klay.isParallelDBWrite <a href="#caver-rpc-klay-isparalleldbwrite" id="caver-rpc-klay-isparalleldbwrite"></a>
 
 ```javascript
 caver.rpc.klay.isParallelDBWrite([callback])
@@ -2690,7 +2696,7 @@ caver.rpc.klay.isParallelDBWrite([callback])
 true
 ```
 
-## caver.rpc.klay.isSenderTxHashIndexingEnabled<a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
+## caver.rpc.klay.isSenderTxHashIndexingEnabled <a href="#caver-rpc-klay-issendertxhashindexingenabled" id="caver-rpc-klay-issendertxhashindexingenabled"></a>
 
 ```javascript
 caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
@@ -2719,7 +2725,7 @@ caver.rpc.klay.isSenderTxHashIndexingEnabled([callback])
 true
 ```
 
-## caver.rpc.klay.getProtocolVersion<a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
+## caver.rpc.klay.getProtocolVersion <a href="#caver-rpc-klay-getprotocolversion" id="caver-rpc-klay-getprotocolversion"></a>
 
 ```javascript
 caver.rpc.klay.getProtocolVersion([callback])
@@ -2748,7 +2754,7 @@ caver.rpc.klay.getProtocolVersion([callback])
 0x40
 ```
 
-## caver.rpc.klay.getRewardbase<a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
+## caver.rpc.klay.getRewardbase <a href="#caver-rpc-klay-getrewardbase" id="caver-rpc-klay-getrewardbase"></a>
 
 ```javascript
 caver.rpc.klay.getRewardbase([callback])
@@ -2777,7 +2783,7 @@ caver.rpc.klay.getRewardbase([callback])
 0xa9b3a93b2a9fa3fdcc31addd240b04bf8db3414c
 ```
 
-## caver.rpc.klay.getFilterChanges<a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
+## caver.rpc.klay.getFilterChanges <a href="#caver-rpc-klay-getfilterchanges" id="caver-rpc-klay-getfilterchanges"></a>
 
 ```javascript
 caver.rpc.klay.getFilterChanges(filterId [, callback])
@@ -2829,7 +2835,7 @@ caver.rpc.klay.getFilterChanges(filterId [, callback])
 ]
 ```
 
-## caver.rpc.klay.getFilterLogs<a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
+## caver.rpc.klay.getFilterLogs <a href="#caver-rpc-klay-getfilterlogs" id="caver-rpc-klay-getfilterlogs"></a>
 
 ```javascript
 caver.rpc.klay.getFilterLogs(filterId [, callback])
@@ -2868,7 +2874,7 @@ caver.rpc.klay.getFilterLogs(filterId [, callback])
 ]
 ```
 
-## caver.rpc.klay.getLogs<a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
+## caver.rpc.klay.getLogs <a href="#caver-rpc-klay-getlogs" id="caver-rpc-klay-getlogs"></a>
 
 ```javascript
 caver.rpc.klay.getLogs(options [, callback])
@@ -2906,22 +2912,22 @@ caver.rpc.klay.getLogs(options [, callback])
     }).then(console.log)
 [
     {
-        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics：[
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: [
             '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385
         ]
-        logIndex：'0x0',
-        transactionIndex：'0x0',
+        logIndex: '0x0',
+        transactionIndex: '0x0',
         transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+        blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
         blockNumber: '0x4d2',
-        address：'0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+        address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
     },
     {...}
 ]
 ```
 
-## caver.rpc.klay.newBlockFilter<a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
+## caver.rpc.klay.newBlockFilter <a href="#caver-rpc-klay-newblockfilter" id="caver-rpc-klay-newblockfilter"></a>
 
 ```javascript
 caver.rpc.klay.newBlockFilter([callback])
@@ -2950,7 +2956,7 @@ caver.rpc.klay.newBlockFilter([callback])
 0xf90906914486a9c22d620e50022b38d5
 ```
 
-## caver.rpc.klay.newFilter<a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
+## caver.rpc.klay.newFilter <a href="#caver-rpc-klay-newfilter" id="caver-rpc-klay-newfilter"></a>
 
 ```javascript
 caver.rpc.klay.newFilter(options [, callback])
@@ -2997,7 +3003,7 @@ caver.rpc.klay.newFilter(options [, callback])
 0xd165cbf31b9d60346aada33dbefe01b
 ```
 
-## caver.rpc.klay.newPendingTransactionFilter<a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
+## caver.rpc.klay.newPendingTransactionFilter <a href="#caver-rpc-klay-newpendingtransactionfilter" id="caver-rpc-klay-newpendingtransactionfilter"></a>
 
 ```javascript
 caver.rpc.klay.newPendingTransactionFilter([callback])
@@ -3026,7 +3032,7 @@ caver.rpc.klay.newPendingTransactionFilter([callback])
 0xe62da1b2a09efcd4168398bdbf586db0
 ```
 
-## caver.rpc.klay.uninstallFilter<a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
+## caver.rpc.klay.uninstallFilter <a href="#caver-rpc-klay-uninstallfilter" id="caver-rpc-klay-uninstallfilter"></a>
 
 ```javascript
 caver.rpc.klay.uninstallFilter(filterId [, callback])
@@ -3056,7 +3062,7 @@ caver.rpc.klay.uninstallFilter(filterId [, callback])
 true
 ```
 
-## caver.rpc.klay.sha3<a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
+## caver.rpc.klay.sha3 <a href="#caver-rpc-klay-sha3" id="caver-rpc-klay-sha3"></a>
 
 ```javascript
 caver.rpc.klay.sha3(data[, callback])

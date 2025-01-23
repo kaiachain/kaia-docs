@@ -1,6 +1,6 @@
-# Write (Fee Delegation)
+# 書き込み（手数料の委任）
 
-You can make a **"transaction"** that including **payment request** to feepayer when you want to execute the Smart Contract.
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
 <CH.Spotlight>
   <CH.Code>
@@ -114,28 +114,28 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
 
   ```js writeWithFeeDelegation.js focus=1:2
   ```
 
   ---
 
-  Define **sender, fee payer address and sender private key**
+  **送信者、料金支払者アドレス、送信者秘密鍵**を定義する。
 
   ```js writeWithFeeDelegation.js focus=4:7
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js writeWithFeeDelegation.js focus=9
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js writeWithFeeDelegation.js focus=9
   const ethers = require("ethers");
@@ -208,42 +208,42 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 
   ---
 
-  Create a sender's wallet using the sender's private key and the provider
+  送信者の秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
   ```js writeWithFeeDelegation.js focus=10
   ```
 
   ---
 
-  Create a fee payer's wallet using the sender's private key and the provider
+  送金者の秘密鍵とプロバイダーの秘密鍵を使用して、料金支払者のウォレットを作成する。
 
   ```js writeWithFeeDelegation.js focus=11
   ```
 
   ---
 
-  Set the **Abi** generated from solidity code
+  solidityコードから生成された**Abi**を設定する。
 
   ```js writeWithFeeDelegation.js focus=36
   ```
 
   ---
 
-  Define **contract address** to interact with
+  相互作用する**契約アドレス**を定義する
 
   ```js writeWithFeeDelegation.js focus=37
   ```
 
   ---
 
-  Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+  **Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
   ```js writeWithFeeDelegation.js focus=40
   ```
 
   ---
 
-  Get the value of **number** from contract by using method **counter.number()**
+  メソッド**counter.number()**を使用して、契約から**number**の値を取得する。
 
   <CH.Code>
     ```js writeWithFeeDelegation.js focus=42
@@ -259,21 +259,21 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 
   ---
 
-  Create a transaction data to update the **number** value
+  **number**の値を更新するためのトランザクションデータを作成する。
 
   ```js writeWithFeeDelegation.js focus=44
   ```
 
   ---
 
-  Create a transaction object with data from previous step
+  前のステップのデータでトランザクション・オブジェクトを作成する
 
   ```js writeWithFeeDelegation.js focus=42:48
   ```
 
   ---
 
-  Sign the transaction with sender's wallet
+  送金者のウォレットで取引に署名する
 
   <CH.Code>
     ```js writeWithFeeDelegation.js focus=53:56
@@ -282,14 +282,14 @@ You can make a **"transaction"** that including **payment request** to feepayer 
     ---
 
     ```zsh output
-    ❯ node TxTypeFeeDelegatedValueTransfer.js
-    senderTxHashRLP 0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f5a014ebdbabc74b5b93770f1f0980b67af59fa47a1bf450d0c27928a5f3f831219aa0027c3a6262e28dfad9166ec8d7a5d77da55272d18a3c1b656024764f8cb3379a
+    ノード TxTypeFeeDelegatedValueTransfer.js
+    senderTxHashRLP0x31f8843a850ba43b7400830111939495be48607498109030592c08adc9577c7c2dd505809424e8efd18d65bcb6b3ba15a4698c0b0d69d13ff784d09de08af847f8458207f5a014ebdbabc74b5b93770f1f0980b67af59fa47a1bf450d0c27928a5f3f831219aa0027c3a6262e28dfad9166ec8d7a5d77da55272d18a3c1b656024764f8cb3379a
     ```
   </CH.Code>
 
   ---
 
-  Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+  手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js writeWithFeeDelegation.js focus=58:61
@@ -333,7 +333,7 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 
   ---
 
-  Get the updated value **number** by using method **counter.number()**
+  メソッド**counter.number()**で更新値**number**を取得する。
 
   <CH.Code>
     ```js writeWithFeeDelegation.js focus=63
@@ -343,7 +343,7 @@ You can make a **"transaction"** that including **payment request** to feepayer 
 
     ```zsh output
     ❯ node TxTypeFeeDelegatedValueTransfer.js
-    number after 293
+    293以降の番号
     ```
   </CH.Code>
 </CH.Spotlight>

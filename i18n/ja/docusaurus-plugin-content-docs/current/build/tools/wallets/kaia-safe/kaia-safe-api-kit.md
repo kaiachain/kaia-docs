@@ -1,46 +1,46 @@
 ---
 id: kaia-safe-api-kit
-title: Kaia Safe API-Kit
+title: カイアセーフAPI-Kit
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Kaia Safe API Kit
+# カイア安全APIキット
 
-API-Kit is your go-to kit for securely interacting with the [Safe Transaction API](https://github.com/safe-global/safe-transaction-service). The core of this kit is to allow valid signers to propose and share transactions with the other signers of a Safe, send the signatures to the service to collect them, and get information about a Safe (like reading the transaction history, pending transactions, enabled Modules and Guards, etc.), among other features.
+API-Kitは、[Safe Transaction API](https://github.com/safe-global/safe-transaction-service)と安全にやり取りするためのキットです。 このキットの中核は、有効な署名者が Safe の他の署名者に取引を提案・共有したり、署名を収集するサービスに署名を送信したり、Safe に関する情報（取引履歴、保留中の取引、有効なモジュールやガードなど）を取得したりできるようにすることである。
 
-## Quickstart <a id="Quickstart"></a>
+## クイックスタート<a id="Quickstart"></a>
 
-By the end of this guide, you will be able to propose transactions to the service and obtain the owners' signatures for execution.
+このガイドを読み終える頃には、同サービスに取引を提案し、実行のためにオーナーの署名を得ることができるようになるだろう。
 
-## Prerequisites <a id="Prerequisites"></a>
+## 前提条件<a id="Prerequisites"></a>
 
-1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-2. A Safe with several signers
+1. [Node.js と npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+2. 複数の署名者がいる金庫
 
-## Set up environment <a id="Setup-environment"></a>
+## 環境設定<a id="Setup-environment"></a>
 
-### Step 1: Create a project directory.
+### ステップ1：プロジェクト・ディレクトリを作成する。
 
-Copy and paste this command in your terminal to create the project folder.
+このコマンドをコピーしてターミナルに貼り付け、プロジェクトフォルダを作成する。
 
 ```js
 mkdir kaiasafe-api-kit
 cd kaiasafe-api-kit
 ```
 
-### Step 2: Initialize an npm project.
+### ステップ2： npmプロジェクトを初期化する。
 
-Copy and paste this command in your terminal to create a `package.json` file.
+このコマンドをターミナルにコピー＆ペーストして、`package.json`ファイルを作成する。
 
 ```js
 npm init -y
 ```
 
-### Step 3: Install dependencies.
+### ステップ3：依存関係をインストールする。
 
-Using API-Kit is as simple as running the installation command below:
+API-Kitの使用方法は、以下のインストールコマンドを実行するだけです：
 
 <Tabs>
   <TabItem value="npm" label="npm">
@@ -56,11 +56,11 @@ Using API-Kit is as simple as running the installation command below:
  </TabItem>
 </Tabs>
 
-### Step 4: Import dependencies.
+### ステップ4：依存関係をインポートする。
 
-Create a file named  `app.js`. This is where all our code snippets for this interaction would live.
+`app.js`という名前のファイルを作成する。 このインタラクションのためのコード・スニペットはすべてここにある。
 
-Copy and paste these necessary imports at the top of the `app.js` file.
+これらの必要なインポートをコピーして、`app.js`ファイルの先頭に貼り付ける。
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -70,11 +70,11 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 ```
 
-### Step 5: Configure Setup
+### ステップ5：セットアップの設定
 
-To efficiently illustrate how API-Kit works, we will use a Safe account setup with two or more signers, and threshold two, so we have multiple signatures that need to be collected when executing a transaction.
+API-Kitがどのように機能するかを効率的に説明するために、2人以上の署名者を持つSafeアカウントのセットアップを使用する。
 
-Copy and paste the following under the import statements in your `app.js` file:
+以下をコピーして、`app.js`ファイルのimport文の下に貼り付ける：
 
 ```js
 // https://chainlist.org/?search=kaia&testnets=true
@@ -86,13 +86,13 @@ const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 
 const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
 ```
 
-## Use API Kit <a id="use-api-kit"></a>
+## APIキットを使用する<a id="use-api-kit"></a>
 
-### Step 1: Initialize API Kit
+### ステップ1：APIキットの初期化
 
-To initialize API Kit, we need to create an instance of the API Kit.
+API Kitを初期化するには、API Kitのインスタンスを作成する必要がある。
 
-> In chains where the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) is supported, it's enough to specify the chainId property.
+> Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) がサポートされているチェーンでは、chainId プロパティを指定するだけで十分です。
 
 ```js
 const apiKit = new SafeApiKit.default({
@@ -102,11 +102,11 @@ const apiKit = new SafeApiKit.default({
 
 ```
 
-As you can see above, we included custom service using the optional **txServiceUrl** property.
+上で見たように、オプションの**txServiceUrl**プロパティを使用してカスタムサービスを含めました。
 
-### Step 2: Initialize Protocol Kit
+### ステップ2：プロトコルキットの初期化
 
-To handle transactions and signatures, we need to create an instance of the Protocol Kit (a kit that enables developers to interact with  [Safe Smart Accounts](https://github.com/safe-global/safe-smart-account) using a TypeScript interface) with the provider, signer and safeAddress.
+トランザクションと署名を処理するには、プロバイダ、署名者、safeAddressを指定して、Protocol Kit（開発者がTypeScriptインタフェースを使用して[Safe Smart Accounts](https://github.com/safe-global/safe-smart-account)とやり取りできるようにするためのキット）のインスタンスを作成する必要がある。
 
 ```js
 const protocolKitOwner1 = await Safe.default.init({
@@ -116,9 +116,9 @@ const protocolKitOwner1 = await Safe.default.init({
 })
 ```
 
-### Step 3: Propose a transaction to the service
+### ステップ3：サービスにトランザクションを提案する
 
-One of the core features of API Kit is to enable valid signers to share transactions with other signers. But before this is done,  any of the Safe signers needs to initiate the process by creating a proposal of a transaction. This transaction is then sent  to the service to make it accessible by the other owners so they can give their approval and sign the transaction as well.
+API Kitの中核機能の1つは、有効な署名者が他の署名者とトランザクションを共有できるようにすることである。 しかし、その前に、セーフサイナーの誰かが取引のプロポーザルを作成し、プロセスを開始する必要がある。 この取引は、他の所有者がアクセスできるようにするためにサービスに送信され、他の所有者も同様に承認を与え、取引に署名することができる。
 
 ```js
 const safeTransactionData = {
@@ -146,9 +146,9 @@ try {
 }
 ```
 
-### Step 4: Retrieve pending transaction
+### ステップ4：保留中のトランザクションを取得する
 
-API Kit provides us  different methods to retrieve pending transactions depending on the situation. For this guide, we will retrieve a transaction given the Safe transaction hash and other available methods commented out below:
+API Kitは、状況に応じて保留中のトランザクションを取得するためのさまざまな方法を提供してくれる。 このガイドでは、セーフトランザクションハッシュと以下に示すその他の利用可能なメソッドを使用してトランザクショ ンを取得する：
 
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
@@ -159,9 +159,9 @@ const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getAllTransactions()
 ```
 
-## Step 5: Confirm the transaction
+## ステップ5：取引の確認
 
-The next thing to do is to sign the transaction with the Protocol Kit and submit the signature to the Safe Transaction Service using the [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction) method.
+次に行うことは、プロトコルキットを使用してトランザクションに署名し、[confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction) メソッドを使用して署名を Safe Transaction Service に提出することである。
 
 ```js
 const protocolKitOwner2 = await Safe.default.init({
@@ -177,11 +177,11 @@ const signatureResponse = await apiKit.confirmTransaction(
 )
 ```
 
-### Step 6: Execute the transaction
+### ステップ6：トランザクションの実行
 
-The Safe transaction is now ready to be executed. This can be done using the [Safe Wallet Web](https://app.safe.global/) interface, the [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), the Safe CLI or any other tool that's available.
+これで Safe トランザクションを実行する準備ができた。 これは、[Safe Wallet Web](https://app.safe.global/)インターフェース、[Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction)、Safe CLI、または利用可能なその他のツールを使用して行うことができます。
 
-For this last step, we executed the safe transaction using Protocol Kit.
+この最後のステップでは、Protocol Kitを使って安全なトランザクションを実行した。
 
 ```js
 const safeTxn = await apiKit.getTransaction(safeTxHash);
@@ -191,7 +191,7 @@ console.log('Transaction executed:');
 console.log(`https://kairos.kaiascan.io/tx/${hash}`)
 ```
 
-At the end, the full code in `app.js` should look like this:
+最後に、`app.js`の完全なコードは次のようになるはずだ：
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -267,4 +267,4 @@ console.log('Transaction executed:');
 console.log(`https://kairos.kaiascan.io/tx/${hash}`)
 ```
 
-Visit the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for more information, and navigate to [Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) to access the full source code for this guide.
+詳細については、[API Kit Reference](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。また、このガイドの全ソースコードにアクセスするには、[Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets)に移動してください。

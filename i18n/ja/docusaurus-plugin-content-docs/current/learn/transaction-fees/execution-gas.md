@@ -1,32 +1,32 @@
-# Execution Gas
+# 実行ガス
 
-Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `ExecutionGas` is calculated.
+ガスは`IntrinsicGas`と`ExecutionGas`の和である。 ここでは、`ExecutionGas`がどのように計算されるかに焦点を当てる。
 
 :::note
 
-Execution gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+実行ガス関連のハードフォーク変更は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
-## Overview <a id="overview"></a>
+## 概要<a id="overview"></a>
 
-Execution gas is charged during executing a contract under three distinct circumstances. Sometimes, some policies may be omitted.
+執行ガスは、3つの異なる状況下で契約を執行する際に発生する。 時には、いくつかの方針が省略されることもある。
 
-- The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
-- Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
-- Finally, gas may be charged due to an increase in memory usage.
+- 最初の、そして最も一般的なものは`constantGas`である。 これは演算に不可欠な料金だ。
+- これは、`CREATE`、`CALL`、`CALLCODE`の支払いの一部となる。
+- 最後に、メモリ使用量の増加によりガス代がかかる場合がある。
 
-Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices (whether for read or write) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
+Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices (whether for read or write) in the range. この料金はジャスト・イン・タイム方式で支払われる。そのため、以前にインデックス付けされたメモリよりも少なくとも32バイト大きいメモリ領域を参照すると、追加のメモリ使用料が発生する。 この手数料により、アドレスが32ビットの境界を超えることはまずない。 とはいえ、実装はこのような事態に対処できなければならない。
 
-Storage fees have a slightly nuanced behavior. To incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
+保管料には微妙なニュアンスがある。 To incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
 
-## Opcode Gas Schedule <a id="opcode-gas-schedule"></a>
+## オプコード・ガス・スケジュール<a id="opcode-gas-schedule"></a>
 
-The fee schedule `G` is a tuple of 37 scalar values corresponding to the relative costs, in gas, of a number of abstract operations that a transaction may incur. Also, there's gas items to calculate the gas of the precompiled contracts called by `CALL_*` opcodes.
+料金表`G`は、トランザクションが負担する可能性のある抽象的な操作の数々 の相対的なコストに対応する37個のスカラー値のタプルである。 また、`CALL_*` オペコードによって呼び出されるプリコンパイルされたコントラクトのガスを計算するためのガス項目もある。
 
-### Scalar values representing `constantGas` of an opcode
+### オペコードの `constantGas` を表すスカラー値。
 
-| Name                    | Value |               Name in code | Opcodes                                                                                                                                                                                                                                                                                               |
+| 名称                      |    価値 |                     コードネーム | オプコード                                                                                                                                                                                                                                                                                                 |
 | :---------------------- | ----: | -------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `G_base`                |     2 |               GasQuickStep | `ADDRESS`, `ORIGIN`, `CALLER`, `CALLVALUE`, `CALLDATASIZE`,  `CODESIZE`, `GASPRICE`, `COINBASE`, `TIMESTAMP`, `NUMBER`,   `PREVRANDAO`(originally it was `DIFFICULTY`), `GASLIMIT`, `RETURNDATASIZE`, `POP`, `PC`, `MSIZE`, `GAS`,  `CHAINID`,  `BASEFEE`,  `PUSH0`, `BLOBBASEFEE` |
 | `G_verylow`             |     3 |             GasFastestStep | `ADD`, `SUB`, `LT`, `GT`, `SLT`, `SGT`, `EQ`, `ISZERO`, `AND`,  `OR`, `XOR`, `NOT`, `BYTE`, `CALLDATALOAD`,  `MLOAD`, `MSTORE`, `MSTORE8`, `PUSH`, `DUP`, `SWAP`, `BLOBHASH`, `MCOPY`                                                                                                                 |
@@ -40,106 +40,106 @@ The fee schedule `G` is a tuple of 37 scalar values corresponding to the relativ
 | `G_sha3`                |    30 |                    Sha3Gas | `SHA3`                                                                                                                                                                                                                                                                                                |
 | `G_create`              | 32000 |                  CreateGas | `CREATE`, `CREATE2`                                                                                                                                                                                                                                                                                   |
 
-### Scalar values used to calculate the gas based on memory and log usage
+### メモリとログの使用量に基づいてガスを計算するために使用されるスカラー値
 
-| Name         | Value | Name in Code | Description                                                                   |
-| :----------- | ----: | -----------: | :---------------------------------------------------------------------------- |
-| `G_memory`   |     3 |    MemoryGas | Amount of gas paid for every additional word when expanding memory            |
-| `G_copy`     |     3 |      CopyGas | Partial payment for `COPY` operations, multiplied by words copied, rounded up |
-| `G_log`      |   375 |       LogGas | Partial payment for a `LOG` operation                                         |
-| `G_logdata`  |     8 |   LogDataGas | Amount of gas paid for each byte in a `LOG` operation's data                  |
-| `G_logtopic` |   375 |  LogTopicGas | Amount of gas paid for each topic of a `LOG` operation                        |
+| Name         | Value | Name in Code | Description                    |
+| :----------- | ----: | -----------: | :----------------------------- |
+| `G_memory`   |     3 |    MemoryGas | メモリを拡張する際、1ワード増えるごとに支払うガス量     |
+| `G_copy`     |     3 |        コピーガス | COPY\`操作の一部支払い、コピーされた単語数倍、切り上げ |
+| `G_log`      |   375 |       LogGas | LOG\`操作の一部支払い                  |
+| `G_logdata`  |     8 |   LogDataGas | LOG\`操作のデータの各バイトに対して支払われるガス量。  |
+| `G_logtopic` |   375 |  LogTopicGas | LOG\`操作のトピックごとに支払われるガス量        |
 
-### Scalar values used to calculate the gas of the particular opcode
+### 特定のオペコードのガスを計算するために使用されるスカラー値
 
-| Name              | Value | Name in Code                      | Description                                                                                                                                                    |
-| :---------------- | ----: | --------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `G_sset`          | 20000 | SstoreSetGas                      | Amount of gas paid when the storage value when set storage                                                                                                     |
-| `G_sreset`        |  5000 | SstoreResetGas                    | Amount of gas paid when the storage value remains unchanged at zero or is set to zero                                                                          |
-| `G_coldSloadCost` |  2100 | ColdSloadCostEIP2929              | Amount of gas paid when the storage value is not in accessList                                                                                                 |
-| `R_sclear`        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                                                                                            |
-| `G_exp`           |    10 | ExpGas                            | Partial payment                                                                                                                                                |
-| `G_expbyte`       |    50 | ExpByte                           | Partial payment when multiplied by `ceil(log_256(exponent))`                                                                                                   |
-| `G_selfdestruct`  |  5000 | SelfdestructGas                   | Amount of gas paid for a `SELFDESTRUCT` operation                                                                                                              |
-| `G_callvalue`     |  9000 | CallValueTransferGas              | Amount of gas paid for a nonzero value transfer                                                                                                                |
-| `G_callstipend`   |  2300 | CallStipend                       | Free gas given at beginning of call for a nonzero value transfer                                                                                               |
-| `G_newaccount`    | 25000 | CallNewAccountGas                 | Amount of gas paid when creating an account. It is also be defined as `CreateBySelfdestructGas` with `SELFDESTRUCT` operation. |
-| `G_codedeposit`   |   200 | CreateDataGas                     | Amount of gas paid per byte for a creating a contract that succeeds in placing code into state                                                                 |
-| `G_sha3word`      |     6 | Sha3WordGas                       | Amount of gas paid for each word (rounded up) for an `SHA3` input data                                                                      |
-| `G_InitCodeWord`  |     2 | InitCodeWordGas                   | Amount of gas paid for each word of initcode for a `CREATE`,`CREATE2`                                                                                          |
+| Name              | Value | Name in Code                      | Description                                                                                |
+| :---------------- | ----: | --------------------------------- | :----------------------------------------------------------------------------------------- |
+| `G_sset`          | 20000 | SstoreSetGas                      | 貯蔵設定時に貯蔵値が設定された場合に支払われるガス量                                                                 |
+| `G_sreset`        |  5000 | SstoreResetGas                    | 貯蔵量がゼロのまま、またはゼロに設定された場合に支払われるガス量                                                           |
+| `G_coldSloadCost` |  2100 | ColdSloadCostEIP2929              | 貯蔵量がaccessListにない場合の支払ガス量                                                                  |
+| `R_sclear`        | 15000 | SstoreClearsScheduleRefundEIP3529 | `G_sreset` - `G_coldSloadCost` + `TxAccessListStorageKeyGas (1900)`                        |
+| `G_exp`           |    10 | ExpGas                            | Partial payment                                                                            |
+| `G_expbyte`       |    50 | ExpByte                           | ceil(log_256(指数))\`を掛けた場合の一部支払い |
+| `G_selfdestruct`  |  5000 | SelfdestructGas                   | SELFDESTRUCT\`操作のために支払われたガス量                                                               |
+| `G_callvalue`     |  9000 | CallValueTransferGas              | 非ゼロ・バリュー・トランスファーに支払われたガス量                                                                  |
+| `G_callstipend`   |  2300 | CallStipend                       | ゼロでない値での移籍の場合、通話開始時に無料ガスが与えられる。                                                            |
+| `G_newaccount`    | 25000 | CallNewAccountGas                 | アカウント作成時に支払ったガス料金。 また、`SELFDESTRUCT`操作を伴う`CreateBySelfdestructGas`としても定義される。               |
+| `G_codedeposit`   |   200 | CreateDataGas                     | コードの状態への配置に成功した契約を作成するために1バイトあたりに支払われるガスの量                                                 |
+| `G_sha3word`      |     6 | Sha3WordGas                       | Amount of gas paid for each word (rounded up) for an `SHA3` input data  |
+| `G_InitCodeWord`  |     2 | InitCodeWordGas                   | CREATE`,`CREATE2\`のinitcodeの各単語に対して支払われるガス量。                                               |
 
-## Precompiled contracts gas cost table <a id="precompiled-contracts-gas-cost-table"></a>
+## 契約ガス料金表<a id="precompiled-contracts-gas-cost-table"></a>
 
-Precompiled contracts are special kind of contracts which usually perform complex cryptographic computations and are initiated by other contracts.
+プリコンパイルされたコントラクトは、通常、複雑な暗号計算を行い、他のコントラクトによって開始される特別な種類のコントラクトである。
 
-Below is the gas cost table for precompiled contracts in Klaytn. `Input` is a byte array input of a precompiled contract.
+以下は、カイアのコンパイル済み契約のガス料金表です。 `Input`はコンパイル済みのコントラクトのバイト配列の入力である。
 
-| Address | Precompiled contracts | Gas Cost                                                                                                                                   |
-| :------ | :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x01    | ecrecover             | 3,000                                                                                                                                      |
-| 0x02    | sha256hash            | numOfWords(input) \* 12 + 60                                                                                            |
-| 0x03    | ripemd160hash         | numOfWords(input) \* 120 + 600                                                                                          |
-| 0x04    | dataCopy              | numOfWords(input) \* 3 + 15                                                                                             |
-| 0x05    | bigModExp             | see the code [here](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)       |
-| 0x06    | bn256Add              | 150                                                                                                                                        |
-| 0x07    | bn256ScalarMul        | 6,000                                                                                                                                      |
-| 0x08    | bn256Pairing          | numOfPairings(input) \* 34,000 + 45,000                                                                                 |
-| 0x09    | blake2f               | bigEndian(getRounds(input[0:4])) |
-| 0x0A    | kzg                   | 50,000                                                                                                                                     |
-| 0x3FD   | vmLog                 | len(input) \* 20 + 100                                                                                                  |
-| 0x3FE   | feePayer              | 300                                                                                                                                        |
-| 0x3FF   | validateSender        | numOfSigs(input) \* 5,000                                                                                               |
+| Address | Precompiled contracts | Gas Cost                                                                                                                                                                                                               |
+| :------ | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x01    | ecrecover             | 3,000                                                                                                                                                                                                                  |
+| 0x02    | sha256hash            | numOfWords(input) \* 12 + 60                                                                                                                                                                        |
+| 0x03    | ripemd160hash         | numOfWords(input) \* 120 + 600                                                                                                                                                                      |
+| 0x04    | dataCopy              | numOfWords(input) \* 3 + 15                                                                                                                                                                         |
+| 0x05    | bigModExp             | コードはこちら](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340) |
+| 0x06    | bn256Add              | 150                                                                                                                                                                                                                    |
+| 0x07    | bn256ScalarMul        | 6,000                                                                                                                                                                                                                  |
+| 0x08    | bn256Pairing          | numOfPairings(input) \* 34,000 + 45,000                                                                                                                                                             |
+| 0x09    | blake2f               | bigEndian(getRounds(input[0:4]))                                                                             |
+| 0x0A    | kzg                   | 50,000                                                                                                                                                                                                                 |
+| 0x3FD   | vmLog                 | len(input) \* 20 + 100                                                                                                                                                                              |
+| 0x3FE   | feePayer              | 300                                                                                                                                                                                                                    |
+| 0x3FF   | validateSender        | numOfSigs(input) \* 5,000                                                                                                                                                                           |
 
-## Gas calculation logic for contract execution <a id="gas-calculation-logic-for-contract-execution"></a>
+## 契約締結のためのガス計算ロジック<a id="gas-calculation-logic-for-contract-execution"></a>
 
-The gas cost of one transaction is calculated through the methods described below. First, gas is added according to the transaction type and input. Then, if the contract is executed, opcodes are executed one by one until the execution ends or `STOP` operation appears. In the process, the cost is charged according to the `constantGas` defined for each opcode and the additionally defined gas calculation method.
+1回の取引にかかるガス料金は、以下の方法で計算される。 まず、取引タイプと投入量に応じてガスが追加される。 そして、コントラクトが実行されると、実行が終了するか`STOP`操作が現れるまで、オペコードが1つずつ実行される。 その際、各オペコードに定義された`constantGas`と、追加で定義されたガス計算方法に従ってコストが課金される。
 
-Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
+ここでは、上記で定義した料金表変数を用いて、契約締結時のガス計算ロジックを簡単に説明する。 この説明では一般的な状況を想定しているため、復帰戦のような特殊な状況は考慮されていない。
 
-- add `constantGas` defined in each opcode to gas
-  - e.g. if an opcode is `MUL`, add `G_low` to gas
-  - e.g. if an opcode is `CREATE2`, add `G_create` to gas
-- add the gas which is calculated through additionally defined gas calculation method
-  - For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
-  - For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
-  - For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
-  - For `EXTCODECOPY`,
-    - add `wordSize(stack.back(3)) x G_copy` to gas
-    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
-  - For `EXTCODESIZE` or `EXTCODEHASH` or `BALANCE`,
-    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
-  - For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
-  - For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
-  - For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
-  - For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
-  - For `SSTORE`,
-    - [**_eip2929_**]  If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-    - If it just reads the slot (no-op), add `G_warmStorageReadCost` to gas
-    - If it creates a new slot, add `G_sset` to gas
-    - If it deletes the slot, add `G_sreset-G_coldSloadCost` to gas and add `R_sclear` to refund
-    - If it recreates the slot once exists before, add `G_warmStorageReadCost` to gas and subtract `R_sclear` from refund
-    - If it deletes the slot once exists before, add `R_sclear` to refund
-    - If it resets to the original inexistent slot, add `G_warmStorageReadCost` to gas and add `G_sset - G_warmStorageReadCost` to refund
-    - IF it resets to the original existing slot, add `G_warmStorageReadCost` to gas and add `G_sreset - G_coldSloadCost - G_warmStorageReadCost` to refund
-  - For `SLOAD`,
-    - [**_eip2929_**] If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-    - [**_eip2929_**] If a slot(contractAddr, slot) is in AccessList, add `G_warmStorageReadCost` to gas
-  - For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
-    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-    - if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
-    - if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
-    - if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
-    - add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
-  - For `SELFDESTRUCT`,
-    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-    - if it transfers value and if is a new account, add `G_newaccount` to gas
+- 各オペコードで定義された`constantGas`をgasに追加する。
+  - 例えば、オペコードが `MUL` なら、`G_low` を gas に加える。
+  - 例えば、オペコードが`CREATE2`の場合、`G_create`をgasに追加する。
+- 追加で定義されたガス計算方法で計算されたガスを追加する。
+  - `LOG'N'`（Nは[0,1,2,3,4]）については、`G_log + memoryGasCost * g_logdata + N x G_logtopic`をガスに加える。
+  - `EXP`の場合は、`G_exp + byteSize(stack.back(1)) x G_expbyte`をgasに加える。
+  - `CALLDATACOPY` または `CODECOPY` または `RETURNDATACOPY` の場合は、`wordSize(stack.back(2)) x G_copy` を gas に追加する。
+  - EXTCODECOPY\`の場合、
+    - `wordSize(stack.back(3))×G_copy`をgasに追加する。
+    - [**_eip2929_**] アドレスが AccessList にない場合、accessList に追加し、`G_coldSloadCost - G_warmStorageReadCost` を gas に追加する。
+  - EXTCODESIZE`または`EXTCODEHASH`または`BALANCE\` の場合、
+    - [**_eip2929_**] アドレスが AccessList にない場合、accessList に追加し、`G_coldSloadCost - G_warmStorageReadCost` を gas に追加する。
+  - `SHA3`の場合、`G_sha3 + wordSize(stack.back(1)) x G_sha3word`をgasに加える。
+  - `RETURN`、`REVERT`、`MLoad`、`MStore8`、`MStore` では、ガスに `memoryGasCost` を追加する。
+  - `CREATE`では、`memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord`をガスに追加する。
+  - `CREATE2`では、`memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord`をgasに追加する。
+  - SSTORE\`の場合、
+    - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
+    - 単にスロットを読み込むだけなら(no-op)、gasに`G_warmStorageReadCost`を追加する。
+    - 新しいスロットを作成する場合は、`G_sset` を gas
+    - もしスロットが削除されたら、`G_sreset-G_coldSloadCost`をgasに追加し、`R_sclear`を払い戻しに追加する。
+    - 以前存在したスロットを再作成する場合、gasに `G_warmStorageReadCost` を加算し、払い戻しから `R_sclear` を減算する。
+    - もし、以前存在したスロットを削除する場合は、払い戻しに `R_sclear` を追加します。
+    - 元の存在しないスロットにリセットされた場合、`G_warmStorageReadCost`をgasに追加し、`G_set - G_warmStorageReadCost`を返金に追加する。
+    - 元の既存のスロットにリセットされた場合、ガスに `G_warmStorageReadCost` を追加し、払い戻しに `G_sreset - G_coldSloadCost - G_warmStorageReadCost` を追加する。
+  - SLOAD\`の場合、
+    - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
+    - [**_eip2929_**] スロット(contractAddr, slot)がAccessListにある場合、`G_warmStorageReadCost`をgasに追加します。
+  - CALL`、`CALLCODE`、`DELEGATECALL`、`STATICCALL\`の場合、
+    - [**_eip2929_**] アドレスがAccessListに含まれていない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
+    - それが `CALL` と `CALLCODE` で、値を転送する場合は `G_callvalue` を gas に追加する。
+    - もしそれが `CALL` で、もしそれが値を移し、もしそれが新しいアカウントであれば、 `G_newaccount` を gas に追加する。
+    - 着信側契約がプリコンパイル契約の場合、プリコンパイル契約のガス料金を計算し、ガス料金に加算する。
+    - メモリー・ガス・コスト + 利用可能なガス - 利用可能なガス/64、ここで利用可能なガス = 契約.ガス - ガス\` をガスに追加する。
+  - SELFDESTRUCT\`の場合、
+    - [**_eip2929_**] アドレスがAccessListに含まれていない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
+    - 値を移し、新しいアカウントであれば、`G_newaccount`をgasに追加する。
 
 ## Hardfork changes
 
-| Hardfork     | New Items                                                                                                                                                                                                                                                                          | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cancun EVM   | BLOBBASEFEE (0x49) opcode<br/>BLOBHASH (0x50) opcode<br/>TSTORE (0x5C) opcode<br/>TLOAD (0x5D) opcode<br/>MCOPY(0x5E) opcode<br/>kzg (0x0A) precompiled contract | accessList is fully supported, the storage <br/>access which are added to accessList <br/>put through tx args are became warm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Shanghai EVM | PUSH0 (0x5F) opcode                                                                                                                                                                                                                                             | warm coinbase so the gas cost accessing <br/>coinbase is always warm<br/><br/>started to add 2 gas per word of the initcode <br/>at `Create`, `Create2` opcodes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Kore         |                                                                                                                                                                                                                                                                                    | reduction in refunds<br/>- removes refund for SELFDESTRUCT (0xFF), SSTORE (0x55) <br/>- capped the refund to gasUsed/5 (it was gasUsed/2)<br/> <br/>increase gas cost for state access opcodes <br/>- accessList is introduced here but it's not yet supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| London EVM   | BASEFEE (0x48) opcode                                                                                                                                                                                                                                           | modExp (0x05) precompiled contract <br/>use new gas calculation logic. <br/>Become more accurate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Istanbul EVM | CHAINID (0x46) opcode <br/> SELFBALANCE (0x47) opcode<br/>blake2f (0x09) precompiled contract                                                                                                                             | reduce the gas cost of BN256 precomiled contracts<br/>- Bn256Add (0x06):500->150<br/>- Bn256ScalarMul (0x07): 40,000->6,000<br/>- BN256Pairing (0x08): <br/> -- BaseGas: 100,000->45,000 <br/> -- PerPointGas: 80,000->34,000<br/> <br/>new gas calculation logic of SSTORE (0x55). <br/>- introduced cold storage. <br/>- gas cost for the first access is increased. <br/> <br/>increase the gas cost of heavy storage access<br/>- SLOAD(0x54): 200->800<br/>- BALANCE(0x31): 400->700<br/>- EXTCODEHASH(0x3F): 400->700 |
+| Hardfork     | New Items                                                                                                                                                                                                                                                                          | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cancun EVM   | BLOBBASEFEE (0x49) opcode<br/>BLOBHASH (0x50) opcode<br/>TSTORE (0x5C) opcode<br/>TLOAD (0x5D) opcode<br/>MCOPY(0x5E) opcode<br/>kzg (0x0A) precompiled contract | accessListが完全にサポートされ、txアーギュメントを介して置かれたaccessList<br/>に追加されたストレージ<br/>アクセスが暖かくなった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Shanghai EVM | PUSH0 (0x5F) opcode                                                                                                                                                                                                                                             | <br/>コインベースは常に暖かい<br/><br/>`Create`, `Create2` オペコードで<br/>initcode の1ワードにつき2ガスを追加するようになった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Kore         |                                                                                                                                                                                                                                                                                    | reduction in refunds<br/>- removes refund for SELFDESTRUCT (0xFF), SSTORE (0x55) <br/>- capped the refund to gasUsed/5 (it was gasUsed/2)<br/> <br/>increase gas cost for state access opcodes <br/>- accessList is introduced here but it's not yet supported.                                                                                                                                                                                                                                                                     |
+| London EVM   | BASEFEE (0x48) opcode                                                                                                                                                                                                                                           | modExp (0x05) precompiled contract <br/>use new gas calculation logic. <br/>Become more accurate.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Istanbul EVM | CHAINID (0x46) オペコード<br/> SELFBALANCE (0x47) オペコード<br/>blake2f (0x09) コンパイル済み契約書                                                                                                                                          | BN256プリコンパイル契約のガスコストを削減<br/>- Bn256Add (0x06):500->150<br/>- Bn256ScalarMul (0x07)：40,000->6,000<br/>- BN256Pairing (0x08)： <br/> -- BaseGas: 100,000->45,000<br/> -- PerPointGas: 80,000->34,000<br/> <br/>SSTORE (0x55)の新しいガス計算ロジック。 <br/>- はコールドストレージを導入した。 <br/>- 最初のアクセスにかかるガス代が増える。 <br/> <br/><br/>- SLOAD(0x54)：重いストレージへのアクセスのガスコストを増加：200->800 - BALANCE(0x31)：400->700 - EXTCODEHASH(0x3F)：400->700<br/><br/> |

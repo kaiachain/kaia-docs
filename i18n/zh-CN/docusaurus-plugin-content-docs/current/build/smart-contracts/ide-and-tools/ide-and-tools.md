@@ -14,7 +14,7 @@ Kaia Contracts Wizard 是一个交互式生成器，用于引导智能合约并�
 
 Thirdweb 是一个完整的 Web3 开发框架，可为您提供将应用程序和游戏连接到去中心化网络所需的一切。
 
-#### [Kaia Wallet](../../tools/wallets/kaia-wallet.md)<a href="#kaia-wallet" id="kaia-wallet"></a>
+#### [Kaia Wallet](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
 
 Kaia 钱包是 Kaia 网络的浏览器扩展钱包。 Kaia 钱包使您能够存储 KAIA 和基于 Kaia 的代币并与之互动。 Kaia 钱包还能让您实时签署来自基于网络的 Kaia dApps 的交易。
 

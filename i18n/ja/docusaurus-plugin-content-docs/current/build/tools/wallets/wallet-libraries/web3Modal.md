@@ -2,37 +2,37 @@
 sidebar_label: Web3Modal
 ---
 
-# Integrate Web3Modal into a dApp
+# Web3ModalをdAppに統合する
 
-![](/img/banners/kaia-web3Modal\\(wc\\).png)
+![](/img/banners/kaia-web3Modal\(wc\).png)
 
-## Introduction
+## はじめに
 
-[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about) is a simple-to-use library that helps developers add support for multiple providers in their dApps with a simple, customizable configuration. It makes connecting wallets, performing transactions, and managing accounts easy.
+[Web3Modal](https://docs.walletconnect.com/2.0/web3modal/about)は、シンプルでカスタマイズ可能な設定で、開発者がdAppsに複数のプロバイダのサポートを追加するのを助ける、使いやすいライブラリです。 ウォレットの接続、取引の実行、アカウントの管理が簡単にできる。
 
-In this guide, you will use the web3Modal library to integrate multiple wallets such as Kaia Wallet, Klip, Metamask, Coinbase Wallet, etc. into your dApp built on the Kaia Network.
+このガイドでは、web3Modalライブラリを使用して、Kaia Wallet、Klip、Metamask、Coinbase Walletなどの複数のウォレットをKaia Network上に構築したdAppに統合します。
 
-## Prerequisite
+## 前提条件
 
-- A working react project (by executing `npx create-react-app project-name`)
-- Install the necessary wallets ([Kaia Wallet](https://www.kaiawallet.io/en_US/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 作業中のreactプロジェクト(`npx create-react-app project-name`を実行する)
+- 必要なウォレット（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）をインストールします。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
-## Setting up Web3Modal and Wallet Provider Options
+## Web3Modalとウォレットプロバイダーのオプションを設定する
 
-**Step 1**: Installing Web3Modal and an Ethereum library
+**ステップ 1**：Web3ModalとEthereumライブラリのインストール
 
-Install web3Modal and your preferred library for interacting with the blockchain. In this tutorial, we will be installing [@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal) which was derived from [Web3Modal](https://github.com/WalletConnect/web3modal) and modified to add Kaia Wallet and Klip wallet. Also, this tutorial will use ethers.js to interact with the Klaytn blockchain.
+web3Modalと、ブロックチェーンとやりとりするためのお好みのライブラリをインストールする。 このチュートリアルでは、[Web3Modal](https://github.com/WalletConnect/web3modal)から派生した[@klaytn/web3modal](https://github.com/klaytn/klaytn-web3modal)をインストールし、Kaia WalletとKlip walletを追加するように修正します。 また、このチュートリアルでは、ethers.jsを使ってKaiaブロックチェーンとやりとりします。
 
 ```bash
 npm install @klaytn/web3modal
 npm install --save ethers
 ```
 
-**Step 2**: Instantiating Web3Modal with wallet provider options
+**ステップ 2**：ウォレットプロバイダーオプションでWeb3Modalをインスタンス化する
 
-Install the wallet providers of your choice. Here we install Kaia Wallet, Klip and Coinbase wallet providers.
+お好みのウォレットプロバイダーをインストールしてください。 ここでは、Kaia Wallet、Klip、Coinbaseのウォレットプロバイダーをインストールします。
 
 ```bash
 npm install --save @coinbase/wallet-sdk
@@ -40,7 +40,7 @@ npm install --save @klaytn/kaikas-web3-provider
 npm install --save @klaytn/klip-web3-provider
 ```
 
-In your `App.js` file, import CoinbaseWalletSDK, KaikasWeb3Provider, and KlipWeb3Provider, and instantiate the various provider options to integrate with your dapp.
+あなたの`App.js`ファイルで、CoinbaseWalletSDK、KaikasWeb3Provider、KlipWeb3Providerをインポートし、あなたのdappと統合するための様々なプロバイダオプションをインスタンス化する。
 
 ```js
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
@@ -86,9 +86,9 @@ const providerOptions = {
 };
 ```
 
-**Step 3**: Instantiate web3modal
+**ステップ 3**：web3modalをインスタンス化する
 
-Then, instantiate Web3Modal by passing in the provider options.
+次に、プロバイダのオプションを渡してWeb3Modalをインスタンス化する。
 
 ```js
 import Web3Modal from "@klaytn/web3modal";
@@ -98,9 +98,9 @@ const  web3Modal = new Web3Modal( {
   } )
 ```
 
-## Establishing Wallet Connection
+## ウォレット接続の確立
 
-To establish a connection to the user’s wallet, call the `connect()` method on the Web3Modal instance. We recommend you to wrap this operation around an async function and store the retrieved provider in your state to reuse throughout the app.
+ユーザーのウォレットへの接続を確立するには、Web3Modal インスタンスで `connect()` メソッドを呼び出します。 この操作を非同期関数でラップし、取得したプロバイダーをステート内に保存して、アプリ全体で再利用することを推奨する。
 
 ```js
 import { ethers } from 'ethers';
@@ -134,13 +134,13 @@ function App() {
 
 ![](/img/build/tools/web3Modal.png)
 
-## Setting up Utils function
+## ユーティリティ機能の設定
 
-In this guide, we will be making use of the utils functions such as `truncateAddress()` and `toHex()`. The `truncateAddress()` function takes in a valid address and returns a more readable format of the address passed in. While the `toHex()` function converts numbers to hexadecimal.  The following steps below show how to set up and use the utils function in your project.
+このガイドでは、`truncateAddress()`や`toHex()`といったutils関数を利用する。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()\`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
 
-**Step 1**: Create a `utils.js` file in the `src` root folder.
+**ステップ 1**：ルートフォルダ `src` に `utils.js` ファイルを作成する。
 
-Paste the following code in the newly created utils.js file.
+新しく作成したutils.jsファイルに以下のコードを貼り付ける。
 
 ```js
 export const truncateAddress = (address) => {
@@ -158,15 +158,15 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**Step 2**: Import the functions in your `App.js` file.
+**ステップ 2**：App.js\`ファイルに関数をインポートします。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## Accessing connection, account, network information
+## 接続、アカウント、ネットワーク情報へのアクセス
 
-As it is, Web3Modal does not provide built-in support for Ethereum interactions, such as retrieving connected accounts and network data. Note that to read the user’s address or connected network ID, you must directly request the information from your Ethereum library. In this guide, we’ll be getting that information using ethers.js. One way is to fetch and store this data is when connecting your user to your dapp.
+このままでは、Web3Modalは、接続されたアカウントやネットワークデータを取得するようなイーサリアムのインタラクションのための組み込みサポートを提供していません。 ユーザーのアドレスや接続しているネットワークIDを読み取るには、イーサリアムライブラリから直接情報をリクエストする必要があることに注意してください。 このガイドでは、ethers.jsを使って情報を取得します。 このデータをフェッチして保存する1つの方法は、ユーザーをダップに接続するときだ。
 
 ```js
 const [provider, setProvider] = useState();
@@ -202,9 +202,9 @@ return (
 );
 ```
 
-## Disconnecting Wallet
+## ウォレットの切断
 
-Disconnecting from the wallet is achieved by using the `clearCachedProvider()` method on the web3Modal instance. Also, one good practice is to refresh the state to clear any previously stored connection data.
+ウォレットからの切断は web3Modal インスタンスの `clearCachedProvider()` メソッドを使用することで達成されます。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
 
 ```js
 function App() {
@@ -229,7 +229,7 @@ const refreshState = () => {
 }
 ```
 
-It's important to keep in mind that the dApp state changes as users interact with it, and it's best practice to subscribe to the events that are released in response. Create useEffect hooks with subscriptions to these events so they can respond appropriately to changes.
+dAppのステートはユーザーが操作することで変化することを念頭に置いておくことが重要で、それに対応してリリースされるイベントをサブスクライブするのがベストプラクティスだ。 これらのイベントへのサブスクリプションを持つ useEffect フックを作成し、変更に適切に対応できるようにします。
 
 ```js
   useEffect(() => {
@@ -261,9 +261,9 @@ It's important to keep in mind that the dApp state changes as users interact wit
   }, [provider]);
 ```
 
-## Switch Networks or Add Custom Networks
+## ネットワークの切り替えまたはカスタムネットワークの追加
 
-As established previously, Web3Modal does not have built-in support for Ethereum interactions. In order to add or switch networks, you must directly make a request (via EIP-3085 or EIP-3326) to your Ethereum library. Here is an example of requesting to switch networks and adding the network as a fallback if it is not already present on the user’s wallet:
+先に述べたように、Web3Modalはイーサリアムとのやり取りをビルトインでサポートしていない。 ネットワークを追加または切り替えるには、イーサリアムライブラリに（EIP-3085またはEIP-3326を介して）直接リクエストする必要があります。 以下は、ネットワークの切り替えを要求し、ユーザーのウォレットにそのネットワークがまだ存在しない場合、フォールバックとしてそのネットワークを追加する例である：
 
 ```js
   const switchNetwork = async () => {
@@ -302,9 +302,9 @@ return (
 ) 
 ```
 
-## Signing Messages
+## 署名メッセージ
 
-Having initialised the provider and signer object, users can sign an arbitrary string.
+プロバイダーと署名者オブジェクトを初期化すると、ユーザーは任意の文字列に署名できる。
 
 ```js
  // add to the existing useState hook.
@@ -336,7 +336,7 @@ const signMessage = async(e) => {
   );
 ```
 
-## Sending Native Transaction
+## ネイティブ・トランザクションの送信
 
 You can perform native transactions, like sending KLAY from one user to another.
 
@@ -375,11 +375,11 @@ return (
 );
 ```
 
-## Working with a smart contract
+## スマートコントラクトとの連携
 
-With the Web3Modal provider and signer object, you can make contract interactions such as writing to and reading from a smart contract deployed to the blockchain.
+Web3Modalのプロバイダと署名者オブジェクトを使えば、ブロックチェーンにデプロイされたスマートコントラクトへの書き込みや、スマートコントラクトからの読み込みといったコントラクトのやり取りができる。
 
-### 1. Writing to a Contract
+### 1. 契約書への書き込み
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-### 2. Reading from a contract
+### 2. 契約書を読む
 
 ```js
 // add to existing useState hook
@@ -541,7 +541,7 @@ return (
   )
 ```
 
-## TroubleShooting
+## トラブルシューティング
 
 **Node fs error, add browser \{fs: false\} to package.json**
 
@@ -549,13 +549,13 @@ return (
 Node fs error, add browser {fs: false} to package.json
 ```
 
-This occurs when you install Klip-web3-provider.  To fix this issue,  follow these steps:
+これはKlip-web3-providerをインストールしたときに発生します。  この問題を解決するには、以下の手順に従ってください：
 
-**Step 1**: Open up and navigate to your node_modules folder. Look for the @Klaytn/klip-web3-provider folder and navigate to it's package.json file as shown below:
+**ステップ 1**：node_modulesフォルダを開いて移動します。 Kaia/klip-web3-providerフォルダを探し、以下のようにpackage.jsonファイルに移動します：
 
 > **@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json**
 
-**Step 2**: Paste the code below in @klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.json file.
+**ステップ 2**：以下のコードを@klaytn/klip-web3-provider/node_modules/caver-js/packages/caver.ipfs/package.jsonファイルに貼り付けます。
 
 ```js
 "browser": {
@@ -569,8 +569,8 @@ This occurs when you install Klip-web3-provider.  To fix this issue,  follow the
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-This error occurs when you use webpack version 5. In this version, NodeJS polyfills is no longer supported by default. To solve this issue, refer to this [guide](https://web3auth.io/docs/troubleshooting/webpack-issues).
+このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 この問題を解決するには、この[ガイド](https://web3auth.io/docs/troubleshooting/webpack-issues)を参照してください。
 
-## Next Step
+## 次のステップ
 
-For more in-depth guides on Web3Modal, please refer to [Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about) and [Web3Modal Github repository](https://github.com/klaytn/klaytn-web3modal). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample).
+Web3Modalに関するより詳細なガイドについては、[Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about)と[Web3Modal Githubリポジトリ](https://github.com/klaytn/klaytn-web3modal)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample)にあります。

@@ -1,26 +1,26 @@
-# Connect to main chain
+# メインチェーンに接続
 
-In this page, we will describe the steps of connecting a Service Chain to the Main Chain.
+このページでは、サービスチェーンをメインチェーンに接続する手順を説明します。
 
-## EN Configuration - Enable Main-bridge <a id="en-configuration-enable-main-bridge"></a>
+## EN コンフィギュレーション - メインブリッジを有効にする<a id="en-configuration-enable-main-bridge"></a>
 
-You should enable main-bridge by configuring `kend.conf`.
+`kend.conf`を設定して、main-bridgeを有効にする必要がある。
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 設定ファイルの更新<a id="update-the-configuration-file"></a>
 
-The `kend.conf` contains the following main-bridge properties.
+`kend.conf`には以下のメインブリッジのプロパティが含まれている。
 
-| Name                                                           | Description                                                                                                                               |
-| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| MAIN_BRIDGE                               | Enable bridge service as main bridge for service chain. 1 to enable.                                      |
-| MAIN_BRIDGE_PORT     | Bridge listen port. Default: 50505                                                                        |
-| MAIN_BRIDGE_INDEXING | Enable indexing of service chain transaction hash for fast access to the service chain data. 1 to enable. |
+| 名称                                                             | 説明                                                                   |
+| :------------------------------------------------------------- | :------------------------------------------------------------------- |
+| MAIN_BRIDGE                               | サービスチェーンのメインブリッジとしてブリッジサービスを有効にする。 1 で有効にする。                         |
+| MAIN_BRIDGE_PORT     | ブリッジのリッスンポート。 デフォルト：50505                                            |
+| MAIN_BRIDGE_INDEXING | サービスチェーンデータへの高速アクセスのために、サービスチェーントランザクションハッシュのインデックスを有効にする。 1 で有効にする。 |
 
-To enable main-bridge on EN, you should do like below.
+ENでメインブリッジを有効にするには、以下のようにする。
 
 - define `MAIN_BRIDGE`
-- enable RPC/WS.
-- add `mainbridge` API for RPC like the below example.
+- RPC/WSを有効にする。
+- 以下の例のように、RPC用の `mainbridge` APIを追加する。
 
 ```text
 # Configuration file for the kend
@@ -52,32 +52,32 @@ MAIN_BRIDGE_INDEXING=1
 ...
 ```
 
-## Connect SCN to the Main Chain <a id="connect-scn-to-the-main-chain"></a>
+## SCNをメインチェーンに接続<a id="connect-scn-to-the-main-chain"></a>
 
-You need to run an EN of the main chain as a main-bridge. And also you should determine which SCN (Service Chain Consensus Node) as a sub-bridge will connect with the EN.
+メインブリッジとしてメインチェーンのENを走らせる必要がある。 また、どのSCN（Service Chain Consensus Node）をサブブリッジとしてENと接続するかも決めておく必要がある。
 
-### Check EN (Main-Bridge) information <a id="check-en-(main-bridge)-information"></a>
+### EN（メインブリッジ）情報を確認する<a id="check-en-(main-bridge)-information"></a>
 
-#### Open EN Console <a id="open-en-console"></a>
+#### ENコンソールを開く<a id="open-en-console"></a>
 
-There are different ways to attach to the EN process. You can check the usable commands on [ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md). This page explains the way to attach to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on the node.
+ENプロセスにはさまざまな取り付け方がある。 使えるコマンドは[ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md)で確認できます。 このページでは、IPC（プロセス間通信）を使ってプロセスにアタッチする方法を説明します。 IPC ファイル `klay.ipc` はノードの `DATA_DIR` パスにある。
 
-Please execute the following command and check out the result. (If you added `mainbridge` API for RPC, you can check the bridge API like below. If there is no `mainbridge` API, you should check [EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) again. )
+以下のコマンドを実行し、結果を確認してください。 (RPC用に `mainbridge` APIを追加している場合は、以下のようにブリッジAPIを確認することができる。 もし `mainbridge` API がない場合は、[EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) を再度確認してください。 )
 
 ```bash
 $ ken attach --datadir ~/kend_home
-Welcome to the Kaia JavaScript console!
+Kaia JavaScriptコンソールへようこそ！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kend_home
  modules: admin:1.0 mainbridge:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-#### Get the EN's KNI <a id="get-the-ens-kni"></a>
+#### エンのKNIを手に入れる<a id="get-the-ens-kni"></a>
 
-After attaching to the process via IPC, you can check the EN's main-bridge KNI like below. You can refer to [Service Chain API](../../../references/json-rpc/subbridge/add-peer).
+IPC経由でプロセスにアタッチした後、EN のメインブリッジ KNI を以下のように確認できる。 サービスチェーンAPI](../../../references/json-rpc/subbridge/add-peer)を参照してください。
 
 ```javascript
 > mainbridge.nodeInfo
@@ -109,35 +109,35 @@ After attaching to the process via IPC, you can check the EN's main-bridge KNI l
 }
 ```
 
-You should take note of the main-bridge `kni`.
+メインブリッジの`kni`に注意してほしい。
 
-### Connect to the Main Chain <a id="connect-to-the-main-chain"></a>
+### メインチェーンに接続<a id="connect-to-the-main-chain"></a>
 
-#### Open SCN Console <a id="open-scn-console"></a>
+#### SCNコンソールを開く<a id="open-scn-console"></a>
 
-Attach to the SCN process like below. You should have enabled `subbridge` API for RPC, you can find the subbridge module in the output. If there is no `subbridge` API, you should check [Configuration of the SCN](../install-service-chain.md#configuration-of-the-scn) again.
+以下のようにSCNプロセスに添付する。 RPC の `subbridge` API が有効になっているはずである。 もし `subbridge` APIがなければ、もう一度[SCNの設定](../install-service-chain.md#configuration-of-the-scn)を確認してください。
 
 ```bash
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+Kaia JavaScript コンソールへようこそ！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
  datadir: ~/kscnd_home
  modules: admin:1.0 subbridge:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 servicechain:1.0 txpool:1.0
- >
+>
 ```
 
-#### Connect SCN with EN <a id="connect-scn-with-en"></a>
+#### SCNとENを接続<a id="connect-scn-with-en"></a>
 
-You can add the EN peer on SCN via IPC like below. The kni is EN's KNI which you noted previously.
+以下のように IPC 経由で SCN に EN ピアを追加することができます。 kniは、以前あなたが指摘したEN's KNIである。
 
 ```javascript
  > subbridge.addPeer("kni://08b99d2297e0a27ddeb33f3a81b59ea1c065b9adbaff9fefab0d16f65b1a8db22939a104c24447e9aca521c158922ca912476b544baf48995a382d88886e0a37@[::]:50505?discport=0")
  true
 ```
 
-And then you can check the connected peers like below.
+そして、以下のように接続されているピアを確認することができる。
 
 ```javascript
  > subbridge.peers

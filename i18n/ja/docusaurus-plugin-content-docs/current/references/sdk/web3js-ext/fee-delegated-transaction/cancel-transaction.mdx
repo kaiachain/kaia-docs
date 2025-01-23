@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -71,7 +71,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxFeeDelegatedCancel.js focus=1:2
 
@@ -79,7 +79,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses, and their \*private keys\*\*
+**sender**、**fee payer** のアドレス、およびそれらの**private keys**を定義する。
 
 ```js TxFeeDelegatedCancel.js focus=4:7
 
@@ -87,7 +87,7 @@ Define **sender**, **fee payer** addresses, and their \*private keys\*\*
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js TxFeeDelegatedCancel.js focus=10
 
@@ -95,7 +95,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxFeeDelegatedCancel.js focus=10
 const { KlaytnWeb3, TxType, parseTransaction } = require("@kaiachain/web3js-ext");
@@ -137,7 +137,7 @@ main();
 
 ---
 
-Create a `KlaytnWeb3` instance using the provider
+プロバイダを使用して `KlaytnWeb3` インスタンスを作成する。
 
 ```js TxFeeDelegatedCancel.js focus=11
 
@@ -145,7 +145,7 @@ Create a `KlaytnWeb3` instance using the provider
 
 ---
 
-Convert the sender's private key to an account with `privateKeyToAccount`
+`privateKeyToAccount`で送信者の秘密鍵をアカウントに変換する。
 
 ```js TxFeeDelegatedCancel.js focus=12
 
@@ -161,7 +161,7 @@ Define a **FeeDelegatedCancel** transaction with params: `type: TxType.FeeDelega
 
 ---
 
-Sign the transaction with the **sender** account
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 ```js TxFeeDelegatedCancel.js focus=19:21
@@ -180,7 +180,7 @@ senderTxHashRLP 0x39f86b8203ba850ba43b74008302059494a2a8854b1802d8cd5de631e69081
 
 ---
 
-Convert the fee payer's private key to an account
+料金支払者の秘密鍵をアカウントに変換する。
 
 ```js TxFeeDelegatedCancel.js focus=26
 
@@ -188,7 +188,7 @@ Convert the fee payer's private key to an account
 
 ---
 
-Sign the transaction as a fee payer
+手数料支払者として取引に署名する
 
 <CH.Code>
 ```js TxFeeDelegatedCancel.js focus=27:29
@@ -207,7 +207,7 @@ signedTx 0x8b7fa96dd12a54c077020ddbfdb4114254312bfdbb361cf9479610afe1ba381c
 
 ---
 
-Send the signed transaction and log the receipt
+署名されたトランザクションを送信し、レシートを記録する。
 
 <CH.Code>
 

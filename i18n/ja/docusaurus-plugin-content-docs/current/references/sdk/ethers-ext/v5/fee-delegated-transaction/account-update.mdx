@@ -1,6 +1,6 @@
-# Account Update
+# アカウント更新
 
-# Fee Delegation
+# 手数料の委任
 
 <CH.Spotlight>
 <CH.Code>
@@ -82,7 +82,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=1:3
 
@@ -90,7 +90,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Declaring **sender** , **fee payer** address and private keys.
+**sender**、**fee payer**のアドレスと秘密鍵を宣言する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=7:11
 
@@ -98,7 +98,7 @@ Declaring **sender** , **fee payer** address and private keys.
 
 ---
 
-**senderNewPriv** is the private key to be updated
+**senderNewPriv**は更新される秘密鍵である。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=9
 
@@ -106,7 +106,7 @@ Declaring **sender** , **fee payer** address and private keys.
 
 ---
 
-Creating a JSON-RPC provider instance with the specified URL
+指定されたURLでJSON-RPCプロバイダーのインスタンスを作成する
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=13
 
@@ -114,7 +114,7 @@ Creating a JSON-RPC provider instance with the specified URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=13
 const ethers = require("ethers");
@@ -164,7 +164,7 @@ main();
 
 ---
 
-Compute new public key from new private key
+新しい秘密鍵から新しい公開鍵を計算する
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=18:19
@@ -180,7 +180,7 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 
 ---
 
-Creating a transaction object to update new publickey
+新しい公開鍵を更新するためのトランザクション・オブジェクトの作成
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=21:28
 
@@ -188,7 +188,7 @@ Creating a transaction object to update new publickey
 
 ---
 
-Populate the transaction with sender's wallet.
+送信者のウォレットをトランザクションに入力する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=31
 
@@ -196,7 +196,7 @@ Populate the transaction with sender's wallet.
 
 ---
 
-Sign the transaction with **senderWallet**
+**senderWallet**でトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=32:33
@@ -212,7 +212,7 @@ senderTxHashRLP 0x21f88c67850ba43b740082cd1494e15cd70a41dfb05e7214004d7d054801b2
 
 ---
 
-Send the transaction to blockchain using fee payer's wallet. Function `sendTransactionAsFeePayer` adds a signature with FeePayer’s private key to the sender’s signature and transmits it to the blockchain network.
+手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=35:37
@@ -228,7 +228,7 @@ sentTx 0x7530c3309220e8d86a216694c3809de6f6d437da22ee54a60f5ba701856e467b
 
 ---
 
-Wait for the transaction receipt
+取引レシートを待つ
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=39:40

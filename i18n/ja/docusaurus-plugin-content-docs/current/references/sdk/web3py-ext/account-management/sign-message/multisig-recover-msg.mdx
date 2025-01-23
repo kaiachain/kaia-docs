@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -52,7 +52,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import necessary utils from **eth_utils**, **web3** and **eth_account**
+**eth_utils**、**web3**、**eth_account**から必要なユーティリティをインポートする。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=1:4
 
@@ -60,7 +60,7 @@ Import necessary utils from **eth_utils**, **web3** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=5
 
@@ -68,7 +68,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=7
 
@@ -76,7 +76,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=7
 from eth_account import Account
@@ -108,7 +108,7 @@ web3_multisig_value_transfer_sign_recover()
 
 ---
 
-Define a wallet from private key using **Account.from_key_pair** which is a member key of your multisig account
+マルチシグアカウントのメンバーキーである**Account.from_key_pair**を使用して、秘密鍵からウォレットを定義します。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=10:15
 
@@ -116,7 +116,7 @@ Define a wallet from private key using **Account.from_key_pair** which is a memb
 
 ---
 
-Define any message to sign
+署名するメッセージを定義する
 
 ```py web3_multisig_value_transfer_message_recover.py focus=16
 
@@ -124,7 +124,7 @@ Define any message to sign
 
 ---
 
-Format the message using **encode_defunct** to make it compatible with EIP-191 standard.
+EIP-191標準と互換性を持たせるために、**encode_defunct**を使ってメッセージをフォーマットする。
 
 ```py web3_multisig_value_transfer_message_recover.py focus=17
 
@@ -132,7 +132,7 @@ Format the message using **encode_defunct** to make it compatible with EIP-191 s
 
 ---
 
-Sign the transaction with the created account
+作成したアカウントで取引に署名する
 
 ```py web3_multisig_value_transfer_message_recover.py focus=18
 
@@ -140,7 +140,7 @@ Sign the transaction with the created account
 
 ---
 
-Print out the signature and its length
+署名とその長さをプリントアウトする
 
 <CH.Code>
 ```py web3_multisig_value_transfer_message_recover.py focus=20:21
@@ -159,7 +159,7 @@ Print out the signature and its length
 
 ---
 
-Recover sender address with **Account.recover_message** from signed message
+署名されたメッセージから**Account.recover_message**で送信者アドレスを復元する
 
 <CH.Code>
 ```py web3_multisig_value_transfer_message_recover.py focus=22:23

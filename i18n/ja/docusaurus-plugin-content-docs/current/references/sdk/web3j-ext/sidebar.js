@@ -1,103 +1,103 @@
 export const sidebar = {
-    type: 'category',
+    type: 'カテゴリー',
     label: 'web3j-ext',
     link: {
-        type: 'doc',
-        id: 'references/sdk/web3j-ext/getting-started'
+        type: 'ドク',
+        id: 'リファレンス/sdk/web3j-ext/getting-started'
     },
     items: [
         {
-            type: 'doc',
-            label: 'Getting-Started',
-            id: 'references/sdk/web3j-ext/getting-started'
+            type: 'ドク',
+            label: 'はじめに',
+            id: 'リファレンス/sdk/web3j-ext/getting-started'
         },
         {
-            type: 'category',
-            label: 'Account Management',
+            type: 'カテゴリー',
+            label: 'アカウント管理',
             items: [
                 {
-                    type: 'category',
-                    label: 'Account Key',
+                    type: 'カテゴリー',
+                    label: 'アカウント・キー',
                     items: [
-                        'references/sdk/web3j-ext/account-management/account-key/legacy',
-                        'references/sdk/web3j-ext/account-management/account-key/public',
-                        'references/sdk/web3j-ext/account-management/account-key/multisig',
-                        'references/sdk/web3j-ext/account-management/account-key/role-based'
+                        '参考文献/sdk/web3j-ext/アカウント管理/アカウントキー/レガシー',
+                        '参考文献/sdk/web3j-ext/アカウント管理/アカウントキー/公開',
+                        '参考文献/sdk/web3j-ext/アカウント管理/アカウントキー/マルチシグ',
+                        '参考文献/sdk/web3j-ext/アカウント管理/アカウントキー/ロールベース'
                     ]
                 },
                 {
-                    type: 'category',
-                    label: 'Sign Transaction',
+                    type: 'カテゴリー',
+                    label: 'サイン取引',
                     items: [
-                        'references/sdk/web3j-ext/account-management/send-transaction/legacy-recover-tx',
-                        'references/sdk/web3j-ext/account-management/send-transaction/public-recover-tx',
-                        'references/sdk/web3j-ext/account-management/send-transaction/multisig-recover-tx',
-                        'references/sdk/web3j-ext/account-management/send-transaction/role-based-recover-tx'
+                        'レファレンス/sdk/web3j-ext/アカウント管理/センドトランザクション/レガシーリカバー-tx',
+                        'リファレンス/sdk/web3j-ext/アカウント管理/センドトランザクション/パブリック-リカバー-tx',
+                        '参考文献/sdk/web3j-ext/アカウント管理/センドトランザクション/マルチシグ-リカバー-tx',
+                        '参考文献/sdk/web3j-ext/アカウント管理/センドトランザクション/ロールベース-リカバー-tx'
                     ]
                 },
                 {
-                    type: 'category',
-                    label: 'Sign Message',
+                    type: 'カテゴリー',
+                    label: 'サインメッセージ',
                     items: [
-                        'references/sdk/web3j-ext/account-management/sign-message/legacy-recover-msg',
-                        'references/sdk/web3j-ext/account-management/sign-message/multisig-recover-msg',
-                        'references/sdk/web3j-ext/account-management/sign-message/public-recover-msg',
-                        'references/sdk/web3j-ext/account-management/sign-message/role-based-recover-msg'
+                        '参考文献/sdk/web3j-ext/アカウント管理/サインメッセージ/レガシー回復メッセージ',
+                        'リファレンス/sdk/web3j-ext/アカウント管理/サインメッセージ/マルチシグ-リカバー-msg',
+                        'リファレンス/sdk/web3j-ext/アカウント管理/サインメッセージ/パブリック-リカバー-msg',
+                        '参考文献/sdk/web3j-ext/アカウント管理/サインメッセージ/ロールベースの回復メッセージ'
                     ]
                 },
                 {
-                    type: 'category',
-                    label: 'Keystore',
+                    type: 'カテゴリー',
+                    label: 'キーストア',
                     items: [
-                        'references/sdk/web3j-ext/account-management/keystore/keystoreV3',
-                        'references/sdk/web3j-ext/account-management/keystore/keystoreV4'
+                        '参考文献/sdk/web3j-ext/アカウント管理/キーストア/キーストアV3',
+                        'リファレンス/sdk/web3j-ext/アカウント管理/キーストア/キーストアV4'
                     ]
                 }
             ]
         },
         {
-            type: 'category',
-            label: 'Basic Transaction',
+            type: 'カテゴリー',
+            label: '基本取引',
             items: [
-                'references/sdk/web3j-ext/basic-transaction/legacy',
-                'references/sdk/web3j-ext/basic-transaction/value-transfer',
-                'references/sdk/web3j-ext/basic-transaction/value-transfer-memo',
-                'references/sdk/web3j-ext/basic-transaction/account-update',
-                'references/sdk/web3j-ext/basic-transaction/smart-contract-deploy',
-                'references/sdk/web3j-ext/basic-transaction/smart-contract-execution',
-                'references/sdk/web3j-ext/basic-transaction/cancel-transaction'
+                '参考文献/sdk/web3j-ext/基本トランザクション/レガシー',
+                'リファレンス/sdk/web3j-ext/基本トランザクション/値転送',
+                '参考文献/sdk/web3j-ext/基本トランザクション/値転送メモ',
+                'リファレンス/sdk/web3j-ext/基本トランザクション/アカウント更新',
+                '参考文献/sdk/web3j-ext/基本トランザクション/スマート契約-デプロイ',
+                '参考文献/sdk/web3j-ext/基本トランザクション/スマート契約実行',
+                'リファレンス/sdk/web3j-ext/基本トランザクション/キャンセルトランザクション'
             ]
         },
         {
-            type: 'category',
-            label: 'Fee Delegated Transaction',
+            type: 'カテゴリー',
+            label: '手数料 委任取引',
             items: [
-                'references/sdk/web3j-ext/fee-delegated-transaction/value-transfer',
-                'references/sdk/web3j-ext/fee-delegated-transaction/value-transfer-memo',
-                'references/sdk/web3j-ext/fee-delegated-transaction/account-update',
-                'references/sdk/web3j-ext/fee-delegated-transaction/smart-contract-deploy',
-                'references/sdk/web3j-ext/fee-delegated-transaction/smart-contract-execution',
-                'references/sdk/web3j-ext/fee-delegated-transaction/cancel-transaction'
+                '参考文献/sdk/web3j-ext/料金委譲トランザクション/値移転',
+                '参考文献/sdk/web3j-ext/fee-delegated-transaction/value-transfer-memo',
+                '参考文献/sdk/web3j-ext/料金委譲トランザクション/アカウント更新',
+                'リファレンス/sdk/web3j-ext/fee-delegated-transaction/smart-contract-deploy',
+                '参考文献/sdk/web3j-ext/手数料委譲トランザクション/スマート契約実行',
+                'リファレンス/sdk/web3j-ext/料金委譲トランザクション/キャンセルトランザクション'
             ]
         },
         {
-            type: 'category',
-            label: 'Smart Contract',
+            type: 'カテゴリー',
+            label: 'スマート契約',
             items: [
-                'references/sdk/web3j-ext/smart-contract/deploy',
-                'references/sdk/web3j-ext/smart-contract/read',
-                'references/sdk/web3j-ext/smart-contract/write',
-                'references/sdk/web3j-ext/smart-contract/write-txtype',
-                'references/sdk/web3j-ext/smart-contract/write-with-fee-delegation'
+                '参考文献/sdk/web3j-ext/スマート契約/デプロイ',
+                '参考文献/sdk/web3j-ext/スマート契約/read',
+                '参考文献/sdk/web3j-ext/スマート契約/write',
+                '参考文献/sdk/web3j-ext/スマート契約/write-txtype',
+                '参考文献/sdk/web3j-ext/スマート契約/手数料付き書き込み委任'
             ]
         },
         {
-            type: 'category',
-            label: 'Utils',
+            type: 'カテゴリー',
+            label: 'ユーティリティ',
             items: [
-                'references/sdk/web3j-ext/utils/address',
-                'references/sdk/web3j-ext/utils/signature',
-                'references/sdk/web3j-ext/utils/unit'
+                '参考文献/sdk/web3j-ext/utils/address',
+                '参考文献/sdk/web3j-ext/utils/signature',
+                '参考文献/sdk/web3j-ext/utils/unit'
             ]
         }
     ]

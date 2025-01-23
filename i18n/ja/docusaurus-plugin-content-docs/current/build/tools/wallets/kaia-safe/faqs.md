@@ -1,106 +1,106 @@
 # Frequently Asked Questions
 
-## Can I add new owners after creating a safe? <a id="Can i add new owners after creating a safe"></a>
+## 金庫を作成した後、新しい所有者を追加できますか？ <a id="Can i add new owners after creating a safe"></a>
 
-Yes! After creating your safe account, Kaia Safe gives you access to manage safe owners, i.e., add, remove, and replace owners, or rename existing owners.
+そうだ！ 金庫のアカウントを作成した後、Kaia Safeは金庫の所有者を管理する、つまり所有者を追加、削除、交換、または既存の所有者の名前を変更するアクセス権を提供します。
 
-Note: To execute this change, you need to be connected with one of the current owners.
+注：この変更を実行するには、現在のオーナーのひとりとつながっている必要があります。
 
-The steps below explain how to add new owners or signers to your Safe account after its creation.
+以下の手順では、Safe アカウントの作成後に新しい所有者や署名者を追加する方法を説明します。
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Manage Safe Account signers** card under the **Setup** section.
+**ステップ1:** サイドバーメニューの**Settings**に移動すると、**Setup**セクションの下に**Manage Safe Account Signers**カードが表示されます。
 
-**Step 2:** Click the **Add new signer** button at the bottom of the card. Clicking this button would open a new window.
+\*\*ステップ 2: \*\* カード下部の **Add new signer** ボタンをクリックします。 このボタンをクリックすると、新しいウィンドウが開く。
 
 ![](/img/build/tools/kaia-safe/ks-add-signers.png)
 
-**Step 3:** Enter the **name** of the new owner and paste the **owner's address**. Then click the next button at the bottom-right of the page.
+**ステップ3：**新しい所有者の**名前**を入力し、**所有者の住所**を貼り付けます。 次にページ右下の「次へ」ボタンをクリックする。
 
-**Step 4:** Set a new signature policy. In this case, you can either change or retain the existing signature policy. The image below shows that 2 out of the 4 owners are required to confirm and execute any transaction.
+**ステップ4:** 新しい署名ポリシーを設定します。 この場合、既存の署名ポリシーを変更するか、保持するかのいずれかを選択することができます。 下の画像は、4人の所有者のうち2人が取引の確認と実行を要求されていることを示している。
 
 ![](/img/build/tools/kaia-safe/ks-add-signer-details.png)
 
-**Step 5:** Review and submit the transaction.
+**ステップ5：** 取引を確認し、提出する。
 
-Confirm that all changes are correct before submitting. You can therefore submit the change by clicking on the **submit** button.
+提出する前に、すべての変更が正しいことを確認してください。 そのため、**submit**ボタンをクリックして変更を提出することができます。
 
-After clicking on **Submit**, your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+**Submit**をクリックすると、接続されているウォレットが変更を確認するよう求めます。 既存の署名ポリシーにもよるが、他のオーナーは通常の取引と同様に変更を確認する必要がある。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-change-owner-setup-review.gif)
 
-## Can I change the number of required signer confirmation? <a id="Can i change the number of required signer confirmation"></a>
+## 必要な署名者確認数を変更することはできますか？ <a id="Can i change the number of required signer confirmation"></a>
 
-Yes! You can change the number of signer confirmations required by following the steps to be shown below. This is important because you might want to change the owners or signers required to confirm transactions associated with your safe account.
+そうだ！ 以下に示す手順に従い、署名者確認の必要回数を変更することができる。 これは、金庫口座に関連する取引の確認に必要な所有者や署名者を変更したい場合があるため、重要です。
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Required Confirmation** card under the **Setup** section.
+**ステップ1:**サイドバーメニューの**設定**に移動すると、**設定**セクションの下に**必要な確認**カードが表示されます。
 
-This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
+これは現在の署名方針を示しており、下の画像から、4人の所有者のうち2人が取引を確認する必要があります。
 
 ![](/img/build/tools/kaia-safe/ks-conf-policy.png)
 
-**Step 2:** Click on the **change** button.
+\*\*ステップ2:**変更**ボタンをクリックしてください。
 
-This pops up a new window to select your new signature threshold.
+新しい署名のしきい値を選択するための新しいウィンドウがポップアップ表示されます。
 
 ![](/img/build/tools/kaia-safe/ks-conf-policy-btn.png)
 
-**Step 3:** Click on the **Submit** button.
+**ステップ3：**「送信」ボタンをクリックしてください。
 
-Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+既存の署名ポリシーによっては、他のオーナーが通常の取引と同様に変更を確認する必要があることに注意してください。
 
-## How do I add an existing safe? <a id="How do i add an existing safe"></a>
+## 既存の金庫を追加するには？ <a id="How do i add an existing safe"></a>
 
-Using your exported Safe data, which contains your added Safe accounts, address book, and settings, you can easily add your Safe account.
+エクスポートした Safe データには、追加した Safe アカウント、アドレス帳、および設定が含まれています。
 
-> Note: You must have downloaded your Safe data as shown in the image below:
+> 注: 以下の画像に示すように、セーフ データをダウンロードしている必要があります：
 
 ![](/img/build/tools/kaia-safe/ks-export-btn.png)
 
-The need to add or load an existing safe into the interface varies. These may include:
+既存の金庫をインターフェイスに追加したり、ロードしたりする必要性は様々である。 これには以下が含まれる：
 
-- You want to access your Safe from a different browser.
-- You want to interact with Safe where another party made you an owner.
-- You want to add any existing safe in read-only mode.
+- 別のブラウザからセーフにアクセスしたい。
+- 他人がオーナーにしたSafeと交流したい。
+- 既存の金庫を読み取り専用モードで追加したい。
 
-Let's go through the process of adding your existing safe in the following steps. Note: Please ensure that your signer's wallet is connected.
+以下のステップで既存の金庫を追加していきましょう。 注：署名者のウォレットが接続されていることを確認してください。
 
-**Step 1:** Navigate to **Settings** tab.
+\*\*ステップ1: **設定**タブに移動します。
 
-**Step 2:** Scroll to the **Data Import** card under the **Data** section.
+**ステップ2:** **データ**セクションの下にある**データインポート**カードまでスクロールしてください。
 
 ![](/img/build/tools/kaia-safe/ks-data-import-i.png)
 
-Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
+ここでは、JSONファイルをドラッグ・アンド・ドロップするか、上の画像のようにファイルを選択することができます。
 
-**Step 3:** Click on **Import** button.
+\*\*ステップ3：**インポート**ボタンをクリックしてください。
 
 ![](/img/build/tools/kaia-safe/ks-data-import-btn.png)
 
 ![](/img/build/tools/kaia-safe/kaia-safe-data-import.gif)
 
-After this, you should now have access to your Safe account.
+これで、セーフアカウントにアクセスできるようになります。
 
-## Common safe Set-up
+## 一般的な金庫の設定
 
-This tends to provide some pointers regarding decisions to take when setting up a Safe. These may include:
+これは、セーフを設定する際に取るべき決断に関するいくつかのヒントを提供する傾向がある。 これには以下が含まれる：
 
-- How many owners?
+- オーナーは何人ですか？
 
-- What threshold?
+- 閾値とは？
 
-- What wallets are compatible?
+- 互換性のある財布は？
 
-There is no one best response to these three questions, therefore there is no one optimum Safe configuration. Really, it all depends on the particular use case. Nevertheless, we make an effort to offer some suggestions for things to take into account:
+これら3つの質問に対する最適な回答は1つではないため、最適なセーフ・コンフィギュレーションは存在しない。 本当に、すべては特定のユースケースによる。 とはいえ、考慮すべき点をいくつか提案できるよう努力はしている：
 
-**How many owners?**
+**オーナーは何人？**
 
-Typically, having many owner accounts is a smart option. It is good practice for several people to have access to the safe account when groups are managing funds. It is advised for individuals who manage money to have multiple accounts so they can use more than one authentication factor.
+通常、多くのオーナー口座を持つことは賢い選択である。 グループで資金を管理する場合は、複数の人が金庫の口座にアクセスできるようにするのがよい習慣です。 お金を管理する個人は、複数の認証要素を使用できるように、複数の口座を持つことをお勧めします。
 
-**What threshold?**
+**閾値とは？**
 
-A Safe's threshold is the minimum number of owner accounts that must approve a transaction before it can be successfully executed. It is advisable to use a threshold greater than 1, ensuring that at least one additional account is always needed to validate and carry out Safe transactions, rather than allowing a single account to carry out transactions. As a result, money cannot be moved even if an attacker gains access to one account.
+セーフのしきい値とは、トランザクションが正常に実行されるまでに承認されなければならない所有者アカウントの最小数である。 1より大きい閾値を使用することが望ましく、1つのアカウントで取引を実行するのではなく、安全な取引を検証し実行するために、少なくとも1つの追加アカウントが常に必要となるようにする。 その結果、攻撃者が1つの口座にアクセスしたとしても、資金を移動させることはできない。
 
-Additionally, it is recommended to choose a threshold of 51% of the total owners, e.g., 2 out of 3, 3 out of 5, etc.  Because of this, even if one owner loses access to their account, users are not immediately locked out of all of their money in the Safe; instead, the other owners can still perform transactions and, for example, replace that lost owner account. One can contend that this serves as a recovery mechanism.
+さらに、所有者総数の 51%を閾値とすることを推奨する。例えば、3 人中 2 人、5 人中 3 人など。  このため、所有者の一人がアカウントへのアクセスを失っても、利用者は金庫内のすべての資金から即座にロックアウトされることはなく、他の所有者が取引を実行し、たとえば、その失われた所有者のアカウントを交換することができます。 これはリカバリーメカニズムとして機能していると言える。
 
-**What wallets are compatible?**
-At the moment, Kaia Safe is compatible with [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask.mdx).
+**対応しているウォレットは？**
+現時点では、Kaia Safeは[Kaia Wallet](https://docs.kaiawallet.io/)と[MetaMask](../../../tutorials/connecting-metamask.mdx)に対応しています。

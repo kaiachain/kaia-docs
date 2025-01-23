@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -39,7 +39,7 @@ main().catch(console.error);
   senderAddr: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig: '0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
+  sig：'0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
 }
 recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
@@ -49,7 +49,7 @@ recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SignMsgWithLegacyExample.js focus=1
 
@@ -57,7 +57,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender's **address** and **private key**
+送信者の**address**と**private key**を定義する。
 
 ```js SignMsgWithLegacyExample.js focus=3:4
 
@@ -65,7 +65,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js SignMsgWithLegacyExample.js focus=6
 
@@ -73,7 +73,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SignMsgWithLegacyExample.js focus=6
 const { Web3 } = require("@kaiachain/web3js-ext");
@@ -105,7 +105,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+プロバイダーを使って**web3インスタンス**を定義する
 
 ```js SignMsgWithLegacyExample.js focus=7
 
@@ -113,7 +113,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js SignMsgWithLegacyExample.js focus=8
 
@@ -121,7 +121,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Define a message to be signed and recovered
+署名され、復元されるメッセージを定義する
 
 ```js SignMsgWithLegacyExample.js focus=11
 
@@ -129,7 +129,7 @@ Define a message to be signed and recovered
 
 ---
 
-Sign the message with sender's **wallet**
+送信者の**財布**でメッセージに署名する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=12:14
@@ -150,7 +150,7 @@ Sign the message with sender's **wallet**
 
 ---
 
-Recover the address from signed message using `web3.eth.accounts.recover`
+`web3.eth.accounts.recover`を使用して署名されたメッセージからアドレスを回復する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=16:18
@@ -166,7 +166,7 @@ recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 
 ---
 
-Recover the address from signed message using `web3.klay.recoverFromMessage`
+`web3.klay.recoverFromMessage` を使って、署名されたメッセージからアドレスを復元する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=20:22

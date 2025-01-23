@@ -1,21 +1,21 @@
-# Ethers.js Extension for Kaia
+# カイア用Ethers.jsエクステンション
 
-Ethers.js Extension for Kaia offers:
+カイアのEthers.jsエクステンションは提供します：
 
-- Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
-  involving AccountKey and TxTypes.
-- Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
-  Kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
+- EthereumとKaiaの両方のトランザクションタイプを扱う`ethers.Wallet`のドロップイン置き換え
+  、AccountKeyとTxTypesを含む。
+- `Ethers.providers.JsonRpcProvider` をドロップインで置き換え、Ethereum RPC と
+  Kaia 固有の RPC の両方にアクセスできるようにする。
+- MetaMask (`window.ethereum`) と Kaia Wallet (`window.klaytn`) の両方で動作するように `ethers.Web3Provider` をドロップインで置き換える。
 
-## Note for ethers v6
+## エーテルV6に関する注意事項
 
-`@kaiachain/ethers-ext` supports both ethers v5 and v6. However, you need to use the right packages which are specified for each `ethers` version. So ethers v5 must be used with packages from `@kaiachain/ethers-ext/v5` and ethers v6 is only compatible with `@kaiachain/ethers-ext/v6`.
+`kaiachain/ethers-ext`はethers v5とv6の両方をサポートしている。 ただし、各 `ethers` バージョンで指定されている正しいパッケージを使用する必要がある。 そのため、ethers v5は`@kaiachain/ethers-ext/v5`のパッケージと使用する必要があり、ethers v6は`@kaiachain/ethers-ext/v6`とのみ互換性がある。
 
 > **_NOTE:_**
-> If the import path has no version sub-path (`@kaiachain/ethers-ext`), ethers v5 will be used by default.
+> インポートパスにバージョンのサブパス(`@kaiachain/ethers-ext`)がない場合、ethers v5がデフォルトで使用されます。
 
-- **Don't**: Mixing ethers v6 and ethers-ext for ethers v5
+- **しないでください**：エーテルV6とエーテル・エクストラをエーテルV5と混合すること。
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -27,7 +27,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using with ethers v5
+- **する**：エーテル v5 との併用
 
   ```js
   const ethers = require("ethers"); // ethers v5
@@ -39,7 +39,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using with ethers v6
+- **する**：エーテルv6との併用
 
   ```js
   const ethers = require("ethers"); // ethers v6
@@ -51,7 +51,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- **Do**: Using ethers-ext only
+- **する**：エーテル・エクステルのみを使用
 
   ```js
   const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext/v5");
@@ -62,16 +62,16 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-## Install
+## インストール
 
 ### Node.js
 
-- Install
+- インストール
   ```sh
-  npm install --save @kaiachain/ethers-ext ethers@5 # or ethers@6
+  npm install --save @kaiachain/ethers-ext ethers@5 # または ethers@6
   ```
 
-- ESM or TypeScript
+- ESMまたはTypeScript
 
   ```ts
   import { Wallet, JsonRpcProvider } from "@kaiachain/ethers-ext";
@@ -94,7 +94,7 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-- CommonJS
+- コモンJS
 
   ```js
   // v5
@@ -109,9 +109,9 @@ Ethers.js Extension for Kaia offers:
   const wallet = new Wallet("<private key>", provider);
   ```
 
-### Browser
+### ブラウザ
 
-It is not recommended to use CDNs in production, But you can use below for quick prototyping. using `ethers-ext.buldle.js` for ethers v5 and `ethers-ext.v6.bundle.js` for ethers v6
+本番環境でCDNを使用することは推奨されませんが、迅速なプロトタイピングのために以下を使用することができます。 ethers v5 用の `ethers-ext.buldle.js` と ethers v6 用の `ethers-ext.v6.bundle.js` を使用する。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/ethers-ext@latest/dist/ethers-ext.bundle.js"></script>
@@ -120,6 +120,6 @@ It is not recommended to use CDNs in production, But you can use below for quick
 </script>
 ```
 
-## Usage
+## 使用方法
 
-See [example](./example) and [test](./test).
+example](./example)と[test](./test)を参照のこと。

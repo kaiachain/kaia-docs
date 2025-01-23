@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. AccountKeyPublic is used for accounts having one public key.\
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 AccountKeyPublic is used for accounts having one public key.\
 AccountKeyPublic is used for accounts having one public key.\
 If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
@@ -74,35 +74,35 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js SignTxWithPubkeyExample.js focus=1:3
   ```
 
   ---
 
-  Define sender's **address** and **private keys**
+  送信者の**address**と**private key**を定義する。
 
   ```js SignTxWithPubkeyExample.js focus=5:7
   ```
 
   ---
 
-  Define receiver's **address**
+  受信者の**address**を定義します。
 
   ```js SignTxWithPubkeyExample.js focus=8
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js SignTxWithPubkeyExample.js focus=10
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js SignTxWithPubkeyExample.js focus=10
   const { ethers } = require("ethers");
@@ -144,21 +144,21 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Create a sender's wallet with the **private key** and **provider**
+  **private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
   ```js SignTxWithPubkeyExample.js focus=11
   ```
 
   ---
 
-  Create a value transfer transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+  `type: TxType.ValueTransfer` を使用して価値移転トランザクションを作成し、後で `klay_recoverFromTransaction` で回復できるようにします。
 
   ```js SignTxWithPubkeyExample.js focus=14:19
   ```
 
   ---
 
-  Sign the transaction with sender's **wallet**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+  `populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=21:23
@@ -167,13 +167,13 @@ If an account has an AccountKeyPublic object, the transaction validation process
     ---
 
     ```zsh output
-    rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
+    rawTx0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc1000094e15cd70a41dfb05e7214004d7d054801b2a2f06bf847f8458207f5a05e2299e8d947e8b39d3715ba3945535ad05da364ebc1fa168b3fea675cb27f60a05adf38401f83409216fd29aa6fb5b39f7113c0a49e2bb3e2003cb60baf2df7ac
     ```
   </CH.Code>
 
   ---
 
-  Send the **signed transaction** to kaia network
+  **署名したトランザクション**をkaiaネットワークに送信する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=25:26
@@ -188,7 +188,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Wait for the transaction to be **completed** and print the **receipt**
+  取引が**完了**するのを待って、**領収書**を印刷する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=28:29
@@ -220,7 +220,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Recover the address from signed transaction using `klay_recoverFromMessage`
+  `klay_recoverFromMessage`を使用して、署名されたトランザクションからアドレスを回復する。
 
   <CH.Code>
     ```js SignTxWithPubkeyExample.js focus=31:34

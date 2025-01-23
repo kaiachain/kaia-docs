@@ -1,6 +1,6 @@
-# Signature
+# 署名
 
-Convert signature into tuple format from object, compact signatures.
+シグネチャをオブジェクトからタプル形式に変換し、シグネチャをコンパクトにする。
 
 <CH.Spotlight>
   <CH.Code>
@@ -46,14 +46,14 @@ Convert signature into tuple format from object, compact signatures.
 
   ---
 
-  Import the **getSignatureTuple** from **@kaiachain/web3js-ext** packages
+  **getSignatureTuple**を\*\*@kaiachain/web3js-ext\*\*パッケージからインポートする。
 
   ```js signatureUtils.js focus=1
   ```
 
   ---
 
-  To compress a public key from `{r, s, v}` format to tuple, use `getSignatureTuple` with the **signature object** as param
+  `{r, s, v}` フォーマットの公開鍵をタプルに圧縮するには、**signature オブジェクト** をパラメータとして `getSignatureTuple` を使用する。
 
   <CH.Code>
     ```js signatureUtils.js focus=4:11
@@ -87,7 +87,7 @@ Convert signature into tuple format from object, compact signatures.
 
   ---
 
-  To compress a public key from compact 65 bytes format to tuple, use `getSignatureTuple` with the **compact signature** as param
+  公開鍵を65バイトのコンパクトな形式からタプルに圧縮するには、**コンパクトな署名**を引数として `getSignatureTuple` を使用する。
 
   <CH.Code>
     ```js signatureUtils.js focus=4:9

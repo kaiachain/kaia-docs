@@ -1,37 +1,37 @@
-# Run EN using docker
+# Dockerを使用してENを実行する
 
-## Download the image
+## 画像をダウンロード
 
-Choose an image tag from https://hub.docker.com/r/kaiachain/kaia/tags. `kaiachain/kaia:latest` is the recent release version. But you can choose a specific version. Currently, only linux/amd64 platform is supported. The container might not work correctly in Windows or Mac hosts.
+https://hub.docker.com/r/kaiachain/kaia/tags、画像タグを選択します。 `kaiachain/kaia:latest`は最近のリリースバージョンである。 しかし、特定のバージョンを選択することもできる。 現在のところ、linux/amd64プラットフォームのみがサポートされている。 コンテナはWindowsまたはMacホストでは正しく動作しない場合があります。
 
 ```sh
-docker pull kaiachain/kaia:latest  # Latest release
-docker pull kaiachain/kaia:v1.0.2  # Specific version
+docker pull kaiachain/kaia:latest # 最新リリース
+docker pull kaiachain/kaia:v1.0.2 # 特定のバージョン
 ```
 
-## Prepare configuration file
+## 設定ファイルの準備
 
-You can start from the existing configuration file. To obtain the template `kend.conf` configuration file,
+既存のコンフィギュレーション・ファイルから始めることができる。 テンプレートの `kend.conf` 設定ファイルを取得する、
 
 ```sh
 mkdir -p conf
 docker run --rm kaiachain/kaia:latest cat /klaytn-docker-pkg/conf/kend.conf > conf/kend.conf
 ```
 
-Then edit the configuration. At least the `DATA_DIR` and `LOG_DIR` has to be specified. This guide will assume `/var/kend/data`.
+次にコンフィギュレーションを編集する。 少なくとも `DATA_DIR` と `LOG_DIR` は指定しなければならない。 このガイドでは、`/var/kend/data` を想定している。
 
 ```sh
 echo "DATA_DIR=/var/kend/data" >> conf/kend.conf
 echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 ```
 
-### (Optional) Download Chaindata Snapshot
+### (オプション）Chaindata Snapshotのダウンロード
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
+ジェネシス・ブロックからの同期には時間がかかる。 Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) を使用して、[Full Sync](../../learn/storage/block-sync.md#full-sync) プロセスをスキップすることができます。 chaindataスナップショットをダウンロードし、解凍する。 次に、解凍したディレクトリをコンテナにマウントする。
 
-## Start the container
+## コンテナのスタート
 
-Expose the RPC port, which is 8551 unless you have modified in the `kend.conf`. Mount the configuration directory `conf/` and chaindata directory `data/`. Then run `kend start` to start the daemon and `tail -f` to print the logs.
+RPC ポートを公開する。`kend.conf` で変更していなければ 8551 である。 設定ディレクトリ `conf/` と chaindata ディレクトリ `data/` をマウントする。 それから `kend start` を実行してデーモンを起動し、`tail -f` を実行してログを出力する。
 
 ```sh
 mkdir -p data
@@ -43,15 +43,15 @@ docker run -d --name ken \
   /bin/bash -c "kend start && touch /var/kend/logs/kend.out && tail -f /var/kend/logs/kend.out"
 ```
 
-## Attaching to the console
+## コンソールへの取り付け
 
 ```
 docker exec -it ken ken attach --datadir /var/kend/data
 ```
 
-## Stopping the container
+## コンテナの停止
 
-To prevent chaindata corruption, gracefully shut down the `ken`.
+chaindataの破損を防ぐために、`ken`を優雅にシャットダウンする。
 
 ```
 docker exec -it ken kend stop

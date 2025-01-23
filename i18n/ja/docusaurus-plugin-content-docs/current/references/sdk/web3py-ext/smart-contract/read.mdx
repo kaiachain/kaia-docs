@@ -1,6 +1,6 @@
-# Read
+# 読む
 
-You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+スマートコントラクトの関数は、RPC API「Call」を使って呼び出すことができる。 ここで呼び出せるのは、コントラクトのステートを変更しない**ビュー関数**に限られる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -28,15 +28,15 @@ contract_interaction()
 ---
 
 ```zsh output
-❯ py smart_contract_interaction.py
-number :  294
+❯ smart_contract_interaction.py
+番号 : 294
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py smart_contract_interaction.py focus=1:2
 
@@ -44,7 +44,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py smart_contract_interaction.py focus=4:6
 
@@ -52,7 +52,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py smart_contract_interaction.py focus=4:6
 from web3py_ext import extend
@@ -75,7 +75,7 @@ contract_interaction()
 
 ---
 
-Create a contract instance with **contract address** and **abi**
+契約アドレス**と**abi\*\*で契約インスタンスを作成する。
 
 ```py smart_contract_interaction.py focus=9:12
 
@@ -83,7 +83,7 @@ Create a contract instance with **contract address** and **abi**
 
 ---
 
-Set the contract address that you deployed in the deploy tutorial (**Counter contract**). You can see the address in your deploy tx receipt
+デプロイチュートリアルでデプロイしたコントラクトアドレスを設定します（**カウンターコントラクト**）。 デプロイされたTXの領収書に住所が記載されています。
 
 ```py smart_contract_interaction.py focus=10
 
@@ -91,7 +91,7 @@ Set the contract address that you deployed in the deploy tutorial (**Counter con
 
 ---
 
-Set the contract abi. You can get the ABI after compiled in remix or solc compiler
+契約アビを設定する。 remixまたはsolcコンパイラでコンパイル後、ABIを取得できます。
 
 ```py smart_contract_interaction.py focus=11
 
@@ -99,7 +99,7 @@ Set the contract abi. You can get the ABI after compiled in remix or solc compil
 
 ---
 
-Call the view function. It is just a RPC call to the blockchain node, not transaction
+ビュー関数を呼び出す。 これはブロックチェーンノードへの単なるRPC呼び出しであり、トランザクションではない
 
 <CH.Code>
 ```py smart_contract_interaction.py focus=13:14

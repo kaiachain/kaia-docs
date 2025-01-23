@@ -1,28 +1,28 @@
-# Converting Your Unity Build to a LINE LIFF App
+# UnityビルドをLINE LIFFアプリに変換する
 
-Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE!
+さて、ここからがエキサイティングなところです。Unity WebGLビルドをLINEからアクセスできるミニdAppに変身させるのです！
 
-## Step 1: Create Your LIFF App <a id="create-liff-app"></a>
+## ステップ1：LIFFアプリの作成<a id="create-liff-app"></a>
 
-First, let's set up your app in the LINE ecosystem:
+まず、LINEエコシステムにアプリをセットアップしよう：
 
-1. LINE Developers Console Setup:
+1. LINE Developers コンソールのセットアップ：
 
-   - Visit LINE Developers Console.
-   - Create a Provider (skip if you already have one).
+   - LINEデベロッパーズコンソールをご覧ください。
+   - プロバイダを作成します（すでにプロバイダをお持ちの場合はスキップしてください）。
 
    ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
 
-   - Create a new LINE Login channel.
+   - 新しいLINEログインチャンネルを作成する。
 
    ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-   - Navigate to the LIFF tab
-   - Click "Add LIFF app"
+   - LIFFタブに移動する
+   - LIFFアプリを追加」をクリック
 
    ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
-2. Configure LIFF Settings:
+2. LIFFの設定を行う：
 
 ```code
 Size: Choose one of:
@@ -34,12 +34,12 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+LIFF IDを保存してください - 次のステップで必要になります！
 :::
 
-## Step 2: Modify Your WebGL Template <a id="modify-webgl-template"></a>
+## ステップ2：WebGLテンプレートを修正する<a id="modify-webgl-template"></a>
 
-The index.html file helps us to check web3 availability, set up LINE integration (LIFF), proceed to load our Unity game and connect everything together.
+index.htmlファイルは、web3の可用性をチェックし、LINE統合（LIFF）を設定し、Unityゲームのロードを進め、すべてを接続するのに役立ちます。
 
 ```code
 <!DOCTYPE html>
@@ -237,14 +237,14 @@ The index.html file helps us to check web3 availability, set up LINE integration
 
 ```
 
-Make sure to change your LIFF-ID in the code snippet above.
+上記のコード・スニペットでLIFF-IDを変更してください。
 
-## Step 3: Deploy Your WebGL Build <a id="step3-deploy-webgl-build"></a>
+## ステップ 3: WebGLビルドのデプロイ<a id="step3-deploy-webgl-build"></a>
 
-- Build your Unity project for WebGL
-- Upload all build files to a web server; e.g Netlify
+- UnityプロジェクトをWebGL用にビルドする
+- すべてのビルドファイルをNetlifyなどのウェブサーバーにアップロードする。
 
-Your deployment folder structure should look like this:
+デプロイメントのフォルダ構造は次のようになるはずです：
 
 ```bash
 Minidapp/
@@ -258,36 +258,36 @@ Minidapp/
 └── index.html
 ```
 
-## Step 4: Final Configuration & Testing <a id="step4-final-config-testing"></a>
+## ステップ4：最終設定とテスト<a id="step4-final-config-testing"></a>
 
-1. Update your LIFF endpoint:
-   - Return to LINE Developers Console
-   - Locate your LIFF app
-   - Click "Edit"
-   - Update URL to your deployed site.
+1. LIFFエンドポイントを更新する：
+   - LINEデベロッパーズコンソールに戻る
+   - LIFFアプリを探す
+   - 編集」をクリックする
+   - 配備したサイトのURLを更新する。
 
-Now your mini dApp should be readily available.
+これでミニdAppがすぐに利用できるようになるはずだ。
 
-## Summing Up <a id="summing-up"></a>
+## まとめ<a id="summing-up"></a>
 
-Congratulations! You've successfully created your first LINE mini dApp with Unity! By completing this guide, you've implemented a mini dApp with token minting functionalities. Building a LINE mini dApp transcends traditional app development - it's about creating seamless Web3 experiences within an ecosystem that users already trust and use daily.
+おめでとう！ Unityを使った初めてのLINE mini dAppの作成が完了しました！ このガイドを完了することで、トークン造幣機能を備えたミニdAppを実装したことになる。 LINE mini dAppの構築は、従来のアプリ開発を超越したものであり、ユーザーがすでに信頼し、日常的に利用しているエコシステムの中で、シームレスなWeb3体験を生み出すことなのです。
 
-Through Kaia's integration, you've unlocked the ability to bring blockchain functionality directly to users' fingertips, eliminating the usual barriers to Web3 adoption. This combination of LINE's extensive reach and Web3 capabilities creates a unique opportunity to innovate in ways that were previously impossible.
+カイアの統合により、ブロックチェーン機能をユーザーの手元に直接届けることができ、Web3導入の障壁が取り除かれます。 LINEの広範なリーチとWeb3の能力を組み合わせることで、これまで不可能だった方法でイノベーションを起こすユニークな機会が生まれる。
 
-The power of LINE mini dApps lies in their versatility and accessibility. Whether you're a developer exploring new blockchain implementations, a business looking to enhance customer engagement, or an innovator seeking to create novel digital experiences, the platform provides all the tools needed to bring your vision to life.
+LINE mini dAppsの威力は、その汎用性とアクセシビリティにある。 新たなブロックチェーンの実装を模索する開発者、顧客エンゲージメントの強化を目指すビジネス、斬新なデジタル体験の創造を目指すイノベーターなど、このプラットフォームはあなたのビジョンを実現するために必要なすべてのツールを提供します。
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+LINE mini dAppsの開発に関するより詳細な情報については、以下の包括的なリソースをご覧ください：
 
-- [Kaia Documentation](https://docs.kaia.io/)
+- [カイア・ドキュメンテーション](https://docs.kaia.io/)
 - [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
-- [Unity Documentation](https://docs.unity.com/)
+- [Unityドキュメント](https://docs.unity.com/)
 
-## Appendix <a id="appendix"></a>
+## 付録<a id="appendix"></a>
 
-### Appendix A <a id="appendix-a"></a>
+### 付録A<a id="appendix-a"></a>
 
-[KaiaPlugin.jslib source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-kaiaplugin-jslib)
+[KaiaPlugin.jslibソースコード](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-kaiaplugin-jslib)
 
-### Appendix B <a id="appendix-b"></a>
+### 付録B<a id="appendix-b"></a>
 
-[Web3Manager.cs source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
+[Web3Manager.cs ソースコード](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)

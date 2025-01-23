@@ -1,3 +1,3 @@
-# Change Chaindata
+# チェンジ・チャインダータ
 
-See [Use Chaindata Snapshots](/misc/operation/chaindata-snapshot/).
+Chaindata Snapshots を使用する](/misc/operation/chaindata-snapshot/) を参照。

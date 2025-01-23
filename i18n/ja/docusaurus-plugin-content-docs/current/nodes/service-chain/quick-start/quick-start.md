@@ -1,12 +1,12 @@
-# Quick Start
+# クイックスタート
 
-This tutorial provides a step-by-step guide for setting up a ServiceChain network and connecting it to the Klaytn Baobab network.
-You will also learn how to enable periodic anchoring and cross-chain value transfer.
-In order to operate the actual blockchain services with the ServiceChain, we will explain High Availability, building a ServiceChain hierarchically, and value transfer between sibling ServiceChains.
+このチュートリアルでは、ServiceChainネットワークを設定し、Kaia Kairosネットワークに接続するためのステップバイステップのガイドを提供します。
+また、定期的なアンカリングとクロスチェーンの価値移転を可能にする方法についても学ぶ。
+実際にServiceChainでブロックチェーンサービスを運用するために、高可用性、ServiceChainの階層的な構築、兄弟ServiceChain間の価値移転について説明する。
 
-- [Setting up a 4-node ServiceChain](./4nodes-setup-guide.md)
+- [4ノードServiceChainのセットアップ](./4nodes-setup-guide.md)
 - [Connecting to Baobab](./en-scn-connection.md)
-- [Cross-chain Value Transfer](./value-transfer.md)
+- [クロスチェーン価値移転](./value-transfer.md)
 - [HA for ServiceChain](./ha-for-sc.md)
-- [Nested ServiceChain](./nested-sc.md)
-- [Value Transfer between Sibling ServiceChains](./value-transfer-between-sibling.md)
+- [ネストされたServiceChain](./nested-sc.md)
+- [兄弟ServiceChain間の価値移転](./value-transfer-between-sibling.md)

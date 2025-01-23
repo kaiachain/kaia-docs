@@ -1,0 +1,259 @@
+# 智能合約執行
+
+**TxTypeSmartContractExecution** 使用給定數據執行智能合約。 只有當 "to "是智能合約賬戶時，才接受**TxTypeSmartContractExecution**。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SmartContractExecution.js
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = [
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "setNumber",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  // https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-encodeabi
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node SmartContractExecution.js
+signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
+receipt {
+  blockHash: '0x4670feb1301e6b726568e81ea084b2b1c7d281c8d989faec8522d67af0cc8870',
+  blockNumber: 148742541n,
+  cumulativeGasUsed: 26990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 26990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+導入 **web3** 和 **@kaiachain/web3js-ext** 軟件包，在 web3 上添加 kaia 功能
+
+```js SmartContractExecution.js focus=1:2
+
+```
+
+---
+
+定義**發件人地址和發件人私人密鑰**
+
+```js SmartContractExecution.js focus=4:5
+
+```
+
+---
+
+定義合約地址和 Abi，可以從塊資源管理器和編譯後的 solidity 代碼中獲取
+
+```js SmartContractExecution.js focus=6:21
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 web3js 中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js SmartContractExecution.js focus=24
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js SmartContractExecution.js focus=24
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = [
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "setNumber",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  // https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-encodeabi
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.SmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用提供程序創建**KlaytnWeb3**實例
+
+```js SmartContractExecution.js focus=25
+
+```
+
+---
+
+使用**web3.eth.accounts.privateKeyToAccount**將發件人的私人密鑰轉換為一個賬戶
+
+```js SmartContractExecution.js focus=26
+
+```
+
+---
+
+使用定義了 **contractAbi** 和 **address** 的 `Web3.eth.Contract`創建合同實例。 您可以通過該實例讀寫合同
+
+```js SmartContractExecution.js focus=29
+
+```
+
+---
+
+為 "setNumber "函數的函數數據編碼，將數據轉換為字節
+
+```js SmartContractExecution.js focus=30
+
+```
+
+---
+
+Define a transaction object for the contract execution, params `type: TxType.SmartContractExecution`, `from: senderAddr`, `to: contractAddr`, `data: data` are required
+
+```js SmartContractExecution.js focus=32:37
+
+```
+
+---
+
+用**發送方**的私人密鑰簽署交易
+
+<CH.Code>
+```js SmartContractExecution.js focus=39:40
+
+````
+
+
+---
+
+```zsh output
+❯ node SmartContractExecution.js
+signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
+````
+
+</CH.Code>
+
+---
+
+將已簽名的交易發送到區塊鏈。 它將返回交易收據
+
+<CH.Code>
+```js SmartContractExecution.js focus=42:43
+
+````
+
+
+---
+
+```zsh output
+❯ node SmartContractExecution.js
+receipt {
+  blockHash: '0x4670feb1301e6b726568e81ea084b2b1c7d281c8d989faec8522d67af0cc8870',
+  blockNumber: 148742541n,
+  cumulativeGasUsed: 26990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 26990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0',
+  transactionIndex: 0n,
+  type: 0n
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

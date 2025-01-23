@@ -1,0 +1,325 @@
+<CH.Spotlight>
+  <CH.Code>
+    ```js writeTxType.js
+    const ethers = require("ethers");
+    const { Wallet, TxType } = require("@kaiachain/ethers-ext");
+
+    const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+    const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+    const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+    const wallet = new Wallet(senderPriv, provider);
+
+    /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+    // SPDX-License-Identifier: UNLICENSED
+    pragma solidity ^0.8.13;
+
+    contract Counter {
+        uint256 public number;
+        event SetNumber(uint256 number);
+
+        constructor(uint256 initNumber) {
+            number = initNumber;
+        }
+
+        function setNumber(uint256 newNumber) public {
+            number = newNumber;
+            emit SetNumber(number);
+        }
+
+        function increment() public {
+            number++;
+            emit SetNumber(number);
+        }
+    }
+    */
+    const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+    const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+    async function main() {
+      const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+      console.log("number before", (await counter.number()).toString());
+
+      const data = (await counter.populateTransaction.increment()).data;
+      const tx = {
+        type: TxType.SmartContractExecution,
+        from: senderAddr,
+        to: contractAddr,
+        value: 0,
+        data: data,
+      };
+
+      const sentTx = await wallet.sendTransaction(tx);
+      console.log("sentTx", sentTx.hash);
+
+      const receipt = await sentTx.wait();
+      console.log("receipt", receipt);
+
+      console.log("number after", (await counter.number()).toString());
+    }
+
+    main();
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    number before 292
+    sentTx 0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e
+    receipt {
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+      contractAddress: null,
+      transactionIndex: 0,
+      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74',
+      transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
+      logs: [
+        {
+          transactionIndex: 0,
+          blockNumber: 148740675,
+          transactionHash: '0x2af4d70ac12b5bedd960200e1791cd06c5ea110acb196c8156837570a158452e',
+          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics: [Array],
+          data: '0x0000000000000000000000000000000000000000000000000000000000000125',
+          logIndex: 0,
+          blockHash: '0x91742c5e371cb44f335f2e7e944d0a340bd4bc0f2004197b689020431d72cf74'
+        }
+      ],
+      blockNumber: 148740675,
+      confirmations: 2,
+      cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    number after 293
+
+    ```
+  </CH.Code>
+
+  ---
+
+  導入 **ethers** 和 **@kaiachain/ethers-ext** 模塊，在 ethers.js 上添加 kaia 功能。
+
+  ```js writeTxType.js focus=1:2
+  ```
+
+  ---
+
+  定義**發件人地址**和**私人密鑰**
+
+  ```js writeTxType.js focus=4:5
+  ```
+
+  ---
+
+  使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+  ```js writeTxType.js focus=7
+  ```
+
+  ---
+
+  此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+  ```js writeTxType.js focus=7
+  const ethers = require("ethers");
+  const { Wallet, TxType } = require("@kaiachain/ethers-ext");
+
+  const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+  const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const wallet = new Wallet(senderPriv, provider);
+
+  /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+  // SPDX-License-Identifier: UNLICENSED
+  pragma solidity ^0.8.13;
+
+  contract Counter {
+      uint256 public number;
+      event SetNumber(uint256 number);
+
+      constructor(uint256 initNumber) {
+          number = initNumber;
+      }
+
+      function setNumber(uint256 newNumber) public {
+          number = newNumber;
+          emit SetNumber(number);
+      }
+
+      function increment() public {
+          number++;
+          emit SetNumber(number);
+      }
+  }
+  */
+  const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+  const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+  async function main() {
+    const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+    console.log("number before", (await counter.number()).toString());
+
+    const data = (await counter.populateTransaction.increment()).data;
+    const tx = {
+      type: TxType.SmartContractExecution,
+      from: senderAddr,
+      to: contractAddr,
+      value: 0,
+      data: data,
+    };
+
+    const sentTx = await wallet.sendTransaction(tx);
+    console.log("sentTx", sentTx.hash);
+
+    const receipt = await sentTx.wait();
+    console.log("receipt", receipt);
+
+    console.log("number after", (await counter.number()).toString());
+  }
+
+  main();
+  ```
+
+  ---
+
+  用發件人**私鑰**和**Web3 提供商**創建錢包
+
+  ```js writeTxType.js focus=8
+  ```
+
+  ---
+
+  設置由 solidity 代碼生成的 **Abi**
+
+  ```js writeTxType.js focus=33
+  ```
+
+  ---
+
+  定義與之交互的\*\*合約地址
+
+  ```js writeTxType.js focus=34
+  ```
+
+  ---
+
+  使用 **ethers.Contract**創建合約實例，填寫參數 **contractAddr**、**abi**、**provider**。 您可以通過該實例讀寫合約
+
+  ```js writeTxType.js focus=37
+  ```
+
+  ---
+
+  使用方法**counter.number()**獲取更新前的**數字**值
+
+  <CH.Code>
+    ```js writeTxType.js focus=39
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    number before 291
+    ```
+  </CH.Code>
+
+  ---
+
+  創建事務數據以更新**編號**值
+
+  ```js writeTxType.js focus=41
+  ```
+
+  ---
+
+  用上一步的數據創建一個事務對象，其類型為 **SmartContractExecution**
+
+  ```js writeTxType.js focus=42:48
+  ```
+
+  ---
+
+  向區塊鏈發送 tx。 函數 "sendTransaction "使用賬戶的私鑰進行內部簽名，然後將其傳輸到區塊鏈網絡。
+
+  <CH.Code>
+    ```js writeTxType.js focus=50:51
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    sentTx 0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306
+    ```
+  </CH.Code>
+
+  ---
+
+  如果已在區塊鏈中完成發送，**wait**函數將返回發送回執。
+
+  <CH.Code>
+    ```js writeTxType.js focus=53:54
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    receipt {
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+      contractAddress: null,
+      transactionIndex: 0,
+      gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+      blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b',
+      transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
+      logs: [
+        {
+          transactionIndex: 0,
+          blockNumber: 146818446,
+          transactionHash: '0xcb9554737ebef23f181303f99b2a6f7ed942d00cd6cf9966f1dedcdf8720d306',
+          address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+          topics: [Array],
+          data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+          logIndex: 0,
+          blockHash: '0x56d4b7567811196525ef2704060210c1a908b245ae6ac8b296c30ecb2ff76f3b'
+        }
+      ],
+      blockNumber: 146818446,
+      confirmations: 2,
+      cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用方法 **counter.number()** 獲取更新值 **number**
+
+  <CH.Code>
+    ```js writeTxType.js focus=56
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    number after 292
+    ```
+  </CH.Code>
+</CH.Spotlight>

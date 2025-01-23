@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -56,59 +56,59 @@ web3_fee_delegated_cancel_sign_recover()
 
 ```zsh output
 ❯ py web3_fee_delegated_cancel_sign_recover.py
-# raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
+# 署名付きtxの生トランザクション：0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec21
 
 # recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-# decoded transaction: {
-#   "type": 57,
-#   "nonce": 931,
-#   "gasPrice": 50000000000,
-#   "gas": 159000,
-#   "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-#   "signatures": [
-#     {
-#       "v": 2037,
-#       "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
-#       "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
-#     }
-#   ],
-#   "chainId": 1001
-# }
+# decoded transaction：{
+# "type"：57,
+# "nonce"：931,
+# "gasPrice"：50000000000,
+# "gas"：159000,
+# "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+# "signatures"：[
+# {
+# "v"：2037,
+# "r"：6749929892576958642714739615979538685230067780127794094925331144130783330367,
+# "s"：3116598222383802394999638931088885558560578183897443089888519072063383661601
+# }.
+# ],
+# "chainId"：1001
+# }.
 
-# raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
-# recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
+# feePayerの生トランザクション：0x39f8c98203a3850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a00eec532ebe17fade46561d3ff503c97e07d8d9ba611b6a7f8a1cc11621dfc03fa006e3ee9cf4f5bfd6674d656c571cfb80b0bfd99bebe87f017e288be7ea4fec2194cb0eb737dfda52756495a5e08a9b37aab3b271daf847f8458207f6a06697d97df68a0c4a2c59b3d7a8c5c479a6b43e7a34394518b858ef908d10b76aa0492c8da32c77a71ce26650f9ac842496bb33f0f17877ce1b23e1763b7c87e28d
+# recover feepayer address：['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
-# decoded transaction: {
-#   "type": 57,
-#   "nonce": 931,
-#   "gasPrice": 50000000000,
-#   "gas": 159000,
-#   "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-#   "feePayer": "0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
-#   "signatures": [
-#     {
-#       "v": 2037,
-#       "r": 6749929892576958642714739615979538685230067780127794094925331144130783330367,
-#       "s": 3116598222383802394999638931088885558560578183897443089888519072063383661601
-#     }
-#   ],
-#   "feePayerSignatures": [
-#     {
-#       "v": 2038,
-#       "r": 46404205537188908000560167654303187399733564148219565625489961916532872230762,
-#       "s": 33097556762817862610763009383178378013466927896867683158585566455859245474445
-#     }
-#   ],
-#   "chainId": 1001
-# }
+# デコードされたトランザクション：{
+# "type"：57,
+# "nonce"：931,
+# "gasPrice"：50000000000,
+# "gas"：159000,
+# "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+# "feePayer"："0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA",
+# "signatures"：[
+# {
+# "v"：2037,
+# "r"：6749929892576958642714739615979538685230067780127794094925331144130783330367,
+# "s"：3116598222383802394999638931088885558560578183897443089888519072063383661601
+# }.
+# ],
+# "feePayerSignatures"：[
+# {
+# "v"：2038,
+# "r"：46404205537188908000560167654303187399733564148219565625489961916532872230762,
+# "s"：33097556762817862610763009383178378013466927896867683158585566455859245474445
+# }.
+# ],
+# "chainId"：1001
+# }.
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=1:2
 
@@ -116,7 +116,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=2:10
 
@@ -124,7 +124,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=12
 
@@ -132,7 +132,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=12
 from web3py_ext import extend
@@ -182,7 +182,7 @@ web3_fee_delegated_cancel_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=15
 
@@ -190,7 +190,7 @@ Load an account from private key
 
 ---
 
-Load an fee payer account from private key to sign and send the transaction instead of above account
+上記アカウントの代わりに、秘密鍵から料金支払者アカウントを読み込んで署名し、トランザクションを送信する。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=16
 
@@ -198,7 +198,7 @@ Load an fee payer account from private key to sign and send the transaction inst
 
 ---
 
-Create an empty transaction of type **TxType.FEE_DELEGATED_CANCEL**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.FEE_DELEGATED_CANCEL**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=18
 
@@ -206,7 +206,7 @@ Create an empty transaction of type **TxType.FEE_DELEGATED_CANCEL**. You can use
 
 ---
 
-Merge the **from** and **nonce** fields into the empty tx by using the **merge** util.
+**from**フィールドと**nonce**フィールドを、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=19:21
 
@@ -214,7 +214,7 @@ Merge the **from** and **nonce** fields into the empty tx by using the **merge**
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_fee_delegated_cancel_sign_recover.py focus=22
 
@@ -222,7 +222,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the **cancel tx** by user's private key
+ユーザーの秘密鍵で**cancel tx**に署名する。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=24:26
@@ -242,7 +242,7 @@ raw transaction of signed tx: 0x39f86b8203a3850ba43b740083026d1894a2a8854b1802d8
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=28:29
@@ -259,7 +259,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=31:32
@@ -292,7 +292,7 @@ decoded transaction: {
 
 ---
 
-Sign the raw transaction with the fee delegator's account
+手数料デリゲータのアカウントで生トランザクションに署名する。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=34:35
@@ -312,7 +312,7 @@ raw transaction of feePayer signed tx: 0x39f8c98203a3850ba43b740083026d1894a2a88
 
 ---
 
-Recover the fee payer's address from the signed transaction
+署名されたトランザクションから料金支払者の住所を復元する。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=37:38
@@ -332,7 +332,7 @@ recovered feepayer address: ['0xCb0eb737dfda52756495A5e08A9b37AAB3b271dA']
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```py web3_fee_delegated_cancel_sign_recover.py focus=40:41

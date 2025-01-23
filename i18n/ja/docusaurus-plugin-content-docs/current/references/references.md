@@ -1,3 +1,3 @@
-# Introduction
+# はじめに
 
-This section serves as a comprehensive resource for dApp (decentralized application) development, providing essential referential information crucial to both frontend and backend development. Here, you will find detailed documentation on API endpoints, SDK libraries, and other vital components that empower developers to create and integrate blockchain-based applications seamlessly. Whether you're building the user interface or crafting the backend logic, this section will be your go-to reference for all technical specifications and functionality details.
+このセクションは、dApp（分散型アプリケーション）開発のための包括的なリソースとして機能し、フロントエンドとバックエンドの両方の開発に不可欠な参考情報を提供します。 ここでは、APIエンドポイント、SDKライブラリ、および開発者がブロックチェーンベースのアプリケーションをシームレスに作成および統合できるようにするその他の重要なコンポーネントに関する詳細なドキュメントをご覧いただけます。 ユーザーインターフェイスを構築するにしても、バックエンドのロジックを作るにしても、このセクションはすべての技術的な仕様や機能の詳細について参照するのに最適なリファレンスとなるでしょう。

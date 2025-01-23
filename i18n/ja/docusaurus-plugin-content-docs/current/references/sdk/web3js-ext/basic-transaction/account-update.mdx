@@ -1,4 +1,4 @@
-# Account Update
+# アカウント更新
 
 <CH.Spotlight>
 <CH.Code>
@@ -70,7 +70,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeAccountUpdate.js focus=1:2
 
@@ -78,7 +78,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address, sender private key and new private key** to be changed
+変更する**送信者アドレス、送信者秘密鍵、新しい秘密鍵**を定義する。
 
 ```js TxTypeAccountUpdate.js focus=6:8
 
@@ -86,7 +86,7 @@ Define **sender address, sender private key and new private key** to be changed
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js TxTypeAccountUpdate.js focus=11
 
@@ -94,7 +94,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeAccountUpdate.js focus=11
 const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js TxTypeAccountUpdate.js focus=12
 
@@ -143,7 +143,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js TxTypeAccountUpdate.js focus=13
 
@@ -151,7 +151,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Compute the **public key** from the new private key
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 
@@ -162,7 +162,7 @@ Compute the **public key** from the new private key
 ---
 
 ```zsh output
-❯ node TxTypeAccountUpdate.js
+ノード TxTypeAccountUpdate.js
 {
   publicKey: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
 }
@@ -172,7 +172,7 @@ Compute the **public key** from the new private key
 
 ---
 
-Declare a transaction in the **key** field with the computed **public key**.
+計算された**public key**で**key**フィールドにトランザクションを宣言する。
 
 ```js TxTypeAccountUpdate.js focus=18:25
 
@@ -180,7 +180,7 @@ Declare a transaction in the **key** field with the computed **public key**.
 
 ---
 
-Signing the transaction with the **sender**'s private key
+**sender**の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=27:28
@@ -199,7 +199,7 @@ signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
 
 ---
 
-Send the signed tx to the blockchain. It will return the **receipt** of the transaction
+署名されたTxをブロックチェーンに送信する。 トランザクションの**レシート**を返す。
 
 <CH.Code>
 ```js TxTypeAccountUpdate.js focus=30:31

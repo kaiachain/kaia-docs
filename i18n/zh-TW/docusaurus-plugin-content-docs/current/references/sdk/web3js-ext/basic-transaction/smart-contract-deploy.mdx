@@ -1,0 +1,231 @@
+# 智能合約部署
+
+**TxTypeSmartContractDeploy** 向給定地址部署智能合約。 該交易類型將進行以下更改。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SmartContractDeploy.js
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const bytecode = "0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.SmartContractDeploy,
+    from: senderAddr,
+    data: bytecode, // both 'data' and 'input' works
+    humanReadable: false, // must be false
+    codeFormat: 0, // must be 0
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ js SmartContractDeploy.js
+signedTx 0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532
+receipt {
+  blockHash: '0x8a5cde9fd5b5f8dba974b4d5207cdb728a7e07cc9f595ef8e6284f1681a45e8b',
+  blockNumber: 148742566n,
+  contractAddress: '0xbb1e6520d31d7d046e993a436e0f9c054ac37efb',
+  cumulativeGasUsed: 130317n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 130317n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  transactionHash: '0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+導入 **web3** 和 **@kaiachain/web3js-ext** 軟件包，在 web3 上添加 kaia 功能
+
+```js SmartContractDeploy.js focus=1:2
+
+```
+
+---
+
+定義**發件人地址和發件人私人密鑰**
+
+```js SmartContractDeploy.js focus=4:5
+
+```
+
+---
+
+智能合約**通過tecode**部署，你可以從編譯後的solidity代碼中重新獲取它
+
+```js SmartContractDeploy.js focus=6
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 web3js 中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js SmartContractDeploy.js focus=9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js SmartContractDeploy.js focus=9
+const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const bytecode = "0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const tx = {
+    type: TxType.SmartContractDeploy,
+    from: senderAddr,
+    data: bytecode, // both 'data' and 'input' works
+    humanReadable: false, // must be false
+    codeFormat: 0, // must be 0
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用提供程序創建**KlaytnWeb3**實例
+
+```js SmartContractDeploy.js focus=10
+
+```
+
+---
+
+使用**web3.eth.accounts.privateKeyToAccount**將發件人的私人密鑰轉換為一個賬戶
+
+```js SmartContractDeploy.js focus=11
+
+```
+
+---
+
+為取消事務定義一個事務對象
+
+```js SmartContractDeploy.js focus=13:19
+
+```
+
+---
+
+設置 \`type：為部署合同的交易類型設置 "類型：TxType.SmartContractDeploy
+
+```js SmartContractDeploy.js focus=14
+
+```
+
+---
+
+為合約源設置 "數據：字節碼 "或 "輸入：字節碼
+
+```js SmartContractDeploy.js focus=16
+
+```
+
+---
+
+將參數 **from、humanReadable、codeFormat** 設置為示例中的值
+
+```js SmartContractDeploy.js focus=15,17,18
+
+```
+
+---
+
+用**發送人**的賬戶簽署交易
+
+<CH.Code>
+
+```js SmartContractDeploy.js focus=21:22
+
+```
+
+---
+
+```zsh output
+❯ node SmartContractDeploy.js
+signedTx 0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532
+```
+
+</CH.Code>
+
+---
+
+將已簽名的交易發送到 kaia 網絡。 它將返回交易收據
+
+<CH.Code>
+```js SmartContractDeploy.js focus=24:25
+
+````
+
+
+---
+
+```zsh output
+❯ node SmartContractDeploy.js
+receipt {
+  blockHash: '0x8a5cde9fd5b5f8dba974b4d5207cdb728a7e07cc9f595ef8e6284f1681a45e8b',
+  blockNumber: 148742566n,
+  contractAddress: '0xbb1e6520d31d7d046e993a436e0f9c054ac37efb',
+  cumulativeGasUsed: 130317n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 130317n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  transactionHash: '0x07b3209f1e56484f9a61885b25ddb398668b6d423ca98fea5004f1a1b87d1532',
+  transactionIndex: 0n,
+  type: 0n
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

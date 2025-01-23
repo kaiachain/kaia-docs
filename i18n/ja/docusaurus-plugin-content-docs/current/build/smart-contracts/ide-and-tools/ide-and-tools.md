@@ -1,23 +1,23 @@
-# IDE and Tools
+# IDEとツール
 
-This page contains the list of development tools that is available to help smart contract development on Klaytn.
+このページには、Kaiaでのスマートコントラクト開発に役立つ開発ツールのリストが含まれています。
 
-#### [Remix Online IDE](https://remix.ethereum.org/) <a href="#remix-ide" id="remix-ide"></a>
+#### [Remix Online IDE](https://remix.ethereum.org/)<a href="#remix-ide" id="remix-ide"></a>
 
-Remix Online IDE is a powerful toolset for developing, deploying, debugging, and testing EVM-compatible smart contracts. You can write, compile, deploy and execute smart contracts on Klaytn from Remix IDE, using Klaytn Plugin.
+Remix Online IDEは、EVM互換のスマートコントラクトを開発、デプロイ、デバッグ、テストするための強力なツールセットです。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。
 
-#### [Klaytn Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#klaytn-contract-wizard" id="klaytn-contract-wizard"></a>
+#### [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
-Klaytn Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Klaytn Contracts. This is based on OpenZeppelin Wizard.
+Kaiaコントラクトウィザードは、スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。 これはOpenZeppelin Wizardに基づいています。
 
 #### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
-Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
+Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
 
-#### [Klaytn Wallet](../../tools/wallets/klaytn-wallet.md) <a href="#klaytn-wallet" id="klaytn-wallet"></a>
+#### [Kaia Wallet](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
 
-Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
+カイアウォレットは、カイアネットワークのためのブラウザ拡張ウォレットです。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイア・ウォレットはまた、ウェブベースのカイアdAppsからのトランザクションにリアルタイムで署名することもできる。
 
-#### [Kaiascope](../../tools/block-explorers/kaiascope.md) <a href="#kaiascope" id="kaiascope"></a>
+#### [カイアスコープ](../../tools/block-explorers/kaiascope.md)<a href="#kaiascope" id="kaiascope"></a>
 
-Klaytnscope is the block explorer for the Klaytn Network. You can browse and inspect your transactions on the browser.
+Kaiascopeはカイアネットワークのブロックエクスプローラーです。 ブラウザー上で取引を閲覧し、検査することができる。

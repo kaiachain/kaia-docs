@@ -1,3 +1,3 @@
 # Live Pruning
 
-See [Storage Optimization](../state-pruning/#state-live-pruning).
+스토리지 최적화](state-pruning.md#state-live-pruning)를 참조하세요.

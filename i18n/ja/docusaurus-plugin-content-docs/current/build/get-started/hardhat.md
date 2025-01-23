@@ -1,119 +1,119 @@
-# Deploy your first smart contract using Hardhat
+# Hardhatを使って最初のスマート・コントラクトをデプロイする
 
 ![](/img/banners/kaia-hardhat.png)
 
-## Introduction
+## はじめに
 
-This section will guide you through deploying a Soulbound Token to the Klaytn Baobab Network using [Hardhat](https://hardhat.org/).
+このセクションでは、[Hardhat](https://hardhat.org/)を使用してKaia KairosネットワークにSoulbound Tokenを配備する方法を説明します。
 
-Hardhat is a smart-contract development environment that will help you:
+Hardhatは、スマート・コントラクト開発環境です：
 
-- Develop and compile smart contracts.
-- Debug, test, and deploy smart contracts and dApps.
+- スマートコントラクトの開発とコンパイル
+- スマートコントラクトとdAppsのデバッグ、テスト、デプロイ。
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+ソウル・バウンド・トークン（SBT）は譲渡不可能なNFTである。 つまり、一度取得した情報を他のユーザーに販売したり譲渡したりすることはできません。 SBTの詳細、仕組み、使用例については、Vitalik Buterinが発表したこちらの[参考記事](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)をご覧いただきたい。
 
-By the end of this guide you will be able to:
+このガイドの終わりには、あなたは次のことができるようになる：
 
-- Set up a Hardhat project on Klaytn.
-- Create a simple soul-bound token.
-- Compile your smart contract using Hardhat.
-- Test, deploy, and interact with your smart contract using Hardhat.
-- Explore Hardhat forking feature.
+- KaiaでHardhatプロジェクトを立ち上げる。
+- シンプルなソウル・バウンド・トークンを作る。
+- Hardhatを使ってスマート・コントラクトをコンパイルする。
+- Hardhatを使用して、スマート・コントラクトをテスト、デプロイ、対話します。
+- ハードハットのフォーク機能を探る
 
-## Pre-requisites
+## 前提条件
 
-To follow this tutorial, the following are the prerequisites:
+このチュートリアルに従うには、次のことが前提条件となる：
 
 - Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
-- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
-- [NodeJS and NPM](https://nodejs.org/en/)
+- [メタマスク](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダ](../../references/public-en.md)の1つから取得できます。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- [NodeJSとNPM](https://nodejs.org/en/)
 
-## Setting Up Your Development Environment
+## 開発環境のセットアップ
 
-To make use of hardhat, we need to set up our development environment and get hardhat installed. Let's do this in the following steps:
+ハードハットを利用するには、開発環境を整え、ハードハットをインストールする必要がある。 次のステップでやってみよう：
 
-**Step 1**: Create a project directory
+\*\*ステップ1プロジェクトディレクトリの作成
 
 ```bash
 mkdir soulbound-tokens
 cd soulbound-tokens
 ```
 
-**Step 2**: Initialize an npm project
+**ステップ 2**：npmプロジェクトを初期化する
 
-Paste this command in your terminal to create a package.json file
+以下のコマンドをターミナルに貼り付け、package.jsonファイルを作成する。
 
 ```bash
 npm init -y
 ```
 
-**Step 3**: Install hardhat and other dependencies:
+**ステップ 3**：ハードハットとその他の依存関係をインストールします：
 
-- Paste the code below in your terminal to install hardhat
+- 以下のコードをターミナルに貼り付け、hardhatをインストールする。
 
 ```bash
 npm install --save-dev hardhat
 ```
 
-- Paste the code below to install other dependencies
+- 以下のコードを貼り付けて、他の依存関係をインストールする。
 
 ```bash
 npm install dotenv @kaiachain/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al.
+> 注: `hardhat`、`klaytn/contract`、`dotenv` など、このプロジェクトに必要な他の依存関係をインストールする。
 
-**Step 4**: Initialise a hardhat project:
+**ステップ 4**：ハードハットプロジェクトを初期化する：
 
-Run the command below to initiate an hardhat project
+ハードハット・プロジェクトを開始するには、以下のコマンドを実行する。
 
 ```bash
 npx hardhat
 ```
 
-For this guide, you'll be selecting a typescript project as seen below:
+このガイドでは、以下のようにタイプスクリプト・プロジェクトを選択する：
 
 ![](/img/build/get-started/hardhat-init.png)
 
 ![](/img/build/get-started/hardhat-init-ii.png)
 
-> Note: While initializing the project, you will get a prompt to install `hardhat-toolbox` plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+> 注意: プロジェクトを初期化する際に、`hardhat-toolbox`プラグインをインストールするようプロンプトが表示される。 このプラグインは、Hardhatでの開発を開始するために推奨される、一般的に使用されるパッケージとHardhatプラグインをすべてバンドルしています。
 
-After initializing a hardhat project, your current directory should include:
+ハードハット・プロジェクトを初期化した後、カレント・ディレクトリーには以下のものが含まれているはずだ：
 
-**contracts/** – this folder contains smart contract code.
+**contracts/**-このフォルダにはスマート・コントラクトのコードが含まれている。
 
 **scripts/** – this folder contains code that deploys your contracts on the blockchain network.
 
-**test/** – this folder contains all unit tests that test your smart contract.
+**test/** - このフォルダには、スマート・コントラクトをテストするすべてのユニットテストが含まれています。
 
-**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.js** - このファイルには、Hardhatの動作とソウル・バウンド・トークンの配備に重要な設定が含まれています。
 
-**Step 5**: Create a .env file
+**ステップ5**：.envファイルを作成する
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
+プロジェクト・フォルダーに.envファイルを作成する。 このファイルは、.envファイルからprocess.envに環境変数をロードするのに役立つ。
 
-- Paste this command in your terminal to create a .env file
+- 以下のコマンドをターミナルに貼り付け、.envファイルを作成する。
 
 ```bash
 touch .env
 ```
 
-- After creating our file, let's configure our .env file to look like this:
+- ファイルを作成したら、.envファイルを次のように設定しよう：
 
 ```js
- KAIROS_TESTNET_URL= "Your Kairos RPC link"
- PRIVATE_KEY= "your private key copied from MetaMask wallet"
+ KAIROS_TESTNET_URL= "あなたのカイロスRPCリンク"
+ PRIVATE_KEY= "MetaMaskウォレットからコピーしたあなたの秘密鍵"
 ```
 
-> Note: You can also choose to use the [configuration variable](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) functionality provided by hardhat to configure variables that shouldn't be included in the code repository.
+> 注：コードリポジトリに含めるべきでない変数を設定するために、hardhatが提供する[設定変数](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables)機能を使うこともできます。
 
-**Step 6**: Setup Hardhat Configs
+**ステップ 6**：ハードハット設定のセットアップ
 
-Modify your `hardhat.config.js` with the following configurations:
+以下の設定で `hardhat.config.js` を修正する：
 
 ```js
 require("@nomicfoundation/hardhat-toolbox");
@@ -134,17 +134,17 @@ module.exports = {
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+さて、開発環境はすべて整ったので、ソウル・バウンド・トークン・スマート・コントラクトの作成に取りかかろう。
 
-## Creating SBT Smart Contract
+## SBTスマートコントラクトの作成
 
-In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. It is a fork of open zeppelin contracts.
+このセクションでは、[Kaia Contracts](https://github.com/kaiachain/kaia-contracts)を使用します。これは、コミュニティによって検証されたコードの強固な基盤の上に構築された、安全なスマート・コントラクト開発のためのライブラリです。 これはオープン・ツェッペリン契約のフォークである。
 
-> Note: You already installed this library in **step 3** of the `Setting Development Environment` section.
+> 注：このライブラリは`開発環境の設定`セクションの**ステップ3**でインストール済みです。
 
-**Step 1**: Select the contracts folder in the Explorer pane, click the New File button and create a new file named `SBT.sol`
+**ステップ 1**: エクスプローラーペインで契約フォルダを選択し、「新規作成」ボタンをクリックして、`SBT.sol`という名前の新しいファイルを作成します。
 
-**Step 2**: Open the file and paste the following code:
+\*\*ステップ2ファイルを開き、以下のコードを貼り付けます：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -178,21 +178,21 @@ contract SoulBoundToken is KIP17, Ownable {
 }
 ```
 
-**Code Walkthrough**
+\*\*コード・チュートリアル
 
-This is your smart contract. **line 1** shows that Hardhat uses the Solidity version 0.8.7 or greater. Other than that, it imports KIP17.sol and other supporting contracts. From **lines 6-12**, a smart contract that inherits KIP17 is been created. Also, the token name and symbol was passed in the constructor.
+これがスマート・コントラクトだ。 **行目**は、HardhatがSolidityバージョン0.8.7以上を使用していることを示しています。 その他、KIP17.solやその他のサポート契約をインポートする。 6行目から12行目まで\*\*、KIP17を継承したスマートコントラクトが作成されている。 また、コンストラクタにはトークン名とシンボルが渡される。
 
-As you can see in the code above, the token name and symbol have been set to **SoulBoundToken** and **SBT** respectively. You can change the token name and symbol to anything you desire.
+上のコードでわかるように、トークン名とシンボルはそれぞれ**SoulBoundToken**と**SBT**に設定されている。 トークン名とシンボルは好きなものに変更できる。
 
-One major thing in this contract is that it prohibits token transfer, which makes the issued tokens soulbond.
+この契約では、トークンの譲渡が禁止されており、発行されたトークンはソウルボンドとなる。
 
-## Testing SBT Smart Contract
+## SBTスマートコントラクトのテスト
 
-In this section, we would be testing some of our contract functionalities.
+このセクションでは、契約機能の一部をテストする。
 
-**Step 1**: In the Explorer pane, select the test folder and click the New File button to create a new file named `sbtTest.js`
+**ステップ 1**：エクスプローラーペインでtestフォルダを選択し、New Fileボタンをクリックして`sbtTest.js`という名前の新規ファイルを作成します。
 
-**Step 2**: Copy the code below in the `sbtTest.js` file.
+**ステップ 2**：以下のコードを `sbtTest.js` ファイルにコピーする。
 
 ```js
 // This is an example test file. Hardhat will run every *.js file in `test/`,
@@ -280,32 +280,32 @@ describe("Token contract", function () {
 })
 ```
 
-In the code you just copied, line 7 & 12 shows you imported expect from [Chai](https://www.chaijs.com/api/bdd/) and [loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures) from hardhat-network-helpers.
+あなたがコピーしたコードの7行目と12行目には、hardhat-network-helpersの[Chai](https://www.chaijs.com/api/bdd/)と[loadFixture](https://hardhat.org/tutorial/testing-contracts#reusing-common-test-setups-with-fixtures)からexpectをインポートしたことが示されています。
 
-The tests above check the following:
+上記のテストは以下のことをチェックする：
 
-- Is the owner of a particular token id the same as who it was minted to?
-- Did it prohibit transfer of tokens between accounts?
+- 特定のトークンのIDの所有者は、それが鋳造された人と同じですか？
+- アカウント間でのトークンの移動は禁止されたのか？
 
-**Step 3**: To run your test, run the command below:
+**ステップ 3**：テストを実行するには、以下のコマンドを実行してください：
 
 ```bash
-npx hardhat test test/sbtTest.js 
+npxハードハットテスト test/sbtTest.js 
 ```
 
 ![](/img/build/get-started/sbtTest.png)
 
-For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
+テストに関するより詳細なガイドについては、[ハードハットテスト](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)をご覧ください。
 
-## Deploying the smart contract
+## スマートコントラクトの導入
 
-Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
+スクリプトはJavaScript/Typescriptファイルで、コントラクトをブロックチェーン・ネットワークにデプロイするのに役立ちます。 このセクションでは、スマート・コントラクト用のスクリプトを作成する。
 
-**Step 1**: In the Explorer pane, select the "scripts" folder and click the New File button to create a new file named `sbtDeploy.js`.
+**ステップ 1**：エクスプローラーペインで "scripts "フォルダを選択し、"New File "ボタンをクリックして`sbtDeploy.js`という名前の新規ファイルを作成する。
 
-**Step 2**: Copy and paste the following code inside the file.
+\*\*ステップ2以下のコードをコピーし、ファイル内に貼り付けます。
 
-> Note: input your MetaMask wallet address in the `deployerAddr` variable.
+> 注意: 変数 `deployerAddr` には MetaMask ウォレットのアドレスを入力してください。
 
 ```js
 const { ethers } = require("hardhat");
@@ -334,7 +334,7 @@ main().catch((error) => {
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Klaytn Test Network (Baobab)
+**ステップ3**：ターミナルで、HardhatにSBTトークンをKaia Test Network (Kairos)にデプロイするように指示する以下のコマンドを実行します。
 
 ```bash
 npx hardhat run scripts/sbtDeploy.js --network baobab
@@ -342,29 +342,29 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Kaiascope](https://kairos.kaiascope.com/) to check if the SBT token has been deployed successfully.
+**ステップ4**：[Kaiascope](https://kairos.kaiascope.com/) を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
 
-**Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
+\*\*ステップ5配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。
 
 ![](/img/build/get-started/sbtKS.png)
 
-## Hardhat Forking
+## ハードハット・フォーク
 
-Hardhat provides developers the functionality of simulating the mainnet (at any given block) to a local development network. One of the major benefit of this feature is that it enables developers to interact with deployed contract and also write test for complex cases.
+Hardhatは、メインネット（任意のブロック）をローカル開発ネットワークにシミュレートする機能を開発者に提供します。 この機能の主な利点のひとつは、開発者がデプロイされたコントラクトとやりとりしたり、複雑なケースのテストを書いたりできるようになることだ。
 
-For this feature to work effectively, you need to connect to an archive node. You can read more about this feature [here](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)
+この機能を有効に使うには、アーカイブ・ノードに接続する必要がある。 この機能の詳細については[こちら](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks)をご覧ください。
 
-### Forking Mainnet
+### フォーク・メインネット
 
-Now that we have our Hardhat project set up let’s fork the Klaytn Mainnet using Hardhat.  Open your terminal and run this command
+Hardhatプロジェクトがセットアップできたので、Hardhatを使ってKaiaメインネットをフォークしてみよう。  ターミナルを開き、次のコマンドを実行する。
 
 ```bash
-npx hardhat node --fork <YOUR ARCHIVE NODE URL>
+npx ハードハット・ノード --fork<YOUR ARCHIVE NODE URL>
 
-npx hardhat node --fork https://archive-en.node.kaia.io
+npx ハードハット・ノード --fork https://archive-en.node.kaia.io
 ```
 
-You can also configure `hardhat.config.js` - Hardhat Network to always do this:
+また、`hardhat.config.js` - Hardhat Networkが常にこれを行うように設定することもできます：
 
 ```
 networks: {
@@ -376,35 +376,35 @@ networks: {
 }
 ```
 
-**Output**
+**出力**
 
 ![](/img/build/get-started/hardhat-fork.png)
 
-After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
+このコマンドをうまく実行すると、ターミナルは上の画像のようになる。  10,000テストトークンで事前に資金調達された20の開発アカウントを持つことになる。
 
-The forked chain's RPC server is listening at `http://127.0.0.1:8545/`.  You can verify the forked network by querying the latest block number. Let's try to make a cURL to the RPC to get the block number.  Open a new terminal window and use the following command:
+フォークされたチェーンのRPCサーバーは `http://127.0.0.1:8545/` で待ち受けている。  最新のブロック番号を照会することで、フォークされたネットワークを確認することができる。 ブロック番号を取得するために、RPCにcURLを作成してみよう。  新しいターミナル・ウィンドウを開き、以下のコマンドを使う：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-**Output**
+**出力**
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [kaiascope](https://kaiascope.com/).
+出力は上のように16進数である。 16進数からブロック番号を得るには、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って16進数を10進数に変換する。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。
 
-### Forking at a Block
+### ブロックでのフォーク
 
-With hardhat, you can fork the mainnet at a particular block.  In that case, let’s fork the chain at block number `105701850`.
+ハードハットを使えば、特定のブロックでメインネットをフォークできる。  その場合、ブロック番号`105701850`でチェーンをフォークしよう。
 
 ```bash
-npx hardhat node --fork <YOUR ARCHIVE NODE URL> --fork-block-number 105701850
+npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
 
 npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 105701850
 ```
 
-To confirm the forked chain at the stated block, open a new terminal window and use the following command:
+指定されたブロックでフォークされたチェーンを確認するには、新しいターミナル・ウィンドウを開き、以下のコマンドを使用する：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -412,6 +412,6 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bnII.png)
 
-The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
+出力は16進数を返し、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って変換すると`105701850`に等しくなるはずである。
 
-For more in-depth guide on Hardhat, please refer to [Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)
+Hardhatの詳細については、[Hardhat Docs](https://hardhat.org/hardhat-runner/docs/getting-started)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) にあります。

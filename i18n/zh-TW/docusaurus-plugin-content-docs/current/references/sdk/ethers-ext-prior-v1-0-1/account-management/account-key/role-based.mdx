@@ -1,0 +1,234 @@
+# Role-based Account Key
+
+**AccountKeyRoleBased** 表示基於角色的密鑰。 如果賬戶有一個\*\* AccountKeyRoleBased**對象，且交易類型為**除賬戶更新外的\*\*，那麼驗證過程將根據每個角色進行，如下所示：
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js AccountUpdateWithRoleBased.js
+    const { ethers } = require("ethers");
+
+    const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+    // Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
+    // But you might want to register a different private key.
+    const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
+    const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+    const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+    const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+    const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+    const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+    const updaterWallet = new Wallet(senderAddr, senderRoleAccountUpdatePriv, provider);
+
+    async function main() {
+      const pub1 = ethers.utils.computePublicKey(senderRoleTransactionPriv, true);
+      const pub2 = ethers.utils.computePublicKey(senderRoleAccountUpdatePriv, true);
+      const pub3 = ethers.utils.computePublicKey(senderRoleFeePayerPriv, true);
+      console.log({ pub1, pub2, pub3 });
+
+      const tx = {
+        type: TxType.AccountUpdate,
+        from: senderAddr,
+        gasLimit: 1000000,
+        key: {
+          type: AccountKeyType.RoleBased,
+          keys: [
+            { type: AccountKeyType.Public, key: pub1 }, // RoleTransaction
+            { type: AccountKeyType.Public, key: pub2 }, // RoleAccountUpdate
+            { type: AccountKeyType.Public, key: pub3 }, // RoleFeePayer
+          ]
+        }
+      };
+
+      const sentTx = await updaterWallet.sendTransaction(tx);
+      console.log("sentTx", sentTx.hash);
+
+      const receipt = await sentTx.wait();
+      console.log("receipt", receipt);
+    }
+
+    main().catch(console.error);
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js AccountUpdateWithRoleBased.js
+    {
+      pub1: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a',
+      pub2: '0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3',
+      pub3: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+    }
+    sentTx 0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f
+    receipt {
+      to: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+      from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+      contractAddress: null,
+      transactionIndex: 1,
+      gasUsed: BigNumber { _hex: '0x013c68', _isBigNumber: true },
+      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash: '0xb9145a53ef85bc4b375de828d9c3387cadc6bcd8f81a8d8eaf4f0331a2d7a5c0',
+      transactionHash: '0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f',
+      logs: [],
+      blockNumber: 152203576,
+      confirmations: 2,
+      cumulativeGasUsed: BigNumber { _hex: '0x0377d6', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  導入 **ethers** 和 **@kaiachain/ethers-ext** 軟件包，在 ethers.js 上添加 kaia 功能
+
+  ```js AccountUpdateWithRoleBased.js focus=1:3
+  ```
+
+  ---
+
+  定義要更改的發件人**地址**、發件人**私人密鑰**和新的**基於角色的私人密鑰**
+
+  ```js AccountUpdateWithRoleBased.js focus=5:11
+  ```
+
+  ---
+
+  使用指定的 **Kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+  ```js AccountUpdateWithRoleBased.js focus=13
+  ```
+
+  ---
+
+  此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+  ```js AccountUpdateWithRoleBased.js focus=13
+  const { ethers } = require("ethers");
+
+  const { Wallet, TxType, AccountKeyType } = require("@kaiachain/ethers-ext");
+
+  // Using senderPriv == senderRoleAccountUpdatePriv to execute this example repeatedly.
+  // But you might want to register a different private key.
+  const senderAddr = "0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea";
+  const senderPriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+  const senderRoleTransactionPriv = "0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac";
+  const senderRoleAccountUpdatePriv = "0x9ba8cb8f60044058a9e6f815c5c42d3a216f47044c61a1750b6d29ddc7f34bda";
+  const senderRoleFeePayerPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+  const updaterWallet = new Wallet(senderAddr, senderRoleAccountUpdatePriv, provider);
+
+  async function main() {
+    const pub1 = ethers.utils.computePublicKey(senderRoleTransactionPriv, true);
+    const pub2 = ethers.utils.computePublicKey(senderRoleAccountUpdatePriv, true);
+    const pub3 = ethers.utils.computePublicKey(senderRoleFeePayerPriv, true);
+    console.log({ pub1, pub2, pub3 });
+
+    const tx = {
+      type: TxType.AccountUpdate,
+      from: senderAddr,
+      gasLimit: 1000000,
+      key: {
+        type: AccountKeyType.RoleBased,
+        keys: [
+          { type: AccountKeyType.Public, key: pub1 }, // RoleTransaction
+          { type: AccountKeyType.Public, key: pub2 }, // RoleAccountUpdate
+          { type: AccountKeyType.Public, key: pub3 }, // RoleFeePayer
+        ]
+      }
+    };
+
+    const sentTx = await updaterWallet.sendTransaction(tx);
+    console.log("sentTx", sentTx.hash);
+
+    const receipt = await sentTx.wait();
+    console.log("receipt", receipt);
+  }
+
+  main().catch(console.error);
+  ```
+
+  ---
+
+  使用**更新者角色**私鑰和提供者創建發送者錢包
+
+  ```js AccountUpdateWithRoleBased.js focus=14
+  ```
+
+  ---
+
+  根據新的基於**角色的**私鑰計算\*\*公鑰
+
+  <CH.Code>
+    ```js AccountUpdateWithRoleBased.js focus=17:20
+    ```
+
+    ---
+
+    ```zsh output
+    {
+      pub1: '0x03f26489914098c5da51f0f646e3000da4d6197217df082b4f7ce1530f0a0cbf2a',
+      pub2: '0x0263021199702b9fefca617bdcb2a9ed4a810dfa8d270d4e804a1e778450e63ec3',
+      pub3: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  在**密鑰**字段中使用計算出的基於**角色的公鑰**聲明一個事務
+
+  ```js AccountUpdateWithRoleBased.js focus=22:34
+  ```
+
+  ---
+
+  向區塊鏈發送 tx。 函數 "sendTransaction "使用賬戶的私鑰進行內部簽名，然後將其傳輸到區塊鏈網絡。
+
+  <CH.Code>
+    ```js AccountUpdateWithRoleBased.js focus=36:37
+    ```
+
+    ---
+
+    ```zsh output
+    sentTx 0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f
+    ```
+  </CH.Code>
+
+  ---
+
+  如果已在區塊鏈中完成發送，**wait**函數將返回發送回執。
+
+  <CH.Code>
+    ```js AccountUpdateWithRoleBased.js focus=39:40
+    ```
+
+    ---
+
+    ```zsh output
+    receipt {
+      to: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+      from: '0x5bD2fb3c21564C023A4A735935a2B7A238C4cCEA',
+      contractAddress: null,
+      transactionIndex: 1,
+      gasUsed: BigNumber { _hex: '0x013c68', _isBigNumber: true },
+      logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+      blockHash: '0xb9145a53ef85bc4b375de828d9c3387cadc6bcd8f81a8d8eaf4f0331a2d7a5c0',
+      transactionHash: '0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f',
+      logs: [],
+      blockNumber: 152203576,
+      confirmations: 2,
+      cumulativeGasUsed: BigNumber { _hex: '0x0377d6', _isBigNumber: true },
+      effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+      status: 1,
+      type: 0,
+      byzantium: true
+    }
+    ```
+  </CH.Code>
+</CH.Spotlight>

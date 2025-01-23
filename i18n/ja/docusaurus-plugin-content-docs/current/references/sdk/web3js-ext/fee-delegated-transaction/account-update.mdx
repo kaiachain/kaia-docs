@@ -1,4 +1,4 @@
-# Account Update
+# アカウント更新
 
 <CH.Spotlight>
 <CH.Code>
@@ -78,7 +78,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=1
 
@@ -86,7 +86,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address**, **sender private key** and **new private key** to be changed
+**送信者アドレス**、送信者秘密鍵**、変更する新しい秘密鍵**を定義する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=5:7
 
@@ -94,7 +94,7 @@ Define **sender address**, **sender private key** and **new private key** to be 
 
 ---
 
-Define **fee payer address** and **private key**
+料金支払い者アドレス**と**private key\*\*を定義する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=8:9
 
@@ -102,7 +102,7 @@ Define **fee payer address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=11:12
 
@@ -110,7 +110,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=11
 const { Web3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
@@ -158,7 +158,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=13
 
@@ -166,7 +166,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=14
 
@@ -174,7 +174,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Generating the **public key** from the **new private key** using `getPublicKeyFromPrivate`
+`getPublicKeyFromPrivate`を使用して、**新しい秘密鍵**から**public key**を生成する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=17:18
@@ -195,7 +195,7 @@ Generating the **public key** from the **new private key** using `getPublicKeyFr
 
 ---
 
-Creating a transaction object with `type: TxType.FeeDelegatedAccountUpdate` and `key` contains new public key
+トランザクションオブジェクトを `type：TxType.FeeDelegatedAccountUpdate`で、`key`に新しい公開鍵を含むトランザクションオブジェクトを作成する。
 
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=20:29
 
@@ -203,7 +203,7 @@ Creating a transaction object with `type: TxType.FeeDelegatedAccountUpdate` and 
 
 ---
 
-Sign the transaction with the **sender** account
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 
@@ -214,15 +214,15 @@ Sign the transaction with the **sender** account
 ---
 
 ```zsh output
-❯ node TxTypeFeeDelegatedAccountUpdate.js
-senderTxHashRLP 0x21f88d0c850ba43b7400830205949430908464d76604420162a6c880c0e1c7e641bad7a302a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8f847f8458207f6a06aa4e32d36dd96da8cb0f2404d81302d855defbaabf4fdbf176aabf415179564a02161361ff91f14ebccc265c55c6dff8f4fbba4b467da07c1283d8e5991051cb0
+ノード TxTypeFeeDelegatedAccountUpdate.js
+senderTxHashRLP0x21f88d0c850ba43b7400830205949430908464d76604420162a6c880c0e1c7e641bad7a302a102dbac81e8486d68eac4e6ef9db617f7fbd79a04a3b323c982a09cdfc61f0ae0e8f847f8458207f6a06aa4e32d36dd96da8cb0f2404d81302d855defbaabf4fdbf176aabf415179564a02161361ff91f14ebccc265c55c6dff8f4fbba4b467da07c1283d8e5991051cb0
 ```
 
 </CH.Code>
 
 ---
 
-Use **fee payer** account to sign the transaction with `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用してトランザクションに署名するには、**fee payer**アカウントを使用する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=33:35
@@ -241,7 +241,7 @@ signedTx 0xbf72aae23989ca58eabfca9bd84b1ad9d60354e22b55102f5f5d4af18725a58e
 
 ---
 
-Send the signed transaction to blockchain with `web3.eth.sendSignedTransaction`. It will return the transaction receipt
+`web3.eth.sendSignedTransaction`でブロックチェーンに署名付きトランザクションを送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedAccountUpdate.js focus=37:38

@@ -1,38 +1,38 @@
-# Intrinsic Gas
+# 固有ガス
 
-Gas is a sum of `IntrinsicGas` and `ExecutionGas`. In here, we would focus on how `IntrinsicGas` is organized.
+ガスは`IntrinsicGas`と`ExecutionGas`の和である。 ここでは、`IntrinsicGas`がどのように構成されているかに焦点を当てる。
 
 :::note
 
-Intrinsic gas related hardfork changes can be found at the bottom of this page. Go to [Hardfork Changes](#hardfork-changes).
+固有ガスに関連するハードフォークの変更は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
-## Overview
+## 概要
 
-A transaction's `intrinsicGas` can be calculated by adding up the next four factors.
+取引の「真性ガス」は次の4つの要素を合計することで計算できる。
 
 ```
 IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
 
-- `PayloadGas` is calculated based on the size of the data field in the tx.
-- `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
-- `KeyValidationGas` is calculated based on the number of signatures.
-- `TxTypedGas` is defined based on the transaction types.
+- `PayloadGas`はtxのデータフィールドのサイズに基づいて計算される。
+- `KeyCreationGas`はトランザクションが新しいキーを登録するときに計算される。 `accountUpdate`トランザクションでのみ適用できる。
+- `KeyValidationGas`は署名数に基づいて計算される。
+- `TxTypedGas`はトランザクションタイプに基づいて定義される。
 
-Before we get into the detail, keep in mind that not all key types apply the keyGases (`KeyCreationGas` and `KeyValidationGas`).
+詳細に入る前に、すべてのキータイプにキーガス（`KeyCreationGas`と`KeyValidationGas`）が適用されるわけではないことを覚えておいてほしい。
 
-| Key Type  | Are those keyGases applicable?     |
-| :-------- | :--------------------------------- |
-| Nil       | No                                 |
-| Legacy    | No                                 |
-| Fail      | No                                 |
-| Public    | Yes                                |
-| MultiSig  | Yes                                |
-| RoleBased | Depending on key types in the role |
+| キータイプ | これらのキーガスは適用できますか？ |
+| :---- | :---------------- |
+| なし    | いいえ               |
+| レガシー  | いいえ               |
+| 失敗    | いいえ               |
+| パブリック | はい                |
+| マルチシグ | はい                |
+| 役割ベース | 役割の主要タイプによる       |
 
-## KeyCreationGas <a id="key-creation-gas"></a>
+## キークリエーションガス<a id="keycreationgas"></a>
 
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
@@ -40,54 +40,51 @@ Please keep in mind that Public key type always has only one registering key, so
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
-## KeyValidationGas <a id="key-validation-gas"></a>
+## キーバリデーション・ガス<a id="keyvalidationgas"></a>
 
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.\
-`KeyValidationGas` is calculated as `(number of signatures - 1) x TxValidationGasPerKey(15000)`.\
-Please keep in mind that Public key type always has only one signature key, so the gas would be always zero.
+KeyValidationGas`は`(署名数 - 1) x TxValidationGasPerKey(15000)\`として計算されます。\
+公開鍵タイプは常に1つの署名鍵しか持たないので、ガスは常にゼロであることに留意してください。
 
-A Klaytn transaction can also have a feePayer, so the total KeyValidationGas is like this.
+KaiaトランザクションはfeePayerを持つこともできるので、KeyValidationGasの合計はこのようになる。
 
 ```
-KeyValidationGas =  (KeyValidationGas for a sender) + (KeyValidationGas for a feePayer)
+KeyValidationGas = (送信者のKeyValidationGas) + (料金支払者のKeyValidationGas)
 ```
 
-## PayloadGas <a id="payload-gas"></a>
+## ペイロードガス<a id="payloadgas"></a>
 
-Basically, `PayloadGas` is charged with `number_of_bytes_of_tx_input x TxDataGas (100)`.
+基本的に、`PayloadGas` には `number_of_bytes_of_tx_input x TxDataGas (100)` がチャージされる。
 
-In the case of a transaction creating contract, an additional charge of `number_of_words_of_initcode x InitCodeWordGas (2)` is applied. It is effective since Shanghai hardfork.
+トランザクション作成契約の場合、`number_of_words_of_initcode x InitCodeWordGas (2)` の追加料金が適用される。 上海のハードフォークから有効だ。
 
-## TxTypedGas <a id="tx-typed-gas"></a>
+## TxTypedガス<a id="txtypedgas"></a>
 
-There are three types of transactions in klaytn; `base`, `feeDelegated`, and `feeDelegatedWithFeeRatio`.
+klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegatedWithFeeRatio`の3種類がある。
 
-For example,
+例えば、こうだ、
 
-- TxTypeValueTransfer is the `base` type of the valueTransaction transaction.
-- TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
-- TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
+- TxTypeValueTransferはvalueTransactionトランザクションの`ベース`タイプである。
+- `TxTypeFeeDelegatedValueTransferはvalueTransferトランザクションの`feeDelegated\`タイプである。
+- `TxTypeFeeDelegatedValueTransferWithRatio は、valueTransfer トランザクションの `feeDelegatedWithRatio\` タイプである。
 
-This is important when calculating TxTypedGas:
+これはTxTypedGasを計算する際に重要である：
 
-- First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
-  - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
-  - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
-- Second, check the transaction creates contract or not.
-  - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
-  - Otherwise, add `TxGas (21000)` to TxTypedGas.
+- まず、TxType が `feeDelegated` または `feeDelegatedWithFeeRatio` であることを確認する。
+  - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
+  - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
+- 次に、取引が契約を結ぶかどうかをチェックする。
+  - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
+  - そうでなければ、TxTypedGasに`TxGas (21000)`を加える。
 
-For example,
+例えば、こうだ、
 
-- If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
-- If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
-- If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
+- レガシー・トランザクションでコントラクトを作成する場合、TxTypedGasは `0 + TxGasContractCreation(53000)` となります。
+- TxTypeFeeDelegatedValueTransferであれば、TxTypedGasは`TxGasFeeDelegated(10000) + TxGas (21000)`となる。
+- TxTypeFeeDelegatedSmartContractDeployWithRatioであれば、TxTypedGasは `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)` となる。
 
-## Hardfork changes
+## ハードフォークの変更
 
-| Hardfork     | Change                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Shanghai EVM | limit and meter initcode when calculating intrinsicGas<br/>- started to add 2 gas per word of the initcode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Istanbul EVM | make the [PayloadGas](payload-gas) of legacyTxType consistent with other TxTypes<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](key-validation-gas) calculation logic<br/>- Before: KeyValidationGas=(number of keys - 1) x 15,000<br/>- After: KeyValidationGas=(number of signatures - 1) x 15,000 |
+| ハードフォーク    | 変更                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 上海EVM      | intrinsicGas<br/> を計算する際の limit と meter initcode - initcode のワードごとに 2 ガスを追加するようになった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| イスタンブールEVM | legacyTxType の [PayloadGas](#payloadgas) を他の TxType と整合させる<br/>- 変更前：PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68<br/> - After：PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>変更 [keyValidationGas](#keyvalidationgas) 計算ロジック<br/>- 変更前：KeyValidationGas=(key number of keys - 1) x 15,000<br/>- After：KeyValidationGas=(署名数 - 1) x 15,000 |

@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -154,7 +154,7 @@ TxType : ACCOUNT_UPDATE
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java AccountUpdateWithMultiSigExample.java focus=1:25
 
@@ -162,7 +162,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java AccountUpdateWithMultiSigExample.java focus=31
 
@@ -170,7 +170,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java AccountUpdateWithMultiSigExample.java focus=31
 package org.web3j.example.accountKey;
@@ -273,7 +273,7 @@ public class AccountUpdateWithMultiSigExample {
 
 ---
 
-Create 3 different **credentials** from private keys
+秘密鍵から3つの異なる**認証情報**を作成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=32:34
 
@@ -281,7 +281,7 @@ Create 3 different **credentials** from private keys
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java AccountUpdateWithMultiSigExample.java focus=36:37
 
@@ -289,7 +289,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=39:40
 
@@ -297,7 +297,7 @@ Get **chain ID** from the network
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=41:42
 
@@ -305,7 +305,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Generate new **account keys** and theirs weights for account update
+アカウント更新のために新しい**アカウント・キー**とウェイトを生成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=44:52
 
@@ -313,7 +313,7 @@ Generate new **account keys** and theirs weights for account update
 
 ---
 
-Combine generated **weighted account keys** into a list
+生成された**重み付けされたアカウント・キー**をリストにまとめる。
 
 ```java AccountUpdateWithMultiSigExample.java focus=54:59
 
@@ -321,7 +321,7 @@ Combine generated **weighted account keys** into a list
 
 ---
 
-Set transaction type as **ACCOUNT_UPDATE**
+トランザクション・タイプを**ACCOUNT_UPDATE**に設定する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=61
 
@@ -329,7 +329,7 @@ Set transaction type as **ACCOUNT_UPDATE**
 
 ---
 
-Create a **raw transaction** for account update
+口座更新のために**生トランザクション**を作成する。
 
 ```java AccountUpdateWithMultiSigExample.java focus=63:69
 
@@ -337,7 +337,7 @@ Create a **raw transaction** for account update
 
 ---
 
-Sign the transaction
+取引に署名する
 
 ```java AccountUpdateWithMultiSigExample.java focus=71
 
@@ -345,7 +345,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```java AccountUpdateWithMultiSigExample.java focus=72:76
@@ -365,7 +365,7 @@ TxHash :
 
 ---
 
-Wait for the transaction to be completed and get the transaction receipt
+トランザクションが完了するのを待ち、トランザクション・レシートを受け取る。
 
 <CH.Code>
 ```java AccountUpdateWithMultiSigExample.java focus=78:87
@@ -416,7 +416,7 @@ class TransactionReceipt {
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java AccountUpdateWithMultiSigExample.java focus=88
 
@@ -424,7 +424,7 @@ Shut down the Web3j instance
 
 ---
 
-Decode the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
 ```java AccountUpdateWithMultiSigExample.java focus=90:92

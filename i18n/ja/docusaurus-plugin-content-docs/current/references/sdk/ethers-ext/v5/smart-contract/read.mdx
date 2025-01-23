@@ -1,6 +1,6 @@
-# Read
+# 読む
 
-You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+スマートコントラクトの関数は、RPC API「Call」を使って呼び出すことができる。 ここで呼び出せるのは、コントラクトのステートを変更しない**ビュー関数**に限られる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -49,14 +49,14 @@ main();
 
 ```zsh output
 ❯ js SmartContractView.js
-number 291
+番号 291
 ```
 
 </CH.Code>
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと**@kaiachain/ethers-ext**モジュールをインポートします。
 
 ```js SmartContractView.js focus=1
 
@@ -64,7 +64,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js SmartContractView.js focus=3
 
@@ -72,7 +72,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SmartContractView.js focus=3
 const ethers = require("ethers");
@@ -116,7 +116,7 @@ main();
 
 ---
 
-Set the **Abi** generated from solidity code
+solidityコードから生成された**Abi**を設定する。
 
 ```js SmartContractView.js focus=28
 
@@ -124,7 +124,7 @@ Set the **Abi** generated from solidity code
 
 ---
 
-Define **contract address** to interact with
+相互作用する**契約アドレス**を定義する
 
 ```js SmartContractView.js focus=29
 
@@ -132,7 +132,7 @@ Define **contract address** to interact with
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+**Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js SmartContractView.js focus=32
 
@@ -140,7 +140,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Get the value of **number** from contract by using method **counter.number()**
+メソッド**counter.number()**を使用して、契約から**number**の値を取得する。
 
 <CH.Code>
 ```js SmartContractView.js focus=33:34

@@ -156,13 +156,13 @@ contract_interaction()
 调用合约的视图函数，并在更新之前**打印**结果
 
 <CH.Code>
-``py smart_contract_write.py focus=18:19
+```py smart_contract_write.py focus=18:19
 
-```
+````
 ---
-``zsh output
-之前的编号：293
-```
+```zsh output
+number before:  293
+````
 
 </CH.Code>
 
@@ -179,7 +179,7 @@ contract_interaction()
 等待来自区块链的发送**收据，并在收到后**打印\*\*收据
 
 <CH.Code>
-``py smart_contract_write.py focus=23
+```py smart_contract_write.py focus=23
 
 ````
 
@@ -195,13 +195,13 @@ receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf83
 再次调用视图函数，查看 tx 之后计数器的**数字**
 
 <CH.Code>
-``py smart_contract_write.py focus=24
+```py smart_contract_write.py focus=24
 
-```
+````
 ---
-``zsh 输出
-后的编号：  294
-```
+```zsh output
+number after:  294
+````
 
 </CH.Code>
 

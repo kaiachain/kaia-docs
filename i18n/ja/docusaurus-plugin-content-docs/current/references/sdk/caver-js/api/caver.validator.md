@@ -1,31 +1,31 @@
-# caver.validator
+# ケイバーバリデータ
 
-The `caver.validator` package provides validation functions that should be used when implementing applications on kaia.
+`caver.validator`パッケージは、kaiaでアプリケーションを実装する際に使用するバリデーション関数を提供する。
 
-**NOTE** `caver.validator` is supported since caver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3).
+**NOTE** `caver.validator`はcaver-js [v1.6.3](https://www.npmjs.com/package/caver-js/v/1.6.3)からサポートされています。
 
-## validateSignedMessage <a href="#validatesignedmessage" id="validatesignedmessage"></a>
+## バリデート署名メッセージ<a href="#validatesignedmessage" id="validatesignedmessage"></a>
 
 ```javascript
 caver.validator.validateSignedMessage(message, signatures, address [, isHashed])
 ```
 
-Validates a signed message by comparing the public key recovered from the signature with the account key of the kaia account.
+署名から復元された公開鍵とkaiaアカウントのアカウント鍵を比較することで、署名されたメッセージを検証する。
 
-**Parameters**
+**パラメーター**
 
-| Name       | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message    | string      | The raw message string. If this message is hashed with the kaia-specific prefix, the third parameter should be passed as `true`.                                                                                                                                                                                                                                                                                            |
-| signatures | object \\ | An object in the format of `{ v, r, s }`, an instance of `SignatureData`, or an array of `SignatureData`. '\[ v, r, s ]' or '\[\[ v, r, s ]]' array can also be passed as a parameter, and in this case, it is internally converted to `SignatureData` type. |
-| address    | string      | The address of the account that signed the message.                                                                                                                                                                                                                                                                                                                                                                                         |
-| isHashed   | boolean     | (optional, default: `false`) Whether the message passed as a parameter is hashed with the prefix `"\x19Kaia Signed Message:\n" + message.length + message`.                                                                                                                                                                                                                                            |
+| 名称       | タイプ         | 説明                                                                                                                                                                                                                                                                                                                           |
+| -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| メッセージ    | ストリング       | 生のメッセージ文字列。 このメッセージがkaia固有のプレフィックスでハッシュされている場合、3番目のパラメー ターには`true`を渡すべきである。                                                                                                                                                                                                                                                  |
+| 署名       | object \\ | `{ v, r, s }` 形式のオブジェクト、`SignatureData` のインスタンス、または `SignatureData` の配列。 '\[ v, r, s ]'または'˶[˶[ v, r, s ]]配列'をパラメータとして渡すこともでき、この場合は内部的に`SignatureData`型に変換されます。 |
+| 住所       | ストリング       | メッセージに署名したアカウントのアドレス。                                                                                                                                                                                                                                                                                                        |
+| isHashed | ブーリアン       | (オプション、デフォルト: `false`) パラメータとして渡されたメッセージを、接頭辞 `"\x19Kaia Signed Message：\n" + message.length + message`.                                                                                                                                                                |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the signature on the message is valid or not.
+`Promise`は `boolean` を返す：このプロミスは、メッセージの署名が有効か無効かのブール値で解決される。
 
-**Examples**
+**例**
 
 ```javascript
 const address = '0xa84a1ce657e9d5b383cece6f4ba365e23fa234dd'
@@ -48,25 +48,25 @@ const signature = [
 > caver.validator.validateSignedMessage(hashedMessage, signature, address, true).then(console.log)
 ```
 
-## validateTransaction <a href="#validatetransaction" id="validatetransaction"></a>
+## バリデート・トランザクション<a href="#validatetransaction" id="validatetransaction"></a>
 
 ```javascript
 caver.validator.validateTransaction(tx)
 ```
 
-Validates a transaction. This function compares the public keys from the account key of the kaia account with the public keys recovered from `signatures`. If the transaction is fee-delegated with the `feePayerSignatures` variable inside, this function compares the public keys recovered from `feePayerSignatures` with the public keys of the fee payer.
+トランザクションを検証する。 この関数は、kaiaアカウントのアカウントキーから取得した公開鍵と、`signatures`から取得した公開鍵とを比較する。 トランザクションが `feePayerSignatures` 変数を内部に持つフィーデリゲートされたものである場合、この関数は `feePayerSignatures` から回収した公開鍵とフィー支払者の公開鍵を比較する。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | タイプ    | 説明                                                                        |
+| -- | ------ | ------------------------------------------------------------------------- |
+| TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transacion is valid or not.
+プロミスは `boolean` を返す：このプロミスは、トランザクションが有効か無効かのブール値で解決される。
 
-**Examples**
+**例**
 
 ```javascript
 // Basic transaction will be validated with `signatures`.
@@ -78,50 +78,50 @@ const tx = caver.transaction.feeDelegatedValueTransfer.create({...})
 > caver.validator.validateTransaction(tx).then(console.log)
 ```
 
-## validateSender <a href="#validatesender" id="validatesender"></a>
+## バリデート送信者<a href="#validatesender" id="validatesender"></a>
 
 ```javascript
 caver.validator.validateSender(tx)
 ```
 
-Validates the sender of the transaction. This function compares the public keys of the account key of the kaia account with the public keys recovered from `signatures`.
+トランザクションの送信者を検証する。 この関数は、kaiaアカウントのアカウントキーの公開鍵と、`signatures`から復元した公開鍵を比較する。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | タイプ    | 説明                                                                        |
+| -- | ------ | ------------------------------------------------------------------------- |
+| TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+プロミスは `boolean` を返す：プロミスは、トランザクションが有効か無効かを示すブール値で解決される。
 
-**Examples**
+**例**
 
 ```javascript
 const tx = caver.transaction.valueTransfer.create({...})
 > caver.validator.validateSender(tx).then(console.log)
 ```
 
-## validateFeePayer <a href="#validatefeepayer" id="validatefeepayer"></a>
+## バリデート料金支払者<a href="#validatefeepayer" id="validatefeepayer"></a>
 
 ```javascript
-caver.validator.validateFeePayer(tx)
+caver.validator.validateFeePayer(tx)。
 ```
 
-Validates a fee payer in the transaction. This function compares the public keys of the account key of the fee payer with the public keys recovered from `feePayerSignatures`.
+トランザクション内の料金支払者を検証する。 この関数は、`feePayerSignatures`から回収した公開鍵と、料金支払者のアカウント鍵の公開鍵を比較する。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type   | Description                                                                                               |
-| ---- | ------ | --------------------------------------------------------------------------------------------------------- |
-| tx   | object | An instance of [Transaction](./caver-transaction/caver-transaction.md#class) to validate. |
+| 名称 | タイプ    | 説明                                                                        |
+| -- | ------ | ------------------------------------------------------------------------- |
+| TX | オブジェクト | 検証する[Transaction](./caver-transaction/caver-transaction.md#class)のインスタンス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returning `boolean`: The promise will be resolved with a boolean value of whether the transaction is valid or not.
+プロミスは `boolean` を返す：プロミスは、トランザクションが有効か無効かを示すブール値で解決される。
 
-**Examples**
+**例**
 
 ```javascript
 const tx = caver.transaction.feeDelegatedValueTransfer.create({...})

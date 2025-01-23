@@ -1,6 +1,6 @@
-# Smart Contract Deploy
+# スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy** deploys a smart contract to the given address. The following changes will be made by this transaction type.
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -51,39 +51,39 @@ web3_smart_contract_deploy_sign_recover()
 ---
 
 ```zsh output
-❯ py smart_contract_deploy_sign_recover.py
-raw transaction of signed tx: 0x28f90b24820...d24781265ed459
+❯ smart_contract_deploy_sign_recover.py
+署名済みtxのrawトランザクション：0x28f90b24820...d24781265ed459
 
-recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+回収された送信者アドレス 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-decoded transaction: {
-  "type": 40,
-  "to": "",
+デコードされたトランザクション：{
+  "type"：40,
+  "to"："",
   "value": 0,
-  "nonce": 871,
-  "gasPrice": 50000000000,
-  "gas": 2107632,
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "data": "0x60806040...30008120033",
+  "nonce"：871,
+  "gasPrice"：50000000000,
+  "gas"：2107632,
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "data"："0x60806040...30008120033",
   "humanReadable": false,
-  "codeFormat": 0,
-  "signatures": [
+  "codeFormat"：0,
+  "signatures"：[
     {
-      "v": 2037,
-      "r": 73903598050814492355277494483128902867114805285273819818860543749250488120475,
-      "s": 22219672009687891619102517644078801140776801626643940180871071967441409987673
-    }
+      "v"：2037,
+      "r"：7390359805081449235527744831289028671148052852738198160543749250488120475,
+      "s"：22219672009687891619102517644078801140776801626643940180871071967441409987673
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb receipt:  AttributeDict({'blockHash': HexBytes('0x3a55647e73f2212d924a65cf5f1290bc6d8f31f515654fbd2c34b43d0943e932'), 'blockNumber': 147341828, 'contractAddress': '0x5c16830351d6c9986B2eEf4f836280b6C6eF0c92', 'cumulativeGasUsed': 1045271, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 702544, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb'), 'transactionIndex': 2, 'type': 0})
+tx ハッシュ：  0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb receipt:  AttributeDict({'blockHash'：HexBytes('0x3a55647e73f2212d924a65cf5f1290bc6d8f31f515654fbd2c34b43d0943e932'), 'blockNumber':147341828, 'contractAddress': '0x5c16830351d6c9986B2eEf4f836280b6C6eF0c92', 'cumulativeGasUsed': 1045271, 'effectiveGasPrice'：25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 702544, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to'：None, 'transactionHash'：HexBytes('0x523337afd7e76ef4987054a9f4d3e6461496a81ef61cc46782f455e391f550cb'), 'transactionIndex': 2, 'type': 0})。
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py smart_contract_deploy_sign_recover.py focus=1,2
 
@@ -91,7 +91,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py smart_contract_deploy_sign_recover.py focus=3:10
 
@@ -99,7 +99,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py smart_contract_deploy_sign_recover.py focus=12:14
 
@@ -107,7 +107,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```python smart_contract_deploy_sign_recover.py focus=12:14
 from web3py_ext import extend
@@ -154,7 +154,7 @@ web3_smart_contract_deploy_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```python smart_contract_deploy_sign_recover.py focus=17
 
@@ -162,7 +162,7 @@ Load an account from private key
 
 ---
 
-Create an empty transaction of type **TxType.SMART_CONTRACT_DEPLOY**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.SMART_CONTRACT_DEPLOY**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py smart_contract_deploy_sign_recover.py focus=4,5,8,19
 
@@ -170,7 +170,7 @@ Create an empty transaction of type **TxType.SMART_CONTRACT_DEPLOY**. You can us
 
 ---
 
-Merge the **additional fields** like **from** and **data** into the empty tx by using the **merge** util.
+**from**や**data**のような**追加フィールド**を、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py smart_contract_deploy_sign_recover.py focus=10,20:23
 
@@ -178,7 +178,7 @@ Merge the **additional fields** like **from** and **data** into the empty tx by 
 
 ---
 
-Set the **compiled bytecode** from the solidity code you want to deploy to the blockchain network
+ブロックチェーン・ネットワークにデプロイしたいsolidityコードから**コンパイル済みバイトコード**を設定する。
 
 ```py smart_contract_deploy_sign_recover.py focus=22
 
@@ -186,7 +186,7 @@ Set the **compiled bytecode** from the solidity code you want to deploy to the b
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python smart_contract_deploy_sign_recover.py focus=4,6,8,24
 
@@ -194,7 +194,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the value transfer tx by user's private key
+値転送txにユーザーの秘密鍵で署名する。
 
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=26:28
@@ -209,7 +209,7 @@ raw transaction of signed tx: 0x28f90b24820...d24781265ed459
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=30:31
@@ -224,7 +224,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=33:34
@@ -258,7 +258,7 @@ decoded transaction: {
 
 ---
 
-Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに**tx**を送信する。 このハッシュは受信を待つために使用される。
 
 ```python smart_contract_deploy_sign_recover.py focus=36
 
@@ -266,7 +266,7 @@ Send the **tx** to the blockchain. It will return the tx hash, which will be use
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=37:38
@@ -281,7 +281,7 @@ tx hash:  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f rec
 
 ---
 
-Finally, get the result.
+最後に結果を出す。
 
 <CH.Code>
 ```python smart_contract_deploy_sign_recover.py focus=40

@@ -1,0 +1,78 @@
+# Address
+
+用於壓縮公鑰的工具。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```java PublicKeyUtilsExample.java
+    package org.web3j.example.utils;
+
+    import org.web3j.crypto.transaction.account.AccountKeyPublic;
+    import org.web3j.utils.AccountKeyPublicUtils;
+
+
+    public class PublicKeyUtilsExample {
+        public static void main(String[] args) {
+
+            System.out.println("From compressed public key to AccountKeyPublic");
+            System.out.println(AccountKeyPublicUtils.decompressKey("03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"));
+
+            System.out.println("From x,y to compressed public key");
+            AccountKeyPublic publicKey= AccountKeyPublic.create("0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd","0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79");
+            System.out.println(AccountKeyPublicUtils.toCompressedPublicKey(publicKey.getPublicKey()));
+        }
+    }
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java PublicKeyUtilsExample.java
+    From compressed public key to AccountKeyPublic
+    AccountKeyPublic x : 0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd / y : 0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79
+    From x,y to compressed public key
+    03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+
+  ---
+
+  從 Web3j 和 kaia 庫（`web3j-ext`）導入必要的類
+
+  ```java PublicKeyUtilsExample.java focus=1:4
+  ```
+
+  ---
+
+  要將 "壓縮公鑰 "轉換為 `{x, y}`格式的 "AccountPublicKey"，請使用 `AccountKeyPublicUtils.decompressKey` 。
+
+  <CH.Code>
+    ```java PublicKeyUtilsExample.java focus=10:11
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java PublicKeyUtilsExample.java
+    From compressed public key to AccountKeyPublic
+    AccountKeyPublic x : 0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd / y : 0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79
+    ```
+  </CH.Code>
+
+  ---
+
+  要將 `AccountKeyPublic` 壓縮為 `Compressed Public Key` 字符串，請使用 `AccountKeyPublicUtils.toCompressedPublicKey` 。
+
+  <CH.Code>
+    ```java PublicKeyUtilsExample.java focus=13:15
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ java PublicKeyUtilsExample.java
+    From x,y to compressed public key
+    03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+</CH.Spotlight>

@@ -1,85 +1,85 @@
-# Build Unity App
+# Unityアプリのビルド
 
-## Prerequisites
+## 前提条件
 
-Before we dive in, make sure you have:
+その前に、あなたが持っていることを確認してください：
 
-- [Unity Hub](https://unity.com/download) installed on your computer - this is where we'll build our dApp interface
-- Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
-- A LINE Developer account - you can easily create one using your email
-- Test Kaia from [Kaia Faucet](https://faucet.kaia.io/)
-- Dapp Portal SDK Client ID receiveed from Dapp Portal team.
-- Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
+- コンピュータにインストールされた[Unity Hub](https://unity.com/download) - ここにdAppのインターフェースを構築します。
+- 基本的なC#とJavaScriptの知識 - あまり派手なものはなく、基礎的なものです。
+- LINE Developerアカウント - メールで簡単に作成できます。
+- カイア水栓】のカイアを試す(https://faucet.kaia.io/)
+- Dapp Portalチームから受け取ったDapp Portal SDKクライアントID。
+- Web3の概念にある程度精通している - ウォレットとトークンを理解していれば問題ない。
 
-## Setting Up Your Unity Environment
+## Unity環境のセットアップ
 
-Let's set up your development environment. We'll start with the Unity setup.
+開発環境を整えよう。 まずはUnityのセットアップから。
 
-### Step 1: Install and Verify Unity Version
+### ステップ1：Unityバージョンのインストールと確認
 
-To begin, let's make sure we're all using the same Unity version to avoid any compatibility issues:
+はじめに、互換性の問題を避けるために、Unityのバージョンが同じであることを確認しましょう：
 
-- Install Unity Hub if you haven't already.
-- Install Unity Editor version 2022.3.50f1 specifically.
+- まだの場合はUnity Hubをインストールしてください。
+- Unity Editorバージョン2022.3.50f1をインストールします。
 
-### Step 2: Create Your New Unity Project
+### ステップ 2: 新しいUnityプロジェクトの作成
 
-1. Open Unity Hub and head to the Projects tab.
-2. Click the inviting "New project" button in the top-right corner.
-3. Under "All templates", select the **3D (Built-in Render Pipeline)** template.
-4. Give your project a meaningful name (e.g., mini-dApp-example).
-5. Choose a convenient location for your project files.
-6. Click **Create project**.
+1. Unity Hubを開き、Projectsタブに向かいます。
+2. 右上の「新規プロジェクト」ボタンをクリックします。
+3. All templates "で、\*\*3D (Built-in Render Pipeline)\*\*テンプレートを選択します。
+4. プロジェクトに意味のある名前をつける（例：mini-dApp-example）。
+5. プロジェクトファイルを保存するのに便利な場所を選んでください。
+6. プロジェクトの作成\*\*をクリックします。
 
 ![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
 
-## Creating Your dApp's UI Components
+## dAppのUIコンポーネントを作成する
 
-In this section, we will build our dApp's user interface! We'll create a structured UI system with three main panels for status updates, actions, and minting functionality.
+このセクションでは、dAppのユーザー・インターフェースを構築する！ 私たちは、ステータス更新、アクション、造幣機能のための3つのメインパネルを備えた構造化されたUIシステムを作成します。
 
-### Setting Up the Main Canvas
+### メイン・キャンバスの設定
 
-First, let's create our base canvas:
+まず、ベースとなるキャンバスを作りましょう：
 
-1. In the Hierarchy window, right-click on "Sample Scene".
-2. Navigate to GameObject → UI → Canvas.
+1. 階層ウィンドウで、"Sample Scene "を右クリックします。
+2. GameObject → UI → Canvasに移動します。
 
-### Creating the Web3UI Container
+### Web3UIコンテナの作成
 
-1. Right-click on your new Canvas.
-2. Select "Create Empty".
-3. Rename it to "Web3UI".
+1. 新しいキャンバスを右クリックします。
+2. Create Empty」を選択する。
+3. 名前を "Web3UI "に変更する。
 
-### Setting Up Main Panels
+### メインパネルのセットアップ
 
-Inside Web3UI, create three panel objects:
+Web3UIの中に、3つのパネルオブジェクトを作成します：
 
-1. Right-click on Web3UI and select "Create Empty".
-2. Create and rename these panels:
-   - StatusPanel - Your dApp's information display
-   - ButtonPanel - For user interactions
-   - MintPanel - For token minting features
+1. Web3UIを右クリックし、"Create Empty "を選択する。
+2. これらのパネルを作成し、名前を変更する：
+   - StatusPanel - dAppの情報表示
+   - ButtonPanel - ユーザーとのインタラクション用
+   - MintPanel - トークン造幣機能用
 
-### Creating Panel Components
+### パネル・コンポーネントの作成
 
-#### StatusPanel Components
+#### StatusPanel コンポーネント
 
-This panel shows all your important Web3 information:
+このパネルには、Web3の重要な情報がすべて表示されます：
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. Make sure to fill the “Text Input” field in the Inspector pane e.g. "Status..."
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、StatusTextにリネームする。 インスペクタペインの "テキスト入力 "フィールド（例："Status..."）に必ず入力してください。
 
 :::note
-**TextMeshPro (TMP) Setup**
+**テキストメッシュプロ(TMP)のセットアップ**について\*\*
 
-When you first create a TextMeshPro element (UI - Text - TextMeshPro), Unity automatically prompts you to import TMP Essentials. If you accidentally skip this prompt, you can manually import it through Window > TextMeshPro > Import TMP Essentials.
+TextMeshProエレメントを初めて作成するとき（UI - Text - TextMeshPro）、Unityは自動的にTMP Essentialsをインポートするよう促します。 誤ってこのプロンプトをスキップしてしまった場合は、Window > TextMeshPro > Import TMP Essentialsから手動でインポートすることができます。
 
-Why we need this: TextMeshPro requires core resources (shaders, default fonts, and materials) to properly display text in your game. Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
+これが必要な理由TextMeshProは、ゲーム内でテキストを適切に表示するために、コアリソース（シェーダー、デフォルトフォント、マテリアル）を必要とします。 これらの必需品がないと、テキストコンポーネントが正しくレンダリングされず、プロジェクトでシェーダーやマテリアルのエラーが発生します。 これは、テキストを正しく動作させるために必要な1回限りのセットアップである。
 :::
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the text object e.g "Address Text..."
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the text object e.g "0.0000 ET"
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、AddressTextにリネームする。 テキスト・オブジェクトを必ず入力してください（例："Address Text..."）。
+- StatusPanel を右クリックし、UI → Text - TextMeshPro をクリックし、TokenBalanceText にリネームする。 テキストオブジェクトを必ず入力してください。例："0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -90,11 +90,11 @@ Why we need this: TextMeshPro requires core resources (shaders, default fonts, a
     └── Default: "0.0000 ET"
 ```
 
-#### ButtonPanel Components
+#### ボタンパネル・コンポーネント
 
-Your main interaction buttons:
+あなたの主な対話ボタン
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
+- ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、ConnectWalletButtonに名前を変更します。 インスペクタペインの "テキスト入力 "フィールドに "Connect Wallet "と入力してください。
 
 ```code
 ButtonPanel
@@ -102,12 +102,12 @@ ButtonPanel
 │   └── Text: "Connect Wallet"
 ```
 
-#### MintPanel Components
+#### MintPanelコンポーネント
 
-The token minting interface:
+トークンの造幣インターフェース：
 
-- Right click on MintPanel, click on UI → Input Field → TextMeshPro  and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
-- Right click on MintPanel, click on UI →  Button → TextMeshPro  and then rename to MintButton. Make sure to fill the text object with "Mint"
+- MintPanelを右クリックし、UI → Input Field → TextMeshProをクリックし、MintAmountInputにリネームする。 プレースホルダー・オブジェクトを必ず "Enter Amount…" で埋めてください。
+- MintPanelを右クリックし、UI → Button → TextMeshProをクリックし、MintButtonにリネームする。 テキスト・オブジェクトは必ず "Mint "で埋めてください。
 
 ```code
 MintPanel
@@ -117,7 +117,7 @@ MintPanel
     └── Text: "Mint"
 ```
 
-After creating all components, your hierarchy should look like this:
+すべてのコンポーネントを作成した後、階層は次のようになります：
 
 ```code
 Canvas
@@ -130,28 +130,28 @@ Canvas
 ![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
 
 :::note
-For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
+上の画像のようにコンポーネントをうまく並べるには、各コンポーネントをクリックしたときに右側にあるアイコンを使って手動で並べる必要がある。
 :::
 
-## Setting Up Web3 Integration
+## Web3統合の設定
 
-In this section, we will build up pieces to integrate web3 into our Unity project.
+このセクションでは、Unityプロジェクトにweb3を統合するためのパーツを作成します。
 
-### Creating and deploying KIP7 smart contract
+### KIP7スマートコントラクトの作成とデプロイ
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+まず、Kaiaコントラクト・ウィザードを使ってスマート・コントラクトを生成する。
 
-#### Step 1: Using Kaia Contract Wizard
+#### ステップ1：カイア契約ウィザードの使用
 
-1. Navigate to Kaia Contract Wizard.
-2. Select KIP7 (Kaia's token standard, similar to ERC20).
-3. Configure your token:
-   - Name: ExampleTestToken (or something else!)
-   - Symbol: ET (your token's ticker)
-   - Premint: 100 (initial token supply)
-   - Features: Check ✅ Mintable
+1. カイア契約ウィザードに移動します。
+2. KIP7（ERC20に似たカイアのトークン規格）を選択する。
+3. トークンを設定します：
+   - 名前ExampleTestToken (または他の何か!)
+   - シンボルET（あなたのトークンのティッカー）
+   - プレミント100（初期トークン供給）
+   - 特徴チェック ✅ 造幣可能
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+このガイドでは、onlyOwner修飾子を持たないようにmint関数を調整します。 そのためには、ownable.solのインポートとOwnableの継承を削除しなければならない。 手を加えたコードは次のようになるはずだ：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -178,35 +178,35 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+onlyOwner修飾子を削除し、オリジナルのデプロイメント者やコントラクトの所有者以外の誰でもミント関数を呼び出せるようにした。
 :::
 
-#### Step 2: Deploying via Remix IDE
+#### ステップ2：Remix IDEを使ったデプロイ
 
-1. Copy and Paste the code above in a newly created file `ET.sol` on Remix IDE.
-2. In Remix IDE:
-   - Click the **Compile contract** button.
-   - Activate the **Kaia plugin** in the plugin manager.
-   - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-   - Find your contract (ExampleTokens) in the **Contract** dropdown.
-   - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-   - Review the deployment details.
-   - Click Confirm to deploy to Kaia Kairos Testnet.
+1. 上記のコードをRemix IDE上で新規作成したファイル`ET.sol`にコピー＆ペーストする。
+2. リミックスIDEで：
+   - **Compile contract**ボタンをクリックする。
+   - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
+   - Kaia PluginタブのEnvironmentで、**Injected Provider** - **Kaia Wallet**を選択します。
+   - **Contract**のドロップダウンで契約（ExampleTokens）を検索します。
+   - **Deploy**をクリックしてトークンを起動します！
+3. カイアウォレットがポップアップしたら：
+   - 配備の詳細を確認する。
+   - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
 
 :::important
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+展開された契約アドレスをコピーして保存する。 チュートリアルの後半で必要になる。
 :::
 
-## Building the Unity-Web3 Bridge
+## Unity-Web3ブリッジの構築
 
-Now we'll create the vital connection between Unity and Web3 functionality. This is where we bring blockchain capabilities into your Unity application!
+それでは、UnityとWeb3の機能の重要な接続を作成します。 そこで、Unityアプリケーションにブロックチェーン機能を導入します！
 
-### Part 1: Creating the Plugin Bridge (kaiaPlugin.jslib)
+### その1：プラグインブリッジ（kaiaPlugin.jslib）の作成
 
-First, we'll build our JavaScript bridge that lets Unity talk to Web3:
+まず、UnityとWeb3をつなぐJavaScriptのブリッジを作ります：
 
-1. Create your plugin directory:
+1. プラグインディレクトリを作成します：
 
 ```
 Assets/
@@ -215,20 +215,20 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
+2. なぜ.jslibなのか？ UnityのC#とブラウザのJavaScriptをつなぐトランスレーターのようなものだ！
 
-3. The plugin will handle three core functions:
-   - ConnectWallet() - Handles Kaia Wallet connections
-   - GetTokenBalance() - Checks token balances
-   - MintTokens() - Manages token minting
+3. プラグインは3つのコア機能を処理する：
+   - ConnectWallet() - カイアウォレット接続を処理する
+   - GetTokenBalance() - トークンの残高をチェックする
+   - MintTokens() - トークンの鋳造を管理する
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](../minidapps/convert-unity-liff.md#appendix-a):
+このファイルをVS Codeで開き、[Appendix A](../minidapps/convert-unity-liff.md#appendix-a)にある`KaiaPlugin.jslib`のソースコードを貼り付ける：
 
-### Part 2: Creating the C# Manager (Web3Manager.cs)
+### パート2：C#マネージャー（Web3Manager.cs）の作成
 
-Next, we'll create our C# script to manage all Web3 operations:
+次に、Web3のすべての操作を管理するC#スクリプトを作成します：
 
-1. Create your scripts directory:
+1. scriptsディレクトリを作成します：
 
 ```js
 Assets/
@@ -239,58 +239,58 @@ Assets/
 
 :::info
 
-**What does Web3Manager do?**
+\*\*Web3Managerは何をするのか？
 
-- Acts as the main conductor for all Web3 operations.
-- Manages communication with our JavaScript plugin.
-- Updates UI elements based on blockchain events.
-- Handles all wallet and token operations.
-- Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
+- Web3の全業務のメインコンダクターとして活動。
+- JavaScriptプラグインとの通信を管理します。
+- ブロックチェーンのイベントに基づいてUI要素を更新する。
+- すべてのウォレットとトークンの操作を処理します。
+- ウォレットに接続`と`ミント\`ボタンをそれぞれの機能で接続する。
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](../minidapps/convert-unity-liff.md#appendix-b)
+2. このファイルを VS Code で開き、`Web3Manager.cs` のソースコードを [Appendix B](../minidapps/convert-unity-liff.md#appendix-b) に貼り付ける。
 
-### Part 3: Setting Up the Web3Manager GameObject
+### Part 3: Web3Manager GameObjectの設定
 
-Finally, let's bring it all together in Unity:
+最後に、Unityですべてをまとめよう：
 
-1. Create the Manager Object:
-   - Right-click in the Hierarchy window (root level).
-   - Select "Create Empty Object".
-   - Name it "Web3Manager".
-2. Attach Your Script:
-   - Select the Web3Manager GameObject.
-   - In Inspector, click Add Component.
-   - Search for and select "Web3Manager".
-3. Connect UI Elements:
-   - With Web3Manager selected, look in the Inspector.
-   - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
-     - StatusText
-     - AddressText
-     - TokenBalanceText
-     - Connect / Mint buttons
-     - Input fields
+1. Manager オブジェクトを作成します：
+   - 階層ウィンドウ（ルートレベル）で右クリックします。
+   - 空のオブジェクトを作成」を選択する。
+   - 名前を "Web3Manager "とする。
+2. 台本を添付してください：
+   - Web3Manager GameObjectを選択する。
+   - Inspector]で、[Add Component]をクリックします。
+   - Web3Manager "を検索して選択します。
+3. UI要素を接続する：
+   - Web3Managerを選択した状態で、インスペクタを見ます。
+   - UI要素を階層から対応するフィールドにドラッグ＆ドロップします：
+     - ステータステキスト
+     - アドレステキスト
+     - トークン・バランス・テキスト
+     - コネクト／ミントボタン
+     - 入力フィールド
 
 ![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
 
-## Setting Up WebGL Build Settings
+## WebGLビルド設定のセットアップ
 
-In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
+このセクションでは、ウェブ用にdAppを設定する！ これは、Web3互換性のためにUnityを設定し、Kaia統合のためのカスタムテンプレートを作成します。
 
-### Step 1: Switch to WebGL Platform
+### ステップ1：WebGLプラットフォームに切り替える
 
-1. Navigate to File → Build Settings.
-2. Select WebGL and click "Switch Platform".
+1. File → Build Settingsに移動する。
+2. WebGLを選択し、"Switch Platform "をクリックします。
 
 :::note
-This might take a few minutes if it's your first time switching.
+初めて切り替える場合は、数分かかるかもしれない。
 :::
 
 ![](/img/minidapps/unity-minidapp/ui-webgl-switch.png)
 
-### Step 2: Creating a Custom WebGL Template
+### ステップ2：カスタムWebGLテンプレートの作成
 
-We need a custom template to integrate Web3 capabilities. Here's our folder structure:
+Web3の機能を統合するためのカスタムテンプレートが必要です。 これが我々のフォルダ構造だ：
 
 ```code
 Assets/
@@ -302,18 +302,18 @@ Assets/
 ```
 
 :::info
-**Why Custom Template?**
+\*\*なぜカスタム・テンプレートなのか？
 
-The default Unity template doesn't include Web3 support. Our custom template will:
+デフォルトのUnityテンプレートにはWeb3のサポートが含まれていません。 私たちのカスタムテンプレートは
 
-- Load necessary Web3 libraries.
-- Enable Kaia Wallet integration.
-- Handle blockchain interactions properly.
+- 必要なWeb3ライブラリをロードします。
+- カイアウォレットの統合を有効にする。
+- ブロックチェーンのやり取りを適切に処理する。
   :::
 
-### Step 3: Setting Up index.html
+### ステップ3：index.htmlの設定
 
-Copy and paste the code below in your `index.html` file:
+以下のコードをコピーして `index.html` ファイルに貼り付けます：
 
 ```
 <!DOCTYPE html>
@@ -477,30 +477,30 @@ Copy and paste the code below in your `index.html` file:
 
 ```
 
-### Step 4: Setting Up Dapp Portal SDK
+### ステップ4：Dapp Portal SDKのセットアップ
 
-1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
-2. Save the content to your `scripts/dapp_portal_sdk.js`.  Using a local Dapp Portal SDK file improves load times and reliability.
+1. 訪問：https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+2. 内容を `scripts/dapp_portal_sdk.js` に保存します。  ローカルのDapp Portal SDKファイルを使用することで、ロード時間と信頼性が向上します。
 
-### Step 5: Configure Unity to Use Custom Template
+### ステップ5：カスタムテンプレートを使用するようにUnityを設定する
 
-- Open Build Settings.
-- Navigate to Player Settings.
-- Under "Resolution and Presentation":
-  - Find "WebGL Template".
-  - Select "KaiaTemplate".
-- Under "Publish Settings" select **disabled** in the Compression Format field.
+- ビルド設定を開きます。
+- プレーヤー設定に移動します。
+- 決議と発表」の下：
+  - WebGL Template "を探す。
+  - KaiaTemplate」を選択する。
+- "Publish Settings "の "Compression Format "フィールドで "**disabled**"を選択します。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
-### Step 6: Building Your dApp
+### ステップ6：dAppの構築
 
-Now Let's bring it all together:
+さあ、すべてをまとめよう：
 
-1. Open Build Settings (File → Build Settings).
-2. Click "Build And Run".
-3. Save the build project as prompted on Unity; e.g "minidapp".
-4. Important Build Files:
+1. ビルド設定を開く（File → Build Settings）。
+2. Build And Run "をクリックする。
+3. ビルドプロジェクトをUnity上でプロンプトに従って保存します。
+4. 重要なビルドファイル：
 
 ```bash
 minidapp/
@@ -510,38 +510,38 @@ minidapp/
 └── minidapp.wasm
 ```
 
-### Step 7: Post-Build Configuration
+### ステップ 7: ビルド後の設定
 
-After building your project,
+プロジェクトを構築した後
 
-1. Open your build folder.
-2. Note all generated file names.
-3. Update your index.html to match these names.
-4. Save changes and rebuild.
-5. You should now see a tab opened in your browser.
+1. ビルドフォルダを開く。
+2. 生成されたすべてのファイル名に注意。
+3. これらの名前に合わせてindex.htmlを更新する。
+4. 変更を保存して再構築する。
+5. ブラウザにタブが開くはずです。
 
 ![](/img/minidapps/unity-minidapp/ui_build_app.png)
 
-### Step 8: Route WebGL build to Localhost:3000
+### ステップ8：WebGLビルドをLocalhost:3000にルーティングする
 
-For security and development purposes, the DApp Portal SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+セキュリティと開発目的のため、DApp Portal SDKは現在localhost:3000で動作します。 現時点では、デフォルトのUnity WebGLビルドはランダムなポート（61445など）を使用しており、アプリを効率的に動作させるには、Unity WebGLビルドをlocalhost:3000で開くように設定する必要があります。
 
-To do so, follow the steps below:
+そのためには、以下の手順に従ってください：
 
-1. Copy and Paste the code below in your project terminal
+1. 以下のコードをコピーして、プロジェクトターミナルに貼り付けます。
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. ビルド・フォルダーに移動する
 
 ```bash
 cd path/to/minidapp
 ```
 
-3. Start server on port 3000
+3. ポート3000でサーバーを起動
 
 ```bash
 http-server -p 3000
@@ -549,11 +549,11 @@ http-server -p 3000
 
 ![](/img/minidapps/unity-minidapp/lh_3000.png)
 
-## Testing and running application
+## アプリケーションのテストと実行
 
-Now that we have our project running, let’s test and interact with it.
+さて、プロジェクトを走らせたので、テストして操作してみよう。
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, fill in details (amount) to mint to the connected address.
+- Connect Wallet ボタンをクリックして Dapp Portal Wallet に接続します。
+- 接続が完了したら、接続されたアドレスに送金するための詳細（金額）を記入する。
 
 ![](/img/minidapps/unity-minidapp/minidapp.gif)

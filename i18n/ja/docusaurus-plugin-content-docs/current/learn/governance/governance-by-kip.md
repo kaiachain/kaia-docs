@@ -1,59 +1,59 @@
-# Core Governance Changes by KIPs
+# KIPsによるコアガバナンスの変更
 
-Kaia has undergone several hard forks to improve its governance system. These changes reflect the evolving needs of the network and its stakeholders.
+カイアは、そのガバナンス・システムを改善するために何度もハードフォークを繰り返してきた。 これらの変更は、ネットワークとその利害関係者の進化するニーズを反映している。
 
-## KIP-163: CnStakingV3 With Public Delegation <a id="KIP-163"></a>
+## KIP-163：CnStakingV3（パブリック委任あり<a id="KIP-163"></a>
 
-**Date: 2024-04-30**
+**日付：2024-04-30**
 
-KIP-163 introduces a new CnStakingV3 that supports public delegation, allowing general users to delegate and re-delegate their KAIA tokens more easily. The staking information interval is also changed from 86,400 blocks to 1 block to enhance efficiency and accuracy in validator set and reward distribution.
-The motivation behind this update is to address the limitations of CnStakingV2, where only a few validators offered public delegation services, limiting users' options. By enabling public delegation natively in CnStakingV3, users can delegate their KAIA to any validator offering this service, thus broadening the delegation options and improving network participation.
-CnStakingV3 will be compatible with existing core contracts like AddressBook and StakingTracker. Public delegation will be facilitated through a new contract named PublicDelegation, based on an interest-bearing token model (ERC-4626), where users receive non-transferable shares representing their assets. This approach aims to make the delegation process more transparent and accessible for all users.
-Additionally, from the FORK_BLOCK onwards, staking information for block N will be derived from block N-1, ensuring more timely and accurate updates in the staking process. This change is designed to support the dynamic nature of staking and delegation in the Kaia network, making it more robust and user-friendly
+KIP-163は公開委任をサポートする新しいCnStakingV3を導入し、一般ユーザーがKAIAトークンをより簡単に委任・再委任できるようにする。 また、バリデータセットと報酬分配の効率と精度を高めるために、ステーキング情報の間隔を86,400ブロックから1ブロックに変更した。
+このアップデートの動機は、CnStakingV2の制限に対処することである。CnStakingV2では、公開委任サービスを提供するバリデータが限られていたため、ユーザーの選択肢が限られていた。 CnStakingV3でパブリック・デリゲーションをネイティブに有効にすることにより、ユーザーは自分のKAIAを、このサービスを提供するあらゆるバリデーターにデリゲートすることができ、その結果、デリゲーションの選択肢が広がり、ネットワークへの参加が向上する。
+CnStakingV3は、AddressBookやStakingTrackerのような既存のコアコントラクトと互換性があります。 パブリック・デレゲーションは、利子付きトークン・モデル（ERC-4626）に基づくPublicDelegationという新しい契約を通じて促進され、ユーザーは自分の資産を表す譲渡不可能な株式を受け取る。 このアプローチは、すべての利用者にとって、委任手続きをより透明で利用しやすいものにすることを目的としている。
+さらに、FORK_BLOCK以降、ブロックNのステーキング情報はブロックN-1から派生し、よりタイムリーで正確なステーキングプロセスの更新が保証されます。 この変更は、カイアのネットワークにおけるステーキングとデリゲーションのダイナミックな性質をサポートし、より堅牢で使いやすいものにするためのものです。
 
-## KIP-160: An Update On Treasury Fund Rebalancing <a id="KIP-160"></a>
+## KIP-160財務省資金のリバランスに関する最新情報<a id="KIP-160"></a>
 
-**Date: 2024-04-22**
+**日付：2024-04-22**
 
-KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
+KIP-160は、KIP-103の限界に対処するため、財務省資金のリバランス・メカニズムの強化を提案している。 主な動機は、資金残高の増加と減少の両方を可能にし、リバランス・ブロック番号を編集可能にすることである。 このアップデートには、リバランスプロセスの一般化、資金の焼却と鋳造の両方の有効化、ブロックチェーンのハードフォークスケジュールの変更にリバランスブロック数を合わせることができるようにすることが含まれます。 リバランスの詳細は、[契約アドレス](../../references/contract-addresses)ページでご確認ください。
 
-## KIP-149: Unified Deployment and Management of System Contracts <a id="KIP-149"></a>
+## KIP-149: システム契約の統一的な展開と管理<a id="KIP-149"></a>
 
-**Date: 2023-09-20**
+**日付：2023-09-20**
 
-KIP-149 introduces a standardized method for deploying and managing system contracts on the Kaia blockchain. System contracts directly impact or are read by the Kaia core protocol. This proposal includes a centralized Registry Contract to manage these contracts efficiently. Currently, the deployment methods for system contracts lack standardization, leading to inefficiencies. KIP-149 addresses this by introducing key features such as:
+KIP-149は、Kaiaブロックチェーン上でシステム・コントラクトを展開・管理するための標準化された方法を紹介する。 システム契約は、カイアのコアプロトコルに直接影響を与えたり、読み込まれたりする。 この提案には、これらの契約を効率的に管理するための集中レジストリ契約が含まれている。 現在、システム契約の展開方法は標準化されておらず、非効率を招いている。 KIP-149は、以下のような重要な機能を導入することでこれに対処している：
 
-- Registry Contract: Manages all system contracts, ensuring centralized tracking and governance control through a governance contract.
-- Proxy Pattern: Utilizes the UUPS proxy pattern to separate data storage from logic, allowing updates without affecting stored data and ensuring upgradability.
-  System Contract Lifecycle: Defines stages (Registered, Active, Deprecated) for managing contracts efficiently.
-- Governance and Upgrades: Establishes a community-driven proposal and voting process for new contracts or upgrades, ensuring decentralized control and smooth implementation.
-  KIP-149 aims to enhance Kaia’s governance and operational efficiency by providing a secure, scalable approach to managing system contracts, facilitating smoother upgrades, and promoting decentralized control.
+- レジストリ契約：すべてのシステム契約を管理し、ガバナンス契約による一元的な追跡とガバナンス管理を保証する。
+- Proxyパターン：UUPSプロキシパターンを利用して、データストレージとロジックを分離し、保存データに影響を与えることなくアップデートを可能にし、アップグレード性を確保する。
+  システム契約のライフサイクル：コントラクトを効率的に管理するためのステージ（登録済み、アクティブ、非推奨）を定義します。
+- ガバナンスとアップグレード新規契約やアップグレードについて、コミュニティ主導の提案・投票プロセスを確立し、分散管理と円滑な実施を確保する。
+  KIP-149は、システム契約を管理するための安全でスケーラブルなアプローチを提供し、円滑なアップグレードを促進し、分散制御を促進することによって、カイアのガバナンスと運用効率を高めることを目的としている。
 
-## KIP-103: Treasury Fund Rebalancing <a id="KIP-103"></a>
+## KIP-103: 財務省資金のリバランス<a id="KIP-103"></a>
 
-**Date: 2023-04-06**
+**日付：2023-04-06**
 
-KIP-103 was introduced with the v1.10.2 release. It introduces a Treasury Fund Rebalancing mechanism which is the proposal for the implementation of KGP-6.
+KIP-103はv1.10.2リリースで導入された。 KGP-6の実施案である財務省資金のリバランス・メカニズムを導入する。
 
-The KGP-6 proposal aims to establish a sustainable and verifiable KAIA token economy. It was approved by the Governance Council, with 26 out of 31 members voting in favor. The proposal includes contributions from various organizations such as 1inch, Swapscanner, Ground X, and others. The goal is to create a more robust and transparent ecosystem for the KAIA token. Find the rebalance detail in the [contracts addresses](../../../references/contract-addresses) page.
+KGP-6の提案は、持続可能で検証可能なKAIAトークンエコノミーの確立を目指している。 ガバナンス評議会では31名中26名が賛成票を投じ、承認された。 この提案には、1inch、Swapscanner、Ground Xなど様々な組織からの貢献が含まれている。 目標は、KAIAトークンのより強固で透明なエコシステムを構築することである。 リバランスの詳細は、[契約アドレス](../../references/contract-addresses)ページでご確認ください。
 
-## KIP-82: KIP-82: A new GC reward structure due to abolition of the Gini coefficient <a id="KIP-82"></a>
+## KIP-82KIP-82：ジニ係数廃止による新たなGC報酬構造<a id="KIP-82"></a>
 
-**Date: 2022-09-21**
+**日付：2022-09-21**
 
-KIP-82, introduced with v1.10.0 and activated at the Kore hardfork, addresses the limitations of Kaia’s previous reward system by removing the Gini coefficient used in block proposer selection and rewards. This change supports the expanding Governance Council, which now includes DAOs alongside traditional enterprises, necessitating a more balanced and inclusive reward system.
-Key changes include a new reward distribution structure, where 20% of GC rewards go to block proposers and 80% to stakers. This ensures fair compensation for both groups, enhancing network stability and participation. Voting power and rewards are now directly tied to the amount of KAIA tokens staked, encouraging broader network participation and reducing reliance on a few high-stake nodes. Block proposers are selected based on equal opportunity, independent of staking amounts, democratizing the process and enhancing decentralization.
-To compensate for the opportunity cost of staking, inflationary rewards have been introduced, allowing public users to participate in the staking program managed by the GC and earn rewards, thus promoting network growth and stability.
-A new governance parameter (reward.kip82ratio) sets the initial reward distribution ratio at 20/80 between proposer and staking rewards, which can be adjusted through governance processes.
-KIP-82 represents a significant step towards a more equitable and stable governance system in Kaia, ensuring fair compensation for network contributions and fostering a more decentralized and resilient network.
+KIP-82はv1.10.0で導入され、Koreハードフォークで有効化され、ブロック提案者の選択と報酬で使用されるジニ係数を削除することで、カイアの以前の報酬システムの制限に対処しています。 この変更は、ガバナンス評議会の拡大をサポートするもので、従来の企業に加えてDAOも含まれるようになり、よりバランスのとれた包括的な報酬制度が必要となった。
+主な変更点としては、GC報酬の20％がブロック提案者に、80％がステーカーに支払われる新しい報酬分配構造がある。 これにより、両グループに公平な補償が保証され、ネットワークの安定性と参加率が高まる。 投票権と報酬は、KAIAトークンの賭け金額と直接結びついており、より広範なネットワーク参加を促し、少数の高額ステークノードへの依存を減らしている。 ブロック提案者は、ステーキング額とは無関係に、平等な機会に基づいて選ばれ、プロセスの民主化と分散化を促進する。
+ステーキングの機会コストを補うため、インフレ報酬が導入され、一般ユーザーがGCの管理するステーキング・プログラムに参加し、報酬を得ることができるようになり、ネットワークの成長と安定が促進された。
+新しいガバナンスパラメータ(reward.kip82ratio)は、最初の報酬分配比率をプロポーザとステーキングの20/80に設定し、ガバナンスプロセスで調整できる。
+KIP-82は、カイアにおけるより公平で安定したガバナンス・システムに向けた重要な一歩であり、ネットワーク貢献に対する公正な補償を確保し、より分散化された弾力性のあるネットワークを育成する。
 
-## KIP-81: Implementing the on-chain governance voting method <a id="KIP-81"></a>
+## KIP-81：オンチェーン統治投票法の実装<a id="KIP-81"></a>
 
-**Date: 2022-09-19**
+**日付：2022-09-19**年
 
-KIP-81 was introduced with v1.10.0 and activated at the Kore hardfork. It introduced a stake-based voting mechanism through its governance portal. This approach shifts from the current system, where each Governance Council (GC) member casts one vote, to a model where voting power is determined by the amount of staked KAIA, with a cap to prevent any single entity from gaining excessive influence.
-A GC member will receive one vote per a certain amount of staked KAIA (initially set at 5 million KAIA), with a cap of one less than the total number of GC members. For instance, if there are 35 GC members, the maximum voting power is 34 votes, preventing monopolies.
-With this system, governance topics are discussed in the Governance Forum and voted on through Klaytn Square, ensuring responsibility and transparency in decision-making.
-This change aims to make the voting process more transparent and reflect the interests of those most invested in Kaia. By linking voting power to the staking amount, the system incentivizes greater participation and alignment of interests, ensuring that those who contribute more to the ecosystem have a proportionate influence on its decisions.
+KIP-81はv1.10.0で導入され、コレハードフォークで有効になった。 ガバナンス・ポータルを通じたステーク・ベースの投票メカニズムを導入した。 このアプローチは、各ガバナンス・カウンシル（GC）メンバーが1票を投じる現在のシステムから、単一の事業体が過度な影響力を得ることを防ぐために上限を設け、賭けられたKAIAの金額によって議決権が決定されるモデルへと移行するものである。
+GC会員は、一定の賭けKAIA（当初は500万KAIAに設定）ごとに1票を獲得し、その上限はGC会員の総数より1票少ない。 例えば、35人のGC会員がいる場合、最大投票権は34票となり、独占を防ぐことができる。
+このシステムにより、ガバナンスのトピックはガバナンス・フォーラムで議論され、クレイトン・スクエアを通じて投票され、意思決定における責任と透明性が確保される。
+この変更は、投票プロセスをより透明化し、カイアに最も投資している人々の利益を反映させることを目的としている。 議決権を賭け金額とリンクさせることで、このシステムはより多くの参加と利害の一致を促し、エコシステムへの貢献度が高い人ほど、その意思決定に相応の影響力を持つことを保証する。
 
-This governance structure ensures a fair and balanced decision-making process, aligning voting power with contributions to the ecosystem while preventing any single entity from having undue influence.
+このガバナンス構造により、公平でバランスの取れた意思決定プロセスが保証され、議決権とエコシステムへの貢献度を一致させる一方で、単一の事業体が不当な影響力を持つことを防ぐことができる。

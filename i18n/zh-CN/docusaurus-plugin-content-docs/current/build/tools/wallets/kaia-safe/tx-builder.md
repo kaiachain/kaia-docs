@@ -4,7 +4,7 @@
 
 有了事务生成器，您就可以将从代币转账到复杂的合约交互等各种事务组合在一起，并将它们批量合并到单个事务中。
 
-## KLAY 代币转让<a id="token-transfer"></a>
+## KAIA Token Transfer <a id="token-transfer"></a>
 
 您可以按照以下步骤，使用事务生成器执行令牌转移：
 
@@ -12,13 +12,13 @@
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**第 2 步：** 输入收件人钱包地址。 在本指南中，请跳过 ABI 字段，因为我们正在尝试执行 KLAY 传输事务。
+**第 2 步：** 输入收件人钱包地址。 For this guide, kindly skip the ABI field as we are trying to execute KAIA transfer transaction.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**步骤 3：** 输入要发送的 KLAY 值。
+**Step 3:** Enter the KAIA value you want to send.
 
-> 注意：在本指南中，我们发送的是 1 KLAY，因此在 **KLAY 值**输入框中输入了 1。 您可以根据 Safe 的 KLAY 余额在此输入任意金额。
+> Note: In this guide, we are sending 1 KAIA, so we entered 1 in the **KAIA value** input field. You can input any amount here, depending on your Safe's KAIA balance.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 

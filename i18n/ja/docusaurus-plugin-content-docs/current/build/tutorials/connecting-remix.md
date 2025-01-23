@@ -1,28 +1,28 @@
-# Connect Remix to Klaytn
+# RemixをKaiaに接続する
 
 ![](/img/banners/kaia-remix.png)
 
-## Overview <a href="#overview" id="overview"></a>
+## 概要<a href="#overview" id="overview"></a>
 
-Remix is a browser-based IDE (Integrated Development Environment) for developing Solidity contracts. In this guide, you will learn how to:
+Remixは、Solidityコントラクトを開発するためのブラウザベースのIDE（統合開発環境）です。 このガイドでは、その方法を学ぶことができる：
 
-- Create and Upload a pre-built smart contract on Remix IDE.
-- Compile the smart contract.
-- Connect to Kaia Plugin for Remix IDE
-- Set up deployment environment
-- Import account
-- Connect Kaia to Remix using Kaia Wallet
-- Connect Kaia to Remix using MetaMask
-- Deploy the smart contract.
-- Verify the smart contract.
+- Remix IDEで事前に構築されたスマートコントラクトを作成し、アップロードします。
+- スマート・コントラクトをコンパイルする。
+- Remix IDE用Kaiaプラグインに接続する
+- デプロイ環境のセットアップ
+- インポートアカウント
+- カイア・ウォレットを使ってカイアとリミックスをつなぐ
+- MetaMaskを使ってKaiaとRemixを接続
+- スマートコントラクトをデプロイする。
+- スマート・コントラクトを検証する。
 
-This will cover connecting Remix with Kaia. If you want to know more about how to use Remix, please refer to [Remix docs](https://remix-ide.readthedocs.io/en/latest/) or [Remix IDE](https://remix.ethereum.org/).
+これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
 
-## Creating a file on Remix <a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
+## Remixでファイルを作成する<a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
-To start building a smart contract, click on **New File** icon in the **contracts** folder in the **File explorer** tab and name it `KaiaGreeter.sol`
+スマート・コントラクトのビルドを開始するには、**File explorer**タブの**contracts**フォルダーにある**New File**アイコンをクリックし、`KaiaGreeter.sol`という名前を付ける。
 
-Next is to copy and paste the smart contract code provided below into the newly created KaiaGreeter.sol file.
+次に、新しく作成したKaiaGreeter.solファイルに、以下に示すスマート・コントラクトのコードをコピー＆ペーストする。
 
 ```sol
 // SPDX-License-Identifier: UNLICENSED
@@ -46,77 +46,77 @@ contract KaiaGreeter {
 
 ![](/img/build/smart-contracts/remix-create-new-file.png)
 
-## Compile smart contract <a href="#compile-smart-contract" id="compile-smart-contract"></a>
+## スマート・コントラクトのコンパイル<a href="#compile-smart-contract" id="compile-smart-contract"></a>
 
-To compile your contract, do the following:
+契約書をまとめるには、以下のようにする：
 
-- Go to the **Solidity Compiler** tab
-- Select compiler version to 0.8.27
-- Turn on the 'Auto compile' option.
-- Cliick on the Compile KaiaGreeter.sol  button to compile `KaiaGreeter.sol` contract.
-- After successful compilation, it will show a green tick mark on the Compiler tab button
+- **Solidity Compiler** タブに移動します。
+- コンパイラのバージョンを0.8.27に選択
+- 自動コンパイル」オプションをオンにする。
+- CompileKaiaGreeter.solボタンをクリックして`KaiaGreeter.sol`コントラクトをコンパイルする。
+- コンパイルに成功すると、コンパイラ・タブのボタンに緑色のチェックマークが表示されます。
 
 ![](/img/build/smart-contracts/remix-compile-contract.png)
 
-## Connect to Kaia Plugin on Remix IDE <a href="#connect-to-kaia-plugin" id="connect-to-kaia-plugin"></a>
+## Remix IDEでKaiaプラグインに接続する<a href="#connect-to-kaia-plugin" id="connect-to-kaia-plugin"></a>
 
-To connect to Kaia plugin on Remix IDE, you can either use this [Kaia Plugin for Remix](https://ide.kaia.io/) or follow this step:
+RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Plugin for Remix](https://ide.kaia.io/)を使うか、以下のステップに従ってください：
 
-- Navigate to the **Plugin manager** tab
-- Insert Klaytn in the search field
-- Activate the Klaytn plugin. If Klaytn tab appears, you are ready to interact with Kaia.
+- **Plugin manager**タブに移動します。
+- 検索フィールドにKlaytnを入れる
+- Klaytnプラグインを有効にします。 Klaytnタブが表示されたら、カイアと対話する準備はできている。
 
 ![](/img/build/smart-contracts/remix-plugin-addon.png)
 
-## Setting up deployment environment  <a href="#setting-up-deployment-env" id="setting-up-deployment-env"></a>
+## デプロイ環境の構築 <a href="#setting-up-deployment-env" id="setting-up-deployment-env"></a>
 
-- Click on the Klaytn plugin.
-- Select the appropriate [Environment].
-- You can select Kairos, Mainnet, Injected Provider - Kaia Wallet, Injected Provider - MetaMask
-  - [Kairos]: Connects to the Kairos network
-  - [Mainnet]: Connects to the Mainnet
-  - [Injected Provider - Kaia Wallet]: Connects to Kaia Wallet
-  - [Injected Provider - MetaMask ]: Connects to Metamask
+- Klaytnプラグインをクリックします。
+- 適切な[環境]を選択します。
+- Kairos、Mainnet、Injected Provider - Kaia Wallet、Injected Provider - MetaMaskを選択できます。
+  - [カイロス］カイロス・ネットワークに接続
+  - [メインネット]：メインネットに接続する
+  - [インジェクション・プロバイダー - カイア・ウォレット]：カイア・ウォレットに接続
+  - [注入プロバイダ - MetaMask ]：メタマスクに接続する
 
 ![](/img/build/smart-contracts/remix-deploy-env.png)
 
-## Import account <a href="#import-account" id="import-account"></a>
+## インポートアカウント<a href="#import-account" id="import-account"></a>
 
-You can export private key or Keystore from any compatible wallet to use here.
+互換性のあるウォレットから秘密鍵またはKeystoreをエクスポートして、ここで使用することができます。
 
-- Click plus button next to the ACCOUNT.
-- Then put private key or keystore.
-- You can also import keys for the feePayer. It only supports private key.
+- アカウントの横にあるプラスボタンをクリックします。
+- 次に秘密鍵またはキーストアを置く。
+- feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。
 
 ![](/img/build/smart-contracts/remix-import-acc.png)
 
-## Connecting Kaia to Remix using Kaia Wallet <a href="#connect-to-kaia-using-kaia-wallet" id="connect-to-kaia-using-kaia-wallet"></a>
+## カイアウォレットを使ってカイアとリミックスを接続する<a href="#connect-to-kaia-using-kaia-wallet" id="connect-to-kaia-using-kaia-wallet"></a>
 
-- Select [Injected Provider - Kaia Wallet] on the Remix Environment menu.
+- Remix環境]メニューから[インジェクションプロバイダー - Kaia Wallet]を選択します。
 
 ![](/img/build/smart-contracts/remix-kw-connect.png)
 
-- When you see the Kaia Wallet pop-up, click [Connect].
-- Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+- カイアウォレットのポップアップが表示されたら、[接続]をクリックします。
+- ネットワークに正常に接続されると、接続されたネットワークのチェーンIDとアカウントが表示されます。
 
-## Connecting Kaia - Remix using MetaMask <a href="#connect-to-kaia-using-metamask" id="connect-to-kaia-using-metamask"></a>
+## カイアをつなぐ - MetaMaskを使ったリミックス<a href="#connect-to-kaia-using-metamask" id="connect-to-kaia-using-metamask"></a>
 
-- Connect Kaia with MetaMask by referring to the [Connecting to MetaMask](./connecting-metamask.mdx).
-- Select [Injected Provider - MetaMask] on the Remix Environment menu.
+- MetaMaskとの接続](./connecting-metamask.mdx)を参照して、KaiaとMetaMaskを接続してください。
+- Remix Environmentメニューの[Injected Provider - MetaMask]を選択する。
 
 ![](/img/build/smart-contracts/remix-mm-connect.png)
 
-- When you see the MetaMask pop-up, select the account by clicking it.
-- Once you are successfully connected to the Network, you will see the Chain ID and Account of the connected network.
+- MetaMaskのポップアップが表示されたら、アカウントをクリックして選択します。
+- ネットワークに正常に接続されると、接続されたネットワークのチェーンIDとアカウントが表示されます。
 
-## Deploying the smart contract <a href="#deploying-contract" id="deploying-contract"></a>
+## スマートコントラクトの導入<a href="#deploying-contract" id="deploying-contract"></a>
 
-In this section, we will deploy the KaiaGreeter.sol contract using Kaia Wallet. Having compiled the contract in the Compile Section, follow the deployment process below:
+このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
 
-- Set your deployment ENVIRONMENT to Injected Provider -  Kaikas Wallet. Make sure to confirm all the connection prompts to Remix.
-- Select the contract you want to deploy in the CONTRACT field.
-- Click on the Deploy button. This would generate a Kaia Wallet popup that requires transaction confirmation. Simply confirm the transaction!
+- デプロイメント環境を「Injected Provider - Kaikas Wallet」に設定します。 Remixへのすべての接続プロンプトを確認してください。
+- CONTRACTフィールドで展開したい契約を選択します。
+- Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！
 
 ![](/img/build/smart-contracts/remix-deploy-contract.png)
 
-- You can view the deployed contract on [Kaiascan](https://kairos.kaiascan.io/), and also test or debug it on Remix IDE.
+- デプロイされたコントラクトは[Kaiascan](https://kairos.kaiascan.io/)で見ることができ、Remix IDEでテストやデバッグもできます。

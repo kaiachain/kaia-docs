@@ -1,6 +1,6 @@
-# Deploy
+# デプロイ
 
-Web3 SDKs support to interact with Smart Contract via contract instance, not low-level transaction.
+Web3 SDKは、低レベルのトランザクションではなく、コントラクトインスタンスを介してスマートコントラクトと対話することをサポートしています。
 
 <CH.Spotlight>
 <CH.Code>
@@ -89,7 +89,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractDeploy.js focus=1
 
@@ -97,7 +97,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define sender **address** and **private key**
+送信者の**address**と**private key**を定義する。
 
 ```js smartContractDeploy.js focus=3:4
 
@@ -105,7 +105,7 @@ Define sender **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js smartContractDeploy.js focus=6:7
 
@@ -113,7 +113,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractDeploy.js focus=6
 const { Web3 } = require("@kaiachain/web3js-ext");
@@ -175,7 +175,7 @@ main();
 
 ---
 
-Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
+送信者の秘密鍵を、**web3.eth.account.privateKeyToAccount**を使ってアカウントに変換する。
 
 ```js smartContractDeploy.js focus=8
 
@@ -183,7 +183,7 @@ Convert the sender's private key to an account using **web3.eth.accounts.private
 
 ---
 
-Define compiled contract bytecode to deploy
+デプロイするためにコンパイルされたコントラクト・バイトコードを定義する。
 
 ```js smartContractDeploy.js focus=33
 
@@ -191,7 +191,7 @@ Define compiled contract bytecode to deploy
 
 ---
 
-Define contract Abi, you can get it from compiled solidity code
+アビ契約は、コンパイルされたsolidityコードから取得できます。
 
 ```js smartContractDeploy.js focus=34
 
@@ -199,7 +199,7 @@ Define contract Abi, you can get it from compiled solidity code
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` and defined **contractAbi**
+`Web3.eth.Contract`を使用して契約のインスタンスを作成し、**contractAbi**を定義する。
 
 ```js smartContractDeploy.js focus=37
 
@@ -207,7 +207,7 @@ Create a contract instance using `Web3.eth.Contract` and defined **contractAbi**
 
 ---
 
-Encode the data needed to deploy the contract
+契約を展開するために必要なデータをエンコードする。
 
 ```js smartContractDeploy.js focus=38:41
 
@@ -223,7 +223,7 @@ Create a transaction object with `data` is the encoded contract bytecode, `from:
 
 ---
 
-Sign the transaction with the **sender**'s account using `signTransaction`
+`signTransaction`を使用して**sender**のアカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js smartContractDeploy.js focus=48:49
@@ -242,7 +242,7 @@ signedTx 0x476a6257353fc48dfd1bad5090026f065345c5ef0dbce85434c372b6d5817e75
 
 ---
 
-Send the signed transaction to network and wait for the receipt
+署名されたトランザクションをネットワークに送信し、受信を待つ。
 
 <CH.Code>
 ```js smartContractDeploy.js focus=51:52

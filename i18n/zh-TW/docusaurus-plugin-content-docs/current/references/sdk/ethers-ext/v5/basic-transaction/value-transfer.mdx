@@ -1,0 +1,235 @@
+# Value Transfer
+
+**TxTypeValueTransfer** 在用戶希望發送 KAIA 時使用。
+
+- 由於 kaia 提供了多種交易類型，使每種交易類型只服務於一個目的，因此 TxTypeValueTransfer 只限於將 KAIA 發送到外部擁有的賬戶（EOA）。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node txTypeValueTransferTransaction.js
+
+sentTx {
+  hash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  type: 0,
+  accessList: null,
+  blockHash: null,
+  blockNumber: null,
+  transactionIndex: null,
+  confirmations: 0,
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0xcd14', _isBigNumber: true },
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  nonce: 759,
+  data: '0x',
+  r: '0xd49028d36e64df5ad7e00e5163740cb734133dde320fb7e5fde1c75df38b6bb8',
+  s: '0x4a7a7a7950dd6c2d905217cd6cb61948dbdeb5842c13b8376d9e3a231f266667',
+  v: 2037,
+  creates: null,
+  chainId: 1001,
+}
+
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
+  transactionHash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  logs: [],
+  blockNumber: 143449789,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x03240d', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+導入 **ethers** 和 **@kaiachain/ethers-ext** 軟件包，在 ethers.js 上添加 kaia 功能
+
+```js txTypeValueTransferTransaction.js focus=1:2
+
+```
+
+---
+
+定義**發件人地址、發件人私鑰和收件人地址**
+
+```js txTypeValueTransferTransaction.js focus=4:6
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js txTypeValueTransferTransaction.js focus=8:8
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js txTypeValueTransferTransaction.js focus=8:8
+const ethers = require("ethers");
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
+
+const recieverAddr = "0xc40b6909eb7085590e1c26cb3becc25368e249e9";
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+const provider = new ethers.providers.JsonRpcProvider('https://public-en-kairos.node.kaia.io')
+const wallet = new Wallet(senderPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.ValueTransfer,
+    from: senderAddr,
+    to: recieverAddr,
+    value: parseKlay("0.01"),
+  };
+
+  const sentTx = await wallet.sendTransaction(tx);
+  console.log("sentTx", sentTx);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+用**私鑰**和**提供者**創建發件人錢包
+
+```js txTypeValueTransferTransaction.js focus=9
+
+```
+
+---
+
+聲明包含 ** 類型、來自、至、值** 等字段的事務。
+
+```js txTypeValueTransferTransaction.js focus=11:16
+
+```
+
+---
+
+向區塊鏈發送 tx。 函數 "sendTransaction "使用賬戶的私鑰進行內部簽名，然後將其傳輸到區塊鏈網絡。
+
+<CH.Code>
+```js txTypeValueTransferTransaction.js focus=18:20
+
+````
+
+---
+
+```zsh output
+sentTx {
+  hash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  type: 0,
+  accessList: null,
+  blockHash: null,
+  blockNumber: null,
+  transactionIndex: null,
+  confirmations: 0,
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  gasPrice: BigNumber { _hex: '0x0ba43b7400', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0xcd14', _isBigNumber: true },
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  value: BigNumber { _hex: '0x2386f26fc10000', _isBigNumber: true },
+  nonce: 759,
+  data: '0x',
+  r: '0xd49028d36e64df5ad7e00e5163740cb734133dde320fb7e5fde1c75df38b6bb8',
+  s: '0x4a7a7a7950dd6c2d905217cd6cb61948dbdeb5842c13b8376d9e3a231f266667',
+  v: 2037,
+  creates: null,
+  chainId: 1001,
+}
+````
+
+</CH.Code>
+
+---
+
+如果已在區塊鏈中完成發送，**wait**函數將返回發送回執。
+
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js focus=21:23
+
+```
+
+---
+
+```zsh output
+receipt {
+  to: '0xC40B6909EB7085590E1c26Cb3beCC25368e249E9',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x5208', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x9831848ad564cb4c165bc48b3fa76b38ea08314b1fbf28fa388bec888acd50ed',
+  transactionHash: '0x7b6c638d8dba310d348ad80d55fbbf6024b286b982fd68b08bdb85004cace46b',
+  logs: [],
+  blockNumber: 143449789,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x03240d', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+</CH.Spotlight>

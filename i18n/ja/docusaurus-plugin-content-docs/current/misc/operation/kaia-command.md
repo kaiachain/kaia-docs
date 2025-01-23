@@ -1,10 +1,10 @@
-# Frequently Used Commands
+# よく使うコマンド
 
-## How to find the Kaia Directory (Normally “Kaia DIR”)
+## カイヤディレクトリ（通常「カイヤDIR」）の見つけ方
 
 ---
 
-You can check Kaia directory at `kcn` or `kpn` config. Config file is located under `/etc/kcnd/conf` or `/etc/kpnd/conf`.
+`kcn`または`kpn`のコンフィグでKaiaディレクトリを確認できる。 設定ファイルは `/etc/kcnd/conf` または `/etc/kpnd/conf` にある。
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
@@ -14,19 +14,19 @@ DATA_DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## How to connect to Kaia Console
+## カイア・コンソールへの接続方法
 
 ---
 
-Connect to Kaia API to check node and network status.
+Kaia APIに接続し、ノードとネットワークの状態を確認します。
 
 ```bash
-# execute the command below with the Kaia DATA_DIR Path
-$ sudo kcn attach --datadir <DATA_DIR>
-> 
+# 以下のコマンドをカイアのDATA_DIRパスで実行する
+$ sudo kcn attach --datadir<DATA_DIR>
+>. 
 ```
 
-## Useful APIs
+## 便利なAPI
 
 ```bash
 # Check current block Number
@@ -46,14 +46,14 @@ $ sudo kcn attach --datadir <DATA_DIR>
   > admin.removePeer("kni")
 ```
 
-## How to get the API Result only
+## API結果のみを取得する方法
 
 ```jsx
-# execute the command below with the Kaia DATA_DIR Path
-$ sudo kcn attach --exec <statement> --datadir <DATA_DIR>
+# 下記のコマンドをカイアのDATA_DIRパスで実行
+$ sudo kcn attach --exec<statement> --datadir<DATA_DIR>
 
-e.g.
-# Check my dode address
+例:
+# 私のノードアドレスの確認
 $ sudo kcn attach --exec "governance.nodeAddress" --datadir /path/to/datadir
 "0xda23978e6e354fbf25dd87aaf1d1bb4ed112753f"
 ```

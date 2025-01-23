@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 **AccountKeyLegacy**
 
@@ -128,7 +128,7 @@ TxType : ACCOUNT_UPDATE
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java AccountUpdateWithLegacyExample.java focus=1:21
 
@@ -136,7 +136,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a **credentials** from private key
+秘密鍵から**認証情報**を作成する。
 
 ```java AccountUpdateWithLegacyExample.java focus=27
 
@@ -144,7 +144,7 @@ Create a **credentials** from private key
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java AccountUpdateWithLegacyExample.java focus=28
 
@@ -152,7 +152,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java AccountUpdateWithLegacyExample.java focus=28
 package org.web3j.example.accountKey;
@@ -233,7 +233,7 @@ public class AccountUpdateWithLegacyExample {
 
 ---
 
-Gas **price** and **gas limit** settings
+ガス**価格**と**ガス制限**の設定
 
 ```java AccountUpdateWithLegacyExample.java focus=30:31
 
@@ -241,7 +241,7 @@ Gas **price** and **gas limit** settings
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java AccountUpdateWithLegacyExample.java focus=33:34
 
@@ -249,7 +249,7 @@ Get **chain ID** from the network
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java AccountUpdateWithLegacyExample.java focus=35:36
 
@@ -257,7 +257,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Generate a **new account key** for account update
+アカウント更新のために**新しいアカウント・キー**を生成する。
 
 ```java AccountUpdateWithLegacyExample.java focus=38
 
@@ -265,7 +265,7 @@ Generate a **new account key** for account update
 
 ---
 
-Set transaction type as **ACCOUNT_UPDATE**
+トランザクション・タイプを**ACCOUNT_UPDATE**に設定する。
 
 ```java AccountUpdateWithLegacyExample.java focus=40
 
@@ -273,7 +273,7 @@ Set transaction type as **ACCOUNT_UPDATE**
 
 ---
 
-Create a **raw transaction** for account update
+口座更新のために**生トランザクション**を作成する。
 
 ```java AccountUpdateWithLegacyExample.java focus=42:48
 
@@ -281,7 +281,7 @@ Create a **raw transaction** for account update
 
 ---
 
-Sign the transaction
+取引に署名する
 
 ```java AccountUpdateWithLegacyExample.java focus=50
 
@@ -289,7 +289,7 @@ Sign the transaction
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=51:54
@@ -309,7 +309,7 @@ TxHash :
 
 ---
 
-Wait for the transaction to be completed and get the transaction receipt
+トランザクションが完了するのを待ち、トランザクション・レシートを受け取る。
 
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=56:65
@@ -358,7 +358,7 @@ class TransactionReceipt {
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java AccountUpdateWithLegacyExample.java focus=66
 
@@ -366,7 +366,7 @@ Shut down the Web3j instance
 
 ---
 
-Decode the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
 ```java AccountUpdateWithLegacyExample.java focus=68:70

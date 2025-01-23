@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
 <CH.Code>
@@ -62,34 +62,34 @@ web3_cancel_sign_recover()
 ---
 
 ```zsh output
-❯ py cancel_example.py
-raw transaction of signed tx: 0x38f86b82036f850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0a559852e977476bfa6ba263a9c1f1f4b60608b82752d73a3f1162e341e7b5f06a07f12a242ad1cdbc08966e62af4c8749fc438e058b1344a4f11ba206f207ddc84
+❯ cancel_example.py
+signed tx の raw トランザクション：0x38f86b82036f850ba43b740083026d1894a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0a559852e977476bfa6ba263a9c1f1f4b60608b82752d73a3f1162e341e7b5f06a07f12a242ad1cdbc08966e62af4c8749fc438e058b1344a4f11ba206f207ddc84
 
 recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
-decoded transaction: {
-  "type": 56,
-  "nonce": 879,
-  "gasPrice": 50000000000,
-  "gas": 159000,
-  "from": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
-  "signatures": [
+decoded transaction：{
+  "type"：56,
+  "nonce"：879,
+  "gasPrice"：50000000000,
+  "gas"：159000,
+  "from"："0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "signatures"：[
     {
-      "v": 2037,
-      "r": 74789788593375966616662801192824717129914792416281096168085546212656613646086,
-      "s": 57476654897736400463186412232435765147976539862827431359170424955204316028036
-    }
+      "v"：2037,
+      "r"：74789788593375966616662801192824717129914792416281096168085546212656613646086,
+      "s"：57476654897736400463186412232435765147976539862827431359170424955204316028036
+    }.
   ],
-  "chainId": 1001
+  "chainId"：1001
 }
-tx hash:  0x3b1278d3748b638a41ffc40ed4cffc6c789ceffbd924f9b00ae7b53f26815686 receipt:  AttributeDict({'blockHash': HexBytes('0x672deecd07b84c2b524f160fccc6ce0d20486bdde914a7c7065e2de0ed723635'), 'blockNumber': 147364137, 'contractAddress': None, 'cumulativeGasUsed': 349674, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x3b1278d3748b638a41ffc40ed4cffc6c789ceffbd924f9b00ae7b53f26815686'), 'transactionIndex': 3, 'type': 0})
+tx ハッシュ：  0x3b1278d3748b638a41ffc40ed4cffc6c789ceffbd924f9b00ae7b53f26815686 receipt:  AttributeDict({'blockHash'：HexBytes('0x672deecd07b84c2b524f160fccc6ce0d20486bdde914a7c7065e2de0ed723635'), 'blockNumber':147364137, 'contractAddress'：None, 'cumulativeGasUsed'：349674, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash'：HexBytes('0x3b1278d3748b638a41ffc40ed4cffc6c789ceffbd924f9b00ae7b53f26815686'), 'transactionIndex':3, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py cancel_example.py focus=1,2
 
@@ -97,7 +97,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
+**eth_account**、**web3py_ext**、\*cytoolz\*\*から必要なutilsをインポートする。
 
 ```py cancel_example.py focus=3:10
 
@@ -105,7 +105,7 @@ Import necessary utils from **eth_account**, **web3py_ext** and **cytoolz**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py cancel_example.py focus=12:14
 
@@ -113,7 +113,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```python cancel_example.py focus=12:14
 from web3py_ext import extend
@@ -170,7 +170,7 @@ web3_cancel_sign_recover()
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```python cancel_example.py focus=17
 
@@ -178,7 +178,7 @@ Load an account from private key
 
 ---
 
-Send a **value transfer tx**. It **will** be in the **tx pool** and **canceled** before execution. The cancel tx will be failed if it is already executed.
+**値転送TX**を送信する。 それは**txプール**にあり、実行前に**キャンセル**される。 キャンセルTXは、すでに実行されていれば失敗する。
 
 ```py cancel_example.py focus=19:27
 
@@ -186,7 +186,7 @@ Send a **value transfer tx**. It **will** be in the **tx pool** and **canceled**
 
 ---
 
-Create an empty transaction of type **TxType.CANCEL**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.CANCEL**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py cancel_example.py focus=4,5,8,29
 
@@ -194,7 +194,7 @@ Create an empty transaction of type **TxType.CANCEL**. You can use **empty_tx** 
 
 ---
 
-Merge the **from** and **nonce** fields into the empty tx by using the **merge** util.
+**from**フィールドと**nonce**フィールドを、**merge**ユーティリティを使用して空のtxにマージする。
 
 ```py cancel_example.py focus=10,30:33
 
@@ -202,7 +202,7 @@ Merge the **from** and **nonce** fields into the empty tx by using the **merge**
 
 ---
 
-Make the **nonce** to be **same** with previously sent **value transfer tx**. You need to set the **same tx nonce** you want to cancel
+**nonce**を、以前に送信された**値転送tx**と**同じ**にする。 キャンセルしたいのと同じtx nonce\*\*を設定する必要がある。
 
 ```python cancel_example.py focus=4,6,8,32
 
@@ -210,7 +210,7 @@ Make the **nonce** to be **same** with previously sent **value transfer tx**. Yo
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```python cancel_example.py focus=4,6,8,34
 
@@ -218,7 +218,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-Sign the **cancel tx** by user's private key
+ユーザーの秘密鍵で**cancel tx**に署名する。
 
 <CH.Code>
 ```python cancel_example.py focus=36:38
@@ -233,7 +233,7 @@ raw transaction of signed tx: 0x38f86b82036f850ba43b740083026d1894a2a8854b1802d8
 
 ---
 
-Recover the **signer's address** from the signature in signed tx
+署名されたTxの署名から**署名者のアドレス**を復元する。
 
 <CH.Code>
 ```python cancel_example.py focus=40:41
@@ -248,7 +248,7 @@ recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-You can **decode** the RLP-encoded tx by the **Account.decode_transaction** util and if you want to make the output format pretty, use the **to_pretty** util
+RLPエンコードされたtxは**Account.decode_transaction**ユーティリティで**デコード**できます。
 
 <CH.Code>
 ```python cancel_example.py focus=43:44
@@ -277,7 +277,7 @@ decoded transaction: {
 
 ---
 
-Send the **tx** to the blockchain. It will return the tx hash, which will be used to wait the receipt
+ブロックチェーンに**tx**を送信する。 このハッシュは受信を待つために使用される。
 
 ```python cancel_example.py focus=46
 
@@ -285,7 +285,7 @@ Send the **tx** to the blockchain. It will return the tx hash, which will be use
 
 ---
 
-The **wait_for_transaction_receipt** method returns the tx receipt if it is completed in the blockchain
+**wait_for_transaction_receipt**メソッドは、ブロックチェーンで完了した場合、txレシートを返す。
 
 <CH.Code>
 ```python cancel_example.py focus=47:48
@@ -300,7 +300,7 @@ tx hash:  0x3b1278d3748b638a41ffc40ed4cffc6c789ceffbd924f9b00ae7b53f26815686 rec
 
 ---
 
-Finally, get the result.
+最後に結果を出す。
 
 <CH.Code>
 ```python cancel_example.py focus=49

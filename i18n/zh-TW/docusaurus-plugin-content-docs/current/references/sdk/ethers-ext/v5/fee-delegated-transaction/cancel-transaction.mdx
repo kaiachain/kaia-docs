@@ -1,0 +1,234 @@
+# Cancel
+
+**TxTypeCancel** 取消事務池中具有相同 nonce 的事務的執行。 當已提交的交易在一定時間內似乎未得到處理時，這種交易類型就很有用。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxFeeDelegatedCancelType.js
+const ethers = require("ethers");
+
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const senderWallet = new Wallet(senderPriv, provider);
+const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedCancel,
+    from: senderAddr,
+  };
+
+  // Sign transaction by sender
+  const populatedTx = await senderWallet.populateTransaction(tx);
+  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx);
+  console.log("senderTxHashRLP", senderTxHashRLP);
+
+  // Sign and send transaction by fee payer
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node TxFeeDelegatedCancelType.js
+senderTxHashRLP 0x39f86a8203af850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a06c639b8828bb27b36b2575636b4ec9dd4c7de4820327fe158746d03b28b90d8ba0332b43ec974ecb3ea16593760cb6e139a95d4ce03847681fb053a00143eb91a1
+sentTx 0xd81cd9190f2fd40f6b2e6472f91b95a1e09e2ad3dfc41a6b3458274eb5c9175c
+receipt {
+  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 1,
+  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x02d655e716e1a5c8d497f66a6d80683c633d3e4002a9e26026f101983d951c1a',
+  transactionHash: '0xd81cd9190f2fd40f6b2e6472f91b95a1e09e2ad3dfc41a6b3458274eb5c9175c',
+  logs: [],
+  blockNumber: 148732476,
+  confirmations: 3,
+  cumulativeGasUsed: BigNumber { _hex: '0x034b1d', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+```
+
+</CH.Code>
+
+---
+
+導入 **ethers** 和 **@kaiachain/ethers-ext** 軟件包，在 ethers.js 上添加 kaia 功能
+
+```js TxFeeDelegatedCancelType.js focus=1:3
+
+```
+
+---
+
+定義**發送方**、**付費方**地址和私人密鑰
+
+```js TxFeeDelegatedCancelType.js focus=5:8
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js TxFeeDelegatedCancelType.js focus=10
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js TxFeeDelegatedCancelType.js focus=10
+const ethers = require("ethers");
+
+const { Wallet, TxType, parseKlay } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const senderWallet = new Wallet(senderPriv, provider);
+const feePayerWallet = new Wallet(feePayerPriv, provider);
+
+async function main() {
+  const tx = {
+    type: TxType.FeeDelegatedCancel,
+    from: senderAddr,
+  };
+
+  // Sign transaction by sender
+  const populatedTx = await senderWallet.populateTransaction(tx);
+  const senderTxHashRLP = await senderWallet.signTransaction(populatedTx);
+  console.log("senderTxHashRLP", senderTxHashRLP);
+
+  // Sign and send transaction by fee payer
+  const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+  console.log("sentTx", sentTx.hash);
+
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+用私鑰和提供商創建**發送方**的錢包
+
+```js TxFeeDelegatedCancelType.js focus=11
+
+```
+
+---
+
+用私鑰和提供商創建**付費者**的錢包
+
+```js TxFeeDelegatedCancelType.js focus=12
+
+```
+
+---
+
+聲明一個事務，其**from**字段為**發送地址**，**type**字段為**TxType.FeeDelegatedCancel**。
+
+```js TxFeeDelegatedCancelType.js focus=15:18
+
+```
+
+---
+
+用**發送方**錢包簽署交易，並打印出**發送方TxHashRLP**
+
+<CH.Code>
+```js TxFeeDelegatedCancelType.js focus=20:23
+
+````
+
+
+---
+
+```zsh output
+❯ node TxFeeDelegatedCancelType.js
+senderTxHashRLP 0x39f86a820356850ba43b740082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0ec92eaed1a4b88de5645122b78f1f060aa44e9a6f35d1804ed624dbf74e0c59fa01a9b1e1a4bc35fdb4d1d71ead6be57a15fd06945cf486cf3d0f10f11099db878
+````
+
+</CH.Code>
+
+---
+
+使用付費者的錢包將交易發送到區塊鏈上。 函數 "sendTransactionAsFeePayer "會在發送者的簽名上添加一個帶有 FeePayer 私鑰的簽名，並將其傳輸到區塊鏈網絡。
+
+<CH.Code>
+```js TxFeeDelegatedCancelType.js focus=25:27
+
+````
+
+
+---
+
+```zsh output
+❯ node TxFeeDelegatedCancelType.js
+sentTx 0x88f96c02abd305e5395cfdc87515ba3a4f6139568a48ddeca66be286acf5be68
+````
+
+</CH.Code>
+
+---
+
+如果已在區塊鏈中完成發送，**wait**函數將返回發送回執。
+
+<CH.Code>
+```js TxFeeDelegatedCancelType.js focus=29:30
+
+````
+
+
+---
+
+```zsh output
+❯ node TxFeeDelegatedCancelType.js
+receipt {
+  to: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x7918', _isBigNumber: true },
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0xfe9f4c67ac858fc9dc534612649c89aee502771e5c19c10575874cfc48ef6f18',
+  transactionHash: '0x88f96c02abd305e5395cfdc87515ba3a4f6139568a48ddeca66be286acf5be68',
+  logs: [],
+  blockNumber: 146759527,
+  confirmations: 2,
+  cumulativeGasUsed: BigNumber { _hex: '0x063f86', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 0,
+  byzantium: true
+}
+````
+
+</CH.Code>
+
+</CH.Spotlight>

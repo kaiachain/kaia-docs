@@ -72,7 +72,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
         EthChainId EthchainId = web3j.ethChainId().send();
         long chainId = EthchainId.getChainId().longValue();
         String to = "0x000000000000000000000000000000000000dead";
-        BigInteger nonce = web3j.EthChainId.getChainId().longValue()ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+        BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
                 .getTransactionCount();
         BigInteger value = BigInteger.valueOf(100);
 
@@ -100,7 +100,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
 
         int DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH = 40;
         int DEFAULT_BLOCK_TIME = 1 * 1000;
-        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME；
+        long DEFAULT_POLLING_FREQUENCY = DEFAULT_BLOCK_TIME;
         TransactionReceiptProcessor transactionReceiptProcessor = new PollingTransactionReceiptProcessor(web3j,
                 DEFAULT_POLLING_FREQUENCY, DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
         org.web3j.protocol.core.methods.response.TransactionReceipt ethReceipt = transactionReceiptProcessor
@@ -112,7 +112,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
 
         TxTypeFeeDelegatedValueTransfer rawTransaction = TxTypeFeeDelegatedValueTransfer
                 .decodeFromRawTransaction(hexValue);
-        System.out.println("TxType ：" + rawTransaction.getKlayType());
+        System.out.println("TxType : " + rawTransaction.getKlayType());
     }
 }
 ```

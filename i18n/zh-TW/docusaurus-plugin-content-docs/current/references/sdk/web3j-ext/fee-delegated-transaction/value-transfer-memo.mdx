@@ -1,0 +1,277 @@
+# Value Transfer Memo
+
+**TxTypeValueTransferMemo** 用於用戶發送帶有特定信息的 KAIA。
+
+<CH.Spotlight>
+<CH.Code>
+
+```java FeeDelegatedValueTransferMemo.java
+package org.web3j.example.transactions;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import java.math.BigInteger;
+
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlayRawTransaction;
+import org.web3j.crypto.KlayTransactionEncoder;
+import org.web3j.crypto.transaction.type.TxType;
+import org.web3j.crypto.transaction.type.TxTypeFeeDelegatedValueTransferMemo;
+import org.web3j.crypto.transaction.type.TxType.Type;
+import org.web3j.protocol.core.DefaultBlockParameterName;
+import org.web3j.protocol.core.methods.response.EthChainId;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.utils.Numeric;
+import org.web3j.protocol.kaia.core.method.response.TransactionReceipt;
+
+public class FeeDelegatedValueTransferMemoExample {
+
+	public static void run() throws Exception {
+		Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+		KlayCredentials credentials = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+		KlayCredentials credentials_feepayer = KlayCredentials.create(keySample.LEGACY_KEY_FEEPAYER_privkey);
+
+		BigInteger GAS_PRICE = BigInteger.valueOf(50000000000L);
+		BigInteger GAS_LIMIT = BigInteger.valueOf(6721950);
+		String from = credentials.getAddress();
+		EthChainId EthchainId = web3j.ethChainId().send();
+		long chainId = EthchainId.getChainId().longValue();
+		String to = "0x000000000000000000000000000000000000dead";
+		BigInteger nonce = web3j.ethGetTransactionCount(from, DefaultBlockParameterName.LATEST).send()
+				.getTransactionCount();
+		BigInteger value = BigInteger.valueOf(100);
+		String data = "Kaia Web3j";
+		byte[] payload = data.getBytes();
+
+		TxType.Type type = Type.FEE_DELEGATED_VALUE_TRANSFER_MEMO;
+
+		KlayRawTransaction raw = KlayRawTransaction.createTransaction(
+				type,
+				nonce,
+				GAS_PRICE,
+				GAS_LIMIT,
+				to,
+				value,
+				from,
+				payload);
+
+		// Sign as sender
+		byte[] signedMessage = KlayTransactionEncoder.signMessage(raw, chainId, credentials);
+
+		// Sign same message as Fee payer
+		signedMessage = KlayTransactionEncoder.signMessageAsFeePayer(raw, chainId, credentials_feepayer);
+
+		String hexValue = Numeric.toHexString(signedMessage);
+		EthSendTransaction transactionResponse = web3j.ethSendRawTransaction(hexValue).send();
+		System.out.println("TxHash : \n " + transactionResponse.getResult());
+		String txHash = transactionResponse.getResult();
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		TransactionReceipt receipt = web3j.klayGetTransactionReceipt(txHash).send().getResult();
+		System.out.println("Receipt from klay_getTransactionReceipt : \n" + receipt);
+		web3j.shutdown();
+
+		TxTypeFeeDelegatedValueTransferMemo rawTransaction = TxTypeFeeDelegatedValueTransferMemo
+				.decodeFromRawTransaction(hexValue);
+		System.out.println("TxType : " + rawTransaction.getKlayType());
+
+	}
+
+}
+```
+
+---
+
+```zsh output
+JAVA FeeDelegatedValueTransferMemo.java
+輸出
+```
+
+</CH.Code>
+
+---
+
+從 Web3j 和 kaia 庫（`web3j-ext`）中導入必要的類。
+
+```java FeeDelegatedValueTransferMemo.java focus=1:21s
+
+```
+
+---
+
+使用 Web3j 連接到 kaia 區塊鏈並指定 URL
+
+```java FeeDelegatedValueTransferMemo.java focus=26
+
+```
+
+---
+
+使用私鑰創建**發送方**和**付費方**證書。
+
+```java FeeDelegatedValueTransferMemo.java focus=27:28
+
+```
+
+---
+
+確定交易的gas價格和gas限額
+
+```java FeeDelegatedValueTransferMemo.java focus=30:31
+
+```
+
+---
+
+從 `credentials.getAddress()` 獲取發件人地址
+
+```java FeeDelegatedValueTransferMemo.java focus=32
+
+```
+
+---
+
+從 **Kaia** 網絡獲取鏈 ID
+
+```java FeeDelegatedValueTransferMemo.java focus=33:34
+
+```
+
+---
+
+為交易參數初始化變量
+
+```java FeeDelegatedValueTransferMemo.java focus=35:42
+
+```
+
+---
+
+創建原始事務對象。
+
+```java FeeDelegatedValueTransferMemo.java focus=44:52
+
+```
+
+---
+
+使用 "KlayTransactionEncoder.signMessage "以\*\*發送方的身份簽署交易。
+
+```java FeeDelegatedValueTransferMemo.java focus=54:55
+
+```
+
+---
+
+使用 "KlayTransactionEncoder.signMessageAsFeePayer "將交易簽署為付費方。
+
+```java FeeDelegatedValueTransferMemo.java focus=57:58
+
+```
+
+---
+
+向 kaia 網絡發送已簽署的交易
+
+<CH.Code>
+
+```java FeeDelegatedValueTransferMemo.java focus=60:63
+
+```
+
+---
+
+```zsh output
+❯ java FeeDelegatedValueTransferMemo.java
+TxHash :
+ 0x3daa6c374bcd7407ff7dbd1403e9644d3551de8968601e5ab6fb779baf8caf19
+```
+
+</CH.Code>
+
+---
+
+獲取交易收據
+
+<CH.Code>
+
+```java FeeDelegatedValueTransferMemo.java focus=64:70
+
+```
+
+---
+
+```zsh output
+❯ java FeeDelegatedValueTransferMemo.java
+receipt :
+class TransactionReceipt {
+    blockHash: 0x986bc12a221e2cdd6d646675986821212249cdb537386c5efb575559bb45cfd1
+    blockNumber: 0x89286a8
+    codeFormat: null
+    contractAddress: null
+    feePayer: 0xcb0eb737dfda52756495a5e08a9b37aab3b271da
+    feePayerSignatures: [class TransactionReceiptFeePayerSignaturesInner {
+        V: 0x7f6
+        R: 0x1f7027dcdd5a646d80e2684fca72ec2c000636925c2c0b81c2f07eba767296c8
+        S: 0x3d53dd1f3322d474c5386e149cfbba7e0d141e5c903a0dfe5b306f610691e5f2
+    }]
+    feeRatio: null
+    from: 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    gas: 0x66919e
+    gasPrice: 0xba43b7400
+    gasUsed: 0x7dc8
+    key: null
+    input: 0x4b6c6179746e20576562336a
+    logs: []
+    logsBloom: 0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    nonce: 0x30c
+    senderTxHash: 0x121add23a85c6871d48bc097ad70d6bd0e4f65537a725c5030c13b17f31f2912
+    signature: []
+    status: 0x1
+    txError: null
+    to: 0x000000000000000000000000000000000000dead
+    transactionHash: 0x3daa6c374bcd7407ff7dbd1403e9644d3551de8968601e5ab6fb779baf8caf19
+    transactionIndex: 0x0
+    type: TxTypeFeeDelegatedValueTransferMemo
+    typeInt: 17
+    value: 0x64
+}
+```
+
+</CH.Code>
+
+---
+
+關閉 Web3j 實例
+
+```java FeeDelegatedValueTransferMemo.java focus=71
+
+```
+
+---
+
+解碼原始交易以獲取交易類型
+
+<CH.Code>
+
+```java FeeDelegatedValueTransferMemo.java focus=73:75
+
+```
+
+---
+
+```zsh output
+❯ java FeeDelegatedValueTransferMemo.java
+txType: FEE_DELEGATED_VALUE_TRANSFER_MEMO
+```
+
+</CH.Code>
+
+</CH.Spotlight>

@@ -1,16 +1,16 @@
-# Web3j extension for kaia
+# kaia用Web3j拡張機能
 
-## Requirements
+## 必要条件
 
-### Setting Java
+### Javaの設定
 
-- Use java version: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
-- Download OpenJDK
+- javaのバージョンを使う： 11 `<=` v `<=` 18
+- https://adoptopenjdk.net/。
+- OpenJDKのダウンロード
 
-## Install Web3j kaia extension
+## Web3j kaiaエクステンションをインストールする
 
-To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_started.html) to your project:
+Gradle ライブラリ](https://docs.gradle.org/current/userguide/getting_started.html)をプロジェクトに追加します：
 
 ```shell
 
@@ -25,19 +25,19 @@ dependencies {
 }
 ```
 
-## Usage
+## 使用方法
 
-See [example](./web3j-ext/src/main/java/org/web3j/example).
+例](./web3j-ext/src/main/java/org/web3j/example)を参照。
 
-## Quickstart
+## クイックスタート
 
-For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) .
+Web3jの基本的な使い方については、[Web3jチュートリアル](https://docs.web3j.io/4.10.0/quickstart/)で学ぶことができます。
 
-### Send Fee Delegated Transaction on Kairos Testnet
+### Kairos Testnetで手数料の委任取引を送信する
 
-If you want to know more about the concept of fee delegated transaction supported by kaia network, please refer to [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
+kaiaネットワークがサポートする手数料委任取引の概念について詳しくお知りになりたい場合は、[kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions)をご参照ください。
 
-Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
+web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example) の FeeDelegatedValueTransferExample.java ファイルを確認してください。
 
 ```file
 package org.web3j.example;
@@ -117,7 +117,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
 }
 ```
 
-Run examples
+実行例
 
 ```file
 import org.web3j.example.FeeDelegatedValueTransferExample;

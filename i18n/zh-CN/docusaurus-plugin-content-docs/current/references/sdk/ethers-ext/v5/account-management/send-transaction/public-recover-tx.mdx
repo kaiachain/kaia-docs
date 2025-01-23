@@ -183,13 +183,13 @@ rawTx 0x08f8868188850ba43b740082cd1494c40b6909eb7085590e1c26cb3becc25368e249e987
 将**签署的交易**发送至 kaia 网络
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=25:26
+```js SignTxWithPubkeyExample.js focus=25:26
 
 ````
 ---
 
 ```zsh output
-signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
+sentTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 ````
 
 </CH.Code>
@@ -199,7 +199,7 @@ signedTx 0x751ae9e74895cd899a51b5deab2d5e72103d06468cf1701d5925784808962d7e
 等待交易**完成**并打印**收据**
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=28:29
+```js SignTxWithPubkeyExample.js focus=28:29
 
 ````
 ---
@@ -232,7 +232,7 @@ receipt {
 使用 `klay_recoverFromMessage` 从已签署的事务中恢复地址
 
 <CH.Code>
-``js SignTxWithPubkeyExample.js focus=31:34
+```js SignTxWithPubkeyExample.js focus=31:34
 
 ````
 ---

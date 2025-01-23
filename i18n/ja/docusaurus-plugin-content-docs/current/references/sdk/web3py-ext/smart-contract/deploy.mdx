@@ -1,6 +1,6 @@
-# Deploy
+# デプロイ
 
-Web3 SDKs support to interact with Smart Contract via contract instance, not low-level transaction.
+Web3 SDKは、低レベルのトランザクションではなく、コントラクトインスタンスを介してスマートコントラクトと対話することをサポートしています。
 
 <CH.Spotlight>
 <CH.Code>
@@ -57,15 +57,15 @@ contract_deploy_with_legacy()
 ---
 
 ```zsh output
-❯ py smart_contract_deploy.py
-AttributeDict({'blockHash': HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber': 147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed': 457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex': 1, 'type': 2})
+❯ smart_contract_deploy.py
+AttributeDict({'blockHash'：HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber':147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed':457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to'：None, 'transactionHash'：HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex':1, 'type': 2})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py smart_contract_deploy.py focus=1:2
 
@@ -73,7 +73,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils
+必要なユーティリティをインポートする
 
 ```py smart_contract_deploy.py focus=3:4
 
@@ -81,7 +81,7 @@ Import necessary utils
 
 ---
 
-Load an account from private key
+秘密鍵からアカウントを読み込む
 
 ```py smart_contract_deploy.py focus=6
 
@@ -89,7 +89,7 @@ Load an account from private key
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py smart_contract_deploy.py focus=7:9
 
@@ -97,7 +97,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py smart_contract_deploy.py focus=7:9
 from web3py_ext import extend
@@ -150,7 +150,7 @@ contract_deploy_with_legacy()
 
 ---
 
-Define an **account list** as a list type to use middleware
+ミドルウェアを使用するリスト・タイプとして**アカウント・リスト**を定義する。
 
 ```py smart_contract_deploy.py focus=10
 
@@ -158,7 +158,7 @@ Define an **account list** as a list type to use middleware
 
 ---
 
-If you want to automatically sign and send when using **transact** function, use **construct_sign_and_send_raw_middleware**
+**transact**関数を使用する際に自動的に署名と送信を行いたい場合は、**construct_sign_and_send_raw_middleware**を使用してください。
 
 ```py smart_contract_deploy.py focus=11,40:42
 
@@ -166,7 +166,7 @@ If you want to automatically sign and send when using **transact** function, use
 
 ---
 
-These are the **contract** that is compiled into bytecode and will be deployed to the Kairos testnet
+これらは、バイトコードにコンパイルされ、Kairosテストネットにデプロイされる**契約**である。
 
 ```py smart_contract_deploy.py focus=18:35,37
 
@@ -174,7 +174,7 @@ These are the **contract** that is compiled into bytecode and will be deployed t
 
 ---
 
-Initialize a Web3 contract instance with bytecode and ABI
+バイトコードとABIでWeb3コントラクトのインスタンスを初期化する
 
 ```py smart_contract_deploy.py focus=36:39
 
@@ -182,7 +182,7 @@ Initialize a Web3 contract instance with bytecode and ABI
 
 ---
 
-Set the contract **bytebode** and **abi**. You can get the bytecode and abi after compiled in remix or solc compiler
+**bytebode**と**abi**を設定する。 remixまたはsolcコンパイラでコンパイルした後、バイトコードとabiを取得できます。
 
 ```py smart_contract_deploy.py focus=37,38
 
@@ -190,7 +190,7 @@ Set the contract **bytebode** and **abi**. You can get the bytecode and abi afte
 
 ---
 
-Deploy the smart contract by sending a tx. This automatically sign and send the tx that include constructor call data
+Txを送信してスマート・コントラクトをデプロイする。 これは、コンストラクタ呼び出しデータを含むTxに自動的に署名して送信する。
 
 ```py smart_contract_deploy.py focus=40:42
 
@@ -198,7 +198,7 @@ Deploy the smart contract by sending a tx. This automatically sign and send the 
 
 ---
 
-Wait for the transaction **receipt**
+トランザクションの**受領**を待つ
 
 <CH.Code>
 ```py smart_contract_deploy.py focus=43:44

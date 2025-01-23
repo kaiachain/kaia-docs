@@ -1,6 +1,6 @@
-# Units
+# 単位
 
-For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and `kei`. See [supported units](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-) .
+単位変換のために、Kaia-SDKは`kaia`、`Gkei`、`kei`の変換ユーティルをサポートしている。 対応ユニット](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-)を参照。
 
 <CH.Spotlight>
   <CH.Code>
@@ -29,14 +29,14 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
   ---
 
-  Import **extend** from **web3py_ext** to extend web3 to kaia web3
+  web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
   ```py unit_utils.py focus=1
   ```
 
   ---
 
-  To convert from `(Gkei/kaia)` to `kei`, use `Web3.to_kei(value, unit)`.
+  (Gkei/kaia)`から`kei`に変換するには、`Web3.to_kei(value, unit)\`を使う。
 
   <CH.Code>
     ```py unit_utils.py focus=5:6
@@ -52,7 +52,7 @@ For units conversion, Kaia-sdk supports utils for converting `kaia`, `Gkei` and 
 
   ---
 
-  To convert from `kei` to `(kaia/Gkei)`, use `Web3.from_kei(value, unit)`.
+  `kei`から`(kaia/Gkei)`に変換するには、`Web3.from_kei(value, unit)`を使う。
 
   <CH.Code>
     ```py unit_utils.py focus=8:9

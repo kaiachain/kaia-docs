@@ -1,6 +1,6 @@
-# Address
+# 住所
 
-Utils for converting public address, public key.
+公開アドレス、公開鍵の変換ユーティリティ。
 
 <CH.Spotlight>
   <CH.Code>
@@ -37,14 +37,14 @@ Utils for converting public address, public key.
 
   ---
 
-  Import the **getCompressedPublicKey** from **@kaiachain/ethers-ext** packages
+  **getCompressedPublicKey**を**kaiachain/ethers-ext**パッケージからインポートする。
 
   ```py address_utils.py focus=1:3
   ```
 
   ---
 
-  From an `Account` object you can get the **public address** with `address_from_private_key` or get the **compressed public key** with `compressed_key`
+  アカウント`オブジェクトから、`address_from_private_key`で**公開アドレス**を、`compressed_key\`で**圧縮された公開鍵**を取得することができる。
 
   <CH.Code>
     ```py address_utils.py focus=7:9
@@ -60,7 +60,7 @@ Utils for converting public address, public key.
 
   ---
 
-  From `x` and `y` coordinates of an uncompressed public key, you can get the public key and the address using `compressed_key_from_xy` and `compressed_key_and_address_from_xy`
+  非圧縮公開鍵の `x` と `y` 座標から、`compressed_key_from_xy` と `compressed_key_and_address_from_xy` を使って公開鍵とアドレスを得ることができる。
 
   <CH.Code>
     ```py address_utils.py focus=11:14

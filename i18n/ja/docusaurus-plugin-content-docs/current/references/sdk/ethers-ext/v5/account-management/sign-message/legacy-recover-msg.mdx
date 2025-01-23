@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -38,7 +38,7 @@ main().catch(console.error);
   senderAddr: '0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7',
   msg: 'hello',
   msghex: '0x68656c6c6f',
-  sig: '0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
+  sig：'0xcf6792ecd73ccc5efc1612f461bffa699e824a4ed64ec1073709c9d6b8c6daf608060326371544811e2015398f7e48ad839e1f3c551e8cb7c3c82f10d226bd671b'
 }
 recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
@@ -48,7 +48,7 @@ recoveredAddr rpc 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7 true
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js SignMsgWithLegacyExample.js focus=1:3
 
@@ -56,7 +56,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender's **address** and **private key**
+送信者の**address**と**private key**を定義する。
 
 ```js SignMsgWithLegacyExample.js focus=5:6
 
@@ -64,7 +64,7 @@ Define sender's **address** and **private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js SignMsgWithLegacyExample.js focus=8
 
@@ -72,7 +72,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SignMsgWithLegacyExample.js focus=8
 const { ethers } = require("ethers");
@@ -103,7 +103,7 @@ main().catch(console.error);
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js SignMsgWithLegacyExample.js focus=9
 
@@ -111,7 +111,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Define a message to be signed and recovered
+署名され、復元されるメッセージを定義する
 
 ```js SignMsgWithLegacyExample.js focus=12
 
@@ -119,7 +119,7 @@ Define a message to be signed and recovered
 
 ---
 
-Sign the message with sender's **wallet**
+送信者の**財布**でメッセージに署名する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=13:15
@@ -140,7 +140,7 @@ Sign the message with sender's **wallet**
 
 ---
 
-Recover the address from signed message using `ethers.utils.verifyMessage`
+`ethers.utils.verifyMessage`を使用して署名されたメッセージからアドレスを復元する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=17:18
@@ -156,7 +156,7 @@ recoveredAddr lib 0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7 true
 
 ---
 
-Recover the address from signed message using `klay_recoverFromMessage`
+`klay_recoverFromMessage` を使って署名されたメッセージからアドレスを復元する。
 
 <CH.Code>
 ```js SignMsgWithLegacyExample.js focus=20:21

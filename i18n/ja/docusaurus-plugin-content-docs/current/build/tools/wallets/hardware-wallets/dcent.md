@@ -1,13 +1,13 @@
-# D'cent Biometric Wallet
+# ディセント・バイオメトリック・ウォレット
 
-## Introduction <a id="introduction"></a>
+## はじめに<a id="introduction"></a>
 
-D'Cent Wallet is a non-custodial biometric wallet designed to offer both Bluetooth-enabled hardware and software options to manage your crypto with ease.
+D'Cent Walletは、暗号を簡単に管理できるよう、Bluetooth対応のハードウェアとソフトウェアの両方のオプションを提供するように設計された、非保護型のバイオメトリック・ウォレットです。
 
-Get a D'CENT device in their [offical website](https://store.dcentwallet.com/pages/dcent-biometric-crypto-wallet)
+公式サイト](https://store.dcentwallet.com/pages/dcent-biometric-crypto-wallet)でD'CENTのデバイスを入手しよう。
 
-## Guide
+## ガイド
 
-- [Setup](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
-- [How to send and receive Kaia](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
-- [Connect with Kaia Wallet](https://userguide.dcentwallet.com/external-service/kaikas)
+- [セットアップ](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
+- [カイヤの送受信方法](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
+- [カイア・ウォレットとつながる](https://userguide.dcentwallet.com/external-service/kaikas)

@@ -1,35 +1,35 @@
-# Transaction Error Codes
+# トランザクション・エラー・コード
 
-Kaia provides a field `txError` in the transaction receipt to give developers more information about the reason for the failed transaction execution. This field exists only if the transaction execution is failed. To save storage and network bandwidth, `txError` contains an integer value. The below table shows the meaning of the value in `txError`.
+Kaiaはトランザクションレシートに`txError`フィールドを提供し、トランザクションの実行に失敗した理由についての詳細な情報を開発者に提供する。 このフィールドは、トランザクションの実行が失敗した場合にのみ存在する。 ストレージとネットワーク帯域幅を節約するために、`txError` は整数値を含む。 以下の表は `txError` の値の意味を示している。
 
-| Error Code | Description                                                                                                             |
-| :--------- | :---------------------------------------------------------------------------------------------------------------------- |
-| 0x02       | VM error occurs while running smart contract                                                                            |
-| 0x03       | max call depth exceeded                                                                                                 |
-| 0x04       | contract address collision                                                                                              |
-| 0x05       | contract creation code storage out of gas                                                                               |
-| 0x06       | evm: max code size exceeded                                                                             |
-| 0x07       | out of gas                                                                                                              |
-| 0x08       | evm: write protection                                                                                   |
-| 0x09       | evm: execution reverted                                                                                 |
-| 0x0a       | reached the opcode computation cost limit for tx                                                                        |
-| 0x0b       | account already exists                                                                                                  |
-| 0x0c       | not a program account \(e.g., an account having code and storage\) |
-| 0x0d       | Human-readable address is not supported now                                                                             |
-| 0x0e       | fee ratio is out of range \[1, 99\]                               |
-| 0x0f       | AccountKeyFail is not updatable                                                                                         |
-| 0x10       | different account key type                                                                                              |
-| 0x11       | AccountKeyNil cannot be initialized to an account                                                                       |
-| 0x12       | public key is not on curve                                                                                              |
-| 0x13       | key weight is zero                                                                                                      |
-| 0x14       | key is not serializable                                                                                                 |
-| 0x15       | duplicated key                                                                                                          |
-| 0x16       | weighted sum overflow                                                                                                   |
-| 0x17       | unsatisfiable threshold. Weighted sum of keys is less than the threshold.               |
-| 0x18       | length is zero                                                                                                          |
-| 0x19       | length too long                                                                                                         |
-| 0x1a       | nested composite type                                                                                                   |
-| 0x1b       | a legacy transaction must be with a legacy account key                                                                  |
-| 0x1c       | deprecated feature                                                                                                      |
-| 0x1d       | not supported                                                                                                           |
-| 0x1e       | smart contract code format is invalid                                                                                   |
+| エラーコード | 説明                                     |
+| :----- | :------------------------------------- |
+| 0x02   | スマートコントラクトの実行中にVMエラーが発生                |
+| 0x03   | 最大通話深度超過                               |
+| 0x04   | 契約住所衝突                                 |
+| 0x05   | 契約書作成コード ガス欠保管                         |
+| 0x06   | evm: 最大コードサイズを超えました    |
+| 0x07   | ガス欠                                    |
+| 0x08   | evm：書き込み保護                             |
+| 0x09   | evm: 実行が差し戻された         |
+| 0x0a   | txのオペコード計算コストの限界に達した。                  |
+| 0x0b   | アカウントはすでに存在する                          |
+| 0x0c   | プログラムアカウントでないこと。                       |
+| 0x0d   | 人間が読めるアドレスは現在サポートされていません               |
+| 0x0e   | 手数料率が範囲外。                              |
+| 0x0f   | AccountKeyFail は更新できません。               |
+| 0x10   | 異なるアカウント・キー・タイプ                        |
+| 0x11   | AccountKeyNil をアカウントに初期化することはできません。    |
+| 0x12   | 公開鍵が曲線上にない                             |
+| 0x13   | キーの重さはゼロ                               |
+| 0x14   | キーがシリアライズ可能でない                         |
+| 0x15   | 合鍵                                     |
+| 0x16   | 加重和オーバーフロー                             |
+| 0x17   | 満足できない閾値。 キーの重み付け合計が閾値より小さい。           |
+| 0x18   | 長さはゼロ                                  |
+| 0x19   | 長すぎる                                   |
+| 0x1a   | 入れ子複合型                                 |
+| 0x1b   | レガシー・トランザクションは、レガシー・アカウント・キーでなければならない。 |
+| 0x1c   | 非推奨機能                                  |
+| 0x1d   | さいようしない                                |
+| 0x1e   | スマートコントラクトのコード形式が無効                    |

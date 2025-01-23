@@ -1,6 +1,6 @@
-# Wallet Libraries
+# 財布ライブラリ
 
-Let's see how to integrate well-known wallet libraries into dApp.
+有名なウォレットライブラリをdAppに統合する方法を見てみよう。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

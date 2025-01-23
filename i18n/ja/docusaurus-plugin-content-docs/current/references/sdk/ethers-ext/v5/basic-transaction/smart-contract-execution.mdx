@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -80,7 +80,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features on ethers.js.
+ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと**@kaiachain/ethers-ext**モジュールをインポートします。
 
 ```js smartContractExecution.js focus=1:2
 
@@ -88,7 +88,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** modules to add kaia features
 
 ---
 
-Define **sender address and sender private key**
+**送信者アドレスと送信者秘密鍵**の定義
 
 ```js smartContractExecution.js focus=4:5
 
@@ -96,7 +96,7 @@ Define **sender address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js smartContractExecution.js focus=7
 
@@ -104,7 +104,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractExecution.js focus=7
 const ethers = require("ethers");
@@ -143,7 +143,7 @@ main();
 
 ---
 
-Create a sender's wallet using the sender's private key and the provider
+送信者の秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
 ```js smartContractExecution.js focus=8
 
@@ -151,7 +151,7 @@ Create a sender's wallet using the sender's private key and the provider
 
 ---
 
-Set the **contract address** you want to execute into the to field and set **ABI**
+実行したい**契約アドレス**をtoフィールドにセットし、**ABI**をセットする。
 
 ```js smartContractExecution.js focus=10:11
 
@@ -159,7 +159,7 @@ Set the **contract address** you want to execute into the to field and set **ABI
 
 ---
 
-Create a contract instance with **ethers.Contract**, fill in params **contractAddr**, **abi**, **provider**. You can read and write the contract through this instance
+**Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractExecution.js focus=14
 
@@ -167,7 +167,7 @@ Create a contract instance with **ethers.Contract**, fill in params **contractAd
 
 ---
 
-Encode the function name and parameter with the **encodeFunctionData** function
+関数名とパラメータを**encodeFunctionData**関数でエンコードする。
 
 ```js smartContractExecution.js focus=15
 
@@ -175,7 +175,7 @@ Encode the function name and parameter with the **encodeFunctionData** function
 
 ---
 
-Declare a transaction object
+トランザクションオブジェクトの宣言
 
 ```js smartContractExecution.js focus=17:24
 
@@ -183,7 +183,7 @@ Declare a transaction object
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js smartContractExecution.js focus=25:26
@@ -201,7 +201,7 @@ sentTx 0xc0443ebef5f43edab8e76663d22bc7411720ec9b63af14301305718448881ee4
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+**wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 ```js smartContractExecution.js focus=28:29

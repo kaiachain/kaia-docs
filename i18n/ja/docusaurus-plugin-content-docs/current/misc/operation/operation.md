@@ -1,6 +1,6 @@
-# Node Quick Reference
+# ノード・クイック・リファレンス
 
-This guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Klaytn nodes. It covers common tasks like configuring nodes, understanding and analyzing logs, managing chaindata, and using essential commands. The guide aims to help Node operators smoothly run and maintain their blockchain nodes by equipping them with key information and best practices.
+このガイドは、ノードオペレータがKaiaノードを効率的に設定、監視、およびトラブルシューティングするための便利なクイックリファレンスとして役立ちます。 ノードの設定、ログの理解と分析、チェーンデータの管理、重要なコマンドの使用など、一般的なタスクをカバーしています。 このガイドは、ノード運営者が重要な情報とベストプラクティスを身につけることで、ブロックチェーンノードの円滑な運営と維持を支援することを目的としている。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

@@ -1,0 +1,333 @@
+# Write
+
+當您**需要更新合約中的某些狀態**時，可以與智能合約進行**"事務 "**交互。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractWrite.js
+const ethers = require("ethers");
+const { Wallet } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const sentTx = await counter.increment();
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node smartContractWrite.js
+number before 291
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 0,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
+  transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+  logs: [
+    {
+      transactionIndex: 0,
+      blockNumber: 148740640,
+      transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+      logIndex: 0,
+      blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac'
+    }
+  ],
+  blockNumber: 148740640,
+  confirmations: 1,
+  cumulativeGasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 2,
+  byzantium: true,
+  events: [
+    {
+      transactionIndex: 0,
+      blockNumber: 148740640,
+      transactionHash: '0x07c87084001218f66e260cb63c207c676eae3bb4a338b7384457f6a4fdebd5da',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000124',
+      logIndex: 0,
+      blockHash: '0xbc6486ec825cf2388917f6c5c250af3f811bc838ea3f83382c1786d31b1eaaac',
+      args: [Array],
+      decode: [Function (anonymous)],
+      event: 'SetNumber',
+      eventSignature: 'SetNumber(uint256)',
+      removeListener: [Function (anonymous)],
+      getBlock: [Function (anonymous)],
+      getTransaction: [Function (anonymous)],
+      getTransactionReceipt: [Function (anonymous)]
+    }
+  ]
+}
+number after 292
+```
+
+</CH.Code>
+
+---
+
+導入 **ethers** 和 **@kaiachain/ethers-ext** 模塊，在 ethers.js 上添加 kaia 功能。
+
+```js smartContractWrite.js focus=1:2
+
+```
+
+---
+
+定義**sender address**和**private key**
+
+```js smartContractWrite.js focus=4:5
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js smartContractWrite.js focus=7
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js smartContractWrite.js focus=7
+const ethers = require("ethers");
+const { Wallet } = require("@kaiachain/ethers-ext/v5");
+
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const wallet = new Wallet(senderPriv, provider);
+
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
+
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
+
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
+
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+  console.log("number before", (await counter.number()).toString());
+
+  const sentTx = await counter.increment();
+  const receipt = await sentTx.wait();
+  console.log("receipt", receipt);
+
+  console.log("number after", (await counter.number()).toString());
+}
+
+main();
+```
+
+---
+
+用發件人**私鑰**和**Web3 提供商**創建錢包
+
+```js smartContractWrite.js focus=8
+
+```
+
+---
+
+設置由 solidity 代碼生成的 **Abi**
+
+```js smartContractWrite.js focus=33
+
+```
+
+---
+
+定義與之交互的**合約地址** 
+
+```js smartContractWrite.js focus=34
+
+```
+
+---
+
+使用 **ethers.Contract**創建合約實例，填寫參數 **contractAddr**、**abi**、**provider**。 您可以通過該實例讀寫合約
+
+```js smartContractWrite.js focus=37
+
+```
+
+---
+
+使用方法**counter.number()**獲取更新前的**數字**值
+
+<CH.Code>
+```js smartContractWrite.js focus=39
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+number before 293
+````
+
+</CH.Code>
+
+---
+
+創建事務數據以更新**編號**值
+
+```js smartContractWrite.js focus=41
+
+```
+
+---
+
+如果已在區塊鏈中完成發送，**wait**函數將返回發送回執。
+
+<CH.Code>
+```js smartContractWrite.js focus=42:43
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+receipt {
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  from: '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7',
+  contractAddress: null,
+  transactionIndex: 2,
+  gasUsed: BigNumber { _hex: '0x6d6e', _isBigNumber: true },
+  logsBloom: '0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002',
+  blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
+  transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+  logs: [
+    {
+      transactionIndex: 2,
+      blockNumber: 146819181,
+      transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000126',
+      logIndex: 0,
+      blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a'
+    }
+  ],
+  blockNumber: 146819181,
+  confirmations: 8,
+  cumulativeGasUsed: BigNumber { _hex: '0x026fa8', _isBigNumber: true },
+  effectiveGasPrice: BigNumber { _hex: '0x05d21dba00', _isBigNumber: true },
+  status: 1,
+  type: 2,
+  byzantium: true,
+  events: [
+    {
+      transactionIndex: 2,
+      blockNumber: 146819181,
+      transactionHash: '0x3bc3042d157a877af42b9a4a60a719e9523f1c901c4aefa3c6ded12f946f7317',
+      address: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      topics: [Array],
+      data: '0x0000000000000000000000000000000000000000000000000000000000000126',
+      logIndex: 0,
+      blockHash: '0xc17dbcfb8c5582dc0646a01138fda179ee05a1134e167dfd5edafe46977f008a',
+      args: [Array],
+      decode: [Function (anonymous)],
+      event: 'SetNumber',
+      eventSignature: 'SetNumber(uint256)',
+      removeListener: [Function (anonymous)],
+      getBlock: [Function (anonymous)],
+      getTransaction: [Function (anonymous)],
+      getTransactionReceipt: [Function (anonymous)]
+    }
+  ]
+}
+````
+
+</CH.Code>
+
+---
+
+使用方法 **counter.number()** 獲取更新值 **number**
+
+<CH.Code>
+```js smartContractWrite.js focus=45
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+number after 294
+````
+
+</CH.Code>
+
+</CH.Spotlight>

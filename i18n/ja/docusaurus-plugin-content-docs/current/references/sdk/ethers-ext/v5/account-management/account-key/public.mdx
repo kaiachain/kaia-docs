@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 <CH.Spotlight>
 <CH.Code>
@@ -72,7 +72,7 @@ receipt {
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js AccountUpdateWithPubKey.js focus=1:3
 
@@ -80,7 +80,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender **address**, sender **private key** and **new private key** to be changed
+変更する送信者**address**、送信者**private key**、**新しい秘密鍵**を定義する。
 
 ```js AccountUpdateWithPubKey.js focus=5:9
 
@@ -88,7 +88,7 @@ Define sender **address**, sender **private key** and **new private key** to be 
 
 ---
 
-Set up the provider with the specified **Kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**Kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js AccountUpdateWithPubKey.js focus=11
 
@@ -96,7 +96,7 @@ Set up the provider with the specified **Kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js AccountUpdateWithPubKey.js focus=11
 const { ethers } = require("ethers");
@@ -137,7 +137,7 @@ main().catch(console.error);
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**秘密鍵**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js AccountUpdateWithPubKey.js focus=12
 
@@ -145,7 +145,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Compute the **public key** from the new private key
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=15:16
@@ -161,7 +161,7 @@ pub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
 
 ---
 
-Declare a transaction which has type **AccountKeyType.Public** and **key** field with the new computed **public key**
+型が**AccountKeyType.Public**で、**key**フィールドに新しい計算された**public key**を持つトランザクションを宣言する。
 
 ```js AccountUpdateWithPubKey.js focus=18:25
 
@@ -169,7 +169,7 @@ Declare a transaction which has type **AccountKeyType.Public** and **key** field
 
 ---
 
-Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=27:28
@@ -185,7 +185,7 @@ sentTx 0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7
 
 ---
 
-The **wait** function returns the tx receipt if it is completed in the blockchain.
+**wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=30:31

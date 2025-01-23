@@ -53,6 +53,7 @@ def web3_fee_delegated_value_transfer_sign_recover():
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
 
 web3_fee_delegated_value_transfer_sign_recover()
+
 ```
 
 ---
@@ -323,6 +324,7 @@ decoded transaction: {
   ],
   "chainId": 1001
 }
+
 ````
 
 </CH.Code>
@@ -340,7 +342,7 @@ decoded transaction: {
 如果交易已在区块链中完成，**wait_for_transaction_receipt** 方法会返回交易收据。
 
 <CH.Code>
-``py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43
+```py txTypeFeeDelegatedValueTransferTransaction.py focus=42:43
 
 ````
 

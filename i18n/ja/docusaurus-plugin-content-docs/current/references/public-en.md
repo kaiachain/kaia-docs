@@ -1,325 +1,325 @@
-# Public JSON RPC Endpoints
+# パブリックJSON RPCエンドポイント
 
-Publicly exposed JSON-RPC endpoints allow you to test and run your blockchain products by providing interaction with the Kaia network without running your own node.
+一般に公開されているJSON-RPCエンドポイントでは、独自のノードを実行することなく、Kaiaネットワークとのインタラクションを提供することで、ブロックチェーン製品のテストや実行が可能です。
 
-Running your own Kaia Endpoint Node (EN) is not simple, it requires technical expertise, monitoring and computing resources. It comes with a cost of maintaining storage, network bandwidth as well as having to divert engineering time and resources; nodes must be kept up to date and health checked regularly.
+独自のカイア・エンドポイント・ノード（EN）を運用するのは簡単ではなく、技術的な専門知識、モニタリング、コンピューティング・リソースが必要です。 ストレージやネットワーク帯域幅を維持するためのコストがかかるだけでなく、エンジニアリングの時間とリソースを割かなければならない。
 
-Hence, the main benefit of using an existing Public EN is that it allows you to solely focus on building and testing your blockchain product without the distraction of maintaining infrastructure to connect and interact with the Kaia network.
+したがって、既存のパブリックENを利用する主なメリットは、Kaiaネットワークに接続し、相互作用するためのインフラを維持することに気を取られることなく、ブロックチェーン製品の構築とテストのみに集中できることです。
 
-## Things to Consider
+## 考慮すべきこと
 
-- The node providers are not responsible for any damage or losses caused in relation to traffic or interaction with the nodes.
-- If traffic is concentrated on certain nodes, you may experience service delay.
-- To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
+- ノードプロバイダーは、トラフィックやノードとの相互作用に関連して発生した損害や損失について責任を負いません。
+- 特定のノードにトラフィックが集中すると、サービスの遅延が発生することがあります。
+- リクエストが集中するのを防ぐため、ノードごとに料金の制限が適用される場合があります。
 
-## Public JSON-RPC Endpoints
+## パブリックJSON-RPCエンドポイント
 
-Below is the list of the network domains offered by Kaia’s Public Node Providers.
+以下は、カイアのパブリックノードプロバイダーが提供するネットワークドメインのリストです。
 
-:::info[Outdated Endpoints Stopped Working]
+:::info[Outdated エンドポイントの動作停止］
 
-Please note that the following URLs was discontinued at the end of September 2024. We encourage you to update your configurations accordingly to ensure uninterrupted service:
+なお、以下のURLは2024年9月末日をもって廃止となりました。 サービスが中断しないよう、適宜設定を更新することをお勧めします：
 
-**Mainnet**
+**メインネット**
 
-- `https://public-en-cypress.klaytn.net` (replaced by `https://public-en.node.kaia.io`)
-- `https://archive-en.cypress.klaytn.net` (replaced by `https://archive-en.node.kaia.io`)
+- `https://public-en-cypress.klaytn.net` (`https://public-en.node.kaia.io` に置き換わる)
+- `https://archive-en.cypress.klaytn.net` (`https://archive-en.node.kaia.io` に置き換わる)
 
-**Testnet**
+**テストネット**
 
-- `https://public-en-baobab.klaytn.net` (replaced by `https://public-en-kairos.node.kaia.io`)
-- `https://archive-en.baobab.klaytn.net` (replaced by `https://archive-en-kairos.node.kaia.io`)
+- `https://public-en-baobab.klaytn.net` (`https://public-en-kairos.node.kaia.io` に置き換わる)
+- `https://archive-en.baobab.klaytn.net` (`https://archive-en-kairos.node.kaia.io` に置き換わる)
 
 :::
 
-### Mainnet Public JSON-RPC Endpoints
+### メインネット公開JSON-RPCエンドポイント
 
-Please keep in mind that these endpoints are provided to the community for testing and development purposes.
-Since we cannot guarantee uptime and stability of the endpoints, do not use them for commercial purposes.
-
-**HTTPS**
-
-| Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                           | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | Full    |
-| [BlockJoy](https://blockjoy.com/)      | `http://freely-inspired-ram.n0des.xyz`                     | kaia,klay,eth,net | Archive |
-| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | Full    |
-| [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
-
-**WebSocket**
-
-| Service Provider                       | Endpoints                                                | Namespaces        | Type    |
-| -------------------------------------- | -------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`                        | kaia,klay,eth,net | Full    |
-|                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
-
-### Testnet (Kairos) Public JSON-RPC Endpoints
+これらのエンドポイントは、テストと開発の目的でコミュニティに提供されていることに留意してください。
+エンドポイントの稼働時間や安定性は保証できませんので、営利目的での使用はご遠慮ください。
 
 **HTTPS**
 
-| Service Provider                       | Endpoints                                                    | Namespaces        | Type    |
-| -------------------------------------- | ------------------------------------------------------------ | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | Full    |
+| サービスプロバイダー                           | エンドポイント                                                    | 名前空間           | タイプ   |
+| ------------------------------------ | ---------------------------------------------------------- | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)         | `https://public-en.node.kaia.io`                           | カイア、クレイ、エス、ネット | フル    |
+|                                      | `https://archive-en.node.kaia.io`                          | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
+| [BlockPIネットワーク](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | カイア、クレイ、エス、ネット | フル    |
+| [ブロックジョイ](https://blockjoy.com/)     | `http://freely-inspired-ram.n0des.xyz`                     | カイア、クレイ、エス、ネット | アーカイブ |
+| [OnFinality](https://onfinality.io/) | `https://klaytn.api.onfinality.io/public`                  | カイア、クレイ、エス、ネット | フル    |
+| [ポクト・ネットワーク](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | カイア、クレイ、エス、ネット | フル    |
+| [GetBlock](https://getblock.io/)     | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | カイア、クレイ、エス、ネット | フル    |
 
-**WebSocket**
+**ウェブソケット**
 
-| Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | Full    |
-|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
+| サービスプロバイダー                          | エンドポイント                                                                                                                                   | 名前空間           | タイプ   |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)        | `wss://public-ja.node.kaia.io/ws`。                                                                                                        | カイア、クレイ、エス、ネット | フル    |
+|                                     | `wss://archive-ja.node.kaia.io/ws`。                                                                                                       | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/)   | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`. | カイア、クレイ、エス、ネット | フル    |
+| [オンファイナリティ](https://onfinality.io/) | `wss://klaytn.api.onfinality.io/public-ws`。                                                                                               | カイア、クレイ、エス、ネット | フル    |
 
-## RPC Service Providers
+### Testnet (Kairos) パブリックJSON-RPCエンドポイント
 
-Below is the list of Kaia’s Public Node Providers.
+**HTTPS**
+
+| サービスプロバイダー                           | エンドポイント                                                      | 名前空間           | タイプ   |
+| ------------------------------------ | ------------------------------------------------------------ | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | カイア、クレイ、エス、ネット | フル    |
+|                                      | `https://archive-en-kairos.node.kaia.io/`                    | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
+| [BlockPIネットワーク](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | カイア、クレイ、エス、ネット | フル    |
+
+**ウェブソケット**
+
+| サービスプロバイダー                        | エンドポイント                                                    | 名前空間           | タイプ   |
+| --------------------------------- | ---------------------------------------------------------- | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)      | `wss://public-en-kairos.node.kaia.io/ws`。                  | カイア、クレイ、エス、ネット | フル    |
+|                                   | `wss://archive-ja-kairos.node.kaia.io/ws`。                 | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/) | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
+
+## RPCサービスプロバイダー
+
+以下はカイアのパブリック・ノード・プロバイダーのリストです。
 
 ### Klaytn API Service (KAS)
 
-KAS provides various APIs to support easier and quicker blockchain application development. You can dramatically reduce development time, operate a stable service, and save costs.
+KASは、より簡単で迅速なブロックチェーンアプリケーション開発をサポートする様々なAPIを提供している。 開発期間を大幅に短縮し、安定したサービスを運用し、コストを削減することができます。
 
-#### Features
+#### 特徴
 
-- 10,000 requests per day (100 requests per second) for the free plan
-- Community support for the free plan, and ticket support for paid plans (Starter, Pro, and Pro Plus)
+- 無料プランの場合、10,000リクエスト/日（100リクエスト/秒
+- 無料プランのコミュニティサポート、有料プラン（Starter、Pro、Pro Plus）のチケットサポート
 - Klaytn Node API, Token History API, Wallet API, Anchor API, KIP-7, 17, 37 API and Metadata API
 
-#### References
+#### 参考文献
 
-- [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
-- [Subscription](https://www.klaytnapi.com/en/landing/pricings)
-- [Website](https://www.klaytnapi.com/en/landing/main)
+- [ドキュメント](https://www.klaytnapi.com/en/resource/docs/readme)
+- [購読](https://www.klaytnapi.com/en/landing/pricings)
+- [ウェブサイト](https://www.klaytnapi.com/en/landing/main)
 
 ### All That Node
 
-All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
+All That Nodeは、Web3インフラへの信頼できるゲートウェイとなることを目指しており、ビルダーはブロックチェーン・ネットワークに関する問題に惑わされることはない。 オール・ザット・ノードは、RPCノードへの高速かつ堅牢な接続を最低のレイテンシー性能で保証します。
 
-#### Features
+#### 特徴
 
-- Public Nodes & Faucets for the Ecosystem
-- Pay-As-You-Go-plan supported if you need more
-- Dedicated Nodes
-- 24+ Blockchains Supported
-- Archival Data Available
-- Websocket API Available
-- Trace/Debug API Available
-- Uptime 99.9%+
-- Load-Balancing implemented
-- Infinite Scalability
-- 24/7 Support with the Discord Community
+- エコシステムのためのパブリック・ノードと蛇口
+- さらに必要な場合は、従量制プランに対応
+- 専用ノード
+- 24以上のブロックチェーンをサポート
+- アーカイブデータあり
+- 利用可能なWebsocket API
+- トレース/デバッグAPIが利用可能
+- アップタイム99.9%以上
+- ロードバランシングの実施
+- 無限のスケーラビリティ
+- Discordコミュニティによる24時間365日のサポート
 
-#### References
+#### 参考文献
 
-- [Docs](https://docs.allthatnode.com/)
-- [Subscription](https://www.allthatnode.com/pricing.dsrv)
-- [Website](https://www.allthatnode.com/main.dsrv)
+- [ドキュメント](https://docs.allthatnode.com/)
+- [購読](https://www.allthatnode.com/pricing.dsrv)
+- [ウェブサイト](https://www.allthatnode.com/main.dsrv)
 
 ### Tatum
 
-Tatum is the fastest way to build, test and run blockchain apps. We offer the most flexible platform for developers to turn their blockchain ideas into reality fast.
+Tatumは、ブロックチェーンアプリを構築、テスト、実行する最速の方法です。 開発者がブロックチェーンのアイデアを素早く実現できるよう、最も柔軟なプラットフォームを提供しています。
 
-#### Features
+#### 特徴
 
-- 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
-- Community support
+- 無料プランは毎秒5リクエスト、有料プラン（スタート、ベーシック）は毎秒200リクエスト
+- 地域支援
 
-#### References
+#### 参考文献
 
-- [Docs](https://apidoc.tatum.io/tag/Klaytn?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
-- [Pricing](https://tatum.io/pricing)
-- [Website](https://tatum.io/)
+- [ドキュメント](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [価格設定](https://tatum.io/pricing)
+- [ウェブサイト](https://tatum.io/)
 
 ### BlockPI
 
-BlockPI Network aims to provide high-quality, robust, and efficient RPC service. To avoid the single-point failure and limitation of scalability, the network is designed to be a distributed structure with expandable RPC nodes.
+BlockPI Networkは、高品質で堅牢かつ効率的なRPCサービスの提供を目指しています。 一点障害とスケーラビリティの制限を避けるため、ネットワークは拡張可能なRPCノードを持つ分散構造となるように設計されている。
 
-BlockPI provides free public endpoints to the Klaytn community and advanced features to paid users.  BlockPI designed two paid packages, and support Pay As You Go to fulfill flexible user needs. You can check the pricing details for each package (https\://docs.blockpi.io/documentations/pricing) and the individual method cost for Klaytn  (https\://docs.blockpi.io/documentations/request-unit-ru)
+BlockPIは、Kaiaコミュニティには無料のパブリックエンドポイントを、有料ユーザには高度な機能を提供しています。  BlockPIは2つの有料パッケージを設計し、柔軟なユーザーニーズを満たすためにPay As You Goをサポートしています。 各パッケージの料金詳細 (https://docs.blockpi.io/documentations/pricing) およびカイアの個別メソッド費用 (https://docs.blockpi.io/documentations/request-unit-ru) を確認できます。
 
-#### Features
+#### 特徴
 
-- 20 requests per second on free services, and unlimited for paid packages.
-- Choice of Klaytn archive node and endpoint node
-- Whitelisting possible for endpoint nodes
-- WSS available and subscription coming soon
-- Supports tracing
+- 無料サービスでは毎秒20リクエスト、有料パッケージでは無制限。
+- Kaiaアーカイブノードとエンドポイントノードの選択
+- エンドポイントノードのホワイトリストが可能
+- WSSが利用可能で、近日中にサブスクリプションが開始される
+- トレースをサポート
 
-#### References
+#### 参考文献
 
-- [Docs](https://docs.blockpi.io/)
-- [Subscription](https://dashboard.blockpi.io/wallet/overview)
-- [Website](https://blockpi.io/)
+- [ドキュメント](https://docs.blockpi.io/)
+- [購読](https://dashboard.blockpi.io/wallet/overview)
+- [ウェブサイト](https://blockpi.io/)
 
 ### Pocket Network
 
-Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+ポケットネットワークは、Web3ノードのインフラストラクチャのTCP/IPであり、RPCノードにDAppsとそのユーザーにWeb3アクセスを止められないように提供するインセンティブを与えるマルチチェーン中継プロトコルです。
 
-Pocket supports dozens of blockchains, with more being added all the time.
+ポケットは数十のブロックチェーンをサポートしており、常に追加されている。
 
-#### Features
+#### 特徴
 
-- Decentralized RPC Protocol and Marketplace
-- 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
-- Public Endpoints
-- Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
-- 30+ Blockchains Supported
-- 25,000 + Nodes earning POKT for serving applications
-- Archival Node, Archival Node w/ Tracing, & Testnet Node Support
-- No Single Point of Failure
-- Zero Downtime
-- Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
-- No monthly sunk costs, turn your infrastructure into an asset
-- Load-Balancing built into the Protocol
-- Infinitely scale the number of requests per day and nodes per hour as you go
-- The most private, censorship-resistant option
-- Hands-on developer support
+- 分散型RPCプロトコルとマーケットプレイス
+- 250,000リクエスト/日 無料ティア（2アプリケーションまで、エンドポイント数無制限）
+- パブリック・エンドポイント
+- 有料プラン（1日あたり25万件以上のリクエストが必要な場合）
+- 30以上のブロックチェーンをサポート
+- 25,000 + アプリケーションの提供でPOKTを獲得するノード
+- アーカイバル・ノード、トレース付きアーカイバル・ノード、テストネット・ノードのサポート
+- 単一障害点なし
+- ダウンタイムゼロ
+- 費用対効果の高いニアゼロ・トークノミクス（ネットワーク帯域幅のためにPOKTを1回賭ける）
+- 毎月のサンクコストが不要、インフラを資産に変える
+- プロトコルに組み込まれた負荷分散
+- 1日あたりのリクエスト数と1時間あたりのノード数を無限に拡張できます。
+- 最もプライベートで検閲に強いオプション
+- ハンズオン開発者サポート
 
-#### References
+#### 参考文献
 
-- [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [Website](https://docs.pokt.network/)
-- [Pocket Portal](https://bit.ly/ETHorg_POKTportal) dashboard and analytics
+- [ドキュメント](https://docs.pokt.network/api-docs/klaytn-evm/#/)
+- [ウェブサイト](https://docs.pokt.network/)
+- [ポケット・ポータル](https://bit.ly/ETHorg_POKTportal) ダッシュボードとアナリティクス
 
 ### ANKR
 
-Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
+Ankrの分散ノード・ネットワークは強力な相乗効果を生み出し、開発者はパブリック・エンドポイントに簡単かつ安全に接続できる。 リソースの使用を最適化するきめ細かなキャッシングにより、Ankrは分散型アプリケーションを構築する際の優れた効率性を実現する低レイテンシー性能とともに、高速なRPCリクエストを保証します。
 
-#### Features
+#### 特徴
 
-- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-- Discord and Support Portal for the free plan, and dedicated support for the premium.
-- WebSocket is available for the premium plan.
+- 無料プランでは毎秒500リクエスト、プレミアムでは1,500リクエスト。 リクエストに応じてアップグレードも可能だ。
+- 無料プランではDiscordとサポートポータル、プレミアムでは専用サポートが利用できる。
+- WebSocketはプレミアムプランでご利用いただけます。
 
-#### References
+#### 参考文献
 
-- [Docs](https://www.ankr.com/docs/build-blockchain/overview)
-- [Subscription](https://www.ankr.com/rpc/pricing/)
-- [Website](https://www.ankr.com/rpc/)
+- [ドキュメント](https://www.ankr.com/docs/build-blockchain/overview)
+- [購読](https://www.ankr.com/rpc/pricing/)
+- [ウェブサイト](https://www.ankr.com/rpc/)
 
 ### NodeReal
 
-NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
+NodeRealはブロックチェーンのインフラとサービスのプロバイダーである。 NodeRealは、開発者や投資家が最も信頼できるソリューションでブロックチェーンを探求するのを支援します。
 
-#### Features
+#### 特徴
 
-- Free Tier, 3 API keys, 350 Million Compute Units(CU) monthly , 300 Compute Units Per Seconds(CUPS) monthly, Archive data
-- Growth Tier, 15 API keys, 500 Million Compute Units(CU) monthly , 700 Compute Units Per Seconds(CUPS) monthly, Archive data, Debug & Trace API
-- Enterprise Tier, Custom number of API Keys, Custom monthly usage, Dedicated support, Service-Level Agreement(SLA) and other requirements
-- 50 Queries Per Seconds (QPS)/method
+- 無料ティア、APIキー3個、月間3億5,000万コンピュート・ユニット（CU）、月間300コンピュート・ユニット/秒（CUPS）、アーカイブ・データ
+- グロース・ティア、APIキー15個、月間5億コンピュート・ユニット(CU)、月間700コンピュート・ユニット/秒(CUPS)、アーカイブ・データ、デバッグ＆トレースAPI
+- エンタープライズ・ティア、カスタムAPIキー数、カスタム月間使用量、専用サポート、サービス・レベル・アグリーメント(SLA)およびその他の要件
+- 50クエリー/秒（QPS）/メソッド
 
-#### References
+#### 参考文献
 
-- [Docs](https://docs.nodereal.io/docs/getting-started)
-- [Subscription](https://nodereal.io/api-marketplace/klaytn-rpc)
-- [Website](https://nodereal.io)
+- [ドキュメント](https://docs.nodereal.io/docs/getting-started)
+- [購読](https://nodereal.io/api-marketplace/klaytn-rpc)
+- [ウェブサイト](https://nodereal.io)
 
 ### Nodit
 
-Nodit aims to provide enterprise-grade Web3 infrastructure accessible to everyone. By offering robust node infrastructure with 99.9% uptime and reliable ready-to-query blockchain data at an affordable price, we are facilitating developers’ entry into the Web3 world.
+Noditは、誰もがアクセスできるエンタープライズグレードのWeb3インフラを提供することを目指している。 99.9%の稼働率を誇る堅牢なノード・インフラと、信頼性の高いすぐに照会可能なブロックチェーン・データを手頃な価格で提供することで、開発者のWeb3の世界への参入を促進しています。
 
-#### Features
+#### 特徴
 
-- Official Faucet for Kaia Testnet [https://kaiafaucet.com](https://kaiafaucet.com)
-- 99.9%+ Uptime
-- FREE access to indexed archival data in Datasquare - Dashboards and SQL supported
-- Data pipeline integration support
-- Auto-scaling supported in the upper Developer Tier
-- 100+ Web3 Data APIs for NFTs, Tokens, Statistics, and more
-- Webhook and Stream(WebSocket) Available
-- Dedicated Nodes
-- 350,000,000 Compute Units(CU) monthly with Free Tier
-- Log Monitoring Dashboard
+- カイヤテストネット公式蛇口 [https://kaiafaucet.com](https://kaiafaucet.com)
+- 99.9%以上のアップタイム
+- Datasquareのインデックス付きアーカイブデータに無料でアクセス - ダッシュボードとSQLに対応
+- データパイプラインの統合サポート
+- 上位デベロッパー・ティアでオートスケーリングに対応
+- NFT、トークン、統計などのための100以上のWeb3データAPI
+- WebhookとStream(WebSocket)が利用可能
+- 専用ノード
+- 350,000,000コンピュート・ユニット(CU)/月、無料ティア付き
+- ログ監視ダッシュボード
 
-#### References
+#### 参考文献
 
-- [Website](https://nodit.io)
-- [Datasquare Website](https://datasquare.nodit.io)
-- [Docs](https://developer.nodit.io)
-- [Blog](https://blog.nodit.io)
+- [ウェブサイト](https://nodit.io)
+- [データスクエア ウェブサイト](https://datasquare.nodit.io)
+- [ドキュメント](https://developer.nodit.io)
+- [ブログ](https://blog.nodit.io)
 
 ### GetBlock
 
-GetBlock provides fast, reliable API access to full RPC nodes for over 50 major blockchain networks, including Kaia. By handling node maintenance, GetBlock allows developers and enterprises to focus on building dApps and blockchain solutions without infrastructure headaches.
+GetBlockは、Kaiaを含む50以上の主要ブロックチェーンネットワークのフルRPCノードへの高速で信頼性の高いAPIアクセスを提供します。 GetBlockがノードのメンテナンスを行うことで、開発者や企業はインフラに頭を悩ませることなく、dAppsやブロックチェーン・ソリューションの構築に集中することができる。
 
-#### Features
+#### 特徴
 
-- 40k requests daily on free trail with upto 60 RPS. It also has starter and unlimited plan for better performances and support.
-- 99.9%+ Uptime
-- FREE access to 50+ blockchain protocols with RPC nodes
-- Advanced monitoring & statistics
-- Dedicated Nodes
+- 毎日40,000件のリクエストがあり、60RPSまで無料で利用できる。 また、より良いパフォーマンスとサポートのために、スタータープランと無制限プランがある。
+- 99.9%以上のアップタイム
+- RPCノードによる50以上のブロックチェーン・プロトコルへの無料アクセス
+- 高度なモニタリングと統計
+- 専用ノード
 
-#### References
+#### 参考文献
 
-- [Website](https://getblock.io/)
-- [Docs](https://getblock.io/docs/getblock-explorer/get-started/)
+- [ウェブサイト](https://getblock.io/)
+- [ドキュメント](https://getblock.io/docs/getblock-explorer/get-started/)
 
 ### BlockJoy
 
-BlockJoy provides dedicated unmetered blockchain nodes on any bare metal infrastructure. Its provides Node infrastructure for various services like Nodes, Staking, APIs, Indexers, Blockchain developers etc.
+BlockJoyは、あらゆるベアメタルインフラストラクチャ上に、アンメーターの専用ブロックチェーンノードを提供します。 ノード、ステーキング、API、インデクサー、ブロックチェーン開発者など、さまざまなサービスのためのノード・インフラを提供している。
 
-#### Features
+#### 特徴
 
-- Run nodes at max performance on bare metal servers.
-- Cut operating costs by up to 80%.
-- Enjoy platform's streamlined UI and cloud-like experience built exclusively for Web3 Infrastructure.
+- ベアメタルサーバー上でノードを最大パフォーマンスで実行。
+- 運転コストを最大80％削減
+- Web3 Infrastructure専用に構築されたプラットフォームの合理化されたUIとクラウドのようなエクスペリエンスをお楽しみください。
 
-#### References
+#### 参考文献
 
-- [Website](https://blockjoy.com/)
-- [Blog](https://blockjoy.com/blog)
+- [ウェブサイト](https://blockjoy.com/)
+- [ブログ](https://blockjoy.com/blog)
 
 ### QuickNode
 
-Quicknode offers blockchain infrastructure powering secure, decentralized innovation. They provide all the tools and resources builders need to create incredible products — all backed by unparalleled, globally-balanced infrastructure, guaranteed reliability and security, a user-friendly interface, and end-to-end customer support.
+Quicknodeは、安全で分散型のイノベーションを促進するブロックチェーンインフラストラクチャを提供しています。 そのすべては、比類のないグローバルバランスのインフラ、保証された信頼性とセキュリティ、ユーザーフレンドリーなインターフェイス、そしてエンドツーエンドのカスタマーサポートによって支えられています。
 
-#### Features
+#### 特徴
 
-- 15 request/second with 10M API credits on Free plan.
-- Providers starter, Growth and Business plan for more credits and IPFS storage.
-- Battle-tested RPC & API infrastructure providing performance and reliability at-scale.
-- Has dozens of add-ons that make building super-powered dApps easier than ever.
-- Provides streams, the most powerful real-time data pipelines.
-- Event alerts.
+- 15リクエスト/秒、無料プランで10M APIクレジット。
+- プロバイダーのスタータープラン、グロースプラン、ビジネスプランでは、より多くのクレジットとIPFSストレージをご利用いただけます。
+- 実績のあるRPCおよびAPIインフラストラクチャは、パフォーマンスと信頼性をアットスケールで提供します。
+- 超強力なdAppsをこれまで以上に簡単に構築できる数十のアドオンがある。
+- 最も強力なリアルタイム・データ・パイプラインであるストリームを提供します。
+- イベントアラート
 
-#### References
+#### 参考文献
 
-- [Website](https://www.quicknode.com/)
-- [Docs](https://www.quicknode.com/docs/welcome)
+- [ウェブサイト](https://www.quicknode.com/)
+- [ドキュメント](https://www.quicknode.com/docs/welcome)
 
 ### dRPC
 
-Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
+Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバイダ。 信頼できるWeb3のインフラパートナーです。
 
-#### Features
+#### 特徴
 
-- No request limits on Public nodes with General support.
-- Growth and Enterprise plan are also available for High performance nodes.
-- 50+ blockchains across 100+ networks
-- AI-driven load balancer
-- Insightful analytics.
+- GeneralサポートのPublicノードはリクエスト制限なし。
+- 高性能ノード向けには、グロースプランとエンタープライズプランもご用意しています。
+- 100以上のネットワークにまたがる50以上のブロックチェーン
+- AIロードバランサー
+- 洞察に満ちた分析。
 
-#### References
+#### 参考文献
 
-- [Website](https://drpc.org/)
-- [Docs](https://drpc.org/docs)
+- [ウェブサイト](https://drpc.org/)
+- [ドキュメント](https://drpc.org/docs)
 
-## Useful Resources
+## 有用なリソース
 
-- Wallet: [Kaia Wallet](../build/tools/wallets/kaia-wallet.md) is a browser extension wallet for the Kaia Network.
+- ウォレット[カイアウォレット](../build/tools/wallets/kaia-wallet.md)は、カイアネットワークのブラウザ拡張ウォレットです。
 
-- Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
+- 蛇口：[KAIA[Faucet](https://faucet.kaia.io)からKairosテストネットワーク用のテストKAIAを入手できます。
 
-- Explorer: [Kaiascope](../build/tools/block-explorers/kaiascope.md) is the block explorer for the Kaia Network.
+- エクスプローラー[Kaiascope](../build/tools/block-explorers/kaiascope.md)はカイアネットワークのブロックエクスプローラーです。
 
-- ChainID : Kairos: 1001 (0x3E9), Mainnet: 8217 (0x2019)
+- ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 
-- Gas price: dynamically adjusted within the range [25, 750]. The range can be changed via on-chain governance. For more information, refer to [governance](https://docs.kaia.io/references/json-rpc/governance/chain-config/) and
-  [Transaction Fees](../learn/transaction-fees/transaction-fees.md)
+- ガス価格：[25, 750]の範囲内で動的に調整される。 範囲はオンチェーンガバナンスで変更できる。 詳細については、[ガバナンス](https://docs.kaia.io/references/json-rpc/governance/chain-config/) および
+  [取引手数料](../learn/transaction-fees/transaction-fees.md) をご参照ください。

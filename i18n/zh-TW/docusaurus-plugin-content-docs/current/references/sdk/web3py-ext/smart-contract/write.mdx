@@ -1,0 +1,208 @@
+# 寫入
+
+當您**需要更新合約中的某些狀態**時，可以與智能合約進行**"事務 "**交互。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py smart_contract_write.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3.middleware import construct_sign_and_send_raw_middleware
+
+user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+acc_list = [user]
+w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber before: ', c.functions.number().call())
+    tx_hash = c.functions.increment().transact({
+        'from':user.address
+    })
+    print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
+    print('\nnumber after: ', c.functions.number().call())
+
+contract_interaction()
+```
+
+---
+
+```zsh output
+❯ py smart_contract_write.py
+number before:  293
+receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber': 147329610, 'contractAddress': None, 'cumulativeGasUsed': 361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber': 147329610, 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
+
+number after:  294
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py smart_contract_write.py focus=1:2
+
+```
+
+---
+
+導入必要的實用程序
+
+```py smart_contract_write.py focus=3:4
+
+```
+
+---
+
+從私人密鑰加載賬戶
+
+```py smart_contract_write.py focus=6
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 創建 Web3 實例
+
+```py smart_contract_write.py focus=7:9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode** 。
+
+```py smart_contract_write.py focus=7:9
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3.middleware import construct_sign_and_send_raw_middleware
+
+user = Account.from_key('0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49')
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+acc_list = [user]
+w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber before: ', c.functions.number().call())
+    tx_hash = c.functions.increment().transact({
+        'from':user.address
+    })
+    print('receipt: ', w3.eth.wait_for_transaction_receipt(tx_hash))
+    print('\nnumber after: ', c.functions.number().call())
+
+contract_interaction()
+```
+
+---
+
+將**賬戶列表**定義為使用**中間件**的列表類型
+
+```py smart_contract_write.py focus=8
+
+```
+
+---
+
+如果想在使用 **transact** 函數時自動簽名和發送，請使用 **construct_sign_and_send_raw_middleware**
+
+```py smart_contract_write.py focus=4,11,20:22
+
+```
+
+---
+
+創建一個**合約實例**，並標明其地址和 ABI
+
+```py smart_contract_write.py focus=14:17
+
+```
+
+---
+
+設置在部署教程中部署的**合約地址**（**計數器合約**）。 您可以在部署 tx 收據中看到地址
+
+```py smart_contract_write.py focus=15
+
+```
+
+---
+
+設置合約 abi。 使用 remix 或 solc 編譯器編譯後，可以獲得 ABI
+
+```py smart_contract_write.py focus=16
+
+```
+
+---
+
+調用合約的視圖函數，並在更新之前**打印**結果
+
+<CH.Code>
+```py smart_contract_write.py focus=18:19
+
+````
+---
+```zsh output
+number before:  293
+````
+
+</CH.Code>
+
+---
+
+發送一份**文件**，以**更新**合約的**狀態**。 這將自動簽署併發送包含數據的 tx，**調用**增量函數\*\*
+
+```py smart_contract_write.py focus=20:22
+
+```
+
+---
+
+等待來自區塊鏈的發送**收據，並在收到後**打印\*\*收據
+
+<CH.Code>
+```py smart_contract_write.py focus=23
+
+````
+
+---
+```zsh output
+receipt:  AttributeDict({'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'blockNumber': 147329610, 'contractAddress': None, 'cumulativeGasUsed': 361377, 'effectiveGasPrice': 25000000000, 'from': '0x24e8eFD18D65bCb6b3Ba15a4698c0b0d69d13fF7', 'gasUsed': 28014, 'logs': [AttributeDict({'address': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'topics': [HexBytes('0x331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d4')], 'data': HexBytes('0x0000000000000000000000000000000000000000000000000000000000000126'), 'blockNumber': 147329610, 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'blockHash': HexBytes('0x1025a3b580e904459af4a7a03adf8322cef2cd2e6e412abf04f6eee69f9ae877'), 'logIndex': 6, 'removed': False})], 'logsBloom': HexBytes('0x00000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000001200000002'), 'status': 1, 'to': '0x95Be48607498109030592C08aDC9577c7C2dD505', 'transactionHash': HexBytes('0xc04fd483bc3efe7ce61e65ded491eccb5f5401267f8e95bdae2bcc3356aab561'), 'transactionIndex': 2, 'type': 2})
+````
+
+</CH.Code>
+
+---
+
+再次調用視圖函數，查看 tx 之後計數器的**數字**
+
+<CH.Code>
+```py smart_contract_write.py focus=24
+
+````
+---
+```zsh output
+number after:  294
+````
+
+</CH.Code>
+
+</CH.Spotlight>

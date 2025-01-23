@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 <CH.Spotlight>
 <CH.Code>
@@ -71,7 +71,7 @@ receipt {
 
 ---
 
-Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js AccountUpdateWithPubKey.js focus=1
 
@@ -79,7 +79,7 @@ Import the **@kaiachain/web3js-ext** packages to add kaia features on web3
 
 ---
 
-Define sender **address**, sender **private key** and **new private key** to be changed
+変更する送信者**address**、送信者**private key**、**新しい秘密鍵**を定義する。
 
 ```js AccountUpdateWithPubKey.js focus=5:7
 
@@ -87,7 +87,7 @@ Define sender **address**, sender **private key** and **new private key** to be 
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js AccountUpdateWithPubKey.js focus=9
 
@@ -95,7 +95,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js AccountUpdateWithPubKey.js focus=9
 const { Web3, TxType, AccountKeyType, toPeb, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main().catch(console.error);
 
 ---
 
-Define a **web3 instance** using the provider
+プロバイダーを使って**web3インスタンス**を定義する
 
 ```js AccountUpdateWithPubKey.js focus=10
 
@@ -143,7 +143,7 @@ Define a **web3 instance** using the provider
 
 ---
 
-Create a sender's wallet with the **private key** and **provider**
+**private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
 ```js AccountUpdateWithPubKey.js focus=11
 
@@ -151,7 +151,7 @@ Create a sender's wallet with the **private key** and **provider**
 
 ---
 
-Compute the **public key** from the new private key
+新しい秘密鍵から**public key**を計算する。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=14:15
@@ -167,7 +167,7 @@ senderNewPub 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453c
 
 ---
 
-Declare a transaction which has type **AccountKeyType.Public** and **key** field with the new computed **public key**
+型が**AccountKeyType.Public**で、**key**フィールドに新しい計算された**public key**を持つトランザクションを宣言する。
 
 ```js AccountUpdateWithPubKey.js focus=17:24
 
@@ -175,7 +175,7 @@ Declare a transaction which has type **AccountKeyType.Public** and **key** field
 
 ---
 
-Sign the transaction with **sender's wallet**
+**送信者の財布**で取引に署名する。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=26:27
@@ -191,7 +191,7 @@ signedTx 0x33a634875a49d8915bc6fde14f351b81d1fc470b64aef28bf95d3ea92f2dc4f7
 
 ---
 
-Send the signed tx to the blockchain. It will return the **receipt** of the transaction
+署名されたTxをブロックチェーンに送信する。 トランザクションの**レシート**を返す。
 
 <CH.Code>
 ```js AccountUpdateWithPubKey.js focus=29:30

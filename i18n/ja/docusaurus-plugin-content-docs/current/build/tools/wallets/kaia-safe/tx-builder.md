@@ -1,77 +1,77 @@
-# Use Transaction Builder
+# トランザクション・ビルダーを使用する
 
-This is a custom app in Kaia Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+これはKaia Safeのカスタムアプリで、トランザクションのバッチ処理を行う。 つまり、トランザクションを1つずつ確認するのではなく、複数のトランザクションをまとめて確認することができるのです。 一度確認して実行するだけでいい。
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+トランザクションビルダーを使えば、トークンの移転から複雑なコントラクトのやり取りまで、トランザクションを組み合わせて1つのトランザクションにまとめることができる。
 
 ## KLAY Token Transfer <a id="token-transfer"></a>
 
-You can perform token transfer using transaction builder by following the steps below:
+以下の手順で、トランザクションビルダーを使用してトークン転送を行うことができます：
 
-**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App
+**ステップ 1:** Safe Apps に移動し、Transaction Builder Safe App を開きます。
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
+**ステップ2:** 受取人のウォレットアドレスを入力します。 For this guide, kindly skip the ABI field as we are trying to execute KLAY transfer transaction.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
 
-**Step 3:** Enter the KLAY value you want to send.
+**ステップ3：** 送信したいKAIA値を入力してください。
 
-> Note: In this guide, we are sending 1 KLAY, so we entered 1 in the **KLAY value** input field. You can input any amount here, depending on your Safe's KLAY balance.
+> 注：このガイドでは、1つのKAIAを送信するので、**KAIA値**入力フィールドに1を入力した。 You can input any amount here, depending on your Safe's KLAY balance.
 
 ![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
 
-**Step 4:** Click Add transaction.
+\*\*ステップ4： \*\*トランザクションの追加をクリックします。
 
-**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+**ステップ5:** すべての受信者アドレスについて、ステップ2、3、4を繰り返します。
 
-**Step 6:** Once you added all operations to the batch click Create Batch.
+**ステップ6：** バッチにすべての操作を追加したら、[Create Batch]をクリックします。
 
 ![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
 
-**Step 7:** Review and submit transaction
+**ステップ 7：** 取引の確認と提出
 
-You'll be able to review the whole batch. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+全バッチを見直すことができるようになる。 準備ができたら、「Send Batch（バッチ送信）」をクリックして、他の Safe 取引と同様に取引を送信し、実行します。
 
-## Contract Interactions <a id="contract-interactions"></a>
+## 契約の相互作用<a id="contract-interactions"></a>
 
-Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+例えば、5つのアドレスに10CCTトークンというように、長いアドレスリストにトークンをエアドロップしたいとします。 5つのトランザクションを作成し、それを金庫の所有者が次々に確認・実行する代わりに、トランザクション・ビルダーはこれらの送金をすべて1つのトランザクションにまとめる。
 
-In this guide, we have minted CCT tokens to the Safe address for illustrative purpose.
+このガイドでは、説明のためにCCTトークンをSafeアドレスに鋳造しています。
 
-Let’s get started with this example using Transaction Builder!
+それでは、Transaction Builderを使ってこの例を始めてみよう！
 
-**Step 1:** Open Safe Apps.
+\*\*Safe Apps を開きます。
 
 ![](/img/build/tools/kaia-safe/ks-tx-builder.png)
 
-**Step 2:** Open the Transaction Builder Safe app
+\*\*ステップ 2: \*\* Transaction Builder Safe アプリを開きます。
 
 ![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
 
-**Step 3:** Enter your **token contract address** and **ABI**.
+**ステップ3：**あなたの**トークン契約アドレス**と**ABI**を入力します。
 
-In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
+この例では、CCTの契約アドレスとABIが使われる。 あなたのABIをコピーして**Enter ABI**フィールドに貼り付けることができます。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
 
-**Step 4:** Select a method and fill the transaction information
+\*\*ステップ 4: \*\* 取引方法を選択し、取引情報を入力する。
 
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
+ドロップダウンからメソッドを選択できます。 この場合、**転送**方式を選択する。 このステップを完了するためには、\*\*to(address)**や**amount(uint256)\*\*といった取引情報を記入しなければならない。
 
-Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000.
+注：値は小数のない符号なし整数である。 この例では、CCTトークンの小数点以下は18桁である。 つまり、10CCTを送りたいなら、100000000000000000と入力しなければならない。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
 
-**Step 5:** Click **Add transaction**
+**ステップ5：** 取引の追加\*\*をクリックします。
 
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
+**ステップ6:**受信者アドレスごとにステップ**4**、**5**、**6**を繰り返します。
 
-**Step 7:** Once you added all operations to the batch click **Create Batch**
+**ステップ7：** すべての操作をバッチに追加したら、**Create Batch** をクリックします。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
 
-**Step 8:** Review and submit transaction
+**ステップ 8：** 取引の確認と提出
 
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+全バッチを見直すことができるようになる。 準備ができたら、**Send Batch** をクリックして、他の Safe 取引と同様に取引を送信し、実行します。

@@ -1,27 +1,27 @@
-# Interact with Contracts
+# 契約との対話
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Kairos using our newly created multisig wallet.
+このセクションでは、新しく作成したマルチシグウォレットを使って、Kairos上にデプロイされたシンプルなコントラクトとやり取りし、トランザクションを送信します。
 
-**Pre-requisites**
+**前提条件**
 
-- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask.mdx#send-klay)
+- [メタマスク](https://metamask.io/download/) & [カイアメタマスクコンフィグ](../../../tutorials/connecting-metamask.mdx#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+- [Faucet](https://faucet.kaia.io)からテスト用KAIAを入手。
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+**ステップ1:** [Remix](https://remix.ethereum.org/)に移動します。
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+**ステップ2：** サンプルの**storage contract**をコンパイルし、デプロイする。
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint "number" variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+マルチシグウォレットでコントラクトを使用する前に、まずコントラクトをデプロイする必要があります。 このサンプル・コントラクトには、**store** メソッドを呼び出すと更新され、**retrieve** メソッドを呼び出すと取得される、単純な uint "number" 変数が含まれています。
 
 ![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
 
-**Step 3:** Initiate a new transaction.
+\*\*ステップ3：\*\*新規取引を開始する。
 
-To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
+安全なウォレットでスマート・コントラクトとやり取りするには、\*\*"New Transaction "\*\*をクリックします。 このステップを完了するには、前のステップで説明したように、すでにデプロイされている契約アドレスとABIが必要です。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
 
-**Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+**ステップ4：** 取引を確認し、提出する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)

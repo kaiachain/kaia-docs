@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -92,18 +92,18 @@ public class SignTxWithMultiSigExample implements keySample {
 ---
 
 ```zsh output
-❯ java SignTxWithMultiSigExample.java
+java SignTxWithMultiSigExample.java
 TxHash :
  0x957734684be8f79a21cef4de1842709b84c92e3920d656165ddb951981987b5a
-Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
-Result address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+元アドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+結果アドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 ```
 
 </CH.Code>
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java SignTxWithMultiSigExample.java focus=1:19
 
@@ -111,7 +111,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Create a Web3j instance with the specified BAOBAB_URL
+指定されたBAOBAB_URLでWeb3jインスタンスを作成する
 
 ```java SignTxWithMultiSigExample.java focus=30
 
@@ -119,7 +119,7 @@ Create a Web3j instance with the specified BAOBAB_URL
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```java SignTxWithMultiSigExample.java focus=30
 package org.web3j.example.accountKey;
@@ -203,7 +203,7 @@ public class SignTxWithMultiSigExample implements keySample {
 
 ---
 
-Create 3 **multi-sig credentials** from theirs key pairs
+それぞれのキー・ペアから3つの**マルチシグ認証情報**を作成する。
 
 ```java SignTxWithMultiSigExample.java focus=31:36
 
@@ -211,7 +211,7 @@ Create 3 **multi-sig credentials** from theirs key pairs
 
 ---
 
-**Gas price** and **gas limit** settings
+**ガス料金**とガス上限\*\*の設定
 
 ```java SignTxWithMultiSigExample.java focus=38:39
 
@@ -219,7 +219,7 @@ Create 3 **multi-sig credentials** from theirs key pairs
 
 ---
 
-Set the **sender** address equal to the loaded credential's address
+**sender**アドレスをロードされたクレデンシャルのアドレスと等しく設定する。
 
 ```java SignTxWithMultiSigExample.java focus=40
 
@@ -227,7 +227,7 @@ Set the **sender** address equal to the loaded credential's address
 
 ---
 
-Get **chain ID** from the network
+ネットワークから**チェーンID**を取得する。
 
 ```java SignTxWithMultiSigExample.java focus=41:42
 
@@ -235,7 +235,7 @@ Get **chain ID** from the network
 
 ---
 
-Set the **receiver** address equal to any valid address
+レシーバー\*\*アドレスを任意の有効なアドレスに設定する。
 
 ```java SignTxWithMultiSigExample.java focus=43
 
@@ -243,7 +243,7 @@ Set the **receiver** address equal to any valid address
 
 ---
 
-Get the **nonce** for the sender's address
+送信者アドレスの**nonce**を取得する。
 
 ```java SignTxWithMultiSigExample.java focus=44:45
 
@@ -251,7 +251,7 @@ Get the **nonce** for the sender's address
 
 ---
 
-Set the **value** to transfer
+転送する\*\*値を設定する
 
 ```java SignTxWithMultiSigExample.java focus=46
 
@@ -259,7 +259,7 @@ Set the **value** to transfer
 
 ---
 
-Set transaction type as **VALUE_TRANSFER**
+トランザクション・タイプを **VALUE_TRANSFER** に設定する。
 
 ```java SignTxWithMultiSigExample.java focus=48
 
@@ -267,7 +267,7 @@ Set transaction type as **VALUE_TRANSFER**
 
 ---
 
-Create a raw transaction for value transfer
+価値移転のための生のトランザクションを作成する
 
 ```java SignTxWithMultiSigExample.java focus=50:57
 
@@ -275,7 +275,7 @@ Create a raw transaction for value transfer
 
 ---
 
-Sign the transaction in order with **3 credentials**
+**3つのクレデンシャル**を使って順番に取引に署名する。
 
 ```java SignTxWithMultiSigExample.java focus=59:61
 
@@ -283,7 +283,7 @@ Sign the transaction in order with **3 credentials**
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```java SignTxWithMultiSigExample.java focus=63:65
@@ -304,7 +304,7 @@ TxHash :
 
 ---
 
-Recover the **sender address** from signed transaction and compare it to the **from** address
+署名されたトランザクションから**送信者アドレス**を復元し、**送信元アドレス**と比較する。
 
 <CH.Code>
 ```java SignTxWithMultiSigExample.java focus=67:71
@@ -324,7 +324,7 @@ Result address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 
 ---
 
-Shut down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java SignTxWithMultiSigExample.java focus=73
 

@@ -1,4 +1,4 @@
-# Legacy Account Key
+# レガシー・アカウント・キー
 
 <CH.Spotlight>
 <CH.Code>
@@ -24,7 +24,7 @@ web3_legacy_value_transfer_sign_recover()
 ---
 
 ```zsh output
-❯ python web3_legacy_value_transfer_message_recover.py
+❯ web3_legacy_value_transfer_message_recover.py
 sender 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 ```
@@ -33,7 +33,7 @@ recovered 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
 
 ---
 
-Import necessary utils from **eth_utils** and **eth_account**
+**eth_utils**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_legacy_value_transfer_message_recover.py focus=1:3
 
@@ -41,7 +41,7 @@ Import necessary utils from **eth_utils** and **eth_account**
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_legacy_value_transfer_message_recover.py focus=4
 
@@ -49,7 +49,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Define a wallet from private key using **Account.from_key**
+秘密鍵からウォレットを定義するには、**Account.from_key**を使用します。
 
 ```py web3_legacy_value_transfer_message_recover.py focus=7
 
@@ -57,7 +57,7 @@ Define a wallet from private key using **Account.from_key**
 
 ---
 
-Define any message to sign
+署名するメッセージを定義する
 
 ```py web3_legacy_value_transfer_message_recover.py focus=8
 
@@ -65,7 +65,7 @@ Define any message to sign
 
 ---
 
-Format the message using **encode_defunct** to make it compatible with EIP-191 standard.
+EIP-191標準と互換性を持たせるために、**encode_defunct**を使ってメッセージをフォーマットする。
 
 ```py web3_legacy_value_transfer_message_recover.py focus=9
 
@@ -73,7 +73,7 @@ Format the message using **encode_defunct** to make it compatible with EIP-191 s
 
 ---
 
-Sign the transaction with the created account
+作成したアカウントで取引に署名する
 
 ```py web3_legacy_value_transfer_message_recover.py focus=10
 
@@ -81,7 +81,7 @@ Sign the transaction with the created account
 
 ---
 
-Recover sender address with **Account.recover_message** from signed message
+署名されたメッセージから**Account.recover_message**で送信者アドレスを復元する
 
 <CH.Code>
 ```py web3_legacy_value_transfer_message_recover.py focus=12:13

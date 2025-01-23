@@ -184,7 +184,7 @@ AccountKeyWeightedMultiSig와 연결된 계정에 대해 트랜잭션이 유효�
 
 :::note
 
-The following multiSig validation logic has been added with the [IstanbulEVM](docs/misc/klaytn-history.md#istanbul-evm) hardfork.
+이스탄불EVM](../misc/klaytn-history.md#istanbul-evm) 하드포크로 다음과 같은 멀티시그 유효성 검사 로직이 추가되었습니다.
 
 - 유효하지 않은 서명이 트랜잭션에 포함되어서는 안 됩니다.
 - The number of signed public keys should be less than the number of weightedPublicKeys.

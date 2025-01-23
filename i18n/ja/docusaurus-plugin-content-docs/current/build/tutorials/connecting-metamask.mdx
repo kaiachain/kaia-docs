@@ -1,59 +1,59 @@
 ---
 id: connecting-metamask
-title: Connecting MetaMask to Kaia
+title: メタマスクとカイアの接続
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Connect MetaMask to Kaia
+# メタマスクをカイアに接続
 
 ![](/img/banners/kaia-metamask.png)
 
-> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Kaia due to the identical address structures. Kaia also has a browser extension wallet called [Kaia Wallet](../tools/wallets/kaia-wallet.md), so it basically provides the same features as MetaMask, except for Remix.
+> **注**：MetaMaskは主にイーサリアム用のウォレットとして使用されていますが、アドレス構造が同一であるためカイアとも互換性があります。 Kaiaには[Kaia Wallet](../tools/wallets/kaia-wallet.md)というブラウザ拡張ウォレットもあり、Remixを除けば基本的にMetaMaskと同じ機能を提供している。
 
-## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask" />
+## ステップ1. Install MetaMask <a href="#install-metamask" id="install-metamask" />
 
-* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
-* Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
+* この例ではChromeブラウザーを使用します。 ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
+* Chromeに[**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)を追加する。
 
-  > **Note:** You may need additional installations if you are using another browser.
-* You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
+  > \*\*他のブラウザを使用している場合は、追加のインストールが必要な場合があります。
+* クロームブラウザの右上にあるアイコンをクリックすると、MetaMaskが起動します。
 
-## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask" />
+## ステップ2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask" />
 
 ![Create a Wallet](/img/build/tutorials/new-to-metamask.png)
 
-* Click on [Create a Wallet].
-* Set a password.
-* You will be given a 12 word seed phrase; back it up somewhere secure.
+* ウォレットの作成]をクリックします。
+* パスワードを設定する。
+* 12語のシードフレーズが与えられるので、それを安全な場所にバックアップしてください。
 
-  > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
+  > \*\*注：\*\*シードフレーズでのみウォレットを復元できます。 シード・フレーズを他人と共有すると、資金をすべて失う可能性があります。 そのため、手動で書き留めるか、オフライン機器に保存することをお勧めする。
 
 ![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
 
-## Step 3. Connect to Kaia Network <a href="#connect-to-kaia-network" id="connect-to-kaia-network" />
+## ステップ3. Connect to Kaia Network <a href="#connect-to-kaia-network" id="connect-to-kaia-network" />
 
-### A. Quick Configuration
+### A. クイック設定
 
 <Tabs>
-  <TabItem value="kaia-mainnet" label="Kaia Mainnet">Use <a href="https://chainlist.org/chain/8217">ChainList</a> for a one-click configuration and follow the instructions.</TabItem>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">ワンクリックで設定できる<a href="https://chainlist.org/chain/8217">ChainListを</a>使い、指示に従ってください。</TabItem>
 
   <TabItem value="kairos-testnet" label="Kairos Testnet">Use <a href="https://chainlist.org/chain/1001">ChainList</a> for a one-click configuration and follow the instructions.</TabItem>
 </Tabs>
 
-### B. Manual Configuration
+### B. マニュアル設定
 
-1. Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select [Add network].
+1. デフォルトでEthereum Mainnetになっている上部の[Networks]タブをクリックし、[Add network]を選択します。
 
 ![Add Network](/img/build/tutorials/mm-network-btn.png)
 
-2. Enter the following Kaia network details in the **Add a network manually** page and click **Save**
+2. **Add a network manually**ページに以下のKaiaネットワークの詳細を入力し、**Save**をクリックします。
 
 <Tabs>
-  <TabItem value="kaia-mainnet" label="Kaia Mainnet">
+  <TabItem value="カイアメインネット" label="カイア・メインネット">
     ```jsx title="Network Name "
-    Kaia Mainnet
+    カイア・メインネット
     ```
 
     ```jsx title="New RPC URL "
@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
     ```
   </TabItem>
 
-  <TabItem value="kairos-testnet" label="Kairos Testnet">
+  <TabItem value="カイロステストネット" label="Kairos Testnet">
     ```jsx title="Network Name "
     Kairos Testnet
     ```
@@ -96,19 +96,19 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-## Step 4. Send KAIA <a href="#send-klay" id="send-klay" />
+## ステップ4. Send KAIA <a href="#send-klay" id="send-klay" />
 
-**Note:** The following steps require KAIA. For this guide, we will be using Kairos Testnet. You can obtain Test KAIA in [**Kaia Faucet**](https://faucet.kaia.io).
+\*\*注：\*\*以下のステップはKAIAが必要です。 このガイドでは、Kairos Testnetを使用します。 テストKAIAは[**Kaia Faucet**](https://faucet.kaia.io)で入手できる。
 
-* Click [Send] on the main page and enter the recipient address and the amount of KAIA.
+* メインページの[送信]をクリックし、受取人の住所とKAIAの金額を入力します。
 
 ![Send KAIA 1](/img/build/tutorials/kairos-metamask-send.png)
 
-**NOTE:** Sending KAIA is a payment transaction, for which you need KAIA.
+**注意：** KAIA の送信は、KAIA が必要な支払い取引です。
 
-* Since Kaia v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
-* So you don't have to set the fixed gas fee manually.
-* Check the amount to send and the transaction fee and click [Confirm] to complete the KAIA transfer, after which you will be redirected to the main page.
-* Click [Activity] on the main page to confirm the transaction history.
+* カイアv1.9.0以降、従来の固定価格ポリシーに代わって[ダイナミック・ガス料金メカニズム](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689)が採用された。
+* そのため、固定ガス料金を手動で設定する必要はない。
+* 送金額と送金手数料を確認し、[Confirm]をクリックしてKAIA送金を完了させてください。
+* メインページの[Activity]をクリックし、取引履歴を確認します。
 
 ![Send KAIA 2](/img/build/tutorials/kairos-metamask-send-ii.png)

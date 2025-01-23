@@ -1,8 +1,8 @@
 # Indexers
 
-Blockchain indexers are tools used in the context of blockchain technology to improve the efficiency and speed of searching, querying, and accessing data stored on a blockchain. They create and maintain organized databases of the blockchain's data, allowing users to quickly retrieve information without needing to process the entire blockchain from scratch.
+ブロックチェーンインデクサーは、ブロックチェーン技術の文脈で使用されるツールで、ブロックチェーン上に保存されたデータの検索、クエリ、アクセスの効率と速度を向上させる。 ブロックチェーンのデータを整理したデータベースを作成・管理することで、ユーザーはブロックチェーン全体をゼロから処理することなく、素早く情報を取り出すことができる。
 
-The following providers have integrated with Klaytn to deliver blockchain indexing services:
+以下のプロバイダーがKaiaと統合し、ブロックチェーンインデキシングサービスを提供しています：
 
-- [The Graph](https://thegraph.com/)
+- [グラフ](https://thegraph.com/)
 - [SubQuery Network](https://academy.subquery.network/)

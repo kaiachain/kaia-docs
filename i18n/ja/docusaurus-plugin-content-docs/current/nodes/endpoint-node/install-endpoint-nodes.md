@@ -1,16 +1,16 @@
-# Install Endpoint Nodes
+# エンドポイントノードのインストール
 
-## Download <a id="download"></a>
+## ダウンロード<a id="download"></a>
 
-You can download the latest version of the EN on [Download](../downloads/downloads.md) page.
+ダウンロード](../downloads/downloads.md)ページから最新版のENをダウンロードできます。
 
-## Installation
+## インストール
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linuxアーカイブ・ディストリビューション<a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -20,133 +20,133 @@ The archive file consists of the executable binary and the configuration file st
   |- kend.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/ken                        | EN executable file               |
-| bin/kend                       | EN start/termination script file |
-| conf/kend.conf | EN configuration file            |
+| ファイル名                          | ファイルの説明           |
+| :----------------------------- | :---------------- |
+| bin/ken                        | EN実行ファイル          |
+| bin/kend                       | EN 開始/終了スクリプトファイル |
+| conf/kend.conf | EN設定ファイル          |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+インストールとは、ダウンロードしたパッケージをインストールしたい場所に解凍することである。
 
 ```text
 $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+あるいは
 
 ```text
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `ken-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `ken` and `kend` globally. As an example,
+**注**: `ken` と `kend` をグローバルに実行するには、解凍されたディレクトリ `ken-linux-amd64/bin` のパスを環境変数 `$PATH` に追加することを推奨します。 一例を挙げよう、
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+他のセクションは、変数にパスが追加されていることを前提としている。
 
 ### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+ダウンロードしたRPMファイルは、以下の`yum`コマンドでインストールできる。
 
 ```text
 $ yum install kend-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+あるいは
 
 ```text
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum Repoからインストールする<a id="install-from-kaia-yum-repo"></a>
 
-Alternatively, you can install `kend` from the Klaytn Yum repo, run:
+あるいは、Kaia Yum repoから`kend`をインストールして実行することもできる：
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
+sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 設置場所<a id="installed-location"></a>
 
-The installed files are located as follows.
+インストールされるファイルは以下の通り。
 
-| File Name                 | Location                                 |
+| ファイル名                     | 所在地                                      |
 | :------------------------ | :--------------------------------------- |
 | ken                       | /usr/bin/ken                             |
 | kend.conf | /etc/kend/conf/kend.conf |
 
-## Configuration <a id="configuration"></a>
+## 構成<a id="configuration"></a>
 
-The EN configuration is to create a data directory and to set up the environment variables on the configuration file `kend.conf`.
+EN の設定は、データ・ディレクトリを作成し、設定ファイル `kend.conf` で環境変数を設定することである。
 
-1. Create the EN data directory.
-2. Configure the EN with `kend.conf`.
+1. EN データ・ディレクトリを作成する。
+2. kend.conf\`でENを設定する。
 
-### EN Data Directory Creation <a id="en-data-directory-creation"></a>
+### ENデータディレクトリの作成<a id="en-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage. You need to create the directory on your desired path.
+カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要がある。
 
 ```text
 $ sudo mkdir -p /var/kend/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 設定ファイルの更新<a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+設定ファイルの場所
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+- アーカイブ・ディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/ken-linux-amd64/conf/` です。
+- パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kend/conf/` です。
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### データディレクトリの追加 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
+設定ファイル `kend.conf` のデータディレクトリ環境変数 `$DATA_DIR` を更新する必要がある。
 
 ```text
 DATA_DIR=/var/kend/data
 ```
 
-### (Optional) Download Chaindata Snapshot
+### (オプション）Chaindata Snapshotのダウンロード
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process.
+ジェネシス・ブロックからの同期には時間がかかる。 Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) を使用して、[Full Sync](../../learn/storage/block-sync.md#full-sync) プロセスをスキップすることができます。
 
-## Startup the EN <a id="startup-the-en"></a>
+## EN の起動<a id="startup-the-en"></a>
 
-You can start or stop the Endpoint Node using the following commands.
+以下のコマンドを使用して、エンドポイントノードを起動または停止できます。
 
-**start**
+**スタート**
 
 ```bash
 $ kend start
 Starting kend: OK
 ```
 
-**stop**
+**ストップ**
 
 ```bash
 $ kend stop
 Shutting down kend: Killed
 ```
 
-**status**
+**ステータス**
 
 ```bash
 $ kend status
 kend is running
 ```
 
-## Testing the Installation <a id="testing-the-installation"></a>
+## インストールのテスト<a id="testing-the-installation"></a>
 
-It is time to check that Endpoint Node is successfully installed and it is working as expected after installation.
+Endpoint Nodeが正常にインストールされ、インストール後に期待通りに動作していることを確認します。
 
-### Process Status <a id="process-status"></a>
+### プロセス状況<a id="process-status"></a>
 
-It is possible to check the status of EN's process using the status commands `systemctl` and `kend`.
+ステータスコマンド `systemctl` と `kend` を使って、EN のプロセスのステータスをチェックすることができる。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of EN can be checked as follows.
+`systemctl`はRPMと一緒にインストールされ、以下のようにしてEN状態を確認することができる。
 
 ```bash
 $ systemctl status kend.service
@@ -164,22 +164,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kend[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+上の例では、`Active: active (running)` のように現在のステータスを確認することができる。
 
 #### kend <a id="kend"></a>
 
-`kend` is installed along with the package, and the status of EN can be checked as follows.
+`kend` はパッケージと一緒にインストールされ、EN の状態は以下のように確認できる。
 
 ```bash
 $ kend status
-kend is running
+kend は実行中です。
 ```
 
-### Logs <a id="logs"></a>
+### 過去ログ<a id="logs"></a>
 
-The log is stored in `kend.out` file located in the path defined in the `LOG_DIR` field of the `kend.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+ログは `kend.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kend.out` ファイルに保存される。 ノードが正常に動作すると、各ブロックが以下のように1秒ごとにインポートされるのがわかる。
 
-Example:
+例
 
 ```bash
 $ tail kend.out
@@ -195,34 +195,34 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work      
 ```
 
-### Queries <a id="queries"></a>
+### クエリ<a id="queries"></a>
 
-#### ken console <a id="ken-console"></a>
+#### けんコンソール<a id="ken-console"></a>
 
-Klaytn provides a CLI client: `ken console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
+KaiaはCLIクライアント`ken console`を提供している。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は EN の `DATA_DIR` パスにある。
 
-Please execute the following command and check out the result.
+以下のコマンドを実行し、結果を確認してください。
 
 ```text
 $ ken attach --datadir /var/kend/data
-Welcome to the Kaia JavaScript console!
+カイアJavaScriptコンソールへようこそ！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
- datadir: /var/kend/data
+インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ datadir：/var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
+使用可能なコマンドは[APIドキュメント](../../../references/json-rpc/klay/account-created)で確認できます。
 
-The useful APIs to check the status of EN:
+EN の状態をチェックするのに便利な API：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- `net.peerCount` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+最新のブロック番号を取得し、ブロックが正しく伝播されているかどうかを確認することができる。
 
 ```text
 > klay.blockNumber
@@ -236,4 +236,4 @@ You can get the latest block number to see if blocks are propagated properly.
 14
 ```
 
-The above command line returns the number of nodes that the EN connects to.
+上記のコマンドラインは、ENが接続するノードの数を返す。

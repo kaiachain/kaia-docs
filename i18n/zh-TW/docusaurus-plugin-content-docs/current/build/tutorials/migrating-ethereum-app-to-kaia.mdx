@@ -1,0 +1,191 @@
+---
+id: migrating-ethereum-app-to-kaia
+title: 將以太坊應用程序遷移到 Kaia
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## 目錄<a href="#table-of-contents" id="table-of-contents" />
+
+* [1. 導言](#1-introduction)
+* [2. 先決條件](#2-prerequisites)
+* [3. Kaia 與以太坊兼容](#2-kaia-has-ethereum-compatibility)
+* [4. 遷移應用程序](#4-migrate-app)
+
+## 1. 導言<a href="#1-introduction" id="1-introduction" />
+
+本教程旨在指導如何將以太坊應用程序遷移到 Kaia。 無需任何 Kaia 經驗。 我們將只關注將以太坊應用程序遷移到 Kaia 所需的代碼修改。
+
+## 2. 先決條件<a href="#2-prerequisites" id="2-prerequisites" />
+
+* 熟悉支持 EVM 的開發工具和標準。
+* 構建 dApp 的基本知識。
+
+## 3. Kaia 與以太坊兼容<a href="#2-kaia-has-ethereum-compatibility" id="2-kaia-has-ethereum-compatibility" />
+
+Kaia 運行時環境與以太坊虛擬機兼容，可執行用 Solidity 編寫的智能合約。 Kaia 的 RPC API 和其他客戶端庫與以太坊的 API 規範幾乎完全相同。 因此，將以太坊應用程序遷移到 Kaia 非常簡單。 這有助於開發人員輕鬆遷移到新的區塊鏈平臺。
+
+## 4. 遷移應用程序<a href="#2-migrate-app" id="2-nigrate-app" />
+
+按照以下步驟將您的以太坊應用程序遷移到 Kaia：
+
+1. 配置您的合同工具和 SDK，以 Kaia Network - Kairos Testnet 為目標：
+   * RPC 端點： `https://public-en-kairos.node.kaia.io`
+   * WebSocket 端點（可選）：wss://public-en-kairos.node.kaia.io/ws\`。
+   * 連鎖編號：1001
+
+2. 使用 [Kaia 錢包](https://www.kaiawallet.io/) 創建賬戶，並從 [Faucet](https://faucet.kaia.io) 獲取一些測試資金。
+
+3. 部署您的合同
+
+<Tabs>
+  <TabItem value="硬帽" label="硬禮帽">
+    ```js
+    // using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
+    networks: {
+    	kaia: {
+    	  url: "https://public-en.node.kaia.io",
+    		accounts:[process.env.PRIVATE_KEY],
+      },
+    	kairos_testnet: {
+    		url: "https://public-en-kairos.node.kaia.io", 
+    		accounts:[process.env.PRIVATE_KEY],
+    	}
+    }
+
+    // Then run the command to deploy :
+    // npx hardhat run scripts/deploy.js --network kaia
+    // npx hardhat run scripts/deploy.js --network kairos_testnet
+
+    ```
+  </TabItem>
+
+  <TabItem value="鑄造廠" label="鑄造廠">
+    ```js
+    forge create --rpc-url<rpc_url> --private-key<private_key> <path_to_contract> 
+    ```
+  </TabItem>
+</Tabs>
+
+4. 使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) 與合同互動。 您可以隨意使用其他工具包，如 [viem](../../references/sdk/viem/viem.md) 或 [web3.py](../../references/sdk/web3py-ext/getting-started.md) 。
+
+   **A. 讀取區塊鏈數據**
+
+   **街區編號**
+
+   只需用 Kaia 的 RPC 端點替換 web3 庫，就可以即時同步 Kaia 的 BlockNumber，而不是以太坊的 BlockNumber。
+
+   ```js
+     const { JsonRpcProvider } = require("@kaiachain/ethers-ext/v6");
+
+     // const SEPOLIA_TESTNET_RPC_URL = 'https://ethereum-sepolia-rpc.publicnode.com'
+     const KAIROS_TESTNET_RPC_URL = 'https://public-en-kairos.node.kaia.io/'
+     const provider = new JsonRpcProvider(KAIROS_TESTNET_RPC_URL);
+
+     async function getKaiaBlockNumber() {
+       // Get the current block number
+       const blockNumber = await provider.getBlockNumber();
+       console.log("Current Kaia block number:", blockNumber);
+
+     }
+
+   getKaiaBlockNumber()
+
+   ```
+
+   **合同數據**
+
+   ```js
+     const ethers = require("ethers");
+
+     const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+     /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+     // SPDX-License-Identifier: UNLICENSED
+     pragma solidity ^0.8.13;
+
+     contract Counter {
+         uint256 public number;
+         event SetNumber(uint256 number);
+
+         constructor(uint256 initNumber) {
+             number = initNumber;
+         }
+
+         function setNumber(uint256 newNumber) public {
+             number = newNumber;
+             emit SetNumber(number);
+         }
+
+         function increment() public {
+             number++;
+             emit SetNumber(number);
+         }
+     }
+     */
+     const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+     const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+     async function main() {
+       const counter = new ethers.Contract(contractAddr, abi, provider);
+       const number = await counter.number();
+       console.log("number", number.toString());
+     }
+
+     main();
+   ```
+
+   **B. 寫入區塊鏈**
+
+   ```js
+   const ethers = require("ethers");
+   const { Wallet } = require("@kaiachain/ethers-ext/v6");
+
+   const senderAddr = "REPLACE WITH SENDER ADDRESS";
+   const senderPriv = process.env.PRIVATE_KEY;
+
+   const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+   const wallet = new Wallet(senderPriv, provider);
+
+   /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+   // SPDX-License-Identifier: UNLICENSED
+   pragma solidity ^0.8.13;
+
+   contract Counter {
+       uint256 public number;
+       event SetNumber(uint256 number);
+
+       constructor(uint256 initNumber) {
+           number = initNumber;
+       }
+
+       function setNumber(uint256 newNumber) public {
+           number = newNumber;
+           emit SetNumber(number);
+       }
+
+       function increment() public {
+           number++;
+           emit SetNumber(number);
+       }
+   }
+   */
+   const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+   const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+   async function main() {
+     const counter = new ethers.Contract(contractAddr, abi, wallet);
+
+     console.log("number before", (await counter.number()).toString());
+
+     const sentTx = await counter.increment();
+     const receipt = await sentTx.wait();
+     console.log("receipt", receipt);
+
+     console.log("number after", (await counter.number()).toString());
+   }
+
+   main();
+
+   ```

@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -143,7 +143,7 @@ TxType : FEE_DELEGATED_SMART_CONTRACT_EXECUTION
 
 ---
 
-Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
+Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポートする。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=1:20
 
@@ -151,7 +151,7 @@ Import necessary classes from the Web3j and kaia libraries(`web3j-ext`).
 
 ---
 
-Connect to the kaia blockchain using Web3j and specify the URL
+Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=31
 
@@ -159,7 +159,7 @@ Connect to the kaia blockchain using Web3j and specify the URL
 
 ---
 
-Creating **sender** and **fee payer** credentials using private keys.
+秘密鍵を使用して、**sender**および**fee payer**のクレデンシャルを作成する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=32:33
 
@@ -167,7 +167,7 @@ Creating **sender** and **fee payer** credentials using private keys.
 
 ---
 
-Define gas price and gas limit for the transaction
+取引に必要なガス価格とガスの上限を設定する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=35:36
 
@@ -175,7 +175,7 @@ Define gas price and gas limit for the transaction
 
 ---
 
-Get the sender's address from `credentials.getAddress()`
+credentials.getAddress()\`から送信者のアドレスを取得する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=37
 
@@ -183,7 +183,7 @@ Get the sender's address from `credentials.getAddress()`
 
 ---
 
-Getting the **nonce** for the sender's address
+送信者アドレスの**nonce**取得
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=38:39
 
@@ -191,7 +191,7 @@ Getting the **nonce** for the sender's address
 
 ---
 
-Define smart contract data
+スマート・コントラクトのデータを定義する
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=40
 
@@ -199,7 +199,7 @@ Define smart contract data
 
 ---
 
-Get the chain ID from the **Kaia** network
+**Kaia**ネットワークからチェーンIDを取得する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=41:42
 
@@ -207,7 +207,7 @@ Get the chain ID from the **Kaia** network
 
 ---
 
-Initialize variables for transaction parameters
+トランザクション・パラメータ用の変数を初期化する
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=43:48
 
@@ -215,7 +215,7 @@ Initialize variables for transaction parameters
 
 ---
 
-Create a raw transaction
+生のトランザクションを作成する
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=50:58
 
@@ -223,7 +223,7 @@ Create a raw transaction
 
 ---
 
-Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`.
+`KlayTransactionEncoder.signMessage` を使用して、**sender** としてトランザクションに署名する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=60:61
 
@@ -231,7 +231,7 @@ Signing the transaction as **sender** using `KlayTransactionEncoder.signMessage`
 
 ---
 
-Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAsFeePayer`.
+`KlayTransactionEncoder.signMessageAsFeePayer` を使用して、トランザクションを料金支払者として署名する。
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=63:64
 
@@ -239,7 +239,7 @@ Signing the transaction as fee payer using `KlayTransactionEncoder.signMessageAs
 
 ---
 
-Sending the signed transaction to kaia network
+署名されたトランザクションをkaiaネットワークに送信する
 
 <CH.Code>
 ```java FeeDelegatedSmartContractExecutionExample.java focus=66:69
@@ -259,7 +259,7 @@ TxHash :
 
 ---
 
-Getting the transaction receipt
+取引レシートの取得
 
 <CH.Code>
 ```java FeeDelegatedSmartContractExecutionExample.java focus=70:79
@@ -312,7 +312,7 @@ class TransactionReceipt {
 
 ---
 
-Shutting down the Web3j instance
+Web3jインスタンスをシャットダウンする
 
 ```java FeeDelegatedSmartContractExecutionExample.java focus=80
 
@@ -320,7 +320,7 @@ Shutting down the Web3j instance
 
 ---
 
-Decoding the raw transaction to get the transaction type
+生のトランザクションをデコードしてトランザクションタイプを取得する。
 
 <CH.Code>
 ```java FeeDelegatedSmartContractExecutionExample.java focus=82:84

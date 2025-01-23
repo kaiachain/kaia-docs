@@ -101,7 +101,7 @@ const signature = new caver.wallet.keyring.signatureData(['0x1b', '0x2dfc6...', 
 | r  | String | ECDSA 签名 r. |
 | s  | String | ECDSA 签名                    |
 
-## caver.wallet.keyring.generate<a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
+## caver.wallet.keyring.generate <a href="#caver-wallet-keyring-generate" id="caver-wallet-keyring-generate"></a>
 
 ```javascript
 caver.wallet.keyring.generate([entropy])
@@ -131,7 +131,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.generateSingleKey<a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
+## caver.wallet.keyring.generateSingleKey <a href="#caver-wallet-keyring-generatesinglekey" id="caver-wallet-keyring-generatesinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.generateSingleKey([entropy])
@@ -190,7 +190,7 @@ caver.wallet.keyring.generateMultipleKeys(num [, entropy])
 ]
 ```
 
-## caver.wallet.keyring.generateRoleBasedKeys<a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
+## caver.wallet.keyring.generateRoleBasedKeys <a href="#caver-wallet-keyring-generaterolebasedkeys" id="caver-wallet-keyring-generaterolebasedkeys"></a>
 
 ```javascript
 caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
@@ -231,7 +231,7 @@ caver.wallet.keyring.generateRoleBasedKeys(numArray [, entropy])
 ]
 ```
 
-## caver.wallet.keyring.create<a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
+## caver.wallet.keyring.create <a href="#caver-wallet-keyring-create" id="caver-wallet-keyring-create"></a>
 
 ```javascript
 caver.wallet.keyring.create(address, key)
@@ -300,7 +300,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromPrivateKey<a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
+## caver.wallet.keyring.createFromPrivateKey <a href="#caver-wallet-keyring-createfromprivatekey" id="caver-wallet-keyring-createfromprivatekey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromPrivateKey(key)
@@ -338,7 +338,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createFromKlaytnWalletKey<a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
+## caver.wallet.keyring.createFromKlaytnWalletKey <a href="#caver-wallet-keyring-createfromklaytnwalletkey" id="caver-wallet-keyring-createfromklaytnwalletkey"></a>
 
 ```javascript
 caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
@@ -348,9 +348,9 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 
 **参数**
 
-| 名称              | 类型     | 描述                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| klaytnWalletKey | string | KlaytnWalletKey]（.../.../.../.../.../learn/accounts.md#klaytn-wallet-key-format）字符串。 |
+| 名称              | 类型     | 描述                                                                                                       |
+| --------------- | ------ | -------------------------------------------------------------------------------------------------------- |
+| klaytnWalletKey | string | The [KlaytnWalletKey](../../../../../learn/accounts.md#klaytn-wallet-key-format) string. |
 
 **返回价值**
 
@@ -361,14 +361,14 @@ caver.wallet.keyring.createFromKlaytnWalletKey(klaytnWalletKey)
 **示例**
 
 ```javascript
->caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
+> caver.wallet.keyring.createFromKlaytnWalletKey('0x{private key}0x{type}0x{address in hex}')
 SingleKeyring {
     _address: '0xaa7b43f2eab01cfd787b07ce2f2fb5d6d20a8aa0',
     _key: PrivateKey { _privateKey: '0x{private key}' }
 }
 ```
 
-## caver.wallet.keyring.createWithSingleKey<a href="#caver-wallet-keyring-createwithsinglekey" id="caver-wallet-keyring-createwithsinglekey"></a>
+## caver.wallet.keyring.createWithSingleKey <a href="#caver-wallet-keyring-createwithsinglekey" id="caver-wallet-keyring-createwithsinglekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithSingleKey(address, key)
@@ -399,7 +399,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithMultipleKey<a href="#caver-wallet-keyring-createwithmultiplekey" id="caver-wallet-keyring-createwithmultiplekey"></a>
+## caver.wallet.keyring.createWithMultipleKey <a href="#caver-wallet-keyring-createwithmultiplekey" id="caver-wallet-keyring-createwithmultiplekey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithMultipleKey(address, key)
@@ -433,7 +433,7 @@ MultipleKeyring {
 }
 ```
 
-## caver.wallet.keyring.createWithRoleBasedKey<a href="#caver-wallet-keyring-createwithrolebasedkey" id="caver-wallet-keyring-createwithrolebasedkey"></a>
+## caver.wallet.keyring.createWithRoleBasedKey <a href="#caver-wallet-keyring-createwithrolebasedkey" id="caver-wallet-keyring-createwithrolebasedkey"></a>
 
 ```javascript
 caver.wallet.keyring.createWithRoleBasedKey(address, roledBasedKeyArray)
@@ -482,7 +482,7 @@ RoleBasedKeyring {
 }
 ```
 
-## caver.wallet.keyring.decrypt<a href="#caver-wallet-keyring-decrypt" id="caver-wallet-keyring-decrypt"></a>
+## caver.wallet.keyring.decrypt <a href="#caver-wallet-keyring-decrypt" id="caver-wallet-keyring-decrypt"></a>
 
 ```javascript
 caver.wallet.keyring.decrypt(keystore, password)
@@ -909,7 +909,7 @@ keyring.signMessage(message, role [, index])
 用 kaia 专用前缀签署信息。 这样就能计算出 kaia 特有的签名：
 
 ```
-sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
+sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
 如果用户未定义 "索引"，则 "keyring.signMessage "会使用角色使用的所有私钥签署交易。 如果给定了索引参数，`keyring.signMessage` 将只使用给定索引上的一个私钥来签署信息。 在 caver-js 中使用的角色可以通过 `caver.wallet.keyring.role`找到。
@@ -1035,7 +1035,7 @@ PrivateKey { _privateKey: '0x{private key}' }
 ]
 ```
 
-## keyring.getKlaytnWalletKey<a href="#keyring-getklaytnwalletkey" id="keyring-getklaytnwalletkey"></a>
+## keyring.getKlaytnWalletKey <a href="#keyring-getklaytnwalletkey" id="keyring-getklaytnwalletkey"></a>
 
 ```javascript
 keyring.getKlaytnWalletKey()

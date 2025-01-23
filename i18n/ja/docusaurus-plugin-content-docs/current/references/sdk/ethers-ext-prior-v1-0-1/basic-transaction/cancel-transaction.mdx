@@ -1,6 +1,6 @@
-# Cancel
+# キャンセル
 
-**TxTypeCancel** cancels the execution of the transaction with the same nonce in the transaction pool. This transaction type is useful when a submitted transaction seems unprocessed for a certain amount of time.
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
 
 <CH.Spotlight>
   <CH.Code>
@@ -58,28 +58,28 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxCancelType.js focus=1:2
   ```
 
   ---
 
-  Define **sender address and sender private key**
+  **送信者アドレスと送信者秘密鍵**の定義
 
   ```js TxCancelType.js focus=4:5
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxCancelType.js focus=7
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxCancelType.js focus=7
   const ethers = require("ethers");
@@ -109,21 +109,21 @@
 
   ---
 
-  Create a sender's wallet with the private key and the provider
+  秘密鍵とプロバイダーを使って送信者のウォレットを作成する。
 
   ```js TxCancelType.js focus=8
   ```
 
   ---
 
-  Declare a transaction with the **from** field as **sender address** and the **type** field as **TxType.Cancel**.
+  **from**フィールドを**sender address**とし、**type**フィールドを**TxType.Cancel** とするトランザクションを宣言する。
 
   ```js TxCancelType.js focus=11:14
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxCancelType.js focus=16:17
@@ -138,7 +138,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js TxCancelType.js focus=19:20

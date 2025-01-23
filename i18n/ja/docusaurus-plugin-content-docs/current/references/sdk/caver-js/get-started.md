@@ -1,54 +1,54 @@
-# Getting Started
+# はじめに
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
+このドキュメントは、caver-js v1.5.0以上を使用している開発者向けです。 旧バージョンをお使いの場合は、[はじめに(◆v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md)をご参照ください。
 
-## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## 前提条件<a href="#prerequisites" id="prerequisites"></a>
 
-### Dependencies <a href="#dependencies" id="dependencies"></a>
+### 依存関係<a href="#dependencies" id="dependencies"></a>
 
-The following packages are required to use the caver-js library.
+caver-jsライブラリを使用するには、以下のパッケージが必要です。
 
 - [Node.js](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
 - [gcc-c++](https://gcc.gnu.org/)
-- [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-**Note** caver-js can run on Node.js versions 12 and 14. The recommended versions are as follows:
+**注意** caver-jsはNode.jsのバージョン12と14で動作します。 推奨バージョンは以下の通り：
 
-- lts/erbium ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
-- lts/fermium ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- LTS/エルビウム ([12.21.0](https://nodejs.org/dist/latest-v12.x/))
+- LTS/フェルミウム ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 
-If you use a different version of the Node (for example, Node v15), utilize the Node Version Manager([nvm](https://github.com/nvm-sh/nvm)) to install and use the version supported by caver-js.
+異なるバージョンのNode（例えば、Node v15）を使用している場合は、Node Version Manager([nvm](https://github.com/nvm-sh/nvm))を利用して、caver-jsでサポートされているバージョンをインストールして使用してください。
 
-### Installation <a href="#installation" id="installation"></a>
+### インストール<a href="#installation" id="installation"></a>
 
-To try it out, install caver-js with npm using the following command:
-
-```
-$ npm install caver-js
-```
-
-**Note**: `package.json` file should exist on the same install path. If it does not exist, `package.json` can be generated via `npm init`.
-
-To install a specific version of caver-js, try the following command:
+試すには、以下のコマンドを使ってnpmでcaver-jsをインストールする：
 
 ```
-$ npm install caver-js@X.X.X
+npm install caver-js
 ```
 
-## Starting with caver-js <a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
+**注意**：package.json`ファイルは同じインストールパスに存在する必要があります。 存在しない場合は、`npm init`で `package.json\` を生成することができる。
 
-Once you have finished installing caver-js, you can now connect to a kaia Node using caver-js.
+特定のバージョンのcaver-jsをインストールするには、以下のコマンドを試す：
 
-To practice the examples below, first create a test file in the working directory.
+```
+npm install caver-js@X.X.X
+```
+
+## caver-jsで始める<a href="#starting-with-caver-js" id="starting-with-caver-js"></a>
+
+caver-jsのインストールが完了したら、caver-jsを使ってkaiaノードに接続します。
+
+以下の例を実践するには、まず作業ディレクトリにテスト・ファイルを作成する。
 
 ```bash
-$ touch test.js
+touch test.js
 ```
 
-You can see the `test.js` file created in the working directory.
+作業ディレクトリに`test.js`ファイルが作成されているのが見えるだろう。
 
-Write the following code in test.js.
+test.jsに以下のコードを書く。
 
 ```javascript
 // test.js
@@ -63,48 +63,48 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 kaia/v1.4.0/linux-amd64/go1.14.1
 ```
 
-If you see the output of console.log like above, proceed with the steps below. The version number can be different according to the version of the connected kaia node.
+上記のようなconsole.logの出力が表示されたら、以下のステップに進んでください。 バージョン番号は、接続されているkaiaノードのバージョンによって異なる場合があります。
 
-### Connecting to a kaia Node <a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
+### kaiaノードへの接続<a href="#connecting-to-a-klaytn-node" id="connecting-to-a-klaytn-node"></a>
 
-You can import the caver-js module and connect it to a kaia Node in the Kairos testnet as shown in the example below:
+以下の例のように、caver-jsモジュールをインポートし、Kairosテストネットのkaiaノードに接続することができます：
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
-If you are running an EN, you can connect it to your own node by changing the host and port like below:
+ENを使用している場合は、以下のようにホストとポートを変更することで、自分のノードに接続することができます：
 
 ```javascript
 const Caver = require('caver-js')
 const caver = new Caver('https://your.en.url:8651/')
 ```
 
-## Managing Keyrings <a href="#managing-keyrings" id="managing-keyrings"></a>
+## キーホルダーの管理<a href="#managing-keyrings" id="managing-keyrings"></a>
 
-[Keyring](api/caver-wallet/keyring.md) is a structure that contains the address of the kaia account and the private key(s).
+[Keyring](api/caver-wallet/keyring.md) は、kaiaアカウントのアドレスと秘密鍵を含む構造体である。
 
-[Keyring](api/caver-wallet/keyring.md) can be classified into three types depending on the type of key being stored: [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) to store one address and one private key, [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) to store one address and multiple private keys, and [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) to store one address and one or more private keys for each role.
+[Keyring](api/caver-wallet/keyring.md) は、保管する鍵の種類によって3種類に分類される：[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) は1つのアドレスと1つの秘密鍵を保管するタイプ、[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) は1つのアドレスと複数の秘密鍵を保管するタイプ、[RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) はロールごとに1つのアドレスと1つ以上の秘密鍵を保管するタイプである。
 
-[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) defines `key` property inside, and this `key` store one private key.
+[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) は内部に `key` プロパティを定義し、この `key` は1つの秘密鍵を格納する。
 
-[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) defines `keys` property inside, and this `keys` is implemented as an array to store multiple private keys.
+[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) は内部で `keys` プロパティを定義しており、この `keys` は複数の秘密鍵を格納するための配列として実装されている。
 
-The `keys` property defined in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) is implemented as a two-dimensional array (empty `keys` will look like `[ [], [], [] ]`) that can include multiple keys for each [role](../../../learn/accounts.md#roles). The first element of the array is filled with the private key(s) to be used for `roleTransactionKey`, the second element the private key(s) to be used for `roleAccountUpdateKey`, and the third element the private key(s) to be used for `roleFeePayerKey`.
+[RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) で定義されている `keys` プロパティは2次元配列として実装されており、各[role](../../../learn/accounts.md#roles) に対して複数のキーを含めることができます（空の `keys` は `[ [], [], [] ]` のようになります）。 配列の最初の要素には `roleTransactionKey` に使用する秘密鍵、2 番目の要素には `roleAccountUpdateKey` に使用する秘密鍵、3 番目の要素には `roleFeePayerKey` に使用する秘密鍵が格納される。
 
-### Creating a Keyring <a href="#creating-a-keyring" id="creating-a-keyring"></a>
+### キーホルダーの作成<a href="#creating-a-keyring" id="creating-a-keyring"></a>
 
-#### Generating a SingleKeyring <a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
+#### シングルキーリングの生成<a href="#generating-a-singlekeyring" id="generating-a-singlekeyring"></a>
 
-You can randomly generate a single keyring as shown below.
+以下のように、1つのキーホルダーをランダムに生成することができます。
 
 ```javascript
 // test.js
@@ -119,21 +119,21 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 SingleKeyring {
-	_address: '0x3d263c3c0df60c5516f932d244531742f45eed5c',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+	_address：'0x3d263c3c0df60c5516f932d244531742f45eed5c',
+	_key：PrivateKey { _privateKey: '0x{private key}' }.
 }
 ```
 
-The execution result is shown above. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.key`.
+実行結果を上に示す。 インスタンス内部で定義されたメンバ変数には、`keyring.address`と`keyring.key`を通じてアクセスできる。
 
-#### Creating a SingleKeyring from private key <a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
+#### 秘密鍵からSingleKeyringを作成する<a href="#creating-a-singlekeyring-from-private-key" id="creating-a-singlekeyring-from-private-key"></a>
 
-Also, if you own a specific private key, you can use it to create a keyring as shown below.
+また、特定の秘密鍵を所有している場合は、以下のようにキーホルダーを作成するために使用することができます。
 
 ```javascript
 // test.js
@@ -149,21 +149,21 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 SingleKeyring {
-	_address: '0xf5a9079f311f9ec55170af351627aff0c5d2e287',
-	_key: PrivateKey { _privateKey: '0x{private key}' } 
+	_address：'0xf5a9079f311f9ec55170af351627aff0c5d2e287',
+	_key：PrivateKey { _privateKey: '0x{private key}' }. 
 }
 ```
 
-The result of `caver.wallet.keyring.createFromPrivateKey`, like the result of `caver.wallet.keyring.generate` above, is a [SingleKeyring](api/caver-wallet/keyring.md#singlekeyring) instance with an address defined inside it and a [PrivateKey] instance in `keyring.key`.
+`caver.wallet.keyring.createFromPrivateKey`の結果は、上記の`caver.wallet.keyring.generate`の結果と同様に、アドレスが定義された[SingleKeyring](api/caver-wallet/keyring.md#singlekeyring)インスタンスとなり、`keyring.key`の中の[PrivateKey]インスタンスが生成されます。
 
-#### Creating a SingleKeyring with a private key and an address <a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
+#### 秘密鍵とアドレスを持つSingleKeyringの作成<a href="#creating-a-singlekeyring-with-a-private-key-and-an-address" id="creating-a-singlekeyring-with-a-private-key-and-an-address"></a>
 
-If your private key for your kaia account is decoupled from the address, you can create a keyring using the given address and the given private key like below.
+kaiaアカウントの秘密鍵がアドレスから切り離されている場合、以下のように指定されたアドレスと指定された秘密鍵を使ってキーリングを作成することができます。
 
 ```javascript
 // test.js
@@ -183,23 +183,23 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the code in your console like below.
+以下のようにコンソールでコードを実行する。
 
 ```bash
 $ node ./test.js
 SingleKeyring {
-	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+	_address：'0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key：プライベートキー { _privateKey: '0x{private key}' }。
 }
 SingleKeyring {
-	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+	_address：'0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_key：プライベートキー { _privateKey: '0x{private key}' }。
 }
 ```
 
-#### Creating a MultipleKeyring with multiple private keys <a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
+#### 複数の秘密鍵を持つMultipleKeyringの作成<a href="#creating-a-multiplekeyring-with-multiple-private-keys" id="creating-a-multiplekeyring-with-multiple-private-keys"></a>
 
-If you want to use multiple private keys, you can create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) using an address and multiple private keys. The below examples show how to create a [MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring) with multiple private keys.
+複数の秘密鍵を使用したい場合は、アドレスと複数の秘密鍵を使用して[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring)を作成することができます。 以下の例は、複数の秘密鍵を持つ[MultipleKeyring](api/caver-wallet/keyring.md#multiplekeyring)の作成方法を示している。
 
 ```javascript
 // test.js
@@ -215,24 +215,24 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 MultipleKeyring {
-	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	_keys: [
+	_address：'0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys：[
 		PrivateKey { _privateKey: '0x{private key1}' },
-		PrivateKey { _privateKey: '0x{private key2}' } 
+		PrivateKey { _privateKey: '0x{private key2}' }. 
 	]
 }
 ```
 
-As you can see, `_keys` has multiple PrivateKey instances in the array. Member variables defined inside the instance can be accessed through `keyring.address` and `keyring.keys`.
+ご覧のように、`_keys`は配列の中に複数のPrivateKeyインスタンスを持っている。 インスタンス内部で定義されたメンバ変数には、`keyring.address`と`keyring.keys`を通じてアクセスできる。
 
-#### Creating a RoleBasedKeyring with private keys <a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
+#### 秘密鍵によるRoleBasedKeyringの作成<a href="#creating-a-rolebasedkeyring-with-role-based-private-keys" id="creating-a-rolebasedkeyring-with-role-based-private-keys"></a>
 
-To use different private key(s) for each [role](../../../learn/accounts.md#roles), `caver.wallet.keyring.createWithRoleBasedKey` is used instead. Each array element represents a role described in [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring). The example below shows how to create a [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) instance from different keys for each role.
+役割](../../../learn/accounts.md#roles)ごとに異なる秘密鍵を使用するには、代わりに `caver.wallet.keyring.createWithRoleBasedKey` を使用します。 配列の各要素は、[RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) に記述されている役割を表します。 以下の例は、役割ごとに異なるキーから [RoleBasedKeyring](api/caver-wallet/keyring.md#rolebasedkeyring) インスタンスを作成する方法を示しています。
 
 ```javascript
 // test.js
@@ -252,38 +252,38 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 RoleBasedKeyring {
-	_address: '0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
-	_keys: [ 
+	_address：'0x17e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24',
+	_keys：[ 
 		[ 
 			PrivateKey { _privateKey: '0x{private key1}' },
 			PrivateKey { _privateKey: '0x{private key2}' },
-			PrivateKey { _privateKey: '0x{private key3}' }
+			PrivateKey { _privateKey: '0x{private key3}' } ], [ PrivateKey { _privateKey: '0x ' } ].
 		],
 		[ PrivateKey { _privateKey: '0x{private key4}' } ],
 		[ 
 			PrivateKey { _privateKey: '0x{private key5}' },
-			PrivateKey { _privateKey: '0x{private key6}' }
+			PrivateKey { _privateKey: '0x{private key6}' } ].
 		]
 	]
 }
 ```
 
-Looking at the output above, the first element of the keys array, `roleTransactionKey`, has three PrivateKey instances, and the second element, `roleAccountUpdateKey`, has one PrivateKey instance. And the last element of the array, `roleFeePayerKey`, has two PrivateKey instances.
+上の出力を見ると、keys 配列の最初の要素である `roleTransactionKey` には 3 つの PrivateKey インスタンスがあり、2 番目の要素である `roleAccountUpdateKey` には 1 つの PrivateKey インスタンスがある。 配列の最後の要素である `roleFeePayerKey` には2つの PrivateKey インスタンスがある。
 
-**Note**: Calling functions related to keyring ([caver.wallet.keyring](api/caver-wallet/keyring.md)) or wallet ([caver.wallet](api/caver-wallet/caver-wallet.md)) do not affect the actual kaia blockchain platform (kaia).
+**注意**：キーリング([caver.wallet.keyring](api/caver-wallet/keyring.md))やウォレット([caver.wallet](api/caver-wallet/caver-wallet.md))に関連する関数を呼び出しても、実際のkaiaブロックチェーンプラットフォーム(kaia)には影響しません。
 
-### Adding Keyrings to caver-js <a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
+### caver-jsにキーリングを追加する<a href="#adding-keyrings-to-caver-js" id="adding-keyrings-to-caver-js"></a>
 
-You can use a keyring easily by using the in-memory wallet provided by caver-js. The following examples illustrate how to add a keyring to a wallet using a keyring instance and a keystore file exported from [Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md).
+caver-jsが提供するインメモリ・ウォレットを使えば、簡単にキーリングを使うことができる。 以下の例では、[Kaia Wallet](../../../build/tools/wallets/kaia-wallet.md) からエクスポートしたキーリング・インスタンスとキーストア・ファイルを使って、キーリングをウォレットに追加する方法を説明します。
 
 :::note
 
-When developing, it's best practice to use a an account that isn't associated with any real funds. A good way to do this is to make a new browser profile (on Chrome, Brave, Firefox, etc) and install Kaia Wallet on that browser, and never send this wallet money.
+開発時には、実際の資金とは関係のないアカウントを使うのがベストプラクティスだ。 これを行う良い方法は、新しいブラウザプロファイル（Chrome、Brave、Firefoxなど）を作成し、そのブラウザにカイアウォレットをインストールし、このウォレットにお金を送らないことです。
 
 :::
 
@@ -328,23 +328,23 @@ async function testFunction() {
 testFunction()
 ```
 
-Run the in your console.
+コンソールで実行する。
 
 ```bash
 $ node ./test.js
 SingleKeyring {
-	_address: '0x66391720b488a3fb2c7c69d99cd4cd6e23ca18e3',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+	_address：'0x66391720b488a3fb2c7c69d99cd4cd6e23ca18e3',
+	_key：プライベートキー { _privateKey: '0x{private key}' }。
 }
 SingleKeyring {
-	_address: '0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
-	_key: PrivateKey { _privateKey: '0x{private key}' }
+	_address：'0xc02cec4d0346bf4124deeb55c5216a4138a40a8c',
+	_key：PrivateKey { _privateKey: '0x{private key}' }.
 }
 ```
 
-Looking at the output above, you can query your keyring from `caver.wallet` after adding it to `caver.wallet`.
+上の出力を見ると、`caver.wallet`にキーリングを追加した後、`caver.wallet`からキーリングを問い合わせることができる。
 
-If you have an address and private key(s) to use, you can easily create a keyring and add it directly to [caver.wallet](api/caver-wallet/caver-wallet.md) via [caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring).
+使用するアドレスと秘密鍵があれば、簡単にキーリングを作成し、[caver.wallet.newKeyring](api/caver-wallet/caver-wallet.md#caverwalletgetkeyring) を介して、[caver.wallet](api/caver-wallet/caver-wallet.md) に直接追加することができます。
 
 ```javascript
 // test.js
@@ -372,68 +372,68 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. The result of the above code execution is shown below. When `caver.wallet.newKeyring` is executed with a private key, a Keyring instance with one private key is created and added to `caver.wallet`. For multiple private keys, a Keyring instance with multiple private keys is created. When passing one or more private keys for each role as arguments, a Keyring instance with a different private key(s) for each role is created and also added to the `caver.wallet`.
+上記のコードを実行すると、次のような結果が得られる。 上記コードの実行結果を以下に示す。 秘密鍵を指定して `caver.wallet.newKeyring` を実行すると、秘密鍵を1つ持つKeyringインスタンスが作成され、`caver.wallet` に追加される。 複数の秘密鍵の場合、複数の秘密鍵を持つKeyringインスタンスが作成されます。 ロールごとに1つ以上の秘密鍵を引数として渡すと、ロールごとに異なる秘密鍵を持つKeyringインスタンスが作成され、`caver.wallet`にも追加されます。
 
 ```bash
 $ node ./test.js
 SingleKeyring {
-	_address: '0x651f6ae6b45750082b22805583acc989399c6552',
-	_key: PrivateKey { _privateKey: '0x{private key1}' }
+	_address：'0x651f6ae6b45750082b22805583acc989399c6552',
+	_key：PrivateKey { _privateKey: '0x{private key1}' }.
 }
 MultipleKeyring {
-	_address: '0xce3ee92aeb4d600a41c98bdf92e8b337e186bf58',
-	_keys: [ 
+	_address：'0xce3ee92aeb4d600a41c98bdf92e8b337e186bf58',
+	_keys：[ 
 		PrivateKey { _privateKey: '0x{private key2}' },
 		PrivateKey { _privateKey: '0x{private key3}' },
-		PrivateKey { _privateKey: '0x{private key4}' }
+		PrivateKey { _privateKey: '0x{private key4}' }.
     ]
 }
 RoleBasedKeyring {
-	_address: '0x626d5b94ec76a105c5afa370bb7e59050a22b8b5',
-	_keys: [ 
+	_address：'0x626d5b94ec76a105c5afa370bb7e59050a22b8b5',
+	_keys：[ 
 		[ 
 			PrivateKey { _privateKey: '0x{private key5}' },
 			PrivateKey { _privateKey: '0x{private key6}' },
-			PrivateKey { _privateKey: '0x{private key7}' }
+			PrivateKey { _privateKey: '0x{private key7}' } ], [ PrivateKey { _privateKey: '0x '
 		],
 		[ 
 			PrivateKey { _privateKey: '0x{private key8}' },
 			PrivateKey { _privateKey: '0x{private key9}' }
 		],
 		[ 
-			PrivateKey { _privateKey: '0x{private key10}' },
-			PrivateKey { _privateKey: '0x{private key11}' }
+			プライベートキー { _privateKey: '0x{private key10}' },
+			プライベートキー { _privateKey: '0x{private key11}' } ].
 		]
 	]
 }
 ```
 
-`caver.wallet.add` or `caver.wallet.newKeyring` returns a Keyring instance after adding it to `caver.wallet`.
+`caver.wallet.add`または `caver.wallet.newKeyring`は、`caver.wallet`にKeyringを追加した後に、Keyringのインスタンスを返します。
 
-## Sending a Transaction <a href="#sending-a-transaction" id="sending-a-transaction"></a>
+## トランザクションの送信<a href="#sending-a-transaction" id="sending-a-transaction"></a>
 
-This section will show you how to send KAIA using caver-js on  Kairos Testnet.
+このセクションでは、Kairos Testnetでcaver-jsを使ってKAIAを送信する方法を紹介します。
 
-### Getting KAIA via Kairos Faucet <a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
+### カイロス水栓でKAIAを入手する<a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+テスト用にKAIAが必要な場合は、[Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)からKairos testnet KAIAを入手できます。 秘密鍵またはキーストアファイルを使用してkaiaウォレットにログインし、テスト用の蛇口からKairos testnet KAIAを受信します。
 
-### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
+### バリュー・トランスファー・トランザクションの送信<a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
-You can use a caver-js wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
+caver-jsウォレットを使用して、取引の署名を生成することができます。 トランザクションをネットワークに送信するには、以下の2つのステップを踏む必要がある。
 
-1. Sign a transaction
-   - If the keyring you want to use is added to [caver.wallet](api/caver-wallet/caver-wallet.md), you can use `caver.wallet.sign` function to sign.
-   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
-2. Send the RLP-encoded string of the signed transaction to the kaia via `caver.rpc.klay.sendRawTransaction`.
+1. 取引に署名する
+   - 使いたいキーリングが[caver.wallet](api/caver-wallet/caver-wallet.md)に追加されていれば、`caver.wallet.sign`関数を使って署名することができます。
+   - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
+2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-**Note:** The sender should have enough number of KAIA.
+**注意：** 送信者は十分な数のKAIAを持っていなければならない。
 
-#### Sign a transaction
+#### 取引に署名する
 
-Before sending a transaction to kaia, you should sign a transaction first.
+kaiaにトランザクションを送信する前に、まずトランザクションに署名してください。
 
-Below is an example of how to sign a transaction if a keyring is added to the [caver.wallet](api/caver-wallet/caver-wallet.md).
+以下は、[caver.wallet](api/caver-wallet/caver-wallet.md) にキーホルダーが追加された場合のトランザクションの署名方法の例である。
 
 ```javascript
 // test.js
@@ -463,17 +463,17 @@ async function testFunction() {
 testFunction()
 ```
 
-The above code adds a keyring to `caver.wallet`, creates a transaction, and signs the transaction through `caver.wallet.sign`.
+上記のコードでは、`caver.wallet` にキーホルダーを追加し、トランザクションを作成し、`caver.wallet.sign` でトランザクションに署名している。
 
-Running the above code gives you the following result. When the above code is executed, the RLP-encoded string of the transaction is shown below. (The RLP-encoded string output you got could be different from the string output shown below.)
+上記のコードを実行すると、次のような結果が得られる。 上記のコードが実行されると、トランザクションのRLPエンコード文字列は以下のようになる。 (あなたが得たRLPエンコードされた文字列出力は、以下に示す文字列出力とは異なる可能性がある)
 
 ```bash
-RLP-encoded string: 0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
+RLP エンコード文字列：0x08f87e808505d21dba0082753094176ff0344de49c04be577a3512b6991507647f720194ade4883d092e2a972d70637ca7de9ab5166894a2f847f845824e44a0e1ec99789157e5cb6bc691935c204a23aaa3dc049efafca106992a5d5db2d179a0511c421d5e508fdb335b6048ca7aa84560a53a5881d531644ff178b6aa4c0a41
 ```
 
-#### Send the RLP-encoded string of the signed transaction to the kaia
+#### 署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
-Now you can send a signed transaction to the network like below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+これで、以下のように署名されたトランザクションをネットワークに送信できる。 以下の例を実行したい場合は、`0x{RLP-encoded string}` を上記の `rlpEncoded` の値に置き換えてください。
 
 ```javascript
 // test.js
@@ -491,7 +491,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+上記のコードを実行すると、次のような結果が得られる。 上記のコードが実行されると、トランザクションのレシートは以下のようになる。
 
 ```bash
 $ node ./test.js
@@ -519,7 +519,7 @@ $ node ./test.js
 }
 ```
 
-If you want to sign a transaction and send it to the network without `caver.wallet`, see the example below.
+`caver.wallet`を使わずにトランザクションに署名してネットワークに送信したい場合は、以下の例を参照してください。
 
 ```javascript
 // test.js
@@ -547,13 +547,13 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the receipt of the transaction is printed like the previous example.
+上記のコードが実行されると、前の例のようにトランザクションのレシートが印刷される。
 
-### Checking Receipts <a href="#checking-receipts" id="checking-receipts"></a>
+### 領収書のチェック<a href="#checking-receipts" id="checking-receipts"></a>
 
-You can use the promise or event emitter to get the receipt of the transaction when you transfer the transaction to the kaia by [caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction).
+caver.rpc.klay.sendRawTransaction](api/caver-rpc/klay.md#caver-rpc-klay-sendrawtransaction)によってカイアにトランザクションを転送する際に、プロミスまたはイベントエミッターを使用してトランザクションの受信を取得することができます。
 
-The following example shows how to get a receipt using promises and event emitters.
+次の例は、プロミスとイベント・エミッターを使ってレシートを取得する方法を示している。
 
 ```javascript
 // Using a promise - async/await
@@ -567,7 +567,7 @@ caver.rpc.klay.sendRawTransaction(rawTransaction).then(console.log)
 caver.rpc.klay.sendRawTransaction(rawTransaction).on('receipt', console.log)
 ```
 
-As described in the example above, you can get the result of sending a transaction through the promise and event emitter. The `transactionHash` field is defined inside the receipt object. You can use [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call with `receipt.transactionHash` to query the receipt of a transaction at any time from the network after the transaction is included in a block. The example below shows how to get a receipt using the [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC call.
+上記の例で説明したように、プロミスとイベント・エミッターを通じて、トランザクションの送信結果を得ることができる。 `transactionHash`フィールドはレシートオブジェクトの内部で定義される。 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPCコールに`receipt.transactionHash`を使用すると、トランザクションがブロックに 含まれた後、ネットワークからいつでもトランザクションの受信を問い合わせることができる。 以下の例では、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) RPC コールを使用してレシートを取得する方法を示しています。
 
 ```javascript
 // test.js
@@ -582,7 +582,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. When the above code is executed, the receipt of the transaction is shown below.
+上記のコードを実行すると、次のような結果が得られる。 上記のコードが実行されると、トランザクションのレシートは以下のようになる。
 
 ```bash
 $ node ./test.js
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
 
-## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
+## 他のトランザクション・タイプの実行<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
+カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 詳しくは[Transactions](../../../learn/transactions/)を参照。 このセクションでは、caver-jsで使用できるいくつかの例について説明します。
 
-### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
+### 手数料の委任<a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+カイアは[料金委任](../../../learn/transactions/transactions.md#fee-delegation)機能を提供しています。 以下は、あなたがこの種のトランザクションの送信者である場合に、RLPエンコードされたトランザクションを行う例である：
 
 ```javascript
 // test.js
@@ -645,14 +645,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string will be printed. (The RLP-encoded string output you got could be different from the string output shown below.)
+上記のコードが実行されると、RLPエンコードされた文字列がプリントされる。 (あなたが得たRLPエンコードされた文字列出力は、以下に示す文字列出力とは異なる可能性がある)
 
 ```bash
 $ node ./test.js
 0x09f884028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf080c4c3018080
 ```
 
-The fee payer can send the transaction to the kaia after attaching the `feePayerSignatures` to the RLP-encoded string (`rawTransaction`) signed by the transaction sender. If `caver.wallet` also has the fee payer's key, the fee payer's signature can be injected into `feeDelegatedTx` by calling `caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`. Otherwise, the fee payer has to create a `feeDelegatedTx` from the RLP-encoded string signed by the sender and add the fee payer's sign onto it, as illustrated below. If you want to run the below example, replace `0x{RLP-encoded string}` with the value of `rlpEncoded` above.
+料金支払者は、トランザクション送信者によって署名されたRLPエンコード文字列(`rawTransaction`)に`feePayerSignatures`を付加した後、kaiaにトランザクションを送信することができる。 `caver.wallet`が料金支払者の鍵も持っている場合、`caver.wallet.signAsFeePayer(feePayer.address, feeDelegatedTx)`を呼び出すことで、料金支払者の署名を `feeDelegatedTx`に注入することができる。 そうでない場合、料金支払者は、下図のように、送信者によって署名されたRLPエンコー ディング文字列から`feeDelegatedTx`を作成し、料金支払者の署名を追加しなければならない。 以下の例を実行したい場合は、`0x{RLP-encoded string}` を上記の `rlpEncoded` の値に置き換えてください。
 
 ```javascript
 // test.js
@@ -677,14 +677,14 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the RLP-encoded string including the sender's signatures and fee payer's signatures is printed like below. (The output you got could be different from the string output shown below.)
+上記のコードが実行されると、送金者の署名と料金支払者の署名を含むRLPエンコードされた文字列が以下のように印刷される。 (あなたが得た出力は、以下に示す文字列出力とは異なる可能性がある）。
 
 ```bash
 $ node ./test.js
 0x09f8dc028505d21dba0082c35094176ff0344de49c04be577a3512b6991507647f720594f5a9079f311f9ec55170af351627aff0c5d2e287f847f845824e43a0f4b53dbd4c915cb73b9c7fa17e22106ee9640155a06ab4a7ed8661f846d2a5cca035b5bba6a26d4ccd20c65e8f31cce265c193f1c874806f9fae6b0ee9df0addf09417e7531b40ad5d7b5fa7b4ec78df64ce1cb36d24f847f845824e44a0921b7c3be69db96ce14134b306c2ada423613cb66ecc6697ee8067983c268b6ea07b86b255d1c781781315d85d7904226fb2101eb9498c4a03f3fbd30ba3ec5b79
 ```
 
-The transaction is now signed by both the sender and the fee payer, and it can now be sent over the network. Replace `0x{RLP-encoded string}` with the RLP-encoded string output of the example code above.
+これで取引は、送金者と手数料支払者の双方によって署名され、ネットワーク上で送信できるようになった。 `0x{RLP-encoded string}` を、上記のサンプルコードで出力されたRLPエンコードされた文字列に置き換える。
 
 ```javascript
 // test.js
@@ -700,7 +700,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Through the execution result of the above code, you can check the FeeDelegatedValueTransfer transaction result.
+上記のコードを実行すると、次のような結果が得られる。 上記コードの実行結果を通じて、FeeDelegatedValueTransferのトランザクション結果を確認することができる。
 
 ```bash
 $ node ./test.js
@@ -736,27 +736,27 @@ $ node ./test.js
 }
 ```
 
-### Account Update <a href="#account-update" id="account-update"></a>
+### アカウント更新<a href="#account-update" id="account-update"></a>
 
-If you want to change the private key(s) for your kaia account, there are 3 important things you need to remember:
+kaiaアカウントの秘密鍵を変更したい場合、3つの重要なことを覚えておく必要があります：
 
-1. kaia validates every transaction you send to it.
-2. The validation requires your public keys which exactly corresponds to your private key(s).
-3. Thus, changing your private key(s) into the new one(s) is **always be** **preceded** by changing your old public key(s) to the new one(s). The new public key(s) must be derived from the new private key(s).
+1. kaiaは、あなたがkaiaに送信するすべてのトランザクションを検証します。
+2. 検証には、秘密鍵と正確に対応する公開鍵が必要です。
+3. したがって、秘密鍵を新しいものに変更するには、古い公開鍵を新しいものに変更することが **常に**先行\*\*する。 新しい公開鍵は、新しい秘密鍵から派生したものでなければならない。
 
-Keeping the 3 things above in your mind, you can change your private key(s) by following the steps below:
+上記の3つを念頭に置き、以下の手順で秘密鍵を変更することができます：
 
-1. Prepare the new private key(s) to create a new keyring.
-2. Create a keyring by its type (Single keyring, Multiple keyring, or Role-based keyring) you need.
-3. Generate an Account instance from the new keyring. This Account instance holds the new public key(s) for your kaia account.
-4. Send AccountUpdate transaction including Account instance to kaia.
-5. Finally, replace your old keyring to the new one that was created in Step 2.
+1. 新しい秘密鍵を用意し、新しいキーリングを作成する。
+2. 必要なタイプ（単一キーリング、複数キーリング、役割ベースのキーリング）を指定してキーリングを作成します。
+3. 新しいキーリングからアカウントインスタンスを生成する。 このアカウントインスタンスは、あなたのkaiaアカウントの新しい公開鍵を保持します。
+4. Accountインスタンスを含むAccountUpdateトランザクションをkaiaに送信する。
+5. 最後に、古いキーホルダーをステップ2で作成した新しいキーホルダーに付け替えます。
 
-Please check [Account Update](api/caver-transaction/basic.md#accountupdate) for the details.
+詳しくは[アカウント更新](api/caver-transaction/basic.md#accountupdate)をご確認ください。
 
-To change your AccountKey, you must provide an [Account](api/caver.account.md) instance for the `account` field in the input argument object of `caver.transaction.accountUpdate`. An [Account](api/caver.account.md) instance contains the address of the kaia account and the AccountKey to be updated.
+AccountKey を変更するには、`caver.transaction.accountUpdate` の入力引数オブジェクトの `account` フィールドに [Account](api/caver.account.md) インスタンスを指定する必要がある。 Account](api/caver.account.md) インスタンスには、更新される kaia アカウントのアドレスと AccountKey が含まれます。
 
-The code below is an example code that changes the private key(s) you use for your kaia account along with changing AccountKey of your kaia account to [AccountKeyPublic](../../../learn/accounts.md#accountkeypublic). Don't forget to prepare your new private key(s).
+以下のコードは、kaiaアカウントで使用している秘密鍵を変更し、kaiaアカウントのAccountKeyを[AccountKeyPublic](../../../learn/accounts.md#accountkeypublic)に変更するコード例です。 新しい秘密鍵の準備もお忘れなく。
 
 ```javascript
 // test.js
@@ -790,9 +790,9 @@ async function testFunction() {
 testFunction()
 ```
 
-If the above code is executed successfully, you no longer are able to use the old private key(s) to sign any transaction with the old keyring. So you must update the old keyring with the `newKeyring` through `caver.wallet.updateKeyring(newKeyring)`. Once it is updated, the signing will be done by the newly updated private key(s).
+上記のコードが正常に実行されると、古い秘密鍵を使って古いキーリングを使ったトランザクションに署名することはできなくなる。 そのため、`caver.wallet.updateKeyring(newKeyring)` を使って、古いキーリングを `newKeyring` で更新する必要がある。 秘密鍵が更新されると、新たに更新された秘密鍵によって署名が行われる。
 
-Running the above code gives you the following result. In the execution result of the above code, the result of the private key and the account update that you should newly use are printed like below.
+上記のコードを実行すると、次のような結果が得られる。 上記コードの実行結果には、新たに使用する秘密鍵とアカウントの更新結果が以下のように出力されます。
 
 ```bash
 $ node ./test.js
@@ -822,9 +822,9 @@ new private key string: 0x{private key}
 }
 ```
 
-Here comes how to update AccountKey of your kaia account with multiple \[AccountKeys]? The example below explains how to create an [Account](api/caver.account.md) instance with multiple private keys that what you want to use (You can create an [Account](api/caver.account.md) instance with multiple public keys via [caver.account.create](api/caver.account.md#caver-account-create)). Same again, after feeding the account instance created to the `account` field inside the transaction object, the left rest of the updating process is just the same as the above example.
+複数の[AccountKey]を持つkaiaアカウントの[AccountKey]を更新する方法は？ 以下の例では、使用したい複数の秘密鍵を持つ[Account](api/caver.account.md)インスタンスを作成する方法を説明します（複数の公開鍵を持つ[Account](api/caver.account.md)インスタンスは、[caver.account.create](api/caver.account.md#caver-account-create)で作成できます）。 繰り返しになるが、トランザクションオブジェクト内の`account`フィールドに作成されたアカウントインスタンスを投入した後、残りの更新処理は上記の例と同じである。
 
-First, let's create an Account instance to update with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). For [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig), a threshold and a weight for each key must be defined. To do this, use [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions). The first parameter is the threshold, and the second parameter is an array containing the weight for each key.
+まず、[AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig) で更新する Account インスタンスを作成します。 AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig) の場合、各キーの閾値とウェイトを定義しなければならない。 そのためには、[caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) を使用する。 最初のパラメータは閾値で、2番目のパラメータは各キーの重みを含む配列である。
 
 ```javascript
 // Create an account instance with three private keys using AccountKeyWeightedMultiSig
@@ -837,7 +837,7 @@ const options = new caver.account.weightedMultiSigOptions(3, [1, 2, 1])
 const account = newKeyring.toAccount(options)
 ```
 
-Now let's update AccountKey using [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased). [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) is an `AccountKey` type that defines the key to use for each [role](../../../learn/accounts.md#roles).
+それでは、[AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) を使用して AccountKey を更新してみましょう。 [AccountKeyRoleBased](../../../learn/accounts.md#accountkeyrolebased) は `AccountKey` 型で、各 [role](../../../learn/accounts.md#roles) に使用するキーを定義します。
 
 ```javascript
 // Create an account instance with roles using AccountKeyRoleBased. In the account instance created, each role has a public key that corresponds to one private key.
@@ -847,7 +847,7 @@ const newKeyring = caver.wallet.keyring.createWithRoleBasedKey(sender.address, n
 const account = newKeyring.toAccount()
 ```
 
-The AccountKeyRoleBased above is an example of using one public key for each role. As you can see from the code above, each of them corresponds to one private key. If you want to use multiple private keys for each role, [caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions) must be defined for each role as shown below.
+上記のAccountKeyRoleBasedは、ロールごとに1つの公開鍵を使用する例である。 上のコードからわかるように、それぞれが1つの秘密鍵に対応している。 役割ごとに複数の秘密鍵を使用する場合、以下のように役割ごとに[caver.account.weightedMultiSigOptions](api/caver.account.md#weightedmultisigoptions)を定義しなければならない。
 
 ```javascript
 // Create an account instance with [3, 2, 3] keys for each role using AccountKeyRoleBased
@@ -866,7 +866,7 @@ const options = [
 const account = newKeyring.toAccount(options)
 ```
 
-If you want to update AccountKey to [AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy) or [accountKeyFail](../../../learn/accounts.md#accountkeyfail), create an Account instance as shown below and assign it to the `account` field of the transaction.
+AccountKeyを[AccountKeyLegacy](../../../learn/accounts.md#accountkeylegacy)または[accountKeyFail](../../../learn/accounts.md#accountkeyfail)に更新したい場合は、以下のようにAccountインスタ ンスを作成し、それをトランザクションの`account`フィールドに代入する。
 
 ```javascript
 // Create an account with AccountKeyLegacy
@@ -876,11 +876,11 @@ const accountWithLegacyKey = caver.account.createWithAccountKeyLegacy(keyringToU
 const accountWithFailKey = caver.account.createWithAccountKeyFail(keyringToUpdate.address)
 ```
 
-### Smart Contract <a href="#smart-contract" id="smart-contract"></a>
+### スマート契約<a href="#smart-contract" id="smart-contract"></a>
 
-The [caver.contract](api/caver.contract.md) package makes it easy to interact with smart contracts on kaia. It automatically converts all methods of a smart contract into javascript calls when its low-level ABI (Application Binary Interface) is given. This allows you to interact with smart contracts as if they were JavaScript objects.
+caver.contract](api/caver.contract.md) パッケージは、kaia上でスマート・コントラクトを簡単に操作できるようにする。 低レベルのABI（Application Binary Interface）が与えられると、スマート・コントラクトのすべてのメソッドを自動的にjavascript呼び出しに変換する。 これにより、スマート・コントラクトをJavaScriptのオブジェクトのように扱うことができる。
 
-First, we make a simple solidity example like the below. Create a 'test.sol' file and write down the below example.
+まず、以下のような簡単なソリディティの例を作る。 test.sol'ファイルを作成し、以下の例を書いてください。
 
 ```
 pragma solidity ^0.5.6;
@@ -892,11 +892,11 @@ contract KVstore {
     }
     function set(string memory key, string memory value) public {
         store[key] = value;
-    }
+    }.
 }
 ```
 
-Now we can compile a smart contract to get its bytecode and ABI.
+これでスマート・コントラクトをコンパイルして、バイトコードとABIを取得できる。
 
 ```
 > solc --abi --bin ./test.sol
@@ -907,11 +907,11 @@ Contract JSON ABI
 [{"constant":true,"inputs":[{"name":"key","type":"string"}],"name":"get","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"string"},{"name":"value","type":"string"}],"name":"set","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]
 ```
 
-**NOTE**: To compile a smart contract, you must have a [solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html) installed.
+**注**：スマートコントラクトをコンパイルするには、[solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)がインストールされている必要があります。
 
-For the smart contract deployment, you can use [caver.contract](api/caver.contract.md) to deploy it, or you can deploy it using [caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy), [caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy) or [caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio) transaction. Here is an example of using [caver.contract](api/caver.contract.md).
+スマート・コントラクトのデプロイには、[caver.contract](api/caver.contract.md)を使用するか、[caver.transaction.smartContractDeploy](api/caver-transaction/basic.md#smartcontractdeploy)、[caver.transaction.feeDelegatedSmartContractDeploy](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractdeploy)、または[caver.transaction.feeDelegatedSmartContractDeployWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractdeploywithratio)トランザクションを使用してデプロイできます。 以下は、[caver.contract](api/caver.contract.md)の使用例である。
 
-You can create a contract instance as below using the result of compiling the smart contract.
+スマート・コントラクトのコンパイル結果を使って、以下のようにコントラクト・インスタンスを作成できる。
 
 ```javascript
 // test.js
@@ -948,31 +948,31 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 Contract {
 	...
   methods: {
-		get: [Function: bound _createTxObject],
-		'0x693ec85e': [Function: bound _createTxObject],
-		'get(string)': [Function: bound _createTxObject],
-		set: [Function: bound _createTxObject],
-		'0xe942b516': [Function: bound _createTxObject],
-		'set(string,string)': [Function: bound _createTxObject]
+		get：[Function: bound _createTxObject],
+		'0x693ec85e'：[Function: bound _createTxObject],
+		'get(string)'：[Function: bound _createTxObject],
+		set：[Function: bound _createTxObject],
+		'0xe942b516'：[Function: bound _createTxObject],
+		'set(string,string)'：[Function: bound _createTxObject]
 	},
-  events: { allEvents: [Function: bound ] },
+  events：{ allEvents：[Function: bound ] },
   _address: null,
-  _jsonInterface: [ ... ],
-  _keyrings: KeyringContainer { ... }
+  _jsonInterface：[ ... ],
+  _keyrings：KeyringContainer { ... }
 }
 null
 ```
 
-Looking at the output above, you can see that the methods are managed through abi inside the Contract instance. And since it hasn't been deployed yet, you can see that the result of `contractInstance.options.address` is output as null.
+上の出力を見ると、メソッドがコントラクト・インスタンス内のabiを通じて管理されていることがわかる。 そして、まだデプロイされていないので、`contractInstance.options.address`の結果がnullとして出力されているのがわかる。
 
-If the smart contract has already been deployed and you know the contract address where the smart contract was deployed, please pass the contract address to the second parameter as shown below.
+スマートコントラクトが既にデプロイされており、スマートコントラクトがデプロイされたコントラクトアドレスを知っている場合は、以下のように2番目のパラメーターにコントラクトアドレスを渡してください。
 
 ```javascript
 // test.js
@@ -1010,33 +1010,33 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 Contract {
 	...
   methods: {
-		get: [Function: bound _createTxObject],
-		'0x693ec85e': [Function: bound _createTxObject],
-		'get(string)': [Function: bound _createTxObject],
-		set: [Function: bound _createTxObject],
-		'0xe942b516': [Function: bound _createTxObject],
-		'set(string,string)': [Function: bound _createTxObject]
+		get：[Function: bound _createTxObject],
+		'0x693ec85e'：[Function: bound _createTxObject],
+		'get(string)'：[Function: bound _createTxObject],
+		set：[Function: bound _createTxObject],
+		'0xe942b516'：[Function: bound _createTxObject],
+		'set(string,string)'：[Function: bound _createTxObject]
 	},
-  events: { allEvents: [Function: bound ] },
-  _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
-  _jsonInterface: [ ... ],
-  _keyrings: KeyringContainer { ... }
-}
+  events：{ allEvents：[Function: bound ] },
+  _address：'0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
+  _jsonInterface：[ ... ],
+  _keyrings：KeyringContainer { ... }
+}.
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-Since this contract instance received the address of the smart contract, it stores the contract address in `contractInstance.options.address`.
+このコントラクト・インスタンスはスマート・コントラクトのアドレスを受け取ったので、コントラクト・アドレスを `contractInstance.options.address` に格納する。
 
-If the contract instance is created, you can deploy it by passing the bytecode to the `data` field as shown below.
+コントラクトのインスタンスが作成されたら、以下のように `data` フィールドにバイトコードを渡してデプロイすることができる。
 
-Note that [caver.contract](api/caver.contract.md) sends transactions for deployment and execution. It uses keyrings in `caver.wallet` to sign transactions. The keyring to be used must be added to `caver.wallet` before.
+caver.contract](api/caver.contract.md)は、デプロイと実行のためにトランザクションを送信することに注意。 `caver.wallet`にあるキーリングを使って取引に署名する。 使用するキーホルダーは事前に `caver.wallet` に追加しておく必要がある。
 
 ```javascript
 // test.js
@@ -1085,29 +1085,29 @@ async function testFunction() {
 testFunction()
 ```
 
-In the code above, the `deployer` deploys the contract to the kaia and returns the deployed contract instance.
+上のコードでは、`deployer` がコントラクトをカイアにデプロイし、デプロイされたコントラクトのインスタンスを返している。
 
 ```bash
 $ node ./test.js
 Contract {
 	...
   methods: {
-		get: [Function: bound _createTxObject],
-		'0x693ec85e': [Function: bound _createTxObject],
-		'get(string)': [Function: bound _createTxObject],
-		set: [Function: bound _createTxObject],
-		'0xe942b516': [Function: bound _createTxObject],
-		'set(string,string)': [Function: bound _createTxObject]
+		get：[Function: bound _createTxObject],
+		'0x693ec85e'：[Function: bound _createTxObject],
+		'get(string)'：[Function: bound _createTxObject],
+		set：[Function: bound _createTxObject],
+		'0xe942b516'：[Function: bound _createTxObject],
+		'set(string,string)'：[Function: bound _createTxObject]
 	},
-  events: { allEvents: [Function: bound ] },
-  _address: '0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
-  _jsonInterface: [ ... ],
-  _keyrings: KeyringContainer { ... }
-}
+  events：{ allEvents：[Function: bound ] },
+  _address：'0x3466D49256b0982E1f240b64e097FF04f99Ed4b9',
+  _jsonInterface：[ ... ],
+  _keyrings：KeyringContainer { ... }
+}.
 0x3466D49256b0982E1f240b64e097FF04f99Ed4b9
 ```
 
-To deploy a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
+`feeDelegation`と`feePayer`を定義する：
 
 ```javascript
 // test.js
@@ -1159,7 +1159,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-If you want to send a transaction with sender and feePayer signed separately when deploying a smart contract through `caver.contract`, refer to the code below:
+`caver.contract`を通じてスマートコントラクトをデプロイする際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照のこと：
 
 ```javascript
 // test.js
@@ -1213,7 +1213,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-A smart contract can be executed using one of the followings, depending on the type of contract executing transaction: `Contract` class in `caver.contract` or [caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution), [caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution), or [caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio). To send a transaction for executing a smart contract:
+スマートコントラクトは、トランザクションを実行するコントラクトのタイプに応じて、以下のいずれかを使用して実行できる。`caver.contract`内の`Contract`クラス、または[caver.transaction.smartContractExecution](api/caver-transaction/basic.md#smartcontractexecution)、[caver.transaction.feeDelegatedSmartContractExecution](api/caver-transaction/fee-delegation.md#feedelegatedsmartcontractexecution)、または[caver.transaction.feeDelegatedSmartContractExecutionWithRatio](api/caver-transaction/partial-fee-delegation.md#feedelegatedsmartcontractexecutionwithratio)。 スマートコントラクトを実行するためのトランザクションを送信する：
 
 ```javascript
 // test.js
@@ -1253,7 +1253,7 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the transaction result from executing `set` arrives as below.
+上記のコードを実行すると、`set`を実行したトランザクションの結果は以下のようになる。
 
 ```bash
 $ node ./test.js
@@ -1278,7 +1278,7 @@ $ node ./test.js
 }
 ```
 
-To execute a smart contract through fee-delegated transaction, define `feeDelegation` and `feePayer` like the example below:
+`feeDelegation`と`feePayer`を定義する：
 
 ```javascript
 // test.js
@@ -1326,7 +1326,7 @@ async function executionWithFeeDelegation() {
 }
 ```
 
-If you want to send a transaction with sender and feePayer signed separately when executing a smart contract through `caver.contract`, refer to the code below:
+`caver.contract`でスマートコントラクトを実行する際に、送信者とfeePayerが別々に署名されたトランザクションを送信したい場合は、以下のコードを参照する：
 
 ```javascript
 // test.js
@@ -1376,7 +1376,7 @@ async function deployWithFeeDelegation() {
 }
 ```
 
-To load a contract instance and call one of its functions:
+コントラクトのインスタンスをロードし、その関数を呼び出す：
 
 ```javascript
 // test.js
@@ -1413,30 +1413,30 @@ async function testFunction() {
 testFunction()
 ```
 
-When the above code is executed, the value is shown as an output below.
+上記のコードが実行されると、以下のように値が出力される。
 
 ```bash
 $ node ./test.js
 testValue
 ```
 
-To find more information, see [caver.contract](api/caver.contract.md).
+詳細は[caver.contract](api/caver.contract.md)を参照。
 
-## Sending a Transaction with multiple signers <a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
+## 複数の署名者を含むトランザクションの送信<a href="#sending-a-transaction-with-multiple-signers" id="sending-a-transaction-with-multiple-signers"></a>
 
-If the kaia account's AccountKey is AccountKeyMultiSig or AccountKeyRoleBased, the person who manages each key can vary.
+kaiaアカウントのAccountKeyがAccountKeyMultiSigまたはAccountKeyRoleBasedの場合、それぞれの鍵を管理する人は異なることがある。
 
-This section describes how to collect signatures and send the transaction if there are multiple signers.
+このセクションでは、複数の署名者がいる場合に署名を収集し、トランザクションを送信す る方法について説明する。
 
-To run this example, you need to update AccountKey of the kaia account you use for testing with [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig). Please refer to [Account Update](#account-update) for how to update your kaia account.
+この例を実行するには、テストに使用する kaia アカウントの AccountKey を [AccountKeyWeightedMultiSig](../../../learn/accounts.md#accountkeyweightedmultisig) で更新する必要があります。 kaiaアカウントの更新方法は[アカウント更新](#account-update)をご参照ください。
 
-### Signing sequentially <a href="#signing-sequentially" id="signing-sequentially"></a>
+### 順次署名<a href="#signing-sequentially" id="signing-sequentially"></a>
 
-When a transaction is signed using `caver.wallet` or the transaction's `sign` function, signatures (or feePayerSignatures) are defined (or appended) inside the transaction. You can obtain the RLP-encoded string (`rawTransaction`) containing the signatures (and feePayerSignatures) by calling the `transaction.getRLPEncoding()` function of the signed transaction instance.
+トランザクションが `caver.wallet` またはトランザクションの `sign` 関数を使用して署名されるとき、署名（または feePayerSignatures）はトランザクション内で定義（または追加）される。 署名されたトランザクションインスタンスの `transaction.getRLPEncoding()` 関数を呼び出すことで、署名（と feePayerSignatures）を含む RLP エンコードされた文字列（`rawTransaction`）を得ることができる。
 
-The following example shows how to sign a transaction sequentially with multiple private keys. Let's assume that AccountKey of the account who sends this transaction is AccountKeyWeightedMultiSig of two public keys, which means this kaia account can use two private key strings, one private key for each user. This is a case that two users share the same kaia account.
+以下の例は、複数の秘密鍵を使ってトランザクションに順次署名する方法を示している。 このトランザクションを送信するアカウントのAccountKeyが2つの公開鍵のAccountKeyWeightedMultiSigであると仮定する。 これは、2人のユーザーが同じkaiaアカウントを共有しているケースです。
 
-In the example below, user1 and user2 create a `Keyring` instances to be used. After that, each uses its own keyring to sign the transaction. The example below uses `transaction.sign` to sign it.
+以下の例では、user1とuser2が使用する`Keyring`インスタンスを作成している。 その後、それぞれが独自のキーリングを使ってトランザクションに署名する。 以下の例では、`transaction.sign` を使って署名している。
 
 ```javascript
 // test.js
@@ -1464,7 +1464,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result. Looking at the execution result of the code above, if user1 signs, one signature is created. If user2 signs, user2's signature is appended. [SignatureData](api/caver-wallet/keyring.md#signaturedata) is an object that stores a signature.
+上記のコードを実行すると、次のような結果が得られる。 上のコードの実行結果を見ると、user1が署名した場合、1つの署名が作成される。 user2が署名すれば、user2の署名が付加される。 [SignatureData](api/caver-wallet/keyring.md#signaturedata) は、署名を格納するオブジェクトである。
 
 ```bash
 $ node ./test.js
@@ -1474,12 +1474,12 @@ $ node ./test.js
 [ 
 	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
 	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
-]
+]。
 ```
 
-Then let's see how to sign sequentially without sharing the same transaction object. In the below example, user1 passes RLP-encoded string that is the result of getRLPEncoding function of the signed transaction to user2.
+次に、同じトランザクション・オブジェクトを共有せずに連続して署名する方法を見てみよう。 以下の例では、user1は署名付きトランザクションのgetRLPEncoding関数の結果であるRLPエンコードされた文字列をuser2に渡す。
 
-The code below explains how to sign and append signatures with RLP-encoded string.
+以下のコードでは、RLPエンコードされた文字列を使った署名と付加の方法を説明する。
 
 ```javascript
 // test.js
@@ -1515,27 +1515,27 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 [ 
 	SignatureData { _v: '0x4e43', _r: '0x3f3d3...', _s: '0x24f94...' },
 	SignatureData { _v: '0x4e44', _r: '0xd6a94...', _s: '0x72dc8...' }
-]
+]。
 ```
 
-If you run the above code, you can see that user2's signature has been appended in `transactionFromRLP.signatures` and a total of two signatures are included in it.
+上記のコードを実行すると、`transactionFromRLP.signatures`にuser2の署名が追加され、合計2つの署名が含まれていることがわかる。
 
-When all users have signed, send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`.
+すべてのユーザーが署名したら、`await caver.rpc.klay.sendRawTransaction(transactionFromRLP)`を通して ネットワークにトランザクションを送信する。
 
-If you send a fee-delegated transaction, and the fee payer uses multiple keys, you can proceed with the above logic using `caver.wallet.signAsFeePayer`.
+料金支払者が複数の鍵を使用している場合、`caver.wallet.signAsFeePayer`を使用して上記のロジックを進めることができる。
 
-### Combining signed raw transactions <a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
+### 署名された生トランザクションの結合<a href="#combining-signed-rawtransactions" id="combining-signed-rawtransactions"></a>
 
-If you receive multiple signed RLP-encoded raw transaction strings from several people, you can combine them into a single RLP-encoded raw transaction string that contains all the signatures.
+複数の人から複数の署名付きRLPエンコード生トランザクション文字列を受け取った場合、それらをすべての署名を含む単一のRLPエンコード生トランザクション文字列にまとめることができる。
 
-The example below shows how to combine and send the RLP encoded transactions.
+以下の例は、RLPエンコードされたトランザクションを結合して送信する方法を示している。
 
 ```javascript
 // test.js
@@ -1561,28 +1561,28 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
 0x08f9010d808505d21dba00830111709445c2a1e3a1c3957a06dae73ad516461c2d2c7ccc01940fa355263f37f5a54d9179452baa8b63b8b2cddef8d5f8458207f5a094ce13c39d25d44ad1d07ba2fd89f476c4dc6eef6071a2ef1f496f9b04d049e5a00f7abddd548998b0a55e53600a48286c38262fffc6c153a64e8f65a77c11c722f8458207f6a0ceeea7287b2670719d8ac15cf3b21b36fcaf74d58cce99935ce17e100064037aa0499067788d5db5e7c09ed7bfe19764d66684abc06b81e8f54ea254377bc81066f8458207f5a05c3ba89336c7d84d4ce08104cfd6f7ef33cd9f29766a1955baae8bcf964fd50fa015accbbce6bb11847a3b0660491775d64ef6d692ea709b768f64f12968c09240
 ```
 
-Running the code above outputs one RLP-encoded raw transaction string with all the signature information combined.
+上記のコードを実行すると、すべての署名情報が組み合わされた1つのRLPエンコードされた生のトランザクション文字列が出力される。
 
-When executing `combineSignedRawTransactions` , the signed RLP-encoded raw transaction strings to be combined must be exactly the same to each other except the signatures and the optional variables in the transaction instance. Optional variables without any given value in the base transaction instance (the caller of `combineSignedRawTransactions`) will be redeemed with the corresponding ones in the following raw transaction string to be merged right next. If there is any inconsistency among all raw transaction strings including the values of optional variables of them to be merged, an error occurs.
+`combineSignedRawTransactions`を実行するとき、結合される署名付きRLPエンコードされた生トランザクショ ン文字列は、トランザクションインスタンスの署名とオプション変数を除いて、互いに全く同じでなければならない。 `combineSignedRawTransactions`の呼び出し元である）ベーストランザクショ ンインスタンスに指定された値を持たないオプション変数は、次にマージされる生トランザクショ ン文字列の対応する値と交換される。 マージされるすべての生のトランザクション文字列（オプション変数の値を含む）の間に不一致がある場合、エラーが発生する。
 
-The combineSignedRawTransactions returns an RLP-encoded string containing all signatures (and feePayerSignatures if the transaction is a fee-delegated transaction) as a result. You use this to send a transaction to the network through `await caver.rpc.klay.sendRawTransaction(combined)`.
+combineSignedRawTransactionsは、結果として、すべての署名(およびトランザクショ ンがfee-delegatedトランザクションの場合はfeePayerSignatures)を含むRLPエンコードされた文字列を返す。 これを使用して、`await caver.rpc.klay.sendRawTransaction(combined)`を通してトランザクショ ンをネットワークに送信する。
 
-## Detecting implementation of KCT interfaces <a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
+## KCTインターフェースの実装を検出する<a href="#detecting-implementation-of-kct-interfaces" id="detecting-implementation-of-kct-interfaces"></a>
 
-`caver.kct` provides functions that return information about which interface the given KCT token contract implements. Using this, you can see which interface the KCT token contract deployed on kaia implements.
+`caver.kct` は与えられたKCTトークンコントラクトがどのインターフェースを実装しているかの情報を返す関数を提供する。 これを使えば、kaiaにデプロイされたKCTトークンコントラクトがどのインターフェースを実装しているかを見ることができる。
 
-### Detecting KIP-7 interfaces <a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
+### KIP-7インターフェースの検出<a href="#detecting-kip-7-interfaces" id="detecting-kip-7-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-7 token contract, you can use `caver.kct.kip7.detectInterface(contractAddress)` or `kip7.detectInterface()`.
+KIP-7トークンコントラクトが実装しているインタフェースを検出するには、 `caver.kct.kip7.detectInterface(contractAddress)` または `kip7.detectInterface()` を使用します。
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on kaia using static methods provided in `caver.kct.kip7`.
+以下は、`caver.kct.kip7`で提供される静的メソッドを使用して、kaiaにデプロイされたKIP-7トークンコントラクトの実装されたインタフェースを検出する方法のコードである。
 
 ```javascript
 // test.js
@@ -1597,7 +1597,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1607,10 +1607,10 @@ $ node ./test.js
     IKIP7Mintable: true,
     IKIP7Burnable: true,
     IKIP7Pausable: true,
-}
+}.
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-7 token contract deployed on kaia using member method of KIP7.
+以下は、KIP7のmemberメソッドを使って、kaiaにデプロイされたKIP-7トークンコントラクトの実装インターフェースを検出するコードです。
 
 ```javascript
 // test.js
@@ -1626,7 +1626,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1636,14 +1636,14 @@ $ node ./test.js
     IKIP7Mintable: true,
     IKIP7Burnable: true,
     IKIP7Pausable: true,
-}
+}.
 ```
 
-### Detecting KIP-17 interfaces <a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
+### KIP-17インターフェースの検出<a href="#detecting-kip-17-interfaces" id="detecting-kip-17-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-17 token contract, you can use `caver.kct.kip17.detectInterface(contractAddress)` or `kip17.detectInterface()`.
+KIP-17トークンコントラクトが実装するインタフェースを検出するには、`caver.kct.kip17.detectInterface(contractAddress)` または `kip17.detectInterface()` を使用します。
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on kaia using static methods provided in `caver.kct.kip17`.
+以下は、`caver.kct.kip17`で提供される静的メソッドを使用して、kaiaにデプロイされたKIP-17トークンコントラクトの実装されたインタフェースを検出する方法のコードである。
 
 ```javascript
 // test.js
@@ -1658,7 +1658,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1670,10 +1670,10 @@ $ node ./test.js
 	IKIP17MetadataMintable: true,
 	IKIP17Burnable: true,
 	IKIP17Pausable: true,
-}
+}.
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-17 token contract deployed on kaia using member method of KIP17.
+以下は、KIP17のmemberメソッドを使用して、kaiaにデプロイされたKIP-17トークンコントラクトの実装インタフェースを検出する方法のコードです。
 
 ```javascript
 // test.js
@@ -1689,7 +1689,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1701,14 +1701,14 @@ $ node ./test.js
 	IKIP17MetadataMintable: true,
 	IKIP17Burnable: true,
 	IKIP17Pausable: true,
-}
+}.
 ```
 
-### Detecting KIP-37 interfaces <a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
+### KIP-37インターフェースの検出<a href="#detect-kip-37-interfaces" id="detect-kip-37-interfaces"></a>
 
-In order to detect the interfaces implemented by the KIP-37 token contract, you can use `caver.kct.kip37.detectInterface(contractAddress)` or `kip37.detectInterface()`.
+KIP-37トークンコントラクトが実装しているインタフェースを検出するには、 `caver.kct.kip37.detectInterface(contractAddress)` または `kip37.detectInterface()` を使用します。
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on kaia using static methods provided in `caver.kct.kip37`.
+以下は、`caver.kct.kip37`で提供される静的メソッドを使用して、kaiaにデプロイされたKIP-37トークンコントラクトの実装されたインタフェースを検出する方法のコードである。
 
 ```javascript
 // test.js
@@ -1723,7 +1723,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1733,10 +1733,10 @@ $ node ./test.js
     IKIP37Mintable: true,
     IKIP37Burnable: true,
     IKIP37Pausable: true,
-}
+}.
 ```
 
-Below is a code on how to detect the implemented interfaces for the KIP-37 token contract deployed on kaia using member method of KIP37.
+以下は、KIP37のmemberメソッドを使用して、kaiaにデプロイされたKIP-37トークンコントラクトの実装インタフェースを検出する方法のコードです。
 
 ```javascript
 // test.js
@@ -1752,7 +1752,7 @@ async function testFunction() {
 testFunction()
 ```
 
-Running the above code gives you the following result.
+上記のコードを実行すると、次のような結果が得られる。
 
 ```bash
 $ node ./test.js
@@ -1762,33 +1762,33 @@ $ node ./test.js
     IKIP37Mintable: true,
     IKIP37Burnable: true,
     IKIP37Pausable: true,
-}
+}.
 ```
 
-## Sample Projects <a href="#sample-projects" id="sample-projects"></a>
+## サンプルプロジェクト<a href="#sample-projects" id="sample-projects"></a>
 
-The DApp (Blockchain Application) Development sample projects using caver-js are the following:
+caver-jsを使ったDApp（ブロックチェーンアプリケーション）開発サンプルプロジェクトは以下の通り：
 
-- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
+- [カウントDApp](../../../build/tutorials/count-dapp/count-dapp.md)
 - [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
 
-## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+## トラブルシューティング<a href="#troubleshooting" id="troubleshooting"></a>
 
-- **Error: Can't resolve 'fs'** occurs during the build with caver-js in a web browser:
+- **Error: Can't resolve 'fs'** は、ウェブブラウザでcaver-jsを使用してビルド中に発生します：
 
-  - Add the following webpack configuration.
+  - 以下のwebpackの設定を追加します。
 
   ```
   module.exports = {
    	...
-   	node: {
+   	ノード： {
    		fs: 'empty',
-   	},
+   	}
    	...
    }
   ```
 
-  If using Next.js web framework, you can add the webpack configuration to your **next.config.json** file as follows:
+  WebフレームワークのNext.jsを使用している場合は、次のように**next.config.json**ファイルにwebpackの設定を追加します：
 
   ```
   module.exports = {
@@ -1797,13 +1797,13 @@ The DApp (Blockchain Application) Development sample projects using caver-js are
    			config.node = {
    				fs: 'empty'
    			}
-   		}
+   		}.
    		return config
-   	}
+   	}.
    }
   ```
 
-## Links <a href="#links" id="links"></a>
+## リンク<a href="#links" id="links"></a>
 
-- caver-js [GitHub repository](https://github.com/kaiachain/caver-js)
+- caver-js [GitHub リポジトリ](https://github.com/kaiachain/caver-js)
 - caver-js on [npm](https://www.npmjs.com/package/caver-js)

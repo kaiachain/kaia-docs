@@ -1,0 +1,283 @@
+TxTypeLegacyTransaction 代表 kaia 以前存在的一種事務類型。
+
+\*\*這種類型的交易可以創建賬戶、轉移代幣、部署智能合約、執行智能合約，或者執行上述交易的混合。
+
+<CH.Spotlight>
+
+<CH.Code>
+
+```python txTypeLegacyTransaction.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    fill_transaction,
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_legacy_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    value_transfer_tx = {
+        'from' : user.address,
+        'to' : user.address, # to self
+        'value' : Web3.to_peb(10, "klay"),
+    }
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_legacy_value_transfer_sign_recover()
+```
+
+---
+
+```zsh output
+❯ python txTypeLegacyTransaction.py
+raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c080a0bf6b983904416f360b1563a92e162d15cd67efb22593873f63ccee150f4e1547a02fa3f5582c060e94b73b1cafdfa662fca93866484ef0953c06aa99d1aeceb491
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+decoded transaction: {
+  "chainId": 1001,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 10000000000000000000,
+  "data": "0x",
+  "accessList": [],
+  "nonce": 868,
+  "maxPriorityFeePerGas": 0,
+  "maxFeePerGas": 50000000000,
+  "gas": 63000,
+  "v": 0,
+  "r": 86581857317945006820941358514738363124805940633281219922143445788962711278919,
+  "s": 21548393259938899817541519708353317088336325701153952868361768013661633164433,
+  "type": 2
+}
+tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\x0b\x81\x97\x8f\xd1\xeb\xb5\xd1' receipt:  AttributeDict({'blockHash': HexBytes('0x53b38f1b5a53f67d34ab648581ae7425f1915e49ca3869ae14c56df405791a02'), 'blockNumber': 147332771, 'contractAddress': None, 'cumulativeGasUsed': 557368, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x79e42bff8bed1144d94e85d40f330d822b8dc42433ae6bc00b81978fd1ebb5d1'), 'transactionIndex': 3, 'type': 2})
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展到 kaia web3。 在這種情況下，如果要使用**kaia 專用**工具，如**Web3.to_peb**，則應擴展
+
+```py txTypeLegacyTransaction.py focus=1,2
+
+```
+
+---
+
+從 **eth_account**、**web3py_ext** 導入必要的實用程序
+
+```py txTypeLegacyTransaction.py focus=3:7
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 創建 Web3 實例
+
+```py txTypeLegacyTransaction.py focus=9:11
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```python txTypeLegacyTransaction.py focus=9:11
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3py_ext.transaction.transaction import (
+    fill_transaction,
+)
+from web3py_ext.utils.klaytn_utils import to_pretty
+
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+
+def web3_legacy_value_transfer_sign_recover():
+    user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+    value_transfer_tx = {
+        'from' : user.address,
+        'to' : user.address, # to self
+        'value' : Web3.to_peb(10, "klay"),
+    }
+    value_transfer_tx = fill_transaction(value_transfer_tx, w3)
+
+    signed_tx = Account.sign_transaction(value_transfer_tx, user.key)
+    print("\nraw transaction of signed tx:", signed_tx.rawTransaction.hex())
+
+    recovered_tx = Account.recover_transaction(signed_tx.rawTransaction)
+    print("\nrecovered sender address", recovered_tx)
+
+    decoded_tx = Account.decode_transaction(signed_tx.rawTransaction)
+    print("\ndecoded transaction:", to_pretty(decoded_tx))
+
+    tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
+
+web3_legacy_value_transfer_sign_recover()
+```
+
+---
+
+從私人密鑰加載賬戶
+
+```python txTypeLegacyTransaction.py focus=14
+
+```
+
+---
+
+只用 **from**、**to**、**value** 字段定義 **legacy tx**。 使用單位轉換器 **Web3.to_peb**
+
+```python txTypeLegacyTransaction.py focus=15:19
+
+```
+
+---
+
+使用 **fill_transaction** 為交易對象添加更多參數，如 gas 限制...
+
+```python txTypeLegacyTransaction.py focus=20
+
+```
+
+---
+
+用用戶的私人密鑰簽署傳統 tx
+
+<CH.Code>
+```python txTypeLegacyTransaction.py focus=22:23
+
+````
+
+---
+```zsh output
+raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c080a0bf6b983904416f360b1563a92e162d15cd67efb22593873f63ccee150f4e1547a02fa3f5582c060e94b73b1cafdfa662fca93866484ef0953c06aa99d1aeceb491
+````
+
+</CH.Code>
+
+---
+
+從已簽署的 tx 中的簽名中恢復**簽名人地址**
+
+<CH.Code>
+```python txTypeLegacyTransaction.py focus=25:26
+
+````
+
+---
+```zsh output
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+您可以使用**Account.decode_transaction**工具對 RLP 編碼的 tx 進行**解碼**，如果您想讓輸出格式更漂亮，請使用**to_pretty**工具。
+
+<CH.Code>
+```python txTypeLegacyTransaction.py focus=28:29
+
+````
+---
+```zsh output
+decoded transaction: {
+  "chainId": 1001,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 10000000000000000000,
+  "data": "0x",
+  "accessList": [],
+  "nonce": 868,
+  "maxPriorityFeePerGas": 0,
+  "maxFeePerGas": 50000000000,
+  "gas": 63000,
+  "v": 0,
+  "r": 86581857317945006820941358514738363124805940633281219922143445788962711278919,
+  "s": 21548393259938899817541519708353317088336325701153952868361768013661633164433,
+  "type": 2
+}
+````
+
+</CH.Code>
+
+---
+
+向區塊鏈發送 tx。 它將返回 tx 哈希值，用於等待接收
+
+```python txTypeLegacyTransaction.py focus=31
+
+```
+
+---
+
+如果交易已在區塊鏈中完成，**wait_for_transaction_receipt** 方法會返回交易收據。
+
+<CH.Code>
+```python txTypeLegacyTransaction.py focus=32
+
+````
+---
+```zsh output
+tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\x0b\x81\x97\x8f\xd1\xeb\xb5\xd1' receipt:  AttributeDict({'blockHash': HexBytes('0x53b38f1b5a53f67d34ab648581ae7425f1915e49ca3869ae14c56df405791a02'), 'blockNumber': 147332771, 'contractAddress': None, 'cumulativeGasUsed': 557368, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x79e42bff8bed1144d94e85d40f330d822b8dc42433ae6bc00b81978fd1ebb5d1'), 'transactionIndex': 3, 'type': 2})
+````
+
+</CH.Code>
+
+---
+
+最後，得到結果。
+
+<CH.Code>
+```python txTypeLegacyTransaction.py focus=35
+
+````
+---
+```zsh output
+raw transaction of signed tx: 0x02f8738203e982036480850ba43b740082f61894a2a8854b1802d8cd5de631e690817c253d6a9153888ac7230489e8000080c080a0bf6b983904416f360b1563a92e162d15cd67efb22593873f63ccee150f4e1547a02fa3f5582c060e94b73b1cafdfa662fca93866484ef0953c06aa99d1aeceb491
+
+recovered sender address 0xA2a8854b1802D8Cd5De631E690817c253d6a9153
+
+decoded transaction: {
+  "chainId": 1001,
+  "to": "0xA2a8854b1802D8Cd5De631E690817c253d6a9153",
+  "value": 10000000000000000000,
+  "data": "0x",
+  "accessList": [],
+  "nonce": 868,
+  "maxPriorityFeePerGas": 0,
+  "maxFeePerGas": 50000000000,
+  "gas": 63000,
+  "v": 0,
+  "r": 86581857317945006820941358514738363124805940633281219922143445788962711278919,
+  "s": 21548393259938899817541519708353317088336325701153952868361768013661633164433,
+  "type": 2
+}
+tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\x0b\x81\x97\x8f\xd1\xeb\xb5\xd1' receipt:  AttributeDict({'blockHash': HexBytes('0x53b38f1b5a53f67d34ab648581ae7425f1915e49ca3869ae14c56df405791a02'), 'blockNumber': 147332771, 'contractAddress': None, 'cumulativeGasUsed': 557368, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x79e42bff8bed1144d94e85d40f330d822b8dc42433ae6bc00b81978fd1ebb5d1'), 'transactionIndex': 3, 'type': 2})
+````
+
+</CH.Code>
+
+</CH.Spotlight>

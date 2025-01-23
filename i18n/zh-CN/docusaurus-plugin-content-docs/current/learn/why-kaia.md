@@ -1,4 +1,4 @@
-# 为什么选择 Kaia
+# 为什么要在 Kaia 上建造
 
 Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模的项目提供强大的基础设施，引领 Web3 的应用。 本文件根据 Kaia 的主要设计原则和价值主张，解释了 Kaia 的与众不同之处。
 
@@ -34,9 +34,9 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 ## 成本低，用户体验更好
 
-1. **负担得起的交易费用**：最终用户无需承担高昂的交易费用。 成本稳定，由交易复杂程度决定。 请参阅 [可负担的智能合约执行成本](computation/kaia-smart-contract.md#affordable-smart-contract-execution-cost) 和 [交易费用](transaction-fees/transaction-fees.md)。
+1. **负担得起的交易费用**：最终用户无需承担高昂的交易费用。 成本稳定，由交易复杂程度决定。 参见 [可负担的智能合约执行成本](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) 和 [交易费用](transaction-fees/transaction-fees.md) 。
 
-2. **[费用委托](./transactions/transactions.md#fee-delegation)**：应用程序可以支付用户的交易费用，从而实现灵活的商业模式并降低用户获取门槛。
+2. **收费委托**：应用程序可以支付用户的交易费用，从而实现灵活的商业模式并降低用户获取门槛。
 
 ## 开源基础设施和生态系统支持
 
@@ -44,7 +44,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 2. **二级基础设施**：支持产品和服务的生态系统，包括集成服务、稳定币集成、DAO、NFT 市场、DEX、DeFi 和传统金融接口。
 
-3. **生态系统基金**：新发行代币的 50% 将通过[Kaia 生态系统基金](token-economy.md#kaia-ecosystem-fund)和[Kaia 基础设施基金](token-economy.md#kaia-infrastructure-fund)重新投资于生态系统。
+3. **生态系统基金**：新发行代币的 50%将通过[Kaia 生态系统基金](./token-economics/token-economy.md#kaia-ecosystem-fund) 和[Kaia 基础设施基金](./token-economics/token-economy.md#kaia-infrastructure-fund) 重新投资于生态系统。
 
 ## 社区共建与治理
 

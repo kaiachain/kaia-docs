@@ -1,0 +1,149 @@
+# Read
+
+您可以通過 "調用 "RPC API 調用智能合約中的函數。 在這裡可以調用的功能僅限於**視圖函數**，不會改變合約中的任何狀態。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractView.js
+    const ethers = require("ethers");
+
+    const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+    /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+    // SPDX-License-Identifier: UNLICENSED
+    pragma solidity ^0.8.13;
+
+    contract Counter {
+        uint256 public number;
+        event SetNumber(uint256 number);
+
+        constructor(uint256 initNumber) {
+            number = initNumber;
+        }
+
+        function setNumber(uint256 newNumber) public {
+            number = newNumber;
+            emit SetNumber(number);
+        }
+
+        function increment() public {
+            number++;
+            emit SetNumber(number);
+        }
+    }
+    */
+    const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+    const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+    async function main() {
+      const counter = new ethers.Contract(contractAddr, abi, provider);
+      const number = await counter.number();
+      console.log("number", number.toString());
+    }
+
+    main();
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js SmartContractView.js
+    number 291
+    ```
+  </CH.Code>
+
+  ---
+
+  導入 **ethers** 和 **@kaiachain/ethers-ext** 模塊，在 ethers.js 上添加 kaia 功能。
+
+  ```js SmartContractView.js focus=1
+  ```
+
+  ---
+
+  使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+
+  ```js SmartContractView.js focus=3
+  ```
+
+  ---
+
+  此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode** 。
+
+  ```js SmartContractView.js focus=3
+  const ethers = require("ethers");
+
+  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+
+  /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+  // SPDX-License-Identifier: UNLICENSED
+  pragma solidity ^0.8.13;
+
+  contract Counter {
+      uint256 public number;
+      event SetNumber(uint256 number);
+
+      constructor(uint256 initNumber) {
+          number = initNumber;
+      }
+
+      function setNumber(uint256 newNumber) public {
+          number = newNumber;
+          emit SetNumber(number);
+      }
+
+      function increment() public {
+          number++;
+          emit SetNumber(number);
+      }
+  }
+  */
+  const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+  const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+
+  async function main() {
+    const counter = new ethers.Contract(contractAddr, abi, provider);
+    const number = await counter.number();
+    console.log("number", number.toString());
+  }
+
+  main();
+  ```
+
+  ---
+
+  設置由 solidity 代碼生成的 **Abi**
+
+  ```js SmartContractView.js focus=28
+  ```
+
+  ---
+
+  定義與之交互的\*\*合約地址
+
+  ```js SmartContractView.js focus=29
+  ```
+
+  ---
+
+  使用 **ethers.Contract**創建合約實例，填寫參數 **contractAddr**、**abi**、**provider**。 您可以通過該實例讀寫合約
+
+  ```js SmartContractView.js focus=32
+  ```
+
+  ---
+
+  使用**counter.number()**方法從合約中獲取**數字**的值
+
+  <CH.Code>
+    ```js SmartContractView.js focus=33:34
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractView.js
+    number 291
+    ```
+  </CH.Code>
+</CH.Spotlight>

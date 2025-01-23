@@ -1,15 +1,15 @@
-# Build Mini dApps on LINE with Unity
+# UnityでLINEのミニdAppを作る
 
-## Introduction
+## はじめに
 
-LINE serves as a comprehensive communication and lifestyle platform with over 200 million active users. By integrating Web3 capabilities into LINE through mini dApps, developers can leverage LINE's vast user base to facilitate mainstream adoption of blockchain technologies. This integration allows users to interact with decentralized applications directly within their familiar LINE interface, eliminating the need to switch between multiple platforms.
+LINEは、2億人以上のアクティブユーザーを抱える総合的なコミュニケーション・ライフスタイル・プラットフォームである。 ミニdAppsを通じてWeb3の機能をLINEに統合することで、開発者はLINEの膨大なユーザーベースを活用し、ブロックチェーン技術の主流採用を促進することができる。 この統合により、ユーザーは使い慣れたLINEのインターフェイス内で分散型アプリケーションと直接やりとりできるようになり、複数のプラットフォームを切り替える必要がなくなる。
 
-This tutorial guides you through building mini dApps on the LINE platform using Unity WebGL and Kaia's infrastructure. Mini dApps allow developers to integrate Web3 functionality directly into LINE, leveraging its extensive user base.
+このチュートリアルでは、Unity WebGLとKaiaのインフラを使用して、LINEプラットフォーム上でミニdAppsを構築する方法を説明します。 Mini dAppsは、開発者がWeb3の機能をLINEに直接統合し、その広範なユーザーベースを活用することを可能にする。
 
-You will learn how to create a mini dApp that enables users to connect their wallets, check token balances, and mint tokens. This guide caters to both experienced blockchain developers and those new to Web3 development. By the end of this tutorial, you will have the skills to build and deploy your own LINE mini dApp.
+ユーザーがウォレットに接続し、トークンの残高を確認し、トークンを鋳造できるミニdAppの作成方法を学びます。 このガイドは、経験豊富なブロックチェーン開発者とWeb3開発の初心者の両方に対応しています。 このチュートリアルが終わるころには、あなた自身のLINE mini dAppをビルドしてデプロイするスキルが身についていることだろう。
 
-## Getting Started
+## はじめに
 
-Ready to build your first LINE mini dApp? We'll walk through creating a dApp using Unity WebGL, transform it into a LIFF (LINE Front-end Framework) app, and add some exciting token minting capabilities. If you're unfamiliar with some of these terms, each concept will be explained thoroughly.
+初めてのLINE mini dAppを作る準備はできていますか？ Unity WebGLを使ってdAppを作成し、LIFF（LINE Front-end Framework）アプリに変換して、エキサイティングなトークン鋳造機能を追加します。 これらの用語に馴染みがない場合は、各コンセプトを徹底的に説明する。
 
 ![](/img/minidapps/unity-minidapp/info-minidapp-banner.png)

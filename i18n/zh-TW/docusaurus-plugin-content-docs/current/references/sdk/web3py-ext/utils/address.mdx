@@ -1,0 +1,77 @@
+# Address
+
+用於轉換公共地址和公共密鑰的工具。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```py address_utils.py
+    from eth_account import Account
+    from web3py_ext.klaytn_account.utils import compressed_key_from_xy, address_from_private_key, compressed_key, \
+        compressed_key_and_address_from_xy
+
+
+    def main():
+        private_key=Account.from_key("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+        print("Public key from private key",address_from_private_key(private_key))
+        print("Compress key from private key",compressed_key(private_key))
+
+        x = "0xdc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+        y = "0xaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79"
+        print("Compress public key from x,y", compressed_key_from_xy(x, y))
+        print("Compress public key and address from x,y", compressed_key_and_address_from_xy(x, y))
+
+    main()
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ python address_utils.py
+    Public key from private key 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    Compress key from private key 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    Compress key from x,y 03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    Compress key and address from x,y ('0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd', '0xA2a8854b1802D8Cd5De631E690817c253d6a9153')
+
+    ```
+  </CH.Code>
+
+  ---
+
+  從\*\*@kaiachain/ethers-ext**軟件包中導入**getCompressedPublicKey\*\*。
+
+  ```py address_utils.py focus=1:3
+  ```
+
+  ---
+
+  從 "賬戶 "對象中，您可以使用 "address_from_private_key "獲取**公共地址**，或使用 "compressed_key "獲取**壓縮公共密鑰**。
+
+  <CH.Code>
+    ```py address_utils.py focus=7:9
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ python address_utils.py
+    pubkey from { x, y } object = 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+
+  ---
+
+  根據未壓縮公鑰的 `x` 和 `y` 座標，可以使用 `compressed_key_from_xy` 和 `compressed_key_and_address_from_xy` 獲取公鑰和地址。
+
+  <CH.Code>
+    ```py address_utils.py focus=11:14
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ python address_utils.py
+    Public key from private key 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+    Compress key from private key 0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd
+    ```
+  </CH.Code>
+</CH.Spotlight>

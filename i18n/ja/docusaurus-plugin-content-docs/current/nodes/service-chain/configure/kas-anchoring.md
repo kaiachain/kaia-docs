@@ -1,60 +1,60 @@
-# Use Data Anchoring with KAS
+# KASでデータ・アンカリングを使用する
 
-As explained in the design section, you can anchor your service chain data to Klaytn main chain.
-This page introduces how to enable data anchoring via [KAS (Klaytn API Service)](https://www.klaytnapi.com).
+デザインのセクションで説明したように、サービスチェーンのデータをカイアのメインチェーンに固定することができます。
+[KAS (Kaia API Service)](https://www.klaytnapi.com)を利用してデータアンカリングを有効にする方法を紹介します。
 
 Once it is turned on, a node in your service chain can periodically anchor its chain data (block data) to Cypress or Baobab as a proof of existence and immutability of the service chain.
-This ensures the security and credibility of the service chain.
+これにより、サービスチェーンの安全性と信頼性が確保される。
 
-## Preparation for Using KAS <a id="preparation-with-kas"></a>
+## KASを使うための準備<a id="preparation-with-kas"></a>
 
-This section introduces the pre-requisites to use KAS for data anchoring.
+このセクションでは、データ・アンカリングにKASを使用するための前提条件を紹介する。
 
-### Sign Up KAS (Klaytn API Service) <a id="sign-up-kas"></a>
+### KAS（カイアAPIサービス）の登録<a id="sign-up-kas"></a>
 
-First, you need to sign up KAS on the [KAS console website](https://www.klaytnapi.com) to get a KAS account.
-Please visit the website above and sign up in KAS.
+まず、[KAS console website](https://www.klaytnapi.com)でKASにサインアップし、KASアカウントを取得する必要があります。
+上記のウェブサイトにアクセスし、KASに登録してください。
 
 [![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
 [![sign up](/img/nodes/kas-signup-en.png)](https://www.klaytnapi.com)
 
-### Create Credential <a id="check-credential"></a>
+### クレデンシャルの作成<a id="check-credential"></a>
 
-After login, you can create your credential like below.
-The `AccessKey ID` and `Secret AccessKey`, or `Authorization` will be used to call KAS APIs.
+ログイン後、以下のようにクレデンシャルを作成します。
+`AccessKey ID` と `Secret AccessKey` または `Authorization` は KAS API を呼び出す際に使用される。
 
 ![credential](/img/nodes/kas-credential-en.png)
 
-## Anchor API <a id="anchor-api"></a>
+## アンカーAPI<a id="anchor-api"></a>
 
-KAS provides Anchor API, which is designed for data anchoring and surely it is the one that you are going to use for anchoring task.
+KASが提供するAnchor APIは、データ・アンカリングのために設計されたもので、アンカリング・タスクに使用するものであることは間違いない。
 
 ![anchor api](/img/nodes/kas-anchor-api-en.png)
 
-## Create Operator Address <a id="create-kas-credential"></a>
+## オペレーター・アドレスの作成<a id="create-kas-credential"></a>
 
-To anchor service chain data via KAS, there should be a Klaytn address, enrolled in KAS, that actually send anchoring transaction to Klaytn. So, before you set up your service node, you need to create an Klaytn account called "operator" via KAS. Please, use KAS console to create this account.
+KAS経由でサービスチェーンデータをアンカーするためには、KASに登録されたKaiaアドレスが存在し、実際にアンカートランザクションをKaiaに送信する必要がある。 従って、サービスノードをセットアップする前に、KAS経由で "operator "と呼ばれるKaiaアカウントを作成する必要があります。 このアカウントを作成するには、KASコンソールを使用してください。
 
-It is important to be noticed that you must **first select the chain** in Klaytn to which you want to anchor your data on **the top right corner of the KAS console page**. You should create an operator for each chain (Cypress/Baobab).
+KASコンソールページの右上にある、データをアンカーしたいKaia内のチェーンを**最初に選択する**必要があることに注意してください。 You should create an operator for each chain (Cypress/Baobab).
 
 ![select chain](/img/nodes/kas-select-chain-en.png)
 
-Create an operator as below.
+以下のように演算子を作成する。
 
 ![create operator](/img/nodes/kas-create-operator-en.png)
 
-Then, you can check your operator list like below.
-Please note that the address of an operator is required for setting your service chain node.
+そして、以下のようなオペレーターリストを確認することができます。
+サービスチェーンノードの設定にはオペレーターのアドレスが必要です。
 
 ![create operator](/img/nodes/kas-operator-list-en.png)
 
-## Configure Service Chain Node <a id="configure-service-chain-node"></a>
+## サービスチェーンノードの設定<a id="configure-service-chain-node"></a>
 
-After obtaining API credentials, Anchor API information (API endpoint and parameters), and an operator account in KAS, then It is time to set up your service chain node.
-You need to edit the configuration file (`kscnd.conf`, `kspnd.conf`, `ksend.conf`) of your service chain node like below.
+APIクレデンシャル、アンカーAPI情報（APIエンドポイントとパラメータ）、KASのオペレータアカウントを取得したら、いよいよサービスチェーンノードをセットアップする。
+サービスチェーンノードの設定ファイル（`kscnd.conf`, `kspnd.conf`, `ksend.conf`）を以下のように編集する必要がある。
 
-You should set `SC_SUB_BRIDGE=1` and all `SC_KAS_` prefix items.
+SC_SUB_BRIDGE=1`とすべての`SC_KAS_\` プレフィックス項目を設定する必要があります。
 
 ```bash
 ...
@@ -69,14 +69,14 @@ SC_KAS_ANCHOR_URL="https://anchor-api.klaytn.com/v1/anchor"             # Anchor
 SC_KAS_ANCHOR_OPERATOR="0x6A3D565C4a2a4cd0Fb3df8EDfb63a151717EA1D7"     # Operator address
 SC_KAS_ANCHOR_ACCESS_KEY="KAJM4BEIR9SKJKAW1G3TT8GX"                     # Credential Access key
 SC_KAS_ANCHOR_SECRET_KEY="KyD5w9ZlZQ7ejj6lDF6elb61u8JH/mXdKqhgr3yF"     # Credential Secret key
-SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Cypress: 8217, Baobab: 1001
+SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainnet: 8217, Kairos: 1001
 ...
 ```
 
-## Run Service Chain Node <a id="run-service-chain-node"></a>
+## サービスチェーンノードの実行<a id="run-service-chain-node"></a>
 
-Now you are good to go. You can run your service chain node.
-You will see the log message related with KAS Anchor API like below.
+これでもう大丈夫だ。 サービス・チェーン・ノードを走らせることができる。
+以下のようなKAS Anchor APIに関するログメッセージが表示されます。
 
 ```bash
 ...
@@ -93,8 +93,8 @@ INFO[09/10,18:09:32 +09] [53] Anchored a block via KAS                  blkNum=8
 ...
 ```
 
-## List of Transaction <a id="list-of-transaction"></a>
+## 取引一覧<a id="list-of-transaction"></a>
 
-In KAS console website, you can see the list of anchoring transactions that the operator of your service chain has sent at "KAS Console - Service - Anchor - Operators" menu like below.
+KASコンソールの「KAS Console - Service - Anchor - Operators」メニューで、サービスチェーンのオペレータが送信したアンカリング・トランザクションのリストを見ることができます。
 
 ![anchoring transaction list](/img/nodes/kas-tx-list-en.png)

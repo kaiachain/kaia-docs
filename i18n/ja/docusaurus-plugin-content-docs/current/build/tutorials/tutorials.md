@@ -1,6 +1,6 @@
-# Tutorials
+# チュートリアル
 
-This chapter contains practical dApp examples with complete source code and explanations.
+この章では、実用的なdAppの例を完全なソースコードと解説付きで紹介する。
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';

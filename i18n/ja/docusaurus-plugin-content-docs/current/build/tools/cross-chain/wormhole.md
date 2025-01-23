@@ -1,13 +1,13 @@
 # Wormhole
 
-## Introduction <a id="introduction"></a>
+## はじめに<a id="introduction"></a>
 
-[Wormhole](https://wormhole.com/docs/) is an interoperability platform powering multi chain apps and bridges. It currently has support for 30+ chains including Kaia. By integrating wormhole, a Kaia application can make any token natively multichain, pull any on-chain data on-demand and build custom multi chain protocols.
+[Wormhole](https://wormhole.com/docs/)は、マルチチェーンアプリとブリッジを支える相互運用性プラットフォームである。 現在、カイアを含む30以上のチェーンに対応している。 ワームホールを統合することで、カイアのアプリケーションはあらゆるトークンをネイティブにマルチチェーン化し、オンデマンドであらゆるオンチェーンデータを引き出し、カスタムマルチチェーンプロトコルを構築することができる。
 
-## Usage <a id="usage"></a>
+## 使用方法<a id="usage"></a>
 
-Wormhole supports both  [Kaia Mainnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_34_1) and [Kairos Testnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_35_1). To get started using Wormhole on Kaia, refer to the following guides:
+Wormholeは[Kaia Mainnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_34_1)と[Kairos Testnet](https://wormhole.com/docs/build/start-building/supported-networks/evm/#__tabbed_35_1)の両方をサポートしています。 カイアでワームホールを使い始めるには、以下のガイドを参照してください：
 
-- [Create Cross-Chain Messaging Contract](https://wormhole.com/docs/tutorials/messaging/cross-chain-contracts/)
-- [Create Cross-Chain Token Transfers](https://wormhole.com/docs/tutorials/messaging/cross-chain-token-contracts/)
+- [クロスチェーン・メッセージング契約の締結](https://wormhole.com/docs/tutorials/messaging/cross-chain-contracts/)
+- [クロスチェーントークン転送の作成](https://wormhole.com/docs/tutorials/messaging/cross-chain-token-contracts/)
 - [Github Examples](https://github.com/wormhole-foundation/wormhole-examples)

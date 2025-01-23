@@ -1,6 +1,6 @@
-# Smart Contract Execution
+# スマート・コントラクトの実行
 
-**TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
+**TxTypeSmartContractExecution**は、与えられたデータでスマート・コントラクトを実行する。 **TxTypeSmartContractExecution**は、"to "がスマート・コントラクト・アカウントである場合のみ受理される。
 
 <CH.Spotlight>
 <CH.Code>
@@ -81,7 +81,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js SmartContractExecution.js focus=1:2
 
@@ -89,7 +89,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender address and sender private key**
+**送信者アドレスと送信者秘密鍵**の定義
 
 ```js SmartContractExecution.js focus=4:5
 
@@ -97,7 +97,7 @@ Define **sender address and sender private key**
 
 ---
 
-Define contract address and Abi, you can retreive it from block explorer and compiled solidity code
+コントラクトアドレスとアビを定義すれば、ブロックエクスプローラーやコンパイルされたソリッドコードから取得できます。
 
 ```js SmartContractExecution.js focus=6:21
 
@@ -105,7 +105,7 @@ Define contract address and Abi, you can retreive it from block explorer and com
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js SmartContractExecution.js focus=24
 
@@ -113,7 +113,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SmartContractExecution.js focus=24
 const { KlaytnWeb3, TxType } = require("@kaiachain/web3js-ext");
@@ -166,7 +166,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js SmartContractExecution.js focus=25
 
@@ -174,7 +174,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Convert the sender's private key to an account using **web3.eth.accounts.privateKeyToAccount**
+送信者の秘密鍵を、**web3.eth.account.privateKeyToAccount**を使ってアカウントに変換する。
 
 ```js SmartContractExecution.js focus=26
 
@@ -182,7 +182,7 @@ Convert the sender's private key to an account using **web3.eth.accounts.private
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js SmartContractExecution.js focus=29
 
@@ -190,7 +190,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Encode the function data for the "setNumber" function to convert the data to bytes
+setNumber」関数のデータをエンコードし、データをバイトに変換する。
 
 ```js SmartContractExecution.js focus=30
 
@@ -206,7 +206,7 @@ Define a transaction object for the contract execution, params `type: TxType.Sma
 
 ---
 
-Sign the transaction with the **sender**'s private key
+**sender**の秘密鍵でトランザクションに署名する。
 
 <CH.Code>
 ```js SmartContractExecution.js focus=39:40
@@ -225,7 +225,7 @@ signedTx 0x6e3843d8fe5ef53b4642d82357d423dfb2741a96a9a74307df2bd7caee5659f0
 
 ---
 
-Send the signed transaction to blockchain. It will return the transaction receipt
+署名されたトランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js SmartContractExecution.js focus=42:43

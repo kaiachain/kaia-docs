@@ -1,8 +1,8 @@
-# Value Transfer
+# 価値移転
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
 <CH.Spotlight>
 <CH.Code>
@@ -71,7 +71,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=1
 
@@ -79,7 +79,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=3:6
 
@@ -87,7 +87,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=8:9
 
@@ -95,7 +95,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=8
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=10
 
@@ -143,7 +143,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=11
 
@@ -151,7 +151,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define the transaction object.
+トランザクションオブジェクトを定義する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=14:20
 
@@ -159,7 +159,7 @@ Define the transaction object.
 
 ---
 
-Set `type: TxType.FeeDelegatedValueTransfer` for transaction to send a value transfer with a fee payer
+typeを設定する：TxType.FeeDelegatedValueTransfer\`をセットする。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=15
 
@@ -167,7 +167,7 @@ Set `type: TxType.FeeDelegatedValueTransfer` for transaction to send a value tra
 
 ---
 
-Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to convert Klay to Peb
+`value:toPeb("0.01")`を設定して転送する値を定義し、`toPeb`を使用してKlayをPebに変換する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=18
 
@@ -175,7 +175,7 @@ Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to 
 
 ---
 
-Set others params like **from**, **to**
+**from**や**to**などのパラメータを設定する。
 
 ```js TxTypeFeeDelegatedValueTransfer.js focus=16:17
 
@@ -183,7 +183,7 @@ Set others params like **from**, **to**
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransfer.js focus=21:23
@@ -200,7 +200,7 @@ senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc2
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransfer.js focus=25:27
@@ -217,7 +217,7 @@ signedTx 0xded94a15a62b6d24ac4d0a317f0ed37873d4105b0ff7500e577f6d282fdc4bae
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransfer.js focus=29:30

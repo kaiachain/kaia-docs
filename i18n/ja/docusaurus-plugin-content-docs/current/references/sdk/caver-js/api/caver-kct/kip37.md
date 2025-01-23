@@ -1,14 +1,14 @@
 # caver.kct.kip37
 
-The `caver.kct.kip37` helps you easily handle a smart contract that implements KIP-37 as a JavaScript object on the kaia blockchain platform (kaia).
+caver.kct.kip37\`は、kaiaブロックチェーンプラットフォーム(kaia)上のJavaScriptオブジェクトとしてKIP-37を実装したスマートコントラクトを簡単に処理するのに役立つ。
 
-The `caver.kct.kip37` inherits [caver.contract](../caver.contract.md) to implement the KIP-37 token contract. The `caver.kct.kip37` holds the same properties of `caver.contract` whereas additional methods are implemented for extra features. This section only introduces the newly added methods of the `caver.kct.kip37`.
+caver.kct.kip37`は[caver.contract](../caver.contract.md)を継承し、KIP-37トークンコントラクトを実装する。 `caver.kct.kip37`は`caver.contract`と同じプロパティを保持しているが、追加機能のために追加のメソッドが実装されている。 ここでは `caver.kct.kip37\` の新しく追加されたメソッドのみを紹介する。
 
-The code that implements KIP-37 for caver-js is available on the [Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37). KIP-37 for caver-js supports Ownable interface. Using this, you can designate a contract owner when deploying a contract
+caver-jsにKIP-37を実装したコードは、[Kaia Contracts Github Repo](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37)で入手可能です。 KIP-37 for caver-jsがOwnableインターフェイスをサポート。 これを使用すると、コントラクトのデプロイ時にコントラクト所有者を指定できます。
 
-For more information about KIP-37, see [Kaia Improvement Proposals](https://kips.kaia.io/KIPs/kip-37).
+KIP-37の詳細については、[カイア改善提案](https://kips.kaia.io/KIPs/kip-37)を参照のこと。
 
-**NOTE** `caver.kct.kip37` is supported since caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7).
+**NOTE** `caver.kct.kip37` は caver-js [v1.5.7](https://www.npmjs.com/package/caver-js/v/1.5.7) からサポートされています。
 
 ## caver.kct.kip37.deploy <a id="caver-klay-kip37-deploy"></a>
 
@@ -16,54 +16,54 @@ For more information about KIP-37, see [Kaia Improvement Proposals](https://kips
 caver.kct.kip37.deploy(tokenInfo, deployer)
 ```
 
-Deploys the KIP-37 token contract to the kaia blockchain. A contract deployed using caver.kct.kip37.deploy is a multi token that follows the KIP-37 standard.
+KIP-37トークンコントラクトをkaiaブロックチェーンに展開する。 caver.kct.kip37.deployを使用してデプロイされたコントラクトは、KIP-37標準に従ったマルチトークンである。
 
-After successful deployment, the promise will be resolved with a new KIP37 instance.
+デプロイに成功すると、プロミスは新しいKIP37インスタンスで解決される。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenInfo | object      | The information needed to deploy a KIP-37 token contract on the kaia blockchain. See the below table for the details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| deployer  | string \\ | The address in the keyring instance to deploy the KIP-37 token contract. This address must have enough KAIA to deploy. See [Keyring](../caver-wallet/keyring.md#caver-wallet-keyring) for more details. If you want to define your own fields to use when sending transactions, you can pass the object type as a parameter. Also, if you want to use Fee Delegation when deploying KIP-37 contracts, you can define fields related to fee delegation in the object. For fields that can be defined in the object, refer to the parameter description of [create](#kip37-create). |
+| 名称      | タイプ         | 説明                                                                                                                                                                                                                                                                                                                                                      |
+| ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| トークン情報  | オブジェクト      | KIP-37トークンコントラクトをkaiaブロックチェーン上に展開するために必要な情報。 詳細は下表を参照。                                                                                                                                                                                                                                                                                                  |
+| ディプロイヤー | string \\ | KIP-37トークンコントラクトをデプロイするキーリング・インスタンスのアドレス。 このアドレスは、展開するのに十分なKAIAを持っていなければならない。 詳しくは[キーホルダー](../caver-wallet/keyring.md#caver-wallet-keyring)を参照。 トランザクション送信時に使用する独自のフィールドを定義したい場合は、オブジェクト・タイプをパラメータとして渡すことができる。 また、KIP-37コントラクトをデプロイする際に料金委譲を使用したい場合は、オブジェクトに料金委譲に関連するフィールドを定義することができます。 オブジェクトに定義できるフィールドについては、[create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-The tokenInfo object must contain the following:
+tokenInfoオブジェクトには、以下を含める必要があります：
 
-| Name | Type   | Description                                                                                                                                                |
-| ---- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| uri  | string | The URI for all token types, by relying on the [token type ID substitution mechanism](http://kips.klaytn.foundation/KIPs/kip-37#metadata). |
+| 名称 | タイプ   | 説明                                                                                                                                                                                            |
+| -- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ウリ | ストリング | トークン・タイプID置換メカニズム](http://kips.klaytn.foundation/KIPs/kip-37#metadata)に依存して、すべてのトークン・タイプのためのURI。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`PromiEvent`: A promise combined event emitter, which is resolved with a new KIP37 instance. Additionally, the following events can occur:
+`PromiEvent`：新しい KIP37 インスタンスで解決される、プロミスを組み合わせたイベントエミッター。 さらに、以下のような出来事も起こりうる：
 
-| Name            | Type   | Description                                                                                                                                                                                                                                              |
-| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| transactionHash | string | Fired right after the transaction is sent and a transaction hash is available.                                                                                                                                                           |
-| receipt         | object | Fired when the transaction receipt is available. If you want to know about the properties inside the receipt object, see [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via abi instead of a 'logs' attribute. |
-| error           | Error  | Fired if an error occurs during sending.                                                                                                                                                                                                 |
+| 名称           | タイプ    | 説明                                                                                                                                                       |
+| ------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| トランザクションハッシュ | ストリング  | トランザクションが送信され、トランザクションハッシュが利用可能になった直後に発行される。                                                                                                             |
+| レシート         | オブジェクト | トランザクションのレシートが利用可能になったときに発行されます。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]を参照してください。 KIP37インスタンスからの受信は、abi経由で解析される'logs'属性の代わりに'events'属性を持つ。 |
+| エラー          | エラー    | 送信中にエラーが発生した場合に発行される。                                                                                                                                    |
 
-**Token Enrollment**
+**トークン登録**
 
-1. To enroll a token on a block explorer, the contract creator must fill out a submission request form. Make note of the specified information required on the form.
+1. ブロック・エクスプローラーにトークンを登録するには、コントラクト作成者が提出要求フォームに記入する必要がある。 フォームに必要な指定情報をメモする。
 
-2. Smart Contract Environment
+2. スマートコントラクト環境
 
-   - Compiler Type: Solidity
+   - コンパイラの種類ソリディティ
 
-   - Compiler version: v0.8.4+commit.c7e474f2
+   - コンパイラバージョン：v0.8.4+commit.c7e474f2
 
-   - Open Source License Type: MIT
+   - オープンソースライセンスMIT
 
-3. Smart Contract Detail
+3. スマート・コントラクトの詳細
 
-   - Optimization: --optimize-run 200
+   - 最適化：--optimize-run 200
 
-   - Source code: [KIP37 Contracts Github Link](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kip37Token.sol).
+   - ソースコード[KIP37 Contracts Github Link](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kip37Token.sol).
 
-4. ABI-encoded Value: [kip37JsonInterface at dev · kaiachain/caver-js · GitHub](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L1329-L2374)
+4. ABI エンコードされた値：[kip37JsonInterface at dev - kaiachain/caver-js - GitHub](https://github.com/kaiachain/caver-js/blob/dev/packages/caver-kct/src/kctHelper.js#L1329-L2374)
 
-**Example**
+**例**
 
 ```javascript
 // using the promise
@@ -112,22 +112,22 @@ KIP37 {
 ## caver.kct.kip37.detectInterface <a id="caver-kct-kip37-detectinterface"></a>
 
 ```javascript
-caver.kct.kip37.detectInterface(contractAddress)
+caver.kct.kip37.detectInterface(契約アドレス)
 ```
 
-Returns the information of the interface implemented by the token contract. This static function will use [kip37.detectInterface](#kip37-detectinterface).
+トークンコントラクトが実装しているインターフェースの情報を返します。 この静的関数は [kip37.detectInterface](#kip37-detectinterface) を使用する。
 
-**Parameters**
+**パラメーター**
 
-| Name            | Type   | Description                              |
-| --------------- | ------ | ---------------------------------------- |
-| contractAddress | string | The address of the KIP-37 token contract |
+| 名称   | タイプ   | 説明                    |
+| ---- | ----- | --------------------- |
+| 契約住所 | ストリング | KIP-37トークンコントラクトのアドレス |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.kaia.io/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise` は各 [KIP-37 インタフェース](https://kips.kaia.io/KIPs/kip-37#kip-13-identifiers) が実装されているかどうかをブール値で表した結果を含む `オブジェクト` を返す。
 
-**Example**
+**例**
 
 ```javascript
 > caver.kct.kip37.detectInterface('0x{address in hex}').then(console.log)
@@ -137,7 +137,7 @@ Returns the information of the interface implemented by the token contract. This
     IKIP37Mintable: true,
     IKIP37Burnable: true,
     IKIP37Pausable: true,
-}
+}.
 ```
 
 ## caver.kct.kip37.create <a id="caver-kct-kip37-create"></a>
@@ -146,19 +146,19 @@ Returns the information of the interface implemented by the token contract. This
 caver.kct.kip37.create([tokenAddress])
 ```
 
-Creates a new KIP37 instance with its bound methods and events. This function works the same as [new KIP37](#new-kip37).
+バインドされたメソッドとイベントを持つ新しい KIP37 インスタンスを作成します。 この関数は[new KIP37](#new-kip37)と同じ働きをする。
 
-**NOTE** `caver.kct.kip37.create` is supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**NOTE** `caver.kct.kip37.create` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Parameters**
+**パラメーター**
 
-See the [new KIP37](#new-kip37).
+new KIP37](#new-kip37)を参照。
 
-**Return Value**
+**リターン・バリュー**
 
-See the [new KIP37](#new-kip37).
+new KIP37](#new-kip37)を参照。
 
-**Example**
+**例**
 
 ```javascript
 // Create a KIP37 instance without a parameter
@@ -168,27 +168,27 @@ See the [new KIP37](#new-kip37).
 > const kip37 = caver.kct.kip37.create('0x{address in hex}')
 ```
 
-## new KIP37 <a id="new-kip37"></a>
+## 新しいKIP37<a id="new-kip37"></a>
 
 ```javascript
 new caver.kct.kip37([tokenAddress])
 ```
 
-Creates a new KIP37 instance with its bound methods and events.
+バインドされたメソッドとイベントを持つ新しい KIP37 インスタンスを作成します。
 
-**Parameters**
+**パラメーター**
 
-| Name         | Type   | Description                                                                                                                                      |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| tokenAddress | string | (optional) The address of the KIP-37 token contract, which can be assigned later through `kip37.options.address = '0x1234..'` |
+| 名称       | タイプ   | 説明                                                                                                              |
+| -------- | ----- | --------------------------------------------------------------------------------------------------------------- |
+| トークンアドレス | ストリング | (オプション) KIP-37 のトークンコントラクトのアドレス。これは後で `kip37.options.address = '0x1234...'` によって割り当てることができる。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type   | Description                                                           |
-| ------ | --------------------------------------------------------------------- |
-| object | The KIP37 instance with its bound methods and events. |
+| タイプ    | 説明                               |
+| ------ | -------------------------------- |
+| オブジェクト | KIP37のインスタンスとそのバインドされたメソッドとイベント。 |
 
-**Example**
+**例**
 
 ```javascript
 // Create a KIP37 instance without a parameter
@@ -198,27 +198,27 @@ Creates a new KIP37 instance with its bound methods and events.
 > const kip37 = new caver.kct.kip37('0x{address in hex}')
 ```
 
-## kip37.clone <a id="kip37-clone"></a>
+## kip37.クローン<a id="kip37-clone"></a>
 
 ```javascript
 kip37.clone([tokenAddress])
 ```
 
-Clones the current KIP37 instance.
+現在のKIP37インスタンスをクローンする。
 
-**Parameters**
+**パラメーター**
 
-| Name         | Type   | Description                                                                                                                                                                                                     |
-| ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tokenAddress | string | (optional) The address of the smart contract that deployed another KIP37 token. If omitted, it will be set to the contract address in the original instance. |
+| 名称       | タイプ   | 説明                                                                                           |
+| -------- | ----- | -------------------------------------------------------------------------------------------- |
+| トークンアドレス | ストリング | (オプション）別のKIP37トークンをデプロイしたスマートコントラクトのアドレス。 省略された場合は、元のインスタンスの契約アドレスが設定される。 |
 
-**Return Value**
+**リターン・バリュー**
 
-| Type   | Description                                               |
-| ------ | --------------------------------------------------------- |
-| object | The clone of the original KIP37 instance. |
+| タイプ    | 説明                      |
+| ------ | ----------------------- |
+| オブジェクト | オリジナルのKIP37インスタンスのクローン。 |
 
-**Example**
+**例**
 
 ```javascript
 > const kip37 = new caver.kct.kip37(address)
@@ -230,23 +230,23 @@ Clones the current KIP37 instance.
 > const cloned = kip37.clone('0x{address in hex}')
 ```
 
-## kip37.detectInterface <a id="kip37-detectinterface"></a>
+## kip37.detectInterface<a id="kip37-detectinterface"></a>
 
 ```javascript
 kip37.detectInterface()
 ```
 
-Returns the information of the interface implemented by the token contract.
+トークンコントラクトが実装しているインターフェースの情報を返します。
 
-**Parameters**
+**パラメーター**
 
-None
+なし
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns an `object` containing the result with boolean values whether each [KIP-37 interface](https://kips.kaia.io/KIPs/kip-37#kip-13-identifiers) is implemented.
+`Promise` は各 [KIP-37 インタフェース](https://kips.kaia.io/KIPs/kip-37#kip-13-identifiers) が実装されているかどうかをブール値で表した結果を含む `オブジェクト` を返す。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.detectInterface().then(console.log)
@@ -256,28 +256,28 @@ None
     IKIP37Mintable: true,
     IKIP37Burnable: true,
     IKIP37Pausable: true,
-}
+}.
 ```
 
-## kip37.supportsInterface <a id="kip37-supportsinterface"></a>
+## kip37.supportsInterface<a id="kip37-supportsinterface"></a>
 
 ```javascript
 kip37.supportsInterface(interfaceId)
 ```
 
-Return `true` if this contract implements the interface defined by `interfaceId`.
+このコントラクトが `interfaceId` で定義されたインタフェースを実装していれば `true` を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name        | Type   | Description                                    |
-| ----------- | ------ | ---------------------------------------------- |
-| interfaceId | string | The interfaceId to be checked. |
+| 名称            | タイプ   | 説明                 |
+| ------------- | ----- | ------------------ |
+| インターフェイスアイディー | ストリング | チェックするinterfaceId。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`: `true` if this contract implements the interface defined by `interfaceId`.
+このコントラクトが `interfaceId` で定義されたインタフェースを実装していれば `true` を返します。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.supportsInterface('0x6433ca1f').then(console.log)
@@ -287,136 +287,136 @@ true
 false
 ```
 
-## kip37.uri <a id="kip37-uri"></a>
+## kip37.uri<a id="kip37-uri"></a>
 
 ```javascript
 kip37.uri(id)
 ```
 
-Returns distinct Uniform Resource Identifier (URI) of the given token.
+指定されたトークンの明確な Uniform Resource Identifier (URI) を返します。
 
-If the string `{id}` exists in any URI, this function will replace this with the actual token ID in hexadecimal form.
-Please refer to [KIP-34 Metadata](http://kips.klaytn.foundation/KIPs/kip-37#metadata).
+文字列 `{id}` がURI内に存在する場合、この関数はこれを実際のトークンIDに16進数で置き換えます。
+KIP-34メタデータ](http://kips.klaytn.foundation/KIPs/kip-37#metadata)をご参照ください。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type           | Description                              |
-| ---- | -------------- | ---------------------------------------- |
-| id   | BigNumber \\ | The token id to get uri. |
+| 名称   | タイプ            | 説明                 |
+| ---- | -------------- | ------------------ |
+| アイドル | BigNumber \\ | uriを取得するためのトークンID。 |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` パラメータは `number` 型を受け付けるが、与えられた値がnumber.MAX_SAFE_INTEGERで制限された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `string`: The uri of the token.
+`Promise` は `string` を返す：トークンの uri。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.uri('0x0').then(console.log)
 'https://caver.example/0000000000000000000000000000000000000000000000000000000000000000.json'
 ```
 
-## kip37.totalSupply <a id="kip37-totalsupply"></a>
+## kip37.totalSupply<a id="kip37-totalsupply"></a>
 
 ```javascript
 kip37.totalSupply(id)
 ```
 
-Returns the total token supply of the specific token.
+特定のトークンの総供給量を返します。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type           | Description                                           |
-| ---- | -------------- | ----------------------------------------------------- |
-| id   | BigNumber \\ | The token id to see the total supply. |
+| 名称   | タイプ            | 説明                |
+| ---- | -------------- | ----------------- |
+| アイドル | BigNumber \\ | トークンIDは総供給量を表示する。 |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` パラメータは `number` 型を受け付けるが、与えられた値が number.MAX_SAFE_INTEGER で上限が設定された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `BigNumber`: The total number of tokens.
+`Promise` は `BigNumber` を返す：トークンの総数。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.totalSupply(0).then(console.log)
 10000000000
 ```
 
-## kip37.balanceOf <a id="kip37-balanceof"></a>
+## kip37.balanceOf<a id="kip37-balanceof"></a>
 
 ```javascript
 kip37.balanceOf(account, id)
 ```
 
-Returns the amount of tokens of token type `id` owned by `account`.
+アカウント`が所有するトークンタイプ `id\` のトークンの量を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name    | Type           | Description                                                                   |
-| ------- | -------------- | ----------------------------------------------------------------------------- |
-| account | string         | The address of the account for which you want to see balance. |
-| id      | BigNumber \\ | The token id to see balance.                                  |
+| 名称    | タイプ            | 説明                |
+| ----- | -------------- | ----------------- |
+| アカウント | ストリング          | 残高を確認したい口座のアドレス。  |
+| アイドル  | BigNumber \\ | バランスを見るためのトークンID。 |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` パラメータは `number` 型を受け付けるが、与えられた値が number.MAX_SAFE_INTEGER で上限が設定された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `BigNumber`: The amount of token that account has.
+`Promise` は `BigNumber` を返す：そのアカウントが持っているトークンの量。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.balanceOf('0x{address in hex}', 0).then(console.log)
 20
 ```
 
-## kip37.balanceOfBatch <a id="kip37-balanceofbatch"></a>
+## kip37.balanceOfBatch<a id="kip37-balanceofbatch"></a>
 
 ```javascript
 kip37.balanceOfBatch(accounts, ids)
 ```
 
-Returns the balance of multiple account/token pairs. `balanceOfBatch` is a batch operation of [balanceOf](#kip37-balanceof), and the length of arrays with `accounts` and `ids` must be the same.
+複数のアカウント／トークンのペアの残高を返します。 `balanceOfBatch`は[balanceOf](#kip37-balanceof)のバッチ操作であり、`accounts`と`ids`を持つ配列の長さは同じでなければならない。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type  | Description                                                                   |
-| -------- | ----- | ----------------------------------------------------------------------------- |
-| accounts | Array | The address of the account for which you want to see balance. |
-| ids      | Array | An array of the token ids to see balance.                     |
+| 名称    | タイプ | 説明                   |
+| ----- | --- | -------------------- |
+| アカウント | 配列  | 残高を確認したい口座のアドレス。     |
+| 子供たち  | 配列  | バランスを見るためのトークンIDの配列。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `Array`: The balance of multiple account/token pairs.
+`Promise` は `Array` を返す：複数のアカウントとトークンのペアの残高。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.balanceOfBatch(['0x{address in hex}', '0x{address in hex}'], [0, 1]).then(console.log)
-[ 20, 30 ]
+[ 20, 30 ]。
 ```
 
-## kip37.isMinter <a id="kip37-isminter"></a>
+## kip37.isMinter<a id="kip37-isminter"></a>
 
 ```javascript
-kip37.isMinter(address)
+kip37.isMinter(アドレス)
 ```
 
-Returns `true` if the given account is a minter who can issue new KIP37 tokens.
+与えられたアカウントが新しい KIP37 トークンを発行できる採掘者であれば `true` を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name    | Type   | Description                                                                            |
-| ------- | ------ | -------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the minting right. |
+| 名称 | タイプ   | 説明                    |
+| -- | ----- | --------------------- |
+| 住所 | ストリング | 造幣権があるかどうかを確認する口座の住所。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`: `true` if the account is a minter.
+`Promise`は `boolean` を返す: アカウントが minter であれば `true` を返す。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.isMinter('0x{address in hex}').then(console.log)
@@ -426,25 +426,25 @@ true
 false
 ```
 
-## kip37.isPauser <a id="kip37-ispauser"></a>
+## kip37.isPauser<a id="kip37-ispauser"></a>
 
 ```javascript
-kip37.isPauser(address)
+kip37.isPauser(アドレス)
 ```
 
-Returns `true` if the given account is a pauser who can suspend transferring tokens.
+与えられたアカウントがトークンの転送を一時停止できる一時停止者であれば `true` を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name    | Type   | Description                                                                                                   |
-| ------- | ------ | ------------------------------------------------------------------------------------------------------------- |
-| address | string | The address of the account to be checked for having the right to suspend transferring tokens. |
+| 名称 | タイプ   | 説明                                    |
+| -- | ----- | ------------------------------------- |
+| 住所 | ストリング | トークンの譲渡を停止する権利があるかどうかを確認するアカウントのアドレス。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`: `true` if the account is a pauser.
+`Promise`は `boolean` を返します: アカウントが一時停止者であれば `true` を返します。
 
-**Example**
+**例**
 
 ```javascript
 > kip37.isPauser('0x{address in hex}').then(console.log)
@@ -454,64 +454,64 @@ true
 false
 ```
 
-## kip37.paused <a id="kip37-paused"></a>
+## kip37.paused<a id="kip37-paused"></a>
 
 ```javascript
 kip37.paused()
 ```
 
-Returns whether or not the token contract's transaction (or specific token) is paused.
+トークンコントラクトのトランザクション（または特定のトークン）が一時停止されているかどうかを返します。
 
-If id parameter is not defined, return whether the token contract's transaction is paused. If id parameter is defined, return whether the specific token is paused.
+id パラメータが定義されていない場合、トークンコントラクトのトランザクションが一時停止されているかどうかを返します。 id パラメータが定義されている場合、特定のトークンが一時停止しているかどうかを返します。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type           | Description                                                                                                                                                                                                   |
-| ---- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id   | BigNumber \\ | (optional) The token id to check wether paused or not. If this parameter is omitted, the `paused` function return whether the contract is in paused state. |
+| 名称   | タイプ            | 説明                                                                                                        |
+| ---- | -------------- | --------------------------------------------------------------------------------------------------------- |
+| アイドル | BigNumber \\ | (オプション) 一時停止しているかどうかをチェックするトークンID。 このパラメータが省略された場合、`paused`関数はコントラクトが一時停止状態にあるかどうかを返す。 |
 
-**NOTE** The `id` parameter accepts `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` パラメータは `number` 型を受け付けるが、与えられた値が number.MAX_SAFE_INTEGER で上限が設定された範囲外であった場合、予期しない結果やエラーを引き起こす可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`: `true` if the contract (or specific token) is paused.
+`Promise` は `boolean` を返します: 契約 (または特定のトークン) が一時停止していれば `true` を返します。
 
-**Example**
+**例**
 
 ```javascript
-// without token id parameter
+// トークン ID パラメータなし
 > kip37.paused().then(console.log)
 true
 > kip37.paused().then(console.log)
 false
 
-// with token id parameter
+// トークン ID パラメータあり
 > kip37.paused(0).then(console.log)
 true
 > kip37.paused(1).then(console.log)
 false
 ```
 
-## kip37.isApprovedForAll <a id="kip37-isApprovedforall"></a>
+## kip37.isApprovedForAll<a id="kip37-isApprovedforall"></a>
 
 ```javascript
 kip37.isApprovedForAll(owner, operator)
 ```
 
-Queries the approval status of an operator for a given owner. Returns `true` if an operator is approved by a given owner.
+指定された所有者のオペレーターの承認ステータスを照会します。 オペレータが指定された所有者に承認されている場合に `true` を返す。
 
-**Parameters**
+**パラメーター**
 
-| Name     | Type   | Description                                  |
-| -------- | ------ | -------------------------------------------- |
-| owner    | string | The address of the owner.    |
-| operator | string | The address of the operator. |
+| 名称     | タイプ   | 説明         |
+| ------ | ----- | ---------- |
+| 所有者    | ストリング | オーナーの住所    |
+| オペレーター | ストリング | オペレーターの住所。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `boolean`: True if the operator is approved, false if not
+`Promise`は `boolean` を返す：オペレータが承認されれば真、承認されなければ偽
 
-**Example**
+**例**
 
 ```javascript
 > kip37.isApprovedForAll('0x{address in hex}', '0x{address in hex}').then(console.log)
@@ -521,46 +521,46 @@ true
 false
 ```
 
-## kip37.create <a id="kip37-create"></a>
+## kip37.クリエイト<a id="kip37-create"></a>
 
 ```javascript
 kip37.create(id, initialSupply [, uri] [, sendParam])
 ```
 
-Creates a new token type and assigns `initialSupply` to the minter.
+新しいトークン型を作成し、 `initialSupply` を minter に代入する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name          | Type           | Description                                                                                                             |
-| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| id            | BigNumber \\ | The token id to create.                                                                                 |
-| initialSupply | BigNumber \\ | The amount of tokens being minted.                                                                      |
-| uri           | string         | (optional) The token URI of the created token.                                       |
-| sendParam     | object         | (optional) An object holding parameters that are required for sending a transaction. |
+| 名称        | タイプ            | 説明                                                         |
+| --------- | -------------- | ---------------------------------------------------------- |
+| アイドル      | BigNumber \\ | 作成するトークンID。                                                |
+| イニシャルサプライ | BigNumber \\ | 鋳造されるトークンの量。                                               |
+| ウリ        | ストリング          | (オプション) 作成されたトークンのトークン URI。             |
+| sendParam | オブジェクト         | (オプション) トランザクション送信に必要なパラメータを保持するオブジェクト。 |
 
-**NOTE** The `id`, `initialSupply` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` と `initialSupply` パラメータは `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外の場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-The `sendParam` object contains the following:
+`sendParam`オブジェクトは以下を含む：
 
-| Name          | Type        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from          | string      | (optional) The address from which the transaction should be sent. If omitted, it will be set by `kip37.options.from`. If neither of `from` in the `sendParam` object nor `kip37.options.from` were not provided, an error would occur.                                                                                                                                                |
-| gas           | number \\ | (optional) The maximum number of gas provided for this transaction (gas limit). If omitted, it will be set by caver-js via calling `kip37.methods.approve(spender, amount).estimateGas({from})`.                                                                                                                                                                                   |
-| gasPrice      | number \\ | (optional) The gas price in peb for this transaction. If omitted, it will be set by caver-js via calling `caver.klay.getGasPrice`.                                                                                                                                                                                                                                                                    |
-| value         | number \\ | (optional) The value to be transferred in peb.                                                                                                                                                                                                                                                                                                                                                                        |
-| feeDelegation | boolean     | (optional, default `false`) Whether to use fee delegation transaction. If omitted, `kip37.options.feeDelegation` will be used. If both omitted, fee delegation is not used.                                                                                                                                                                                                           |
-| feePayer      | string      | (optional) The address of the fee payer paying the transaction fee. When `feeDelegation` is `true`, the value is set to the `feePayer` field in the transaction. If omitted, `kip37.options.feePayer` will be used. If both omitted, throws an error.                                                                                                                 |
-| feeRatio      | string      | (optional) The ratio of the transaction fee the fee payer will be burdened with. If `feeDelegation` is `true` and `feeRatio` is set to a valid value, a partial fee delegation transaction is used. The valid range of this is between 1 and 99. The ratio of 0, or 100 and above are not allowed. If omitted, `kip37.options.feeRatio` will be used. |
+| 名称         | タイプ         | 説明                                                                                                                                                                                              |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| より         | ストリング       | (オプション) トランザクションの送信元アドレス。 省略された場合は `kip37.options.from` によって設定される。 もし `sendParam` オブジェクトの `from` と `kip37.options.from` のどちらも指定されていない場合、エラーが発生する。                            |
+| ガス         | number \\ | (オプション）このトランザクションで提供されるガスの最大数（ガスリミット）。 省略された場合は、`kip37.methods.approve(spender, amount).estimateGas({from})` を呼び出すことでcaver-jsによって設定されます。                                     |
+| ガス価格       | number \\ | (オプション) このトランザクションのガス価格（peb）。 省略した場合は、caver-js が `caver.klay.getGasPrice` を呼び出して設定する。                                                                                        |
+| 価値         | number \\ | (オプション) peb で転送される値。                                                                                                                                                         |
+| フィーデレゲーション | ブーリアン       | (オプション、デフォルト `false`) フィー委任トランザクションを使用するかどうか。 省略された場合は `kip37.options.feeDelegation` が使用される。 両方が省略された場合、料金委譲は行われない。                                                          |
+| 料金支払者      | ストリング       | (オプション）取引手数料を支払う手数料支払人の住所。 `feeDelegation`が `true` のとき、その値はトランザクションの `feePayer` フィールドに設定される。 省略された場合は `kip37.options.feePayer` が使用される。 両方が省略された場合はエラーを投げる。                   |
+| 手数料率       | ストリング       | (任意）手数料支払者が負担する取引手数料の比率。 `feeDelegation`が `true` で、`feeRatio`に有効な値が設定されている場合、部分的な料金委譲トランザクショ ンが使用される。 有効範囲は1～99。 0や100以上の比率は許されない。 省略された場合は `kip37.options.feeRatio` が使用される。 |
 
-**NOTE** `feeDelegation`, `feePayer` and `feeRatio` are supported since caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1).
+**NOTE** `feeDelegation`、`feePayer`、`feeRatio` は caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) からサポートされています。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -619,29 +619,29 @@ The `sendParam` object contains the following:
 > kip37.create(2, '1000000000000000000').then(console.log)
 ```
 
-## kip37.setApprovalForAll <a id="kip37-setApprovalforall"></a>
+## kip37.setApprovalForAll<a id="kip37-setApprovalforall"></a>
 
 ```javascript
 kip37.setApprovalForAll(operator, approved [, sendParam])
 ```
 
-Approves the given operator, or disallow the given operator, to transfer all tokens of the owner.
+指定されたオペレータが所有者のすべてのトークンを転送することを承認するか、または拒否します。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type    | Description                                                                                                                                                                                                                                           |
-| --------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| operator  | string  | The address of an account to be approved/prohibited to transfer the owner's all tokens.                                                                                                                                               |
-| approved  | boolean | This operator will be approved if `true`. The operator will be disallowed if `false`.                                                                                                                                 |
-| sendParam | object  | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| オペレーター    | ストリング  | 所有者の全トークンを譲渡するために承認/禁止されるアカウントのアドレス。                                                                                                           |
+| 承認済み      | ブーリアン  | この演算子は `true` なら承認される。 `false`の場合、演算子は許可されない。                                                                                                  |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -696,38 +696,38 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.setApprovalForAll('0x{address in hex}', true).then(console.log)
 ```
 
-## kip37.safeTransferFrom <a id="kip37-safetransferfrom"></a>
+## kip37.safeTransferFrom<a id="kip37-safetransferfrom"></a>
 
 ```javascript
 kip37.safeTransferFrom(from, recipient, id, amount, data [, sendParam])
 ```
 
-Safely transfers the given `amount` tokens of specific token type `id` from `from` to the `recipient`.
+指定したトークン `id` 型の `amount` トークンを `from` から `recipient` に安全に転送する。
 
-The address that was authorized to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+トークン所有者のトークンを送信することを承認されたアドレス（オペレータ）またはトークン所有者自身が、このトークン転送トランザクションを実行することが期待される。 したがって、認可されたアドレスまたはトークン所有者がこのトランザク ションの送信者となり、そのアドレスは `sendParam.from` または `kip37.options.from` で指定されなければならない。 `sendParam.from`と`kip37.options.from`の両方が指定されない限り、エラーが発生する。
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.kaia.io/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
+受信者が契約アドレスの場合、[IKIP37Receiver.onKIP37Received](https://kips.kaia.io/KIPs/kip-37#kip-37-token-receiver) を実装する必要がある。 そうでなければ、移籍は取り消される。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type           | Description                                                                                                                                                                                                                                           |
-| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string         | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                                                   |
-| recipient | string         | The address of the account to receive the token.                                                                                                                                                                                      |
-| id        | BigNumber \\ | The token id to transfer.                                                                                                                                                                                                             |
-| amount    | BigNumber \\ | The amount of token you want to transfer.                                                                                                                                                                                             |
-| data      | Buffer \\    | (optional) The optional data to send along with the call.                                                                                                                                                          |
-| sendParam | object         | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ            | 説明                                                                                                                                             |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| より        | ストリング          | 手当メカニズムで送信されるトークンを所有するアカウントのアドレス。                                                                                                              |
+| 受取人       | ストリング          | トークンを受け取るアカウントのアドレス。                                                                                                                           |
+| アイドル      | BigNumber \\ | 転送するトークンID。                                                                                                                                    |
+| 量         | BigNumber \\ | 転送したいトークンの量。                                                                                                                                   |
+| データ       | Buffer \\    | (オプション) 呼とともに送信するオプションのデータ。                                                                                                 |
+| sendParam | オブジェクト         | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` と `amount` パラメータは `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外の場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -789,38 +789,38 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.safeTransferFrom('0x{address in hex}', '0x{address in hex}', 2, 10000).then(console.log)
 ```
 
-## kip37.safeBatchTransferFrom <a id="kip37-safebatchtransferfrom"></a>
+## kip37.safeBatchTransferFrom<a id="kip37-safebatchtransferfrom"></a>
 
 ```javascript
-kip37.safeBatchTransferFrom(from, recipient, ids, amounts, data [, sendParam])
+kip37.safeBatchTransferFrom(from, recipient, id, amounts, data [, sendParam])
 ```
 
-Safely batch transfers of multiple token ids and values from `from` to the `recipient`.
+複数のトークン ID と値を `from` から `recipient` へ安全に一括転送する。
 
-The address that was approved to send the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an approved address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+トークン所有者のトークンを送信することを承認されたアドレス（オペレーター）またはトークン所有者自身が、このトークン転送トランザクションを実行することが期待されます。 したがって、承認されたアドレスまたはトークン所有者は、`sendParam.from`または `kip37.options.from`でアドレスを指定されたトランザクションの送信者でなければならない。 `sendParam.from`と`kip37.options.from`の両方が指定されない限り、エラーが発生する。
 
-If the recipient was a contract address, it should implement [IKIP37Receiver.onKIP37Received](https://kips.kaia.io/KIPs/kip-37#kip-37-token-receiver). Otherwise, the transfer is reverted.
+受信者が契約アドレスの場合、[IKIP37Receiver.onKIP37Received](https://kips.kaia.io/KIPs/kip-37#kip-37-token-receiver) を実装する必要がある。 そうでなければ、移籍は取り消される。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type        | Description                                                                                                                                                                                                                                           |
-| --------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| from      | string      | The address of the account that owns the token to be sent with allowance mechanism.                                                                                                                                                   |
-| recipient | string      | The address of the account to receive the token.                                                                                                                                                                                      |
-| ids       | Array       | An array of the token ids to transfer.                                                                                                                                                                                                |
-| amounts   | Array       | An array of the token amounts you want to transfer.                                                                                                                                                                                   |
-| data      | Buffer \\ | (optional) The optional The data to send along with the call.                                                                                                                                                      |
-| sendParam | object      | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ         | 説明                                                                                                                                             |
+| --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| より        | ストリング       | 手当メカニズムで送信されるトークンを所有するアカウントのアドレス。                                                                                                              |
+| 受取人       | ストリング       | トークンを受け取るアカウントのアドレス。                                                                                                                           |
+| 子供たち      | 配列          | 転送するトークンIDの配列。                                                                                                                                 |
+| 金額        | 配列          | 転送したいトークン量の配列。                                                                                                                                 |
+| データ       | Buffer \\ | (オプション) 呼とともに送信するデータ。                                                                                                       |
+| sendParam | オブジェクト      | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `ids` and `amounts` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `ids` と `amounts` の配列パラメータは、配列の要素として `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外であった場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given (without data)
@@ -882,34 +882,34 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.safeBatchTransferFrom('0x{address in hex}', '0x{address in hex}', [1, 2], [10, 1000]).then(console.log)
 ```
 
-## kip37.mint <a id="kip37-mint"></a>
+## kip37.mint<a id="kip37-mint"></a>
 
 ```javascript
 kip37.mint(to, id, value [, sendParam])
 ```
 
-Mints the token of the specific token type `id` and assigns the tokens according to the variables `to` and `value`. The mint function allows you to mint specific token to multiple accounts at once by passing arrays to `to` and `value` as parameters.
+特定のトークンタイプ `id` のトークンをミントし、変数 `to` と `value` に従ってトークンを割り当てる。 mint関数は、`to`と`value`に配列をパラメータとして渡すことで、特定のトークンを一度に複数のアカウントにミントすることができます。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type           | Description                                                                                                                                                                                                                                           |
-| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string \\    | An address of the account or an array of addresses to which the minted token will be issued.                                                                                                                                          |
-| id        | BigNumber \\ | The token id to mint.                                                                                                                                                                                                                 |
-| value     | BigNumber \\ | The amount of token to be minted. If an array containing multiple addresses is delivered to `to` parameter, the value must be delivered in the form of an array.                                                      |
-| sendParam | object         | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ            | 説明                                                                                                                                             |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| への        | string \\    | トークンを発行するアカウントのアドレス、またはアドレスの配列。                                                                                                                |
+| アイドル      | BigNumber \\ | ミントのトークンID。                                                                                                                                    |
+| 価値        | BigNumber \\ | 鋳造されるトークンの量。 複数のアドレスを含む配列が `to` パラメータに渡される場合、値は配列の形式で渡されなければならない。                                                                              |
+| sendParam | オブジェクト         | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `id` and `value` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` と `value` パラメータは `number` 型を受け付けるが、与えられた値が number.MAX_SAFE_INTEGER で指定された範囲外であった場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**注意** `sendParam.from` または `kip37.options.from` が指定された場合、MinterRole を持つ minter でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given (Mint the specific tokens to a account)
@@ -1039,34 +1039,34 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.mint('0x{address in hex}', 2, 1000).then(console.log)
 ```
 
-## kip37.mintBatch <a id="kip37-mintbatch"></a>
+## kip37.mintBatch<a id="kip37-mintbatch"></a>
 
 ```javascript
 kip37.mintBatch(to, ids, values [, sendParam])
 ```
 
-Mints the multiple KIP-37 tokens of the specific token types `ids` in a batch and assigns the tokens according to the variables `to` and `values`.
+特定のトークン型 `ids` の複数の KIP-37 トークンを一括してミントし、変数 `to` と `values` に従ってトークンを割り当てる。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| to        | string | An address of the account to which the minted tokens will be issued.                                                                                                                                                                  |
-| ids       | Array  | An array of the token ids to mint.                                                                                                                                                                                                    |
-| values    | Array  | An array of the token amounts to mint.                                                                                                                                                                                                |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| への        | ストリング  | 鋳造されたトークンが発行されるアカウントのアドレス。                                                                                                                     |
+| 子供たち      | 配列     | ミントするトークンIDの配列。                                                                                                                                |
+| 価値観       | 配列     | ミントのトークン量の配列。                                                                                                                                  |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `ids` と `values` の配列パラメータは、配列の要素として `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外であった場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**注意** `sendParam.from` または `kip37.options.from` が指定された場合、MinterRole を持つ minter でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given
@@ -1125,30 +1125,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.mintBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addMinter <a id="kip37-addminter"></a>
+## kip37.addMinter<a id="kip37-addminter"></a>
 
 ```javascript
 kip37.addMinter(account [, sendParam])
 ```
 
-Adds an account as a minter, who are permitted to mint tokens.
+トークンの鋳造を許可された鋳造者としてのアカウントを追加する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be added as a minter.                                                                                                                                                                                   |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| アカウント     | ストリング  | マイナーとして追加される口座のアドレス。                                                                                                                           |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter.
+**NOTE** `sendParam.from` または `kip37.options.from` が指定された場合、それは minter でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1199,29 +1199,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.addMinter('0x{address in hex}').then(console.log)
 ```
 
-## kip37.renounceMinter <a id="kip37-renounceminter"></a>
+## kip37.renounceMinter<a id="kip37-renounceminter"></a>
 
 ```javascript
 kip37.renounceMinter([sendParam])
 ```
 
-Renounces the right to mint tokens. Only a minter address can renounce the minting right.
+トークン造幣権を放棄。 鋳造権を放棄できるのは、鋳造者の住所のみである。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a minter with MinterRole.
+**注意** `sendParam.from` または `kip37.options.from` が指定された場合、MinterRole を持つ minter でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1272,34 +1272,34 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.renounceMinter().then(console.log)
 ```
 
-## kip37.burn <a id="kip37-burn"></a>
+## kip37.burn<a id="kip37-burn"></a>
 
 ```javascript
 kip37.burn(account, id, value [, sendParam])
 ```
 
-Burns specific KIP-37 tokens.
+特定のKIP-37トークンを燃やす。
 
-The address that was approved to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, an authorized address or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+トークン所有者のトークンを操作することを承認されたアドレス（オペレーター）またはトークン所有者自身が、このトークン移転取引を実行することが期待されます。 したがって、認可されたアドレスまたはトークン所有者がこのトランザク ションの送信者となり、そのアドレスは `sendParam.from` または `kip37.options.from` で指定されなければならない。 `sendParam.from`と`kip37.options.from`の両方が指定されない限り、エラーが発生する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type           | Description                                                                                                                                                                                                                                           |
-| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string         | The address of the account that owns the token to be destroyed.                                                                                                                                                                       |
-| id        | BigNumber \\ | The id of token to be destroyed.                                                                                                                                                                                                      |
-| value     | BigNumber \\ | The amount of token to be destroyed.                                                                                                                                                                                                  |
-| sendParam | object         | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ            | 説明                                                                                                                                             |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| アカウント     | ストリング          | 破棄するトークンを所有するアカウントのアドレス。                                                                                                                       |
+| アイドル      | BigNumber \\ | 破棄するトークンのID。                                                                                                                                   |
+| 価値        | BigNumber \\ | 破壊されるトークンの量。                                                                                                                                   |
+| sendParam | オブジェクト         | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `id` and `amount` parameters accept `number` type but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `id` と `amount` パラメータは `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外の場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1358,34 +1358,34 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.burn('0x{address in hex}', 2, 10).then(console.log)
 ```
 
-## kip37.burnBatch <a id="kip37-burnbatch"></a>
+## kip37.burnBatch<a id="kip37-burnbatch"></a>
 
 ```javascript
 kip37.burnBatch(account, ids, values [, sendParam])
 ```
 
-Burns the multiple KIP-37 tokens.
+複数のKIP-37トークンを燃やす。
 
-The address that was authorized to operate the owner's token (the operator) or the token owner him/herself is expected to execute this token transfer transaction. Thus, the authorized one or the token owner should be the sender of this transaction whose address must be given at `sendParam.from` or `kip37.options.from`. Unless both `sendParam.from` and `kip37.options.from` are provided, an error would occur.
+トークン所有者のトークンを操作する権限を与えられたアドレス（オペレーター）またはトークン所有者自身が、このトークン移転トランザクションを実行することが期待される。 したがって、認可された者またはトークン所有者は、 `sendParam.from`または`kip37.options.from`でアドレスを指定されたトランザクションの送信者となるべきである。 `sendParam.from`と`kip37.options.from`の両方が提供されない限り、エラーが発生する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account that owns the token to be destroyed.                                                                                                                                                                       |
-| ids       | Array  | An array of the token ids to burn.                                                                                                                                                                                                    |
-| values    | Array  | An array of the token amounts to burn.                                                                                                                                                                                                |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| アカウント     | ストリング  | 破棄するトークンを所有するアカウントのアドレス。                                                                                                                       |
+| 子供たち      | 配列     | 焼くトークンIDの配列。                                                                                                                                   |
+| 価値観       | 配列     | 燃やすトークンの量の配列。                                                                                                                                  |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** The `ids` and `values` array parameters accept `number` type as an element in array, but if the fed value were out of the range capped by number.MAX_SAFE_INTEGER, it might cause an unexpected result or error. In this case, it is recommended to use the `BigNumber` type, especially for a `uint256` sized numeric input value.
+**注意** `ids` と `values` の配列パラメータは、配列の要素として `number` 型を受け付けるが、入力された値が number.MAX_SAFE_INTEGER で指定された範囲外であった場合、予期しない結果やエラーが発生する可能性がある。 この場合、特に `uint256` サイズの数値入力値には `BigNumber` 型を使用することを推奨する。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1444,30 +1444,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.burnBatch('0x{address in hex}', [1, 2], [100, 200]).then(console.log)
 ```
 
-## kip37.addPauser <a id="kip37-addpauser"></a>
+## kip37.addPauser<a id="kip37-addpauser"></a>
 
 ```javascript
 kip37.addPauser(account [, sendParam])
 ```
 
-Adds an account as a pauser that has the right to suspend the contract.
+契約を一時停止する権利を持つアカウントを一時停止者として追加する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account   | string | The address of the account to be a new pauser.                                                                                                                                                                                        |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| アカウント     | ストリング  | 新しいパウザーとなるアカウントのアドレス。                                                                                                                          |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**NOTE** `sendParam.from` または `kip37.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1518,29 +1518,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.addPauser('0x{address in hex}').then(console.log)
 ```
 
-## kip37.renouncePauser <a id="kip37-renouncepauser"></a>
+## kip37.renouncePauser<a id="kip37-renouncepauser"></a>
 
 ```javascript
 kip37.renouncePauser([sendParam])
 ```
 
-Renounces the right to pause the contract. Only a pauser address can renounce the pausing right.
+契約を一時停止する権利を放棄する。 一時停止の権利を放棄できるのは、一時停止者のアドレスだけである。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type   | Description                                                                                                                                                                                                                                           |
-| --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sendParam | object | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ    | 説明                                                                                                                                             |
+| --------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| sendParam | オブジェクト | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**NOTE** `sendParam.from` または `kip37.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given 
@@ -1591,30 +1591,30 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.renouncePauser().then(console.log)
 ```
 
-## kip37.pause <a id="kip37-pause"></a>
+## kip37.pause<a id="kip37-pause"></a>
 
 ```javascript
 kip37.pause([id] [, sendParam])
 ```
 
-Suspends functions related to token operation. If `id` parameter is defined, pause the specific token. Otherwise pause the token contract.
+トークン操作に関する機能を一時停止します。 `id` パラメータが定義されている場合、特定のトークンを一時停止する。 そうでなければ、トークン契約を一時停止する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name      | Type           | Description                                                                                                                                                                                                                                           |
-| --------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id        | BigNumber \\ | (optional) The token id to pause. If this parameter is omitted, the `pause` function pause the token contract.                                                                                     |
-| sendParam | object         | (optional) An object with defined parameters for sending a transaction. For more information about sendParam, refer to the parameter description of [kip37.create](#kip37-create). |
+| 名称        | タイプ            | 説明                                                                                                                                             |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| アイドル      | BigNumber \\ | (オプション) 一時停止するトークン ID。 このパラメータが省略された場合、`pause`関数はトークンコントラクトを一時停止する。                                                         |
+| sendParam | オブジェクト         | (オプション) トランザクションを送信するためのパラメータを定義したオブジェクト。 sendParam の詳細については、[kip37.create](#kip37-create) のパラメータの説明を参照のこと。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**NOTE** `sendParam.from` または `kip37.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given (pause the token contract)
@@ -1701,29 +1701,29 @@ Note that this method will submit a transaction to the kaia network, which will 
 > kip37.pause().then(console.log)
 ```
 
-## kip37.unpause <a id="kip37-unpause"></a>
+## kip37.unpause<a id="kip37-unpause"></a>
 
 ```javascript
 kip37.unpause([id] [, sendParam])
 ```
 
-Resumes the paused contract or specific token. If `id` parameter is defined, unpause the specific token. Otherwise unpause the token contract.
+一時停止中の契約または特定のトークンを再開する。 `id` パラメータが定義されている場合、特定のトークンの一時停止を解除する。 そうでなければ、トークンコントラクトの一時停止を解除する。
 
-Note that this method will submit a transaction to the kaia network, which will charge the transaction fee to the transaction sender.
+このメソッドはkaiaネットワークにトランザクションを送信し、kaiaネットワークはトランザクション送信者にトランザクション手数料を請求する。
 
-**Parameters**
+**パラメーター**
 
-| Name | Type           | Description                                                                                                                                                             |
-| ---- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id   | BigNumber \\ | (optional) The token id to unpause. If this parameter is omitted, the `unpause` function unpause the token contract. |
+| 名称   | タイプ            | 説明                                                                                             |
+| ---- | -------------- | ---------------------------------------------------------------------------------------------- |
+| アイドル | BigNumber \\ | (オプション) 一時停止を解除するトークン ID。 このパラメータが省略された場合、`unpause`関数はトークンコントラクトの一時停止を解除する。 |
 
-**NOTE** If `sendParam.from` or `kip37.options.from` were given, it should be a pauser with PauserRole.
+**NOTE** `sendParam.from` または `kip37.options.from` が与えられた場合、それは PauserRole を持つ pauser でなければならない。
 
-**Return Value**
+**リターン・バリュー**
 
-`Promise` returns `object` - The receipt containing the result of the transaction execution. If you want to know about the properties inside the receipt object, see the description of [getTransactionReceipt]. Receipts from KIP37 instances have an 'events' attribute parsed via ABI instead of a 'logs' attribute.
+`Promise` は `object` - トランザクションの実行結果を含むレシートを返す。 レシートオブジェクト内のプロパティについて知りたい場合は、[getTransactionReceipt]の説明を参照してください。 KIP37インスタンスからのレシートは、'logs'属性の代わりにABI経由で解析された'events'属性を持つ。
 
-**Example**
+**例**
 
 ```javascript
 // Send via a sendParam object with the from field given (unpause the token contract)

@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. AccountKeyPublic is used for accounts having one public key.\
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 AccountKeyPublic is used for accounts having one public key.\
 AccountKeyPublic is used for accounts having one public key.\
 If an account has an AccountKeyPublic object, the transaction validation process is done like below:
 
@@ -36,42 +36,42 @@ If an account has an AccountKeyPublic object, the transaction validation process
     ---
 
     ```zsh output
-    ❯ js SignMsgWithPubkeyExample.js
+    js SignMsgWithPubkeyExample.js
     {
       senderAddr: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
       msg: 'hello',
       msghex: '0x68656c6c6f',
-      sig: '0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
+      sig：'0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
     }
     recoveredAddr lib 0xA2a8854b1802D8Cd5De631E690817c253d6a9153 true
-    recoveredAddr rpc 0xa2a8854b1802d8cd5de631e690817c253d6a9153 true
+    recoveredAddr rpc 0xA2a8854b1802D8Cd5DE631E690817c253d6a9153 true
     ```
   </CH.Code>
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js SignMsgWithPubkeyExample.js focus=1:3
   ```
 
   ---
 
-  Define sender's **address** and **private key**
+  送信者の**address**と**private key**を定義する。
 
   ```js SignMsgWithPubkeyExample.js focus=5:6
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js SignMsgWithPubkeyExample.js focus=8
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js SignMsgWithPubkeyExample.js focus=8
   const { ethers } = require("ethers");
@@ -102,21 +102,21 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Create a sender's wallet with the **private key** and **provider**
+  **private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
   ```js SignMsgWithPubkeyExample.js focus=9
   ```
 
   ---
 
-  Define a message to be signed and recovered
+  署名され、復元されるメッセージを定義する
 
   ```js SignMsgWithPubkeyExample.js focus=12
   ```
 
   ---
 
-  Sign the message with sender's **wallet**
+  送信者の**財布**でメッセージに署名する。
 
   <CH.Code>
     ```js SignMsgWithPubkeyExample.js focus=13:15
@@ -129,14 +129,14 @@ If an account has an AccountKeyPublic object, the transaction validation process
       senderAddr: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
       msg: 'hello',
       msghex: '0x68656c6c6f',
-      sig: '0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
+      sig：'0xed55b92b3db953c4b4d928c99f93275d2590fe2ec95f2d8c069068d86d43ce0c0d1206f297351c6a0dfaba9c24d1a2ac293ac8f8a73d16c2b0c39ce90bc36ab71b'
     }
     ```
   </CH.Code>
 
   ---
 
-  Recover the address from signed message using `ethers.verifyMessage`
+  `ethers.verifyMessage`を使用して署名されたメッセージからアドレスを復元する。
 
   <CH.Code>
     ```js SignMsgWithPubkeyExample.js focus=17:18
@@ -151,7 +151,7 @@ If an account has an AccountKeyPublic object, the transaction validation process
 
   ---
 
-  Recover the address from signed message using `klay_recoverFromMessage`
+  `klay_recoverFromMessage` を使って署名されたメッセージからアドレスを復元する。
 
   <CH.Code>
     ```js SignMsgWithPubkeyExample.js focus=20:21

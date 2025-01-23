@@ -1,15 +1,16 @@
-# Kaia Safe Design
+# カイア・セーフ・デザイン
 
-Currently, Kaia Safe is a collection of tools to create and manage multi-signature wallets, viz:
+現在、Kaia Safeはマルチシグネチャ・ウォレットを作成・管理するためのツール群である：
 
-- **Safe React:** This is a react web app to create and interact with a multi-sig wallet.
+- **Safe React:** これは、マルチシグ・ウォレットを作成し、それとやり取りするためのリアクト・ウェブ・アプリである。
 
-- **Safe Transaction Service:** This keeps track of transactions sent via safe contracts and listens to events from recent blocks in Mainnet and Kairos. Transactions can also be sent to the service to allow off-chain collecting of signatures or to inform the owners about a transaction that is pending to be sent to the blockchain.
+- **Safe Transaction Service:** これは、セーフコントラクト経由で送信されたトランザクションを追跡し、メインネットとカイロスの最近のブロックからのイベントを監視します。 また、オフチェーンで署名を集めたり、ブロックチェーンへの送信が保留されている取引について所有者に通知したりするために、取引をサービスに送信することもできる。
 
-- **Safe Config Service:** This provides configuration information of the Kaia Safe clients environment, e.g configs of all chain details and APIs.
+- **Safe Config Service:** これは、Kaia Safe クライアント環境の設定情報を提供します。例えば、チェーンの詳細や API の設定などです。
 
-- **Safe Client Gateway:** This is a gateway between the Kaia Safe client and the backend services (transaction service and Kaia Nodes)
+- \*\*Safe Client Gateway：\*\*これは、Kaia Safeクライアントとバックエンドサービス（トランザクションサービスおよびKaia Nodes）間のゲートウェイです
+  。
 
-- **Safe Infrastructure:** This is a  cluster setup to deploy the backend services (Safe-Transaction, Safe-Config, Safe-Client gateway).
+- **Safe Infrastructure:** バックエンドサービス（Safe-Transaction、Safe-Config、Safe-Client Gateway）をデプロイするためのクラスタセットアップです。
 
-Please refer to this [link](https://github.com/kaiachain/kaia-safe-infrastructure) to get more information.
+詳しくはこちらの[リンク](https://github.com/kaiachain/kaia-safe-infrastructure)をご参照ください。

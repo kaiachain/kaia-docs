@@ -1,16 +1,16 @@
-# Klaytn Compatible Tokens (KCTs)
+# Kaia Compatible Tokens (KCTs)
 
-Klaytn Compatible Token (KCT) is a special type of smart contract that implements certain technical specifications. Everyone who wants to issue tokens on top of Klaytn must follow the specification.
+Kaia Compatible Tokens（KCT）は、特定の技術仕様を実装した特別なタイプのスマートコントラクトである。 カイアの上でトークンを発行したい人は皆、この仕様に従わなければならない。
 
-Token standards are defined in Kaia such as [KIP-7](https://kips.kaia.io/KIPs/kip-7) and [KIP-17](https://kips.kaia.io/KIPs/kip-17).
+Kaiaでは、[KIP-7](https://kips.kaia.io/KIPs/kip-7)や[KIP-17](https://kips.kaia.io/KIPs/kip-17)といったトークンの規格が定義されている。
 
-Other KCTs can be defined to meet certain technical specifications. If anyone needs other token standards, please visit [Kaia Improvement Proposal](https://github.com/kaiachain/KIPs) and propose a new token standard.
+その他のKCTは、特定の技術仕様を満たすように定義することができる。 他のトークン規格が必要な方は、[カイア改善提案](https://github.com/kaiachain/KIPs)にアクセスして、新しいトークン規格を提案してください。
 
 ## Fungible Token Standard (KIP-7) <a id="fungible-token-standard-kip-7"></a>
 
-Fungible tokens are tokens that have properties of uniformity and divisibility. Every fungible token is interchangeable as each unit of token possesses the same value. Just like every dollar bill has the same value of one dollar. Since fungibility is essential feature to crypto currency in most cases, large proportion of blockchain tokens are fungible tokens.
+菌類トークンとは、均一性と可分性の特性を持つトークンのことである。 各トークンは同じ価値を持つため、すべてのカンジブル・トークンは交換可能である。 すべてのドル紙幣が同じ1ドルの価値を持つように。 ほとんどの場合、暗号通貨には両替性が不可欠であるため、ブロックチェーントークンの大部分は両替可能なトークンである。
 
-To implement these properties with smart contracts, KIP-7 token standard can be used. KIP-7-compatible tokens implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-7#wallet-interface) can be implemented.
+これらの特性をスマート・コントラクトで実装するために、KIP-7トークン標準を使用することができる。 KIP-7 互換トークンは以下のインタフェースを実装する。 なお、[KIP-13](https://kips.kaia.io/KIPs/kip-13)は必ず一緒に実装すること。 ウォレットアプリケーションのために、[ウォレットインターフェース](https://kips.kaia.io/KIPs/kip-7#wallet-interface)を実装することができる。
 
 ```solidity
 // IKIP7
@@ -55,19 +55,19 @@ function addPauser(address _account) external;
 function renouncePauser() external;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。
 
-For more information, refer to the official [KIP-7 documentation](https://kips.kaia.io/KIPs/kip-7).
+詳細については、公式の[KIP-7ドキュメント](https://kips.kaia.io/KIPs/kip-7)を参照してください。
 
-- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol).
+- 実装例は[https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP7/KIP7.sol)にある。
 
 ## Non-fungible Token Standard (KIP-17) <a id="non-fungible-token-standard-kip-17"></a>
 
-Non-fungible token (NFT) is a special type of token that represents a unique asset. As the name non-fungible implies, every single token is unique and non-divisible. This uniqueness of non-fungible token opens up new horizons of asset digitization. For example, it can be used to represent digital art, game items, or any kind of unique assets and allow people to trade them.
+Non-fungible token (NFT) is a special type of token that represents a unique asset. Non-fungibleという名前が示すように、すべてのトークンは一意であり、分割不可能である。 この非可菌トークンの独自性は、資産のデジタル化に新たな地平を開く。 例えば、デジタルアート、ゲームアイテム、あるいはあらゆる種類のユニークな資産を表現し、人々がそれらを取引できるようにするために使用することができる。
 
-For example, a blockchain collection game [Cryptokitties](https://www.cryptokitties.co/) implements non-fungible token to represent different kitties that have different genetic information. Every kitty is unique and non-interchangeable, resulting in different values for different kitty tokens.
+例えば、ブロックチェーン・コレクション・ゲーム[Cryptokitties](https://www.cryptokitties.co/)は、異なる遺伝情報を持つ異なる子猫を表現するために、非可菌トークンを実装している。 すべてのキティは一意であり、交換不可能であるため、キティ・トークンによって価値が異なる。
 
-To implement non-fungible token, [KIP-17](https://kips.kaia.io/KIPs/kip-17) can be used. KIP-17 token contracts implement the following interface. Please note that [KIP-13](https://kips.kaia.io/KIPs/kip-13) must be implemented together. For wallet applications, [wallet interface](https://kips.kaia.io/KIPs/kip-17#wallet-interface) can be implemented.
+非可溶性トークンを実装するには、[KIP-17](https://kips.kaia.io/KIPs/kip-17)を使用することができます。 KIP-17トークンコントラクトは以下のインタフェースを実装する。 なお、[KIP-13](https://kips.kaia.io/KIPs/kip-13)は必ず一緒に実装すること。 ウォレットアプリケーションのために、[ウォレットインターフェース](https://kips.kaia.io/KIPs/kip-17#wallet-interface)を実装することができる。
 
 ```solidity
 // IKIP17
@@ -121,18 +121,18 @@ function addPauser(address _account) public;
 function renouncePauser() public;
 ```
 
-Based on the interface above, developers may customize tokens by adding new features and logics, and deploy them on Klaytn network.
+上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。
 
-For more information, refer to the official [KIP-17 documentation](https://kips.kaia.io/KIPs/kip-17).
+詳しくは、公式の[KIP-17ドキュメント](https://kips.kaia.io/KIPs/kip-17)を参照してください。
 
-- An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
+- 実装例は[https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol)にある。
 
-## Token Standards for Klaytn Service Chain <a id="token-standards-for-klaytn-service-chain"></a>
+## カイア・サービス・チェーンのトークン標準<a id="token-standards-for-kaia-service-chain"></a>
 
-Service chain refers to Klaytn's side chain that anchors to Klaytn's main blockchain network. When implementing a service chain, special type of contracts are used to support value transfer between the main chain and the service chain. These contracts are currently under development, and when they are ready, the token specifications for Klaytn service chain will be provided on KlaytnDocs.
+サービスチェーンとは、カイアのメインブロックチェーンネットワークに固定されたカイアのサイドチェーンを指す。 サービス・チェーンを実施する場合、メイン・チェーンとサービス・チェーン間の価値移転をサポートするために、特別なタイプの契約が使用される。 これらの契約は現在開発中であり、準備が整い次第、Kaiaサービスチェーン用のトークン仕様をKaiaDocsで提供する。
 
-## Notes on ERC-20 and ERC-721 <a id="notes-on-erc-20-and-erc-721"></a>
+## ERC-20およびERC-721に関する注意事項<a id="notes-on-erc-20-and-erc-721"></a>
 
-Since Klaytn published KIP-7 and KIP-17 as its token standards, it is recommended to implement fungible and non-fungible token contracts according to KIP-7 and KIP-17, respectively, rather than following ERC-20 and ERC-721.
-KIP-7 and KIP-17 are based on ERC-20 and ERC-721, but they are tailored for Klaytn and thus more suitable on Klaytn ecosystem. Yet ERC-20 and ERC-721 are still supported on Klaytn network, they may not be compatible with various tools in Klaytn ecosystem.
-For more information about the differences on token standards, please visit [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721).
+カイアはトークン標準としてKIP-7とKIP-17を公表しているため、ERC-20とERC-721に従うのではなく、それぞれKIP-7とKIP-17に従ってファンジブルとノンファンジブルのトークンコントラクトを実装することが推奨される。
+KIP-7とKIP-17はERC-20とERC-721をベースにしているが、カイア用に調整されているため、カイアのエコシステムにより適している。 ERC-20とERC-721はまだカイアのネットワークでサポートされているが、カイアのエコシステムの様々なツールとは互換性がないかもしれない。
+トークン規格の違いについては、[KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20)、[KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721)をご覧ください。

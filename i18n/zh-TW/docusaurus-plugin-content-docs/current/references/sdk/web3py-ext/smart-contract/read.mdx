@@ -1,0 +1,116 @@
+# 讀取
+
+您可以通過 "調用 "RPC API 調用智能合約中的函數。 在這裡可以調用的功能僅限於**視圖函數**，不會改變合約中的任何狀態。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py smart_contract_interaction.py
+from web3py_ext import extend
+from web3 import Web3
+
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber : ', c.functions.number().call())
+
+contract_interaction()
+
+```
+
+---
+
+```zsh output
+py smart_contract_interaction.py
+編號 : 294
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py smart_contract_interaction.py focus=1:2
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 創建 Web3 實例
+
+```py smart_contract_interaction.py focus=4:6
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode** 。
+
+```py smart_contract_interaction.py focus=4:6
+from web3py_ext import extend
+from web3 import Web3
+
+w3 = Web3(Web3.HTTPProvider(
+  'https://public-en-kairos.node.kaia.io'
+  ))
+
+def contract_interaction():
+    c = w3.eth.contract(
+      address="0x95Be48607498109030592C08aDC9577c7C2dD505",
+      abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    # call view function
+    print('\nnumber : ', c.functions.number().call())
+
+contract_interaction()
+```
+
+---
+
+創建一個帶有 ** 合約地址** 和 **abi** 的合約實例
+
+```py smart_contract_interaction.py focus=9:12
+
+```
+
+---
+
+設置在部署教程中部署的合約地址（**計數器合約**）。 您可以在部署 tx 收據中看到地址
+
+```py smart_contract_interaction.py focus=10
+
+```
+
+---
+
+設置合同 abi。 使用 remix 或 solc 編譯器編譯後，可以獲得 ABI
+
+```py smart_contract_interaction.py focus=11
+
+```
+
+---
+
+調用視圖函數。 這只是對區塊鏈節點的 RPC 調用，而不是交易
+
+<CH.Code>
+```py smart_contract_interaction.py focus=13:14
+
+````
+---
+```zsh output
+❯ py smart_contract_interaction.py
+number :  294
+````
+
+</CH.Code>
+
+</CH.Spotlight>

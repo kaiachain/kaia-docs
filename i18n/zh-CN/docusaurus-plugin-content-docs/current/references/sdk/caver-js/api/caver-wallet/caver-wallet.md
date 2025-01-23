@@ -59,7 +59,7 @@ caver.wallet.generate(numberOfKeyrings [, entropy])
 ]
 ```
 
-## caver.wallet.newKeyring<a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
+## caver.wallet.newKeyring <a href="#caver-wallet-newkeyring" id="caver-wallet-newkeyring"></a>
 
 ```javascript
 caver.wallet.newKeyring(address, key)
@@ -158,7 +158,7 @@ SingleKeyring {
 }
 ```
 
-## caver.wallet.getKeyring<a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
+## caver.wallet.getKeyring <a href="#caver-wallet-getkeyring" id="caver-wallet-getkeyring"></a>
 
 ```javascript
 caver.wallet.getKeyring(address)
@@ -272,7 +272,7 @@ caver.wallet.remove(address)
 true
 ```
 
-## caver.wallet.signMessage<a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
+## caver.wallet.signMessage <a href="#caver-wallet-signmessage" id="caver-wallet-signmessage"></a>
 
 ```javascript
 caver.wallet.signMessage(address, message, role [, index])
@@ -281,7 +281,7 @@ caver.wallet.signMessage(address, message, role [, index])
 使用存储在 caver.wallet 中的密钥，用 kaia 专用前缀签署信息。 这样就能计算出 kaia 特有的签名：
 
 ```
-sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
+sign(keccak256("\x19Klaytn Signed Message:\n" + len(message) + message)))
 ```
 
 如果用户没有提供索引参数，`caver.wallet.signMessage` 会使用角色使用的所有私钥签署信息。 如果给定了索引参数，`caver.wallet.signMessage` 将只使用给定索引上的一个私钥来签署信息。 在 caver-js 中使用的角色可以通过 `caver.wallet.keyring.role`找到。
@@ -334,7 +334,7 @@ sign(keccak256("\x19Klaytn Signed Message：\n" + len(message) + message)))
 }
 ```
 
-## caver.wallet.sign<a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
+## caver.wallet.sign <a href="#caver-wallet-sign" id="caver-wallet-sign"></a>
 
 ```javascript
 caver.wallet.sign(address, transaction [, index] [, hasher])
@@ -444,7 +444,7 @@ ValueTransfer {
 }
 ```
 
-## caver.wallet.signAsFeePayer<a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
+## caver.wallet.signAsFeePayer <a href="#caver-wallet-signasfeepayer" id="caver-wallet-signasfeepayer"></a>
 
 ```javascript
 caver.wallet.signAsFeePayer(address, transaction [, index] [, hasher])

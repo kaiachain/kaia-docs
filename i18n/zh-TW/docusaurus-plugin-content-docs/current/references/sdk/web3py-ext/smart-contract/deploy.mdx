@@ -1,0 +1,215 @@
+# 部署
+
+Web3 SDK 支持通過合約實例（而非底層事務）與智能合約進行交互。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py smart_contract_deploy.py
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3.middleware import construct_sign_and_send_raw_middleware
+
+user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+acc_list = [user]
+w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))
+
+def contract_deploy_with_legacy():
+    # compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+    # // SPDX-License-Identifier: UNLICENSED
+    # pragma solidity ^0.8.13;
+
+    # contract Counter {
+    #     uint256 public number;
+    #     event SetNumber(uint256 number);
+
+    #     constructor(uint256 initNumber) {
+    #         number = initNumber;
+    #     }
+
+    #     function setNumber(uint256 newNumber) public {
+    #         number = newNumber;
+    #         emit SetNumber(number);
+    #     }
+
+    #     function increment() public {
+    #         number++;
+    #         emit SetNumber(number);
+    #     }
+    # }
+    c = w3.eth.contract(
+        bytecode = "0x608060405234801561001057600080fd5b5060405161031a38038061031a8339818101604052810190610032919061007a565b80600081905550506100a7565b600080fd5b6000819050919050565b61005781610044565b811461006257600080fd5b50565b6000815190506100748161004e565b92915050565b6000602082840312156100905761008f61003f565b5b600061009e84828501610065565b91505092915050565b610264806100b66000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80633fb5c1cb146100465780638381f58a14610062578063d09de08a14610080575b600080fd5b610060600480360381019061005b9190610160565b61008a565b005b61006a6100cd565b604051610077919061019c565b60405180910390f35b6100886100d3565b005b806000819055507f331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d46000546040516100c2919061019c565b60405180910390a150565b60005481565b6000808154809291906100e5906101e6565b91905055507f331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d460005460405161011b919061019c565b60405180910390a1565b600080fd5b6000819050919050565b61013d8161012a565b811461014857600080fd5b50565b60008135905061015a81610134565b92915050565b60006020828403121561017657610175610125565b5b60006101848482850161014b565b91505092915050565b6101968161012a565b82525050565b60006020820190506101b1600083018461018d565b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60006101f18261012a565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8203610223576102226101b7565b5b60018201905091905056fea264697066735822122012162749eb9714a6df7a34741c39edb78cf6e3d6d3e888872232594da5a1353164736f6c63430008120033",
+        abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    tx_hash = c.constructor(0).transact({
+        'from':user.address
+    })
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print(tx_receipt)
+
+contract_deploy_with_legacy()
+```
+
+---
+
+```zsh output
+❯ py smart_contract_deploy.py
+AttributeDict({'blockHash': HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber': 147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed': 457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex': 1, 'type': 2})
+```
+
+</CH.Code>
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py smart_contract_deploy.py focus=1:2
+
+```
+
+---
+
+導入必要的實用程序
+
+```py smart_contract_deploy.py focus=3:4
+
+```
+
+---
+
+從私人密鑰加載賬戶
+
+```py smart_contract_deploy.py focus=6
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 創建 Web3 實例
+
+```py smart_contract_deploy.py focus=7:9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode** 。
+
+```py smart_contract_deploy.py focus=7:9
+from web3py_ext import extend
+from web3 import Web3
+from eth_account import Account
+from web3.middleware import construct_sign_and_send_raw_middleware
+
+user = Account.from_key('0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8')
+w3 = Web3(Web3.HTTPProvider(
+    'https://public-en-kairos.node.kaia.io'
+    ))
+acc_list = [user]
+w3.middleware_onion.add(construct_sign_and_send_raw_middleware(acc_list))
+
+def contract_deploy_with_legacy():
+    # compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+    # // SPDX-License-Identifier: UNLICENSED
+    # pragma solidity ^0.8.13;
+
+    # contract Counter {
+    #     uint256 public number;
+    #     event SetNumber(uint256 number);
+
+    #     constructor(uint256 initNumber) {
+    #         number = initNumber;
+    #     }
+
+    #     function setNumber(uint256 newNumber) public {
+    #         number = newNumber;
+    #         emit SetNumber(number);
+    #     }
+
+    #     function increment() public {
+    #         number++;
+    #         emit SetNumber(number);
+    #     }
+    # }
+    c = w3.eth.contract(
+        bytecode = "0x608060405234801561001057600080fd5b5060405161031a38038061031a8339818101604052810190610032919061007a565b80600081905550506100a7565b600080fd5b6000819050919050565b61005781610044565b811461006257600080fd5b50565b6000815190506100748161004e565b92915050565b6000602082840312156100905761008f61003f565b5b600061009e84828501610065565b91505092915050565b610264806100b66000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80633fb5c1cb146100465780638381f58a14610062578063d09de08a14610080575b600080fd5b610060600480360381019061005b9190610160565b61008a565b005b61006a6100cd565b604051610077919061019c565b60405180910390f35b6100886100d3565b005b806000819055507f331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d46000546040516100c2919061019c565b60405180910390a150565b60005481565b6000808154809291906100e5906101e6565b91905055507f331bb01bcf77ec721a35a558a7984e8e6ca33b507d3ee1dd13b76f64381e54d460005460405161011b919061019c565b60405180910390a1565b600080fd5b6000819050919050565b61013d8161012a565b811461014857600080fd5b50565b60008135905061015a81610134565b92915050565b60006020828403121561017657610175610125565b5b60006101848482850161014b565b91505092915050565b6101968161012a565b82525050565b60006020820190506101b1600083018461018d565b92915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60006101f18261012a565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8203610223576102226101b7565b5b60018201905091905056fea264697066735822122012162749eb9714a6df7a34741c39edb78cf6e3d6d3e888872232594da5a1353164736f6c63430008120033",
+        abi = [{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":False,"inputs":[{"indexed":False,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+    )
+    tx_hash = c.constructor(0).transact({
+        'from':user.address
+    })
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print(tx_receipt)
+
+contract_deploy_with_legacy()
+```
+
+---
+
+將**賬戶列表**定義為使用中間件的列表類型
+
+```py smart_contract_deploy.py focus=10
+
+```
+
+---
+
+如果想在使用 **transact** 函數時自動簽名和發送，請使用 **construct_sign_and_send_raw_middleware**
+
+```py smart_contract_deploy.py focus=11,40:42
+
+```
+
+---
+
+這些是編譯成字節碼並將部署到 Kairos 測試網絡的**合同**
+
+```py smart_contract_deploy.py focus=18:35,37
+
+```
+
+---
+
+使用字節碼和 ABI 初始化 Web3 合約實例
+
+```py smart_contract_deploy.py focus=36:39
+
+```
+
+---
+
+設置合約 **bytebode** 和 **abi**。 使用 remix 或 solc 編譯器編譯後，您可以獲得字節碼和 abi
+
+```py smart_contract_deploy.py focus=37,38
+
+```
+
+---
+
+發送 tx，部署智能合約。 這將自動簽署併發送包含構造函數調用數據的 tx
+
+```py smart_contract_deploy.py focus=40:42
+
+```
+
+---
+
+等待交易**收據**
+
+<CH.Code>
+```py smart_contract_deploy.py focus=43:44
+
+````
+---
+```zsh output
+❯ py smart_contract_deploy.py
+AttributeDict({'blockHash': HexBytes('0xf990e2fcedc5e814c274b7582cfba6f9beae24f2314504a2ef7b9373397dd7a9'), 'blockNumber': 147171529, 'contractAddress': '0xc0F9ca7fC3D7bd3c0B302D8942dA398159520908', 'cumulativeGasUsed': 457185, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 260744, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': None, 'transactionHash': HexBytes('0x97b15a334ba0693f3a1780779555d6c9c13481d3cae9f70f32887fbdb81ce29b'), 'transactionIndex': 1, 'type': 2})
+````
+
+</CH.Code>
+
+</CH.Spotlight>

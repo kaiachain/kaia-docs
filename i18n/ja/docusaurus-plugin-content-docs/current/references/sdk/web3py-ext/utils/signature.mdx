@@ -1,6 +1,6 @@
-# Signature
+# 署名
 
-Convert signature between `r, s, v` and `compressed string` format.
+シグネチャを `r, s, v` 形式と `圧縮文字列` 形式の間で変換する。
 
 <CH.Spotlight>
   <CH.Code>
@@ -44,14 +44,14 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  Import the `bytes_to_hex_str`, `hex_str_to_bytes` from **web3py_ext**
+  **web3py_ext** から `bytes_to_hex_str`, `hex_str_to_bytes` をインポートする。
 
   ```py signature_convert.py focus=1
   ```
 
   ---
 
-  For converting `{r,s,v}` signature to string, define a signature in `r,s,v` format, use `hex_str_to_bytes` to convert each components to `bytes`
+  `{r,s,v}` のシグネチャを文字列に変換するには、`r,s,v` フォーマットのシグネチャを定義し、`hex_str_to_bytes` を使って各要素を `bytes` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=17:20
@@ -67,7 +67,7 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  Concatenate the components in order of `r + s + v` and convert the result bytes to `string`.
+  構成要素を `r + s + v` の順に連結し、結果のバイトを `string` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=3:6,21
@@ -83,14 +83,14 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  For converting `string` signature to `{r,s,v}`, define a signature in string format
+  文字列形式のシグネチャを `{r,s,v}` に変換するには、文字列形式でシグネチャを定義する。
 
   ```py signature_convert.py focus=23:24
   ```
 
   ---
 
-  Convert the string signature to `bytes` using `hex_str_to_bytes`
+  `hex_str_to_bytes`を使って文字列シグネチャを `bytes` に変換する。
 
   <CH.Code>
     ```py signature_convert.py focus=8:9
@@ -106,7 +106,7 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  Extract `R first 32 indices`, `S next 32 indices`, `V last indice` from the signature bytes
+  署名バイトから `R 最初の 32 個のインデックス`、`S 次の 32 個のインデックス`、`V 最後のインデックス` を取り出す。
 
   <CH.Code>
     ```py signature_convert.py focus=10:13
@@ -122,7 +122,7 @@ Convert signature between `r, s, v` and `compressed string` format.
 
   ---
 
-  You can convert each components back to string using `bytes_to_hex_str()` and `hex()`
+  各コンポーネントを文字列に戻すには、`bytes_to_hex_str()` と `hex()` を使用します。
 
   <CH.Code>
     ```py signature_convert.py focus=14,25

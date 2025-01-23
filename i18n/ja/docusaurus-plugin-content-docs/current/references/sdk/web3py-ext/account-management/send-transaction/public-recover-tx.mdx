@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 <CH.Spotlight>
 <CH.Code>
@@ -46,8 +46,8 @@ web3_tx_sign_recover_pubkey()
 ---
 
 ```zsh output
-❯ python txTypeLegacyTransaction.py
-tx hash:  0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3 receipt:  AttributeDict({'blockHash': HexBytes('0x1731103ca6b336d0b1f6731632e7339f710f2316b5efb63882108bd0a5207f45'), 'blockNumber': 150557786, 'contractAddress': None, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 21000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash': HexBytes('0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3'), 'transactionIndex': 0, 'type': 0})
+❯ txTypeLegacyTransaction.py
+tx hash：  0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3 receipt:  AttributeDict({'blockHash'：HexBytes('0x1731103ca6b336d0b1f6731632e7339f710f2316b5efb63882108bd0a5207f45'), 'blockNumber':150557786, 'contractAddress'：なし, 'cumulativeGasUsed': 21000, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 21000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash'：HexBytes('0x26b8f66ac07e666163c65396fb24a5940ccc5bdc84a1de5301550f7fe096e2d3'), 'transactionIndex':0, 'type': 0})
 
 sender 0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b
 recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
@@ -57,7 +57,7 @@ recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_public_value_transfer_sign_recover.py focus=1:2
 
@@ -65,7 +65,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_public_value_transfer_sign_recover.py focus=3:8
 
@@ -73,7 +73,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_public_value_transfer_sign_recover.py focus=11
 
@@ -81,7 +81,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py web3_public_value_transfer_sign_recover.py focus=11
 from web3py_ext import extend
@@ -123,7 +123,7 @@ web3_tx_sign_recover_pubkey()
 
 ---
 
-Define a wallet from address and private key using **Account.from_key_pair**
+アドレスと秘密鍵からウォレットを定義するには、**Account.from_key_pair**を使用します。
 
 ```py web3_public_value_transfer_sign_recover.py focus=14:17
 
@@ -131,7 +131,7 @@ Define a wallet from address and private key using **Account.from_key_pair**
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_public_value_transfer_sign_recover.py focus=19
 
@@ -139,7 +139,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **emp
 
 ---
 
-Create a **transaction** with **from**, **to** and **value** fields to transfer.
+転送する **from**、**to**、**value** フィールドを指定して、**transaction** を作成する。
 
 ```py web3_public_value_transfer_sign_recover.py focus=20:24
 
@@ -147,7 +147,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive kaia.
+**from**：送信者のアドレス、**to**：カイアを受信するターゲットのアドレス。
 
 ```py web3_public_value_transfer_sign_recover.py focus=21:22
 
@@ -155,7 +155,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
+**value**フィールドは、送信したいKaiaの数を意味し、KaiaをPeb単位に変換するには**Web3.to_peb**ユーティルを使用します。
 
 ```py web3_public_value_transfer_sign_recover.py focus=23
 
@@ -163,7 +163,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_public_value_transfer_sign_recover.py focus=4:6,25
 
@@ -171,7 +171,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 ---
 
-Sign the transaction with the defined account
+定義されたアカウントで取引に署名する
 
 ```py web3_public_value_transfer_sign_recover.py focus=26
 
@@ -179,7 +179,7 @@ Sign the transaction with the defined account
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
 ```py web3_public_value_transfer_sign_recover.py focus=28:30
@@ -194,7 +194,7 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 
 ---
 
-Recover sender address with **Account.recover_transaction** from signed transaction
+署名済みトランザクションから**Account.recover_transaction**を使用して送信者アドレスを回復する。
 
 <CH.Code>
 ```py web3_public_value_transfer_sign_recover.py focus=32:33

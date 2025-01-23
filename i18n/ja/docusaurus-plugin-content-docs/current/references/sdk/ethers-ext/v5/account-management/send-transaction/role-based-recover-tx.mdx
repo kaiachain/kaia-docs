@@ -1,6 +1,6 @@
-# Role-based Account Key
+# 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
+**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -77,7 +77,7 @@ recoveredAddr rpc 0x5bd2fb3c21564c023a4a735935a2b7a238c4ccea true
 
 ---
 
-Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
 ```js SignTxWithRoleBasedExample.js focus=1:3
 
@@ -85,7 +85,7 @@ Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia feature
 
 ---
 
-Define sender's **address** and role-based **private keys**
+送信者の**address**と役割ベースの**private key**を定義する。
 
 ```js SignTxWithRoleBasedExample.js focus=5:9
 
@@ -93,7 +93,7 @@ Define sender's **address** and role-based **private keys**
 
 ---
 
-Define receiver's **address**
+受信者の**address**を定義します。
 
 ```js SignTxWithRoleBasedExample.js focus=10
 
@@ -101,7 +101,7 @@ Define receiver's **address**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js SignTxWithRoleBasedExample.js focus=12
 
@@ -109,7 +109,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in eth
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js SignTxWithRoleBasedExample.js focus=12
 const { ethers } = require("ethers");
@@ -154,7 +154,7 @@ main().catch(console.error);
 
 ---
 
-Create a sender's **wallet** with the private key and provider
+秘密鍵とプロバイダーを使って送信者の**ウォレット**を作成する。
 
 ```js SignTxWithRoleBasedExample.js focus=13
 
@@ -162,7 +162,7 @@ Create a sender's **wallet** with the private key and provider
 
 ---
 
-Create a **value transfer** transaction with `type: TxType.ValueTransfer` so that it can be recovered later with `klay_recoverFromTransaction`
+`type: TxType.ValueTransfer` を使用して **価値移転** トランザクションを作成し、後で `klay_recoverFromTransaction` で復元できるようにする。
 
 ```js SignTxWithRoleBasedExample.js focus=16:22
 
@@ -170,7 +170,7 @@ Create a **value transfer** transaction with `type: TxType.ValueTransfer` so tha
 
 ---
 
-Sign the transaction with the wallet that has role **sending transaction**, the `populateTransaction` method add more params to the transaction object such as gas, nonce...
+`populateTransaction`メソッドはトランザクションオブジェクトにgas、nonce...などのパラメー タを追加する。
 
 <CH.Code>
 
@@ -181,14 +181,14 @@ Sign the transaction with the wallet that has role **sending transaction**, the 
 ---
 
 ```zsh output
-rawTx 0x08f88641850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc10000945bd2fb3c21564c023a4a735935a2b7a238c4cceaf847f8458207f6a04886eb1e6d8d5ee59fe4d125b40080409c3341fdc0a7e04b612e7d802edbeaeba0415c08f73a3789f6c27177bb5326579ffbe96f8e0db7090b08ce2fe059d949a9
+rawTx0x08f88641850ba43b7400830186a094c40b6909eb7085590e1c26cb3becc25368e249e9872386f26fc10000945bd2fb3c21564c023a4a735935a2b7a238c4cceaf847f8458207f6a04886eb1e6d8d5ee59fe4d125b40080409c3341fdc0a7e04b612e7d802edbeaeba0415c08f73a3789f6c27177bb5326579ffbe96f8e0db7090b08ce2fe059d949a9
 ```
 
 </CH.Code>
 
 ---
 
-Send the **signed transaction** to kaia network
+**署名したトランザクション**をkaiaネットワークに送信する。
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=28:29
@@ -204,7 +204,7 @@ sentTx 0x3f7ee99c699ad2143bf0fac72dac1ff689c992e382e4705f7366aceaecc09477
 
 ---
 
-Wait for the transaction to be **completed** and print the **receipt**
+取引が**完了**するのを待って、**領収書**を印刷する。
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=31:32
@@ -237,7 +237,7 @@ receipt {
 
 ---
 
-Recover the address from signed transaction using `klay_recoverFromMessage`
+`klay_recoverFromMessage`を使用して署名されたトランザクションからアドレスを回復する。
 
 <CH.Code>
 ```js SignTxWithRoleBasedExample.js focus=34:35

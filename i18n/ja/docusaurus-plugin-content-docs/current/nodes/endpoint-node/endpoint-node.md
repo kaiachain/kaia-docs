@@ -1,20 +1,20 @@
-# Endpoint Node
+# エンドポイントノード
 
-## Intended Audience <a id="intended-audience"></a>
+## 対象読者<a id="intended-audience"></a>
 
-- Anyone who wants to send transactions or query the state of Klaytn network using [Klaytn APIs](../../references/json-rpc/klay/account-created) needs to do so via an Endpoint Node.
-- Endpoint Nodes are the interface to the Klaytn Network.
+- [Kaia API](../../references/json-rpc/klay/account-created)を使ってトランザクションを送信したり、Kaiaネットワークの状態を照会したい人は、エンドポイントノードを介して行う必要があります。
+- エンドポイントノードはカイアネットワークへのインターフェースである。
 
-## Endpoint Node Overview <a id="endpoint-node-overview"></a>
+## エンドポイントノードの概要<a id="endpoint-node-overview"></a>
 
-An Endpoint Node has the following roles and functions.
+エンドポイントノードは以下の役割と機能を持つ。
 
-- Synchronize the blockchain data.
-- Validate the blocks newly received.
-- Handles query requests.
-- Transmits transaction requests to the Proxy Nodes.
+- ブロックチェーンのデータを同期させる。
+- 新しく受け取ったブロックを検証する。
+- クエリーリクエストを処理する。
+- トランザクション要求をプロキシノードに送信する。
 
-The Endpoint Node install binary comes with the following interfaces and utilities.
+Endpoint Node インストール・バイナリには、以下のインターフェースとユーティリティが付属しています。
 
-- JSON-RPC APIs: JSON-RPC server runs inside the node, and it exposes [APIs](../../references/json-rpc/klay/account-created) for Blockchain Application development. It has several node management APIs as well.
-- Command-line Interface: Provides account management and node configuration functions. An interactive JavaScript console is also provided, that is attached to the node. JavaScript console implements most of the [caver-js APIs](../../references/sdk/caver-js/caver-js.md).
+- JSON-RPC API：JSON-RPCサーバーはノード内部で動作し、ブロックチェーンアプリケーション開発のための[API](../../references/json-rpc/klay/account-created)を公開する。 ノード管理APIもいくつかある。
+- コマンドラインインターフェース：アカウント管理とノード設定機能を提供します。 インタラクティブなJavaScriptコンソールも提供され、ノードに添付される。 JavaScriptコンソールは、[caver-js API](../../references/sdk/caver-js/caver-js.md)のほとんどを実装しています。

@@ -1,6 +1,6 @@
-# Value Transfer Memo
+# 価値移転メモ
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
 <CH.Spotlight>
 <CH.Code>
@@ -70,7 +70,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1
 
@@ -78,7 +78,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender**, **fee payer** addresses and private keys
+**sender**、**fee payer**のアドレスと秘密鍵を定義する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=3:6
 
@@ -86,7 +86,7 @@ Define **sender**, **fee payer** addresses and private keys
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3 is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3のプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものです。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=8:9
 
@@ -94,7 +94,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=8
 const { Web3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -135,7 +135,7 @@ main();
 
 ---
 
-Create a **sender's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**送信者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=10
 
@@ -143,7 +143,7 @@ Create a **sender's wallet** with the private key using `web3.eth.accounts.priva
 
 ---
 
-Create a **fee payer's wallet** with the private key using `web3.eth.accounts.privateKeyToAccount`
+`web3.eth.account.privateKeyToAccount`を使用して、秘密鍵で**料金支払者のウォレット**を作成する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=11
 
@@ -151,7 +151,7 @@ Create a **fee payer's wallet** with the private key using `web3.eth.accounts.pr
 
 ---
 
-Define the transaction object.
+トランザクションオブジェクトを定義する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=14:20
 
@@ -159,7 +159,7 @@ Define the transaction object.
 
 ---
 
-Set `type: TxType.FeeDelegatedValueTransferMemo` for transaction to send a memo value transfer with a fee payer
+typeを設定する：TxType.FeeDelegatedValueTransferMemo\`を設定する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=15
 
@@ -167,7 +167,7 @@ Set `type: TxType.FeeDelegatedValueTransferMemo` for transaction to send a memo 
 
 ---
 
-Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to convert Klay to Peb
+`value:toPeb("0.01")`を設定して転送する値を定義し、`toPeb`を使用してKlayをPebに変換する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=18
 
@@ -175,7 +175,7 @@ Set `value: toPeb("0.01")` to define the value to be transfered, use `toPeb` to 
 
 ---
 
-Set `data: "0x1234567890"` to define the memo value attached with the transaction
+データを設定する："0x1234567890"\` を設定して、トランザクションに付随するメモの値を定義する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=19
 
@@ -183,7 +183,7 @@ Set `data: "0x1234567890"` to define the memo value attached with the transactio
 
 ---
 
-Set others params like **from**, **to**
+**from**や**to**などのパラメータを設定する。
 
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=16:17
 
@@ -191,7 +191,7 @@ Set others params like **from**, **to**
 
 ---
 
-Sign the transaction with **sender** account using `signTransaction`
+`signTransaction`を使って**sender**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=22:24
@@ -208,7 +208,7 @@ senderTxHashRLP 0x11f88d8203b7850ba43b740082d1f694c40b6909eb7085590e1c26cb3becc2
 
 ---
 
-Sign the transaction with **fee payer** account using `signTransactionAsFeePayer`
+`signTransactionAsFeePayer`を使用して、**fee payer**アカウントでトランザクションに署名する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=26:28
@@ -225,7 +225,7 @@ rawTx 0x11f8eb8202ff85157d84a54c82c35094c40b6909eb7085590e1c26cb3becc25368e249e9
 
 ---
 
-Send the transaction to blockchain. It will return the transaction receipt
+トランザクションをブロックチェーンに送信する。 取引レシートを返します。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedValueTransferMemo.js focus=30:31

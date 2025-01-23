@@ -1,9 +1,9 @@
-# Block Explorers
+# ブロック探検隊
 
-This blockchain tool enables users and enthusiasts to search for real-time and historical information about the blockchain. Block explorers on Klaytn contain information about Klaytn, and as such, users can search for blocks, transactions, balances, addresses, and contracts on Klaytn.
+このブロックチェーン・ツールは、ユーザーや愛好家がブロックチェーンに関するリアルタイムおよび過去の情報を検索することを可能にする。 カイアのブロックエクスプローラーにはカイアに関する情報が含まれており、ユーザーはカイアのブロック、取引、残高、アドレス、契約を検索することができます。
 
-The list of explorers supported by Klaytn is provided below:
+カイアがサポートするエクスプローラのリストは以下の通りです：
 
-- [Kaiascope](https://kaiascope.com/)
-- [Kaiascan](https://www.kaiascan.io/)
-- [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)
+- [カイアスコープ](https://kaiascope.com/)
+- [カイアスカン](https://www.kaiascan.io/)
+- [OKX カイア・エクスプローラー](https://www.okx.com/web3/explorer/kaia)

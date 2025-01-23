@@ -1,61 +1,61 @@
-# Sending a sample transaction
+# サンプル・トランザクションの送信
 
-Let's try sending a transaction as a simple warm-up. In this short example, we will be creating a keystore, connecting to kaia node, as well as creating a transaction - all of this using caver-js!
+簡単なウォーミングアップとして、トランザクションを送信してみよう。 この短い例では、キーストアの作成、kaiaノードへの接続、トランザクションの作成を行う！
 
-Don't worry if this is your first time using caver-js. Just follow the simple steps below.
+caver-jsを使うのが初めてでも心配しないでください。 以下の簡単なステップに従ってください。
 
-## Prerequisites
+## 前提条件
 
-First install the following packages.
+まず、以下のパッケージをインストールする。
 
-- [Node.js](https://nodejs.org/en/download/) version ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
+- [Node.js](https://nodejs.org/en/download/) バージョン ([14.16.0](https://nodejs.org/dist/latest-v14.x/))
 - [npm](https://www.npmjs.com/get-npm)
 - [nvm](https://github.com/nvm-sh/nvm)
-- [Solidity compiler](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
+- [Solidityコンパイラ](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-_Note:_ If you get an `nvm: command not found` error after installing nvm, refer to this [troubleshooting guide](https://github.com/nvm-sh/nvm/issues/2060).
+_注意:_ nvmのインストール後に`nvm: command not found`エラーが発生した場合は、こちらの[トラブルシューティングガイド](https://github.com/nvm-sh/nvm/issues/2060)を参照してください。
 
-## 1. Create an Account and Download Keystore <a id="1.-create-an-account-and-download-keystore"></a>
+## 1. アカウントの作成とKeystoreのダウンロード<a id="1.-create-an-account-and-download-keystore"></a>
 
-The most simple way to create an account is using the [Kaia Online Toolkit](https://toolkit.kaia.io/misc/generateKeystore).
+アカウントを作成する最も簡単な方法は、[Kaia Online Toolkit](https://toolkit.kaia.io/misc/generateKeystore)を使用することです。
 
 ![Kaia Online Toolkit](/img/references/keystore.png)
 
-Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
+キーストア・ファイルをダウンロードし、`keystore.json`のようなもっとシンプルな名前に変更しよう。
 
-**You need KAIA to send a transaction.** You can get test KLAY for Kairos testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+\*\*カイロス・テストネットのテストKLAYは[Faucet](https://faucet.kaia.io)から入手できます。 詳しい使い方は[「カイヤウォレット」](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)をご参照ください。
 
-## 2. Initialize Project <a id="2.-initialize-project"></a>
+## 2. プロジェクトの初期化<a id="2.-initialize-project"></a>
 
-First, let's create a folder for our project. We will simply call it `test`. Navigate to your command line and type:
+まず、プロジェクト用のフォルダを作りましょう。 ここでは単に`test`と呼ぶことにする。 コマンドラインに移動し、次のように入力する：
 
 ```
 mkdir test
 ```
 
-Now let's navigate to our folder.
+では、フォルダに移動してみよう。
 
 ```
-cd test
+cdテスト
 ```
 
-We are in our folder, where we will download caver-js. But before that, we have to check our `node.js` version, because we have to use 12 or 14.
+caver-jsをダウンロードするフォルダに入った。 その前に、node.jsのバージョンをチェックしなければならない。
 
-You can check the version like this:
+バージョンはこのように確認できる：
 
 ```
-node --version
+ノード --バージョン
 ```
 
-If the version is not 12 or 14, **make sure to change it**. Here, we will use the version ([14.16.0](https://nodejs.org/dist/latest-v14.x/)). So let's type `nvm use 14.16.0` to change our node version.
+もしバージョンが12か14でなければ、**必ず変更してください**。 ここでは、バージョン（[14.16.0](https://nodejs.org/dist/latest-v14.x/)）を使用します。 では、ノードのバージョンを変更するために`nvm use 14.16.0`と入力してみよう。
 
-Now let's initialize our project:
+では、プロジェクトを初期化してみよう：
 
 ```
 npm init
 ```
 
-Since we are just doing a simple test, it doesn't matter how you answer the questions. Keep pressing `enter`.
+簡単なテストをするだけなので、質問にどう答えてもかまいません。 エンターキーを押し続ける。
 
 ```
 
@@ -86,41 +86,41 @@ About to write to /Users/terri.k/test/package.json:
 Is this OK? (yes)
 ```
 
-Alternatively, you can simply type the command below to skip hitting `enter`:
+あるいは、`enter`を押すのを省略するために、以下のコマンドを入力することもできる：
 
 ```
 npm init -y
 ```
 
-## 3. Download caver-js <a id="3.-download-caver-js"></a>
+## 3. caver-js のダウンロード<a id="3.-download-caver-js"></a>
 
-And now we are ready to install caver-js.
-
-```
-npm install caver-js
-```
-
-Also, add the below module because we need it:
+これでcaver-jsをインストールする準備ができた。
 
 ```
-npm i read
+npm caver-jsをインストールする
 ```
 
-## 4. Create Test File <a id="4.-create-test-file"></a>
+また、以下のモジュールも必要なので追加する：
 
-Let's create a test file named `testcaver.js` like so:
+```
+npmを読んだ
+```
+
+## 4. テストファイルの作成<a id="4.-create-test-file"></a>
+
+このように`testcaver.js`という名前のテストファイルを作ってみよう：
 
 ```
 touch testcaver.js
 ```
 
-We will be writing our code in this file to send a transaction to transfer KAIA.
+KAIAを転送するトランザクションを送信するために、このファイルにコードを記述する。
 
-## 5. Connect to kaia Node <a id="5.-connect-to-klaytn-node"></a>
+## 5. kaiaノードに接続する<a id="5.-connect-to-klaytn-node"></a>
 
-Since we are sending a transaction to the blockchain network, we need to connect to a kaia node. We will be using Kairos Testnet.
+ブロックチェーン・ネットワークにトランザクションを送信するので、kaiaノードに接続する必要がある。 Kairos Testnetを使用する予定です。
 
-We will import the `caver-js` and `read` module and connect to a kaia node in the Kairos network as shown below:
+以下のように、`caver-js`と`read`モジュールをインポートし、Kairosネットワークのkaiaノードに接続する：
 
 ```javascript
 const Caver = require('caver-js')
@@ -128,9 +128,9 @@ const read = require('read')
 const caver = new Caver('https://public-en-kairos.node.kaia.io/')
 ```
 
-## 6. Provide Keystore, Create Keyring, and Add to Caver Wallet <a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
+## 6. キーストアの提供、キーリングの作成、Caver Walletへの追加<a id="6.-add-keystore-create-keyring-and-add-to-caver-wallet"></a>
 
-You need an account to make transactions on the blockchain. That account information is included in the keystore. Using the `loadPassword()` function, we can implement a password prompt on the terminal. The function looks like this:
+ブロックチェーン上で取引を行うにはアカウントが必要だ。 そのアカウント情報はキーストアに含まれている。 loadPassword()\`関数を使えば、端末にパスワードのプロンプトを表示することができる。 関数は次のようになる：
 
 ```
 async function loadPassword() {
@@ -148,9 +148,9 @@ async function loadPassword() {
 }
 ```
 
-The password entered from the prompt, along with the keystore file existing in the same directory, will be decrypted and stored as `keyring`.
+プロンプトから入力されたパスワードは、同じディレクトリに存在するキーストア・ファイルとともに復号化され、`keyring`として保存される。
 
-After that, the `keyring` will be stored in the wallet. Add the lines below:
+その後、`keyring`はウォレットに保存される。 以下の行を追加する：
 
 ```
 async function sendKlay() {
@@ -169,11 +169,11 @@ async function sendKlay() {
 	}
 ```
 
-## 7. Send Transaction <a id="7.-send-transaction"></a>
+## 7. トランザクションの送信<a id="7.-send-transaction"></a>
 
-We will now create a transaction to transfer some KAIA. This type of transaction is called "value transfer transaction". Let's break down each parameter.
+KAIAを譲渡するためのトランザクションを作成する。 この種の取引は「価値移転取引」と呼ばれる。 各パラメーターを分解してみよう。
 
-The `from` address is derived from the keystore we uploaded. The `to` address is the receiver of the KAIA, and you can use any address. For `value`, you can conveniently use `caver.utils.toPeb()` to convert KAIA into peb. Here, we will send 10 KAIA. For `gas`,
+`from`アドレスは、アップロードしたキーストアから取得する。 `to`アドレスはKAIAの受信者であり、任意のアドレスを使うことができる。 `value`については、`caver.utils.toPeb()`を使ってKAIAをpebに変換すると便利である。 ここでは10KAIAを送る。 ガス」の場合、
 
 ```
 	
@@ -194,23 +194,23 @@ The `from` address is derived from the keystore we uploaded. The `to` address is
 }
 ```
 
-Don't forget to add in the end:
+最後に加えるのを忘れずに：
 
 ```
 sendKlay()
 ```
 
-## 8. Run the Code <a id="8.-run-the-code"></a>
+## 8. コードを実行する<a id="8.-run-the-code"></a>
 
-Let's run the code that we've just written:
+今書いたコードを実行してみよう：
 
 ```
-node testcaver.js
+ノード testcaver.js
 ```
 
 ![Type your password](/img/references/prompt.png)
 
-The result will look something like this:
+結果はこのようになる：
 
 ```
 SingleKeyring {
@@ -249,9 +249,9 @@ SingleKeyring {
 }
 ```
 
-You can view the transaction details in [Kaiascan](https://kairos.kaiascan.io/) or [Kaiascope](https://kairos.kaiascope.com/) using the `transactionHash`.
+トランザクションの詳細は、[Kaiascan](https://kairos.kaiascan.io/) または [Kaiascope](https://kairos.kaiascope.com/) で `transactionHash` を使って見ることができます。
 
-## 9. Entire Code <a id="9.-run-the-code"></a>
+## 9. コード全体<a id="9.-run-the-code"></a>
 
 ```
 const Caver = require('caver-js')
@@ -306,4 +306,4 @@ async function loadPassword() {
 sendKLAY()
 ```
 
-I hope you are feeling confident about having submitted a transacion using caver-js. If you are stuck, or have any questions, feel free to visit our [Kaia Forum](https://devforum.kaia.io/) for help.
+caver-jsを使ってトランザッションを提出したことで、自信を持っていただけたでしょうか？ 困ったとき、質問があるときは、お気軽に[カイア・フォーラム](https://devforum.kaia.io/)をご覧ください。

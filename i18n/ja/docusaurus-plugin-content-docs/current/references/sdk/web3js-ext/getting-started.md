@@ -1,31 +1,31 @@
-# Web3.js Extension for kaia
+# kaia用Web3.jsエクステンション
 
-Web3.js Extension for kaia offers:
+kaiaのWeb3.js拡張機能：
 
-- Drop-in replacement to `new Web3(...)` that supports both Ethereum and kaia transaction types involving AccountKey and TxTypes. See [Modifications to the Web3 object](#modifications-to-the-web3-object) section for details
+- newWeb3(...)\`のドロップイン置き換えで、AccountKeyとTxTypesを含むEthereumとkaiaの両方のトランザクションタイプをサポートする。 詳しくは[Web3オブジェクトの修正](#modifications-to-the-web3-object)の項を参照。
 
-## Install
+## インストール
 
 ### Node.js
 
-- Install
+- インストール
   ```sh
   npm install --save @kaiachain/web3js-ext
   ```
-- ESM or TypeScript
+- ESMまたはTypeScript
   ```ts
   import { Web3 } from "@kaiachain/web3js-ext";
   const web3 = new Web3("https://public-en-kairos.node.kaia.io");
   ```
-- CommonJS
+- コモンJS
   ```js
   const { Web3 } = require("@kaiachain/web3js-ext");
   const web3 = new Web3("https://public-en-kairos.node.kaia.io");
   ```
 
-### Browser
+### ブラウザ
 
-It is not recommended to use CDNs in production, But you can use below for quick prototyping.
+本番環境でCDNを使用することは推奨されませんが、迅速なプロトタイピングのために以下を使用することができます。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/web3js-ext@latest/dist/web3js-ext.bundle.js"></script>
@@ -34,58 +34,58 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
-## Usage
+## 使用方法
 
-See [example](./example) and [test](./test).
+example](./example)と[test](./test)を参照のこと。
 
-## Modifications to the Web3 object
+## Web3オブジェクトの修正
 
-See [DESIGN](./DESIGN.md) for source code organization.
+ソースコードの構成については[DESIGN](./DESIGN.md)を参照のこと。
 
-### Accounts
+### アカウント
 
-- Following functions can handle kaia TxTypes. See [src/account/index.ts](./src/account/index.ts)
+- 以下の関数は kaia TxTypes を扱うことができる。 src/account/index.ts](./src/account/index.ts) を参照。
   ```js
-  // account independent functions
+  // アカウントに依存しない関数
   web3.eth.accounts.recoverTransaction(rlp)
   web3.eth.accounts.signTransaction(obj or rlp)
   web3.eth.accounts.signTransactionAsFeePayer(obj or rlp)
 
-  // account-bound functions
-  var account = web3.eth.accounts.create()
+  // アカウントに依存する関数
+  var account = web3.web3.eth.accounts.create()
   var account = web3.eth.accounts.privateKeyToAccount(priv)
   var account = web3.eth.accounts.decrypt(keystore)
   account.signTransaction(obj or rlp)
   account.signTransactionAsFeePayer(obj or rlp)
   ```
-- Following functions can handle the [KIP-3 kaia keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+- 以下の関数は、[KIP-3 kaia keystore format v4](https://kips.kaia.io/KIPs/kip-3) を扱うことができます。
   ```js
   web3.eth.accounts.decrypt(keystore)
   web3.eth.accounts.decryptList(keystore)
   ```
 
-### Eth RPC wrappers
+### Eth RPCラッパー
 
-- Following functions calls different RPC, and handle kaia TxTypes. See [src/eth/index.ts](./src/eth/index.ts)
+- 以下の関数は異なるRPCを呼び出し、カイアTxTypesを処理する。 src/eth/index.ts](./src/eth/index.ts) を参照。
   ```js
-  // Try klay_protocolVersion, falls back to eth_protocolVersion
+  // try klay_protocolVersion, falls back to eth_protocolVersion
   web3.eth.getProtocolVersion()
 
   // klay_sendTransaction if kaia TxType, otherwise eth_sendTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // Kaia Wallet互換性のための追加処理
   web3.eth.sendTransaction(obj)
 
   // klay_sendRawTransaction if kaia TxType, otherwise eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
   // klay_signTransaction if kaia TxType, otherwise eth_signTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // Kaia Wallet互換のための追加処理
   web3.eth.signTransaction(obj)
   ```
 
-### kaia RPCs
+### カイアRPC
 
-- Following functions calls kaia RPCs. See [src/web3.ts](./src/web3.ts)
+- 以下の関数はkaia RPCを呼び出します。 src/web3.ts](./src/web3.ts) を参照。
   ```js
   web3.klay.blockNumber() // klay_blockNumber
   web3.net.networkID() // net_networkID

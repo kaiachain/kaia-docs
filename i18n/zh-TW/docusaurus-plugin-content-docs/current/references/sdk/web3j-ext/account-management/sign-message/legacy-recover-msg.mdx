@@ -1,0 +1,184 @@
+# 傳統賬戶密鑰
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignMsgWithLegacyExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithLegacyExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run() throws Exception {
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials1 = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String from = credentials1.getAddress();
+        String message = "0xdeadbeef";
+        String blockNumber = "latest";
+
+        SignatureData signature = KlaySignatureData.signPrefixedMessage(message, credentials1);
+        String result = KlaySignatureData.getSignatureString(signature);
+
+        KlayRecoverFromMessageResponse response = web3j.klayRecoverFromMessage(from, message, result, blockNumber)
+                .send();
+        System.out.println("Original address : " + from);
+        System.out.println("Result address : " + response.getResult());
+
+        web3j.shutdown();
+
+    }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignMsgWithLegacyExample.java
+Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+```
+
+</CH.Code>
+
+---
+
+從 Web3j 和 kaia 庫（`web3j-ext`）中導入必要的類。
+
+```java SignMsgWithLegacyExample.java focus=1:12
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 創建 Web3j 實例
+
+```java SignMsgWithLegacyExample.java focus=23
+
+```
+
+---
+
+此外，您還可以更改默認提供商。 例如，使用alchemy提供商。
+
+```java SignMsgWithLegacyExample.java focus=23
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithLegacyExample implements keySample {
+    /**
+     *
+     */
+
+    public static void run() throws Exception {
+        Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+        KlayCredentials credentials1 = KlayCredentials.create(keySample.LEGACY_KEY_privkey);
+        String from = credentials1.getAddress();
+        String message = "0xdeadbeef";
+        String blockNumber = "latest";
+
+        SignatureData signature = KlaySignatureData.signPrefixedMessage(message, credentials1);
+        String result = KlaySignatureData.getSignatureString(signature);
+
+        KlayRecoverFromMessageResponse response = web3j.klayRecoverFromMessage(from, message, result, blockNumber)
+                .send();
+        System.out.println("Original address : " + from);
+        System.out.println("Result address : " + response.getResult());
+
+        web3j.shutdown();
+
+    }
+
+}
+```
+
+---
+
+從私人密鑰加載**證書**並獲取其地址
+
+```java SignMsgWithLegacyExample.java focus=24:25
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```java SignMsgWithLegacyExample.java focus=26
+
+```
+
+---
+
+設置**區塊編號**為 kaia 網絡中的最新區塊
+
+```java SignMsgWithLegacyExample.java focus=27
+
+```
+
+---
+
+簽署**信息**並將簽名轉換為字符串
+
+```java SignMsgWithLegacyExample.java focus=29:30
+
+```
+
+---
+
+恢復**地址**，並與原始地址進行比較
+
+<CH.Code>
+```java SignMsgWithLegacyExample.java focus=32:35
+
+````
+
+
+---
+
+```zsh output
+❯ java SignMsgWithLegacyExample.java
+Original address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+````
+
+</CH.Code>
+
+---
+
+關閉 Web3j 實例
+
+```java SignMsgWithLegacyExample.java focus=37
+
+```
+
+</CH.Spotlight>

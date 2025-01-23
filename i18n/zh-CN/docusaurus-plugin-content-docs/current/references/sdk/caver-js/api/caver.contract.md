@@ -79,7 +79,7 @@ new caver.contract(jsonInterface [, address] [, options])
 const myContract = new caver.contract([...], '0x{address in hex}', { gasPrice: '25000000000' })
 ```
 
-## myContract.options<a href="#mycontract-options" id="mycontract-options"></a>
+## myContract.options <a href="#mycontract-options" id="mycontract-options"></a>
 
 ```javascript
 myContract.options
@@ -108,26 +108,26 @@ myContract.options
 ```javascript
 > myContract.options
 {
-  address：[Getter/Setter],
-  jsonInterface：[Getter/Setter],
+  address: [Getter/Setter],
+  jsonInterface: [Getter/Setter],
   from: [Getter/Setter],
-  feePayer：[获取者/设定器]，
-  feeDelegation：[Getter/Setter],
+  feePayer: [Getter/Setter],
+  feeDelegation: [Getter/Setter],
   feeRatio: [Getter/Setter],
   gasPrice: [Getter/Setter],
-  gas：[Getter/Setter],
-  data：[Getter/Setter]
+  gas: [Getter/Setter],
+  data: [Getter/Setter]
 }
 
 > myContract.options.from = '0x1234567890123456789012345678901234567891' // default from address
 > myContract.options.gasPrice = '25000000000000' // default gas price in peb
 > myContract.options.gas = 5000000 // provide as fallback always 5M gas
-> myContract.options.feeDelegation = true // 使用费用委托交易
-> myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // 默认费用支付人地址
-> myContract.options.feeRatio = 20 // 发送部分费用委托交易时的默认费用比率
+> myContract.options.feeDelegation = true // use fee delegation transaction
+> myContract.options.feePayer = '0x1234567890123456789012345678901234567891' // default fee payer address
+> myContract.options.feeRatio = 20 // default fee ratio when send partial fee delegation transaction
 ```
 
-## myContract.options.address<a href="#mycontract-options-address" id="mycontract-options-address"></a>
+## myContract.options.address <a href="#mycontract-options-address" id="mycontract-options-address"></a>
 
 ```javascript
 myContract.options.address
@@ -376,20 +376,20 @@ myContract.deploy(options)
       arguments: [123, 'My string']
   })
   .send({
-      from: '0x123456789012345678901234567891',
+      from: '0x1234567890123456789012345678901234567891',
       gas: 1500000,
       value: 0,
   }, function(error, transactionHash) { ... })
   .on('error', function(error) { ... })
   .on('transactionHash', function(transactionHash) { ... })
   .on('receipt', function(receipt) {
-     console.log(receipt.contractAddress) // 包含新合同地址
+     console.log(receipt.contractAddress) // contains the new contract address
    })
   .then(function(newContractInstance) {
-      console.log(newContractInstance.options.address) // 包含新合同地址的实例
+      console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// 当数据已被设置为合同本身的选项时
+// When the data is already set as an option to the contract itself
 > myContract.options.data = '0x12345...'
 
 > myContract.deploy({
@@ -404,7 +404,7 @@ myContract.deploy(options)
       console.log(newContractInstance.options.address) // instance with the new contract address
   })
 
-// 简单编码
+// Simply encoding
 > myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
@@ -412,14 +412,14 @@ myContract.deploy(options)
   .encodeABI()
 '0x12345...0000012345678765432'
 
-// 气体估算
-> myContract.deploy({ data: '0x12345...0000012345678765432', arguments: [123, 'My string'] })deploy({
+// Gas estimation
+> myContract.deploy({
       data: '0x12345...',
       arguments: [123, 'My string']
   })
   .estimateGas(function(err, gas) {
       console.log(gas)
-})
+  })
 ```
 
 ## myContract.send<a href="#mycontract-send" id="mycontract-send"></a>
@@ -466,32 +466,32 @@ PromiEvent 可用于以下事件：
 **示例**
 
 ```javascript
-// 发送 SmartContractExecution 并使用承诺
+// Send a SmartContractExecution and use the promise
 > myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123).then(console.log)
 {
   blockHash: '0x294202dcd1d3c422880e2a209b9cd70ce7036300536c78ab74130c5717cb90da',
   blockNumber: 16342,
-  contractAddress：null,
+  contractAddress: null,
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：47411,
+  gasUsed: 47411,
   input: '0x983b2...',
   logsBloom: '0x00800...',
   nonce: '0x1cd',
   senderTxHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
-  signatures：[ { V: '0x4e43', R: '0x2ba27...', S: '0x50d37...' } ],
+  signatures: [ { V: '0x4e43', R: '0x2ba27...', S: '0x50d37...' } ],
   status: true,
-  to：0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0xe3f50d2bab2c462ef99379860d2b634d85a0c9fba4e2b189daf1d96bd4bbf8ff',
-  transactionIndex：0,
+  transactionIndex: 0,
   type: 'TxTypeSmartContractExecution',
-  typeInt：48,
+  typeInt: 48,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 
-// 发送 SmartContractExecution 并使用事件发射器
+// Send a SmartContractExecution and use the event emitter
 > myContract.send({ from: '0x{address in hex}', gas: 1000000 }, 'methodName', 123)
   .on('transactionHash', function(hash) {
     ...
@@ -513,24 +513,24 @@ PromiEvent 可用于以下事件：
   blockNumber: 16458,
   contractAddress: null,
   feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
-  feePayerSignatures：[ { V: '0x4e43', R: '0x48c28...', S: '0x18413...' } ],
+  feePayerSignatures: [ { V: '0x4e43', R: '0x48c28...', S: '0x18413...' } ],
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：57411,
-  input: '0x983b2d56000000000000000022bb89bd35e7b12bd25bea4165cf0f9330032f8c',
+  gasUsed: 57411,
+  input: '0x983b2d5600000000000000000000000022bb89bd35e7b12bd25bea4165cf0f9330032f8c',
   logsBloom: '0x00800...',
   nonce: '0x1f5',
   senderTxHash: '0x5b06ca5046229e066c11dfc0c74fcbc98509294370981f9b142378a8f2bd5fe8',
-  signatures：[ { V: '0x4e44', R: '0xfb707...', S: '0x641c6...' } ],
+  signatures: [ { V: '0x4e44', R: '0xfb707...', S: '0x641c6...' } ],
   status: true,
-  to：0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0x0e04be479ad06ec87acbf49abd44f16a56390c736f0a7354860ebc7fc0f92e13',
-  transactionIndex：1,
+  transactionIndex: 1,
   type: 'TxTypeFeeDelegatedSmartContractExecution',
-  typeInt：49,
+  typeInt: 49,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 
 // Send a FeeDelegatedSmartContractExecutionWithRatio
@@ -546,25 +546,25 @@ PromiEvent 可用于以下事件：
   blockNumber: 16539,
   contractAddress: null,
   feePayer: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
-  feePayerSignatures：[ { V: '0x4e43', R: '0x80db0...', S: '0xf8c7c...' } ],
+  feePayerSignatures: [ { V: '0x4e43', R: '0x80db0...', S: '0xf8c7c...' } ],
   feeRatio: '0x1e',
   from: '0x69c3a6e3485446118d8081063dcef2e65b69ae91',
   gas: '0xf4240',
   gasPrice: '0x5d21dba00',
-  gasUsed：62411,
-  input: '0x983b2d56000000000000000000007ad1a538041fa3ba1a721f87203cb1a3822b8eaa',
+  gasUsed: 62411,
+  input: '0x983b2d560000000000000000000000007ad1a538041fa3ba1a721f87203cb1a3822b8eaa',
   logsBloom: '0x00800...',
   nonce: '0x219',
   senderTxHash: '0x14c7b674a0e253b31c85c7be8cbfe4bf9d86e66e940fcae34b854e25eab1ce15',
-  signatures：[ { V: '0x4e43', R: '0xd57ef...', S: '0xe14f3...' } ],
+  signatures: [ { V: '0x4e43', R: '0xd57ef...', S: '0xe14f3...' } ],
   status: true,
-  to：0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
+  to: '0x361870b50834a6afc3358e81a3f7f1b1eb9c7e55',
   transactionHash: '0xfbf00ec189aeb0941d554384f1660ffdac7768b3af2bb1526bcb3983215c1183',
-  transactionIndex：0,
+  transactionIndex: 0,
   type: 'TxTypeFeeDelegatedSmartContractExecutionWithRatio',
-  typeInt：50,
+  typeInt: 50,
   value: '0x0',
-  events： {...}
+  events: {...}
 }
 ```
 
@@ -719,7 +719,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 }
 ```
 
-## myContract.signAsFeePayer<a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
+## myContract.signAsFeePayer <a href="#mycontract-signasfeepayer" id="mycontract-signasfeepayer"></a>
 
 ```javascript
 myContract.signAsFeePayer(options, methodName [, param1 [, param2 [, ...]]])
@@ -871,7 +871,7 @@ myContract.call(options, 'methodName', [param1 [, param2 [, ...]])
 Jasmine
 
 > myContract.call({ from: '0x{address in hex}' }, 'methodName', 123).then(console.log)
-测试结果
+Test Result
 ```
 
 ## myContract.decodeFunctionCall<a href="#mycontract-decodefunctioncall" id="mycontract-decodefunctioncall"></a>
@@ -930,7 +930,7 @@ Result {
 }
 ```
 
-## myContract.methods<a href="#mycontract-methods" id="mycontract-methods"></a>
+## myContract.methods <a href="#mycontract-methods" id="mycontract-methods"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]])
@@ -989,19 +989,19 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
 **示例**
 
 ```javascript
-// 调用方法
+// Calling a method
 > myContract.methods.methodName(123).call({ ... }, function(error, result) { ... })
 > myContract.methods.methodName(123).call({ ... }).then((result) => { ... })
 
-// 发送基本事务并使用承诺
+// Sending basic transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     ...
   }).then(function(receipt) {
-    // receipt 也可以是一个新的合同实例，当来自 "contract.deploy({...}).send()"
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// 发送基本事务并使用 eventEmitter
+// Sending basic transaction and using the eventEmitter
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     ...
@@ -1013,17 +1013,17 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
   })
   .on('error', console.error)
 
-// 发送费用委托交易并使用承诺
+// Sending fee delegation transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
     feeDelegation: true,f
     ...
   }).then(function(receipt) {
-    // receipt 也可以是一个新的合同实例，当来自 "contract.deploy({...}).send()"
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// 发送部分费用委托交易并使用承诺
+// Sending partial fee delegation transaction and using the promise
 > myContract.methods.methodName(123).send({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
@@ -1031,24 +1031,24 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
     feeRatio: 30,
     ...
   }).then(function(receipt) {
-    // receipt 也可以是一个新的合同实例，当来自 "contract.deploy({...}).send()"
+    // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
   })
 
-// 签署基本交易
+// sign the basic transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
     ...
   }).then(function(signedTx) { ... })
 
-// 签署费用委托交易
+// sign the fee delegation transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
     ...
   }).then(function(signedTx) { ... })
 
-// 签署部分费用委托交易
+// sign the partial fee delegation transaction
 > myContract.methods.methodName(123).sign({
     from: '0x{address in hex}',
     feeDelegation: true,
@@ -1056,7 +1056,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
     ...
   }).then(function(signedTx) { ... })
 
-// 将费用委托交易签署为费用支付方
+// sign the fee delegation transaction as a fee payer
 > myContract.methods.methodName(123).signAsFeePayer({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
@@ -1064,7 +1064,7 @@ caver.utils.sha3('methodName(uint256)').substr(0, 10)
     ...
   }).then(function(signedTx) { ... })
 
-// 将部分费用委托交易签署为费用支付方
+// sign the partial fee delegation transaction as a fee payer
 > myContract.methods.methodName(123).signAsFeePayer({
     from: '0x{address in hex}',
     feePayer: '0x{fee-payer address}',
@@ -1105,7 +1105,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).call(options [, cal
 **示例**
 
 ```javascript
-// 使用承诺
+// using the promise
 > myContract.methods.methodName(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'})
   .then(function(result) {
       ...
@@ -1376,7 +1376,7 @@ FeeDelegatedSmartContractExecution {
 > myContract.methods['methodName']('0x...').sign({ from: '0x{address in hex}', feeDelegation: true, gas: 1000000 }).then(console.log)
 ```
 
-## methods.methodName.signAsFeePayer<a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
+## methods.methodName.signAsFeePayer <a href="#methods-methodname-signasfeepayer" id="methods-methodname-signasfeepayer"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).signAsFeePayer(options)
@@ -1450,7 +1450,7 @@ myContract.methods['methodName']([param1 [, param2 [, ...]]).signAsFeePayer(opti
 > myContract.methods['methodName'](123).signAsFeePayer({ from: '0x{address in hex}', feeDelegation: true, feePayer: '0x{address in hex}', gas: 1000000 }).then(console.log)
 ```
 
-## methods.methodName.estimateGas<a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
+## methods.methodName.estimateGas <a href="#methods-methodname-estimategas" id="methods-methodname-estimategas"></a>
 
 ```javascript
 myContract.methods.methodName([param1 [, param2 [, ...]]]).estimateGas(options [, callback])
@@ -1518,7 +1518,7 @@ myContract.methods.methodName([param1 [, param2[, ...]]]).encodeABI()
 '0x58cf5f1000000000000000000000000000000000000000000000000000000000000007B'
 ```
 
-## myContract.once<a href="#mycontract-once" id="mycontract-once"></a>
+## myContract.once <a href="#mycontract-once" id="mycontract-once"></a>
 
 ```javascript
 myContract.once(event [, options], callback)
@@ -1633,7 +1633,7 @@ myContract.subscribe(event [, options], callback)
 > subscription.unsubscribe() // unsubscribe the event
 ```
 
-## myContract.events<a href="#mycontract-events" id="mycontract-events"></a>
+## myContract.events <a href="#mycontract-events" id="mycontract-events"></a>
 
 ```javascript
 myContract.events.eventName([options][, callback])
@@ -1689,36 +1689,36 @@ myContract.events.eventName([options][, callback])
 
 ```javascript
 > myContract.events.eventName({
-    filter：{myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // 使用数组意味着 OR：例如 20 或 23
+    filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 0
   }, function(error, event) { console.log(event) })
   .on('connected', function(subscriptionId){
-      console.log(subscriptionId) }, // 同样的结果。log(subscriptionId)
+      console.log(subscriptionId)
   })
   .on('data', function(event){
-      console.log(event) // 结果与上述可选回调相同
+      console.log(event) // same results as the optional callback above
   })
   .on('error', console.error)
 
-// 事件输出示例
+// event output example
 {
-    returnValues： {
+    returnValues: {
         myIndexedParam: 20,
         myOtherIndexedParam: '0x123456789...',
         myNonIndexParam: 'My string'
     },
-    raw：{
-        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics：['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
     },
-    event：eventName',
+    event: 'eventName',
     signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
-    logIndex：0,
-    transactionIndex：0,
+    logIndex: 0,
+    transactionIndex: 0,
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blocknumber: 1234,
-    address：0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     id: 'log_41d221bc',
 }
 ```
@@ -1731,7 +1731,7 @@ myContract.events.allEvents([options] [, callback])
 
 与 [myContract.events](#mycontract-events) 相同，但接收来自此智能合约的所有事件。 过滤属性可选择过滤这些事件。
 
-## 获取过去的事件<a href="#getpastevents" id="getpastevents"></a>
+## getPastEvents <a href="#getpastevents" id="getpastevents"></a>
 
 ```javascript
 myContract.getPastEvents(event [, options] [, callback])
@@ -1779,32 +1779,32 @@ myContract.getPastEvents(event [, options] [, callback])
 
 ```javascript
 > myContract.getPastEvents('eventName', {
-      filter：{myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // 使用数组意味着 OR：例如 20 或 23
+      filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
       fromBlock: 0,
       toBlock: 'latest'
   }, function(error, events) { console.log(events) })
   .then(function(events) {
-      console.log(events) // 结果与上述可选回调相同
+      console.log(events) // same results as the optional callback above
   })
 
 [{
-    returnValues： {
+    returnValues: {
         myIndexedParam: 20,
         myOtherIndexedParam: '0x123456789...',
         myNonIndexParam: 'My string'
     },
-    raw：{
-        data：'0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-        topics：['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
+    raw: {
+        data: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
+        topics: ['0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7', '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385']
     },
-    event：eventName',
+    event: 'eventName',
     signature: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
-    logIndex：0,
-    transactionIndex：0,
+    logIndex: 0,
+    transactionIndex: 0,
     transactionHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-    blockHash：'0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
+    blockHash: '0xfd43ade1c09fade1c0d57a7af66ab4ead7c2c2eb7b11a91ffdd57a7af66ab4ead7',
     blocknumber: 1234,
-    address：0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
+    address: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'
 },{
       ...
 }]

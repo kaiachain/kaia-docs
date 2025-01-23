@@ -1,3 +1,3 @@
-# caver.kct
+# ケイバー
 
-A caver-js package used to interact with a KCT.
+KCTと対話するために使用されるcaver-jsパッケージ。

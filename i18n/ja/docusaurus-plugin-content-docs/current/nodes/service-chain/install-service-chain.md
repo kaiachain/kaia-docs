@@ -1,52 +1,52 @@
-# Install Service Chain
+# サービスチェーンの設置
 
-## Intended Audience <a id="intended-audience"></a>
+## 対象読者<a id="intended-audience"></a>
 
-- Companies that want to build blockchains for Metaverse, GameFi, and NFTs
-- dApp developers who need high TPS, minimal transaction fees, and data privacy.
-- Anyone who wants to build a local private network or a ledger database for testing.
+- メタバース、GameFi、NFT向けにブロックチェーンを構築したい企業
+- 高いTPS、最小限の取引手数料、データプライバシーを必要とするdApp開発者。
+- ローカル・プライベート・ネットワークや元帳データベースをテスト用に構築したい人。
 
-## ServiceChain Overview <a id="service-chain-overview"></a>
+## ServiceChainの概要<a id="service-chain-overview"></a>
 
-ServiceChain is an enterprise-level blockchain to meet companies' requirements such as value transfer, security, high performance, and customization. Klaytn ServiceChain provides the following features:
+ServiceChainは、価値移転、セキュリティ、高性能、カスタマイズといった企業の要件を満たすエンタープライズレベルのブロックチェーンである。 Kaia ServiceChainは以下の機能を提供する：
 
-- Immediate finality
-- Token transfer between Klaytn chains
-- Data anchoring to the main chain for data integrity
-- Multi-sig bridge contract to meet enterprise-level security requirements
+- 即時の最終決定
+- カイアチェーン間のトークン移動
+- データの整合性を保つためのメインチェーンへのデータアンカリング
+- 企業レベルのセキュリティ要件を満たすマルチシグブリッジ契約
 
 ![](/img/nodes/sc-overview.png)
 
-Read the [Klaytn Scaling Solution](../../learn/scaling-solutions.md) for more details about the ServiceChain. And the following videos will help you understand Klaytn ServiceChain.
+ServiceChainの詳細については、[Kaia Scaling Solution](../../learn/scaling-solutions.md)をお読みください。 また、以下のビデオはカイアServiceChainを理解するのに役立ちます。
 
-- [Horizontal Scaling through Service Chain in Klaytn | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [High Availability Architecture of Klaytn Service Chain | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [カイアにおけるサービスチェーンによる水平展開｜TXGX2019】(https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [カイア・サービスチェーンの高可用性アーキテクチャ｜TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
-## Download <a id="download"></a>
+## ダウンロード<a id="download"></a>
 
-You can get packages for SCN, SPN, and SEN in the [download page](../downloads/downloads.md).
+SCN、SPN、SENのパッケージは[ダウンロードページ](../downloads/downloads.md)で入手できます。
 
-## Installation <a id="installation-guide"></a>
+## インストール<a id="installation-guide"></a>
 
 This chapter explains the **Service Chain Consensus Node (SCN)** installation.
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linuxアーカイブ・ディストリビューション<a id="linux-archive-distribution"></a>
 
-The archive file for Service Chain Consensus Node has the following directory layout.
+Service Chain Consensus Nodeのアーカイブファイルは、以下のようなディレクトリ構成になっています。
 
-| File Name                       | File Description                  |
-| :------------------------------ | :-------------------------------- |
-| bin/kscn                        | SCN executable file               |
-| bin/kscnd                       | SCN start/termination script file |
-| conf/kscnd.conf | SCN configuration file            |
+| ファイル名                           | ファイルの説明            |
+| :------------------------------ | :----------------- |
+| bin/kscn                        | SCN実行ファイル          |
+| bin/kscnd                       | SCN 開始/終了スクリプトファイル |
+| conf/kscnd.conf | SCN設定ファイル          |
 
-The archive file for homi binary has the following directory layout.
+homiバイナリーのアーカイブファイルは、以下のようなディレクトリ構成になっている。
 
-| File Name | File Description     |
-| :-------- | :------------------- |
-| bin/homi  | HOMI executable file |
+| ファイル名    | ファイルの説明    |
+| :------- | :--------- |
+| bin/homi | HOMI実行ファイル |
 
-The installation is the uncompression of the downloaded package.
+インストールとは、ダウンロードしたパッケージを解凍することである。
 
 ```text
 $ tar zxf kscn-vX.X.X-XXXXX-amd64.tar.gz
@@ -55,28 +55,28 @@ $ tar zxf homi-vX.X.X-XXXXX-amd64.tar.gz
 
 ### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+ダウンロードしたRPMファイルは、以下の`yum`コマンドでインストールできる。
 
 ```text
 $ yum install kscnd-vX.X.X.el7.x86_64.rpm
 $ yum install homi-vX.X.X.el7.x86_64.rpm
 ```
 
-### Installed Location <a id="scn-configuration"></a>
+### 設置場所<a id="scn-configuration"></a>
 
-The Klaytn Linux package consists of the executable binary and the configuration file structured as follows.
+Kaia Linuxパッケージは、以下のような構造の実行バイナリとコンフィギュレーション・ファイルから構成される。
 
-| File Name                  | Location                                   |
+| ファイル名                      | 所在地                                        |
 | :------------------------- | :----------------------------------------- |
 | kscn                       | /usr/bin/kscn                              |
 | kscnd.conf | /etc/kscnd/conf/kscnd.conf |
 | homi                       | /usr/bin/homi                              |
 
-## Configuration <a id="configuration"></a>
+## 構成<a id="configuration"></a>
 
-This page explains the configuration of SCNs to form a consensus network.
+このページでは、コンセンサスネットワークを形成するためのSCNの構成について説明する。
 
-If you installed archive distribution, you can find the binaries and the config file in the directories you extracted the archives. Below is an example of command execution.
+アーカイブディストリビューションをインストールした場合は、アーカイブを解凍したディレクトリにバイナリと設定ファイルがあります。 以下はコマンドの実行例である。
 
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
@@ -84,11 +84,11 @@ $ kscn-darwin-amd64/bin/kscnd start
 $ vi kscn-darwin-amd64/conf/kscnd.conf
 ```
 
-In this tutorial, we will not always specify the full path to the command.
+このチュートリアルでは、常にコマンドのフルパスを指定するわけではない。
 
-### Creation of a Genesis File <a id="creation-of-a-genesis-file"></a>
+### ジェネシスファイルの作成<a id="creation-of-a-genesis-file"></a>
 
-First, you should create a genesis file and a nodekey file for your own service chain. You can create them using homi like below.
+まず、自分のサービスチェーン用のgenesisファイルとnodekeyファイルを作成する。 以下のようにhomiを使って作ることができる。
 
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
@@ -97,11 +97,11 @@ Created :  homi-output/scripts/genesis.json
 Created :  homi-output/keys/nodekey1
 Created :  homi-output/keys/validator1
 Created :  homi-output/scripts/static-nodes.json
-Created :  homi-output/Klaytn.json
-Created :  homi-output/Klaytn_txpool.json
+Created :  homi-output/Kaia.json
+Created :  homi-output/Kaia_txpool.json
 ```
 
-Below are examples of genesis file and nodekey file.
+以下は、genesisファイルとnodekeyファイルの例である。
 
 ```bash
 $ cat homi-output/scripts/genesis.json
@@ -137,26 +137,26 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-Please change the chainID in the genesis file. Use your own number to prevent a replay attack.
-(Do not use the same chainID with Klaytn Cypress (8217) and Baobab (1001))
+genesisファイルのchainIDを変更してください。 リプレイ攻撃を防ぐため、自分の番号を使用する。
+(カイアメインネット(8217)とカイロス(1001)で同じchainIDを使用しないでください)
 
-If you want, you can change the pre-funded addresses by editing `"alloc"` in the genesis file.
-(You can find more details in [Genesis JSON](../service-chain/configure/genesis.md).)
+必要であれば、genesisファイルの`"alloc"`を編集することで、事前に資金を提供するアドレスを変更することができる。
+(詳しくは[Genesis JSON](../service-chain/configure/genesis.md)をご覧ください）。
 
-### SCN Data Directory Creation <a id="scn-data-directory-creation"></a>
+### SCNデータディレクトリの作成<a id="scn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data keeps increasing, it is recommended to use a big enough storage.
-You can create the data directory on your desired path.
-In this document, we create `~/kscnd_home` as a data directory.
+カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。
+データ・ディレクトリは好きなパスに作成できる。
+このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成する。
 
 ```bash
 $ mkdir -p ~/kscnd_home
 ```
 
-#### Initialization of a Genesis Block <a id="initialization-of-a-genesis-block"></a>
+#### ジェネシス・ブロックの初期化<a id="initialization-of-a-genesis-block"></a>
 
-After that, you can initialize the data directory with the genesis file.
-Before starting a service chain node, it is necessary to initialize the genesis block of the service chain network using `kscn` and `genesis.json`.
+その後、genesisファイルでデータ・ディレクトリを初期化することができる。
+サービスチェーンノードを開始する前に、`kscn`と`genesis.json`を使用してサービスチェーンネットワークのgenesisブロックを初期化する必要がある。
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -180,20 +180,20 @@ $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
   INFO[11/12,10:13:59 +09] [46] Database closed                           path=/Users/ethan/kscnd_home/klay/lightchaindata/bridgeservice
 ```
 
-#### Install nodekey <a id="install_nodekey"></a>
+#### nodekeyのインストール<a id="install_nodekey"></a>
 
-Copy `homi-output/keys/nodekey1` to the `klay` directory in the SCN's data directory like below.
+`homi-output/keys/nodekey1`をSCNのデータディレクトリの`kaia`ディレクトリに以下のようにコピーします。
 
 ```bash
 $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 ```
 
-### Configuration of the SCN <a id="configuration-of-the-scn"></a>
+### SCNの構成<a id="configuration-of-the-scn"></a>
 
-`kscnd.conf` is the configuration file for the SCN.
+kscnd.conf\` は SCN の設定ファイルです。
 
-Assume that the SCN uses the default port and mounts a large-scale partition onto `~/kscnd_home`.
-In the default `kscnd.conf` file, `SC_SUB_BRIDGE` option is disabled and `DATA_DIR` is empty.
+SCNはデフォルトのポートを使用し、大規模パーティションを `~/kscnd_home` にマウントすると仮定します。
+デフォルトの `kscnd.conf` ファイルでは、`SC_SUB_BRIDGE` オプションは無効になっていて、`DATA_DIR` は空になっている。
 
 ```
 # Configuration file for the kscnd
@@ -204,8 +204,8 @@ DATA_DIR=
 ...
 ```
 
-You can enable `SC_SUB_BRIDGE` to use the Anchoring/Value transfer feature.
-Also you should set the DATA_DIR like below.
+SC_SUB_BRIDGE\`を有効にすることで、アンカリング/バリュー転送機能を使用することができます。
+また、DATA_DIRを以下のように設定してください。
 
 ```
 # Configuration file for the kscnd
@@ -216,14 +216,14 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-If you want, you can further modify other options to customize your Service Chain.
-Otherwise, now you can finish the configuration and you are ready to run the service chain using the default configuration.
+必要であれば、さらに他のオプションを変更してサービスチェーンをカスタマイズすることもできます。
+そうでなければ、これでコンフィギュレーションを終了し、デフォルト・コンフィギュレーションを使ってサービス・チェーンを実行する準備ができたことになる。
 
-## Starting/Stopping SCN <a id="starting-stopping-scn"></a>
+## SCNの起動／停止<a id="starting-stopping-scn"></a>
 
-Depending on your installation type, you can start/stop the Klaytn service with the following `systemctl`  or `kscnd` command.
+インストールの種類に応じて、以下の `systemctl` または `kscnd` コマンドでKaiaサービスを開始/停止できる。
 
-**start**
+**スタート**
 
 ```bash
 ## when installed from rpm distribution 
@@ -234,7 +234,7 @@ $ kscnd start
 
 ```
 
-**stop**
+**ストップ**
 
 ```bash
 ## when installed from rpm distribution 
@@ -256,15 +256,15 @@ $ kscnd status
 
 ```
 
-## Checking Node Status <a id="checking-node-status"></a>
+## ノードステータスのチェック<a id="checking-node-status"></a>
 
-### Process Status <a id="process-status"></a>
+### プロセス状況<a id="process-status"></a>
 
-It is possible to check the status of SCN's process using the status commands `systemctl` and `kscnd`.
+ステータスコマンド `systemctl` と `kscnd` を使って SCN のプロセスのステータスをチェックすることができます。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM, and the status of SCN can be checked as follows.
+`systemctl`はRPMと一緒にインストールされ、SCNの状態は以下のように確認できる。
 
 ```bash
 $ systemctl status kscnd.service
@@ -282,22 +282,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kscnd[29636]: Sta
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the example above.
+上の例では、`Active: active (running)` のように現在のステータスを確認することができる。
 
 #### kscnd <a id="kscnd"></a>
 
-`kscnd` is installed along with the package, and the status of SCN can be checked as follows.
+`kscnd`はパッケージと一緒にインストールされ、SCNの状態は以下のようにチェックできる。
 
 ```bash
 $ kscnd status
 kscnd is running
 ```
 
-### Logs <a id="logs"></a>
+### 過去ログ<a id="logs"></a>
 
-The log is stored in `kscnd.out` file located in the path defined in the `LOG_DIR` field of the `kscnd.conf` file. When the node works properly, you can see that each block is imported per second as follows.
+ログは `kscnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kscnd.out` ファイルに保存される。 ノードが正常に動作すると、各ブロックが以下のように1秒ごとにインポートされるのがわかる。
 
-Example:
+例
 
 ```bash
 $ tail -F ~/kscnd_home/logs/kscnd.out
@@ -314,38 +314,38 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
   INFO[11/12,10:19:12 +09] [24] Committed                                 number=14 hash=dcd2bc…b2aec0 address=0xf8690562c0839C44B17AF421F7AaaA9F12dCc62b
 ```
 
-### Queries <a id="queries"></a>
+### クエリ<a id="queries"></a>
 
-#### kscn console <a id="kscn-console"></a>
+#### kscnコンソール<a id="kscn-console"></a>
 
-Klaytn provides a CLI client: `kscn console`. Another way of using the client is to connect to the process via IPC (inter-process communication). The IPC file `klay.ipc` is located in the `DATA_DIR` path on an SCN.
+KaiaはCLIクライアント `kscn console` を提供している。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は SCN の `DATA_DIR` パスにあります。
 
-Please execute the following command and check out the result.
+以下のコマンドを実行し、結果を確認してください。
 
 ```text
 $ kscn attach --datadir ~/kscnd_home
-Welcome to the Kaia JavaScript console!
+Kaia JavaScriptコンソールへようこそ！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
  datadir: ~/kscnd_home
  modules: admin:1.0 debug:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>.
 ```
 
-You can check the usable commands on [API Document](../../../references/json-rpc/klay/account-created)
+使用可能なコマンドは[APIドキュメント](../../../references/json-rpc/klay/account-created)で確認できます。
 
-The useful APIs to check the status of SCN:
+SCNのステータスをチェックするのに便利なAPI：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- net.peerCount\` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are propagated properly.
+最新のブロック番号を取得し、ブロックが正しく伝播されているかどうかを確認することができる。
 
 ```text
-> klay.blockNumber
+> kaia.blockNumber
 11573819
 ```
 
@@ -356,4 +356,4 @@ You can get the latest block number to see if blocks are propagated properly.
 4
 ```
 
-The above command line returns the number of nodes that the SCN connects to except the EN in the main chain.
+上記のコマンドラインは、SCNがメインチェーンのENを除いて接続するノードの数を返します。

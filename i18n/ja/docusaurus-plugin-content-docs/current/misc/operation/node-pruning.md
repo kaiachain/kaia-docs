@@ -1,74 +1,74 @@
-# Prune Node Data
+# ノードデータの削除
 
-This page explains how to delete historical block states to reduce the storage requirement. Kaia offers two approaches for pruning block states:
+このページでは、過去のブロック状態を削除してストレージの必要量を減らす方法を説明します。 カイアはブロック状態を刈り込むために2つのアプローチを提供している：
 
-- [Live Pruning](../../learn/storage/state-pruning.md#state-live-pruning): With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted.
-- [Batch Pruning: State Migration](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration): The block states can be state-migrated, meaning the block states before a certain block number become available.
+- [ライブ・プルーニング](../../learn/storage/state-pruning.md#state-live-pruning)：ライブ・プルーニング機能を有効にすると、一定の保存期間を超えたブロック状態は自動的に削除されます。
+- [バッチ・プルーニング：ステート・マイグレーション](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration)：あるブロック番号より前のブロック状態が利用可能になることを意味する。
 
-## Understanding Pruning Impacts
+## 剪定の影響を理解する
 
-"Live pruning" continuously deletes old states, keeping disk size at a minimum. However, due to accompanying bookkeeping tasks, live pruning slightly slows down block sync speed. "Batch pruning", on the other hand, does not affect performance after migration is complete, but a migration session takes a few days and temporarily requires large free disk space to copy the states.
+「ライブ・プルーニング "は、古い状態を継続的に削除し、ディスクサイズを最小限に保つ。 しかし、付随する簿記作業のため、ライブ・プルーニングはブロック同期速度をわずかに低下させる。 一方、"バッチ刈り込み "は移行完了後のパフォーマンスには影響しないが、移行セッションには数日かかり、状態をコピーするために一時的に大きな空きディスク容量が必要になる。
 
-## How to Perform Live Pruning
+## 活剪定の方法
 
-To enable live pruning from the genesis block, use the `--state.live-pruning` flag when starting your node. If you're starting from a database where live pruning is already enabled, the flag is optional but recommended for clarity.
+ジェネシス・ブロックからライブ・プルーニングを有効にするには、ノードの起動時に `--state.live-pruning` フラグを使用する。 ライブ・プルーニングがすでに有効になっているデータベースから開始する場合、このフラグはオプションですが、わかりやすくするために推奨します。
 
 :::note
 
-You can control the retention period for live pruning using the `--state.live-pruning-retention NNN` flag (default: 172800 seconds, that is 48 hours). This flag determines how long historical block states are kept before being pruned.
+state.live-pruning-retentionのNNN\`フラグ（デフォルト：172800秒、つまり48時間）を使って、ライブプルーニングの保持期間をコントロールすることができる。 このフラグは、過去のブロック状態が刈り込まれるまでの保存期間を決定する。
 
 :::
 
 :::info
 
-Databases with and without live pruning are incompatible. To run a node with live pruning, you must either start from the genesis block with the `--state.live-pruning` flag or start from a [chaindata snapshot](./chaindata-snapshot.md) that already has live pruning enabled.
+ライブ・プルーニングのあるデータベースとないデータベースは互換性がない。 ノードをライブ・プルーニングで実行するには、`--state.live-pruning`フラグを付けたgenesisブロックから開始するか、すでにライブ・プルーニングが有効になっている[chaindata snapshot](./chaindata-snapshot.md)から開始する必要がある。
 
-You cannot convert a non-live-pruning database to a live-pruning database, and vice versa. Here are some example log messages you might see:
+非ライブ・プルーニング・データベースをライブ・プルーニング・データベースに変換することはできません。 以下は、表示される可能性のあるログメッセージの例です：
 
 ```sh
-# First time enabling live pruning with an empty database
-INFO[08/27,14:09:01 +09] [41] Writing live pruning flag to database
+#
+INFO[08/27,14:09:01 +09] [41] データベースへのライブプルーニングフラグの書き込み
 
-# Live pruning enabled
-INFO[08/27,14:09:01 +09] [41] Live pruning is enabled     retention=172800
+# ライブプルーニングが有効
+INFO[08/27,14:09:01 +09] [41] ライブプルーニングが有効 retention=172800
 
-# Live pruning disabled
-INFO[08/27,14:09:46 +09] [41] Live pruning is disabled because flag not stored in database
+# ライブプルーニングが無効
+INFO[08/27,14：09:46 +09] [41] データベースにフラグが保存されていないため、ライブプルーニングが無効
 
-# Cannot turn on live pruning after the chain has advanced (head block num > 0)
-Fatal: Error starting protocol stack: cannot enable live pruning after chain has advanced
+# チェーンが進んだ後にライブプルーニングを有効にできない (ヘッドブロック数 > 0)
+Fatal: プロトコルスタックの起動エラー: チェーンが進んだ後にライブプルーニングを有効にできない
 ```
 
 :::
 
-## How to Perform Batch Pruning
+## 一括剪定の方法
 
-### Prerequisites
+### 前提条件
 
-- Recommended to run on a machine with m6i.8xlarge (32 cores and 128GB memory) or higher specs.
-- The machine should have enough spare disk space (500GB or more).
-- The entire process takes approximately 7 days to complete:
-  - Stage 1: Copy (migrate) the state to a new directory. The message "State migration is completed" appears.
-  - Stage 2: Block sync continues on the new directory. The old directory will be deleted after this step.
+- m6i.8xlarge（32コア、128GBメモリー）以上のスペックのマシンでの実行を推奨。
+- マシンに十分な空きディスク容量（500GB以上）があること。
+- 全プロセスの完了には約7日間かかる：
+  - ステージ1：状態を新しいディレクトリにコピー（移行）する。 状態移行が完了しました」というメッセージが表示される。
+  - ステージ2：新しいディレクトリでブロック同期を続ける。 この手順の後、古いディレクトリは削除される。
 
-### Steps
+### ステップ
 
-1. Attach to the node via console:
+1. コンソール経由でノードに接続する：
 
 ```sh
 ken attach --datadir /var/kend/data
 ```
 
-2. Use the `admin` namespace RPCs to control state migration:
+2. `admin`名前空間RPCを使用して状態の移行を制御する：
 
 ```js
-// Start
+// 開始
 > admin.startStateMigration()
 null
 
-// Check progress
+// 進捗確認
 > admin.stateMigrationStatus
 
-// Abort
+// 中止
 > admin.stopStateMigration()
 ```

@@ -1,13 +1,13 @@
-# Kaiabridge
+# カイアブリッジ
 
-Finschia users can swap their FNSA tokens on Finshia network to KAIA tokens on Kaia network at a fixed swap rate. The swap is mediated by a set of smart contract and programs, collectively called Kaiabridge.
+Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaiaネットワーク上のKAIAトークンに固定スワップレートでスワップすることができます。 スワップは、Kaiabridgeと総称される一連のスマートコントラクトとプログラムによって仲介される。
 
-A token swap process begins with the Finschia user sending the FNSA token to the `fwsap` module. The token is first swapped from `cony` to `kei` denomination, then transferred to `fbridge` module. The event from `fbridge` is recognized by the trusted relayers and submitted to bridge smart contracts on Kaia chain. The bridging request is handled in multiple steps:
+トークンスワッププロセスは、Finschiaユーザーが`fwsap`モジュールにFNSAトークンを送信することから始まります。 トークンはまず `cony` デノミネーションから `kei` デノミネーションにスワップされ、次に `fbridge` モジュールに転送される。 `fbridge`からのイベントは信頼できる中継者によって認識され、カイアチェーン上のブリッジスマートコントラクトに提出される。 ブリッジング・リクエストは複数のステップで処理される：
 
-- Inflight: The token arrived in Finschia's `fbridge` module, but the relayers did not report to the Kaia smart contracts.
-- Confirmed: The relayers submitted the request to the contracts ("provision"). Now the request enters a 30 minute timelock.
-- Claimed: After the timelock has expired, the token has been transferred ("claim") to the destination account on Kaia chain.
+- 機内：トークンはFinschiaの`fbridge`モジュールに到着したが、中継者はKaiaスマートコントラクトに報告しなかった。
+- 確認済み：中継者が契約書（「提供書」）に要望書を提出。 これでリクエストは30分のタイムロックに入った。
+- クレーム：タイムロックが切れた後、トークンはカイアチェーン上の譲渡先アカウントに譲渡（「クレーム」）されます。
 
-Kaiabridge smart contracts has built-in multisig features. For instance, it takes multiple provision transactions from the Operator accounts for a request to be Confirmed. Each Operator account is held by a relayer, and the relayers are managed by Kaia Foundation and Finschia Foundation.
+Kaiabridgeスマートコントラクトにはマルチシグ機能が組み込まれている。 例えば、リクエストが「確認」されるには、「オペレーター」アカウントからの複数の提供取引が必要です。 各オペレーターのアカウントは中継者によって保有され、中継者はカイア財団とフィンシャ財団によって管理されている。
 
-You can find the contract source codes in [kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge) and deployed addresses in the [contract addresses](https://docs.kaia.io/references/contract-addresses/) page.
+契約書のソースコードは[kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge)に、デプロイされたアドレスは[契約書アドレス](https://docs.kaia.io/references/contract-addresses/)のページにあります。

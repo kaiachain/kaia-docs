@@ -1,32 +1,32 @@
-# caver.rpc
+# ケイバー
 
-`caver.rpc` is a package that provides functionality related to rpc call with kaia Node.
+`caver.rpc` は kaia Node の rpc 呼び出しに関連する機能を提供するパッケージである。
 
-## Class <a id="class"></a>
+## クラス<a id="class"></a>
 
-### RPC <a id="rpc"></a>
+### 正規化投影座標系<a id="rpc"></a>
 
 ```javascript
-caver.rpc
+ケイバー
 ```
 
-`RPC` is a class that contains [Klay], [Net] and [Governance] inside.
+RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
-**Properties**
+**プロパティ**
 
-| Name       | Type         | Description                                                                |
-| ---------- | ------------ | -------------------------------------------------------------------------- |
-| klay       | [Klay]       | The [Klay] providing JSON-RPC call with  the `klay` name space.            |
-| net        | [Net]        | The [Net] providing JSON-RPC call with the `net` name space.               |
-| governance | [Governance] | The [Governance] providing JSON-RPC call with the `governance` name space. |
+| 名称    | タイプ      | 説明                                               |
+| ----- | -------- | ------------------------------------------------ |
+| クレイ   | \[クレイ]   | [Klay] は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。      |
+| ネット   | \[ネット］   | `net` 名前空間を持つ JSON-RPC 呼び出しを提供する [Net] 。         |
+| ガバナンス | \[ガバナンス］ | `governance`名前空間を持つJSON-RPCコールを提供する[Governance]。 |
 
-## JSON-RPC calls <a id="json-rpc-calls"></a>
+## JSON-RPCコール<a id="json-rpc-calls"></a>
 
-The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below enumerates the API functions that are currently supported in `caver-js`.
+`caver.rpc.klay`を使うと、kaiaノードと対話することができる。 以下のリストは `caver-js` で現在サポートされているAPI関数を列挙したものである。
 
 ### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
-- [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
+- [アカウント作成](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
 - [getAccountKey](./klay.md#caver-rpc-klay-getaccountkey)
 - [encodeAccountKey](./klay.md#caver-rpc-klay-encodeaccountkey)
@@ -35,7 +35,7 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 - [getCode](./klay.md#caver-rpc-klay-getcode)
 - [getTransactionCount](./klay.md#caver-rpc-klay-gettransactioncount)
 - [isContractAccount](./klay.md#caver-rpc-klay-iscontractaccount)
-- [sign](./klay.md#caver-rpc-klay-sign)
+- [サイン](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
 ### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
@@ -51,15 +51,15 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 - [getCommittee](./klay.md#caver-rpc-klay-getcommittee)
 - [getCommitteeSize](./klay.md#caver-rpc-klay-getcommitteesize)
 - [getCouncil](./klay.md#caver-rpc-klay-getcouncil)
-- [getCouncilSize](./klay.md#caver-rpc-klay-getcouncilsize)
+- [カウンシルサイズを取得](./klay.md#caver-rpc-klay-getcouncilsize)
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
 ### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 
-- [call](./klay.md#caver-rpc-klay-call)
-- [estimateGas](./klay.md#caver-rpc-klay-estimategas)
-- [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
+- [コール](./klay.md#caver-rpc-klay-call)
+- [推定ガス](./klay.md#caver-rpc-klay-estimategas)
+- [推定計算コスト](./klay.md#caver-rpc-klay-estimatecomputationcost)
 - [getTransactionByBlockHashAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblockhashandindex)
 - [getTransactionByBlockNumberAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblocknumberandindex)
 - [getTransactionByHash](./klay.md#caver-rpc-klay-gettransactionbyhash)
@@ -70,8 +70,8 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 - [sendTransaction](./klay.md#caver-rpc-klay-sendtransaction)
 - [sendTransactionAsFeePayer](./klay.md#caver-rpc-klay-sendtransactionasfeepayer)
 - [signTransaction](./klay.md#caver-rpc-klay-signtransaction)
-- [signTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
-- [getDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
+- [SignTransactionAsFeePayer](./klay.md#caver-rpc-klay-signtransactionasfeepayer)
+- [GetDecodedAnchoringTransactionByHash](./klay.md#caver-rpc-klay-getdecodedanchoringtransactionbyhash)
 
 ### [Configuration](./klay.md#caver-rpc-klay-getclientversion) <a id="configuration"></a>
 
@@ -82,7 +82,7 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 - [isParallelDBWrite](./klay.md#caver-rpc-klay-isparalleldbwrite)
 - [isSenderTxHashIndexingEnabled](./klay.md#caver-rpc-klay-issendertxhashindexingenabled)
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
-- [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
+- [リワードベース取得](./klay.md#caver-rpc-klay-getrewardbase)
 
 ### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 
@@ -92,9 +92,9 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 - [newBlockFilter](./klay.md#caver-rpc-klay-newblockfilter)
 - [newFilter](./klay.md#caver-rpc-klay-newfilter)
 - [newPendingTransactionFilter](./klay.md#caver-rpc-klay-newpendingtransactionfilter)
-- [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
+- [アンインストールフィルター](./klay.md#caver-rpc-klay-uninstallfilter)
 
-### [Network](./net.md) <a id="network"></a>
+### [ネットワーク](./net.md)<a id="network"></a>
 
 - [getNetworkId](./net.md#caver-rpc-net-getnetworkid)
 - [isListening](./net.md#caver-rpc-net-islistening)
@@ -107,4 +107,4 @@ The `caver.rpc.klay` allows you to interact with the kaia nodes. The list below 
 
 [Klay]: klay.md
 [Net]: net.md
-[Governance]: governance.md
+[Governance]: ガバナンス.md

@@ -2,7 +2,7 @@
 
 caver.rpc.governance "使用 "governance "名称空间提供 JSON-RPC 调用。
 
-## caver.rpc.governance.vote<a id="caver-rpc-governance-vote"></a>
+## caver.rpc.governance.vote <a id="caver-rpc-governance-vote"></a>
 
 ```javascript
 caver.rpc.governance.vote(key, value [, callback])
@@ -35,7 +35,7 @@ caver.rpc.governance.vote(key, value [, callback])
 您的投票已成功投出。
 ```
 
-## caver.rpc.governance.showTally<a id="caver-rpc-governance-showtally"></a>
+## caver.rpc.governance.showTally <a id="caver-rpc-governance-showtally"></a>
 
 ```javascript
 caver.rpc.governance.showTally([callback])
@@ -70,7 +70,7 @@ caver.rpc.governance.showTally([callback])
 ]
 ```
 
-## caver.rpc.governance.getTotalVotingPower<a id="caver-rpc-governance-gettotalvotingpower"></a>
+## caver.rpc.governance.getTotalVotingPower <a id="caver-rpc-governance-gettotalvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getTotalVotingPower([callback])
@@ -99,7 +99,7 @@ caver.rpc.governance.getTotalVotingPower([callback])
 3
 ```
 
-## caver.rpc.governance.getMyVotingPower<a id="caver-rpc-governance-getmyvotingpower"></a>
+## caver.rpc.governance.getMyVotingPower <a id="caver-rpc-governance-getmyvotingpower"></a>
 
 ```javascript
 caver.rpc.governance.getMyVotingPower([callback])
@@ -247,7 +247,7 @@ caver.rpc.governance.getNodeAddress([callback])
 0xbeafcca672100a88a953fcf5e882cb763f9e3de9
 ```
 
-## caver.rpc.governance.getItemsAt<a id="caver-rpc-governance-getitemsat"></a>
+## caver.rpc.governance.getItemsAt <a id="caver-rpc-governance-getitemsat"></a>
 
 ```javascript
 caver.rpc.governance.getItemsAt([blockNumberOrTag] [, callback])
@@ -356,7 +356,7 @@ caver.rpc.governance.getIdxCache([callback])
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getIdxCacheFromDb<a id="caver-rpc-governance-getidxcachefromdb"></a>
+## caver.rpc.governance.getIdxCacheFromDb <a id="caver-rpc-governance-getidxcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getIdxCacheFromDb([callback])
@@ -385,7 +385,7 @@ caver.rpc.governance.getIdxCacheFromDb([callback])
 [ 0, 60, 321180 ]
 ```
 
-## caver.rpc.governance.getItemCacheFromDb<a id="caver-rpc-governance-getitemcachefromdb"></a>
+## caver.rpc.governance.getItemCacheFromDb <a id="caver-rpc-governance-getitemcachefromdb"></a>
 
 ```javascript
 caver.rpc.governance.getItemCacheFromDb([callback])
@@ -442,7 +442,7 @@ caver.rpc.governance.getItemCacheFromDb([callback])
 null
 ```
 
-## caver.rpc.governance.getVotes<a id="caver-rpc-governance-getvotes"></a>
+## caver.rpc.governance.getVotes <a id="caver-rpc-governance-getvotes"></a>
 
 ```javascript
 caver.rpc.governance.getVotes([callback])
@@ -479,7 +479,7 @@ caver.rpc.governance.getVotes([callback])
 }]
 ```
 
-## caver.rpc.governance.getStakingInfo<a id="caver-rpc-governance-getstakinginfo"></a>
+## caver.rpc.governance.getStakingInfo <a id="caver-rpc-governance-getstakinginfo"></a>
 
 ```javascript
 caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])

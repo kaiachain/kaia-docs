@@ -1,6 +1,6 @@
-# Public Account Key
+# パブリック・アカウント・キー
 
-**AccountKeyPublic** is used for accounts having one public key. If an account has an AccountKeyPublic object, the transaction validation process is done like below:
+**AccountKeyPublic**は、1つの公開鍵を持つアカウントに使用される。 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 <CH.Spotlight>
 <CH.Code>
@@ -55,29 +55,29 @@ web3_account_update_pubkey()
 ---
 
 ```zsh output
-❯ py web3_account_update_pubkey.py
+❯ web3_account_update_pubkey.py
 # {
-#   "from": "0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b",
-#   "gas": 159000,
-#   "gasPrice": 50000000000,
-#   "nonce": 123,
-#   "chainId": 1001,
-#   "type": 32,
-#   "key": {
-#     "type": 2,
-#     "key": "0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
-#   }
+# "from"："0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b",
+# "gas"：159000,
+# "gasPrice"：50000000000,
+# "nonce"：123,
+# "chainId"：1001,
+# "type"：32,
+# "key"：{
+# "type"：2,
+# "key"："0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd"
+# }.
 # }
 
-# rawTransaction: 20f88d7b850ba43b740083026d1894e15cd70a41dfb05e7214004d7d054801b2a2f06ba302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f6a0f75f66b00c25910bfa28b70bd9b84be7d992af41803b8127b70db8d277b0d916a055594b060f8efba08cdc9e103e47000f6f83f191ea25a2a49661cc01fc449f2c
-# tx hash:  0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd receipt:  AttributeDict({'blockHash': HexBytes('0xf76ff73748e352ae26e28dbd9485fc30f101999de67800acaa65e1b5b743e1ce'), 'blockNumber': 150554008, 'contractAddress': None, 'cumulativeGasUsed': 234641, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed': 41000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash': HexBytes('0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd'), 'transactionIndex': 1, 'type': 0})
+# rawTransaction：20f88d7b850ba43b740083026d1894e15cd70a41dfb05e7214004d7d054801b2a2f06ba302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f6a0f75f66b00c25910bfa28b70bd9b84be7d992af41803b8127b70db8d277b0d916a055594b060f8efba08cdc9e103e47000f6f83f191ea25a2a49661cc01fc449f2c
+# tx ハッシュ  0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd receipt:  AttributeDict({'blockHash'：HexBytes('0xf76ff73748e352ae26e28dbd9485fc30f101999de67800acaa65e1b5b743e1ce'), 'blockNumber':150554008, 'contractAddress'：なし, 'cumulativeGasUsed': 234641, 'effectiveGasPrice': 25000000000, 'from': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'gasUsed'：41000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0xe15Cd70A41dfb05e7214004d7D054801b2a2f06b', 'transactionHash'：HexBytes('0x300f72798b62b8ff59287d21f186735ec95edaaf90c78ee153a7ab7ad31311fd'), 'transactionIndex':1, 'type': 0})
 ```
 
 </CH.Code>
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_account_update_pubkey.py focus=1:2
 
@@ -85,7 +85,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **web3py_ext**
+必要なutilsを**web3**と**web3py_ext**からインポートする。
 
 ```py web3_account_update_pubkey.py focus=3:16
 
@@ -93,7 +93,7 @@ Import necessary utils from **web3** and **web3py_ext**
 
 ---
 
-Create a Web3 instance with the specified **kairos** testnet URL
+指定された**kairos**テストネットURLでWeb3インスタンスを作成する
 
 ```py web3_account_update_pubkey.py focus=18
 
@@ -101,7 +101,7 @@ Create a Web3 instance with the specified **kairos** testnet URL
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**.
+また、プロバイダーのURLを**kairos**から**quicknode**に変更することもできます。
 
 ```py web3_account_update_pubkey.py focus=18:20
 from web3py_ext import extend
@@ -152,7 +152,7 @@ web3_account_update_pubkey()
 
 ---
 
-Load two accounts from private key
+秘密鍵から2つのアカウントを読み込む
 
 ```py web3_account_update_pubkey.py focus=22:23
 
@@ -160,7 +160,7 @@ Load two accounts from private key
 
 ---
 
-Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.ACCOUNT_UPDATE**型の空のトランザクションを作成しています。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_account_update_pubkey.py focus=6:7,10,25
 
@@ -168,7 +168,7 @@ Creating an empty transaction of type **TxType.ACCOUNT_UPDATE**. You can use **e
 
 ---
 
-Merge **additional fields** like **sender** and **keys** into the empty tx by using the **merge** util.
+**merge**ユーティリティを使用して、**sender**や**keys**のような**追加フィールド**を空のtxにマージする。
 
 ```py web3_account_update_pubkey.py focus=15,26:32
 
@@ -176,7 +176,7 @@ Merge **additional fields** like **sender** and **keys** into the empty tx by us
 
 ---
 
-In this case, the account key to update is the **public** key.
+この場合、更新するアカウント・キーは**public**キーである。
 
 ```py web3_account_update_pubkey.py focus=29
 
@@ -184,7 +184,7 @@ In this case, the account key to update is the **public** key.
 
 ---
 
-You can use the **compressed_key** util to set the key. It will extract the compressed public key from the key
+キーを設定するには、**compressed_key**ユーティリティを使用できます。 圧縮された公開鍵を鍵から抽出する。
 
 ```py web3_account_update_pubkey.py focus=30
 
@@ -192,7 +192,7 @@ You can use the **compressed_key** util to set the key. It will extract the comp
 
 ---
 
-Use **fill_transaction** to add more params to transaction object like gas limit...
+**fill_transaction**を使用して、トランザクション・オブジェクトにガス・リミットなどのパラメータを追加する。
 
 ```py web3_account_update_pubkey.py focus=6,8,10,33
 
@@ -200,7 +200,7 @@ Use **fill_transaction** to add more params to transaction object like gas limit
 
 ---
 
-You can use the **to_pretty** util to print the formatted tx.
+**to_pretty**ユーティリティを使えば、フォーマットされたtxをプリントすることができる。
 
 <CH.Code>
 ```py web3_account_update_pubkey.py focus=11,12,14,34
@@ -240,7 +240,7 @@ You can use the **to_pretty** util to print the formatted tx.
 
 ---
 
-Sign the account update tx type. You must sign it with the loaded account
+アカウント更新TXタイプに署名する。 ロードされたアカウントで署名する必要があります。
 
 <CH.Code>
 ```py web3_account_update_pubkey.py focus=22,36:38
@@ -255,7 +255,7 @@ rawTransaction: 20f8da28850ba43b740083026d18945bd2fb3c21564c023a4a735935a2b7a238
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
 ```py web3_account_update_pubkey.py focus=40:42

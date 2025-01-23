@@ -1,0 +1,233 @@
+# 更新賬戶
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeAccountUpdate.js
+const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
+  console.log({ publicKey });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: publicKey,
+    }
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ js TxTypeAccountUpdate.js
+{
+  publicKey: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
+receipt {
+  blockHash: '0x8b729b293388e53e397fe00acbd84f449763743180df5dd51725962b540e0bda',
+  blockNumber: 148742746n,
+  cumulativeGasUsed: 41000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  gasUsed: 41000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  transactionHash: '0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+導入 **web3** 和 **@kaiachain/web3js-ext** 軟件包，在 web3 上添加 kaia 功能
+
+```js TxTypeAccountUpdate.js focus=1:2
+
+```
+
+---
+
+定義**要更改的發件人地址、發件人私人密鑰和新私人密鑰**
+
+```js TxTypeAccountUpdate.js focus=6:8
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 web3 中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js TxTypeAccountUpdate.js focus=11
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js TxTypeAccountUpdate.js focus=11
+const { KlaytnWeb3, TxType, AccountKeyType, getPublicKeyFromPrivate } = require("@kaiachain/web3js-ext");
+const { Web3 } = require("web3");
+
+// Using senderPriv == senderNewPriv to execute this example repeatedly.
+// But you might want to register a different private key.
+const senderAddr = "0xe15cd70a41dfb05e7214004d7d054801b2a2f06b";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const senderNewPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+
+async function main() {
+  const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+  const web3 = new KlaytnWeb3(provider);
+  const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+  const publicKey = getPublicKeyFromPrivate(senderNewPriv);
+  console.log({ publicKey });
+
+  const tx = {
+    type: TxType.AccountUpdate,
+    from: senderAddr,
+    key: {
+      type: AccountKeyType.Public,
+      key: publicKey,
+    }
+  };
+
+  const signResult = await senderAccount.signTransaction(tx);
+  console.log("rawTx", signResult.rawTransaction);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用提供程序創建**KlaytnWeb3**實例
+
+```js TxTypeAccountUpdate.js focus=12
+
+```
+
+---
+
+用**私鑰**和**提供者**創建發件人錢包
+
+```js TxTypeAccountUpdate.js focus=13
+
+```
+
+---
+
+用新私鑰計算**公鑰**
+
+<CH.Code>
+
+```js TxTypeAccountUpdate.js focus=15:16
+
+```
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+{
+  publicKey: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+}
+```
+
+</CH.Code>
+
+---
+
+用計算出的 ** 公鑰** 在 **key** 字段中聲明一個事務。
+
+```js TxTypeAccountUpdate.js focus=18:25
+
+```
+
+---
+
+用**發送方**的私人密鑰簽署交易
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=27:28
+
+````
+
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+signedTx 0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94
+````
+
+</CH.Code>
+
+---
+
+向區塊鏈發送已簽名的 tx。 它將返回交易的**收據**
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=30:31
+
+````
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+receipt {
+  blockHash: '0x8b729b293388e53e397fe00acbd84f449763743180df5dd51725962b540e0bda',
+  blockNumber: 148742746n,
+  cumulativeGasUsed: 41000n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  gasUsed: 41000n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xe15cd70a41dfb05e7214004d7d054801b2a2f06b',
+  transactionHash: '0xb54dc3c351e9a1f9ce0a120344598482226a5646838d290e46d9704db521cb94',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+````
+
+</CH.Code>
+
+</CH.Spotlight>

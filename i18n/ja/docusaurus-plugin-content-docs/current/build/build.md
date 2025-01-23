@@ -1,3 +1,3 @@
-# Welcome
+# ようこそ
 
-Welcome to the "Build" section of Klaytn. This section is for developers interested in using the Klaytn system for decentralized applications. Here, you can find several tutorials for deploying different types of smart contracts, links for all the available tools and resources.
+カイアの「ビルド」セクションへようこそ。 このセクションは、分散型アプリケーションにKaiaシステムを使用することに関心のある開発者向けです。 ここでは、さまざまな種類のスマート・コントラクトをデプロイするためのチュートリアルや、利用可能なすべてのツールやリソースへのリンクを見つけることができます。

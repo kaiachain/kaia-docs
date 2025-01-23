@@ -1,6 +1,6 @@
-# Value Transfer With Memo
+# メモによる価値移転
 
-**TxTypeValueTransferMemo** is used when a user wants to send KAIA with a specific message.
+**TxTypeValueTransferMemo**は、ユーザーがKAIAに特定のメッセージを送りたいときに使用する。
 
 <CH.Spotlight>
   <CH.Code>
@@ -62,28 +62,28 @@
 
   ---
 
-  Import the **ethers** and **@kaiachain/ethers-ext** packages to add kaia features on ethers.js
+  ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiachain/ethers-ext**パッケージをインポートする。
 
   ```js TxTypeValueTransferMemo.js focus=1:2
   ```
 
   ---
 
-  Define **sender address, sender private key and reciever address**
+  **送信者アドレス、送信者秘密鍵、受信者アドレス**を定義する。
 
   ```js TxTypeValueTransferMemo.js focus=4:6
   ```
 
   ---
 
-  Set up the provider with the specified **kairos** testnet URL. A provider in ethers is a read-only abstraction to access the blockchain data.
+  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
   ```js TxTypeValueTransferMemo.js focus=8:8
   ```
 
   ---
 
-  Also, you can change the provider URL from **kairos** to **quicknode**
+  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
   ```js TxTypeValueTransferMemo.js focus=8:8
   const ethers = require("ethers");
@@ -117,21 +117,21 @@
 
   ---
 
-  Create a sender's wallet with the **private key** and **provider**
+  **private key**と**プロバイダー**を使って送信者のウォレットを作成する。
 
   ```js TxTypeValueTransferMemo.js focus=9
   ```
 
   ---
 
-  Declare a transaction with the fields such as **type, from, to, value, data**.
+  **type、from、to、value、data**などのフィールドを持つトランザクションを宣言する。
 
   ```js TxTypeValueTransferMemo.js focus=12:18
   ```
 
   ---
 
-  Send the tx to the blockchain. Function `sendTransaction` internally signs with the private key of the account and then transmits it to the blockchain network.
+  ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
   <CH.Code>
     ```js TxTypeValueTransferMemo.js focus=19:21
@@ -146,7 +146,7 @@
 
   ---
 
-  The **wait** function returns the tx receipt if it is completed in the blockchain.
+  **wait**関数は、ブロックチェーン上でtx受信が完了すれば、それを返す。
 
   <CH.Code>
     ```js TxTypeValueTransferMemo.js focus=22:24

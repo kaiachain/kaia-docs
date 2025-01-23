@@ -2,14 +2,14 @@
 
 ![](/img/banners/kaia-witnet.png)
 
-## Introduction
+## はじめに
 
-The [Witnet](https://docs.witnet.io/) multichain decentralized oracle enables smart contracts to actualize their potential by providing them access to all sorts of valuable external data sets. These valuable data sets include sports results, stock prices, weather forecasts, randomness, et al.
-To offer decentralized oracle services, Witnet relies on a distributed network of peer nodes— colloquially called witnesses—who earn Wit tokens as a reward for retrieving web data and reporting it directly to the smart contracts. The witnesses are responsible for sourcing, retrieving, and verifying the data sets. To ensure transparency, each anonymous peer is incentivized to report the retrieved data honestly and is punished or slashed for any wrongdoing.
+Witnet](https://docs.witnet.io/)のマルチチェーン分散型オラクルは、あらゆる種類の貴重な外部データセットへのアクセスを提供することで、スマートコントラクトがその潜在能力を発揮できるようにする。 こうした価値あるデータセットには、スポーツの結果、株価、天気予報、ランダム性などが含まれる。
+。分散型のオラクルサービスを提供するため、ウィットネットはピアノード（俗に証人と呼ばれる）の分散ネットワークに依存している。彼らはウェブデータを取得し、スマートコントラクトに直接報告することで報酬としてウィットトークンを獲得する。 立会人は、データセットの調達、検索、検証を担当する。 透明性を確保するため、各匿名ピアは検索されたデータを正直に報告するよう奨励され、不正を行った場合は罰せられるか、切り捨てられる。
 
-## Usage
+## 使用方法
 
-This oracle network is currently running on the Klaytn Cypress Mainnet and Klaytn Baobab Testnet. To get started with connecting to the data feeds and randomness on Klaytn, refer to the following guides:
+このオラクルネットワークは現在、KaiaメインネットとKaia Kairosテストネットで稼働している。 カイアのデータフィードとランダム性への接続を開始するには、以下のガイドを参照してください：
 
-- [Witnet Price-Feed Tutorial](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/witnet-tutorial)
+- [ウィットネット・プライス・フィード・チュートリアル](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/witnet-tutorial)
 - [Random Number Generation on Klaytn with Witnet](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)

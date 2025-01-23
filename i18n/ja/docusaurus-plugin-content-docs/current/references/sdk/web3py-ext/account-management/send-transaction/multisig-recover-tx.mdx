@@ -1,10 +1,10 @@
-# Multisig Account Key
+# マルチシグ・アカウント・キー
 
-**AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
+**AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
-In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
-_ The weighted sum of the signed public keys should be larger than the threshold.
-_ The invalid signature should not be included in the transaction. \* The number of signed public keys should be less than the number of weightedPublicKeys.
+**AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
+署名された公開鍵の加重和が閾値より大きいこと。
+無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -20,7 +20,7 @@ from web3py_ext.transaction.transaction import (
 )
 from cytoolz import merge
 
-w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io')
 
 def web3_tx_sign_recover_multisig():
     user1 = Account.from_key_pair(
@@ -61,7 +61,7 @@ web3_tx_sign_recover_multisig()
 
 ```zsh output
 ❯ py web3_multisig_value_transfer_sign_recover.py
-tx hash:  0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d receipt:  AttributeDict({'blockHash': HexBytes('0x8e0df2104f3f829e06a23808563b07b22c729e04285ebe76aad08f0fecfb4183'), 'blockNumber': 150557795, 'contractAddress': None, 'cumulativeGasUsed': 51000, 'effectiveGasPrice': 25000000000, 'from': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'gasUsed': 51000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'transactionHash': HexBytes('0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d'), 'transactionIndex': 0, 'type': 0})
+tx ハッシュ：  0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d receipt:  AttributeDict({'blockHash'：HexBytes('0x8e0df2104f3f829e06a23808563b07b22c729e04285ebe76aad08f0fecfb4183'), 'blockNumber':150557795, 'contractAddress'：None, 'cumulativeGasUsed'：51000, 'effectiveGasPrice': 25000000000, 'from': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'gasUsed'：51000, 'logs': [], 'logsBloom'：HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'),'status'：1, 'to': '0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E', 'transactionHash'：HexBytes('0xe5c4f8b3bd90bf86660eff4f6e4b51dec84e49ac50adcfff7ca983dcfb2db31d'), 'transactionIndex':0, 'type': 0})
 
 sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
 recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
@@ -71,7 +71,7 @@ recovered 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 
 ---
 
-Import **extend** from **web3py_ext** to extend web3 to kaia web3
+web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=1:2
 
@@ -79,7 +79,7 @@ Import **extend** from **web3py_ext** to extend web3 to kaia web3
 
 ---
 
-Import necessary utils from **web3** and **eth_account**
+**web3**と**eth_account**から必要なutilsをインポートする。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=3:8
 
@@ -87,7 +87,7 @@ Import necessary utils from **web3** and **eth_account**
 
 ---
 
-Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
+**Web3.HTTPProvider**とRPCエンドポイントを使用してWeb3接続を定義します。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=11
 
@@ -95,7 +95,7 @@ Define a web3 connection using **Web3.HTTPProvider** and RPC endpoint
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=11
 from web3py_ext import extend
@@ -108,7 +108,7 @@ from web3py_ext.transaction.transaction import (
 )
 from cytoolz import merge
 
-w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io')
 
 def web3_tx_sign_recover_multisig():
     user1 = Account.from_key_pair(
@@ -147,7 +147,7 @@ web3_tx_sign_recover_multisig()
 
 ---
 
-Define 3 diffent wallet from addresses and private keys using **Account.from_key_pair**
+アドレスと秘密鍵から、**Account.from_key_pair**を使用して3つの異なるウォレットを定義します。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=14:25
 
@@ -155,7 +155,7 @@ Define 3 diffent wallet from addresses and private keys using **Account.from_key
 
 ---
 
-Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **empty_tx** util to get a tx with default fields filled.
+**TxType.VALUE_TRANSFER**型の空のトランザクションを作成する。 **empty_tx**ユーティリティを使えば、デフォルトのフィールドが埋められたtxを得ることができる。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=27
 
@@ -163,7 +163,7 @@ Create an empty transaction of type **TxType.VALUE_TRANSFER**. You can use **emp
 
 ---
 
-Create a **transaction** with **from**, **to** and **value** fields to transfer.
+転送する **from**、**to**、**value** フィールドを指定して、**transaction** を作成する。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=28:32
 
@@ -171,7 +171,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**from**: the sender's address, **to**: target address to receive kaia.
+**from**：送信者のアドレス、**to**：カイアを受信するターゲットのアドレス。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=29:30
 
@@ -179,7 +179,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-**value** field means how many kaia you want to send and you can use the **Web3.to_peb** utils to convert kaia to peb unit.
+**value**フィールドは、送信したいKaiaの数を意味し、KaiaをPeb単位に変換するには**Web3.to_peb**ユーティルを使用します。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=31
 
@@ -187,7 +187,7 @@ Create a **transaction** with **from**, **to** and **value** fields to transfer.
 
 ---
 
-Use **fill_transaction** to add **rest of the fields** of the transaction like **gas limit**, **Nonce**, etc. You can print all the fields after this line if you want to see
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=4:6,33
 
@@ -195,7 +195,7 @@ Use **fill_transaction** to add **rest of the fields** of the transaction like *
 
 ---
 
-Sign the transaction with the **user1's private key**
+トランザクションに**ユーザー1の秘密鍵**で署名する。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=34
 
@@ -203,7 +203,7 @@ Sign the transaction with the **user1's private key**
 
 ---
 
-Sign the **signed_tx** with the **user2** and **user3** private keys
+**signed_tx**に**user2**と**user3**の秘密鍵で署名する。
 
 ```py web3_multisig_value_transfer_sign_recover.py focus=35:36
 
@@ -211,7 +211,7 @@ Sign the **signed_tx** with the **user2** and **user3** private keys
 
 ---
 
-**Sending** the signed transaction to the network and **waiting** receipt until it is completely executed in the blockchain
+\*\*署名されたトランザクションをネットワークに送信し、ブロックチェーンで完全に実行されるまで受信を待つ。
 
 <CH.Code>
 ```py web3_multisig_value_transfer_sign_recover.py focus=38:40
@@ -226,7 +226,7 @@ tx hash:  0xd3315a9b59096514bb518a624effa314850f816e3b77633fd47660949518888a rec
 
 ---
 
-Recover user1 address with **Account.recover_transaction** from signed transaction from **user3**
+**user3**からの署名付きトランザクションから**account.recover_transaction**でuser1のアドレスを回復する。
 
 <CH.Code>
 ```py web3_multisig_value_transfer_sign_recover.py focus=42:43

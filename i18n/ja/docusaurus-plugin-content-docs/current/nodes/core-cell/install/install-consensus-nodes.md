@@ -1,16 +1,16 @@
-# Install Consensus Nodes
+# コンセンサス・ノードの設置
 
-## Download
+## ダウンロード
 
-You can download the latest version of the `kcn`  on [Download](../../downloads/downloads.md) page.
+ダウンロード](../../downloads/downloads.md) ページから `kcn` の最新版をダウンロードできます。
 
-## Installation
+## インストール
 
-### Linux Archive Distribution <a id="linux-archive-distribution"></a>
+### Linuxアーカイブ・ディストリビューション<a id="linux-archive-distribution"></a>
 
-The archive file consists of the executable binary and the configuration file structured as follows.
+アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**Note**: Do NOT alter the file structure or file name. If you change it, the node may not function correctly.
+**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -20,97 +20,97 @@ The archive file consists of the executable binary and the configuration file st
   |- kcnd.conf
 ```
 
-| File Name                      | File Description                 |
-| :----------------------------- | :------------------------------- |
-| bin/kcn                        | CN executable file               |
-| bin/kcnd                       | CN start/termination script file |
-| conf/kcnd.conf | CN configuration file            |
+| ファイル名                          | ファイルの説明          |
+| :----------------------------- | :--------------- |
+| bin/kcn                        | CN実行ファイル         |
+| bin/kcnd                       | CN開始/終了スクリプトファイル |
+| conf/kcnd.conf | CN設定ファイル         |
 
-The installation is the uncompression of the downloaded package where you want to install the package.
+インストールとは、ダウンロードしたパッケージをインストールしたい場所に解凍することである。
 
 ```bash
 $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 ```
 
-Or,
+あるいは
 
 ```bash
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**Note**: it is recommended that the uncompressed directory `kcn-linux-amd64/bin` path should be added to the environment variable `$PATH` to run the `kcn` and `kcnd` globally. As an example,
+**注**: `kcn` と `kcnd` をグローバルに実行するには、環境変数 `$PATH` に `kcn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
 ```
 
-The other sections assume that the path is added to the variable.
+他のセクションは、変数にパスが追加されていることを前提としている。
 
 ### RPM Distribution (RHEL/CentOS/Fedora) <a id="rpm-rhel-centos-fedora"></a>
 
-You can install the downloaded RPM file with the following `yum` command.
+ダウンロードしたRPMファイルは、以下の`yum`コマンドでインストールできる。
 
 ```bash
 $ yum install kcnd-vX.X.X.el7.x86_64.rpm
 ```
 
-Or,
+あるいは
 
 ```bash
 $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### Install from Klaytn Yum Repo <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum Repoからインストールする<a id="install-from-kaia-yum-repo"></a>
 
-Alternatively, you can install `kcnd` from the Klaytn Yum repo, run:
+あるいは、Kaia Yum repoから`kcnd`をインストールして実行することもできる：
 
 ```bash
-$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
+sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
 ```
 
-### Installed Location <a id="installed-location"></a>
+### 設置場所<a id="installed-location"></a>
 
-The installed files are located as follows.
+インストールされるファイルは以下の通り。
 
-| File Name                 | Location                                 |
+| ファイル名                     | 所在地                                      |
 | :------------------------ | :--------------------------------------- |
 | kcn                       | /usr/bin/kcn                             |
 | kcnd.conf | /etc/kcnd/conf/kcnd.conf |
 
-## Configuration <a id="configuration"></a>
+## 構成<a id="configuration"></a>
 
-The CN configuration is to create a data directory and set up several values in the configuration file `kcnd.conf`.
+CNのコンフィギュレーションは、データディレクトリを作成し、コンフィギュレーションファイル `kcnd.conf` でいくつかの値を設定することである。
 
-1. Create the CN data directory.
-2. Install node key
-3. Configure the CN with `kcnd.conf`.
+1. CNデータディレクトリを作成する。
+2. ノードキーのインストール
+3. `kcnd.conf`でCNを設定する。
 
-### CN Data Directory Creation <a id="cn-data-directory-creation"></a>
+### CNデータディレクトリの作成<a id="cn-data-directory-creation"></a>
 
-Considering the fact that the size of Klaytn blockchain data is always increased, it is recommended to use a big enough storage. You may need to create the directory on your desired path.
+カイア・ブロックチェーンのデータサイズが常に増加しているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要があるかもしれません。
 
 ```bash
 $ mkdir -p /var/kcnd/data
 ```
 
-### Install Node Key <a id="install-node-key"></a>
+### ノードキーのインストール<a id="install-node-key"></a>
 
-In order to operate a CN, a `nodekey` is required. The KCN binary will create a new one for you if you do not have it. If you have one, you need to put your `nodekey` into the CN data directory. The way to create a `nodekey` is described in the '[Before You Install](./before-you-install.md)' section. The following command line copies the `nodekey` into the CN data directory.
+CNを操作するには、`nodekey`が必要である。 KCNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、CNデータディレクトリに`nodekey`を置く必要がある。 `nodekey`の作成方法は'[インストールする前に](./before-you-install.md)'のセクションで説明されている。 以下のコマンドラインは`nodekey`をCN dataディレクトリにコピーする。
 
 ```bash
 $ cp nodekey /var/kcnd/data
 ```
 
-### Update the Configuration File <a id="update-the-configuration-file"></a>
+### 設定ファイルの更新<a id="update-the-configuration-file"></a>
 
-Configuration File Location:
+設定ファイルの場所
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+- アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kcn-linux-amd64/conf/` です。
+- パッケージ配布の場合、configディレクトリのデフォルトは `/etc/kcnd/conf/` です。
 
-#### Add Data Directory  <a id="add-data-directory"></a>
+#### データディレクトリの追加 <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kcnd.conf`.
+設定ファイル `kcnd.conf` のデータディレクトリ環境変数 `$DATA_DIR` を更新する必要がある。
 
 ```text
 ...
@@ -118,22 +118,22 @@ DATA_DIR=/var/kcnd/data
 ...
 ```
 
-#### Setup Rewardbase <a id="setup-rewardbase"></a>
+#### リワードベースの設定<a id="setup-rewardbase"></a>
 
-As a reward of participating in the consensus of the Klaytn network, CN operator will receive KLAY. For this reason, it is required to set an address on the configuration file `kcnd.conf`.
+カイア・ネットワークのコンセンサスに参加する報酬として、CNオペレーターはKAIAを受け取る。 このため、設定ファイル`kcnd.conf`にアドレスを設定する必要がある。
 
-The ways to create a new account are various, but the `kcn` also provides the functionality. You can check the help message with the following command.
+新しいアカウントを作る方法はいろいろあるが、`kcn`もその機能を提供している。 ヘルプメッセージは以下のコマンドで確認できる。
 
 ```bash
 $ kcn account new --help
 ```
 
-One of the example of doing this procedure is as follows. First of all, you need to create a new account which the reward KLAY will be sent to.
+この手順の一例は以下の通り。 First of all, you need to create a new account which the reward KLAY will be sent to.
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
 INFO[03/15,09:04:43 +09] [17] Setting connection type                   nodetype=cn conntype=-0
-INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KLAY=25 LES=0 total=25
+INFO[03/15,09:04:43 +09] [17] Maximum peer count                        KAIA=25 LES=0 total=25
 INFO[03/15,09:04:43 +09] [17] SBN is disabled.
 Your new account is locked with a password. Please give a password. Do not forget this password.
 Passphrase:
@@ -141,7 +141,7 @@ Repeat passphrase:
 Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-As a result of this, it will create the associated keystore on the path that you define. Next, you need to put the created address in the file `kcnd.conf` file as follows.
+その結果、あなたが定義したパスに関連するキーストアが作成される。 次に、作成したアドレスを`kcnd.conf`ファイルに以下のように記述する必要がある。
 
 ```text
 ...
@@ -149,78 +149,78 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-Keep in mind that the keystore and the password that you created is significantly important, so you must be careful to manage them. See more details about `kcnd.conf` on the [Configuration File](../../../misc/operation/configuration.md) section.
+作成したキーストアとパスワードはかなり重要なので、管理には十分注意すること。 `kcnd.conf`の詳細については、[設定ファイル](../../../misc/operation/configuration.md)のセクションを参照してください。
 
-### (Optional) Download Chaindata Snapshot
+### (オプション）Chaindata Snapshotのダウンロード
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
+ジェネシス・ブロックからの同期には時間がかかる。 Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) を使用して、[Full Sync](../../../learn/storage/block-sync.md#full-sync) プロセスをスキップすることができます。
 
-## Startup the CN <a id="startup-the-cn"></a>
+## CNの起動<a id="startup-the-cn"></a>
 
-### CN Start/Stop  <a id="cn-start-stop"></a>
+### CNスタート/ストップ <a id="cn-start-stop"></a>
 
-You can start/stop the Klaytn service with the following `systemctl` command.
+以下の `systemctl` コマンドでKaiaサービスを開始/停止できる。
 
-**Note**: This requires root privileges.
+**注**：これにはroot権限が必要です。
 
-**start**
+**スタート**
 
 ```bash
 $ systemctl start kcnd.service
 
 ```
 
-**stop**
+**ストップ**
 
 ```bash
 $ systemctl stop kcnd.service
 
 ```
 
-**status**
+**ステータス**
 
 ```bash
 $ systemctl status kcnd.service
 
 ```
 
-### Troubleshooting <a id="troubleshooting"></a>
+### トラブルシューティング<a id="troubleshooting"></a>
 
-If you meet the following error,
+以下のエラーが発生した場合、
 
 ```bash
 Failed to start kcnd.service: Unit not found.
 ```
 
-reload the systemd manager configuration with the following command.
+以下のコマンドでsystemd managerのコンフィギュレーションをリロードする。
 
 ```bash
 $ systemctl daemon-reload
 ```
 
-### Export BLS public key info <a id="export-bls-public-key-info"></a>
+### BLS公開鍵情報のエクスポート<a id="export-bls-public-key-info"></a>
 
-If the network has activated or will activate the Randao hardfork, each CN maintainer must submit its BLS public key info to the [KIP-113 smart contract](https://kips.kaia.io/KIPs/kip-113).
+ネットワークがRandaoハードフォークを起動した場合、または起動する予定がある場合、各CNメンテナはBLS公開鍵情報を[KIP-113スマートコントラクト](https://kips.kaia.io/KIPs/kip-113)に提出しなければならない。
 
-The BLS public key info can be calculated from the nodekey. To extract it, first start the node. Then use the command:
+BLSの公開鍵情報はnodekeyから計算できる。 これを取り出すには、まずノードを起動する。 次にコマンドを使う：
 
 ```
 $ kcn account bls-info --datadir /var/kcnd/data
 ```
 
-As a result, `bls-publicinfo-NODEID.json` file will be created.
+その結果、`bls-publicinfo-NODEID.json`ファイルが作成される。
 
-## Testing the Core Cell <a id="testing-the-core-cell"></a>
+## コアセルのテスト<a id="testing-the-core-cell"></a>
 
-It is time to check that Core Cell is successfully installed and it is working as expected after installation.
+Core Cellが正常にインストールされ、期待通りに動作していることを確認します。
 
-### Process Status <a id="process-status"></a>
+### プロセス状況<a id="process-status"></a>
 
-It is possible to check the status of CN's process using the status commands `systemctl` and `kcnd`.
+ステータスコマンド `systemctl` と `kcnd` を使って CN のプロセスのステータスをチェックすることができる。
 
 #### systemctl <a id="systemctl"></a>
 
-`systemctl` is installed along with the RPM and the status of CN can be checked as follows.
+`systemctl`はRPMと一緒にインストールされ、以下のようにCNの状態をチェックすることができる。
 
 ```bash
 $ systemctl status kcnd.service
@@ -238,22 +238,22 @@ Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal kcnd[29636]: Star
 Jan 09 11:42:39 ip-10-11-2-101.ap-northeast-2.compute.internal systemd[1]: Started (null).
 ```
 
-You can check the current status such as `Active: active (running)` in the above example.
+上記の例では、`Active: active (running)` のように現在のステータスを確認することができる。
 
 #### kcnd <a id="kcnd-kpnd"></a>
 
-`kcnd` is installed along with the package and the status of CN can be checked as follows.
+`kcnd`はパッケージと一緒にインストールされ、CNの状態は以下のように確認できる。
 
 ```bash
 $ kcnd status
 kcnd is running
 ```
 
-### Logs <a id="logs"></a>
+### 過去ログ<a id="logs"></a>
 
-The log is stored in `kcnd.out` file located in the path defined in the `LOG_DIR` field of the `kcnd.conf` file. When the node works properly, you can see that each block is created per second as follows.
+ログは `kcnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kcnd.out` ファイルに保存される。 ノードが正常に動作している場合、各ブロックが1秒間に以下のように作成されることがわかる。
 
-Example:
+例
 
 ```bash
 $ tail kcnd.out
@@ -269,48 +269,48 @@ INFO[02/13,07:02:27 Z] [5] Imported new chain segment                blocks=1 tx
 INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=11572927 txs=0 elapsed=483.436µs
 ```
 
-### kcn console <a id="kcn-console-kpn-console"></a>
+### kcnコンソール<a id="kcn-console-kpn-console"></a>
 
-Klaytn provides a CLI client: `kcn console`. However, a CN may disable the RPC interface for the client due to the security reason. Another way of using the client is to connect to the process via IPC (inter-process communication).
+KaiaはCLIクライアント`kcn console`を提供している。 しかし、CNは、セキュリティ上の理由から、クライアントのRPCイン ターフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
 
-The IPC file `klay.ipc` is located in the `DATA_DIR` path on a CN.
+IPC ファイル `klay.ipc` は CN の `DATA_DIR` パスにある。
 
-Please execute the following command and check out the result.
+以下のコマンドを実行し、結果を確認してください。
 
 ```bash
 $ ken attach --datadir /var/kend/data
-Welcome to the Kaia JavaScript console!
+カイアJavaScriptコンソールへようこそ！
 
-instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
- datadir: /var/kend/data
+インスタンス：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
+ datadir：/var/kend/data
  modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0
- >
+>
 ```
 
-You can check the usable commands on [API Document](../../../../references/json-rpc/klay/account-created)
+使用可能なコマンドは[APIドキュメント](../../../../references/json-rpc/klay/account-created)で確認できます。
 
-The useful APIs to check the status of a CN:
+CNのステータスをチェックするのに便利なAPI：
 
-- `klay.blockNumber` (to get the latest block number)
-- `net.peerCount` (to get the number of the connected Klaytn nodes currently)
+- `kaia.blockNumber` (最新のブロック番号を取得する)
+- `net.peerCount` (現在接続されているKaiaノードの数を取得する)
 
 #### klay.blockNumber  <a id="klay-blocknumber"></a>
 
-You can get the latest block number to see if blocks are created (for CNs) or propagated (for CNs and PNs) properly based on your node type.
+最新のブロック番号を取得し、ノードタイプに基づいてブロックが正しく作成（CNの場合）または伝播（CNおよびPNの場合）されているかどうかを確認できます。
 
 ```javascript
 > klay.blockNumber
 11573819
 ```
 
-#### net.peerCount  <a id="net-peercount"></a>
+#### ネットピアカウント <a id="net-peercount"></a>
 
 ```javascript
 > net.peerCount
 14
 ```
 
-The above command line returns a different value based on the node type.
+上記のコマンドラインは、ノードのタイプに応じて異なる値を返す。
 
-- CN: the number of connected CNs + the number of connected PNs.
-- PN: the number of connected CNs + the number of connected PNs + the number of connected ENs.
+- CN：接続されたCNの数＋接続されたPNの数。
+- PN：接続CN数＋接続PN数＋接続EN数。

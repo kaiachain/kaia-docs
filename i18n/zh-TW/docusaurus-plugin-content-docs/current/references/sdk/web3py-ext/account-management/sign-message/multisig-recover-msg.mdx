@@ -1,0 +1,177 @@
+# 多用戶賬戶密鑰
+
+**AccountKeyWeightedMultiSig** 是一種賬戶密鑰類型，包含一個閾值和加權公鑰（WeightedPublicKeys），後者包含一個由公鑰及其權重組成的列表。
+
+要使與 **AccountKeyWeightedMultiSig** 關聯的賬戶的交易有效，必須滿足以下條件：
+已簽名公鑰的加權和應大於閾值。
+_ 無效簽名不應包含在交易中。 \* 已簽名公鑰的數量應少於加權公鑰的數量。
+
+<CH.Spotlight>
+<CH.Code>
+
+```py web3_multisig_value_transfer_message_recover.py
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_multisig_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # multisig account address
+        '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+        # a member key of multisig account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_multisig_value_transfer_sign_recover()
+```
+
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+從 **eth_utils**、**web3** 和 **eth_account** 中導入必要的實用程序
+
+```py web3_multisig_value_transfer_message_recover.py focus=1:4
+
+```
+
+---
+
+從**web3py_ext**導入**extend**，將 web3 擴展為 kaia web3
+
+```py web3_multisig_value_transfer_message_recover.py focus=5
+
+```
+
+---
+
+使用 **Web3.HTTPProvider** 和 RPC 端點定義 web3 連接
+
+```py web3_multisig_value_transfer_message_recover.py focus=7
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```py web3_multisig_value_transfer_message_recover.py focus=7
+from eth_account import Account
+from web3 import Web3
+from eth_account.messages import encode_defunct
+from eth_utils.curried import to_hex
+from web3py_ext import extend
+
+w3 = Web3(Web3.HTTPProvider('https://public-en-kairos.node.kaia.io'))
+
+def web3_multisig_value_transfer_message_recover():
+    user = Account.from_key_pair(
+        # multisig account address
+        '0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e',
+        # a member key of multisig account
+        '0xc9668ccd35fc20587aa37a48838b48ccc13cf14dd74c8999dd6a480212d5f7ac'
+    )
+    message = to_hex(text="I♥KLAYTN")
+    msghash = encode_defunct(hexstr=message)
+    signature = Account.sign_message(msghash, user.key)
+
+    print(signature.signature.hex())
+    print(len(signature.signature.hex()))
+    recovered = w3.klay.recover_from_message(user.address, message, signature.signature.hex(), "latest")
+    print("\nsender", user.address, "\nrecovered", recovered) # recovered is an original address of the member key
+
+web3_multisig_value_transfer_sign_recover()
+```
+
+---
+
+使用**Account.from_key_pair**從私人密鑰定義錢包，該密鑰是多重簽名賬戶的成員密鑰
+
+```py web3_multisig_value_transfer_message_recover.py focus=10:15
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```py web3_multisig_value_transfer_message_recover.py focus=16
+
+```
+
+---
+
+使用**encode_defunct**對報文進行格式化，使其與 EIP-191 標準兼容。
+
+```py web3_multisig_value_transfer_message_recover.py focus=17
+
+```
+
+---
+
+使用創建的賬戶簽署交易
+
+```py web3_multisig_value_transfer_message_recover.py focus=18
+
+```
+
+---
+
+打印簽名及其長度
+
+<CH.Code>
+```py web3_multisig_value_transfer_message_recover.py focus=20:21
+
+````
+
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+0xb7057812498a0a6f740fb218ce5ef945dce3b8437e5662fc707dad72e096b7036f98e96d48dd10de502a1d0ce0ae91e048357721dc7502a9aa2018561c06a97d1b
+132
+````
+
+</CH.Code>
+
+---
+
+使用**Account.rec recover_message**從簽名郵件中恢復發件人地址
+
+<CH.Code>
+```py web3_multisig_value_transfer_message_recover.py focus=22:23
+
+````
+---
+
+```zsh output
+❯ python web3_multisig_value_transfer_message_recover.py
+sender 0x82C6a8D94993d49cfd0c1D30F0F8Caa65782cc7E
+recovered 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+</CH.Spotlight>

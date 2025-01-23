@@ -1,8 +1,8 @@
-# Value Transfer
+# 価値移転
 
-TxTypeValueTransfer is used when a user wants to send KAIA.
+TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
 
 <CH.Spotlight>
 <CH.Code>
@@ -64,7 +64,7 @@ receipt {
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js txTypeValueTransferTransaction.js focus=1:2
 
@@ -72,7 +72,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Define **sender, receiver address and sender private key**
+**送信者、受信者アドレス、送信者秘密鍵**を定義する。
 
 ```js txTypeValueTransferTransaction.js focus=3:6
 
@@ -80,7 +80,7 @@ Define **sender, receiver address and sender private key**
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js txTypeValueTransferTransaction.js focus=9
 
@@ -88,7 +88,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the default provider. For example, using the alchemy provider.
+また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
 
 ```js txTypeValueTransferTransaction.js focus=9
 const { KlaytnWeb3, TxType, toPeb } = require("@kaiachain/web3js-ext");
@@ -122,7 +122,7 @@ main();
 
 ---
 
-Create a **KlaytnWeb3** instance using the provider
+プロバイダを使用して**KlaytnWeb3**インスタンスを作成する。
 
 ```js txTypeValueTransferTransaction.js focus=10
 
@@ -130,7 +130,7 @@ Create a **KlaytnWeb3** instance using the provider
 
 ---
 
-Declare transaction params such as **type, from, to, value**
+**type、from、to、value**などのトランザクションパラメータを宣言する。
 
 ```js txTypeValueTransferTransaction.js focus=12:17
 
@@ -138,7 +138,7 @@ Declare transaction params such as **type, from, to, value**
 
 ---
 
-Sign the transaction with **sender** account
+**sender**のアカウントで取引に署名する。
 
 <CH.Code>
 
@@ -149,7 +149,7 @@ Sign the transaction with **sender** account
 ---
 
 ```zsh output
-❯ node txTypeValueTransferTransaction.js
+⌋ node txTypeValueTransferTransaction.js
 signedTx 0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8
 ```
 
@@ -157,7 +157,7 @@ signedTx 0x9f7ef299e96a4648ccef2195897380ecd2bed589aac93d8711049e864dcdbca8
 
 ---
 
-Send the signed transaction to blockchain and print the **receipt**
+署名されたトランザクションをブロックチェーンに送信し、**レシート**を印刷する。
 
 <CH.Code>
 

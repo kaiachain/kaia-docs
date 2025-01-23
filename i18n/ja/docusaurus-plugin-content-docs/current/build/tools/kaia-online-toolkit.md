@@ -1,19 +1,19 @@
 # Kaia Online Toolkit
 
-## What is the Kaia Online Toolkit? <a id="what-is-the-kaia-online-toolkit"></a>
+## カイアオンラインツールキットとは何ですか？ <a id="what-is-the-kaia-online-toolkit"></a>
 
-- `Kaia Online Toolkit` provides code examples to help you to utilize the `Kaia SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
-- `Kaia SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Kaia node using an HTTP or Websocket connection.
-- You can just try out Kaia's features without having to code.
+- `Kaia Online Toolkit`は、`Kaia SDK(caver-js)`を簡単に利用するためのコード例を提供します。 また、開発者が簡単なオンライン・ツールを使用するための[デモ・ページ](https://toolkit.klaytn.foundation)も提供している。
+- Kaia SDK(caver-js)\`は、開発者がHTTPまたはWebsocket接続を使ってKaiaノードとやりとりできるJavaScript APIライブラリです。
+- コードを書かなくても、カイアの機能を試すことができる。
 
-> To help more people use the `Kaia Online Toolkit`, We have prepared the ["Using Kaia Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) series.
+> より多くの方に「カイアオンラインツールキット」をご利用いただくために、[「カイアオンラインツールキットを使う」](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278)シリーズをご用意しました。
 
-## Links <a id="links"></a>
+## リンク<a id="links"></a>
 
-Here are the links for `Kaia Online Toolkit`. Feel free to use it :)
+カイアオンラインツールキット\`のリンク集です。 ご自由にお使いください :)
 
-- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
-- [Toolkit Page](https://toolkit.kaia.io)
-- [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
+- [Githubリポジトリ](https://github.com/kaiachain/kaia-online-toolkit)
+- [ツールキットページ](https://toolkit.kaia.io)
+- [カイアSDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
 
 ![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)

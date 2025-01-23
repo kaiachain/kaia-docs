@@ -1,3 +1,3 @@
-# API References
+# APIリファレンス
 
-Packages provided by caver-js.
+caver-jsによって提供されるパッケージ。

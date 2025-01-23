@@ -1,0 +1,288 @@
+# 智能合約執行
+
+**TxTypeSmartContractExecution** 使用給定數據執行智能合約。 只有當 "to "是智能合約賬戶時，才接受**TxTypeSmartContractExecution**。
+
+<CH.Spotlight>
+<CH.Code>
+
+```js FeeDelegatedSmartContractExecution.js
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fded0fa25d20678094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a07d40391ae45f7d515becb1aff3b99e7d8b05299b268daa623fb045d981d89c44a0117c23ab37da35ce5206525852ce27f7edc9401e0ee8069a9a396daa64d0c85d
+signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
+receipt {
+  blockHash: '0x4f852e6a2d320287f20cf34c24546f51f53ebdbbc4a4cacee93525e678abf275',
+  blockNumber: 148744853n,
+  cumulativeGasUsed: 36990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 36990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447',
+  transactionIndex: 0n,
+  type: 0n
+}
+
+```
+
+</CH.Code>
+
+---
+
+導入 **web3** 和 **@kaiachain/web3js-ext** 軟件包，在 web3 上添加 kaia 功能
+
+```js FeeDelegatedSmartContractExecution.js focus=1
+
+```
+
+---
+
+定義**發送方**、**付費方**地址和私人密鑰
+
+```js FeeDelegatedSmartContractExecution.js focus=3:6
+
+```
+
+---
+
+定義合同地址和 abi
+
+```js FeeDelegatedSmartContractExecution.js focus=8:23
+
+```
+
+---
+
+使用指定的 **kairos** 測試網 URL 設置提供程序。 web3 中的提供者是訪問區塊鏈數據的只讀抽象。
+
+```js FeeDelegatedSmartContractExecution.js focus=8:9
+
+```
+
+---
+
+此外，您還可以將提供商 URL 從 **kairos** 更改為 **quicknode**
+
+```js FeeDelegatedSmartContractExecution.js focus=8
+const { Web3, TxType } = require("@kaiachain/web3js-ext");
+
+const senderAddr = "0xa2a8854b1802d8cd5de631e690817c253d6a9153";
+const senderPriv = "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8";
+const feePayerAddr = "0xcb0eb737dfda52756495a5e08a9b37aab3b271da";
+const feePayerPriv = "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+const feePayerAccount = web3.eth.accounts.privateKeyToAccount(feePayerPriv);
+
+const contractAddr = "0xD7fA6634bDDe0B2A9d491388e2fdeD0fa25D2067";
+const contractAbi = JSON.parse('[{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]');
+
+async function main() {
+  const contract = new web3.eth.Contract(contractAbi, contractAddr);
+  const data = contract.methods.setNumber(0x123).encodeABI();
+
+  const tx = {
+    type: TxType.FeeDelegatedSmartContractExecution,
+    from: senderAddr,
+    to: contractAddr,
+    data: data,
+  };
+
+  // Sign transaction by sender
+  const signResult1 = await senderAccount.signTransaction(tx);
+  console.log("senderTxHashRLP", signResult1.rawTransaction);
+
+  // Sign and send transaction by fee payer
+  const signResult2 = await feePayerAccount.signTransactionAsFeePayer(signResult1.rawTransaction);
+  console.log("signedTx", signResult2.transactionHash);
+
+  const receipt = await web3.eth.sendSignedTransaction(signResult2.rawTransaction);
+  console.log("receipt", receipt);
+}
+
+main();
+```
+
+---
+
+使用 "web3.eth.accounts.privateKeyToAccount "創建帶有私鑰的**發件人錢包**
+
+```js FeeDelegatedSmartContractExecution.js focus=10
+
+```
+
+---
+
+使用 "web3.eth.accounts.privateKeyToAccount "用私鑰創建**付費者錢包**
+
+```js FeeDelegatedSmartContractExecution.js focus=11
+
+```
+
+---
+
+定義 **contractAddr** 和 **contractAbi**，您可以從編譯後的 solidity 代碼或區塊鏈資源管理器中獲取合約地址和 Abi。
+
+```js FeeDelegatedSmartContractExecution.js focus=13:14
+
+```
+
+---
+
+使用定義了 **contractAbi** 和 **address** 的 `Web3.eth.Contract`創建合約實例。 您可以通過該實例讀寫合約
+
+```js FeeDelegatedSmartContractExecution.js focus=17
+
+```
+
+---
+
+為 `setNumber` 函數編碼數據，`encodeABI` 將數據轉換為字節碼
+
+```js FeeDelegatedSmartContractExecution.js focus=18
+
+```
+
+---
+
+創建交易對象與合約交互
+
+```js FeeDelegatedSmartContractExecution.js focus=20:25
+
+```
+
+---
+
+設置 `type：TxType.FeeDelegatedSmartContractExecution` 用於更改與費用支付方的合約狀態的交易
+
+```js FeeDelegatedSmartContractExecution.js focus=21
+
+```
+
+---
+
+設置 `data: data` 以獲取較早編碼的函數數據
+
+```js FeeDelegatedSmartContractExecution.js focus=24
+
+```
+
+---
+
+使用 `signTransaction` 在**發送方**賬戶上籤署交易
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=27:29
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+senderTxHashRLP 0x31f8a68203b8850ba43b74008301087994d7fa6634bdde0b2a9d491388e2fded0fa25d20678094a2a8854b1802d8cd5de631e690817c253d6a9153a43fb5c1cb0000000000000000000000000000000000000000000000000000000000000123f847f8458207f5a07d40391ae45f7d515becb1aff3b99e7d8b05299b268daa623fb045d981d89c44a0117c23ab37da35ce5206525852ce27f7edc9401e0ee8069a9a396daa64d0c85d
+````
+
+</CH.Code>
+
+---
+
+使用 "signTransactionAsFeePayer "以**付費方**賬戶簽署交易
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=31:33
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+signedTx 0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447
+````
+
+</CH.Code>
+
+---
+
+將交易發送到區塊鏈。 它將返回交易收據
+
+<CH.Code>
+```js FeeDelegatedSmartContractExecution.js focus=35:36
+
+````
+
+
+---
+
+```zsh output
+❯ node FeeDelegatedSmartContractExecution.js
+receipt {
+  blockHash: '0x4f852e6a2d320287f20cf34c24546f51f53ebdbbc4a4cacee93525e678abf275',
+  blockNumber: 148744853n,
+  cumulativeGasUsed: 36990n,
+  effectiveGasPrice: 25000000000n,
+  from: '0xa2a8854b1802d8cd5de631e690817c253d6a9153',
+  gasUsed: 36990n,
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  status: 1n,
+  to: '0xd7fa6634bdde0b2a9d491388e2fded0fa25d2067',
+  transactionHash: '0xfa69f712a8d748e294caa1b95df51f8974a0bcf620af6c1b8a7614999a20b447',
+  transactionIndex: 0n,
+  type: 0n
+}
+````
+
+</CH.Code>
+</CH.Spotlight>

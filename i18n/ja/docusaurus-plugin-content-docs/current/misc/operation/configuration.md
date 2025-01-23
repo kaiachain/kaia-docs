@@ -1,45 +1,45 @@
-# Configuration
+# 構成
 
-This document explains the configurable properties of the node. Klaytn node package ships with good defaults and requires very little configuration. If you changed any settings of a running node, you must restart the node to reflect the changes.
+この文書では、ノードの設定可能なプロパティについて説明します。 Kaiaノードパッケージは優れたデフォルトで出荷され、ほとんど設定を必要としない。 実行中のノードの設定を変更した場合は、その変更を反映させるためにノードを再起動する必要があります。
 
-## CN Configuration File location <a id="cn-configuration-file-location"></a>
+## CN設定ファイルの場所<a id="cn-configuration-file-location"></a>
 
-- `kcnd.conf` for configuring the Consensus Node
+- コンセンサス・ノードの設定を行う `kcnd.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kcn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kcnd/conf/`.
+- アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kcn-linux-amd64/conf/` です。
+- パッケージ配布の場合、configディレクトリのデフォルトは `/etc/kcnd/conf/` です。
 
-## PN Configuration File location <a id="pn-configuration-file-location"></a>
+## PN設定ファイルの場所<a id="pn-configuration-file-location"></a>
 
-- `kpnd.conf` for configuring the Proxy Node
+- プロキシノードを設定する `kpnd.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/kpn-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kpnd/conf/`.
+- アーカイブディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/kpn-linux-amd64/conf/` です。
+- パッケージ配布の場合、configディレクトリのデフォルトは `/etc/kpnd/conf/` です。
 
-## EN Configuration File location <a id="configuration-file-location"></a>
+## EN 設定ファイルの場所<a id="configuration-file-location"></a>
 
-- `kend.conf` for configuring the Endpoint Node
+- エンドポイントノードを設定するための `kend.conf`
 
-The configuration file is located in the `conf` directory, whose default location depends on whether or not the installation is from an archive distribution (`tar.gz`) or a package distribution (RPM).
+設定ファイルは `conf` ディレクトリにあり、そのデフォルトの場所はアーカイブディストリビュー ションからのインストールかパッケージディストリビューションからのインストールかに よって異なります。
 
-- For the archive distribution, the config directory location defaults to `$INSTALL_PATH/ken-linux-amd64/conf/`.
-- For the package distribution, the config directory defaults to `/etc/kend/conf/`.
+- アーカイブ・ディストリビューションの場合、config ディレクトリの場所のデフォルトは `$INSTALL_PATH/ken-linux-amd64/conf/` です。
+- パッケージ配布の場合、config ディレクトリのデフォルトは `/etc/kend/conf/` です。
 
-## Configuration File Format  <a id="configuration-file-format"></a>
+## 設定ファイルのフォーマット <a id="configuration-file-format"></a>
 
-CN and PN have the same configuration file format and the properties.
+CNとPNは同じコンフィギュレーション・ファイル・フォーマットとプロパティを持つ。
 
-Below is a sample configuration file for the CN that participates in the `cypress` network and stores the blockchain data in the default location, which is `~/kcnd_home` with the archive distribution, `/var/kcnd/data` with the package distribution.
+以下は、メインネットに参加し、ブロックチェーンデータをデフォルトの場所に保存するCNの構成ファイルのサンプルです。デフォルトの場所は、アーカイブ配布では `~/kcnd_home`、パッケージ配布では `/var/kcnd/data` です。
 
 ```text
 # Configuration file for the kcnd
 
-# cypress, baobab is only available if you don't specify NETWORK_ID.
-NETWORK="cypress"
+# mainnet, kairos is only available if you don't specify NETWORK_ID.
+NETWORK="mainnet"
 # if you specify NETWORK_ID, a private network is created.
 NETWORK_ID=
 PORT=32323
@@ -56,7 +56,7 @@ DATA_DIR=
 LOG_DIR=$DATA_DIR/logs
 ```
 
-The recommended txpool sizes for CN are as follows.
+CNに推奨されるtxpoolのサイズは以下の通り。
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=16384
@@ -65,7 +65,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=16384
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=16384
 ```
 
-The recommended txpool sizes for PN are as follows.
+PNに推奨されるtxpoolのサイズは以下の通り。
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=8192
@@ -74,7 +74,7 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=8192
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=8192
 ```
 
-The recommended txpool sizes for EN are as follows.
+ENで推奨されるtxpoolのサイズは以下の通り。
 
 ```text
 TXPOOL_EXEC_SLOTS_ALL=4096
@@ -83,45 +83,45 @@ TXPOOL_EXEC_SLOTS_ACCOUNT=4096
 TXPOOL_NONEXEC_SLOTS_ACCOUNT=4096
 ```
 
-## Properties <a id="properties"></a>
+## プロパティ<a id="properties"></a>
 
-The configuration file has the following configurable properties. CN and PN configuration files have the same properties except `REWARDBASE.`
+コンフィギュレーション・ファイルには、以下の設定可能なプロパティがある。 CNとPNのコンフィギュレーション・ファイルは、`REWARDBASE.`以外は同じプロパティを持つ。
 
-| Name                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NETWORK                                                                                     | Network name that this node will join.  This value is used when NETWORK_ID is not defined.  ("cypress", "baobab")                                                                                                                                                                                             |
-| NETWORK_ID                                                             | Klaytn network ID.  If you create a local private network, you will define the network ID for your own.  Following IDs are reserved for pre-configured networks. <br/>8217 : Cypress (Main network) <br/>1000 : Aspen test network <br/>1001 : Baobab test network |
-| PORT                                                                                        | P2P port. (Default: "32323")                                                                                                                                                                                                                                                                                                       |
-| SERVER_TYPE                                                            | JSON RPC server type.  ("http", "fasthttp")                                                                                                                                                                                                                                                                                                        |
-| SYNCMODE                                                                                    | Blockchain sync mode.  ("fast", "full")                                                                                                                                                                                                                                                                                                            |
-| VERBOSITY                                                                                   | Logging verbosity.  (0=silent, 1=error, 2=warn, 3=info, 4=debug, 5=detail)                                                                                                                                                                                                                                                                         |
-| MAXCONNECTIONS                                                                              | Maximum number of physical connections.  All single-channel peers can have up to MAXCONNECTIONS peers.  All multi-channel peers can have up to MAXCONNECTIONS/2 peers.  Network connection is disabled if it is set to 0. (Default: 10)                                            |
-| LDBCACHESIZE                                                                                | Size of in-memory cache in LevelDB (MiB). (Default : 768)                                                                                                                                                                                                                                                       |
-| REWARDBASE                                                                                  | Account address that will receive block consensus rewards. This property only applies to CN.                                                                                                                                                                                                                                                          |
-| TXPOOL_EXEC_SLOTS_ALL        | Maximum number of executable transaction slots for all accounts. (Default: 4096)                                                                                                                                                                                                                                                   |
-| TXPOOL_NONEXEC_SLOTS_ALL     | Maximum number of non-executable transaction slots for all accounts. (Default: 1024)                                                                                                                                                                                                                                               |
-| TXPOOL_EXEC_SLOTS_ACCOUNT    | Number of executable transaction slots guaranteed per account. (Default: 16)                                                                                                                                                                                                                                                       |
-| TXPOOL_NONEXEC_SLOTS_ACCOUNT | Maximum number of non-executable transaction slots guaranteed per account. (Default: 64)                                                                                                                                                                                                                                           |
-| TXPOOL_LIFE_TIME                                  | Maximum amount of time non-executable transactions is queued. (Default : 5m)                                                                                                                                                                                                                                                       |
-| RPC_ENABLE                                                             | Enable the HTTP-RPC server if it is set to 1.                                                                                                                                                                                                                                                                                                                         |
-| RPC_API                                                                | Comma-separated list of APIs offered over the HTTP-RPC interface.  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                                                                                                                   |
-| RPC_PORT                                                               | HTTP-RPC server listening port. (Default: "8551")                                                                                                                                                                                                                                                                                  |
-| RPC_ADDR                                                               | HTTP-RPC server listening interface. (Default: "localhost")                                                                                                                                                                                                                                                                        |
-| RPC_CORSDOMAIN                                                         | Comma-separated list of domains from which to accept cross-origin requests (browser enforced)                                                                                                                                                                                                                                                                      |
-| RPC_VHOSTS                                                             | Comma-separated list of virtual hostnames from which to accept requests (server enforced). Accepts '\*' wildcard. (Default: {"localhost"})                                                                                                                                                      |
-| WS_ENABLE                                                              | Enable the WS-RPC server if it is set to 1.                                                                                                                                                                                                                                                                                                                           |
-| WS_API                                                                 | APIs offered over the WS-RPC interface.  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                                                                                                                                             |
-| WS_ADDR                                                                | WS-RPC server listening interface.                                                                                                                                                                                                                                                                                                                                    |
-| WS_PORT                                                                | WS-RPC server listening port. (Default : "8552")                                                                                                                                                                                                                                                                                   |
-| WS_ORIGINS                                                             | Origins from which to accept websockets requests. (Default: "localhost")                                                                                                                                                                                                                                                           |
-| AUTO_RESTART                                                           | Restart the process when the current block has not been updated for `autorestart.timeout` (e.g., 60s, 10m and 1h) if it is set to 1.                                                                                                                                                                               |
-| METRICS                                                                                     | Enable metrics collection and reporting if it is set to 1.                                                                                                                                                                                                                                                                                                            |
-| PROMETHEUS                                                                                  | Enable prometheus exporter if it is set to 1.                                                                                                                                                                                                                                                                                                                         |
-| DB_NO_PARALLEL_WRITE         | Disable parallel writes of block data to persistent database if it is set to 1.                                                                                                                                                                                                                                                                                       |
-| MULTICHANNEL                                                                                | Create a dedicated channel for block propagation if it is set to 1.                                                                                                                                                                                                                                                                                                   |
-| SUBPORT                                                                                     | Listening sub port number if multichannel option is enabled. (Default : "32324")                                                                                                                                                                                                                                                   |
-| NO_DISCOVER                                                            | Turn off the discovery option if it is set to 1.                                                                                                                                                                                                                                                                                                                      |
-| BOOTNODES                                                                                   | Comma-separated kni addresses of bootstrap nodes.                                                                                                                                                                                                                                                                                                                     |
-| ADDITIONAL                                                                                  | For additional command-line options. e.g) --txpool.nolocals                                                                                                                                                                                                                                                                           |
-| DATA_DIR                                                               | Klaytn blockchain data folder path.                                                                                                                                                                                                                                                                                                                                   |
-| LOG_DIR                                                                | Log folder path.                                                                                                                                                                                                                                                                                                                                                      |
+| 名称                                                                                          | 説明                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NETWORK                                                                                     | このノードが参加するネットワーク名。  この値は、NETWORK_IDが定義されていない場合に使用される。  ("cypress", "baobab")                                                                                                                                            |
+| NETWORK_ID                                                             | カイアのネットワークID。  ローカル・プライベート・ネットワークを作成する場合は、自分のネットワークIDを定義する。  以下のIDは、設定済みのネットワーク用に予約されています。 <br/>8217 : Cypress (Main network) <br/>1000 : Aspen test network <br/>1001 : Baobab test network |
+| PORT                                                                                        | P2Pポート。 (デフォルト："32323"）                                                                                                                                                                                                                      |
+| SERVER_TYPE                                                            | JSON RPC サーバータイプ。  ("http", "fasthttp")                                                                                                                                                                                                      |
+| SYNCMODE                                                                                    | ブロックチェーン同期モード。  ("fast", "full")                                                                                                                                                                                                             |
+| VERBOSITY                                                                                   | ログの冗長性。  (0=サイレント、1=エラー、2=警告、3=情報、4=デバッグ、5=詳細)                                                                                                                                                                                               |
+| MAXCONNECTIONS                                                                              | 物理接続の最大数。  すべてのシングルチャンネルピアはMAXCONNECTIONSピアまで持つことができる。  すべてのマルチチャネルピアはMAXCONNECTIONS/2までのピアを持つことができる。  0に設定するとネットワーク接続が無効になる。 (デフォルト：10）                                                                                                     |
+| LDBCACHESIZE                                                                                | LevelDBのインメモリキャッシュのサイズ（MiB）。 (デフォルト：768）                                                                                                                                                                                                     |
+| REWARDBASE                                                                                  | ブロックコンセンサス報酬を受け取るアカウントアドレス。 このプロパティはCNにのみ適用される。                                                                                                                                                                                                                 |
+| TXPOOL_EXEC_SLOTS_ALL        | 全アカウントの実行可能な取引スロットの最大数。 (デフォルト：4096）                                                                                                                                                                                                         |
+| TXPOOL_NONEXEC_SLOTS_ALL     | 全アカウントの実行不可能なトランザクションスロットの最大数。 (デフォルト：1024）                                                                                                                                                                                                  |
+| TXPOOL_EXEC_SLOTS_ACCOUNT    | アカウントごとに保証される実行可能なトランザクション・スロット数。 (デフォルト：16）                                                                                                                                                                                                 |
+| TXPOOL_NONEXEC_SLOTS_ACCOUNT | アカウントごとに保証される実行不可能な取引スロットの最大数。 (デフォルト：64）                                                                                                                                                                                                    |
+| TXPOOL_LIFE_TIME                                  | 実行不可能なトランザクションがキューに入れられる最大時間。 (デフォルト：5m）                                                                                                                                                                                                     |
+| RPC_ENABLE                                                             | HTTP-RPCサーバーが1に設定されている場合は、有効にする。                                                                                                                                                                                                                                |
+| RPC_API                                                                | HTTP-RPCインターフェースで提供されるAPIのカンマ区切りリスト。  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                                          |
+| RPC_PORT                                                               | HTTP-RPCサーバーのリスニングポート。 (デフォルト："8551"）                                                                                                                                                                                                        |
+| RPC_ADDR                                                               | HTTP-RPCサーバーのリスニング・インターフェース。 (デフォルト："localhost"）                                                                                                                                                                                             |
+| RPC_CORSDOMAIN                                                         | クロスオリジンリクエストを受け付けるドメインのカンマ区切りリスト (ブラウザが強制)                                                                                                                                                                                                   |
+| RPC_VHOSTS                                                             | リクエストを受け付けるバーチャルホスト名のカンマ区切りリスト (サーバー強制)。 Accepts '\*' wildcard. (デフォルト：{"localhost"}）。                                                                                                                    |
+| WS_ENABLE                                                              | 1に設定されている場合は、WS-RPCサーバーを有効にする。                                                                                                                                                                                                                                  |
+| WS_API                                                                 | WS-RPCインターフェイス上で提供されるAPI。  (admin, debug, klay, miner, net, personal, rpc, txpool, web3)                                                                                                                                                     |
+| WS_ADDR                                                                | WS-RPC サーバーリスニングインターフェース。                                                                                                                                                                                                                                       |
+| WS_PORT                                                                | WS-RPCサーバーのリスニングポート。 (デフォルト："8552"）                                                                                                                                                                                                          |
+| WS_ORIGINS                                                             | ウェブソケットリクエストを受け付けるオリジン。 (デフォルト："localhost"）                                                                                                                                                                                                  |
+| AUTO_RESTART                                                           | `autorestart.timeout`（例：60秒、10分、1時間）が1に設定されている場合、現在のブロックが更新されなかったときにプロセスを再起動する。                                                                                                                                                                                 |
+| METRICS                                                                                     | 1 に設定されている場合は、メトリクスの収集とレポートを有効にします。                                                                                                                                                                                                                             |
+| PROMETHEUS                                                                                  | プロメテウス・エクスポーターが1に設定されている場合、有効にする。                                                                                                                                                                                                                               |
+| DB_NO_PARALLEL_WRITE         | 1に設定すると、永続データベースへのブロック・データの並列書き込みを無効にする。                                                                                                                                                                                                                        |
+| MULTICHANNEL                                                                                | 1に設定されている場合は、ブロック伝搬専用のチャンネルを作成する。                                                                                                                                                                                                                               |
+| SUBPORT                                                                                     | マルチチャンネルオプションが有効な場合のリスニングサブポート番号。 (デフォルト："32324"）                                                                                                                                                                                            |
+| NO_DISCOVER                                                            | ディスカバリーオプションが1に設定されている場合はオフにする。                                                                                                                                                                                                                                 |
+| BOOTNODES                                                                                   | ブートストラップ・ノードのカンマ区切りのkniアドレス。                                                                                                                                                                                                                                    |
+| ADDITIONAL                                                                                  | その他のコマンドラインオプションについては 例) --txpool.nolocals                                                                                                                                                                                                      |
+| DATA_DIR                                                               | カイアブロックチェーンのデータフォルダパス。                                                                                                                                                                                                                                          |
+| LOG_DIR                                                                | ログフォルダのパス。                                                                                                                                                                                                                                                      |

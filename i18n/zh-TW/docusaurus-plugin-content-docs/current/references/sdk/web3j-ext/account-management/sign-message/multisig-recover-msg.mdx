@@ -1,0 +1,246 @@
+# Multisig Account Key
+
+**AccountKeyWeightedMultiSig** 是一種賬戶密鑰類型，包含一個閾值和加權公鑰（WeightedPublicKeys），後者包含一個由公鑰及其權重組成的列表。
+
+要使與 **AccountKeyWeightedMultiSig** 關聯的賬戶的交易有效，必須滿足以下條件：
+已簽名公鑰的加權和應大於閾值。
+_ 無效簽名不應包含在交易中。 \* 已簽名公鑰的數量應少於加權公鑰的數量。
+
+<CH.Spotlight>
+<CH.Code>
+
+```java SignMsgWithMultiSigExample.java
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithMultiSigExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3,
+                                keySample.MULTI_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
+                System.out.println("Result address for key 3 : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+```zsh output
+❯ java SignMsgWithMultiSigExample.java
+Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 1 : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 2 : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+```
+
+</CH.Code>
+
+---
+
+從 Web3j 和 kaia 庫（`web3j-ext`）中導入必要的類。
+
+```java SignMsgWithMultiSigExample.java focus=1:12
+
+```
+
+---
+
+使用指定的 BAOBAB_URL 創建 Web3j 實例
+
+```java SignMsgWithMultiSigExample.java focus=23
+
+```
+
+---
+
+此外，您還可以更改默認提供商。 例如，使用alchemy提供商。
+
+```java SignMsgWithMultiSigExample.java focus=23
+package org.web3j.example.accountKey;
+
+import org.web3j.tx.response.PollingTransactionReceiptProcessor;
+import org.web3j.tx.response.TransactionReceiptProcessor;
+import org.web3j.example.keySample;
+import java.io.IOException;
+import org.web3j.crypto.KlayCredentials;
+import org.web3j.crypto.KlaySignatureData;
+import org.web3j.crypto.Sign.SignatureData;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.kaia.Web3j;
+import org.web3j.protocol.kaia.core.method.response.KlayRecoverFromMessageResponse;
+
+/**
+ *
+ */
+public class SignMsgWithMultiSigExample implements keySample {
+        /**
+         *
+         */
+
+        public static void run() throws Exception {
+                Web3j web3j = Web3j.build(new HttpService(keySample.BAOBAB_URL));
+                KlayCredentials credentials1 = KlayCredentials.create(keySample.MULTI_KEY_privkey1,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials2 = KlayCredentials.create(keySample.MULTI_KEY_privkey2,
+                                keySample.MULTI_KEY_address);
+                KlayCredentials credentials3 = KlayCredentials.create(keySample.MULTI_KEY_privkey3,
+                                keySample.MULTI_KEY_address);
+                String from = credentials1.getAddress();
+                String message = "0xdeadbeef";
+                String blockNumber = "latest";
+
+                SignatureData signature1 = KlaySignatureData.signPrefixedMessage(message, credentials1);
+                String result1 = KlaySignatureData.getSignatureString(signature1);
+
+                SignatureData signature2 = KlaySignatureData.signPrefixedMessage(message, credentials2);
+                String result2 = KlaySignatureData.getSignatureString(signature2);
+
+                SignatureData signature3 = KlaySignatureData.signPrefixedMessage(message, credentials3);
+                String result3 = KlaySignatureData.getSignatureString(signature3);
+
+                KlayRecoverFromMessageResponse response1 = web3j
+                                .klayRecoverFromMessage(from, message, result1, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response2 = web3j
+                                .klayRecoverFromMessage(from, message, result2, blockNumber)
+                                .send();
+
+                KlayRecoverFromMessageResponse response3 = web3j
+                                .klayRecoverFromMessage(from, message, result3, blockNumber)
+                                .send();
+                System.out.println("Original address : " + from);
+                System.out.println("Result address for key 1 : " + response1.getResult());
+                System.out.println("Result address for key 2 : " + response2.getResult());
+                System.out.println("Result address for key 3 : " + response3.getResult());
+
+                web3j.shutdown();
+
+        }
+
+}
+```
+
+---
+
+從私人密鑰加載 3 **多重簽名證書**
+
+```java SignMsgWithMultiSigExample.java focus=24:29
+
+```
+
+---
+
+獲取**證書1**的**地址**。 該地址將用於驗證恢復的地址
+
+```java SignMsgWithMultiSigExample.java focus=30
+
+```
+
+---
+
+定義要簽署的任何信息
+
+```java SignMsgWithMultiSigExample.java focus=31
+
+```
+
+---
+
+設置**區塊編號**為 kaia 網絡中的最新區塊
+
+```java SignMsgWithMultiSigExample.java focus=32
+
+```
+
+---
+
+依次使用所有 3 個多重簽名證書對\*\*信息進行簽名，並以字符串形式輸出簽名結果
+
+```java SignMsgWithMultiSigExample.java focus=34:41
+
+```
+
+---
+
+從 3 個報文回覆中恢復**地址**，並與原始**發件人**地址進行比較
+
+<CH.Code>
+```java SignMsgWithMultiSigExample.java focus=43:57
+
+````
+
+
+---
+
+```zsh output
+❯ java SignMsgWithMultiSigExample.java
+Original address : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 1 : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
+Result address for key 2 : 0xa2a8854b1802d8cd5de631e690817c253d6a9153
+Result address for key 3 : 0xe15cd70a41dfb05e7214004d7d054801b2a2f06b
+````
+
+</CH.Code>
+
+---
+
+關閉 Web3j 實例
+
+```java SignMsgWithMultiSigExample.java focus=37
+
+```
+
+</CH.Spotlight>

@@ -1,6 +1,6 @@
-# Read
+# 読む
 
-You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+スマートコントラクトの関数は、RPC API「Call」を使って呼び出すことができる。 ここで呼び出せるのは、コントラクトのステートを変更しない**ビュー関数**に限られる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -50,14 +50,14 @@ main();
 
 ```zsh output
 ❯ node smartContractRead.js
-number 294
+番号 294
 ```
 
 </CH.Code>
 
 ---
 
-Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features on web3
+web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
 
 ```js smartContractRead.js focus=1
 
@@ -65,7 +65,7 @@ Import the **web3** and **@kaiachain/web3js-ext** packages to add kaia features 
 
 ---
 
-Set up the provider with the specified **kairos** testnet URL. A provider in web3js is a read-only abstraction to access the blockchain data.
+指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
 
 ```js smartContractRead.js focus=3:4
 
@@ -73,7 +73,7 @@ Set up the provider with the specified **kairos** testnet URL. A provider in web
 
 ---
 
-Also, you can change the provider URL from **kairos** to **quicknode**
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
 ```js smartContractRead.js focus=3:4
 const { Web3 } = require("@kaiachain/web3js-ext");
@@ -118,7 +118,7 @@ main();
 
 ---
 
-Define contract Abi and addreess, you can get it from compiled solidity code
+コンパイルされたsolidityのコードから取得できます。
 
 ```js smartContractRead.js focus=29:30
 
@@ -126,7 +126,7 @@ Define contract Abi and addreess, you can get it from compiled solidity code
 
 ---
 
-Create a contract instance using `Web3.eth.Contract` with defined **contractAbi** and **address**. You can read and write the contract through this instance
+`Web3.eth.Contract`を使用して、**contractAbi**と**address**を定義した契約インスタンスを作成する。 このインスタンスを通じて、契約の読み書きができる。
 
 ```js smartContractRead.js focus=33
 
@@ -134,7 +134,7 @@ Create a contract instance using `Web3.eth.Contract` with defined **contractAbi*
 
 ---
 
-Call function **number** of created contract and print the result
+作成された契約の**number**関数を呼び出し、結果を表示する。
 
 <CH.Code>
 ```js smartContractRead.js focus=34:35
