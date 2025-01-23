@@ -8,11 +8,11 @@ sidebar_label: Web3Auth
 
 ## はじめに
 
-[Web3Auth](https://web3auth.io/docs/)は、dAppsやウォレットにプラグインされるウォレットインフラストラクチャである。 Web3ウォレットとアプリケーションのためのプラグイン可能な認証インフラストラクチャとして機能します。 Web3Authの優れたユーザーエクスペリエンスにより、メインストリームと暗号化ネイティブの両方が、数分で参加できる可能性がある。
+[Web3Auth](https://web3auth.io/docs/)は、dAppsやウォレットにプラグインされるウォレットインフラストラクチャである。 Web3ウォレットとアプリケーションのためのプラグイン可能な認証インフラストラクチャとして機能します。 Web3Authの優れたユーザーエクスペリエンスにより、メインストリームと暗号化ネイティブの両方が、数分で参加できる可能性がある。 Web3ウォレットとアプリケーションのためのプラグイン可能な認証インフラストラクチャとして機能します。 Web3Authの優れたユーザーエクスペリエンスにより、メインストリームと暗号化ネイティブの両方が、数分で参加できる可能性がある。
 
-ウォレット・インフラストラクチャとして、あらゆるソーシャル・ログイン、ウェブおよびモバイルのネイティブ・プラットフォーム、ウォレット、その他の鍵管理方法をすぐにサポートする。 このガイドが終わる頃には、Web3AuthをKaia Network上に構築された分散型ウェブアプリケーションに統合していることでしょう。 Web3Authを他のプラットフォーム（Android、iOS、React Native、Flutter、Unity）に統合するには、こちらの[ガイド](https://web3auth.io/docs/quick-start)を参照してください。
+ウォレット・インフラストラクチャとして、あらゆるソーシャル・ログイン、ウェブおよびモバイルのネイティブ・プラットフォーム、ウォレット、その他の鍵管理方法をすぐにサポートする。 このガイドが終わる頃には、Web3AuthをKaia Network上に構築された分散型ウェブアプリケーションに統合していることでしょう。 ウォレット・インフラストラクチャとして、あらゆるソーシャル・ログイン、ウェブおよびモバイルのネイティブ・プラットフォーム、ウォレット、その他の鍵管理方法をすぐにサポートする。 このガイドが終わる頃には、Web3AuthをKaia Network上に構築された分散型ウェブアプリケーションに統合していることでしょう。 Web3Authを他のプラットフォーム（Android、iOS、React Native、Flutter、Unity）に統合するには、こちらの[ガイド](https://web3auth.io/docs/quick-start)を参照してください。
 
-手っ取り早く始めるために、このチュートリアルの完全なコードは[GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md)にあります。 レポジトリをクローンするか、ダウンロードすることでフォローすることができる。
+手っ取り早く始めるために、このチュートリアルの完全なコードは[GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md)にあります。 レポジトリをクローンするか、ダウンロードすることでフォローすることができる。 レポジトリをクローンするか、ダウンロードすることでフォローすることができる。
 
 ## 前提条件
 
@@ -24,7 +24,7 @@ sidebar_label: Web3Auth
 
 ## インストール
 
-dAppでWeb3Authを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsとWeb3Auth Web SDKをセットアップする必要がある。 Web3Authは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、または[kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/)ライブラリのいずれかと一緒に使用して、カイアブロックチェーンと通信することができます。 このガイドではethers.jsを使用します。
+dAppでWeb3Authを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsとWeb3Auth Web SDKをセットアップする必要がある。 dAppでWeb3Authを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsとWeb3Auth Web SDKをセットアップする必要がある。 Web3Authは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、または[kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/)ライブラリのいずれかと一緒に使用して、カイアブロックチェーンと通信することができます。 このガイドではethers.jsを使用します。 このガイドではethers.jsを使用します。
 
 ```bash
 npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
@@ -402,7 +402,7 @@ function App() {
 
 ## ユーティリティ機能の設定
 
-このガイドでは、ユーティリティ関数 `truncateAddress()` を使用します。 truncateAddress()関数は、有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
+このガイドでは、ユーティリティ関数 `truncateAddress()` を使用します。 truncateAddress()関数は、有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。 truncateAddress()関数は、有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
 
 **ステップ 1**：ルートフォルダ `src` に `utils.ts` ファイルを作成する。
 
@@ -481,7 +481,7 @@ function App() {
 
 ## ウォレットの切断
 
-ウォレットとの接続を解除するには、Web3Auth インスタンスの [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) メソッドを使用します。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
+ウォレットとの接続を解除するには、Web3Auth インスタンスの [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) メソッドを使用します。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
 
 ```js
 function App() {
@@ -510,7 +510,7 @@ function App() {
 
 ## ユーザー情報の取得
 
-Web3Authのユニークな機能は、ソーシャルログインである。 ユーザーがソーシャルプラットフォームを使ってログインすると、Web3Authインスタンスはログインしたユーザーに関する情報を返します。 ログインしているユーザー情報を取得するには、Web3Authインスタンスの `getUserInfo()` メソッドを呼び出すだけです。
+Web3Authのユニークな機能は、ソーシャルログインである。 ユーザーがソーシャルプラットフォームを使ってログインすると、Web3Authインスタンスはログインしたユーザーに関する情報を返します。 ログインしているユーザー情報を取得するには、Web3Authインスタンスの `getUserInfo()` メソッドを呼び出すだけです。 ユーザーがソーシャルプラットフォームを使ってログインすると、Web3Authインスタンスはログインしたユーザーに関する情報を返します。 ログインしているユーザー情報を取得するには、Web3Authインスタンスの `getUserInfo()` メソッドを呼び出すだけです。
 
 ```js
 const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -622,7 +622,7 @@ return (
 
 ## スマートコントラクトとの連携
 
-デプロイされたスマートコントラクトは、そのアプリケーション・バイナリ・インターフェース（ABI）とコントラクト・アドレスを指定して対話することができる。 以下のステップは、プロジェクトでコントラクトアドレスとABIを設定し、使用する方法を示しています。
+デプロイされたスマートコントラクトは、そのアプリケーション・バイナリ・インターフェース（ABI）とコントラクト・アドレスを指定して対話することができる。 以下のステップは、プロジェクトでコントラクトアドレスとABIを設定し、使用する方法を示しています。 以下のステップは、プロジェクトでコントラクトアドレスとABIを設定し、使用する方法を示しています。
 
 **ステップ 1**：ルートフォルダ `src` に `constants.ts` ファイルを作成する。
 
