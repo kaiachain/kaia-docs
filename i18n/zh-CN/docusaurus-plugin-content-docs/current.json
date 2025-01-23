@@ -274,5 +274,29 @@
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
     "message": "过渡到 Kaia",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.learnSidebar.category.Core Concepts": {
+    "message": "核心理念",
+    "description": "The label for category Core Concepts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Smart Contracts": {
+    "message": "智能合约",
+    "description": "The label for category Smart Contracts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Advanced Topics": {
+    "message": "高级主题",
+    "description": "The label for category Advanced Topics in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Transaction Execution": {
+    "message": "交易执行",
+    "description": "The label for category Transaction Execution in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Token Economics": {
+    "message": "代币经济学",
+    "description": "The label for category Token Economics in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Transactions": {
+    "message": "交易",
+    "description": "The label for category Transactions in sidebar buildSidebar"
   }
 }
