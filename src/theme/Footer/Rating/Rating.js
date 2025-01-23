@@ -26,7 +26,9 @@ export default function FeelbackRating() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || location.pathname === '/') {
+    // Uses a regex pattern to detect both root ('/') and localized ('/zh-CN/', '/vi/', etc.) homepages 
+    const isHomePage = location.pathname === '/' || /^\/([\w-]+)?\/$/.test(location.pathname);
+    if (typeof window === 'undefined' || isHomePage) {
       return;
     }
 
