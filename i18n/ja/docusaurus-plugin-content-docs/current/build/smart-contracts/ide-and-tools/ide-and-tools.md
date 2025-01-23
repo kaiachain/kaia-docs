@@ -4,7 +4,7 @@
 
 #### [Remix Online IDE](https://remix.ethereum.org/)<a href="#remix-ide" id="remix-ide"></a>
 
-Remix Online IDEは、EVM互換のスマートコントラクトを開発、デプロイ、デバッグ、テストするための強力なツールセットです。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。
+Remix Online IDEは、EVM互換のスマートコントラクトを開発、デプロイ、デバッグ、テストするための強力なツールセットです。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。
 
 #### [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
@@ -16,7 +16,7 @@ Thirdwebは、あなたのアプリやゲームを分散型ネットワークに
 
 #### [Kaia Wallet](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
 
-カイアウォレットは、カイアネットワークのためのブラウザ拡張ウォレットです。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイア・ウォレットはまた、ウェブベースのカイアdAppsからのトランザクションにリアルタイムで署名することもできる。
+Kaiaコントラクトウィザードは、スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。 これはOpenZeppelin Wizardに基づいています。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイアウォレットは、カイアネットワークのためのブラウザ拡張ウォレットです。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイア・ウォレットはまた、ウェブベースのカイアdAppsからのトランザクションにリアルタイムで署名することもできる。
 
 #### [カイアスコープ](../../tools/block-explorers/kaiascope.md)<a href="#kaiascope" id="kaiascope"></a>
 
