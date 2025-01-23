@@ -10,7 +10,7 @@ sidebar_label: Web3-Onboard
 
 Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のようなツールを活用することで、プロジェクトや開発者は複数のウォレットを分散型アプリケーション（dApps）に素早く統合することができる。 Web3-Onboardの助けを借りて、ユーザーのオンボーディングが簡素化されました。 Web3-Onboardには、複数のウォレットのサポートから、ユーザーが自分のアカウントを異なるチェーンやネットワークに接続し、リアルタイムの取引通知を受け取る機能など、さまざまな機能がある。
 
-このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を統合します。 をカイアネットワーク上に構築したdAppに追加することができます。
+このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を統合します。 をカイアネットワーク上に構築したdAppに追加することができます。 をカイアネットワーク上に構築したdAppに追加することができます。
 
 ## 前提条件
 
@@ -33,7 +33,7 @@ npm i @web3-onboard/core
 
 **ステップ 2**：ウォレットモジュールのインポートとインスタンス化
 
-このステップでは、ウォレットモジュールを使ってdAppでサポートするウォレットをいくつでも追加できます。 しかし、このガイドでは、Coinbase Wallet、WalletConnect、Injected Walletsをweb3-Onboardの実装に追加します。 Web3-Onboardを使用してdAppに追加できるウォレットモジュールのリストについては、こちらの[docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules)を参照してください。
+このステップでは、ウォレットモジュールを使ってdAppでサポートするウォレットをいくつでも追加できます。 しかし、このガイドでは、Coinbase Wallet、WalletConnect、Injected Walletsをweb3-Onboardの実装に追加します。 Web3-Onboardを使用してdAppに追加できるウォレットモジュールのリストについては、こちらの[docs](https://onboard.blocknative.com/docs/overview/introduction#wallet-modules)を参照してください。 しかし、このガイドでは、Coinbase Wallet、WalletConnect、Injected Walletsをweb3-Onboardの実装に追加します。 Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のようなツールを活用することで、プロジェクトや開発者は複数のウォレットを分散型アプリケーション（dApps）に素早く統合することができる。 Web3-Onboardの助けを借りて、ユーザーのオンボーディングが簡素化されました。 Web3-Onboardには、複数のウォレットのサポートから、ユーザーが自分のアカウントを異なるチェーンやネットワークに接続し、リアルタイムの取引通知を受け取る機能など、さまざまな機能がある。
 
 ```bash
 npm install @web3-onboard/coinbase // Coinbase Wallet
@@ -57,7 +57,7 @@ const modules = [coinbaseWalletSdk, walletConnect, injected];
 
 **ステップ 3**：エーテルのインストールとインポート
 
-Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。
+Web3-Onboardプロバイダは、[ethers.js](https://docs.ethers.org/v6/)や[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)のようなライブラリで使用することができます。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。 このガイドでは、ethers.jsを使用して、ユーザーのアカウントの取得、残高の取得、トランザクションの署名、トランザクションの送信、スマートコントラクトからの読み取り、スマートコントラクトへの書き込みなどのKaiaブロックチェーンの呼び出しを行います。
 
 ```bash
 npm install --save ethers
@@ -71,7 +71,7 @@ import { ethers } from "ethers";
 
 **ステップ 4**：Web3ReactProviderのインポートとセットアップ
 
-このステップでは、作成したモジュールとライブラリーと互換性のあるチェーンのリストを使ってOnboardをインスタンス化します。 `App.js`ファイルを開き、以下のコードを貼り付ける：
+このステップでは、作成したモジュールとライブラリーと互換性のあるチェーンのリストを使ってOnboardをインスタンス化します。 `App.js`ファイルを開き、以下のコードを貼り付ける： `App.js`ファイルを開き、以下のコードを貼り付ける：
 
 ```js
 import Onboard from "@web3-onboard/core";
@@ -120,7 +120,7 @@ const onboard = Onboard({
 
 ## ユーティリティ機能の設定
 
-このガイドでは、`truncateAddress()`や`toHex()`といったutils関数を利用する。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()\`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
+このガイドでは、`truncateAddress()`や`toHex()`といったutils関数を利用する。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()\`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。 truncateAddress()`関数は有効なアドレスを受け取り、渡されたアドレスをより読みやすい形式で返す。 一方、`toHex()`関数は数値を16進数に変換する。  以下のステップは、プロジェクトでutils関数をセットアップして使用する方法を示しています。
 
 **ステップ 1**：ルートフォルダ `src` に `utils.js` ファイルを作成する。
 
@@ -142,7 +142,7 @@ export const truncateAddress = (address) => {
   };
 ```
 
-**ステップ 2**：App.js\`ファイルに関数をインポートします。
+**ステップ 2**：App.js\\`ファイルに関数をインポートします。
 
 ```js
 import { truncateAddress, toHex } from "./utils";
@@ -176,7 +176,7 @@ Connect Wallet ボタンをクリックすると、モーダルが表示され�
 
 ## ウォレットの切断
 
-接続されたウォレットを切断するには、ユーザーのプライマリウォレットのラベルと一緒にオンボードインスタンスで `disconnectWallet()` メソッドを呼び出します。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
+接続されたウォレットを切断するには、ユーザーのプライマリウォレットのラベルと一緒にオンボードインスタンスで `disconnectWallet()` メソッドを呼び出します。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。 また、以前に保存された接続データをクリアするために、ステートをリフレッシュすることも良い習慣のひとつである。
 
 ```js
 function App() {
@@ -213,7 +213,7 @@ function App() {
 
 ## 接続、アカウント、ネットワーク情報へのアクセス
 
-ウォレットの接続に成功したら、[onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) メソッドを使用して、オンボードインスタンスを通じて保存されている接続の状態を取得できます。 初回接続時に状態を取得することもできる。 これで、connectWallet() メソッドを変更して、ウォレット状態のリストを返すようにすることができます。
+ウォレットの接続に成功したら、[onboard.state.get()](https://onboard.blocknative.com/docs/modules/core#get-current-state) メソッドを使用して、オンボードインスタンスを通じて保存されている接続の状態を取得できます。 初回接続時に状態を取得することもできる。 これで、connectWallet() メソッドを変更して、ウォレット状態のリストを返すようにすることができます。 初回接続時に状態を取得することもできる。 これで、connectWallet() メソッドを変更して、ウォレット状態のリストを返すようにすることができます。
 
 **ステップ1**：ReactのuseStateをインポートする。
 
@@ -277,7 +277,7 @@ return (
 
 ## ネイティブ・トランザクションの送信
 
-ウォレットへの接続に成功したら、connectWallet() 関数で行ったように、ウォレット接続から返されたプロバイダオブジェクトをステート変数に格納することができます。 したがって、このプロバイダーと署名者オブジェクトを使って、ブロックチェーンにトランザクションを送信することができる。
+ウォレットへの接続に成功したら、connectWallet() 関数で行ったように、ウォレット接続から返されたプロバイダオブジェクトをステート変数に格納することができます。 したがって、このプロバイダーと署名者オブジェクトを使って、ブロックチェーンにトランザクションを送信することができる。 したがって、このプロバイダーと署名者オブジェクトを使って、ブロックチェーンにトランザクションを送信することができる。
 
 ```js
  // add to the existing useState hook.
@@ -489,8 +489,8 @@ Web3-Onboardのプロバイダと署名者オブジェクトを使えば、ブ�
 BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules by default.
 ```
 
-このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 この問題を解決するには、この[ガイド](https://web3auth.io/docs/troubleshooting/webpack-issues)を参照してください。
+このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 このエラーは webpack バージョン 5 を使用している場合に発生します。 このバージョンでは、NodeJSポリフィルはデフォルトではサポートされなくなりました。 この問題を解決するには、この[ガイド](https://web3auth.io/docs/troubleshooting/webpack-issues)を参照してください。
 
 ## 次のステップ
 
-Web3-Onboardに関するより詳細なガイドについては、[Blocknative Docs](https://docs.blocknative.com/onboard)および[Blocknative Githubリポジトリ](https://github.com/blocknative/onboard)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample)にあります。
+Web3-Onboardに関するより詳細なガイドについては、[Blocknative Docs](https://docs.blocknative.com/onboard)および[Blocknative Githubリポジトリ](https://github.com/blocknative/onboard)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample)にあります。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Onboard-sample)にあります。
