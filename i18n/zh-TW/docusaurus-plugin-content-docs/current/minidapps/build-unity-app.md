@@ -479,8 +479,18 @@ Assets/
 
 ### 步驟 4：設置 Dapp 門戶 SDK
 
-1. 訪問：https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
 2. 將內容保存到 `scripts/dapp_portal_sdk.js` 中。  使用本地 Dapp Portal SDK 文件可提高加載時間和可靠性。
+
+:::note
+Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+
+```js
+// <script src="scripts/dapp_portal_sdk.js"></script>
+<script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
+```
+
+:::
 
 ### 第 5 步：配置 Unity 以使用自定義模板
 
