@@ -479,8 +479,18 @@ Assets/
 
 ### ステップ4：Dapp Portal SDKのセットアップ
 
-1. 訪問：https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
 2. 内容を `scripts/dapp_portal_sdk.js` に保存します。  ローカルのDapp Portal SDKファイルを使用することで、ロード時間と信頼性が向上します。
+
+:::note
+Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+
+```js
+// <script src="scripts/dapp_portal_sdk.js"></script>
+<script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
+```
+
+:::
 
 ### ステップ5：カスタムテンプレートを使用するようにUnityを設定する
 
