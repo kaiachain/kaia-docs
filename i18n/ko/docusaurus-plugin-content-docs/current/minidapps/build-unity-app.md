@@ -479,8 +479,18 @@ Copy and paste the code below in your `index.html` file:
 
 ### 4단계: Dapp 포털 SDK 설정하기
 
-1. 방문: https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+1. 방문: https://static.kaiawallet.io/js/dapp-portal-sdk.js
 2. 스크립트/dapp_portal_sdk.js\`에 콘텐츠를 저장합니다.  로컬 Dapp 포털 SDK 파일을 사용하면 로드 시간과 안정성이 향상됩니다.
+
+:::note
+또는 'index.html'의 '스크립트' 태그에 '스크립트'로 Dapp 포털 SDK 링크를 직접 추가할 수도 있습니다.
+
+```js
+// <script src="scripts/dapp_portal_sdk.js"></script>
+<script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
+```
+
+:::
 
 ### Step 5: Configure Unity to Use Custom Template
 
