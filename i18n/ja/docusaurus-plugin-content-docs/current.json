@@ -276,27 +276,27 @@
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.learnSidebar.category.Core Concepts": {
-    "message": "Core Concepts",
+    "message": "コアコンセプト",
     "description": "The label for category Core Concepts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "スマートコントラクト",
     "description": "The label for category Smart Contracts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Advanced Topics": {
-    "message": "Advanced Topics",
+    "message": "上級者向けトピックス",
     "description": "The label for category Advanced Topics in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Transaction Execution": {
-    "message": "Transaction Execution",
+    "message": "トランザクションの実行",
     "description": "The label for category Transaction Execution in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Token Economics": {
-    "message": "Token Economics",
+    "message": "トークンエコノミクス",
     "description": "The label for category Token Economics in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Transactions": {
-    "message": "Transactions",
+    "message": "トランザクション",
     "description": "The label for category Transactions in sidebar buildSidebar"
   }
 }
