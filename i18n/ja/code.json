@@ -9,7 +9,7 @@
     "message": "はじめに"
   },
   "Node Operators": {
-    "message": "ノード演算子"
+    "message": "ノードオペレーター"
   },
   "API references": {
     "message": "APIリファレンス"
@@ -18,10 +18,10 @@
     "message": "APIとライブラリ"
   },
   "Got a question? Visit our forum!": {
-    "message": "ご質問ですか？フォーラムをご覧ください！"
+    "message": "ご不明な点があればフォーラムをご覧ください！"
   },
   "theme.ErrorPageContent.title": {
-    "message": "このページはクラッシュした。",
+    "message": "エラーが発生しました",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
@@ -180,7 +180,7 @@
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "チップ",
+    "message": "ヒント",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {
