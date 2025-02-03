@@ -34,14 +34,6 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
-## Usage
-
-See [example](./example) and [test](./test).
-
-## Modifications to the Web3 object
-
-See [DESIGN](./DESIGN.md) for source code organization.
-
 ### Accounts
 
 - Following functions can handle kaia TxTypes. See [src/account/index.ts](./src/account/index.ts)

@@ -91,7 +91,7 @@ Kaia is designed for seamless interaction with other blockchain networks:
 
 ## Token Economy
 
-Kaia's native token, [KAIA](kaia-native-token.md), plays a central role in the blockchain's economy:
+Kaia's native token, [KAIA](./token-economics/kaia-native-token.md), plays a central role in the blockchain's economy:
 
 - KAIA tokens are issued automatically with each new block.
 - Initial annual inflation rate: 5.2%.

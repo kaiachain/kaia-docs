@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 Returns a RLP-encoded transaction string.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **Return Value**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 Returns a `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **Return Value**
 
@@ -536,11 +536,11 @@ For information on how to make the transaction hash for each transaction type, s
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) of transaction.
+Returns a [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) of transaction.
 
-The [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) are the same for basic transactions.
+The [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) are the same for basic transactions.
 
-For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make the [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **Return Value**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **Return Value**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 
