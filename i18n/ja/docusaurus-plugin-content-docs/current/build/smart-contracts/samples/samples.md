@@ -1,4 +1,4 @@
-# サンプル契約
+# サンプルコントラクト
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
