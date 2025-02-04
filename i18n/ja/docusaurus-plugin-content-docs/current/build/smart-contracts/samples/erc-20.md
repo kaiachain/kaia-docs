@@ -4,7 +4,7 @@
 
 このチュートリアルでは、[Kaia Token Standards](../token-standard.md)、特に[Fungible Token Standard \(ERC-20)](../token-standard.md#fungible-token-standard-kip-7)に準拠した、ERC-20互換トークンの例を作成します。
 
-上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。 詳細については、公式の[ERC-20ドキュメント](https://eips.ethereum.org/EIPS/eip-20)を参照してください。 ERC-20互換トークンは、以下のインターフェイスを実装したトークンコントラクトです。
+[ERC-20 Token Standard】(https://eips.ethereum.org/EIPS/eip-20)では、以下のように2つのイベントと9つのメソッド(3つのオプショ ンメソッドを含む)を定義している。 ERC-20互換トークンは、以下のインターフェイスを実装したトークンコントラクトです。
 
 ```text
 function name() public view returns (string) //optional
@@ -23,7 +23,7 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 上記のインターフェイスに基づき、開発者は新しい機能やロジックを追加することでトークンをカスタマイズし、Kaiaネットワークにデプロイすることができる。 詳細については、公式の[ERC-20ドキュメント](https://eips.ethereum.org/EIPS/eip-20)を参照してください。
 
-このチュートリアルでは、ERC-20互換トークンである`MyERC20.sol`を実装する。 このトークンはあらかじめ定義された量のトークンを発行し、デプロイ時にすべてのトークンを契約オーナーに送信する。 このトークンはあらかじめ定義された量のトークンを発行し、デプロイ時にすべてのトークンを契約オーナーに送信する。
+このチュートリアルでは、ERC-20互換トークンである`MyERC20.sol`を実装する。  このトークンはあらかじめ定義された量のトークンを発行し、デプロイ時にすべてのトークンを契約オーナーに送信する。
 
 `MyERC20.sol`はOpenZeppelinのERC20実装に基づいている。 `MyERC20.sol`はOpenZeppelinのERC20実装に基づいている。 このチュートリアルのコードの大部分は[OpenZeppelin 2.3 ](https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.3.0)からフォークしたもので、`MyERC20.sol`を実装するために以下のSolidityファイルを使用しています。
 
@@ -431,7 +431,7 @@ contract MyERC20 is IERC20 {
 - IERC20\\` インターフェースは、[ERC-20 仕様書](https://eips.ethereum.org/EIPS/eip-20) に記述されている必須インターフェースを定義する。
 - `SafeMath`ライブラリは、Solidityの `uint256` 型の安全な計算のためのオーバーフローチェックを追加した、Solidityの算術演算のラッパーを定義する。
 - MyERC20`は`IERC20\\` インターフェースを実装し、[ERC-20 仕様書](https://eips.ethereum.org/EIPS/eip-20) で説明されている 3 つのオプションのメソッドも定義している。
-  - ERC20に加えて、`コンストラクタ`が定義されており、このコンストラクタを使って新しいERC20トークンの名前とシンボルを定義し、あらかじめ定義された量のトークンを鋳造する。 コンストラクター\`は最初のデプロイ時に一度だけ呼ばれる。 コンストラクター`は最初のデプロイ時に一度だけ呼ばれる。
+  - ERC20に加えて、`コンストラクタ`が定義されており、このコンストラクタを使って新しいERC20トークンの名前とシンボルを定義し、あらかじめ定義された量のトークンをミントする。  コンストラクター\`は最初のデプロイ時に一度だけ呼ばれる。
 
 ### 1.2 重要なメソッドを見てみよう<a id="1-2-take-a-look-at-important-methods"></a>
 
@@ -457,7 +457,7 @@ contract MyERC20 is IERC20 {
 
 #### (2) `function transfer(address recipient, uint256 amount) external returns (bool);` <a id="2-function-transfer-address-recipient-uint256-amount-external-returns-bool"></a>
 
-転送`はERC-20の必須メソッドである。 また、 `Transfer\`イベントを発生させなければならない。 この関数は、メッセージ呼び出し元のアカウント残高が、使用するのに十分なトークンを 持っていない場合に throw すべきである(SHOULD)。 また、`Transfer\` イベントを発生させなければならない。 この関数は、メッセージ呼び出し元のアカウント残高が、使用するのに十分なトークンを 持っていない場合に throw すべきである(SHOULD)。
+転送`はERC-20の必須メソッドである。  また、 `Transfer\` イベントを発生させなければならない。 この関数は、メッセージ呼び出し元のアカウント残高が、使用するのに十分なトークンを 持っていない場合に throw すべきである。
 
 `transfer`は内部メソッド `_transfer` を呼び出すだけで、以下のように実際の転送とイベントを実装している。
 
@@ -532,9 +532,9 @@ contract MyERC20 is IERC20 {
 
 詳しくはOpenZeppelinのサンプル[ERC20Mintable.sol](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/v2.3.0/contracts/token/ERC20/ERC20Mintable.sol)をご覧ください。
 
-## 2. スマートコントラクトの導入
+## 2. スマートコントラクトのデプロイ
 
-スマートコントラクトをデプロイした後で追加トークンを発行したい場合は、`mint`のような新しいパブリックメソッドを導入しなければならない。 トークンを鋳造できるのは許可されたユーザーだけであるべきなので、この方法は注意して実装されるべきである。 このセクションでは、Remix Online IDEを使ってMyERC20スマートコントラクトをデプロイします。 MYERC20.solの完全なソースコードは、[ERC-20スマートコントラクトの作成](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract)に記載されている。
+このセクションでは、MyERC20 スマートコントラクをRemix Online IDEを利用してデプロイします  MYERC20.solの完全なソースコードは、[ERC-20スマートコントラクトの作成](https://docs.kaia.io/build/smart-contracts/samples/erc-20/#1-writing-erc-20-smart-contract)に記載されている。
 
 ### 2.1 前提条件<a href="#2-1-prerequisites" id="2-1-prerequisites"></a>
 
