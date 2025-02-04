@@ -23,7 +23,7 @@ sidebar_label: Privy
 
 - **index.tsx**：このファイルは、ユーザーのログイン認証を処理する。
 - **app.tsx**：このファイルはPrivy SDKの初期化を処理し、PrivyProviderでコンポーネントをラップします。
-- **dashboard.tsx**：ログイン後にユーザーがリダイレクトされるページです。 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract. 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract.
+- **dashboard.tsx**：ログイン後にユーザーがリダイレクトされるページです。 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract. 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 これらの機能には、ユーザー残高の取得、別のアカウントへのKAIAの送信、コントラクトの展開、スマートコントラクトとのやり取りなどが含まれる。
 
 ## インストール
 
@@ -68,14 +68,14 @@ function MyApp({Component, pageProps}: AppProps) {
 export default MyApp;
 ```
 
-プリヴィー・プロバイダーが以下のプロパティを取ることに注意することが重要である：
+Privy provider が以下のプロパティを取ることに注意することが重要である：
 
 - .envファイルで更新する必要があります。 .envファイルで更新する必要があります。 テスト用にPrivyから提供された`test App ID: clpispdty00ycl80fpueukbhl`で始めることができる。
 - オプションの `onSuccess` コールバックは、ユーザがログインに成功すると実行される。
 - オプションの `createPrivyWalletOnLogin` boolean で、ログイン時に埋め込みウォレットを作成させるかどうかを設定します。
 - オンボーディング体験をカスタマイズするためのオプションの設定プロパティです。
 
-## コネクティング・ウォレット
+## ウォレットを接続する
 
 `index.tsx`ファイル内のLoginPage関数内で、[login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) メソッドを呼び出します。このメソッドは、Privyのログインモーダルを開き、ユーザーにログインを促します。
 
@@ -183,7 +183,7 @@ return (
 
 ## ネイティブ・トランザクションの送信
 
-You can perform native transactions, like sending KLAY from one user to another.
+あるユーザーから別のユーザーへKAIAを送信するなど、ネイティブ・トランザクションを実行できる。
 
 ```tsx
 const [klayTransferTx, setKlayTransferTx] = useState("");
@@ -220,7 +220,7 @@ return (
 
 ## スマートコントラクトとの連携
 
-### 1. 契約の展開
+### 1. コントラクトのデプロイ
 
 スマート・コントラクトは、アプリケーション・バイナリ・インターフェース（ABI）とコントラクトのバイトコードによってデプロイできる。
 
@@ -296,7 +296,7 @@ return (
 );
 ```
 
-### 2. 契約書への書き込み
+### 2. コントラクトへの書き込み
 
 ```tsx
 const [contractWriteTx, setContractTx] = useState("");
@@ -375,7 +375,7 @@ return (
 );
 ```
 
-### 3. 契約書を読む
+### 3. コントラクトを読む
 
 ```tsx
 const [readContractMessage, setContractMessage] = useState();
