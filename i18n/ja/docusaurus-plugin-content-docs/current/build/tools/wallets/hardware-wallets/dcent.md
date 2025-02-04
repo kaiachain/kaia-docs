@@ -1,4 +1,4 @@
-# ディセント・バイオメトリック・ウォレット
+# D'cent Biometric Wallet
 
 ## はじめに<a id="introduction"></a>
 
@@ -10,4 +10,4 @@ D'Cent Walletは、暗号を簡単に管理できるよう、Bluetooth対応の�
 
 - [セットアップ](https://userguide.dcentwallet.com/biometric-wallet/setting-up)
 - [カイヤの送受信方法](https://userguide.dcentwallet.com/coin-send-receive/coins/klaytn-klay#how-to-create-an-klay-account)
-- [カイア・ウォレットとつながる](https://userguide.dcentwallet.com/external-service/kaikas)
+- [カイア・ウォレットとの接続](https://userguide.dcentwallet.com/external-service/kaikas)
