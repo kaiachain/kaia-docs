@@ -1,12 +1,12 @@
-# オラクルネットワーク
+# Orakl Network
 
 ![](/img/banners/kaia-orakl.png)
 
 ## はじめに
 
-[オラクルネットワーク](https://docs.orakl.network)は、スマートコントラクトがオフチェーンのデータやその他のリソースに安全にアクセスできるようにする分散型オラクルネットワークである。 データフィード](https://docs.orakl.network/developers-guide/data-feed)、[VRF](https://docs.orakl.network/developers-guide/vrf)、[リクエスト・レスポンス](https://docs.orakl.network/developers-guide/request-response)、[プルーフ・オブ・リザーブ](https://docs.orakl.network/developers-guide/proof-of-reserve)のソリューションを提供するネイティブ・トークン・オラクルであることを誇りとしている。
+[Orakl Network](https://docs.orakl.network)は、スマートコントラクトがオフチェーンのデータやその他のリソースに安全にアクセスできるようにする分散型オラクルネットワークである。 データフィード](https://docs.orakl.network/developers-guide/data-feed)、[VRF](https://docs.orakl.network/developers-guide/vrf)、[リクエスト・レスポンス](https://docs.orakl.network/developers-guide/request-response)、[プルーフ・オブ・リザーブ](https://docs.orakl.network/developers-guide/proof-of-reserve)のソリューションを提供するネイティブ・トークン・オラクルであることを誇りとしている。
 
-Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function)は、スマートコントラクトが検証可能なランダム値を生成することを可能にし、ランダム性を必要とする様々なdAppsで使用することができる。 オラクルネットワークは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。 オラクルネットワークは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。
+Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function)は、スマートコントラクトが検証可能なランダム値を生成することを可能にし、ランダム性を必要とする様々なdAppsで使用することができる。 オラクルネットワークは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。 Orakl Networkは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。
 
 このチュートリアルでは、Orakl NetworkのVRF機能を利用して、スマート・コントラクトの内部からランダムな単語をリクエストします。
 
@@ -59,7 +59,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### ステップ 3: 一時的なアカウントでランダムワードをリクエストする
 
-To request random words with a temporary account, users need to send $KLAY together with a call using value property.
+一時的なアカウントでランダムな単語をリクエストするには、ユーザーはvalueプロパティを使用したコールとともに $KAIA。
 
 ```solidity
   function requestRandomWordsDirect(
