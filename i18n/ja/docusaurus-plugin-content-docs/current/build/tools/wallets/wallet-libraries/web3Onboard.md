@@ -10,11 +10,11 @@ sidebar_label: Web3-Onboard
 
 Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)のようなツールを活用することで、プロジェクトや開発者は複数のウォレットを分散型アプリケーション（dApps）に素早く統合することができる。 Web3-Onboardの助けを借りて、ユーザーのオンボーディングが簡素化されました。 Web3-Onboardには、複数のウォレットのサポートから、ユーザーが自分のアカウントを異なるチェーンやネットワークに接続し、リアルタイムの取引通知を受け取る機能など、さまざまな機能がある。
 
-このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を統合します。 をカイアネットワーク上に構築したdAppに追加することができます。 をカイアネットワーク上に構築したdAppに追加することができます。
+カイアネットワーク上に構築したdAppに追加することができます。 をカイアネットワーク上に構築したdAppに追加することができます。
 
 ## 前提条件
 
-- 作業中のreactプロジェクト(`npx create-react-app project-name`を実行する)
+- このガイドでは、Web3-Onboardライブラリを使用して複数のウォレット（Coinbase Wallet、Metamask、WalletConnectなど）を
 - 必要なウォレット（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）をインストールします。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
@@ -148,7 +148,7 @@ export const truncateAddress = (address) => {
 import { truncateAddress, toHex } from "./utils";
 ```
 
-## コネクティング・ウォレット
+## ウォレットを接続する
 
 `App.js` ファイルの App 関数内で、オンボードインスタンスの `connectWallet()` メソッドを呼び出し、オンボードポップアップモーダルを開始します。
 
@@ -259,7 +259,7 @@ function App() {
 }
 ```
 
-## スイッチング・ネットワーク
+## ネットワークをスイッチする
 
 `dAppsでネットワークの切り替えをユーザーに促すために、Web3-Onboardは初期化されたOnboardのインスタンスに`setChain\`メソッドを提供します。 ターゲット・ネットワークは、アプリケーションの開始時にオンボード・インスタンスで初期化されていなければならないことに注意してください。
 
@@ -320,7 +320,7 @@ return (
 
 ```
 
-## スマートコントラクトとの対話
+## スマートコントラクトとのやりとり
 
 Web3-Onboardのプロバイダと署名者オブジェクトを使えば、ブロックチェーン上に配置されたスマートコントラクトへの書き込みや、スマートコントラクトからの読み込みといったコントラクトのやり取りを行うことができる。
 
