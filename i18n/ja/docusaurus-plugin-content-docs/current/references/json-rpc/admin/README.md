@@ -1,5 +1,5 @@
 このRPC APIドキュメントはKaia-docs公式サイトに自動生成されます。
-Please follow the steps below if you also want to build the RPC API documentation
+RPC API ドキュメントも構築したい場合は、以下の手順に従ってください。
 
 ```shell
 > git clone -b dev https://github.com/kaiachain/kaia-sdk.git
