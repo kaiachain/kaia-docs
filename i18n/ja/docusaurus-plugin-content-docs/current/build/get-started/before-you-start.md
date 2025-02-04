@@ -2,8 +2,8 @@
 
 **カイア・ネットワークス**
 
-- Baobab testnet
-- Cypress mainnet
+- Kairos testnet
+- Mainnet
 
 \*\*エンドポイントノード
 
