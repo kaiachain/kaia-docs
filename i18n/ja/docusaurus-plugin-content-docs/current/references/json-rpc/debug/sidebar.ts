@@ -1,7 +1,7 @@
 import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 const sidebar: SidebarsConfig = {
   apisidebar: [{
-    type: "doc",
+    type: "ドキュメント",
     id: "references/json-rpc/debug/web-3-rpc"
   }]
 };
