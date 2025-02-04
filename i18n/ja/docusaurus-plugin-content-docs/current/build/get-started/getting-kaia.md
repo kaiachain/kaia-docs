@@ -1,11 +1,11 @@
 # KAIAを入手
 
-## カイロス・テストネットと蛇口<a id="kairos-testnet-and-faucet"></a>
+## カイロス・テストネットとFaucet<a id="kairos-testnet-and-faucet"></a>
 
-水栓はKairosネットワーク上で動作します。 水栓はKairosネットワーク上で動作します。 この蛇口は[Kairos Kaia Faucet](https://faucet.kaia.io)からアクセスできる。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。
+FaucetはKairosネットワーク上で動作します。 FaucetはKairosネットワーク上で動作します。 このFaucetは[Kairos Kaia Faucet](https://faucet.kaia.io)からアクセスできる。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。
 
 - 秘密鍵またはキーストアファイルを使用して、アカウントをウォレットにロードします。 秘密鍵またはキーストアファイルを使用して、アカウントをウォレットにロードします。 Testnet KAIAはロードされたアカウントに送信されます。
-- `Run Faucet`ボタンをクリックすると、50テストネットKAIAが送信され、残高が更新されます。 なお、各アカウントの蛇口は24時間に1回だけ動かすことができる。
+- `Run Faucet`ボタンをクリックすると、50テストネットKAIAが送信され、残高が更新されます。 なお、各アカウントのFaucetは24時間に1回だけ動かすことができる。
 
 ## KAIA交換リスト<a id="kaia-exchange-list"></a>
 
