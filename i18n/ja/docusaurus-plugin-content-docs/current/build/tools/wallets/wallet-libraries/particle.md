@@ -2,15 +2,15 @@
 sidebar_label: Particle Network
 ---
 
-# パーティクルネットワークをdAppに統合する
+# Particle NetworkをdAppに統合する
 
 ![](/img/banners/kaia-particle.png)
 
 ## はじめに
 
-[Particle Network](https://particle.network)'s Wallet Abstraction services enable universal, Web2-adjacent onboarding and interactions.
+[Particle Network](https://particle.network)は、ユーザーオンボーディングを簡素化するために、ウォレット抽象化サービスを提供します。
 
-Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web)は、Kaiaとそのテストネットを含むEVM互換チェーンをサポートしています。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。
+[Particle Connect SDK](https://developers.particle.network/api-reference/connect/desktop/web)は、Kaiaとそのテストネットを含むEVM互換チェーンをサポートしています。 [social and Web3 login options](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)を使って、2クリックオンボーディングを可能にします。
 
 Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテストネット用のソーシャルログインを埋め込むことができ、ユーザーはGoogle、Eメール、Xなどを使ってアプリケーション内でウォレットを生成し、使用することができます。
 
@@ -32,11 +32,11 @@ SDKとViem（コネクトのバックエンド）、ethers（EIP-1193プロバ�
 yarn add @particle-network/connectkit viem@^2エーテル
 ```
 
-## パーティクルコネクトの初期化
+## Particle Connectの初期化
 
 まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
 
-To leverage Particle Network on alternative platforms, such as Android, iOS, React Native, Flutter, & Unity, kindly refer to Particle’s [documentation](https://developers.particle.network/reference/introduction-to-api-sdk-reference).
+次に、[Particle dashboard](https://dashboard.particle.network)にアクセスして新しいWebアプリケーションプロジェクトを作成し、以下の必須APIキーを取得します：
 
 - **`projectId`** - プロジェクトの一意な識別子。
 - **`clientKey`** - クライアント固有のキー。
