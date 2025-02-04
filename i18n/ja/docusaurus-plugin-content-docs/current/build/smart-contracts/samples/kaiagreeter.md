@@ -2,7 +2,7 @@
 
 `KaiaGreeter`は挨拶メッセージを返すシンプルなコントラクトである。 挨拶メッセージは契約展開時に設定されます。
 
-## カイアグリーターの執筆<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
+## カイアグリーターの作成<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
 ```
 pragma solidity 0.5.6;
@@ -34,7 +34,7 @@ contract KaiaGreeter is Mortal {
 - [Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、`KaiaGreeter`契約を作成してください。 完全なソースコードは上記の通り。
 - 契約を展開するために使用するアカウントを準備します。
   - まだアカウントをお持ちでない方は、[https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy)からアカウントを作成してください。
-  - 蛇口からKAIAを試す - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+  - FaucetからKAIAを試す - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
 - 初期パラメータである挨拶メッセージを持つコントラクトをデプロイする。
 - デプロイ後、IDEから`greet`を呼び出すことができる。
 
