@@ -1,6 +1,6 @@
 # アカウント管理
 
-## 口座リスト<a id="list-your-accounts"></a>
+## アカウントの一覧作成<a id="list-your-accounts"></a>
 
 これは、データ・ディレクトリの下に作成されたすべてのアカウントのリストを返す。
 
@@ -41,7 +41,7 @@ $ ken account new --password <(echo this is not secret) --datadir <DATADIR>
 $ ken --password <(echo "this is not secret") --unlock primary --datadir <DATADIR> --rpccorsdomain localhost --verbosity 6 2>> log.log
 ```
 
-If you want to start a node with a specific account unlocked, you can use an address or an index which refers to the address position in the account list (and corresponds to the order of creation).
+特定のアカウントのロックを解除した状態でノードを起動したい場合、アカウントリスト内の住所の位置を参照するアドレスまたはインデックスを使用することができます。
 
 ```bash
 $ ken --unlock "0" --datadir <DATADIR>
@@ -65,9 +65,9 @@ On the console you can also unlock accounts (one at a time) for a duration (in s
 > personal.unlockAccount(address, "password", 300)
 ```
 
-コンソールの履歴が記録されるため、アカウントが危険にさらされる可能性があります。 あなたは警告されている。 あなたは警告されている。
+コンソールの履歴が記録されるため、アカウントが危険にさらされる可能性があります。 あなたは警告されている。 警告が発せられています。
 
-## 口座残高の確認<a id="check-account-balance"></a>
+## アカウント残高の確認<a id="check-account-balance"></a>
 
 ### ken <a id="ken"></a>
 
@@ -120,4 +120,4 @@ kaia.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99  balance: 6 KAIA
 true
 ```
 
-このファイルは、あたかも手動でコマンドを入力したかのように、あなたのJavaScript環境を変更する。 自由に実験してほしい！ 自由に実験してほしい！
+このファイルは、あたかも手動でコマンドを入力したかのように、JavaScript環境を変更する。  試してみてください！
