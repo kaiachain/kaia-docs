@@ -59,7 +59,7 @@ $ cat node_info.json
 
 ### ノード URI 登録<a id="node-uri-enrollment"></a>
 
-The created node URI should be enrolled to participate in the Core Cell Network (CCN). 入団の流れは以下の通り。
+The created node URI should be enrolled to participate in the Core Cell Network (CCN). 登録の流れは以下の通り。
 
 1. 関連するIPとポート番号を含むノードURIを、`kgen` \(`node_info.json`) を使用して作成する。
 2. カイア公式メールアドレス(`bootstrap@klaytn.com` for Mainnet or `baobab@klaytn.com` for Kairos)に情報を送信してください。
