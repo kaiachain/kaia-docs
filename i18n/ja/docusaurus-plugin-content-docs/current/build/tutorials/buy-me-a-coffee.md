@@ -4,7 +4,7 @@
 
 - [1. プロジェクト・セットアップ](#1-project-setup)
 - [2. コーヒーを買うスマートコントラクトの作成](#2-creating-a-buy-me-a-coffee-smart-contract)
-- [3. スクリプトを使った契約の機能テスト](#3-testing-the-contracts-functionalities-using-scripts)
+- [3. スクリプトを使ったコントラクトの機能テスト](#3-testing-the-contracts-functionalities-using-scripts)
 - [4. カイア・テストネットへのBMCスマート・コントラクトの導入 ](#4-deploying-bmc-smart-contract)
 - [5. ReactとWeb3OnboardによるBMCフロントエンドの構築](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. Fleekを使ってフロントエンドのコードをIPFSにデプロイする](#6-deploying-frontend-code-on-ipfs-using-fleek)
@@ -21,7 +21,7 @@ Buy Me a Coffee（BMC）は、クリエイターがファンや視聴者から�
 - ファンからの支援金を仲介なしに直接受け取ることができる。
 - 分散化、つまり、プラットフォームをコントロールする中央当局が存在しない。
 
-このチュートリアルでは あなたは、Buy Me a Coffee (BMC)プラットフォームの分散型バージョン（フロントエンド＋スマートコントラクト）を構築します。 このプラットフォームは、従来のBMCプラットフォームの最小限の実装となり、支援者はあなたにチップを渡すことができ、あなたは契約の所有者としてBMCスマートコントラクトに届けられたチップを引き出すことができる。 Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
+このチュートリアルでは Buy Me a Coffee (BMC)プラットフォームの分散型バージョン（フロントエンド＋スマートコントラクト）を構築します。 このプラットフォームは、従来のBMCプラットフォームの最小限の実装となり、支援者はあなたにチップを渡すことができ、あなたは契約の所有者としてBMCスマートコントラクトに届けられたチップを引き出すことができる。 Supporters will be able to send test KLAY and lovely messages together in a coffee transaction using this site.
 
 このガイドが終わるまでに、このdAppを作成するために以下を使用することになる：
 
@@ -39,7 +39,7 @@ Buy Me a Coffee（BMC）は、クリエイターがファンや視聴者から�
 - Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、【Metamask Wallet](https://metamask.io/download/)など、必要なウォレットのインストール。
 - [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)のいずれかから取得できます。
-- Fleek](https://app.fleek.co/)にアカウント作成。
+- [Fleek](https://app.fleek.co/)にアカウント作成。
 
 ## 1. プロジェクト設定<a id="1-project-setup"></a>
 
@@ -57,7 +57,7 @@ cd BuyMeACoffee
 
 ### 1.1. フロントエンドフォルダ
 
-このフォルダには、プロジェクトのフロントエンドウェブサイトを構築するためのツールが含まれています。 このフォルダには、プロジェクトのフロントエンドウェブサイトを構築するためのツールが含まれています。 このガイドでは、Next.jsとTailwind CSSプロジェクトをブートストラップするために、Nextの[create-next-app](https://nextjs.org/docs/api-reference/create-next-app)ユーティリティを使用します。 以下の手順に従って、必要な依存関係をインストールし、フロントエンドフォルダを作成します： 以下の手順に従って、必要な依存関係をインストールし、フロントエンドフォルダを作成します：
+このフォルダには、プロジェクトのフロントエンドウェブサイトを構築するためのツールが含まれています。 [Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、【Metamask Wallet](https://metamask.io/download/)など、必要なウォレットのインストール。 以下の手順に従って、必要な依存関係をインストールし、フロントエンドフォルダを作成します：
 
 #### ステップ1 - フロントエンドフォルダの作成
 
@@ -511,7 +511,7 @@ main().catch((error) => {
 
 上のコードからわかるように、BMC 契約をインスタンス化すると、スクリプトは契約残高がゼロより大きいときだけ withdrawCoffeTips 関数を実行します。  理にかなっているだろう？  理にかなっているだろう？
 
-そうだ！ コントラクトに資金がない場合、「引き出す資金がありません」と表示されるため、コントラクトを起動する手間が省ける。
+そうですね！ コントラクトに資金がない場合、「引き出す資金がありません」と表示されるため、コントラクトを起動する手間が省ける。
 
 これを実際に見てみるために、以下のスクリプトを実行してみよう：
 
@@ -854,7 +854,7 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 詳しくはこちらの[ガイド](https://blog.fleek.co/posts/fleek-nextJS)をご覧ください。
 
-2. Fleekのダッシュボードに移動し、**新しいサイトを追加**をクリックします。
+2. 上のスクリーンショットを見れば、dAppに初めてアクセスしたときに、ウォレットを接続するよう求められることがもうお分かりだろう。
 
 ![](/img/build/tutorials/fleek-addsite.png)
 
@@ -885,8 +885,8 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 ## 7. 結論<a id="conclusion"></a>
 
-ここまで来たなら、おめでとう！ ここまで来たなら、おめでとう！ このチュートリアルでは、Solidity、NextJs、Web3Onboard、Fleek を使用してフルスタックの Buy Me A Coffee dApp を作成する方法を学びました。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。
+ここまで来たなら、おめでとう！ このチュートリアルでは、Solidity、NextJs、Web3Onboard、Fleek を使用してフルスタックの Buy Me A Coffee dApp を作成する方法を学びました。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。
 
-From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KLAY statically. [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
+ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
 
-より詳細な情報をお知りになりたい方は、[Kaia Docs](https://docs.klaytn.foundation/)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ご質問は[カイアフォーラム](https://devforum.kaia.io/)まで。
+より詳細な情報をお知りになりたい方は、[Kaia Docs](https://docs.klaytn.foundation/)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。
