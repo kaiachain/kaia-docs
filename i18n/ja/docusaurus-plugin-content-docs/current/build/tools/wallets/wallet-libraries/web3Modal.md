@@ -302,7 +302,7 @@ return (
 ) 
 ```
 
-## 署名メッセージ
+## メッセージに署名する
 
 プロバイダーと署名者オブジェクトを初期化すると、ユーザーは任意の文字列に署名できる。
 
@@ -338,7 +338,7 @@ const signMessage = async(e) => {
 
 ## ネイティブ・トランザクションの送信
 
-You can perform native transactions, like sending KLAY from one user to another.
+あるユーザーから別のユーザーへKAIAを送信するなど、ネイティブ・トランザクションを実行できる。
 
 ```js
     // add to the existing useState hook.
@@ -379,7 +379,7 @@ return (
 
 Web3Modalのプロバイダと署名者オブジェクトを使えば、ブロックチェーンにデプロイされたスマートコントラクトへの書き込みや、スマートコントラクトからの読み込みといったコントラクトのやり取りができる。
 
-### 1. 契約書への書き込み
+### 1. コントラクトへの書き込み
 
 ```js
 // add to existing useState hook
@@ -464,7 +464,7 @@ return (
 )
 ```
 
-### 2. 契約書を読む
+### 2. コントラクトを読む
 
 ```js
 // add to existing useState hook
