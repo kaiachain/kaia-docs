@@ -4,31 +4,31 @@
 
 ## はじめに
 
-カイアは、シームレスな開発者体験を提供することを優先しており、これがカイア・コントラクト・ウィザード（KCW）創設の原動力となっています。 In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. It's worth noting that the Kaia contracts wizard is built on the foundation of the OpenZeppelin Wizard, further bolstering the security of smart contract development. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts).
+カイアは、シームレスな開発者体験を提供することを優先しており、これがカイア・コントラクト・ウィザード（KCW）創設の原動力となっています。 In essence, it simplifies the process of developing smart contracts by leveraging the components of Kaia contracts. KCWは、スマートコントラクトを簡単にブートストラップし、[Kaia Contracts](https://github.com/kaiachain/kaia-contracts)で利用可能な安全でテスト済みのコンポーネントを利用するためのインタラクティブなツールとして機能します。 要するに、Kaiaコントラクトのコンポーネントを活用することで、スマートコントラクトの開発プロセスを簡素化します。 Kaiaコントラクト・ウィザードがOpenZeppelinウィザードの基礎の上に構築されており、スマート・コントラクト開発のセキュリティをさらに強化していることは注目に値する。
 
 このガイドでは、次のことを学ぶ：
 
-- カイヤ契約ウィザードの基本機能を理解する。
+- カイヤコントラクトウィザードの基本機能を理解する。
 - Kaiaコントラクトウィザードを使用してスマートコントラクトコードを生成し、カスタマイズします。
 - Foundry Scripting Systemを使用して、KaiaコントラクトをKaia Network (Kairos)にデプロイする。
 
-## カイアの契約ウィザードを探る
+## カイアのコントラクトウィザードを探る
 
 Kaiaコントラクトウィザードは、Kaiaコントラクトを使用してスマートコントラクトを記述する最も速く簡単な方法です。 このセクションでは、カイア・コントラクト・ウィザードの様々なコンポーネントとセグメントについて説明します。
 
 現状では、カイアのコントラクトウィザードは以下のトークン標準をサポートしています：
 
-- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - カイアのカンジブルトークン規格。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつが不換紙幣で、同額紙幣はそれぞれ同じ価値を持つ。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつが不換紙幣で、同額紙幣はそれぞれ同じ価値を持つ。
-- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアの非腐敗性トークン規格である。 菌類でないとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。 菌類でないとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
-- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでカビるトークンとカビないトークンの両方を表現できるからだ。
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - カイアのFungibleトークン規格。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつがフィアット通過で、同額紙幣はそれぞれ同じ価値を持つ。
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアのNon-fungibleトークン規格である。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでfungibleトークンとNon-fungibleトークンの両方を表現できるからだ。
 
 [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9)のサポートに伴い、Kaiaコントラクトウィザードは[ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)もサポートしています。
 
-カイア契約ウィザードは以下のセクションで構成されています：
+カイアコントラクトウィザードは以下のセクションで構成されています：
 
 - **トークン標準セクション**：このタブは、カイアのコントラクトウィザードでサポートされているすべての異なるトークン標準から構成されています。
 
-- **設定セクション**：このセクションでは、トークン名、シンボル、プレミント（コントラクトがデプロイされたときにトークンが供給される）、URI（腐敗しないトークンの場合）など、各トークン標準の事前設定を提供します。
+- **設定セクション**：このセクションでは、トークン名、シンボル、プレミント（コントラクトがデプロイされたときにトークンが供給される）、URI（Non-fungibleトークンの場合）など、各トークン標準の事前設定を提供します。
 
 - **特徴セクション**：各トークン規格で利用可能なすべての特徴から構成されています。 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください： 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください：
 
@@ -44,7 +44,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 カイアのコントラクトウィザードの様々な部分を探索した後、ご希望のコントラクトの種類を選択し（現在サポートされているのは、**KIP7**、**KIP17**、**KIP37**、**ERC20**、**ERC721**、**ERC1155**、**Governor**、およびカスタムコントラクト）、パラメータとご希望の機能（トークン名、シンボル、プレミント量、アクセス制御など）を設定すると、コントラクトウィザードが必要なコードをすべて生成します。 こうして生成されたコードは、すぐにコンパイルしてデプロイすることもできるし、出発点として利用し、アプリケーション固有のロジックでさらにカスタマイズすることもできる。 こうして生成されたコードは、すぐにコンパイルしてデプロイすることもできるし、出発点として利用し、アプリケーション固有のロジックでさらにカスタマイズすることもできる。
 
-## カイアネットワーク上でのカイア契約のカスタマイズと展開
+## カイアネットワーク上でのカイアコントラクトのカスタマイズとデプロイ
 
 このセクションでは、Kaiaコントラクトウィザードから生成されたコードを、Foundryを使用してKaia Testnet Kairosにデプロイします。 このセクションでは、Kaiaコントラクトウィザードから生成されたコードを、Foundryを使用してKaia Testnet Kairosにデプロイします。 生成されたコードは出発点となり、KIP7とKIP17トークンのエアドロップ契約に合わせてさらにカスタマイズされる。  もう一方では、KIP37用に生成されたコードがそのまま使われる。  もう一方では、KIP37用に生成されたコードがそのまま使われる。
 
@@ -64,7 +64,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 このガイドでは、KIP7とKIP17トークン標準のエアドロップ契約の簡単な実装方法を説明します。 エアドロップ契約では、プロジェクトの作成者は、各トークンをウォレットの特定の選択に直接鋳造します。 次のセクションでは、それぞれのトークン・エアードロップ・コントラクトをカスタマイズし、デプロイする方法を見ていきます。 エアドロップ契約では、プロジェクトの作成者は、各トークンをウォレットの特定の選択に直接鋳造します。 次のセクションでは、それぞれのトークン・エアードロップ・コントラクトをカスタマイズし、デプロイする方法を見ていきます。
 
-### トークン契約のカスタマイズ
+### トークンコントラクトのカスタマイズ
 
 \*\*KIP7契約をKIP7 Airdrop契約にカスタマイズする。
 
@@ -295,7 +295,7 @@ KIP37コントラクト・コードの準備ができたので、次のステッ
 
 このセクションでは、Foundryのsolidityスクリプトを使用してコントラクトをデプロイします。
 
-### 環境設定
+### トークンコントラクトのカスタマイズ
 
 生成したスマートコントラクトをKaia Kairosテストネットにデプロイするつもりですが、そのためにはKairos RPC URLやテストKAIAで資金調達しているアカウントの秘密鍵などを設定して、Foundryを少し設定する必要があります。
 
@@ -413,9 +413,9 @@ contract KIP37MultiTokenDeployScript is Script {
 
 その後、\*\*vm.startBroadcast(deployerPrivateKey)\*\*という特殊なチートコードを呼び出し、メインスクリプト・コントラクトが行った呼び出しとコントラクトの作成を記録する。このコードは、トランザクションに署名するためのdeployerPrivateKeyを渡している。
 
-そして、それぞれの契約書を作成した。 そして、それぞれの契約書を作成した。 以前にvm.startBroadcast()というチートコードを呼び出したので、このコントラクト作成はforgeによって記録される。
+そして、それぞれのコントラクトを作成した。 そして、それぞれの契約書を作成した。 以前にvm.startBroadcast()というチートコードを呼び出したので、このコントラクト作成はforgeによって記録される。
 
-各ラインの概要が分かったところで、契約の展開に移ろう。  この[リンク](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script)をクリックして、スクリプトの書き方やその他の詳細をご覧ください。
+各ラインの概要が分かったところで、コントラクトのデプロイに移ろう。  この[リンク](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script)をクリックして、スクリプトの書き方やその他の詳細をご覧ください。
 
 プロジェクトのルートで
 
@@ -424,12 +424,12 @@ contract KIP37MultiTokenDeployScript is Script {
 source .env
 ```
 
-各契約をデプロイするには、以下のコマンドを実行する：
+各コントラクトをデプロイするには、以下のコマンドを実行する：
 
 1. airdropKIP7
 
 ```bash
-forge script script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
+スクリプトを作成する script/airdropKIP7.s.sol:KIP7AirdropDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 2. airdropKIP17
@@ -441,7 +441,7 @@ forge script script/airdropKIP17.s.sol:KIP17AirdropDeployScript --rpc-url $KAIRO
 3. KIP37MultiToken
 
 ```bash
-スクリプトを偽造する script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
+forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url $KAIROS_RPC_URL --broadcast --skip-simulation -vvvv
 ```
 
 各コマンドが成功すれば、ターミナルは次のようになるはずだ：
