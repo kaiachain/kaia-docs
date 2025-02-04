@@ -9,7 +9,7 @@
 Hardhatは、スマート・コントラクト開発環境です：
 
 - スマートコントラクトの開発とコンパイル
-- スマートコントラクトとdAppsのデバッグ、テスト、デプロイ。
+- スマートコントラクトとdAppsのデバッグ、テスト、デプロイする。
 
 ソウル・バウンド・トークン（SBT）は譲渡不可能なNFTである。 つまり、一度取得した情報を他のユーザーに販売したり譲渡したりすることはできません。 SBTの詳細、仕組み、使用例については、Vitalik Buterinが発表したこちらの[参考記事](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)をご覧いただきたい。
 
@@ -23,9 +23,9 @@ Hardhatは、スマート・コントラクト開発環境です：
 
 ## 前提条件
 
-このチュートリアルに従うには、次のことが前提条件となる：
+このチュートリアルを開始するには、次のことが前提条件となる：
 
-- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
+- コードエディタ: [VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
 - [メタマスク](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダ](../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
