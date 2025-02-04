@@ -21,7 +21,7 @@
 
 ### ステップ1：S値インタフェースの作成
 
-これは、SupraOraclesから価格を取得するために使用されるインターフェイスを作成します。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。 S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。
+これは、SupraOraclesから価格を取得するために使用されるインターフェイスを作成します。  S-Valueを取得したいsolidityスマートコントラクトに以下のコードを追加する。
 
 ```solidity
 interface ISupraSValueFeed {
@@ -31,7 +31,7 @@ function checkPrice(string memory marketPair) external view returns (int256 pric
 
 ### ステップ2：S値フィードアドレスの設定
 
-SupraOraclesスマートコントラクトからS-Valueを取得するには、まず選択したチェーンのS-Valueフィードアドレスを見つけます。 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する： 適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する：
+SupraOraclesスマートコントラクトからS-Valueを取得するには、まず選択したチェーンのS-Valueフィードアドレスを見つけます。  適切なアドレスが得られたら、先に定義したインターフェイスを使用してS-Value Feedのインスタンスを作成する：
 
 ```solidity
 contract ISupraSValueFeedExample {
@@ -46,7 +46,7 @@ contract ISupraSValueFeedExample {
 
 ### ステップ3: S-Value暗号価格を取得する
 
-S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。 このステップでは、スマートコントラクトに以下のコードを適用することで、ETH/USDT（eth_usdt）の価格を取得します。
+S-Valueの暗号化通貨ペアに簡単にアクセスできるようになりました。  このステップでは、スマートコントラクトに以下のコードを適用することで、ETH/USDT（eth_usdt）の価格を取得します。
 
 ```solidity
 function getEthUsdtPrice() external view returns (int) {
@@ -106,7 +106,7 @@ contract ISupraSValueFeedExample {
 
 多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
 
-本稿執筆時点では、getEthUsdtPrice()は "185795966200 "という8ポイント精度の数値を返している。 実際のETH/USDの値を得るには、この数字を10^8で割る必要があり、これは$1857.95966200に相当する。 多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
+本執筆時点では、getEthUsdtPrice()は "185795966200 "という8ポイント精度の数値を返している。 多田🎉！ スマートコントラクトに通貨価格のフィード（ETH/USDT）を要求しました。
 
 ## SupraOraclesの暗号通貨価格フィードを利用するその他の方法
 
