@@ -4,7 +4,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-ハードウェアウォレットは、インターネット接続から切り離されたオフライン環境に秘密鍵（取引の署名に必要）を保管することで、インターネット接続に依存するソフトウェアウォレットで発生する数々のハッキングや脅威を回避し、車輪を再発明した。 こうすることで、ユーザーの暗号資産はより安全になり、ソフトウェア・ウォレットがもたらすインターネット上の危険から守られる。 こうすることで、ユーザーの暗号資産はより安全になり、ソフトウェア・ウォレットがもたらすインターネット上の危険から守られる。
+ハードウェアウォレットは、インターネット接続から切り離されたオフライン環境に秘密鍵（取引の署名に必要）を保管することで、インターネット接続に依存するソフトウェアウォレットで発生する数々のハッキングや脅威を回避し、車輪を再発明した。 こうすることで、ユーザーの暗号資産はより安全になり、ソフトウェア・ウォレットがもたらすインターネット上の危険から守られる。 ハードウェアウォレットは、インターネット接続から切り離されたオフライン環境に秘密鍵（取引の署名に必要）を保管することで、インターネット接続に依存するソフトウェアウォレットで発生する数々のハッキングや脅威を回避し、車輪を再発明した。
 
 カイアと統合されたハードウェア・ウォレットのひとつが**SafePal S1 Hardware Wallet**である。 SafePal S1は、暗号通貨ハードウェアウォレットで、安全でシンプルで楽しい暗号通貨管理ソリューションを提供することを目的としています。 SafePalは、Bitcoin、KAIA、Kaia Compatible Tokens(KCT)、Ether、ERC20トークンなどの暗号通貨やNFTを安全に管理するハードウェアウォレットです。
 
@@ -20,9 +20,9 @@
 
 ウォレットのセットアップに成功したら、次はウォレットを実際に使ってみましょう。 このチュートリアルでは、SafePal S1ハードウェアウォレットを使用して、KAIAネイティブコインとKaia互換トークン（KCT）の追加、受信、送信を行います。
 
-### Adding KLAY native coin <a id="adding-klay-native-coin"></a>
+### KAIAコインの追加<a id="adding-kaia-native-coin"></a>
 
-To add the KLAY native coin to your hardware wallet, kindly follow the steps below:
+KAIAコインをハードウェアウォレットに追加するには、以下の手順に従ってください：
 
 **ステップ 1**：SafePalアプリを開き、Walletタブで楕円形のアイコンをクリックし、下図のようにManage Coinsボタンをクリックします：
 
@@ -42,12 +42,12 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 ### Receiving KLAY native coin  <a id="receiving-klay-native-coin"></a>
 
-コイン（KAIA、KCT）が正常に追加されると、S1デバイスの**資産管理**タブで確認できます。 You can receive KLAY native coin using the following approach:
+コイン（KAIA、KCT）が正常に追加されると、S1デバイスの**資産管理**タブで確認できます。 以下の方法でKAIAコインを受け取ることができる：
 
 #### SafePal アプリの使用
 
 1. Select KLAY which gives you the option of swap, receive and send, click on receive
-2. You can either copy your KLAY address for the wallet, save the QR code, or have the other party scan the QR code from your phone.
+2. ウォレット用のKAIAアドレスをコピーするか、QRコードを保存するか、相手に携帯電話からQRコードをスキャンしてもらう。
 
 #### SafePal S1 ハードウェアウォレットの使用方法
 
@@ -65,9 +65,9 @@ To add the KLAY native coin to your hardware wallet, kindly follow the steps bel
 
 上記の手順は、カイア互換トークンを受け取る際に適用されます。
 
-### Sending KLAY native coin  <a id="sending-klay-native-coin"></a>
+### KAIAのネイティブコインを送る <a id="sending-kaia-native-coin"></a>
 
-To send KLAY native coin from your hardware wallet, kindly follow the steps below:
+ハードウェアウォレットからKAIAコインを送金するには、以下の手順に従ってください：
 
 **Step 1** On the SafePal App, choose the coin you want to send(in our case KLAY)and click **Send**.
 
