@@ -1,12 +1,12 @@
-# プライベートネットワークを使用したスマートコントラクトの展開
+# プライベートネットワークを使用したスマートコントラクトのデプロイ
 
 <!-- ![](/img/banners/kaia-ken.png) -->
 
 ## はじめに<a id="introduction"></a>
 
-このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる： このガイドに従うことで、その方法を学ぶことができる：
+このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる： このガイドの通り行うことで、デプロイ方法を学ぶことができる：
 
-- ハードハット・プロジェクトを立ち上げる。
+- Hardhatプロジェクトを立ち上げる。
 - Kairos Testnetをシミュレートしたプライベートネットワークを立ち上げる。
 - Hardhatユーティリティを利用して、このプライベート・ネットワーク上にスマート・コントラクトをデプロイする。
 
@@ -57,7 +57,7 @@ hardhat-utils プラグインは [hardhat-ethers](https://www.npmjs.com/package/
 
 :::info
 
-(推奨）ハードハットの速記をインストールする。 (推奨）ハードハットの速記をインストールする。 しかし、npxのハードハットでもタスクは可能だ。
+(推奨）Hardhatの速記をインストールする。 (推奨）ハードハットの速記をインストールする。 しかし、npxのハードハットでもタスクは可能だ。
 
 ```js
 npm install hardhat-shorthand --save
@@ -67,10 +67,10 @@ npm install hardhat-shorthand --save
 
 **ステップ4：ハードハット・プロジェクトを初期化する**。
 
-以下のコマンドを実行して、ハードハット・プロジェクトを開始する：
+以下のコマンドを実行して、Hardhatプロジェクトを開始する：
 
 ```js
-npxハードハット 
+npx Hardhat
 ```
 
 このガイドでは、以下のように「空のhardhat.config.jsを作成する」プロジェクトを選択する：
@@ -114,7 +114,7 @@ private_key="ローカル・プライベート・ネットワークから提供�
 
 :::
 
-**ステップ6: ハードハット設定の設定**」。
+**ステップ6:Hardhat 設定のセットアップ**」。
 
 以下の設定で `hardhat.config.js` を修正する：
 
@@ -184,7 +184,7 @@ Welcome to the Kaia JavaScript console!
 
 :::
 
-## 口座残高の確認<a id="checking-balance-in-account"></a>
+## アカウント残高の確認<a id="checking-balance-in-account"></a>
 
 プライベート・ネットワークを立ち上げると、アカウントのリスト、秘密鍵、各アカウントの事前入金額が提供された。
 
