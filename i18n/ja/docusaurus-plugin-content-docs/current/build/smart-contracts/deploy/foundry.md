@@ -9,7 +9,7 @@ FoundryはRustで書かれたスマートコントラクト開発フレームワ
 Foundryは、高速でモジュール化されたスマート・コントラクト開発を可能にする4つの主要CLIツールで構成されている：
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)：  Forgeを使ってスマートコントラクトのデプロイ、テスト、コンパイルができる。
-- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にした。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にするものであり、 チェーンデータの取得、トランザクションの送信などが含まれる。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。
 - [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：ローカルノードをスピンアップする必要がありますか？ AnvilはFoundryが提供するローカルノード環境である。 AnvilはFoundryが提供するローカルノード環境である。
 - [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel)：高速で便利で冗長なsolidity REPL。
 
@@ -24,7 +24,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 
 このチュートリアルに従うには、次のことが前提条件となる：
 
-- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
+- コードエディタ: [VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
@@ -32,7 +32,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 
 ## 開発環境のセットアップ
 
-ファウンドリのインストールが成功したかどうかを確認するには、以下のコマンドを実行してください：
+Foundryのインストールが成功したかどうかを確認するには、以下のコマンドを実行してください：
 
 ```bash
 forge -V
@@ -42,7 +42,7 @@ forge -V
 
 ![](/img/build/get-started/forge-version.png)
 
-foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。 次のステップでファウンドリー・プロジェクトをセットアップしてみよう：
+foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。 次のステップでfoundryプロジェクトをセットアップしてみよう：
 
 \*\*ステップ1新しいプロジェクトを開始するには、以下のコマンドを実行します：
 
@@ -57,7 +57,7 @@ cd foundry_example
 ls	 
 ```
 
-ファウンドリー・プロジェクトを初期化した後、カレント・ディレクトリーには以下が含まれているはずだ：
+ファウンドリー・プロジェクトを初期化した後、ディレクトリーには以下が含まれます：
 
 - **src**：スマートコントラクトのデフォルトディレクトリ。
 - **tests**：テスト用のデフォルト・ディレクトリ。
@@ -67,7 +67,7 @@ ls
 
 ## スマート・コントラクトのサンプル
 
-このセクションでは、初期化されたファウンドリー・プロジェクトのサンプル・カウンター契約を使用する。 `src/`フォルダにある`counter.sol`ファイルは以下のようになるはずだ：
+このセクションでは、初期化されたFoundryプロジェクトのサンプル・カウンター契約を使用する。 `src/`フォルダにある`counter.sol`ファイルは以下のようになるはずだ：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -118,7 +118,7 @@ contract CounterTest is Test {
 上記のテストは以下のことをチェックする：
 
 - その数は増えているのか？
-- 数字は設定された数字と等しいか？
+- 数は設定された数と等しいか？
 
 テストがうまくいくかどうかを確認するには、以下のコマンドを実行する：
 
