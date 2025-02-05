@@ -60,7 +60,7 @@ Nếu bạn không chỉ định thư mục dữ liệu, vị trí mặc định
 
 ## Bảng điều khiển JavaScript <a id="javascript-console"></a>
 
-Để kết nối với biểu giá điều khiển JavaScript, EN phải ở trạng thái đang chạy. Để biết thêm thông tin, hãy xem [Khởi chạy EN](../../smart-contracts/deploy/ken.md). Khởi chạy EN và kết nối với bảng điều khiển như dưới đây.
+Để kết nối với biểu giá điều khiển JavaScript, EN phải ở trạng thái đang chạy. For more information, see [Launching an EN](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en). Khởi chạy EN và kết nối với bảng điều khiển như dưới đây.
 
 ### Cách sử dụng <a id="usage"></a>
 
