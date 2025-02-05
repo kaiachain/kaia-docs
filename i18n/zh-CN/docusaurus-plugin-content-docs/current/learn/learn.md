@@ -91,7 +91,7 @@ Kaia 设计用于与其他区块链网络无缝互动：
 
 ## 代币经济
 
-Kaia 的原生代币 [KAIA](kaia-native-token.md)在区块链经济中发挥着核心作用：
+Kaia 的原生代币 [KAIA](./token-economics/kaia-native-token.md) 在区块链经济中发挥着核心作用：
 
 - 每个新区块都会自动发行 KAIA 代币。
 - 初始年通货膨胀率：5.2%.
