@@ -23,7 +23,7 @@ caver.wallet 是一個管理內存錢包中 Keyring 實例的軟件包。 密鑰
 
 ### caver.transaction
 
-caver.transaction是一個提供[Transaction]（.../../../learn/transactions/transactions.md#transactions-overview）相關功能的軟件包。
+caver.transaction is a package that provides functionality related to [Transaction](../../../build/transactions/transactions.md#transactions-overview).
 
 - 在 caver-java 1.4.0 中，"caver.transaction "取代了 "caver.tx
 
@@ -394,7 +394,7 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 
 ### 通過 Kairos 龍頭獲取 KAIA<a id="getting-klay-via-kairos-faucet"></a>
 
-如果您需要 KAIA 進行測試，可以從 [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) 獲取 Kairos testnet KAIA。 使用私鑰或密鑰存儲文件登錄 kaia 錢包，並通過龍頭接收 Kairos testnet KAIA 進行測試。
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet).
 
 ### 發送價值轉移交易<a id="sending-a-value-transfer-transaction"></a>
 
@@ -556,11 +556,11 @@ try {
 }
 ```
 
-交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 `caver.rpc.klay.getTransactionReceipt`。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 有關 `txError` 的更多信息，請參閱 [txError: Detailed Information of Transaction Failures]（.../transaction-error-codes.md）。
+交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 `caver.rpc.klay.getTransactionReceipt`。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## 執行其他交易類型<a id="executing-other-transaction-types"></a>
 
-Kaia 提供各種事務類型，以提高可擴展性和性能。 更多信息，請參閱 [Transactions]（.../.../.../learn/transactions/transactions.md）。 本節將介紹一些可與 caver-java 配合使用的示例。
+Kaia 提供各種事務類型，以提高可擴展性和性能。 For more information, see [Transactions](../../../build/transactions/transactions.md). 本節將介紹一些可與 caver-java 配合使用的示例。
 
 ### 費用委託<a id="fee-delegation"></a>
 
@@ -637,7 +637,7 @@ try {
 }
 ```
 
-交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 `caver.rpc.klay.getTransactionReceipt`。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 有關 `txError` 的更多信息，請參閱 [txError: Detailed Information of Transaction Failures]（.../transaction-error-codes.md）。
+交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 `caver.rpc.klay.getTransactionReceipt`。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ### 賬戶更新<a id="account-update"></a>
 
