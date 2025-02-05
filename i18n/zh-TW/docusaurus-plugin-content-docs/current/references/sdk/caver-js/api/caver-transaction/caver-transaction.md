@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 返回 RLP 編碼的事務字符串。
 
-有關如何為每種事務類型創建 RLP 編碼字符串的信息，請參閱 [Kaia Design - Transactions]（.../../../../.../learn/transactions/transactions.md）。
+For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **返回價值**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 返回一個 `transactionHash`.
 
-有關如何為每種事務類型創建事務哈希值的信息，請參閱 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
+For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **返回價值**
 
@@ -536,11 +536,11 @@ transaction.getTransactionHash()
 transaction.getSenderTxHash()
 ```
 
-返回事務的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。
+Returns a [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) of transaction.
 
-[senderTxHash](.../.../.../.../.../learn/transactions/transactions.md#sendertxhash)是除繳費人地址和簽名外的交易哈希值，因此[transactionHash](#transaction-gettransactionhash)和[senderTxHash](.../.../.../.../learn/transactions/transactions.md#sendertxhash)對於基本交易是相同的。
+The [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) are the same for basic transactions.
 
-有關如何為每種事務類型創建 [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) 的信息，請參閱 [Kaia Design - Transactions](.../../../.../.../learn/transactions/transactions.md)。
+For information on how to make the [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **返回價值**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 返回 RLP 編碼的事務字符串，用於製作事務發送方的簽名。 請注意，返回的 RLP 編碼事務字符串不會與簽名一起添加，而是用於生成此簽名。
 
-關於如何製作 RLP 編碼的事務字符串，以便為每種事務類型生成事務發送者簽名，請參閱 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **返回價值**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 返回 RLP 編碼的交易字符串，用於繳費人簽名。 請注意，返回的 RLP 編碼事務字符串不會與簽名一起添加，而是用於生成此簽名。
 
-關於如何製作 RLP 編碼的交易字符串以生成每種交易類型的繳費人簽名，請參閱 [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **注意**\* 該功能僅適用於 "收費委託 "交易或 "按比例收費委託 "交易。
 
