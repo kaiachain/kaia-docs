@@ -1,79 +1,79 @@
-# 建築費の委任例
+# Fee Delegationのサンプルの開発
 
 ## 目次<a href="#table-of-contents" id="table-of-contents"></a>
 
 - [1. はじめに](#1-introduction)
-- [2. 料金委譲の仕組み](#2-how-fee-delegation-works)
+- [2. Fee Delegationの仕組み](#2-how-fee-delegation-works)
   - 2.1 送信者によるトランザクション署名
   - 2.2 料金支払者による取引署名
-- [3. 料金委譲のためのシンプルなサーバーとクライアント](#3-simple-server-and-client-for-fee-delegation)
-  - 3.1 Environment setup
-  - 3.2 Sender's client
+- [3. Fee Delegationのためのシンプルなサーバーとクライアント](#3-simple-server-and-client-for-fee-delegation)
+  - 3.1 環境設定
+  - 3.2 送信者クライアント
   - 3.2 料金支払者のサーバー
 - [4. 実行例](#4-run-example)
   - 4.1 `feepayer_server.js` を実行する
   - 4.2 `sender_client.js` を実行する
   - 4.3 `feepayer_server.js` のチェック
-  - 4.4 View on Kaiascan
+  - 4.4 Kaiascanで見る
 
 ## 1. はじめに<a href="#1-introduction" id="1-introduction"></a>
 
-This tutorial guides you through creating a simple server-client example using the Kaia SDK (ethers-ext) to demonstrate how fee-delegated value transfer transactions work on Kaia. The tutorial and example code are tested on the Kairos testnet.
+このチュートリアルは、Caver-js SDKを使用して、Kaiaにおける料金委譲トランザクションがどのように機能するかを説明する、簡単なサーバ・クライアントの例を書くのに役立ちます。 チュートリアルとサンプルコードはKairos testnetでテストされています。
 
-## 2. 料金委譲の仕組み<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
+## 2. Fee Delegationの仕組み<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
-料金委譲の仕組みをざっと説明しよう。
+Fee Delegationの仕組みをざっと説明しよう。
 
 ### 2.1 送信者によるトランザクション署名<a href="#2-1-transaction-signing-by-the-sender" id="2-1-transaction-signing-by-the-sender"></a>
 
 送信者\\`はトランザクションを送信する前に常にトランザクションに署名すべきである。
 
-To sign a transaction, use [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) which signs a transaction with given private key.
+トランザクションに署名するには、[signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) を使用します。これは、与えられた秘密鍵でトランザクションに署名します。
 
 ```
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey ="SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
 
-// Create a new transaction
+// 新規トランザクションの作成
 let tx = {
-  type: TxType.FeeDelegatedValueTransfer,
+  type：TxType.FeeDelegatedValueTransfer,
   to: recieverAddr,
   value: parseKaia("0.01"),
   from: senderAddress,
 };
   
-// Sign the transaction
+// トランザクションの署名
 
 tx = await senderWallet.populateTransaction(tx);
 console.log(tx);
 
 const senderTxHashRLP = await senderWallet.signTransaction(tx);
-console.log("senderTxHashRLP", senderTxHashRLP);
+console.log("senderTxHashRLP", senderTxHashRLP)；
 ```
 
-If there are no errors, then `senderTxHashRLP` will have a signed transaction which is signed by the `senderPrivateKey`.
+エラーがなければ、`senderTxHashRLP` は `senderPrivateKey` によって署名されたトランザクションを持つ。
 
-Now, you need to send the `senderTxHashRLP` to the fee payer. There are various ways to implement this. In this tutorial, we will provide you a simple server-client code as an example of sending a `senderTxHashRLP` to the fee payer.
+次に、`senderTxHashRLP` を料金支払者に送信する必要がある。 これを実装するには様々な方法があります。 このチュートリアルでは、`senderTxHashRLP` を料金支払者に送信する例として、簡単なサーバ・クライアントコードを提供します。
 
 ### 2.2 料金支払者による取引署名<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-When `fee payer` receives the `senderTxHashRLP`, `fee payer` signs the `senderTxHashRLP` again with their private key and sends the transaction to Kaia. 以下のコード・スニペットはそのプロセスを示している。
+フィー支払者は `senderRawTransaction` を受け取ると、秘密鍵で `senderRawTransaction` に再度署名し、Kaia にトランザクションを送信する。 以下のコード・スニペットはそのプロセスを示している。
 
-[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) method signs the transaction with the given fee payer private key before sending the transaction. Before running the code, kindly replace "FEEPAYER_ADDRESS" and "PRIVATE_KEY" with the actual values.
+[sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) メソッドは、トランザクションを送信する前に、与えられた料金支払者の秘密鍵でトランザクションに署名する。 コードを実行する前に、`"FEEPAYER_ADDRESS"` と `"PRIVATE_KEY"` を実際の値に置き換えてください。
 
-Note that when the fee payer submits the transaction to Kaia on behalf of the sender, the `senderTxHashRLP` type must be a `FeeDelegatedValueTransfer` type of transaction.
+料金支払者が送信者に代わってKaiaにトランザクションを送信する場合、`senderTxHashRLP` タイプは `FeeDelegatedValueTransfer` タイプのトランザクションでなければならないことに注意すること。
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
-const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
+const feePayerPrivateKey = "PRIVATE_KEY"
 
-const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-console.log("sentTx", sentTx);
+caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
 
-const rc = await sentTx.wait();
-console.log("receipt", rc);
-
+caver.klay.sendTransaction({
+  senderRawTransaction: senderRawTransaction,
+  feePayer: feePayerAddress,
+})
 .on('transactionHash', function(hash){
     ...
 })
@@ -81,16 +81,15 @@ console.log("receipt", rc);
     ...
 })
 .on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
-
 ```
 
-## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## ３． Fee Delegationのためのシンプルなサーバーとクライアント]()
 
-Let's write a simple server and client using above fee delegation code.
+上記のFee Delegationのコードを使って、簡単なサーバーとクライアントを書いてみよう。
 
-### 3.1 Environment setup <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
+### 3.1 環境設定
 
-We will use `npm init -y` to setup our Node.js project, and install [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
+npm init -y\` を使って Node.js プロジェクトをセットアップし、[ether-ext](../../references/sdk/ethers-ext/getting-started.md) をインストールします。
 
 ```
 mkdir feedelegation_server
@@ -100,14 +99,17 @@ npm install - -save @kaiachain/ethers-ext@^1.2.0 ethers@6
 ```
 
 :::note
-@kaiachain/ethers-ext@^1.2.0 recommends node 22 or later
+mkdir feedelegation_server
+cd feedelegation_server
+npm init -y
+npm install - -save @kaiachain/ethers-ext@^1.2.0 ethers@6
 :::
 
-### 3.2 Sender's client <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
+### kaiachain/ethers-ext@^1.2.0 はノード 22 以降を推奨します。
 
 まず、以下のように `sender_client.js` を書く。
 
-In the example, kindly replace `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` and `"RECEIVER_ADDRESS"` with the actual values.
+この例では、`"SENDER_ADDRESS"`、`"SENDER_PRIVATEKEY"`、`"RECEIVER_ADDRESS"`を実際の値に置き換えてください。
 
 ```javascript
 const { Socket } = require("net");
@@ -126,15 +128,15 @@ const sendFeeDelegateTx = async () => {
 
       const senderWallet = new Wallet(senderPrivateKey, provider);
   
-     // Create a new transaction
+     // 新規トランザクションの作成
     let tx = {
-        type: TxType.FeeDelegatedValueTransfer,
+        type：TxType.FeeDelegatedValueTransfer,
         to: recieverAddr,
         value: parseKaia("0.01"),
         from: senderAddress,
       };
   
-      // Sign the transaction
+      // トランザクションの署名
       tx = await senderWallet.populateTransaction(tx);
       console.log(tx);
     
@@ -144,9 +146,9 @@ const sendFeeDelegateTx = async () => {
   
       if (!senderTxHashRLP) {
         throw new Error("Failed to generate raw transaction");
-      }
+      } // 署名された生トランザクションを料金支払いに送る。
   
-      // Send signed raw transaction to fee payer's server
+      //
       client.connect(1337, "127.0.0.1", () => {
         console.log("Connected to fee delegated service");
         client.write(senderTxHashRLP);
@@ -168,19 +170,19 @@ const sendFeeDelegateTx = async () => {
       console.error("Transaction error:", error);
       client.end();
       process.exit(1);
-    }
+    }.
   };
 
-  sendFeeDelegateTx();
+  sendFeeDelegateTx()；
 ```
 
-The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderTxHashRLP` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
+上記のコードは、`senderPrivateKey`で手数料委任価値移転トランザクションに署名し、署名された `senderTxHashRLP` を `127.0.0.1` のポート `1337` で動作している手数料支払者のサーバ、すなわち localhost に送信する。
 
-### 3.3 Fee payer's server <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
+### 3.3 料金支払者のサーバー<a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-Now let's write the fee payer's server, `feepayer_server.js`, which signs the received `senderTxHashRLP` with `feePayerPrivateKey` and sends it to Kairos testnet.
+それでは、受信した `senderRawTransaction` に `feePayerPrivateKey` で署名し、Kairos testnet に送信する料金支払者のサーバ `feepayer_server.js` を書いてみよう。
 
-In the below example, kindly replace `"FEEPAYER_ADDRESS"` and `"FEEPAYER_PRIVATEKEY"` with actual values.
+以下の例では、`"FEEPAYER_ADDRESS"` と `"FEEPAYER_PRIVATEKEY"` を実際の値に置き換えてください。
 
 ```javascript
 const { createServer } = require("net");
@@ -195,7 +197,7 @@ const feePayerWallet = new Wallet(feePayerPrivateKey, provider);
 const feePayerSign = async (senderTxHashRLP, socket) => {
   try {
     
-    // Send the transaction
+    // トランザクションの送信
     const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
     console.log("sentTx", sentTx);
   
@@ -205,20 +207,20 @@ const feePayerSign = async (senderTxHashRLP, socket) => {
     if (rc.transactionHash) {
       socket.write(`Tx hash: ${rc.transactionHash}\n`);
       socket.write(`Sender Tx hash: ${rc.senderTxHash || ""}\n`);
-    }
+    }.
   } catch (error) {
     console.error("Error in feePayerSign:", error);
     socket.write(`Error: ${error.message}\n`);
-  }
+  }.
 };
 
 const server = createServer(function (socket) {
-  console.log("Client is connected ...");
-  socket.write("This is fee delegating service");
-  socket.write("Fee payer is " + feePayerAddress);
+  console.log("クライアントが接続されました ...");
+  socket.write("これは手数料の委任サービスです");
+  socket.write("手数料の支払者は " + feePayerAddress");
   
   socket.on("data", function (data) {
-    console.log("Received data from client:", data.toString());
+    console.log("クライアントからデータを受け取りました:", data.toString());
     feePayerSign(data.toString(), socket);
   });
   
@@ -238,7 +240,7 @@ console.log("Fee delegate service started ...");
 
 サーバーはポート `1337` をリッスンする。
 
-受信した `data` がある場合、`feePayerPrivateKey` で `data` に署名し、Kaia ブロックチェーンに送信する。 It assumes that the `data` is `senderTxHashRLP` from the `sender_client.js`.
+受信した `data` がある場合、`feePayerPrivateKey` で `data` に署名し、Kaia ブロックチェーンに送信する。 `data` は `sender_client.js` の `senderRawTransaction` であると仮定します。
 
 ## 4. 実行例<a href="#4-run-example" id="4-run-example"></a>
 
@@ -246,7 +248,7 @@ console.log("Fee delegate service started ...");
 
 ### 4.1 `feepayer_server.js` を実行する<a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
-Run the command below to start the fee payer's server:
+以下のコマンドを実行して、料金支払者のサーバーを起動する：
 
 ```
 node feepayer_server.js
@@ -264,60 +266,60 @@ Fee delegate service started ...
 ```
 $ node sender_client.js
 
-// output
+// 出力
 {
-  type: 9,
-  to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
-  value: 10000000000000000n,
+  type：9,
+  to：'0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
+  value: 1000000000000n,
   from: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
   nonce: 202,
   gasLimit: 52500,
   gasPrice: '27500000000',
-  chainId: '1001'
+  chainId：'1001'
 }
-senderTxHashRLP 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
-Connected to fee delegated service
-Received data from server: This is fee delegating, serviceFee payer is 0x88311cD55B656D2502b50f62E83F8279c1641e70
+senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
+料金代行サービスに接続
+サーバーからデータを受信：これは手数料の委任であり、サービス手数料の支払者は 0x88311cD55B656D2502b50f62E83F8279c1641e70 です。
 ```
 
-送信者」の秘密鍵でトランザクションに署名し、署名されたトランザクションを料金支払者 のサーバーに送信する。 Then it will receive the response from the fee delegate service including the `Fee payer` address, `Tx hash`. `Tx hash` is hash of a transaction submitted to the Kaia network.
+送信者」の秘密鍵でトランザクションに署名し、署名されたトランザクションを料金支払者 のサーバーに送信する。 次に、`Fee payer` アドレス、`Tx hash` を含む、fee delegate サービスからの応答を受信する。 Txハッシュ\`はKaiaネットワークに送信されたトランザクションのハッシュである。
 
-### 4.3 Check `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 `feepayer_server.js` のチェック<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-On the server's console, you will see below outputs. It prints the transaction receipt from the Kaia.
+サーバーのコンソールには、以下のような出力が表示される。 カイアからの取引レシートを印刷する。
 
 ```
 $ node feepayer_server.js
 
-Fee delegate service started ...
-Client is connected ...
-Received data from client: 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
+Fee delegate サービス開始 ...
+クライアントが接続されました ...
+クライアントからデータを受信しました：0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
 sentTx TransactionResponse {
 …
-  to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
+  to：'0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
   from: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
   contractAddress: null,
-  hash: '0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222',
-  index: 0,
+  hash：'0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222',
+  index：0,
   blockHash: '0x50d3d7e143579e17dbc17b761c8e04331c6d4d950fe7563ac9a79d42a649de0a',
   blockNumber: 177078710,
-  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  gasUsed: 31000n,
-  blobGasUsed: null,
-  cumulativeGasUsed: 31000n,
+  logsBloom：'0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  gasUsed：31000n,
+  blobGasUsed：null,
+  cumulativeGasUsed：31000n,
   gasPrice: 27500000000n,
   blobGasPrice: null,
-  type: 0,
-  status: 1,
+  type：0,
+  status：1,
   root: undefined
-}
+}.
 
 ```
 
-### 4.4 View on Kaiascan <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
+### 4.4 Kaiascanで見る
 
-You can also find the above transaction on [Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview\&page=1).
+上記のトランザクションは、[Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview\&page=1) でも見つけることができます。
 
-It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x88311cd55b656d2502b50f62e83f8279c1641e70` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
+これは、トランザクションが `TxTypeFeeDelegatedValueTransfer` であり、`Fee payer` が `0x88311cd55b656d2502b50f62e83f8279c1641e70` または入力した `feepayerAddress` であることを示しています。
 
-![Fee delegated Tx](/img/build/tutorials/fd-kaiascan-example.png)
+![Fee Delegation Tx](/img/build/tutorials/fd-kaiascan-example.png)
