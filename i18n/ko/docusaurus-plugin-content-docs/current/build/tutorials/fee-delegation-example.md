@@ -7,17 +7,18 @@
   - 2.1 발신자의 트랜잭션 서명
   - 2.2 수수료 납부자의 트랜잭션 서명
 - [3. 수수료 대납을 위한 간단한 서버와 클라이언트](#3-simple-server-and-client-for-fee-delegation)
-  - 3.1 발신자 클라이언트
+  - 3.1 환경 설정
+  - 3.2 발신자의 클라이언트
   - 3.2 수수료 납부자 서버
 - [4. 실행 예제](#4-run-example)
   - 4.1 `feepayer_server.js` 실행
   - 4.2 `발신자_클라이언트.js` 실행
   - 4.3 `feepayer_server.js` 확인
-  - 4.4 카이아 스코프
+  - 4.4 카이아스캔에서 보기
 
 ## 1. 소개 <a href="#1-introduction" id="1-introduction"></a>
 
-이 튜토리얼은 caver-js SDK를 사용하여 간단한 서버-클라이언트 예제를 작성하여 카이아에서 수수료 위임 밸류 전송 트랜잭션이 어떻게 작동하는지 설명합니다. 이 튜토리얼과 예제 코드는 Kairos 테스트넷을 사용하고 있습니다.
+이 튜토리얼에서는 Kaia에서 수수료 위임 가치 전송 트랜잭션이 어떻게 작동하는지 보여드리기 위해 Kaia SDK(ethers-ext)를 사용하여 간단한 서버-클라이언트 예제를 만드는 과정을 안내합니다. 튜토리얼과 예제 코드는 카이로스 테스트넷에서 테스트되었습니다.
 
 ## 2. 수수료 위임의 작동 방식 <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -27,189 +28,183 @@ Let's skim through how fee delegation works.
 
 `Sender`는 트랜잭션을 보내기 전에 항상 트랜잭션에 서명해야 합니다.
 
-트랜잭션에 서명하려면, 주어진 개인 키로 트랜잭션에 서명하는 [signTransaction](../../references/sdk/caver-js-1.4.1/api/caver.klay.accounts.md#signtransaction)을 사용하세요.
+트랜잭션에 서명하려면 주어진 개인 키로 트랜잭션에 서명하는 [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx)을 사용하세요.
 
 ```
-// using the event emitter
-const senderAddress = "SENDER_ADDRESS";
-const senderPrivateKey = "SENDER_PRIVATEKEY";
-const toAddress = "TO_ADDRESS";
+const senderAddr = "SENDER_ADDRESS";
+const senderPrivateKey = "SENDER_PRIVATE_KEY";
+const recieverAddr = "RECEIVER_ADDRESS";
 
-    // Create a new transaction
-    const tx = caver.transaction.feeDelegatedValueTransfer.create({
-      from: keyring.address,
-      to: toAddress,
-      value: caver.utils.toPeb("0.0001", "KAIA"),
-      gas: 100000,
-      gasPrice: await caver.rpc.klay.getGasPrice(), // Get current gas price
-      chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
-    });
+// 새 트랜잭션 생성
+let tx = {
+  type: TxType.FeeDelegatedValueTransfer,
+  to: recieverAddr,
+  value: parseKaia("0.01"),
+  from: senderAddress,
+};
+  
+// 트랜잭션에 서명
 
-        // Sign the transaction
-    const signed = await caver.wallet.sign(keyring.address, tx);
+tx = await senderWallet.populateTransaction(tx);
+console.log(tx);
 
-    const senderRawTransaction = tx.getRLPEncoding();
+const senderTxHashRLP = await senderWallet.signTransaction(tx);
+console.log("senderTxHashRLP", senderTxHashRLP);
 ```
 
-오류가 없으면 `senderRawTransaction`은 `senderPrivateKey`가 서명한 서명된 트랜잭션을 갖게 됩니다.
+오류가 없으면 `senderTxHashRLP`는 `senderPrivateKey`가 서명한 서명된 트랜잭션을 갖게 됩니다.
 
-이제 수수료 납부자에게 `senderRawTransaction`을 전송해야 합니다. 이를 구현하는 방법에는 여러 가지가 있을 것입니다. 이 튜토리얼에서는 간단한 서버-클라이언트 코드를 예로 들어 수수료 납부자에게 `senderRawTransaction`을 전송하는 방법을 알려드리겠습니다.
+이제 수수료 납부자에게 `senderTxHashRLP`를 보내야 합니다. 이를 구현하는 방법에는 여러 가지가 있습니다. 이 튜토리얼에서는 수수료 납부자에게 `senderTxHashRLP`를 보내는 간단한 서버-클라이언트 코드를 예시로 보여드리겠습니다.
 
 ### 2.2 수수료 납부자가 트랜잭션 서명 <a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-`fee payer`가 `senderRawTransaction`을 받으면, `fee payer`는 개인키로 `senderRawTransaction`에 다시 서명하고 트랜잭션을 Klaytn으로 전송합니다. 아래 코드 스니펫은 이 과정을 설명합니다. `kaia.sendRawTransaction` method signs the transaction with the given account's private key before sending the transaction. 코드를 실행하기 전에 `"FEEPAYER_ADDRESS"`와 `"PRIVATE_KEY"`를 실제 값으로 바꿔주세요.
+수수료 납부자`가 `발신자TxHashRLP`를 받으면, `수수료 납부자`는 개인 키로 `발신자TxHashRLP\`에 다시 서명하고 트랜잭션을 카이아로 보냅니다. 아래 코드 스니펫은 이 과정을 설명합니다.
 
-Note that when the `fee payer` submits the transaction to Kaia on behalf of the `sender`, the `senderRawTransaction` type must be a `FEE_DELEGATED` type of transaction. 아래 예시에서는 발신자가 생성한 원본 `senderRawTransaction`이 [TxTypeFeeDelegatedValueTransfer](../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer)이므로 [sendTransaction(FEE_DELEATED_VALUE_TRANSFER)](../../references/sdk/caver-js-1.4.1/api/caver.klay/transaction/sendtx-value-transfer.md#sendtransaction-fee_delegated_value_transfer) 메서드가 호출됩니다.
+[sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) 메서드는 트랜잭션을 보내기 전에 지정된 수수료 납부자 개인 키로 트랜잭션에 서명합니다. 코드를 실행하기 전에 "FEEPAYER_ADDRESS" 및 "PRIVATE_KEY"를 실제 값으로 바꾸세요.
+
+수수료 납부자가 발신자를 대신하여 카이아에 트랜잭션을 제출할 때, `senderTxHashRLP` 유형은 `FeeDelegatedValueTransfer` 유형의 트랜잭션이어야 한다는 점에 유의하세요.
 
 ```
 const feePayerAddress = "FEEPAYER_ADDRESS";
-const feePayerPrivateKey = "PRIVATE_KEY"
+const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
 
-const tx = caver.transaction.decode(senderRawTransaction);
-    console.log("Decoded transaction:", tx);
+const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+console.log("sentTx", sentTx);
 
-    tx.feePayer = keyring.address;
+const rc = await sentTx.wait();
+console.log("receipt", rc);
 
-    const signed = await caver.wallet.signAsFeePayer(keyring.address, tx);
-
-    // Send the transaction
-    const receipt = await caver.rpc.klay.sendRawTransaction(
-      signed.getRLPEncoding()
-    )
 .on('transactionHash', function(hash){
     ...
 })
 .on('receipt', function(receipt){
     ...
 })
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+.on('error', console.error); // 가스 부족 오류인 경우, 두번째 파라미터는 영수증입니다.
+
 ```
 
-## 3. 수수료 위임용 단순 서버 및 클라이언트 <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. 수수료 위임을 위한 간단한 서버 및 클라이언트 <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
 위의 수수료 위임 코드를 사용하여 간단한 서버와 클라이언트를 작성해 보겠습니다.
 
 ### 3.1 환경 설정 <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
 
-이 예제의 환경 설정은 아래와 같이 `npm`과 [caver-js](../../references/sdk/caver-js-1.4.1/get-started-1.4.1.md)를 사용하겠습니다.
+npm init -y\`를 사용하여 Node.js 프로젝트를 설정하고, [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)를 설치합니다.
 
 ```
-$ mkdir example
-$ cd example
-$ npm init
-$ npm install caver-js@latest
+mkdir feedelegation_server
+cd feedelegation_server
+npm init -y
+npm install - -save @kaiachain/ethers-ext@^1.2.0 ethers@6
 ```
 
-### 3.1 발신자 클라이언트 <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
+:::note
+카이아체인/ethers-ext@^1.2.0은 노드 22 이상을 권장합니다.
+:::
+
+### 3.2 발신자의 클라이언트 <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
 
 먼저 아래와 같이 `sender_client.js`를 작성하겠습니다.
 
-이 예제에서는 `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` 및 `"TO_ADDRESS"`를 실제 값으로 바꾸어 주세요.
+이 예제에서는 `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` 및 `"RECEIVER_ADDRESS"`를 실제 값으로 바꾸세요.
 
 ```javascript
-import { Socket } from "net";
-import Caver from "caver-js";
-
+const { Socket } = require("net");
 const client = new Socket();
-const caver = new Caver("https://public-en-kairos.node.kaia.io");
+
+const { Wallet, TxType, parseKaia } = require("@kaiachain/ethers-ext").v6;
+const ethers = require("ethers");
 
 const senderAddress = "SENDER_ADDRESS";
-const senderPrivateKey =
-  "SENDER_PRIVATE_KEY";
-const toAddress = "TO_ADDRESS";
+const senderPrivateKey = "SENDER_PRIVATE_KEY";
+const recieverAddr = "RECEIVER_ADDRESS";
 
 const sendFeeDelegateTx = async () => {
-  try {
-    // Add sender's keyring to wallet
-    const keyring = caver.wallet.newKeyring(senderAddress, senderPrivateKey);
+    try {
+      const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 
-    // Create a new transaction
-    const tx = caver.transaction.feeDelegatedValueTransfer.create({
-      from: keyring.address,
-      to: toAddress,
-      value: caver.utils.toPeb("0.0001", "KAIA"),
-      gas: 100000,
-      gasPrice: await caver.rpc.klay.getGasPrice(), // Get current gas price
-      chainId: await caver.rpc.klay.getChainId(), // Get current chain ID
-    });
-
-    // Sign the transaction
-    const signed = await caver.wallet.sign(keyring.address, tx);
-
-    const senderRawTransaction = tx.getRLPEncoding();
-
-    if (!senderRawTransaction) {
-      throw new Error("Failed to generate raw transaction");
+      const senderWallet = new Wallet(senderPrivateKey, provider);
+  
+     // 새 트랜잭션 생성
+    let tx = {
+        type: TxType.FeeDelegatedValueTransfer,
+        to: recieverAddr,
+        value: parseKaia("0.01"),
+        from: senderAddress,
+      };
+  
+      // 트랜잭션 서명
+      tx = await senderWallet.populateTransaction(tx);
+      console.log(tx);
+    
+      const senderTxHashRLP = await senderWallet.signTransaction(tx);
+      console.log("senderTxHashRLP", senderTxHashRLP);
+    
+  
+      if (!senderTxHashRLP) {
+        throw new Error("Failed to generate raw transaction");
+      }
+  
+      // 서명된 원본 트랜잭션을 수수료 납부자 서버로 전송
+      client.connect(1337, "127.0.0.1", () => {
+        console.log("수수료 위임 서비스에 연결되었습니다");
+        client.write(senderTxHashRLP);
+      });
+  
+      client.on("data", (data) => {
+        console.log("서버로부터 데이터를 수신했습니다:", data.toString());
+      });
+  
+      client.on("error", (error) => {
+        console.error("연결 오류:", error);
+        s;
+      });
+  
+      client.on("close", () => {
+        console.log("연결 종료");
+      });
+    } catch (error) {
+      console.error("트랜잭션 오류:", error);
+      client.end();
+      process.exit(1);
     }
+  };
 
-    // Send signed raw transaction to fee payer's server
-    client.connect(1337, "127.0.0.1", () => {
-      console.log("Connected to fee delegated service");
-      client.write(senderRawTransaction);
-    });
-
-    client.on("data", (data) => {
-      console.log("Received data from server:", data.toString());
-    });
-
-    client.on("error", (error) => {
-      console.error("Connection error:", error);
-      s;
-    });
-
-    client.on("close", () => {
-      console.log("Connection closed");
-    });
-  } catch (error) {
-    console.error("Transaction error:", error);
-    client.end();
-    process.exit(1);
-  }
-};
-
-sendFeeDelegateTx();
-
+  sendFeeDelegateTx();
 ```
 
-위 코드는 `senderPrivateKey`로 수수료 위임 밸류 전송 트랜잭션에 서명하고 서명된 `senderRawTransaction`을 `127.0.0.1`의 `1337` 포트에서 실행되는 수수료 납부자 서버, 즉 로컬호스트로 전송합니다.
+위 코드는 `senderPrivateKey`로 수수료 위임 가치 전송 트랜잭션에 서명하고 서명된 `senderTxHashRLP`를 `1337` 포트에서 실행 중인 수수료 납부자 서버, 즉 `127.0.0.1`의 로컬 호스트에 전송합니다.
 
-### 3.2 수수료 납부자 서버 <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
+### 3.3 수수료 납부자 서버 <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-이제 수신된 `senderRawTransaction`을 `feePayerPrivateKey`로 서명하고 이를 Kairos 테스트넷으로 전송하는 수수료 지불자 서버인 `feepayer_server.js`를 작성해 보겠습니다.
+이제 수신한 `senderTxHashRLP`를 `feePayerPrivateKey`로 서명하고 이를 카이로스 테스트넷으로 전송하는 수수료 납부자 서버인 `feepayer_server.js`를 작성해 보겠습니다.
 
-아래 예시에서 `"FEEPAYER_ADDRESS"` 및 `"FEEPAYER_PRIVATEKEY"`를 실제 값으로 바꾸어 주세요.
+아래 예시에서는 `FEEPAYER_ADDRESS`와 `FEEPAYER_PRIVATEKEY`를 실제 값으로 바꾸어 주세요.
 
 ```javascript
-import { createServer } from "net";
-import Caver from "caver-js";
+const { createServer } = require("net");
+const { Wallet, JsonRpcProvider } = require("@kaiachain/ethers-ext").v6;
 
-const caver = new Caver("https://public-en-kairos.node.kaia.io");
 const feePayerAddress = "FEEPAYER_ADDRESS";
-const feePayerPrivateKey =
-  "FEEPAYER_PRIVATE_KEY";
+const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY";
 
-// add fee payer's keyring to wallet
+const provider = new JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+const feePayerWallet = new Wallet(feePayerPrivateKey, provider);
 
-const keyring = caver.wallet.newKeyring(feePayerAddress, feePayerPrivateKey);
-
-const feePayerSign = async (senderRawTransaction, socket) => {
+const feePayerSign = async (senderTxHashRLP, socket) => {
   try {
-    const tx = caver.transaction.decode(senderRawTransaction);
-    console.log("Decoded transaction:", tx);
+    
+    // 거래 전송
+    const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+    console.log("sentTx", sentTx);
+  
+    const rc = await sentTx.wait();
+    console.log("receipt", rc);
 
-    tx.feePayer = keyring.address;
-
-    const signed = await caver.wallet.signAsFeePayer(keyring.address, tx);
-
-    // Send the transaction
-    const receipt = await caver.rpc.klay.sendRawTransaction(
-      signed.getRLPEncoding()
-    );
-    console.log("Transaction receipt:", receipt);
-
-    if (receipt.transactionHash) {
-      socket.write(`Tx hash: ${receipt.transactionHash}\n`);
-      socket.write(`Sender Tx hash: ${receipt.senderTxHash || ""}\n`);
+    if (rc.transactionHash) {
+      socket.write(`Tx hash: ${rc.transactionHash}\n`);
+      socket.write(`Sender Tx hash: ${rc.senderTxHash || ""}\n`);
     }
   } catch (error) {
     console.error("Error in feePayerSign:", error);
@@ -217,31 +212,33 @@ const feePayerSign = async (senderRawTransaction, socket) => {
   }
 };
 
-var server = createServer(function (socket) {
-  console.log("Client is connected ...");
-  socket.write("This is fee delegating service");
-  socket.write("Fee payer is " + feePayerAddress);
+const server = createServer(function (socket) {
+  console.log("클라이언트가 연결되었습니다 ...");
+  socket.write("수수료 대납 서비스입니다");
+  socket.write("수수료 납부자는 " + feePayerAddress);
+  
   socket.on("data", function (data) {
-    console.log("Received data from client:", data.toString());
+    console.log("클라이언트에서 데이터를 받았습니다:", data.toString());
     feePayerSign(data.toString(), socket);
   });
+  
   socket.on("error", (error) => {
     console.error("Socket error:", error);
   });
 
   socket.on("end", () => {
-    console.log("Client disconnected");
+    console.log("클라이언트 연결 끊김");
   });
 });
 
 server.listen(1337, "127.0.0.1");
-console.log("Fee delegate service started ...");
+console.log("수수료 대리인 서비스 시작 ...");
 
 ```
 
 서버는 포트 `1337`에서 수신 대기합니다.
 
-들어오는 `data`가 있으면 `data`에 `feePayerPrivateKey`로 서명하고 이를 카이아 블록체인으로 보냅니다. 이 때 `data`는 `sender_client.js`의 `senderRawTransaction`이라고 가정합니다.
+들어오는 `data`가 있으면 `data`에 `feePayerPrivateKey`로 서명하고 이를 카이아 블록체인으로 보냅니다. 데이터`가 `sender_client.js`의 `senderTxHashRLP\`라고 가정합니다.
 
 ## 4. 실행 예제 <a href="#4-run-example" id="4-run-example"></a>
 
@@ -249,11 +246,13 @@ console.log("Fee delegate service started ...");
 
 ### 4.1 `feepayer_server.js` 실행하기 <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
-아래 명령은 수수료 납부자의 서버를 시작합니다.
+아래 명령을 실행하여 수수료 납부자 서버를 시작합니다:
 
 ```
-$ node feepayer_server.js
-Fee delegate service started ...
+node feepayer_server.js
+
+// 출력
+수수료 대리인 서비스 시작 ...
 ```
 
 서버가 시작되고 이제 포트 1337에서 수신 대기 중입니다.
@@ -264,130 +263,61 @@ Fee delegate service started ...
 
 ```
 $ node sender_client.js
-Signed a fee delegated value transfer transaction.
-Sending a signed transaction to fee delegated service.
-Connected to fee delegated service
-Received data from server: This is fee delegating service
-Received data from server: Fee payer is 0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02
-Received data from server: Tx hash is 0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d
-Received data from server: Sender Tx hash is 0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193
+
+// 출력
+{
+  type: 9,
+  to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
+  value: 10000000000000000n,
+  from: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
+  nonce: 202,
+  gasLimit: 52500,
+  gasPrice: '27500000000',
+  chainId: '1001'
+}
+senderTxHashRLP 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
+수수료 위임 서비스에 연결됨
+서버에서 데이터를 수신했습니다: 이것은 수수료 위임, 서비스 수수료 지불자는 0x88311cD55B656D2502b50f62E83F8279c1641e70입니다.
 ```
 
-`Sender` 개인 키로 트랜잭션에 서명하고 서명된 트랜잭션을 수수료 위임 서비스(즉, 수수료 납부자 서버)로 전송합니다. 그러면 수수료 대납 서비스에서 `fee payer` 주소, `Tx hash`, `Sender Tx hash`가 포함된 응답을 받습니다. `Tx hash`는 카이아 네트워크에 전송된 트랜잭션의 해시이며, `Sender Tx hash`는 수수료 납부자의 주소와 서명이 없는 트랜잭션의 해시입니다. 더 자세한 내용은 [SenderTxHash](../../learn/transactions/transactions.md#sendertxhash)를 참고하시기 바랍니다.
+`Sender` 개인 키로 트랜잭션에 서명하고 서명된 트랜잭션을 수수료 위임 서비스(즉, 수수료 납부자 서버)로 전송합니다. 그런 다음 '수수료 납부자' 주소, 'Tx 해시'를 포함한 수수료 대리인 서비스의 응답을 받게 됩니다. 'Tx 해시'는 카이아 네트워크에 제출된 트랜잭션의 해시입니다.
 
 ### 4.3 `feepayer_server.js` 확인 <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-서버의 콘솔에서 아래와 같은 출력을 확인할 수 있습니다. 카이아의 트랜잭션 영수증을 출력합니다.
+서버의 콘솔에서 아래 출력을 확인할 수 있습니다. Kaia에서 거래 영수증을 인쇄합니다.
 
 ```
 $ node feepayer_server.js
-Fee delegate service started ...
-Client is connected ...
-Received data from client: 0x09f89f0485066720b300830186a094811ce345db9d8ad17513cc77d76a1ace9ec46f02865af3107a400094213eb97cc74af77b78d1cfd968bc89ab816872daf847f8458207f5a0cefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714a0512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3940000000000000000000000000000000000000000c4c3018080
-Decoded transaction: FeeDelegatedValueTransfer {
-  _type: 'TxTypeFeeDelegatedValueTransfer',
-  _from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
-  _gas: '0x186a0',
-  _nonce: '0x4',
-  _signatures: [
-    SignatureData {
-      _v: '0x07f5',
-      _r: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
-      _s: '0x512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3'
-    }
-  ],
-  _klaytnCall: {
-    getChainId: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_chainID',
-      getMethod: [Function (anonymous)]
-    },
-    getGasPrice: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_gasPrice',
-      getMethod: [Function (anonymous)]
-    },
-    getTransactionCount: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_getTransactionCount',
-      getMethod: [Function (anonymous)]
-    },
-    getHeaderByNumber: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_getHeaderByNumber',
-      getMethod: [Function (anonymous)]
-    },
-    getAccountKey: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_getAccountKey',
-      getMethod: [Function (anonymous)]
-    },
-    getTransactionByHash: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_getTransactionByHash',
-      getMethod: [Function (anonymous)]
-    },
-    getMaxPriorityFeePerGas: [Function (anonymous)] {
-      method: [Method],
-      request: [Function: bound request],
-      call: 'klay_maxPriorityFeePerGas',
-      getMethod: [Function (anonymous)]
-    }
-  },
-  _feePayer: '0x0000000000000000000000000000000000000000',
-  _feePayerSignatures: [ SignatureData { _v: '0x01', _r: '0x', _s: '0x' } ],
-  _to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
-  _value: '0x5af3107a4000',
-  _gasPrice: '0x66720b300'
-}
-Transaction receipt: {
-  blockHash: '0xb2727edaa2ffc8a8fece0ce54154b469887a9f6725bac6811ac610131c135046',
-  blockNumber: '0xa45da40',
+
+수수료 대리인 서비스가 시작되었습니다 ...
+클라이언트가 연결됨 ...
+클라이언트로부터 데이터를 받았습니다: 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
+보낸Tx 트랜잭션 응답 {
+…
+  to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
+  보낸 사람: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
   contractAddress: null,
-  effectiveGasPrice: '0x66720b300',
-  feePayer: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
-  feePayerSignatures: [
-    {
-      V: '0x7f6',
-      R: '0x6207f1c3c8c75f1a57ff3d1c87a51b7067f6076b1bf37c3a1ad296e441cfa9db',
-      S: '0x7f086233c6d99f92d78bd1d3292127c1bda7fc41bab670a9e8a38302a742eb11'
-    }
-  ],
-  from: '0x213eb97cc74af77b78d1cfd968bc89ab816872da',
-  gas: '0x186a0',
-  gasPrice: '0x66720b300',
-  gasUsed: '0x7918',
-  logs: [],
+  hash: '0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222',
+  index: 0,
+  blockHash: '0x50d3d7e143579e17dbc17b761c8e04331c6d4d950fe7563ac9a79d42a649de0a',
+  blockNumber: 177078710,
   logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-  nonce: '0x4',
-  senderTxHash: '0x7263d2dc5b36abc754726b220b7ad243dd789934109c6874e539ada5c7e9f193',
-  signatures: [
-    {
-      V: '0x7f5',
-      R: '0xcefe267a80c014d1750c31aa312843b3696a14abebc1be88c63d0b63d6b6f714',
-      S: '0x512abfe3533f2cfd924e7decdd21e05f22a22f04b35db09f39839708043daac3'
-    }
-  ],
-  status: '0x1',
-  to: '0x811ce345db9d8ad17513cc77d76a1ace9ec46f02',
-  transactionHash: '0x1e6a019bb9c6cf156a6046ca33f0c810fb9fb6fdcb6df32b2e34a1d50f7f8a9d',
-  transactionIndex: '0x1',
-  type: 'TxTypeFeeDelegatedValueTransfer',
-  typeInt: 9,
-  value: '0x5af3107a4000'
+  gasUsed: 31000n,
+  blobGasUsed: null,
+  cumulativeGasUsed: 31000n,
+  gasPrice: 27500000000n,
+  blobGasPrice: null,
+  type: 0,
+  status: 1,
+  root: undefined
 }
+
 ```
 
-### 4.4 카이아 스코프 <a href="#4-4-klaytn-scope" id="4-4-klaytn-scope"></a>
+### 4.4 카이아스캔에서 보기 <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
 
-You can also find the above transaction on the [Kaiascope](https://kairos.kaiascope.com).
+위의 거래는 [카이아스캔](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview\&page=1)에서도 확인할 수 있습니다.
 
-It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x811CE345DB9D8aD17513Cc77d76a1ace9eC46F02` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
+트랜잭션은 `TxTypeFeeDelegatedValueTransfer`이고 `수수료 납부자`는 `0x88311cd55b656d2502b50f62e83f8279c1641e70` 또는 입력한 `feepayerAddress`이며 `발신자`는 위 예시에서 `발신자 주소`가 되어야 하는 다른 주소임을 알 수 있습니다.
 
-![Fee delegated Tx](/img/build/tutorials/fee-delegation-example-kaia.png)
+![수수료 위임 Tx](/img/build/tutorials/fd-kaiascan-example.png)
