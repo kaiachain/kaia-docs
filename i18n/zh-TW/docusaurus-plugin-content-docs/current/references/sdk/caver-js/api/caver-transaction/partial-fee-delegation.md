@@ -10,7 +10,7 @@ sidebar_label: 部分費用授權
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-"FeeDelegatedValueTransferWithRatio "表示[帶比率的費用委託價值轉移交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio）。 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedValueTransferWithRatio "事務。
+`FeeDelegatedValueTransferWithRatio` represents a [fee delegated value transfer with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedValueTransferWithRatio "事務。
 
 FeeDelegatedValueTransferWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedValueTransfer "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -74,7 +74,7 @@ FeeDelegatedValueTransferWithRatio {
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedValueTransferMemoWithRatio "表示[帶比率的收費委託價值轉移備忘錄交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio）。 "transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
+`FeeDelegatedValueTransferMemoWithRatio` represents a [fee delegated value transfer memo with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio). "transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
 
 FeeDelegatedValueTransferMemoWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedValueTransferMemoWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -141,7 +141,7 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedAccountUpdateWithRatio "表示[按比率更新收費委託帳戶交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio）。 "transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
+`FeeDelegatedAccountUpdateWithRatio` represents a [fee delegated account update with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). "transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
 
 FeeDelegatedAccountUpdateWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedAccountUpdateWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -207,7 +207,7 @@ FeeDelegatedAccountUpdateWithRatio {
 caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractDeployWithRatio "代表一個[費用委託智能合約部署比率交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio）。 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractDeployWithRatio "事務。
+`FeeDelegatedSmartContractDeployWithRatio` represents a [fee delegated smart contract deploy with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractDeployWithRatio "事務。
 
 FeeDelegatedSmartContractDeployWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedSmartContractDeployWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -276,7 +276,7 @@ FeeDelegatedSmartContractDeployWithRatio {
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractExecutionWithRatio "表示[按比例執行的收費智能合約]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio）。 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractExecutionWithRatio "事務。
+`FeeDelegatedSmartContractExecutionWithRatio` represents a [fee delegated smart contract execution with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractExecutionWithRatio "事務。
 
 FeeDelegatedSmartContractExecutionWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedSmartContractExecutionWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -342,7 +342,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedCancelWithRatio "事務。
+`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedCancelWithRatio "事務。
 
 FeeDelegatedCancelWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedCancelWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -401,7 +401,7 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedChainDataAnchoringWithRatio "事務。
+`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedChainDataAnchoringWithRatio "事務。
 
 FeeDelegatedChainDataAnchoringWithRatio\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedChainDataAnchoringWithRatio "事務時可在 "transactionObject "中選擇定義的屬性。
 
