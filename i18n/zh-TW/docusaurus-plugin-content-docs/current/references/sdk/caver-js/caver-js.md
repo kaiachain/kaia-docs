@@ -97,7 +97,7 @@ const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-有關gas價格的更多信息，請參閱 [Gas and Unit Price Overview](../../../learn/transaction-fees.md#gas-and-unit-price-overview) 網絡中使用的gas價格可通過 [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice) 獲得。
+For more information about the gas price, see [Gas and Unit Price Overview](../../../learn/transaction-fees/transaction-fees.md#effective-gas-price). The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
 
 ## 鏈接<a href="#links" id="links"></a>
 
