@@ -23,7 +23,7 @@ The most simple way to create an account is using the [Kaia Online Toolkit](http
 
 Download the keystore file, and let's change the name to something more simple, like `keystore.json`.
 
-**You need KAIA to send a transaction.** You can get test KLAY for Kairos testnet from [Faucet](https://faucet.kaia.io). Refer to [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) for detailed instructions.
+**You need KAIA to send a transaction.** You can get test KAIA for Kairos testnet from [Faucet](https://faucet.kaia.io).
 
 ## 2. Initialize Project <a id="2.-initialize-project"></a>
 
