@@ -23,7 +23,7 @@ _注：_ 安裝 nvm 後，如果出現 `nvm: command not found` 錯誤，請參�
 
 下載 keystore 文件，並將文件名改為更簡單的名稱，如 `keystore.json` 。
 
-\*\* 您需要 KAIA 才能發送交易。\*\* 您可以從 [Faucet](https://faucet.kaia.io) 獲取用於 Kairos 測試網的測試 KLAY。 詳細說明請參閱 [Kaia Wallet]（.../.../.../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay）。
+**You need KAIA to send a transaction.** You can get test KAIA for Kairos testnet from [Faucet](https://faucet.kaia.io).
 
 ## 2. 初始化項目<a id="2.-initialize-project"></a>
 
