@@ -31,8 +31,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
-    //locales: ['en', 'ko', 'zh-CN', 'zh-TW', 'vi'],
+    locales: ['en', 'ko', 'zh-CN', 'zh-TW', 'vi'],
     path: 'i18n',
     localeConfigs: {
       'en': {
