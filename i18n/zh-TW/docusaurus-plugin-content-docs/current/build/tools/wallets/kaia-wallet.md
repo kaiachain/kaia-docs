@@ -28,6 +28,6 @@ Kaia 錢包支持 Kaia 的 Kairos 測試網和主網。 此外，Kaia 錢包還�
 ## 簽署基於網絡的 dApp 交易
 
 Kaia Wallet 在您和 dApp 之間架起了一座橋樑，使您能夠使用 Kaia Wallet 賬戶簽署從 dApp 流向您的交易/數據。
-Kaia 錢包也是開發人員處理[費用委託交易](../../../learn/transactions/transactions.md#fee-delegation)的輔助工具。 使用 Kaia 錢包，交易發送方和費用支付方都能迅速簽署費用委託交易。
+Kaia Wallet is also an aidful utility for developers to handle [fee-delegated transactions](../../transactions/transactions.md#fee-delegation). 使用 Kaia 錢包，交易發送方和費用支付方都能迅速簽署費用委託交易。
 
 [Kaiascope]: ../block-explorers/kaiascope.md
