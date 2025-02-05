@@ -16,7 +16,7 @@
     "description": "The label for category Get Started in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Account Basics": {
-    "message": "口座の基本",
+    "message": "アカウントの基本",
     "description": "The label for category Account Basics in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Smart Contracts": {
@@ -204,7 +204,7 @@
     "description": "The label for category Fee Delegated Transaction in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.Smart Contract": {
-    "message": "スマート契約",
+    "message": "スマートコントラクト",
     "description": "The label for category Smart Contract in sidebar refSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext": {
