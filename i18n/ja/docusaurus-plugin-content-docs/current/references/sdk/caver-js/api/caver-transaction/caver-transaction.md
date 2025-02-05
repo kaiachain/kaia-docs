@@ -471,7 +471,7 @@ FeeDelegatedValueTransfer {
 
 RLPエンコードされたトランザクション文字列を返します。
 
-各トランザクションタイプのRLPエンコード文字列の作成方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md) を参照してください。
+For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **リターン・バリュー**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 `transactionHash` を返す。
 
-各トランザクション・タイプのトランザクション・ハッシュの作成方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md) を参照のこと。
+For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **リターン・バリュー**
 
@@ -536,11 +536,11 @@ transaction.getTransactionHash()
 トランザクション.getSenderTxHash()
 ```
 
-トランザクションの [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) を返す。
+Returns a [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) of transaction.
 
-senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) は、料金支払者のアドレスと署名を除いたトランザクションのハッシュであるため、[transactionHash](#transaction-gettransactionhash) と[senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) は、基本トランザクションでは同じである。
+The [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) are the same for basic transactions.
 
-各トランザクション・タイプの[senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash)の作成方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md)を参照してください。
+For information on how to make the [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **リターン・バリュー**
 
@@ -563,7 +563,7 @@ senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) �
 
 トランザクション送信者の署名を作成するためのRLPエンコードされたトランザクション文字列を返す。 返されたRLPエンコードされたトランザクション文字列は署名と一緒に追加されず、むしろこの署名を生成するために使用されることに注意。
 
-各トランザクションタイプについて、トランザクション送信者の署名を生成するためにRLPエンコードされたトランザクション文字列を作成する方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md)を参照のこと。
+For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **リターン・バリュー**
 
@@ -586,7 +586,7 @@ senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) �
 
 料金支払者の署名を行うためのRLPエンコードされたトランザクション文字列を返す。 返されたRLPエンコードされたトランザクション文字列は署名と一緒に追加されず、むしろこの署名を生成するために使用されることに注意。
 
-RLPエンコードされたトランザクション文字列を作成し、各トランザクションタイプの料金支払者の署名を生成する方法については、[Kaia Design - Transactions](../../../../../learn/transactions/transactions.md)を参照。
+For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../build/transactions/transactions.md).
 
 **注** この関数は、「フィー委任」取引または「比率付きフィー委任」取引に対してのみ機能する。
 
