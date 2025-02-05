@@ -1,6 +1,6 @@
 # はじめに
 
-このドキュメントは、caver-js v1.5.0以上を使用している開発者向けです。 旧バージョンをお使いの場合は、[はじめに(◆v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md)をご参照ください。
+This documentation is for developers using caver-js v1.5.0 or higher.
 
 ## 前提条件<a href="#prerequisites" id="prerequisites"></a>
 
@@ -416,7 +416,7 @@ RoleBasedKeyring {
 
 ### カイロス水栓でKAIAを入手する<a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-テスト用にKAIAが必要な場合は、[Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)からKairos testnet KAIAを入手できます。 秘密鍵またはキーストアファイルを使用してkaiaウォレットにログインし、テスト用の蛇口からKairos testnet KAIAを受信します。
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet).
 
 ### バリュー・トランスファー・トランザクションの送信<a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については、[caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt) を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## 他のトランザクション・タイプの実行<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 詳しくは[Transactions](../../../learn/transactions/)を参照。 このセクションでは、caver-jsで使用できるいくつかの例について説明します。
+カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 For more information, see [Transactions](../../../build/transactions/). このセクションでは、caver-jsで使用できるいくつかの例について説明します。
 
 ### 手数料の委任<a href="#fee-delegation" id="fee-delegation"></a>
 
-カイアは[料金委任](../../../learn/transactions/transactions.md#fee-delegation)機能を提供しています。 以下は、あなたがこの種のトランザクションの送信者である場合に、RLPエンコードされたトランザクションを行う例である：
+Kaia provides [Fee Delegation](../../../build/transactions/transactions.md#fee-delegation) feature. 以下は、あなたがこの種のトランザクションの送信者である場合に、RLPエンコードされたトランザクションを行う例である：
 
 ```javascript
 // test.js
@@ -1769,8 +1769,8 @@ $ node ./test.js
 
 caver-jsを使ったDApp（ブロックチェーンアプリケーション）開発サンプルプロジェクトは以下の通り：
 
-- [カウントDApp](../../../build/tutorials/count-dapp/count-dapp.md)
-- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](https://docs.klaytn.foundation/docs/build/tutorials/count-dapp/)
+- [Klaystagram](https://docs.klaytn.foundation/docs/build/tutorials/klaystagram/)
 
 ## トラブルシューティング<a href="#troubleshooting" id="troubleshooting"></a>
 
