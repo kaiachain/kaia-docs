@@ -1,6 +1,6 @@
 # 新手指南
 
-本文檔適用於使用 caver-js v1.5.0 或更高版本的開發人員。 如果使用的是舊版本，請參閱 [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
+This documentation is for developers using caver-js v1.5.0 or higher.
 
 ## 先決條件<a href="#prerequisites" id="prerequisites"></a>
 
@@ -416,7 +416,7 @@ RoleBasedKeyring {
 
 ### 通過 Kairos 龍頭獲取 KAIA<a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-如果您需要 KAIA 進行測試，可以從 [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) 獲取 Kairos testnet KAIA。 使用私鑰或密鑰存儲文件登錄 kaia 錢包，並通過龍頭接收 Kairos testnet KAIA 進行測試。
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet).
 
 ### 發送價值轉移交易<a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 有關 `txError` 的更多信息，請參閱 [txError: Detailed Information of Transaction Failures]（.../transaction-error-codes.md）。
+交易結果可通過收據的 "狀態 "查詢。 有關返回值的詳細信息，請參閱 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)。 如果交易失敗，可以在收據的 `txError` 中查看更多有關錯誤的信息。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## 執行其他事務類型<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia 提供各種事務類型，以提高可擴展性和性能。 更多信息，請參閱 [事務]（.../.../.../learn/transactions/）。 本節將介紹一些可與 caver-js 配合使用的示例。
+Kaia 提供各種事務類型，以提高可擴展性和性能。 For more information, see [Transactions](../../../build/transactions/). 本節將介紹一些可與 caver-js 配合使用的示例。
 
 ### 收費代表團<a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia 提供 [費用委託]（.../.../.../learn/transactions/transactions.md#fee-delegation）功能。 下面是一個製作 RLP 編碼交易的示例，當您是此類交易的發送方時：
+Kaia provides [Fee Delegation](../../../build/transactions/transactions.md#fee-delegation) feature. 下面是一個製作 RLP 編碼交易的示例，當您是此類交易的發送方時：
 
 ```javascript
 // test.js
@@ -1769,8 +1769,8 @@ $ node ./test.js
 
 使用 caver-js 開發的 DApp（區塊鏈應用程序）示例項目如下：
 
-- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
-- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](https://docs.klaytn.foundation/docs/build/tutorials/count-dapp/)
+- [Klaystagram](https://docs.klaytn.foundation/docs/build/tutorials/klaystagram/)
 
 ## 故障排除<a href="#troubleshooting" id="troubleshooting"></a>
 
