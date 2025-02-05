@@ -484,11 +484,11 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **參數：**
 
-| 名稱       | 類型                 | 描述                                                                                                                                                                                                      |
-| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 地址       | 字符串                | 用於獲取交易次數的地址。                                                                                                                                                                                            |
-| 區塊編號     | number \\| string | (可選）一個區塊編號、表示待處理的 nonce 的字符串 `pending` 或字符串 `earliest` 或 `latest`，如 [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter) 所示。 如果省略，將使用 `latest`。 |
-| callback | function           | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                                                                                                      |
+| 名稱       | 類型                 | 描述                                                                                                                                                                 |
+| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 地址       | 字符串                | 用於獲取交易次數的地址。                                                                                                                                                       |
+| 區塊編號     | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest`. 如果省略，將使用 `latest`。 |
+| callback | function           | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                                                                 |
 
 **返回價值**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-生成 kaia 專用的簽名數據。 請參閱[Kaia Platform API - klay_sign](.../.../.../.../json-rpc/klay/account.md#klay_sign)，瞭解簽名是如何生成的。
+生成 kaia 專用的簽名數據。 Refer to [Kaia Platform API - klay_sign](https://docs.kaia.io/references/json-rpc/klay/sign/) to know how the signature is generated.
 
-**注意**：此 API 提供了使用 kaia 節點中的 [導入賬戶](../../../.../jsson-rpc/personal.md#personal_importrawkey) 簽署消息的功能。 您節點中的導入賬戶必須已[解鎖]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能簽署信息。 使用 [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction) 簽署 kaia 節點中導入賬戶的交易。
+**NOTE**: This API provides the function to sign a message using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caverrpcklaysigntransaction).
 
 **參數**
 
@@ -1413,12 +1413,12 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 **參數：**
 
-| 名稱       | 類型                 | 描述                                                                                                                              |
-| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| 地址       | 字符串                | 獲取存儲空間的地址。                                                                                                                      |
-| 位置       | 數量                 | 存儲空間的索引位置。 有關 "計算位置 "的更多信息，請參閱 [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat) 。 |
-| 區塊編號     | number \\| string | (可選）區塊編號，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，將使用 `latest`。                                               |
-| callback | function           | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                              |
+| 名稱       | 類型                 | 描述                                                                                                                                                                                               |
+| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 地址       | 字符串                | 獲取存儲空間的地址。                                                                                                                                                                                       |
+| 位置       | 數量                 | 存儲空間的索引位置。 For more information on `calculating the position`, refer to [klay_getStorageAt](https://docs.kaia.io/references/json-rpc/klay/get-storage-at/). |
+| 區塊編號     | number \\| string | (可選）區塊編號，或字符串 "latest"（最新）或 "earliest"（最早）。 如果省略，將使用 `latest`。                                                                                                                |
+| callback | function           | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                                                                                               |
 
 **返回價值**
 
@@ -1800,10 +1800,10 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 
 **參數：**
 
-| 名稱         | 類型       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 發送方 TxHash | 字符串      | 發送方交易哈希值。 返回事務的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 |
-| callback   | function | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                                                                                                                                                                                                                                                                                                                       |
+| 名稱         | 類型       | 描述                                                                                                                            |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 發送方 TxHash | 字符串      | 發送方交易哈希值。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
+| callback   | function | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                            |
 
 **返回價值**
 
@@ -1859,36 +1859,36 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 
 `Promise` 返回 `object` - 交易收據對象，或 `null` - 未找到收據：
 
-| 名稱                 | 類型      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| blockHash          | 字符串     | 該交易所在區塊的哈希值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| 區塊編號               | 字符串     | 該交易所在的區塊編號。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| codeFormat         | 字符串     | (可選，默認：`'EVM'`）智能合約代碼的編碼格式。                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| contractAddress    | 字符串     | 如果交易是創建合約，則為創建的合同地址，否則為`null`。                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| 有效GasPrice         | 字符串     | 從發送方扣除的每筆gas的實際價值。 在 Magma 硬分叉之前，該值等於交易的Gas 價格。 Magma 硬分叉後，它等於區塊頭中的 "baseFee "值。                                                                                                                                                                                                                                                                                                                                                                                                         |
-| 付費者                | 字符串     | (可選）付費人地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| feePayerSignatures | 數組      | (可選）付費人簽名對象數組。 簽名對象包含三個字段（V、R 和 S）。 V 包含 ECDSA 恢復 ID。 R 包含 ECDSA 簽名 r，而 S 包含 ECDSA 簽名 s。                                                                                                                                                                                                                                                                                                                                                                              |
-| 費用比率               | 字符串     | (可選）付費人的繳費比例。 如果是 30，繳費人將支付 30%的費用。 70% 由發送人支付。                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| from               | 字符串     | 發送人地址。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| gas                | 字符串     | 發送人提供的gas。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| gasPrice           | 字符串     | 由發件人提供用 peb 的 Gas 價格                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| gasUsed            | 字符串     | 僅此一項交易使用的gas量。                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| humanReadable      | Boolean | (可選） `true`（如果地址可人工讀取），`false`（如果地址不可人工讀取）。                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| key                | 字符串     | (可選）用於更新 kaia 帳戶 AccountKey 的 RLP 編碼 AccountKey。                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| input              | 字符串     | (可選）與交易一起發送的數據。                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| logs               | 數組      | 該事務生成的日誌對象數組。                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| logsBloom          | 字符串     | 用於輕型客戶端的 Bloom 過濾器可快速檢索相關日誌。                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| nonce              | 字符串     | 發件人在此交易之前進行的交易次數。                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| 發送方 TxHash         | 字符串     | (可選）僅由發送方簽名的交易哈希值。 返回事務的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 該值始終與非收費委託交易的 `transactionHash` 相同。 |
-| 簽名                 | 數組      | 簽名對象數組。 簽名對象包含三個字段（V、R 和 S）。 V 包含 ECDSA 恢復 ID。 R 包含 ECDSA 簽名 r，而 S 包含 ECDSA 簽名 s。                                                                                                                                                                                                                                                                                                                                                                                                        |
-| status             | 字符串     | 如果事務成功，則為 `0x1`；如果 kaia 虛擬機還原了事務，則為 `0x0`。                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| txError            | 字符串     | (可選）當 `status` 等於 `0x0` 時的詳細錯誤代碼。                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| to                 | 字符串     | 收件人地址。 如果是合約部署事務，則為 "null"。                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| 交易哈希值。             | 字符串     | 交易的哈希值。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| 交易索引               | 字符串     | 區塊中事務索引位置的整數。                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| 類型                 | 字符串     | 表示交易類型的字符串。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| typeInt            | 數量      | 代表交易類型的整數。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| value              | 字符串     | 以peb為單位的價值轉移                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名稱                 | 類型      | 描述                                                                                                                                                                            |
+| ------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blockHash          | 字符串     | 該交易所在區塊的哈希值。                                                                                                                                                                  |
+| 區塊編號               | 字符串     | 該交易所在的區塊編號。                                                                                                                                                                   |
+| codeFormat         | 字符串     | (可選，默認：`'EVM'`）智能合約代碼的編碼格式。                                                                                                                                |
+| contractAddress    | 字符串     | 如果交易是創建合約，則為創建的合同地址，否則為`null`。                                                                                                                                                |
+| 有效GasPrice         | 字符串     | 從發送方扣除的每筆gas的實際價值。 在 Magma 硬分叉之前，該值等於交易的Gas 價格。 Magma 硬分叉後，它等於區塊頭中的 "baseFee "值。                                                                                              |
+| 付費者                | 字符串     | (可選）付費人地址。                                                                                                                                                 |
+| feePayerSignatures | 數組      | (可選）付費人簽名對象數組。 簽名對象包含三個字段（V、R 和 S）。 V 包含 ECDSA 恢復 ID。 R 包含 ECDSA 簽名 r，而 S 包含 ECDSA 簽名 s。                                                                   |
+| 費用比率               | 字符串     | (可選）付費人的繳費比例。 如果是 30，繳費人將支付 30%的費用。 70% 由發送人支付。                                                                                                            |
+| from               | 字符串     | 發送人地址。                                                                                                                                                                        |
+| gas                | 字符串     | 發送人提供的gas。                                                                                                                                                                    |
+| gasPrice           | 字符串     | 由發件人提供用 peb 的 Gas 價格                                                                                                                                                          |
+| gasUsed            | 字符串     | 僅此一項交易使用的gas量。                                                                                                                                                                |
+| humanReadable      | Boolean | (可選） `true`（如果地址可人工讀取），`false`（如果地址不可人工讀取）。                                                                                                                |
+| key                | 字符串     | (可選）用於更新 kaia 帳戶 AccountKey 的 RLP 編碼 AccountKey。                                                                                                           |
+| input              | 字符串     | (可選）與交易一起發送的數據。                                                                                                                                            |
+| logs               | 數組      | 該事務生成的日誌對象數組。                                                                                                                                                                 |
+| logsBloom          | 字符串     | 用於輕型客戶端的 Bloom 過濾器可快速檢索相關日誌。                                                                                                                                                  |
+| nonce              | 字符串     | 發件人在此交易之前進行的交易次數。                                                                                                                                                             |
+| 發送方 TxHash         | 字符串     | (可選）僅由發送方簽名的交易哈希值。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash). 該值始終與非收費委託交易的 `transactionHash` 相同。 |
+| 簽名                 | 數組      | 簽名對象數組。 簽名對象包含三個字段（V、R 和 S）。 V 包含 ECDSA 恢復 ID。 R 包含 ECDSA 簽名 r，而 S 包含 ECDSA 簽名 s。                                                                                             |
+| status             | 字符串     | 如果事務成功，則為 `0x1`；如果 kaia 虛擬機還原了事務，則為 `0x0`。                                                                                                                                    |
+| txError            | 字符串     | (可選）當 `status` 等於 `0x0` 時的詳細錯誤代碼。                                                                                                                          |
+| to                 | 字符串     | 收件人地址。 如果是合約部署事務，則為 "null"。                                                                                                                                                   |
+| 交易哈希值。             | 字符串     | 交易的哈希值。                                                                                                                                                                       |
+| 交易索引               | 字符串     | 區塊中事務索引位置的整數。                                                                                                                                                                 |
+| 類型                 | 字符串     | 表示交易類型的字符串。                                                                                                                                                                   |
+| typeInt            | 數量      | 代表交易類型的整數。                                                                                                                                                                    |
+| value              | 字符串     | 以peb為單位的價值轉移                                                                                                                                                                  |
 
 **注意** `caver.kct.kip7.create`從 caver-js [v1.6.1](https://www.npmjs.com/package/caver-js/v/1.6.1) 開始支持。
 
@@ -1960,10 +1960,10 @@ caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 
 **參數**
 
-| 名稱         | 類型       | 描述                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 發送方 TxHash | 字符串      | 發送方交易哈希值。 返回事務的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。 |
-| callback   | function | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                                                                                                                                                                                                                                                                                                                       |
+| 名稱         | 類型       | 描述                                                                                                                            |
+| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 發送方 TxHash | 字符串      | 發送方交易哈希值。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
+| callback   | function | (可選）可選回調，第一個參數返回錯誤對象，第二個參數返回結果。                                                                            |
 
 **返回價值**
 
@@ -2071,7 +2071,7 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 有關每種事務類型的更多信息，請參閱 [事務]（.../caver-transaction/caver-transaction.md#class）。
 
-**注意**：此 API 提供了使用 kaia 節點中的 [導入賬戶](../../../.../jsson-rpc/personal.md#personal_importrawkey) 簽署交易的功能。 您節點中的導入賬戶必須[解鎖]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能簽署交易。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **參數**
 
@@ -2141,7 +2141,7 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 有關每種事務類型的更多信息，請參閱 [事務]（.../caver-transaction/caver-transaction.md#class）。
 
-**注意**：此 API 提供了使用 kaia 節點中的 [導入賬戶](../../../.../jsson-rpc/personal.md#personal_importrawkey) 簽署交易的功能。 您節點中的導入賬戶必須[解鎖]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能簽署交易。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **參數**
 
@@ -2220,7 +2220,7 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 有關每種事務類型的更多信息，請參閱 [事務]（.../caver-transaction/caver-transaction.md#class）。
 
-**注意**：此 API 提供了使用 kaia 節點中的 [導入賬戶](../../../.../jsson-rpc/personal.md#personal_importrawkey) 簽署交易的功能。 您節點中的導入賬戶必須[解鎖]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount）才能簽署交易。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **參數**
 
@@ -2276,7 +2276,7 @@ caver.rpc.klay.signTransactionAsFeePayer(transaction [, callback])
 
 有關每種事務類型的更多信息，請參閱 [事務]（.../caver-transaction/caver-transaction.md#class）。
 
-**注意**：此 API 提供了使用 kaia 節點中的 [導入賬戶](../../../.../jsson-rpc/personal.md#personal_importrawkey) 簽署交易的功能。 您節點中的導入賬戶必須已[解鎖]（.../.../.../.../jsson-rpc/personal.md#personal_unlockaccount），才能簽署信息。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **參數**
 
@@ -2967,7 +2967,7 @@ caver.rpc.klay.newFilter(options [, callback])
 - 要檢查狀態是否已更改，請調用 [caver.rpc.klay.getFilterChanges]（#caver-rpc-klay-getfilterchanges）。
 - 要獲取與`newFilter`創建的過濾器匹配的所有日誌，請調用[caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs)。
 
-有關過濾器對象主題的詳細信息，請參閱 [Kaia Platform API - klay_newFilter]（.../../../../json-rpc/klay/filter.md#klay_newfilter）。
+For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](https://docs.kaia.io/references/json-rpc/klay/new-filter/).
 
 **參數**
 
