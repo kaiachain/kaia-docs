@@ -30,6 +30,6 @@ Kaiaウォレットはメインネットと同様にKaiaのKairosテストネッ
 
 カイアウォレットは、あなたとdAppsの間のギャップを埋めるだけで、カイアウォレットのアカウントでdAppsからあなたに流れる取引/データに署名する権限を与えます。
 カイア・ウォレットはまた、開発者が[手数料委任取引](../../../learn/transactions/transactions.md#fee-delegation)を処理するのに役立つユーティリティでもある。 カイア・ウォレットを使えば、取引の送り手と手数料の支払い手の双方が、手数料を委任された取引に迅速に署名することができる。
-カイア・ウォレットはまた、開発者が[手数料委任取引](../../../learn/transactions/transactions.md#fee-delegation)を処理するのに役立つユーティリティでもある。 カイア・ウォレットを使えば、取引の送り手と手数料の支払い手の双方が、手数料を委任された取引に迅速に署名することができる。
+Kaia Wallet is also an aidful utility for developers to handle [fee-delegated transactions](../../transactions/transactions.md#fee-delegation). カイア・ウォレットを使えば、取引の送り手と手数料の支払い手の双方が、手数料を委任された取引に迅速に署名することができる。
 
 [Kaiascope]: ../block-explorers/kaiascope.md
