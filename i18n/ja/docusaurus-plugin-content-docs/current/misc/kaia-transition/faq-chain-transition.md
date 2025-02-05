@@ -71,7 +71,7 @@ KlaytnウォレットはKaiaで使用できますが、Metamaskのようなサ�
 
 ### KLAYとFNSAの過去の価格情報はどこで見られますか？ CoinMarketCapやCoinGeckoではもう見つからないようだ。 <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
 
-KLAYとFNSAの合併と新しいトークンKAIAへの移行のため、KLAYとFNSAの過去の価格情報は暗号通貨追跡サイトでは利用できなくなりました。 しかし、我々は透明性と参考のためにこのデータを保存している。 KLAY と FNSA のヒストリカル価格データを含む CSV ファイルは、[Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing)からダウンロードできます。
+KLAYとFNSAの合併と新しいトークンKAIAへの移行のため、KLAYとFNSAの過去の価格情報は暗号通貨追跡サイトでは利用できなくなりました。 しかし、我々は透明性と参考のためにこのデータを保存している。 You can download CSV files containing the historical price data for both KLAY and FNSA from [Kaia native coin - KAIA](../../learn/token-economics/kaia-native-token.md#historical-pricing).
 
 ## アプリビルダー
 
