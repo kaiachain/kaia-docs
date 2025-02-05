@@ -10,7 +10,7 @@ sidebar_label: 费用委托
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-FeeDelegatedValueTransfer "代表[fee delegated value transfer transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer）。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransfer "事务。
+FeeDelegatedValueTransfer "表示[费用委托价值转移交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer)。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransfer "事务。
 
 FeeDelegatedValueTransfer\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransfer "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -71,7 +71,7 @@ FeeDelegatedValueTransfer {
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-FeeDelegatedValueTransferMemo "代表一个[收费委托价值转移备忘录事务]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo）。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransferMemo "事务。
+FeeDelegatedValueTransferMemo "表示[费用委托价值转移备忘录交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo)。 transactionObject "可以具有以下属性，以创建 "FeeDelegatedValueTransferMemo "事务。
 
 FeeDelegatedValueTransferMemo\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransferMemo "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -135,7 +135,7 @@ FeeDelegatedValueTransferMemo {
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-FeeDelegatedAccountUpdate "代表[fee delegated account update transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedAccountUpdate "事务。
+FeeDelegatedAccountUpdate\` 表示[收费委托账户更新交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedAccountUpdate "事务。
 
 FeeDelegatedAccountUpdate\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedAccountUpdate "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -198,7 +198,7 @@ FeeDelegatedAccountUpdate {
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-SmartContractDeploy "代表一个[fee delegated smart contract deploy transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy）。 事务对象 "可以具有以下属性，以创建 "SmartContractDeploy "事务。
+FeeDelegatedSmartContractDeploy "代表一个[费用委托智能合约部署交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy)。 事务对象 "可以具有以下属性，以创建 "SmartContractDeploy "事务。
 
 `SmartContractDeploy` 的成员变量属性如下。 标记为 "可选 "的属性指的是用户创建 "SmartContractDeploy "事务时可在 "transactionObject "中选择给出的属性。
 
@@ -264,7 +264,7 @@ FeeDelegatedSmartContractDeploy {
 caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractExecution "事务。
+FeeDelegatedSmartContractExecution "代表一个[费用委托智能合约执行交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractExecution "事务。
 
 FeeDelegatedSmartContractExecution\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedSmartContractExecution "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -327,7 +327,7 @@ FeeDelegatedSmartContractExecution {
 caver.transaction.feeDelegatedCancel.create(transactionObject)
 ```
 
-`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel). 事务对象 "可以具有以下属性，以创建 "FeeDelegatedCancel "事务。
+FeeDelegatedCancel "表示[收费委托取消交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedcancel)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedCancel "事务。
 
 FeeDelegatedCancel\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedCancel "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -383,7 +383,7 @@ FeeDelegatedCancel {
 caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). 事务对象 "可以具有以下属性，以创建 "FeeDelegatedChainDataAnchoring "事务。
+FeeDelegatedChainDataAnchoring "表示[收费委托链数据锚定交易](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedChainDataAnchoring "事务。
 
 FeeDelegatedChainDataAnchoring\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedChainDataAnchoring "事务时可在 "transactionObject "中选择定义的属性。
 
