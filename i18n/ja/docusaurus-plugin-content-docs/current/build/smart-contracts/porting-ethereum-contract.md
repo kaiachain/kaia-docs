@@ -40,4 +40,4 @@ $ solc --evm-version london contract.sol
 
 ## 分離されたキー・ペア<a id="decoupled-key-pairs"></a>
 
-カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は[こちら](../../learn/computation/precompiled-contracts.md)を参照。
+カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 If user [updates account](../transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 For more details, refer to [here](../../learn/smart-contracts/precompiled-contracts.md).
