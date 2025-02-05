@@ -10,7 +10,7 @@ sidebar_label: Basic
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `LegacyTransaction` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `LegacyTransaction`.
+레거시 트랜잭션`은 [레거시 트랜잭션](../../../../../build/transactions/basic.md#txtypelegacytransaction)을 나타냅니다. A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `LegacyTransaction`only with [AccountKeyLegacy]. The`transactionObject`can have properties below to create a`LegacyTransaction\`.
 
 `LegacyTransaction` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `LegacyTransaction`.
 
@@ -81,7 +81,7 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer` represents a [value transfer transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfer). The `transactionObject` can have properties below to create a `ValueTransfer` transaction.
+ValueTransfer`는 [가치 전송 트랜잭션]을 나타냅니다(../../../../../build/transactions/basic.md#txtypevaluetransfer). The `transactionObject`can have properties below to create a`ValueTransfer\` transaction.
 
 `ValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransfer` transaction.
 
@@ -138,7 +138,7 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-`ValueTransferMemo` represents a [value transfer memo transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo). The `transactionObject` can have properties below to create a `ValueTransferMemo` transaction.
+ValueTransferMemo`는 [가치 전송 메모 트랜잭션](../../../../../build/transactions/basic.md#txtypevaluetransfermemo)을 나타냅니다. The `transactionObject`can have properties below to create a`ValueTransferMemo\` transaction.
 
 `ValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ValueTransferMemo` transaction.
 
@@ -198,7 +198,7 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate` represents a [account update transaction](../../../../../learn/transactions/basic.md#txtypeaccountupdate). The `transactionObject` can have properties below to create an `AccountUpdate` transaction.
+AccountUpdate`는 [계정 업데이트 트랜잭션](../../../../../build/transactions/basic.md#txtypeaccountupdate)을 나타냅니다. The `transactionObject`can have properties below to create an`AccountUpdate\` transaction.
 
 `AccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `AccountUpdate` transaction.
 
@@ -257,7 +257,7 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-`SmartContractDeploy` represents a [smart contract deploy transaction](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy). The `transactionObject` can have properties below to create a `SmartContractDeploy` transaction.
+스마트 컨트랙트 배포 트랜잭션`은 [스마트 컨트랙트 배포 트랜잭션](../../../../../build/transactions/basic.md#txtypesmartcontractdeploy)을 나타냅니다. The `transactionObject`can have properties below to create a`SmartContractDeploy\` transaction.
 
 `SmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractDeploy` transaction.
 
@@ -319,7 +319,7 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-`SmartContractExecution` represents a [smart contract execution transaction](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution). The `transactionObject` can have properties below to create a `SmartContractExecution` transaction.
+스마트 컨트랙트 실행 트랜잭션`은 [스마트 컨트랙트 실행 트랜잭션](../../../../../build/transactions/basic.md#txtypesmartcontractexecution)을 나타냅니다. The `transactionObject`can have properties below to create a`SmartContractExecution\` transaction.
 
 `SmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `SmartContractExecution` transaction.
 
@@ -378,7 +378,7 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel` represents a [cancel transaction](../../../../../learn/transactions/basic.md#txtypecancel). The `transactionObject` can have properties below to create a `Cancel` transaction.
+'취소'는 [거래 취소](../../../../../build/transactions/basic.md#txtypecancel)를 나타냅니다. The `transactionObject` can have properties below to create a `Cancel` transaction.
 
 `Cancel` transaction cancels the execution of the transaction with the same nonce in the transaction pool.
 
@@ -432,7 +432,7 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../learn/transactions/basic.md#txtypechaindataanchoring). The `transactionObject` can have properties below to create a `ChainDataAnchoring` transaction.
+'체인데이터앵커링'은 [체인 데이터 앵커링 트랜잭션](../../../../../build/transactions/basic.md#txtypechaindataanchoring)을 나타냅니다. The `transactionObject` can have properties below to create a `ChainDataAnchoring` transaction.
 
 `ChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `ChainDataAnchoring` transaction.
 
@@ -486,7 +486,7 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist). A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+이더리움 액세스 목록`은 [이더리움 액세스 목록 트랜잭션](../../../../../build/transactions/basic.md#txtypeethereumaccesslist)을 나타냅니다. A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList`only with [AccountKeyLegacy]. The`transactionObject`can have properties below to create a`EthereumAccessList\`.
 
 `EthereumAccessList` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumAccessList`.
 
@@ -558,7 +558,7 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee). A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+'이더리움 다이나믹 수수료'는 [이더리움 다이나믹 수수료 트랜잭션](../../../../../build/transactions/basic.md#txtypeethereumdynamicfee)을 나타냅니다. A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
 `EthereumDynamicFee` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally given in `transactionObject` when the user creates `EthereumDynamicFee`.
 And note that `EthereumDynamicFee` does not use `gasPrice`, it uses `maxPriorityFeePerGas` and `maxFeePerGas`.
