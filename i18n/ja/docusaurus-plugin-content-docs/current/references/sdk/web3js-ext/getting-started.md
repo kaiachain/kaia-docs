@@ -34,14 +34,6 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
-## 使用方法
-
-example](./example)と[test](./test)を参照のこと。
-
-## Web3オブジェクトの修正
-
-ソースコードの構成については[DESIGN](./DESIGN.md)を参照のこと。
-
 ### アカウント
 
 - 以下の関数は kaia TxTypes を扱うことができる。 src/account/index.ts](./src/account/index.ts) を参照。
