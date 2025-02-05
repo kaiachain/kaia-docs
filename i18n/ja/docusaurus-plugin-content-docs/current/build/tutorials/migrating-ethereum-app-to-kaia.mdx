@@ -6,27 +6,27 @@ title: EthereumアプリをKaiaに移行する
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Table of Contents <a href="#table-of-contents" id="table-of-contents" />
+## 目次<a href="#table-of-contents" id="table-of-contents" />
 
 * [1. はじめに](#1-introduction)
 * [2. 前提条件](#2-prerequisites)
 * [3. カイアはイーサリアムと互換性がある](#2-kaia-has-ethereum-compatibility)
 * [4. アプリの移行](#4-migrate-app)
 
-## 1. Introduction <a href="#1-introduction" id="1-introduction" />
+## 1. はじめに<a href="#1-introduction" id="1-introduction" />
 
 このチュートリアルでは、EthereumアプリをKaiaに移行する方法を説明します。 カイアの経験は問わない。 ここでは、EthereumアプリをKaiaに移行するために必要なコード修正のみに焦点を当てます。 カイアの経験は問わない。 ここでは、EthereumアプリをKaiaに移行するために必要なコード修正のみに焦点を当てます。
 
-## 2. Prerequisites <a href="#2-prerequisites" id="2-prerequisites" />
+## 2. 前提条件<a href="#2-prerequisites" id="2-prerequisites" />
 
 * EVMをサポートする開発者ツールや標準に精通している。
 * dAppを構築する基本的な知識
 
 ## 3. Kaia has Ethereum compatibility <a href="#2-kaia-has-ethereum-compatibility" id="2-kaia-has-ethereum-compatibility" />
 
-Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書かれたスマートコントラクトを実行する。 KaiaのRPC APIやその他のクライアント・ライブラリは、利用可能な限りEthereumとほぼ同じAPI仕様を維持している。 したがって、Ethereum AppsをKaiaに移行するのは非常に簡単です。 これは、開発者が新しいブロックチェーン・プラットフォームに簡単に移行するのに役立つ。 KaiaのRPC APIやその他のクライアント・ライブラリは、利用可能な限りEthereumとほぼ同じAPI仕様を維持している。 したがって、Ethereum AppsをKaiaに移行するのは非常に簡単です。 これは、開発者が新しいブロックチェーン・プラットフォームに簡単に移行するのに役立つ。
+Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書かれたスマートコントラクトを実行する。  KaiaのRPC APIやその他のクライアント・ライブラリは、利用可能な限りEthereumとほぼ同じAPI仕様を維持している。 したがって、Ethereum AppsをKaiaに移行するのは非常に簡単です。 これは、開発者が新しいブロックチェーン・プラットフォームに簡単に移行するのに役立つ。
 
-## 4. Migrate App <a href="#2-migrate-app" id="2-nigrate-app" />
+## 4. アプリの移行<a href="#2-migrate-app" id="2-nigrate-app" />
 
 以下の手順でEthereumアプリをKaiaに移行します：
 
@@ -37,10 +37,10 @@ Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書
 
 2. カイア・ウォレット](https://www.kaiawallet.io/)を使ってアカウントを作成し、[Faucet](https://faucet.kaia.io)からテスト資金を得る。
 
-3. 契約を展開する
+3. コントラクトをデプロイする
 
 <Tabs>
-  <TabItem value="ハードハット" label="ハードハット">
+  <TabItem value="hardhat" label="hardhat">
     ```js
     // using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
     networks: {
@@ -61,7 +61,7 @@ Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書
     ```
   </TabItem>
 
-  <TabItem value="ファウンドリ" label="ファウンドリー">
+  <TabItem value="Foundry" label="Foundry">
     ```js
     forge create --rpc-url<rpc_url> --private-key<private_key> <path_to_contract> 
     ```
