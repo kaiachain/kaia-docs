@@ -60,7 +60,7 @@ If you do not specify the data directory, the default location is as follows.
 
 ## JavaScript Console <a id="javascript-console"></a>
 
-To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../../smart-contracts/deploy/ken.md). Start an EN and attach to the console as follows.
+To connect to the JavaScript console, an EN must be in running status. For more information, see [Launching an EN](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en). Start an EN and attach to the console as follows.
 
 ### Usage <a id="usage"></a>
 
