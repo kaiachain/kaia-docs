@@ -23,7 +23,7 @@ caver.walletは、インメモリ・ウォレットでKeyringインスタンス�
 
 ### ケイバー・トランザクション
 
-caver.transactionは、[Transaction](../../../learn/transactions/transactions.md#transactions-overview)に関連する機能を提供するパッケージです。
+caver.transaction is a package that provides functionality related to [Transaction](../../../build/transactions/transactions.md#transactions-overview).
 
 - caver-java 1.4.0 では `caver.transaction` が `caver.tx` を置き換える。
 
@@ -394,7 +394,7 @@ AbstractKeyring addedRoleBased = caver.wallet.newKeyring('0x{address in hex}', A
 
 ### カイロス水栓でKAIAを入手する<a id="getting-klay-via-kairos-faucet"></a>
 
-テスト用にKAIAが必要な場合は、[Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay)からKairos testnet KAIAを入手できます。 秘密鍵またはキーストアファイルを使用してkaiaウォレットにログインし、テスト用の蛇口からKairos testnet KAIAを受信します。
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet).
 
 ### バリュー・トランスファー・トランザクションの送信<a id="sending-a-value-transfer-transaction"></a>
 
@@ -556,11 +556,11 @@ try {
 }
 ```
 
-トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## 他のトランザクション・タイプの実行<a id="executing-other-transaction-types"></a>
 
-カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 詳しくは[Transactions](../../../learn/transactions/transactions.md)を参照。 このセクションでは、caver-javaで使用できるいくつかの例について説明する。
+カイアは、拡張性とパフォーマンスのために様々なトランザクションタイプを提供する。 For more information, see [Transactions](../../../build/transactions/transactions.md). このセクションでは、caver-javaで使用できるいくつかの例について説明する。
 
 ### 手数料の委任<a id="fee-delegation"></a>
 
@@ -637,7 +637,7 @@ try {
 }
 ```
 
-トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 `txError`の詳細については、[txError: トランザクション失敗の詳細情報](../transaction-error-codes.md) を参照のこと。
+トランザクションの結果は、レシートの `status` から確認することができる。 戻り値の詳細については `caver.rpc.klay.getTransactionReceipt` を参照のこと。 トランザクションが失敗した場合、レシートの `txError` でエラーの詳細を確認することができる。 For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ### アカウント更新<a id="account-update"></a>
 
