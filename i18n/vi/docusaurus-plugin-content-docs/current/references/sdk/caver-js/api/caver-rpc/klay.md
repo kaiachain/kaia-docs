@@ -484,11 +484,11 @@ Returns the total number of transactions sent from an address.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                                                                                                                                                                            |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| address     | string             | The address to get the number of transactions from.                                                                                                                                                                                                                                    |
-| blockNumber | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest` as in the [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter). If omitted, `latest` will be used. |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                                                                                          |
+| Name        | Type               | Description                                                                                                                                                                                        |
+| ----------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string             | The address to get the number of transactions from.                                                                                                                                |
+| blockNumber | number \\| string | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest`. If omitted, `latest` will be used. |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                      |
 
 **Return Value**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) to know how the signature is generated.
+Generates signed data specific to the kaia. Refer to [Kaia Platform API - klay_sign](https://docs.kaia.io/references/json-rpc/klay/sign/) to know how the signature is generated.
 
-**NOTE**: This API provides the function to sign a message using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction).
+**NOTE**: This API provides the function to sign a message using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caverrpcklaysigntransaction).
 
 **Parameters**
 
@@ -1411,12 +1411,12 @@ Returns the value from a storage position at a given address.
 
 **Parameters**
 
-| Name        | Type               | Description                                                                                                                                                                                                                     |
-| ----------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string             | The address to get the storage from.                                                                                                                                                                            |
-| position    | number             | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat). |
-| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                          |
-| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                   |
+| Name        | Type               | Description                                                                                                                                                                                                                              |
+| ----------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string             | The address to get the storage from.                                                                                                                                                                                     |
+| position    | number             | The index position of the storage. For more information on `calculating the position`, refer to [klay_getStorageAt](https://docs.kaia.io/references/json-rpc/klay/get-storage-at/). |
+| blockNumber | number \\| string | (optional) A block number, or the string `latest` or `earliest`. If omitted, `latest` will be used.                                                                                   |
+| callback    | function           | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                                                                                            |
 
 **Return Value**
 
@@ -1800,7 +1800,7 @@ Please note that this API returns the correct result only if the indexing featur
 
 | Name         | Type     | Description                                                                                                                                                      |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
 | callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
 
 **Return Value**
@@ -1877,7 +1877,7 @@ Returns the receipt of a transaction by transaction hash.
 | logs               | Array   | Array of log objects, which this transaction generated.                                                                                                                                                                                                                                            |
 | logsBloom          | string  | Bloom filter for light clients to quickly retrieve related logs.                                                                                                                                                                                                                                   |
 | nonce              | string  | The number of transactions made by the sender prior to this one.                                                                                                                                                                                                                                   |
-| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions.  |
+| senderTxHash       | string  | (optional) Hash of a transaction that is signed only by the sender. See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash). This value is always the same as `transactionHash` for non-fee-delegated transactions.  |
 | signatures         | Array   | An array of signature objects. A signature object contains three fields (V, R, and S). V contains ECDSA recovery id. R contains ECDSA signature r while S contains ECDSA signature s.                                           |
 | status             | string  | `0x1` if the transaction was successful, `0x0` if the kaia Virtual Machine reverted the transaction.                                                                                                                                                                                               |
 | txError            | string  | (optional) detailed error code if `status` is equal to `0x0`.                                                                                                                                                                                                                   |
@@ -1960,7 +1960,7 @@ Please note that this API returns the correct result only if the indexing featur
 
 | Name         | Type     | Description                                                                                                                                                      |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for more detail. |
+| senderTxHash | string   | The sender transaction hash. See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
 | callback     | function | (optional) Optional callback, returns an error object as the first parameter and the result as the second.                    |
 
 **Return Value**
@@ -2069,7 +2069,7 @@ Signs a transaction as a transaction `sender` with an "imported account's privat
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **Parameters**
 
@@ -2139,7 +2139,7 @@ Before using `sendTransaction` as a fee payer, the transaction sender must have 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **Parameters**
 
@@ -2218,7 +2218,7 @@ Signs a transaction as a transaction sender with an "imported account's private 
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **Parameters**
 
@@ -2274,7 +2274,7 @@ Signs a transaction as a transaction fee payer with an "imported account's priva
 
 For more information about each transaction type, refer to [Transaction](../caver-transaction/caver-transaction.md#class).
 
-**NOTE**: This API provides the function to sign a transaction using an [imported account](../../../../json-rpc/personal.md#personal_importrawkey) in your kaia node. The imported account in your node must be [unlocked](../../../../json-rpc/personal.md#personal_unlockaccount) to sign a transaction.
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **Parameters**
 
@@ -2965,7 +2965,7 @@ Creates a filter object using the given filter options, to receive the specific 
 - To check if the state has changed, call [caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges).
 - To obtain all logs matching the filter created by `newFilter`, call [caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs).
 
-For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter).
+For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](https://docs.kaia.io/references/json-rpc/klay/new-filter/).
 
 **Parameters**
 
