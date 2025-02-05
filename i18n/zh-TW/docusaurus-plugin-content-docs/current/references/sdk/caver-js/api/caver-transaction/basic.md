@@ -10,7 +10,7 @@ sidebar_label: 基本
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). kaiaaccount]\(.../.../.../.../.../learn/accounts.md#klaytn-accounts)只能通過[AccountKeyLegacy]執行 "LegacyTransaction"。 transactionObject "可以具有以下屬性，以創建 "LegacyTransaction"。
+`LegacyTransaction` represents a [legacy transaction](../../../../../build/transactions/basic.md#txtypelegacytransaction). kaiaaccount]\(.../.../.../.../.../learn/accounts.md#klaytn-accounts)只能通過[AccountKeyLegacy]執行 "LegacyTransaction"。 transactionObject "可以具有以下屬性，以創建 "LegacyTransaction"。
 
 LegacyTransaction\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "LegacyTransaction "時可在 "transactionObject "中選擇給出的屬性。
 
@@ -81,7 +81,7 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer` represents a [value transfer transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfer). transactionObject "可以具有以下屬性，以創建 "ValueTransfer "事務。
+`ValueTransfer` represents a [value transfer transaction](../../../../../build/transactions/basic.md#txtypevaluetransfer). transactionObject "可以具有以下屬性，以創建 "ValueTransfer "事務。
 
 `ValueTransfer` 的成員變量屬性如下。 標記為 "可選 "的屬性是指當用戶創建 "ValueTransfer "事務時，可以在 "transactionObject "中選擇給出的屬性。
 
@@ -138,7 +138,7 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-ValueTransferMemo "代表一個[價值轉移備忘錄事務]（.../.../.../.../.../learn/transactions/basic.md#txtypevaluetransfermemo）。 transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
+`ValueTransferMemo` represents a [value transfer memo transaction](../../../../../build/transactions/basic.md#txtypevaluetransfermemo). transactionObject "可以具有以下屬性，以創建一個 "ValueTransferMemo "事務。
 
 `ValueTransferMemo` 的成員變量屬性如下。 標記為 "可選 "的屬性是指當用戶創建 "ValueTransferMemo "事務時，可選擇在 "transactionObject "中給出的屬性。
 
@@ -198,7 +198,7 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate` represents a [account update transaction](../../../../../learn/transactions/basic.md#txtypeaccountupdate). 事務對象 "可以具有以下屬性，以創建 "賬戶更新 "事務。
+`AccountUpdate` represents a [account update transaction](../../../../../build/transactions/basic.md#txtypeaccountupdate). 事務對象 "可以具有以下屬性，以創建 "賬戶更新 "事務。
 
 `AccountUpdate` 的成員變量屬性如下。 標記為 "可選 "的屬性是指當用戶創建 "賬戶更新 "事務時，可在 "事務對象 "中選擇給出的屬性。
 
@@ -257,7 +257,7 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-SmartContractDeploy "代表一個[智能合約部署事務]（.../.../.../.../.../learn/transactions/basic.md#txtypesmartcontractdeploy）。 事務對象 "可以具有以下屬性，以創建 "SmartContractDeploy "事務。
+`SmartContractDeploy` represents a [smart contract deploy transaction](../../../../../build/transactions/basic.md#txtypesmartcontractdeploy). 事務對象 "可以具有以下屬性，以創建 "SmartContractDeploy "事務。
 
 `SmartContractDeploy` 的成員變量屬性如下。 標記為 "可選 "的屬性指的是用戶創建 "SmartContractDeploy "事務時可在 "transactionObject "中選擇給出的屬性。
 
@@ -319,7 +319,7 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-SmartContractExecution "代表一個[智能合約執行事務]（.../.../.../.../.../learn/transactions/basic.md#txtypesmartcontractexecution）。 事務對象 "可以具有以下屬性，以創建 "智能合約執行 "事務。
+`SmartContractExecution` represents a [smart contract execution transaction](../../../../../build/transactions/basic.md#txtypesmartcontractexecution). 事務對象 "可以具有以下屬性，以創建 "智能合約執行 "事務。
 
 SmartContractExecution\` 的成員變量屬性如下。 標記為 "可選 "的屬性指的是用戶創建 "SmartContractExecution "事務時可在 "transactionObject "中選擇給出的屬性。
 
@@ -378,7 +378,7 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel` represents a [cancel transaction](../../../../../learn/transactions/basic.md#txtypecancel). 事務對象 "可以具有以下屬性，以創建 "取消 "事務。
+`Cancel` represents a [cancel transaction](../../../../../build/transactions/basic.md#txtypecancel). 事務對象 "可以具有以下屬性，以創建 "取消 "事務。
 
 Cancel "事務會取消事務池中具有相同 nonce 的事務的執行。
 
@@ -432,7 +432,7 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../learn/transactions/basic.md#txtypechaindataanchoring). 事務對象 "可以具有以下屬性，以創建 "ChainDataAnchoring "事務。
+`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../build/transactions/basic.md#txtypechaindataanchoring). 事務對象 "可以具有以下屬性，以創建 "ChainDataAnchoring "事務。
 
 ChainDataAnchoring\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "ChainDataAnchoring "事務時，可在 "transactionObject "中選擇給出的屬性。
 
@@ -486,7 +486,7 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-EthereumAccessList "代表一個[以太坊訪問列表事務](.../.../.../.../.../learn/transactions/basic.md#txtypeethereumaccesslist)。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../build/transactions/basic.md#txtypeethereumaccesslist). A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
 
 `EthereumAccessList` 的成員變量屬性如下。 標記為 "optional "的屬性指用戶創建 "EthereumAccessList "時可在 "transactionObject "中選擇給出的屬性。
 
@@ -558,7 +558,7 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-EthereumDynamicFee "代表\[以太坊動態費用交易]（.../.../.../.../.../learn/transactions/basic.md#txtypeethereumdynamicfee）。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../build/transactions/basic.md#txtypeethereumdynamicfee). A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
 EthereumDynamicFee\` 的成員變量屬性如下。 標記為 "可選 "的屬性指的是用戶創建 "以太坊動態費用 "時可在 "交易對象 "中選擇給出的屬性。
 請注意，"EthereumDynamicFee "不使用 "gasPrice"，而是使用 "maxPriorityFeePerGas "和 "maxFeePerGas"。
