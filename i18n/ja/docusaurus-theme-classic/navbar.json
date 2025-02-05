@@ -100,7 +100,7 @@
     "description": "Navbar item with label Ethers.js Extension"
   },
   "item.label.Contract Addresses": {
-    "message": "契約住所",
+    "message": "コントラクト住所",
     "description": "Navbar item with label Contract Addresses"
   }
 }
