@@ -91,7 +91,7 @@ KaiaはIstanbul BFTの最適化バージョンを使用しており、ブロッ�
 
 ## トークン・エコノミー
 
-カイアのネイティブ・トークンである[KAIA](kaia-native-token.md)は、ブロックチェーンの経済において中心的な役割を果たしている：
+Kaia's native token, [KAIA](./token-economics/kaia-native-token.md), plays a central role in the blockchain's economy:
 
 - KAIAトークンは新しいブロックごとに自動的に発行される。
 - 当初の年間インフレ率：5.2%.
