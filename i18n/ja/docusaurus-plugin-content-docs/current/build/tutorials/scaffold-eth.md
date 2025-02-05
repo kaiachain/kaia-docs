@@ -185,7 +185,7 @@ Hardhat Verifyプラグインを使用したKaia上でのスマートコント�
 
 ## Next.jsの設定<a href="#nextjs-configuration" id="nextjs-configuration"></a>
 
-このセクションでは、**packages/nextjs**フォルダの下にあるKairos Testnet（スマートコントラクトがデプロイされた場所）をターゲットとするように、Next.jsの設定を変更します。 このフォルダでは、**scaffold.config.ts**ファイルのscaffoldConfigオブジェクト内の**targetNetwork**配列を変更する予定です。 このフォルダでは、**scaffold.config.ts**ファイルのscaffoldConfigオブジェクト内の**targetNetwork**配列を変更する予定です。
+このセクションでは、**packages/nextjs**フォルダの下にあるKairos Testnet（スマートコントラクトがデプロイされた場所）をターゲットとするように、Next.jsの設定を変更します。  このフォルダでは、**scaffold.config.ts**ファイルのscaffoldConfigオブジェクト内の**targetNetwork**配列を変更する予定です。
 
 ### targetNetwork配列を変更する<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array"></a>
 
@@ -213,6 +213,6 @@ dAppの実行](/img/build/tutorials/scaffold-4.png)
 
 ## 結論
 
-おめでとう！ Scaffold-ETH 2を使用してコントラクトをデプロイし、Kaia上でdAppを実行することに成功しました。 おめでとう！ Scaffold-ETH 2を使用してコントラクトをデプロイし、Kaia上でdAppを実行することに成功しました。 Scaffold-ETH 2の仕組みを理解したところで、自由に独自のスマートコントラクトを作成してデプロイし、dAppのニーズに合わせてフロントエンドを変更してください！
+おめでとう！ Scaffold-ETH 2を使用してコントラクトをデプロイし、Kaia上でdAppを実行することに成功しました。  Scaffold-ETH 2の仕組みを理解したところで、自由に独自のスマートコントラクトを作成してデプロイし、dAppのニーズに合わせてフロントエンドを変更してください！
 
 詳しくは[Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/)を、ご質問があれば[Kaia Forum](https://devforum.kaia.io/)をご覧ください。
