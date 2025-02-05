@@ -351,7 +351,7 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 | address     | string   | 要使用的 keyring 地址。                                                                                                                                                                        |
 | transaction | object   | [Transaction]（.../caver-transaction/caver-transaction.md#class）的实例。 |
 | index       | number   | (可选）要使用的私人密钥的索引。 索引必须小于为每个角色定义的私钥数组的长度。 如果没有定义索引，该方法将使用所有私钥。                                                                                                         |
-| hasher      | function | (可选）用于获取交易哈希值的哈希函数。 如果将 `hasher` 作为参数，它将计算事务哈希值，而不是使用 caver-js 中的默认方法计算事务哈希值。 有关事务散列生成的默认方法，请参阅 [Basic](../../../../../../learn/transactions/basic.md) 。             |
+| hasher      | function | (可选）用于获取交易哈希值的哈希函数。 如果将 `hasher` 作为参数，它将计算事务哈希值，而不是使用 caver-js 中的默认方法计算事务哈希值。 有关事务散列生成的默认方法，请参阅 [Basic](../../../../../build/transactions/basic.md) 。                |
 
 **返回价值**
 
