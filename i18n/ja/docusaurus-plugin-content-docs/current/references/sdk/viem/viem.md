@@ -12,7 +12,7 @@
 
 - コードエディタ：[VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
 - [メタマスク](../../../build/tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
-- RPCエンドポイント：サポートされている[エンドポイント・プロバイダ](../public-en.md)の1つから取得できます。
+- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../public-en.md).
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 - [NodeJSとNPM](https://nodejs.org/en/)
 - [TS-node](https://www.npmjs.com/package/ts-node): TypeScriptスクリプトの実行に使用される。
