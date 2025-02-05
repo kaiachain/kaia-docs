@@ -8,7 +8,7 @@
 
 ## はじめに
 
-[カイアウォレット](https://docs.kaiawallet.io)は、[メタマスク](https://metamask.io)と同様の非保護ウォレットで、カイア固有の[取引](https://docs.kaia.io/learn/transactions)と[アカウント](https://docs.kaia.io/learn/accounts)を追加サポートしています。 この記事では、[Kaia Wallet](https://docs.kaiawallet.io)と分散型アプリケーション(dApp)の統合について、高レベル(抽象的)な実装から低レベル(きめ細かい)実装まで説明します。 この記事では、[Kaia Wallet](https://docs.kaiawallet.io)と分散型アプリケーション(dApp)の統合について、高レベル(抽象的)な実装から低レベル(きめ細かい)実装まで説明します。
+[カイアウォレット](https://docs.kaiawallet.io)は、[メタマスク](https://metamask.io)と同様の非保護ウォレットで、カイア固有の[取引](https://docs.kaia.io/learn/transactions)と[アカウント](https://docs.kaia.io/learn/accounts)を追加サポートしています。  この記事では、[Kaia Wallet](https://docs.kaiawallet.io)と分散型アプリケーション(dApp)の統合について、ハイレベル(抽象的)な実装から低レベル(きめ細かい)実装まで説明します。
 
 このガイドでは、Kaia Wallet dAppの統合を3つの主要カテゴリーに分類します：
 
@@ -84,14 +84,14 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
   - これらには、ABI、エンコード入力、デコード出力が含まれる。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。
 - エラー処理
   - 文字列エラーコード/メッセージは、カスタムプロパティとメソッドを持つエラークラスにマッピングされます。
-- ドキュメンテーションと型式安全性
+- ドキュメンテーションと安全性
 
 ### 2.1. kaia-sdk
 
 [kaia-sdk](https://github.com/kaiachain/kaia-sdk)は、[ethers.js](https://docs.ethers.io/v6)や[web3.js](https://web3js.org)のような他のユーティリティ・ライブラリのドロップイン拡張のセットです。 これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます： これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます：
 
 - 取引、口座、口座キーの種類
-- 手数料の委任
+- Fee Delegation
 
 :::note
 
