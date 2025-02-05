@@ -34,14 +34,6 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
-## 使用情況
-
-請參閱 [example](./example) 和 [test](./test) 。
-
-## 修改 Web3 對象
-
-有關源代碼組織，請參見 [DESIGN]（./DESIGN.md）。
-
 ### 帳戶
 
 - 以下函數可以處理 kaia TxType。 參見 [src/account/index.ts](./src/account/index.ts)
