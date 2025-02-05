@@ -50,7 +50,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 イーサリアムやいくつかのEVMチェーンでは、署名の前に`"\x19Ethereum Signed Message：\n" + len(message)`を先頭につけてから署名する。 詳細は[EIP-191](https://eips.ethereum.org/EIPS/eip-191)を参照されたい。 KaiaノードとSDKはこの機能をサポートしています。 KIP-97と同様に、EIP-191はアプリケーションにリプレイ保護メカニズムを実装することを要求する。 とはいえ、EIP-191を使用することで、他のエコシステム・ツールとの互換性が確保され、EIP/KIP分岐を必要とせず、メッセージ処理ロジックが合理化される。
 
-EIP-191のシグネチャは、以下の国でサポートされている：
+EIP-191のシグネチャは、以下の国でサポートされています：
 
 - イーサリアムウォレット（メタマスクなど）
 - イーサリアムSDK（ethers.js、web3.js、web3j、web3py、viemなど）
