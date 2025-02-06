@@ -1,8 +1,8 @@
-# kaia用Web3.jsエクステンション
+# kaia用のWeb3.jsエクステンション
 
-kaiaのWeb3.js拡張機能：
+Web3.js Extension for kaia offers:
 
-- newWeb3(...)\`のドロップイン置き換えで、AccountKeyとTxTypesを含むEthereumとkaiaの両方のトランザクションタイプをサポートする。 詳しくは[Web3オブジェクトの修正](#modifications-to-the-web3-object)の項を参照。
+- Drop-in replacement to `new Web3(...)` that supports both Ethereum and kaia transaction types involving AccountKey and TxTypes. 詳しくは[Web3オブジェクトの修正](#modifications-to-the-web3-object)の項を参照。
 
 ## インストール
 
@@ -36,7 +36,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### アカウント
 
-- 以下の関数は kaia TxTypes を扱うことができる。 src/account/index.ts](./src/account/index.ts) を参照。
+- 以下の関数は kaia TxTypes を扱うことができる。 [src/account/index.ts](./src/account/index.ts) を参照。
   ```js
   // アカウントに依存しない関数
   web3.eth.accounts.recoverTransaction(rlp)
@@ -58,7 +58,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### Eth RPCラッパー
 
-- 以下の関数は異なるRPCを呼び出し、カイアTxTypesを処理する。 src/eth/index.ts](./src/eth/index.ts) を参照。
+- 以下の関数は異なるRPCを呼び出し、カイアTxTypesを処理する。 [src/eth/index.ts](./src/eth/index.ts) を参照。
   ```js
   // try klay_protocolVersion, falls back to eth_protocolVersion
   web3.eth.getProtocolVersion()
@@ -77,7 +77,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### カイアRPC
 
-- 以下の関数はkaia RPCを呼び出します。 src/web3.ts](./src/web3.ts) を参照。
+- 以下の関数はkaia RPCを呼び出します。 [src/web3.ts](./src/web3.ts) を参照。
   ```js
   web3.klay.blockNumber() // klay_blockNumber
   web3.net.networkID() // net_networkID
