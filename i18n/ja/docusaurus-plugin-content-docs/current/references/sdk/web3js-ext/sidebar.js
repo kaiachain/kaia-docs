@@ -27,7 +27,7 @@ export const sidebar = {
                 },
                 {
                     type: 'カテゴリー',
-                    label: 'サイン取引',
+                    label: 'Sign Transaction',
                     items: [
                         'リファレンス/sdk/web3js-ext/アカウント管理/センドトランザクション/レガシーリカバー-tx',
                         '参考文献/sdk/web3js-ext/アカウント管理/センドトランザクション/パブリックリカバーテックス',
