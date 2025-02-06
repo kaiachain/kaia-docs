@@ -2,12 +2,12 @@ export const sidebar = {
     type: 'カテゴリー',
     label: 'web3py-ext',
     link: {
-        type: 'ドク',
+        type: 'ドキュメント',
         id: '参考文献/sdk/web3py-ext/getting-started'
     },
     items: [
         {
-            type: 'ドク',
+            type: 'ドキュメント',
             label: 'はじめに',
             id: '参考文献/sdk/web3py-ext/getting-started'
         },
@@ -27,12 +27,12 @@ export const sidebar = {
                 },
                 {
                     type: 'カテゴリー',
-                    label: 'サイン取引',
+                    label: 'サイン　トランザクション',
                     items: [
                         '参考文献/sdk/web3py-ext/アカウント管理/センドトランザクション/レガシーリカバー-tx',
                         'リファレンス/sdk/web3py-ext/アカウント管理/センドトランザクション/パブリックリカバーテックス',
                         '参考文献/sdk/web3py-ext/アカウント管理/センドトランザクション/マルチシグ-リカバー-tx',
-                        '参考文献/sdk/web3py-ext/アカウント管理/センドトランザクション/ロールベース回復-tx'
+                        'レファレンス/sdk/web3py-ext/アカウント管理/センドトランザクション/ロールベース回復-tx'
                     ]
                 },
                 {
@@ -42,7 +42,7 @@ export const sidebar = {
                         '参考文献/sdk/web3py-ext/アカウント管理/サインメッセージ/レガシー回復メッセージ',
                         '参考文献/sdk/web3py-ext/アカウント管理/サインメッセージ/マルチシグ-リカバー-msg',
                         '参考文献/sdk/web3py-ext/アカウント管理/サインメッセージ/パブリック回復メッセージ',
-                        '参考文献/sdk/web3py-ext/アカウント管理/サインメッセージ/ロールベースの回復メッセージ'
+                        'レファレンス/sdk/web3py-ext/アカウント管理/サインメッセージ/ロールベースの回復メッセージ'
                     ]
                 },
                 {
@@ -50,22 +50,22 @@ export const sidebar = {
                     label: 'キーストア',
                     items: [
                         '参考文献/sdk/web3py-ext/アカウント管理/キーストア/キーストア-v3',
-                        '参考文献/sdk/web3py-ext/アカウント管理/キーストア/キーストア-v4'
+                        'レファレンス/sdk/web3py-ext/アカウント管理/キーストア/キーストア-v4'
                     ]
                 }
             ]
         },
         {
             type: 'カテゴリー',
-            label: '基本取引',
+            label: '基本トランザクション',
             items: [
                 '参考文献/sdk/web3py-ext/基本トランザクション/レガシー',
                 'リファレンス/sdk/web3py-ext/基本トランザクション/値転送',
                 '参考文献/sdk/web3py-ext/基本トランザクション/値転送メモ',
                 '参考文献/sdk/web3py-ext/基本トランザクション/アカウント更新',
-                '参考文献/sdk/web3py-ext/基本トランザクション/スマートコントラクトデプロイ',
+                'レファレンス/sdk/web3py-ext/基本トランザクション/スマートコントラクトデプロイ',
                 '参考文献/sdk/web3py-ext/基本トランザクション/スマート契約実行',
-                'リファレンス/sdk/web3py-ext/基本トランザクション/トランザクションのキャンセル'
+                'レファレンス/sdk/web3py-ext/基本トランザクション/トランザクションのキャンセル'
             ]
         },
         {
@@ -76,13 +76,13 @@ export const sidebar = {
                 '参考文献/sdk/web3py-ext/fee-delegated-transaction/value-transfer-memo',
                 '参考文献/sdk/web3py-ext/料金委譲トランザクション/アカウント更新',
                 'リファレンス/sdk/web3py-ext/fee-delegated-transaction/smart-contract-deploy',
-                '参考文献/sdk/web3py-ext/フィー委任トランザクション/スマート契約実行',
-                'リファレンス/sdk/web3py-ext/料金委譲トランザクション/トランザクションのキャンセル'
+                'レファレンス/sdk/web3py-ext/フィー委任トランザクション/スマート契約実行',
+                'レファレンス/sdk/web3py-ext/料金委譲トランザクション/トランザクションのキャンセル'
             ]
         },
         {
             type: 'カテゴリー',
-            label: 'スマート契約',
+            label: 'スマートコントラクト',
             items: [
                 '参考文献/sdk/web3py-ext/スマートコントラクト/デプロイ',
                 '参考文献/sdk/web3py-ext/スマート契約/read',
