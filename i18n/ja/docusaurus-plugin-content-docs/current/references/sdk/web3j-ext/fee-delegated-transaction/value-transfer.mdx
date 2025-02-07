@@ -2,7 +2,7 @@
 
 TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- kaiaは複数のトランザクション・タイプを提供し、各トランザクション・タイプが単一の目的を果たすようにするため、TxTypeValueTransferはKAIAを外部所有口座（EOA）に送信するように制限されている。
+- KAIAは各トランザクションタイプが単一の目的を持つよう複数のトランザクションタイプを提供しており、TxTypeValueTransfer は KAIA を Externally Owned Account (EOA) に送信する用途に限定されています。
 
 <CH.Spotlight>
 <CH.Code>
@@ -132,7 +132,7 @@ Web3jを使ってkaiaブロックチェーンに接続し、URLを指定する�
 
 ---
 
-credentials.getAddress()\`から送信者のアドレスを取得する。
+credentials.getAddress() から送信者のアドレスを取得します
 
 ```java TxTypeFeeDelegatedValueTransfer.java focus=32
 
