@@ -122,4 +122,4 @@
 
 ## 使用方法
 
-example](./example)と[test](./test)を参照のこと。
+［example](./example)と[test](./test)を参照のこと。
