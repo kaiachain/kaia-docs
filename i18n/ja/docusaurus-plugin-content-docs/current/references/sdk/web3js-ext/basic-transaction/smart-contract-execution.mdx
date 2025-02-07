@@ -81,7 +81,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-ext**パッケージをインポートする。
+web3 および @kaiachain/web3js-ext パッケージをインポートして、Web3にKAIAの機能を追加します。
 
 ```js SmartContractExecution.js focus=1:2
 
@@ -105,7 +105,7 @@ web3にkaiaの機能を追加するために、**web3**と **@kaiachain/web3js-e
 
 ---
 
-指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
+指定された**kairos** testnet URLでプロバイダを設定します。 Web3におけるプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象レイヤーです。
 
 ```js SmartContractExecution.js focus=24
 
@@ -190,7 +190,7 @@ main();
 
 ---
 
-setNumber」関数のデータをエンコードし、データをバイトに変換する。
+SetNumber 関数のデータをバイト形式にエンコードするには、関数シグネチャと引数をエンコードする必要があります。
 
 ```js SmartContractExecution.js focus=30
 
