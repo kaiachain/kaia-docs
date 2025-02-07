@@ -102,7 +102,7 @@ receipt {
 
 ---
 
-web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケージをインポートする。
+@kaiachain/web3js-ext パッケージをインポートして、Web3にKAIAの機能を追加します。
 
 ```js AccountUpdateWithMultiSigExample.js focus=1
 
@@ -118,7 +118,7 @@ web3にkaiaの機能を追加するために **@kaiachain/web3js-ext**パッケ�
 
 ---
 
-指定された**kairos** testnet URLでプロバイダを設定します。 web3jsのプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化です。
+指定された**kairos** testnet URLでプロバイダを設定します。 Web3.jsにおけるプロバイダーは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象レイヤーです。
 
 ```js AccountUpdateWithMultiSigExample.js focus=8
 
@@ -279,7 +279,7 @@ signedTx3 0x722b434220cd61c80cf827672bc79006183629399a4f1ad0c98552a47cbb7e07
 
 ---
 
-kaiaネットワークにトランザクションを送信し、ブロックチェーン上でトランザクションが完了した場合、txレシートを返す。
+kaiaネットワークにトランザクション（tx）を送信し、ブロックチェーンで完了した場合にトランザクションレシート（txレシート）を返します。
 
 <CH.Code>
 ```js AccountUpdateWithMultiSigExample.js focus=50:51
