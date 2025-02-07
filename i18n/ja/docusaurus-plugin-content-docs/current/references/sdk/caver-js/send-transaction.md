@@ -23,7 +23,8 @@ _注意:_ nvmのインストール後に`nvm: command not found`エラーが発�
 
 キーストア・ファイルをダウンロードし、`keystore.json`のようなもっとシンプルな名前に変更しよう。
 
-**You need KAIA to send a transaction.** You can get test KAIA for Kairos testnet from [Faucet](https://faucet.kaia.io).
+トランザクションを送信するには KAIA が必要です。
+Kairos testnet 用の test KAIA は [Faucet](https://faucet.kaia.io) から入手できます。
 
 ## 2. プロジェクトの初期化<a id="2.-initialize-project"></a>
 
