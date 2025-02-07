@@ -2,12 +2,12 @@ export const sidebar = {
   type: 'カテゴリー',
   label: 'エーテルエクスト',
   link: {
-    type: 'ドク',
+    type: 'doc',
     id: 'リファレンス/sdk/ethers-ext/getting-started'
   },
   items: [
     {
-      type: 'ドク',
+      type: 'doc',
       label: 'はじめに',
       id: 'リファレンス/sdk/ethers-ext/getting-started'
     },
@@ -31,7 +31,7 @@ export const sidebar = {
             },
             {
               type: 'カテゴリー',
-              label: 'サイン取引',
+              label: 'サイントランザクション',
               items: [
                 'レファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/レガシーリカバー-tx',
                 'リファレンス/sdk/ethers-ext/v5/アカウント管理/センドトランザクション/パブリック-リカバー-tx',
