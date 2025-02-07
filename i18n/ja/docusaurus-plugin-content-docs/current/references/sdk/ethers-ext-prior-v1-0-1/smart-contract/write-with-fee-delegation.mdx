@@ -1,4 +1,4 @@
-# 書き込み（手数料の委任）
+# 書き込み（Fee Delegation）
 
 スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む**transaction**を行うことができる。
 
@@ -114,7 +114,7 @@
 
   ---
 
-  ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと\*\*@kaiachain/ethers-ext\*\*モジュールをインポートします。
+  KAIAの機能をethers.jsに追加するために、ethers と @kaiachain/ethers-ext モジュールをインポートします
 
   ```js writeWithFeeDelegation.js focus=1:2
   ```
@@ -343,7 +343,7 @@
 
     ```zsh output
     ❯ node TxTypeFeeDelegatedValueTransfer.js
-    293以降の番号
+    293 以降の番号
     ```
   </CH.Code>
 </CH.Spotlight>
