@@ -1,4 +1,4 @@
-# 譲渡価格
+# トランスファーヴァリュー
 
 カイアのデザイン・セクションで説明したように、サービス・チェーンは、親チェーンと子チェーン間の価値（KAIA、ERC-20、ERC-721）の移転をサポートします。
 このページでは、SCNでバリュー・トランスファー機能を有効にする方法を説明します。
@@ -6,7 +6,7 @@
 EN と SCN を設定した後、チェーン間のバリュー・トランスファーを有効にするには、以下の手順が必要です。
 
 1. Check the addresses of the bridge operator accounts and add KLAY to the bridge operator accounts.
-2. ブリッジ契約を親子チェーンに展開する。
+2. ブリッジコントラクトを親子チェーンに展開する。
 3. トークン（ERC-20または721）コントラクトを親子チェーンにデプロイする。 (If you just need KLAY-transfer, you can skip step 3 & 4.)
 4. トークンコントラクトを親子チェーン上のブリッジコントラクトに登録する。
 5. 親／子チェーンのブリッジ契約をサブスクライブする。
@@ -19,9 +19,9 @@ EN と SCN を設定した後、チェーン間のバリュー・トランスフ
 
 以下のコントラクトは、メイン／サブブリッジを介して相互に通信し、ユーザーの価値移転要求を処理する。
 
-- ブリッジ契約
-- ERC-20契約（必要な場合）
-- ERC-721契約（必要な場合）
+- ブリッジコントラクト
+- ERC-20コントラクト（必要な場合）
+- ERC-721コントラクト（必要な場合）
 
 図1. Service chain architecture](/img/nodes/sc_arch.png)
 
@@ -29,7 +29,7 @@ EN と SCN を設定した後、チェーン間のバリュー・トランスフ
 
 ServiceChainには、親チェーンブリッジのオペレータアカウントとサービスチェーンブリッジのオペレータアカウントの2つのオペレータアカウントがあります。 各オペレーター・アカウントは、取引の署名に使用される。
 トランザクションがバリューを親チェーンに移動させる場合、親チェーンのブリッジオペレー ターアカウントがトランザクションに署名する。 子チェーンには、子チェーン・ブリッジのオペレーター・アカウントが使われる。
-利用者が「価値移転要求」トランザクションを提出した場合、サブブリッジはブリッジ運営者アカウントによって署名された「価値移転ハンドル」トランザクションを作成する。
+利用者が「リクエストヴァリュートランスファー」トランザクションを提出した場合、サブブリッジはブリッジ運営者アカウントによって署名された「価値移転ハンドル」トランザクションを作成する。
 Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain.
 If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
 
@@ -121,9 +121,9 @@ Kaia JavaScript コンソールへようこそ！
 1e+50
 ```
 
-## ブリッジ契約<a id="bridge-contract"></a>
+## ブリッジコントラクト<a id="bridge-contract"></a>
 
-クロスチェーンでの価値移転のためには、ブリッジ契約を親／子チェーンに展開する必要がある。
+クロスチェーンでの価値移転のためには、ブリッジコントラクトを親／子チェーンに展開する必要がある。
 Users can request a KLAY transfer to the bridge contract to send their KLAY to the other chain.
 さらに、トークンコントラクトがブリッジコントラクトに登録されている場合、ブリッジコントラクトは親チェーンと子チェーン間のトークン移転を処理できる。
 
