@@ -12,7 +12,7 @@ Transaction fee := (Gas used) x (GasPrice)
 
 ## Gas Overview <a id="gas-overview"></a>
 
-ブロックチェーンの状態を変更するすべてのアクションにはガスが必要だ。 While processing the transactions in a block, such as sending KLAY, using KIP-7 tokens, or executing a contract, the user has to pay for the computation and storage usage. 支払額は必要な「ガス」の量によって決まる。 ガスには単位がないから、"21000ガス "とか言うんだ。
+ブロックチェーンの状態を変更するすべてのアクションにはガスが必要だ。 KAIAの送信、ERC-20トークンの使用、コントラクトの実行など、ブロック内のトランザクションを処理する間、送信者は計算とストレージの使用料を支払う必要があります。 支払額は必要な「ガス」の量によって決まる。 ガスには単位がないから、"21000ガス "とか言うんだ。
 
 取引のガスは2つの要素からなる：
 
@@ -25,7 +25,7 @@ Transaction fee := (Gas used) x (GasPrice)
 
 すべてのトランザクションは、そのトランザクショ ンが使用できる最大ガス量であるgasLimitを指定しなければならない。 送信者は、トランザクションの適切な gasLimit を見つけるために `eth_estimateGas` と `kaia_estimateGas` RPC を利用することもできる。 あるいは、送信者が手動で十分な大きさの数字を指定することもできる。 高いガスリミットを指定しても、自動的に高いガス料金が請求されるわけではないので、固定の数値を使用することは有効な選択肢である。 しかし、数トークンしか持っていない送信者は、実際のガス使用量に関係なく、少なくとも`gasLimit * effectiveGasPrice`を残高に所有していなければならないので、高すぎるgasLimitを指定することはできない。
 
-## GasPrice Overview <a id="gas-price-overview"></a>
+## 実効ガス料金<a id="effective-gas-price"></a>
 
 取引の有効ガス価格は多くの変数から計算される：
 
@@ -44,9 +44,9 @@ Magmaのハードフォーク以前は、すべてのトランザクションの
 
 ### マグマ・ハードフォーク後（KIP-71ダイナミック・ベース料金）
 
-The network determines the gas price for every block. 基本料金は、トランザクションのトラフィックが閾値より高ければ増加し、そうで なければ減少する。 トランザクション・トラフィックは、使用されるブロック・ガスで測定される。 ブロック内のトランザクションの実行が重くなるにつれて、ネットワークはより高い輻輳を認識し、基本料金が増加する可能性が高い。
+Magmaのハードフォーク以降、ネットワークはブロックごとにネットワークの混雑状況に応じてガス価格の値`baseFeePerGas`（または単にbaseFee）を決定する。 基本料金は、トランザクションのトラフィックが閾値より高ければ増加し、そうで なければ減少する。 トランザクション・トラフィックは、使用されるブロック・ガスで測定される。 ブロック内のトランザクションの実行が重くなるにつれて、ネットワークはより高い輻輳を認識し、基本料金が増加する可能性が高い。
 
-EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)と異なり、マグマ・ガス・ポリシーにはチップがない（チップはカイアのハードフォークから導入された）。 その代わりに、FCFS（先着順）ポリシーがスパム行為からネットワークを守るために導入されている。
+[EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)と異なり、マグマ・ガス・ポリシーにはチップがない（チップはカイアのハードフォークから導入された）。 その代わりに、FCFS（先着順）ポリシーがスパム行為からネットワークを守るために導入されている。
 
 #### 基本料金の計算
 
@@ -54,11 +54,11 @@ EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)と異�
 
 - ブロック混雑データ
   - previous_base_fee：前のブロックの基本料金
-  - GAS_USED_FOR_THE_PREVIOUS_BLOCK: Gas used to process all transactions of the previous block
+  - previous_block_gas_used：前のブロックのすべてのトランザクションを処理するために使用されたガス
 - 後からガバナンスで変更可能なチューニング・パラメーター
   - GAS_TARGET: The gas amount that determines the increase or decrease of the base fee (30 million at the moment)
   - max_block_gas_used_for_base_fee：最大ベースフィー変更率を強制するための暗黙のブロックガス制限。
-  - BASE_FEE_DELTA_REDUCING_DENOMINATOR: The value to set the maximum base fee change to 5% per block (20 at the moment, can be changed later by governance)
+  - BASE_FEE_DENOMINATOR: ブロックごとの基本料金変更の最大値を設定する値
   - UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
   - LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
 
@@ -111,6 +111,6 @@ Kaiaノードの`eth_gasPrice` RPCは次のようにする：
 
 | ハードフォーク | `gasPrice`要件                                                 | `maxFeePerGas`要件                                             | `MaxPriorityFeePerGas` 要件。                                                                            | 計算された「実効ガス価格                                                                                                      |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| マグマの前   | 単価でなければならない                                                  | must be unitPrice<br/>(EthTxType フォーク後のみ) | must be unitPrice<br/>(EthTxType フォーク後のみ)                                          | 単価                                                                                                                |
-| マグマの後   | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 無視                                                                                                    | After BaseFee                                                                                                     |
+| マグマの前   | unitPriceでなければならない                                           | must be unitPrice<br/>(EthTxType フォーク後のみ) | must be unitPrice<br/>(EthTxType フォーク後のみ)                                          | 単価                                                                                                                |
+| マグマの後   | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 少なくとも基本料金<br/> （推奨：2\*基本料金）                                  | 無視                                                                                                    | BaseFee                                                                                                           |
 | カイアのその後 | 少なくとも基本料金<br/>(推奨：基本料金\*M + suggestedTip) | 少なくとも基本料金<br/>(推奨：基本料金\*2 + suggestedTip) | ユーザー、ウォレット、SDK まで<br/>(推奨: suggestedTip = 0 または N ブロックの P パーセンタイル) | txタイプ2: min(baseFee + feeCap, tipCap),<br/>その他のtxタイプ: gasPrice |
