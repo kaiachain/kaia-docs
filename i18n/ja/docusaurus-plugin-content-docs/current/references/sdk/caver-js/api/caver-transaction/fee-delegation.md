@@ -35,7 +35,7 @@ caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 | 料金支払者の署名 | 配列    | (オプション) feePayerSignatures の配列。                                                                                                       |
 | 料金支払者    | ストリング | (任意）料金支払者の住所。                                                                                                                         |
 | ノンス      | ストリング | (オプション) 送信者のトランザクションを一意に識別するための値。 省略された場合、`caver.rpc.klay.getTransactionCount(address, 'pending')` が nonce の設定に使用される。                 |
-| ガス価格     | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                                              |
+| gasPrice | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                                              |
 | チェーンID   | ストリング | (オプション) kaiaブロックチェーンプラットフォームのチェーンID(この文書では以降 "Kaia "と略す)。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。 |
 
 **例**
