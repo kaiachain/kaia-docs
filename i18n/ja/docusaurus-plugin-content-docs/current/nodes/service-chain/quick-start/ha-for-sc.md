@@ -57,7 +57,7 @@ EN-02とSCN-L2-02の間にブリッジを追加すると、以下のようにノ
 
 ![](/img/nodes/sc-ha-before-register.png)
 
-## ステップ2：ブリッジ契約の登録と加入<a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
+## ステップ2：ブリッジコントラクトの登録と加入<a id="step-2-registering-and-subscribing-the-bridge-contract"></a>
 
 上図のように、ブリッジ契約はEN-01とSCN-L2-01のみに登録されている。
 
