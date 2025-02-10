@@ -97,7 +97,7 @@ const tx = caver.transaction.valueTransfer.create({ from, to, value, gas })
 tx.gasPrice = await tx.suggestGasPrice() 
 ```
 
-For more information about the gas price, see [Gas and Unit Price Overview](../../../learn/transaction-fees/transaction-fees.md#effective-gas-price). The price of gas used in the network can be obtained by using [caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice).
+ガス料金の詳細については、[ガス・単価の概要](../../../learn/transaction-fees/transaction-fees.md#effective-gas-price)を参照。 ネットワークで使用されるガスの価格は、[caver.rpc.klay.getGasPrice](./api/caver-rpc/klay.md#caver-rpc-klay-getgasprice)を使用して取得することができます。
 
 ## リンク<a href="#links" id="links"></a>
 
