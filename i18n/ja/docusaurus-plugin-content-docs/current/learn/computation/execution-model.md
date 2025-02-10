@@ -6,7 +6,7 @@
 
 トランザクションは、[Platform API Specification](../../../references/json-rpc/kaia/account-created)に記述されているように、プラットフォームAPIによって生成することができる。 These transactions are sent to _Consensus Nodes (CNs)_ to be stored in a block. CNは受信した各トランザクションが有効かどうかをチェックする。 有効なトランザクションはトランザクションプールに保存され、そうでない場合は破棄される。 CNは、トランザクションプール内の現在のブロック内の実行可能なトランザクションを選択し、1つずつ実行する。
 
-To execute a transaction, the sender must pay some amount of KLAY as a transaction fee. This transaction fee in KLAY is calculated based on gas and a multiplier, _i.e._, unit price. 気体は計算の基本単位である。 Kaiaノード上で実行される全ての操作は、予め定義された量のガスを消費する。 The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 送信者が不十分なガスを伴うトランザクションを送信した場合、トランザクションは失敗する可能性がある。 差出人の口座の残高が不足している場合も、取引に失敗することがある。
+トランザクションを実行するために、送信者はトランザクション手数料としていくらかのKAIAを支払わなければならない。 KAIAにおけるこの取引手数料は、ガスと乗数、すなわち_i._、単価に基づいて計算されます。 ガスは計算の基本単位である。 Kaiaノード上で実行される全ての操作は、予め定義された量のガスを消費する。 The exact amount of KLAY required for the transaction is calculated by the formula illustrated in [Transaction Fees](../transaction-fees/transaction-fees.md). 送信者が不十分なガスを伴うトランザクションを送信した場合、トランザクションは失敗する可能性がある。 差出人の口座の残高が不足している場合も、取引に失敗することがある。
 
 トランザクションが正常に実行されると、そのトランザクションは現在のブロックに含まれる。 CNは、ブロック・ガス・リミットまたはブロック・タイム・リミットに達するまでトランザクションを収集する。 その後、CNはトランザクションでブロックを作成する。 このステップでは、ブロック内のいくつかのフィールドを埋める必要がある。 例えば、トランザクション、レシート、ステートなどのハッシュ値を計算しなければならない。 すべての必須フィールドが入力されると、CNはブロックハッシュを生成する。
 
@@ -38,7 +38,7 @@ To execute a transaction, the sender must pay some amount of KLAY as a transacti
 現在、Kaia MainnetおよびKairos Testnetでは、取引の実行に以下の制限があります：
 
 - 取引のgasPriceを設定することができますが、それはあなたが支払うことができる最大値であることを意味します。 実際のガス料金はネットワークによって決定される。 より詳細な情報は、[ガス料金の概要](../transaction-fees/transaction-fees.md#gas-price-overview) を参照。
-- 実行コストが計算コスト制限より大きいトランザクションは破棄される。 計算コスト](./computation-cost.md)をご参照ください。
+- 実行コストが計算コスト制限より大きいトランザクションは破棄される。 [計算コスト](./computation-cost.md)をご参照ください。
 - 上海ハードフォークの時点では、コントラクトの作成にはinitcodeの長さに応じて追加のガスコストが発生し、32バイトのinitcodeの塊ごとに2ガスが課金される。
 
 ### スマートコントラクト導入の制限<a id="restriction-on-smart-contract-deployment"></a>
@@ -46,7 +46,7 @@ To execute a transaction, the sender must pay some amount of KLAY as a transacti
 Kaiaはスマート・コントラクトの展開にいくつかの制限を設けている：
 
 - EIP-3541]([https://eips.ethereum.org/EIPS/eip-3541])に従って、コレハードフォークの時点で、0xEFバイトで始まる新しいコントラクトコードのデプロイは許可されていません。
-- 上海のハードフォーク以来だ：
+- 上海ハードフォーク以来となっている：
   - initcodeの長さが49,152バイトを超える場合、新しい契約コードの展開は拒否される。
   - 新しい契約コードの長さは24,576バイトを超えてはならない。
   - これらの制限は[EIP-3860](https://eips.ethereum.org/EIPS/eip-3860)に基づいている。
@@ -71,7 +71,7 @@ Kaiaの**state**はアカウント状態のコレクションです。 この状
 | コンポーネント     | 説明                                                                                              |
 | :---------- | :---------------------------------------------------------------------------------------------- |
 | nonce       | このアカウントが実行したトランザクション数を示す整数値。 トランザクションを提出するとき、トランザクションのnonceはアカウントのnonceと等しくなければならない。            |
-| balance     | An integer value showing the amount of KLAY that this account currently has.    |
+| balance     | このアカウントが現在持っているKAIAの量を示す整数値。                                                                    |
 | storageRoot | アカウント内のすべてのストレージ変数の値を含むMerkle Patricia Trieのルートの256ビットハッシュ。                                     |
 | codeHash    | アカウントのバイトコードのハッシュ。  この値は不変であり、スマート・コントラクトの作成時にのみ設定される。  アカウントがEOAまたはEAの場合、この値はnullのハッシュに設定されます。 |
 
@@ -111,7 +111,7 @@ Kaiaの**state**はアカウント状態のコレクションです。 この状
 
 ### スマートコントラクトの実行<a id="executing-smart-contracts"></a>
 
-スマートコントラクトの関数は、スマートコントラクトにトランザクションを送信するか、ノード内でローカルに関数を呼び出すことで呼び出し、実行することができる。 トランザクションを送信して関数が呼び出されると、その関数はトランザクションを処理して実行される。 This entails a cost in KLAY for sending the transaction, and the call will be recorded forever on the blockchain. この方法で行われた呼び出しの戻り値は、トランザクションのハッシュである。 関数をローカルで呼び出すと、Kaia Virtual Machine ㈼ 内でローカルに実行され、関数の戻り値が返されます。 この方法で行われた呼び出しはブロックチェーンに記録されないため、コントラクトの内部状態を変更することはできない。 このタイプの呼び出しは定数関数呼び出しと呼ばれる。 Calls made in this manner do not cost any KLAY. 定数関数呼び出しは、返り値のみに関心がある場合に使用されるべきであり、トランザクションは、契約状態に対する副作用に関心がある場合に使用されるべきである。
+スマートコントラクトの関数は、スマートコントラクトにトランザクションを送信するか、ノード内でローカルに関数を呼び出すことで呼び出し、実行することができる。 トランザクションを送信して関数が呼び出されると、その関数はトランザクションを処理して実行される。 これにはトランザクションを送信するためのKAIAのコストが発生し、その呼び出しはブロックチェーン上に永遠に記録される。 この方法で行われた呼び出しの戻り値は、トランザクションのハッシュである。 関数をローカルで呼び出すと、Kaia Virtual Machine ㈼ 内でローカルに実行され、関数の戻り値が返されます。 この方法で行われた呼び出しはブロックチェーンに記録されないため、コントラクトの内部状態を変更することはできない。 このタイプの呼び出しは定数関数呼び出しと呼ばれる。 この方法で行われた通話にはKAIAの料金はかからない。 定数関数呼び出しは、返り値のみに関心がある場合に使用されるべきであり、トランザクションは、契約状態に対する副作用に関心がある場合に使用されるべきである。
 
 取引を通じてスマートコントラクトの機能を実行する際、ガスコストが発生する。 正確なガスコストは、機能によって実行されるオペレーションに依存し、EVMオペレーションごとに事前に定義されたガスコストに基づいて計算されます。
 
