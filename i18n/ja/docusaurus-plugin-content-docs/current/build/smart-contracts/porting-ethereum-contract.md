@@ -11,7 +11,7 @@
 :::note
 
 v1.7.0プロトコルアップグレード - **Istanbul**ハードフォークアイテムとKaia自身のアイテムを含む互換性のない変更。
-It has been enabled from block number `#75,373,312` in case of Baobab network and `#86,816,005` for the Cypress network.
+Kairosネットワークの場合はブロック番号`#75,373,312`から、メインネットの場合はブロック番号`#86,816,005`から有効になっています。
 
 v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
@@ -19,7 +19,7 @@ It has been enabled from block number `#80,295,291` in case of Baobab network an
 
 v1.8.0プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
-It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
+Kairosネットワークの場合はブロック番号`#86,513,895`から、メインネットの場合はブロック番号`#86,816,005`から有効になっています。
 
 :::
 
@@ -40,4 +40,4 @@ $ solc --evm-version london contract.sol
 
 ## 分離されたキー・ペア<a id="decoupled-key-pairs"></a>
 
-カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 If user [updates account](../transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 For more details, refer to [here](../../learn/smart-contracts/precompiled-contracts.md).
+カイア [キー・ペアをアドレスから切り離す](../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../transactions/basic.md#txtypeaccountupdate) の場合、特定のアカウントの秘密鍵が別のものに置き換えられます。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細については、[こちら](../../learn/smart-contracts/precompiled-contracts.md) を参照してください。
