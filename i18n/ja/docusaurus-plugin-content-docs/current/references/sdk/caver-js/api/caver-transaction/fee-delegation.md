@@ -1,5 +1,5 @@
 ---
-sidebar_label: 手数料の委任
+sidebar_label: Fee Delegation
 ---
 
 # 手数料委任型取引クラス
@@ -30,7 +30,7 @@ caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 | 価値       | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                                              |
 | より       | ストリング | 送信者のアドレス。                                                                                                                                                |
 | への       | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                                      |
-| ガス       | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                 |
+| gas      | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                 |
 | 署名       | 配列    | (オプション) シグネチャの配列。                                                                                                                     |
 | 料金支払者の署名 | 配列    | (オプション) feePayerSignatures の配列。                                                                                                       |
 | 料金支払者    | ストリング | (任意）料金支払者の住所。                                                                                                                         |
