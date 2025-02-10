@@ -46,14 +46,14 @@
 
 KIP-103ハードフォークが[v1.10.2リリース](https://github.com/klaytn/klaytn/releases/tag/v1.10.2)で導入されました。 [KIP-103](https://kips.kaia.io/KIPs/kip-103) の実装が含まれており、これはトレジャリー・リバランスの技術仕様である([KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157))。
 
-### 財務省のリバランス<a id="treasury-rebalance"></a>
+### 財務のリバランス<a id="treasury-rebalance"></a>
 
-| ` `            | Baobab                                     | Cypress                                    |
-| -------------- | ------------------------------------------ | ------------------------------------------ |
-| 財務省リバランス契約アドレス | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
-| KCVアドレス        | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
-| KFFアドレス        | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
-| KCFアドレス        | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
+| ` `               | Baobab                                     | Cypress                                    |
+| ----------------- | ------------------------------------------ | ------------------------------------------ |
+| 財務リバランスコントラクトアドレス | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 | 0xD5ad6D61Dd87EdabE2332607C328f5cc96aeCB95 |
+| KCVアドレス           | 0xaa8d19a5e17e9e1bA693f13aB0E079d274a7e51E | 0x4f04251064274252D27D4af55BC85b68B3adD992 |
+| KFFアドレス           | 0x8B537f5BC7d176a94D7bF63BeFB81586EB3D1c0E | 0x85D82D811743b4B8F3c48F3e48A1664d1FfC2C10 |
+| KCFアドレス           | 0x47E3DbB8c1602BdB0DAeeE89Ce59452c4746CA1C | 0xdd4C8d805fC110369D3B148a6692F283ffBDCcd3 |
 
 ## Kore <a id="kore"></a>
 
