@@ -37,15 +37,15 @@
 
 新しいディレクトリに圧縮ファイルをダウンロードする。 URLはこのページの下にあります。
 
-- オプション1。 カール
+- オプション1。 curl
   ```sh
   curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
-- オプション2。 ウィジェット
+- オプション2。 wget
   ```sh
   wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
   ```
-- オプション3。 アクセル
+- オプション3。 axel
   ```sh
   # Amazon Linux インストール例
   sudo amazon-linux-extras install epel
@@ -54,7 +54,7 @@
   # マルチスレッドダウンロードとステータスバーの表示
   axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/[/{printf "%s'$'\r''", $0}'.
   ```
-- オプション4。 アリア2
+- オプション4。 aria2
   ```sh
   # Rocky Linux インストール例
   sudo yum install epel-release aria2
@@ -65,11 +65,11 @@
 
 ## ファイルを解凍する
 
-- オプション1。 タール
+- オプション1。 tar
   ```sh
   tar -xvf kaia-mainnet-chaindata-xxxxxxxxxx.tar.gz
   ```
-- オプション2。 タールとピッグス
+- オプション2。 tar and pigz
   ```sh
   # Amazon Linux & Rocky Linux インストール例
   sudo yum install pigz
