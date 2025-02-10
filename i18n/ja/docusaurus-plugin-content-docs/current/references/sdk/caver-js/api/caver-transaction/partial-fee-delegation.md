@@ -30,11 +30,11 @@ caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 | 価値       | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                              |
 | より       | ストリング | 送信者のアドレス。                                                                                                                                |
 | への       | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                      |
-| ガス       | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                 |
+| gas      | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                 |
 | 手数料率     | ストリング | 手数料支払者が負担する取引手数料の割合を示す比率。 この比率の有効範囲は1～99である。 0や100以上の比率は許されない。                                                                           |
 | 署名       | 配列    | (オプション) シグネチャの配列。                                                                                                     |
 | 料金支払者の署名 | 配列    | (オプション) feePayerSignatures の配列。                                                                                       |
-| 料金支払者    | ストリング | (任意）料金支払者の住所。                                                                                                         |
+| 料金支払者    | ストリング | (任意）料金支払者のアドレス。                                                                                                       |
 | ノンス      | ストリング | (オプション) 送信者のトランザクションを一意に識別するための値。 省略された場合、`caver.rpc.klay.getTransactionCount(address, 'pending')` が nonce の設定に使用される。 |
 | gasPrice | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                              |
 | チェーンID   | ストリング | (オプション) kaiaネットワークのチェーンID。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。                                   |
@@ -401,7 +401,7 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成することができる。
+`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成することができる。
 
 `FeeDelegatedChainDataAnchoringWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
 
