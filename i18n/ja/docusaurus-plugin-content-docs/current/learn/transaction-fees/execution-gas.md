@@ -4,7 +4,7 @@
 
 :::note
 
-実行ガス関連のハードフォーク変更は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
+実行ガス関連のハードフォーク変更は、このページの一番下にあります。 [ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
@@ -18,7 +18,7 @@
 
 Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices (whether for read or write) in the range. この料金はジャスト・イン・タイム方式で支払われる。そのため、以前にインデックス付けされたメモリよりも少なくとも32バイト大きいメモリ領域を参照すると、追加のメモリ使用料が発生する。 この手数料により、アドレスが32ビットの境界を超えることはまずない。 とはいえ、実装はこのような事態に対処できなければならない。
 
-保管料には微妙なニュアンスがある。 To incentivize minimization of the use of storage (which corresponds directly to a larger state database on all nodes), the execution fee for an operation that clears an entry from storage is not only waived but also elicits a qualified refund; in fact, this refund is effectively paid in advance because the initial usage of a storage location costs substantially more than normal usage.
+保管料には微妙なニュアンスがある。 ストレージの使用を最小化するインセンティブを与えるために、ストレージからエ ントリをクリアする操作の実行料金は、免除されるだけでなく、適格な払い戻しを引き出す。
 
 ## オプコード・ガス・スケジュール<a id="opcode-gas-schedule"></a>
 
@@ -65,7 +65,7 @@ Over an account's execution, the total fee payable for memory-usage payable is p
 | `G_callstipend`   |  2300 | CallStipend                       | ゼロでない値での移籍の場合、通話開始時に無料ガスが与えられる。                                                            |
 | `G_newaccount`    | 25000 | CallNewAccountGas                 | アカウント作成時に支払ったガス料金。 また、`SELFDESTRUCT`操作を伴う`CreateBySelfdestructGas`としても定義される。               |
 | `G_codedeposit`   |   200 | CreateDataGas                     | コードの状態への配置に成功した契約を作成するために1バイトあたりに支払われるガスの量                                                 |
-| `G_sha3word`      |     6 | Sha3WordGas                       | Amount of gas paid for each word (rounded up) for an `SHA3` input data  |
+| `G_sha3word`      |     6 | Sha3WordGas                       | 入力データが`SHA3`の場合、各単語の支払ガス量。                                                                 |
 | `G_InitCodeWord`  |     2 | InitCodeWordGas                   | CREATE`,`CREATE2\`のinitcodeの各単語に対して支払われるガス量。                                               |
 
 ## 契約ガス料金表<a id="precompiled-contracts-gas-cost-table"></a>
@@ -129,7 +129,7 @@ Over an account's execution, the total fee payable for memory-usage payable is p
     - それが `CALL` と `CALLCODE` で、値を転送する場合は `G_callvalue` を gas に追加する。
     - もしそれが `CALL` で、もしそれが値を移し、もしそれが新しいアカウントであれば、 `G_newaccount` を gas に追加する。
     - 着信側契約がプリコンパイル契約の場合、プリコンパイル契約のガス料金を計算し、ガス料金に加算する。
-    - メモリー・ガス・コスト + 利用可能なガス - 利用可能なガス/64、ここで利用可能なガス = 契約.ガス - ガス\` をガスに追加する。
+    - メモリー・ガス・コスト + 利用可能なガス - 利用可能なガス/64、ここで利用可能なガス =availableGas = contract.Gas - gas\` to gas
   - SELFDESTRUCT\`の場合、
     - [**_eip2929_**] アドレスがAccessListに含まれていない場合、それをaccessListに追加し、`G_coldSloadCost`をgasに追加する。
     - 値を移し、新しいアカウントであれば、`G_newaccount`をgasに追加する。
