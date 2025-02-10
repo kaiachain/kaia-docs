@@ -7,7 +7,7 @@
 - コンピュータにインストールされた[Unity Hub](https://unity.com/download) - ここにdAppのインターフェースを構築します。
 - 基本的なC#とJavaScriptの知識 - あまり派手なものはなく、基礎的なものです。
 - LINE Developerアカウント - メールで簡単に作成できます。
-- カイア水栓】のカイアを試す(https://faucet.kaia.io/)
+- [Kaia Faucet】のカイアを試す(https://faucet.kaia.io/)
 - Dapp Portalチームから受け取ったDapp Portal SDKクライアントID。
 - Web3の概念にある程度精通している - ウォレットとトークンを理解していれば問題ない。
 
@@ -58,7 +58,7 @@ Web3UIの中に、3つのパネルオブジェクトを作成します：
 2. これらのパネルを作成し、名前を変更する：
    - StatusPanel - dAppの情報表示
    - ButtonPanel - ユーザーとのインタラクション用
-   - MintPanel - トークン造幣機能用
+   - MintPanel - トークンミンティング機能用
 
 ### パネル・コンポーネントの作成
 
@@ -104,7 +104,7 @@ ButtonPanel
 
 #### MintPanelコンポーネント
 
-トークンの造幣インターフェース：
+トークンのミンティングインターフェース：
 
 - MintPanelを右クリックし、UI → Input Field → TextMeshProをクリックし、MintAmountInputにリネームする。 プレースホルダー・オブジェクトを必ず "Enter Amount…" で埋めてください。
 - MintPanelを右クリックし、UI → Button → TextMeshProをクリックし、MintButtonにリネームする。 テキスト・オブジェクトは必ず "Mint "で埋めてください。
@@ -192,7 +192,7 @@ onlyOwner修飾子を削除し、オリジナルのデプロイメント者や�
    - **Deploy**をクリックしてトークンを起動します！
 3. カイアウォレットがポップアップしたら：
    - 配備の詳細を確認する。
-   - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
+   - Confirmをクリックすると、Kaia Kairos Testnetにデプロイされます。
 
 :::important
 展開された契約アドレスをコピーして保存する。 チュートリアルの後半で必要になる。
@@ -260,7 +260,7 @@ Assets/
    - 名前を "Web3Manager "とする。
 2. 台本を添付してください：
    - Web3Manager GameObjectを選択する。
-   - Inspector]で、[Add Component]をクリックします。
+   - Inspectorで、[Add Component]をクリックします。
    - Web3Manager "を検索して選択します。
 3. UI要素を接続する：
    - Web3Managerを選択した状態で、インスペクタを見ます。
@@ -483,7 +483,7 @@ Assets/
 2. 内容を `scripts/dapp_portal_sdk.js` に保存します。  ローカルのDapp Portal SDKファイルを使用することで、ロード時間と信頼性が向上します。
 
 :::note
-Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+あるいは、Dapp Portal SDKへのリンクを `index.html` の `script` タグ内の `src` として直接追加することもできます。
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
