@@ -1,4 +1,4 @@
-# ヴィエム
+# viem
 
 ![](/img/references/kaiaXviem.png)
 
@@ -12,7 +12,7 @@
 
 - コードエディタ：[VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
 - [メタマスク](../../../build/tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../public-en.md).
+- RPC エンドポイント: サポートされている [エンドポイントプロバイダ](../../public-en.md)から取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 - [NodeJSとNPM](https://nodejs.org/en/)
 - [TS-node](https://www.npmjs.com/package/ts-node): TypeScriptスクリプトの実行に使用される。
