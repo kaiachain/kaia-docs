@@ -16,7 +16,7 @@ Kaiaは1秒のブロック時間を維持することを目標としているの
 
 :::note
 
-計算コストに関連するハードフォークの変更は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
+計算コストに関連するハードフォークの変更は、このページの一番下にあります。 [ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
@@ -33,7 +33,7 @@ Kaiaは1秒のブロック時間を維持することを目標としているの
 
 下表は、EVMオペコードの計算コストである。 計算コストは実験に基づいて決定された。
 
-| Opcode         | 計算コスト |
+| オペコード          | 計算コスト |
 | :------------- | ----: |
 | STOP           |     0 |
 | ADD            |   150 |
@@ -191,21 +191,21 @@ Kaiaは1秒のブロック時間を維持することを目標としているの
 
 `Input` is a byte array input of a precompiled contract.
 
-| Address | Precompiled contracts | Computation Cost                                                                                                                                                                                                       |
-| :------ | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0x01    | ecrecover             | 113,150                                                                                                                                                                                                                |
-| 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                                                                                               |
-| 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                                                                                                  |
-| 0x04    | dataCopy              | 0                                                                                                                                                                                                                      |
-| 0x05    | bigModExp             | コードはこちら](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340) |
-| 0x06    | bn256Add              | 8,000                                                                                                                                                                                                                  |
-| 0x07    | bn256ScalarMul        | 100,000                                                                                                                                                                                                                |
-| 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                                                                                       |
-| 0x09    | blake2f               | bigEndian(getRounds(input[0:4])) \* 10 + 10,000                                                              |
-| 0x0A    | kzg                   | 2,200,000                                                                                                                                                                                                              |
-| 0x3FD   | vmLog                 | 10                                                                                                                                                                                                                     |
-| 0x3FE   | feePayer              | 10                                                                                                                                                                                                                     |
-| 0x3FF   | validateSender        | numOfSigs(input) \* 180,000 + 10,000                                                                                                                                                                |
+| Address | Precompiled contracts | Computation Cost                                                                                                                                          |
+| :------ | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0x01    | ecrecover             | 113,150                                                                                                                                                   |
+| 0x02    | sha256hash            | numOfWords(input) / 32 \* 100 + 1,000                                                                                                  |
+| 0x03    | ripemd160hash         | numOfWords(input) / 32 \* 10 + 100                                                                                                     |
+| 0x04    | dataCopy              | 0                                                                                                                                                         |
+| 0x05    | bigModExp             | コードは[こちら](https://github.com/kaiachain/kaia/blob/75c149a464998eb946311f3a290d4b1ea339eaba/blockchain/vm/contracts.go#L340)                                |
+| 0x06    | bn256Add              | 8,000                                                                                                                                                     |
+| 0x07    | bn256ScalarMul        | 100,000                                                                                                                                                   |
+| 0x08    | bn256Pairing          | numOfPairings(input) \* 1,000,000 + 2,000,000                                                                                          |
+| 0x09    | blake2f               | bigEndian(getRounds(input[0:4])) \* 10 + 10,000 |
+| 0x0A    | kzg                   | 2,200,000                                                                                                                                                 |
+| 0x3FD   | vmLog                 | 10                                                                                                                                                        |
+| 0x3FE   | feePayer              | 10                                                                                                                                                        |
+| 0x3FF   | validateSender        | numOfSigs(input) \* 180,000 + 10,000                                                                                                   |
 
 ## Hardfork Changes <a id="hardfork-changes"></a>
 
