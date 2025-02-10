@@ -6,7 +6,7 @@ Kaiaは高度に最適化された<LinkWithTooltip to="../misc/glossary#bft-base
 
 カイア・ブロックチェーンが目指すもの：
 
-- 取引の即時確定を実現する。
+- 取引の即時ファイナリティを実現する。
 - 実際のユースケースに対応した高速トランザクション処理を提供。
 - ブロックチェーン・アプリケーションの実行コストを下げる。
 - エンドユーザーの参入障壁を減らす。
@@ -91,7 +91,7 @@ KaiaはIstanbul BFTの最適化バージョンを使用しており、ブロッ�
 
 ## トークン・エコノミー
 
-Kaia's native token, [KAIA](./token-economics/kaia-native-token.md), plays a central role in the blockchain's economy:
+カイアのネイティブ・トークンである[KAIA](./token-economics/kaia-native-token.md)は、ブロックチェーンの経済において中心的な役割を果たしている：
 
 - KAIAトークンは新しいブロックごとに自動的に発行される。
 - 当初の年間インフレ率：5.2%.
