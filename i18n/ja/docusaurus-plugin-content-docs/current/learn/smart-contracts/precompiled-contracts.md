@@ -3,21 +3,21 @@
 Kaiaはいくつかの便利なコンパイル済みコントラクトを提供しますが、どれも状態を変更するものではありません。
 これらのコントラクトはネイティブ実装としてプラットフォーム自体に実装されており、Kaiaクライアント仕様の一部であることを意味します。
 アドレス0x01から0x0Aまでのプリコンパイルされたコントラクトは、イーサリアムのものと同じである。
-The utility of precompiles falls into four major categories:
-. 楕円曲線デジタル署名の復元
-. Hash Methods
-. Memory copying
-. zk証明のための楕円曲線数学を可能にする方法。
+プリコンパイルの有用性は、大きく4つのカテゴリーに分類される：
+.。 ハッシュメソッド
+. ハッシュメソッド
+. メモリコピー
+. zk証明のためのelliptic curve数学を可能にする方法。
 Kaiaはさらに、Kaiaの新機能をサポートするために、0x3FDから0x3FFまでのプリコンパイルされたコントラクトを実装しています。
 
 :::note
 
 istanbulのEVMハードフォーク以前に導入された契約は、元のアドレスを使用する必要があります。
 
-- case 1) The contracts deployed in Baobab at block number `#75373310` recognizes 0x09, 0x0a, and 0x0b as addresses of vmLog, feePayer, and validateSender, respectively, and blake2f cannot be used.
-- case 2) The contracts deployed in Baobab at block number `#75373314` recognizes 0x09 as the address of blake2f, and recognizes 0x3fd, 0x3fe, and 0xff as addresses of vmLog, feePayer, and validateSender.
+- case 1) Kairos のブロック番号 `#75373310` に配置されたコントラクトは、それぞれ vmLog、feePayer、validateSender のアドレスとして 0x09、0x0a、0x0b を認識しており、blake2f は使用できません。
+- case 2) ブロック番号 `#75373314` の Kairos に配置されたコントラクトは、0x09 を blake2f のアドレスとして認識し、0x3fd、0x3fe、0xff を vmLog、feePayer、validateSender のアドレスとして認識する。
 
-ハードフォークの変更に関連するコンパイル済みの契約書は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
+ハードフォークの変更に関連するコンパイル済みの契約書は、このページの一番下にあります。 [ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
@@ -293,7 +293,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
 | コレ         |                                              | modExp (0x05) プリコンパイルされた契約は、新しいガス<br/>計算ロジックを使用する。 計算コストも影響する。 <br/>より正確になる。                                                    |
 | イスタンブールEVM | blake2f (0x09) コンパイル済み契約書 | kaiaのプリコンパイル契約アドレスは、<br/>、0x09,0x0A,0x0Bから0x3FD,0x3FE,0x3FFに移動されました。<br/>詳細は、以下の[プリコンパイル契約アドレス変更表](#precompiled-contract-address-change)を参照してください。 |
 
-### 契約書住所変更<a id="precompiled-contract-address-change"></a>
+### コントラクトアドレス変更<a id="precompiled-contract-address-change"></a>
 
 | コンパイル済み契約書 | アドレス **BEFORE** イスタンブールEVMハードフォーク | アドレス **AFTER** イスタンブールEVMハードフォーク |
 | :--------- | :-------------------------------- | :------------------------------- |
