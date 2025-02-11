@@ -627,5 +627,5 @@ EthereumDynamicFee {
 }
 ```
 
-[AccountKeyLegacy]: .../.../.../.../学習/アカウント.md#accountkeylegacy
+[AccountKeyLegacy]: ../../../../../learn/accounts.md#accountkeylegacy
 [Account]: ../caver.account.md#account
