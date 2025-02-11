@@ -55,22 +55,22 @@ const placeholders = {
       ratingPlaceholder: "本页对您有帮助吗？",
       ratingStarsPlaceholder: "您如何评价本页面？"
   },
-  'zh-TW': {
-    feedbackButtonText: "讓這個頁面變得更好",
-    modalTitle: "您的反饋使我們與衆不同。讓我們知道如何做得更好",
-    emailPlaceholder: "輸入您的電子郵件",
-    errorMessage: "請稍後再試",
-    modalTitleError403: "請求的 URL 與 PushFeedback 中爲該項目定義的 URL 不匹配",
-    modalTitleError404: "我們無法在 PushFeedback 中找到所提供的項目 ID。",
-    messagePlaceholder: "評論",
-    modalTitleError: "哎呀！",
-    modalTitleSuccess: "感謝您的反饋！",
-    screenshotButtonText: "添加截圖",
-    screenshotTopbarText: "在頁面上選擇一個元素",
-    sendButtonText: "發送",
-    ratingPlaceholder: "本頁對您有幫助嗎？",
-    ratingStarsPlaceholder: "您如何評價本頁面？"
-  },
+  'ja': {
+    feedbackButtonText: "ページを改善してください。",
+    modalTitle: "あなたのフィードバックは、ドキュメントの改善に大いに役立ちます。",
+    emailPlaceholder: "メールアドレスを入力してください。",
+    errorMessage: "後で再試行してください。",
+    modalTitleError403: "リクエストのURLがPushFeedbackで定義されたURLと一致しません。",
+    modalTitleError404: "PushFeedbackで提供されたプロジェクトIDが見つかりません。",
+    messagePlaceholder: "フィードバック",
+    modalTitleError: "おっとっと！",
+    modalTitleSuccess: "フィードバックをありがとうございます！",
+    screenshotButtonText: "スクリーンショットを撮る",
+    screenshotTopbarText: "該当する場所を選択してください。",
+    sendButtonText: "送信する",
+    ratingPlaceholder: "このページは役に立ちましたか?",
+    ratingStarsPlaceholder: "このページを評価してください。"
+},
   'vi': {
       feedbackButtonText: "Cải thiện trang này",
       modalTitle: "Phản hồi của bạn giúp chúng tôi cải thiện.",
