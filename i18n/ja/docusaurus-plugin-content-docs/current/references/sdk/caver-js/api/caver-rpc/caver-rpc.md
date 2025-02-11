@@ -14,11 +14,11 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
 **プロパティ**
 
-| 名称    | タイプ      | 説明                                               |
-| ----- | -------- | ------------------------------------------------ |
-| クレイ   | \[クレイ]   | [Klay] は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。      |
-| ネット   | \[ネット］   | `net` 名前空間を持つ JSON-RPC 呼び出しを提供する [Net] 。         |
-| ガバナンス | \[ガバナンス］ | `governance`名前空間を持つJSON-RPCコールを提供する[Governance]。 |
+| 名称         | タイプ          | 説明                                               |
+| ---------- | ------------ | ------------------------------------------------ |
+| klay       | [Klay]       | [Klay] は `klay` 名前空間を持つ JSON-RPC 呼び出しを提供する。      |
+| net        | [Net]        | `net` 名前空間を持つ JSON-RPC 呼び出しを提供する [Net] 。         |
+| governance | [Governance] | `governance`名前空間を持つJSON-RPCコールを提供する[Governance]。 |
 
 ## JSON-RPCコール<a id="json-rpc-calls"></a>
 
@@ -26,7 +26,7 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
 ### [Account](./klay.md#caver-rpc-klay-accountcreated) <a id="account"></a>
 
-- [アカウント作成](./klay.md#caver-rpc-klay-accountcreated)
+- [accountCreated](./klay.md#caver-rpc-klay-accountcreated)
 - [getAccount](./klay.md#caver-rpc-klay-getaccount)
 - [getAccountKey](./klay.md#caver-rpc-klay-getaccountkey)
 - [encodeAccountKey](./klay.md#caver-rpc-klay-encodeaccountkey)
@@ -35,7 +35,7 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 - [getCode](./klay.md#caver-rpc-klay-getcode)
 - [getTransactionCount](./klay.md#caver-rpc-klay-gettransactioncount)
 - [isContractAccount](./klay.md#caver-rpc-klay-iscontractaccount)
-- [サイン](./klay.md#caver-rpc-klay-sign)
+- [sign](./klay.md#caver-rpc-klay-sign)
 - [getAccounts](./klay.md#caver-rpc-klay-getaccounts)
 
 ### [Block](./klay.md#caver-rpc-klay-getblocknumber) <a id="block"></a>
@@ -51,15 +51,15 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 - [getCommittee](./klay.md#caver-rpc-klay-getcommittee)
 - [getCommitteeSize](./klay.md#caver-rpc-klay-getcommitteesize)
 - [getCouncil](./klay.md#caver-rpc-klay-getcouncil)
-- [カウンシルサイズを取得](./klay.md#caver-rpc-klay-getcouncilsize)
+- [getCouncilSize](./klay.md#caver-rpc-klay-getcouncilsize)
 - [getStorageAt](./klay.md#caver-rpc-klay-getstorageat)
 - [isSyncing](./klay.md#caver-rpc-klay-issyncing)
 
 ### [Transaction](./klay.md#caver-rpc-klay-call) <a id="transaction"></a>
 
-- [コール](./klay.md#caver-rpc-klay-call)
-- [推定ガス](./klay.md#caver-rpc-klay-estimategas)
-- [推定計算コスト](./klay.md#caver-rpc-klay-estimatecomputationcost)
+- [call](./klay.md#caver-rpc-klay-call)
+- [estimateGas](./klay.md#caver-rpc-klay-estimategas)
+- [estimateComputationCost](./klay.md#caver-rpc-klay-estimatecomputationcost)
 - [getTransactionByBlockHashAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblockhashandindex)
 - [getTransactionByBlockNumberAndIndex](./klay.md#caver-rpc-klay-gettransactionbyblocknumberandindex)
 - [getTransactionByHash](./klay.md#caver-rpc-klay-gettransactionbyhash)
@@ -82,7 +82,7 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 - [isParallelDBWrite](./klay.md#caver-rpc-klay-isparalleldbwrite)
 - [isSenderTxHashIndexingEnabled](./klay.md#caver-rpc-klay-issendertxhashindexingenabled)
 - [getProtocolVersion](./klay.md#caver-rpc-klay-getprotocolversion)
-- [リワードベース取得](./klay.md#caver-rpc-klay-getrewardbase)
+- [getRewardbase](./klay.md#caver-rpc-klay-getrewardbase)
 
 ### [Filter](./klay.md#caver-rpc-klay-getfilterchanges) <a id="filter"></a>
 
@@ -92,7 +92,7 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 - [newBlockFilter](./klay.md#caver-rpc-klay-newblockfilter)
 - [newFilter](./klay.md#caver-rpc-klay-newfilter)
 - [newPendingTransactionFilter](./klay.md#caver-rpc-klay-newpendingtransactionfilter)
-- [アンインストールフィルター](./klay.md#caver-rpc-klay-uninstallfilter)
+- [uninstallFilter](./klay.md#caver-rpc-klay-uninstallfilter)
 
 ### [ネットワーク](./net.md)<a id="network"></a>
 
@@ -107,4 +107,4 @@ RPC\`は[Klay]、[Net]、[Governance]を内部に含むクラスである。
 
 [Klay]: klay.md
 [Net]: net.md
-[Governance]: ガバナンス.md
+[Governance]: governance.md
