@@ -31,7 +31,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'zh-CN', 'zh-TW', 'vi'],
+    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
     path: 'i18n',
     localeConfigs: {
       'en': {
@@ -47,6 +47,13 @@ const config = {
         htmlLang: 'ko',
         calendar: 'gregory',
         path: 'ko',
+      },
+      'ja': {
+        label: '日本語',
+        direction: 'ltr',
+        htmlLang: 'ja',
+        calendar: 'gregory',
+        path: 'ja',
       },
       'zh-CN': {
         label: '简体中文',
