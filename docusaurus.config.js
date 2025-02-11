@@ -31,7 +31,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'zh-CN', 'ja', 'vi'],
+    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
     path: 'i18n',
     localeConfigs: {
       'en': {
@@ -48,6 +48,13 @@ const config = {
         calendar: 'gregory',
         path: 'ko',
       },
+      'ja': {
+        label: '日本語',
+        direction: 'ltr',
+        htmlLang: 'ja',
+        calendar: 'gregory',
+        path: 'ja',
+      },
       'zh-CN': {
         label: '简体中文',
         direction: 'ltr',
@@ -55,12 +62,12 @@ const config = {
         calendar: 'gregory',
         path: 'zh-CN',
       },
-      'ja': {
-        label: '日本語',
+      'zh-TW': {
+        label: '繁體中文',
         direction: 'ltr',
-        htmlLang: 'ja',
+        htmlLang: 'zh-Hant',
         calendar: 'gregory',
-        path: 'ja',
+        path: 'zh-TW',
       },
       'vi': {
         label: 'Tiếng Việt',

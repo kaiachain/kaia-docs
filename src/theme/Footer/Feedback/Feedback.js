@@ -39,22 +39,6 @@ const placeholders = {
       ratingPlaceholder: "이 페이지가 도움이 되었나요?",
       ratingStarsPlaceholder: "이 페이지를 평가해 주세요."
   },
-  'zh-CN': {
-      feedbackButtonText: "让这个页面变得更好",
-      modalTitle: "您的反馈有助于我们改进工作。",
-      emailPlaceholder: "请输入您的电子邮件",
-      errorMessage: "请稍后再试",
-      modalTitleError403: "请求的 URL 与 PushFeedback 中为该项目定义的 URL 不匹配。",
-      modalTitleError404: "我们无法在 PushFeedback 中找到所提供的项目 ID。",
-      messagePlaceholder: "评论",
-      modalTitleError: "哎呀！",
-      modalTitleSuccess: "感谢您的反馈！",
-      screenshotButtonText: "添加截图",
-      screenshotTopbarText: "在页面上选择一个元素",
-      sendButtonText: "发送",
-      ratingPlaceholder: "本页对您有帮助吗？",
-      ratingStarsPlaceholder: "您如何评价本页面？"
-  },
   'ja': {
     feedbackButtonText: "ページを改善してください。",
     modalTitle: "あなたのフィードバックは、ドキュメントの改善に大いに役立ちます。",
@@ -71,6 +55,38 @@ const placeholders = {
     ratingPlaceholder: "このページは役に立ちましたか?",
     ratingStarsPlaceholder: "このページを評価してください。"
 },
+  'zh-CN': {
+      feedbackButtonText: "让这个页面变得更好",
+      modalTitle: "您的反馈有助于我们改进工作。",
+      emailPlaceholder: "请输入您的电子邮件",
+      errorMessage: "请稍后再试",
+      modalTitleError403: "请求的 URL 与 PushFeedback 中为该项目定义的 URL 不匹配。",
+      modalTitleError404: "我们无法在 PushFeedback 中找到所提供的项目 ID。",
+      messagePlaceholder: "评论",
+      modalTitleError: "哎呀！",
+      modalTitleSuccess: "感谢您的反馈！",
+      screenshotButtonText: "添加截图",
+      screenshotTopbarText: "在页面上选择一个元素",
+      sendButtonText: "发送",
+      ratingPlaceholder: "本页对您有帮助吗？",
+      ratingStarsPlaceholder: "您如何评价本页面？"
+  },
+  'zh-TW': {
+    feedbackButtonText: "讓這個頁面變得更好",
+    modalTitle: "您的反饋有助於我們改進工作。",
+    emailPlaceholder: "輸入您的電子郵件",
+    errorMessage: "請稍後再試",
+    modalTitleError403: "請求的 URL 與 PushFeedback 中爲該項目定義的 URL 不匹配",
+    modalTitleError404: "我們無法在 PushFeedback 中找到所提供的項目 ID。",
+    messagePlaceholder: "評論",
+    modalTitleError: "哎呀！",
+    modalTitleSuccess: "感謝您的反饋！",
+    screenshotButtonText: "添加截圖",
+    screenshotTopbarText: "在頁面上選擇一個元素",
+    sendButtonText: "發送",
+    ratingPlaceholder: "本頁對您有幫助嗎？",
+    ratingStarsPlaceholder: "您如何評價本頁面？"
+  },
   'vi': {
       feedbackButtonText: "Cải thiện trang này",
       modalTitle: "Phản hồi của bạn giúp chúng tôi cải thiện.",
