@@ -4,7 +4,7 @@
 
 ### Javaの設定
 
-- Javaバージョン: 11 <= v <= 18
+- Javaバージョン: 11 `<=` v `<=` 18
 - Visit https://adoptopenjdk.net/ site
 - OpenJDKのダウンロード
 
