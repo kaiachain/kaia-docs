@@ -1,6 +1,6 @@
 > **_NOTE:_**
 > このバージョンは一時的なものです。
-> v1.0.1以上のバージョンアップをお願いします。 ethers-ext は ethers v5 または v6 で使用できます。[view](/references/sdk/ethers-ext/getting-started/) を参照してください。
+> バージョンをv1.0.1以上にアップグレードしてください。 ethers-ext は ethers v5 または v6 で使用できます。[view](/references/sdk/ethers-ext/getting-started/) を参照してください。
 
 # kaia用Ethers.jsエクステンション
 
@@ -74,4 +74,4 @@ const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 
 ## 使用方法
 
-example](./example)と[test](./test)を参照のこと。
+［example](./example)と[test](./test)を参照のこと。

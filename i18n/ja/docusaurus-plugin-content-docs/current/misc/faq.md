@@ -79,7 +79,7 @@ Cypress mainnet:
 - EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
 - カイアスコープ : https://kaiascope.com/
 
-Baobab testnet:
+Kairos testnet:
 
 - EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
 - カイアスコープ : https://kairos.kaiascope.com

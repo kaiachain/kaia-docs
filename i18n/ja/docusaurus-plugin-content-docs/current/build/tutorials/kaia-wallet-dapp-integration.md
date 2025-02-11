@@ -8,7 +8,7 @@
 
 ## はじめに
 
-[カイアウォレット](https://docs.kaiawallet.io)は、[メタマスク](https://metamask.io)と同様の非保護ウォレットで、カイア固有の[取引](https://docs.kaia.io/learn/transactions)と[アカウント](https://docs.kaia.io/learn/accounts)を追加サポートしています。 この記事では、[Kaia Wallet](https://docs.kaiawallet.io)と分散型アプリケーション(dApp)の統合について、高レベル(抽象的)な実装から低レベル(きめ細かい)実装まで説明します。
+[カイアウォレット](https://docs.kaiawallet.io)は、[メタマスク](https://metamask.io)と同様の非保護ウォレットで、カイア固有の[取引](https://docs.kaia.io/learn/transactions)と[アカウント](https://docs.kaia.io/learn/accounts)を追加サポートしています。  この記事では、[Kaia Wallet](https://docs.kaiawallet.io)と分散型アプリケーション(dApp)の統合について、ハイレベル(抽象的)な実装から低レベル(きめ細かい)実装まで説明します。
 
 このガイドでは、Kaia Wallet dAppの統合を3つの主要カテゴリーに分類します：
 
@@ -24,11 +24,11 @@
 
 ## 1. UIライブラリ
 
-多くのdAppは、状態管理とリアクティブなサービスの提供のためにフロントエンド・フレームワークを利用している。 そのようなdAppsとカイアウォレットを統合する推奨される方法は、同じフレームワークで構築されたUIライブラリを使用することです。
+多くのdAppは、状態管理とリアクティブなサービスの提供のためにフロントエンド・フレームワークを利用している。 多くのdAppは、状態管理とリアクティブなサービスの提供のためにフロントエンド・フレームワークを利用している。 そのようなdAppsとカイアウォレットを統合する推奨される方法は、同じフレームワークで構築されたUIライブラリを使用することです。
 
-UI ライブラリは、`ConnectWallet` コンポーネントのように、ユーザーとのインタラクションのためのコンポーネントを提供します。 また、複数アカウントや複数ネットワークのような低レベルの状態を管理する手間も省けます。 複雑な、あるいは低レベルのインタラクションについては、基礎となる[ユーティリティ・ライブラリ](#2-utility-libraries)や[プロバイダ](#3-providers)を参照することができる。
+UI ライブラリは、`ConnectWallet` コンポーネントのように、ユーザーとのインタラクションのためのコンポーネントを提供します。 また、複数アカウントや複数ネットワークのような低レベルの状態を管理する手間も省けます。 複雑な、あるいは低レベルのインタラクションについては、基礎となる[ユーティリティ・ライブラリ](#2-utility-libraries)や[プロバイダ](#3-providers)を参照することができる。 また、複数アカウントや複数ネットワークのような低レベルの状態を管理する手間も省けます。 複雑な、あるいは低レベルのインタラクションについては、基礎となる[ユーティリティ・ライブラリ](#2-utility-libraries)や[プロバイダ](#3-providers)を参照することができる。
 
-ほとんどのUIライブラリはMetamaskをビルトインでサポートしているが、Kaia Walletの[API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)は[Metamaskの](https://docs.metamask.io/wallet/reference/json-rpc-api)をベースに構築されているので、統合も簡単だ。 ライブラリがKaia Walletをネイティブにサポートしていなくても、Kaia Wallet統合のために拡張するのは簡単です。 例えば、[React](https://react.dev)や[Next.js](https://nextjs.org)の2つの人気のあるライブラリです：
+ほとんどのUIライブラリはMetamaskをビルトインでサポートしているが、Kaia Walletの[API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)は[Metamaskの](https://docs.metamask.io/wallet/reference/json-rpc-api)をベースに構築されているので、統合も簡単だ。 ライブラリがKaia Walletをネイティブにサポートしていなくても、Kaia Wallet統合のために拡張するのは簡単です。 例えば、[React](https://react.dev)や[Next.js](https://nextjs.org)の2つの人気のあるライブラリです： ライブラリがKaia Walletをネイティブにサポートしていなくても、Kaia Wallet統合のために拡張するのは簡単です。 例えば、[React](https://react.dev)や[Next.js](https://nextjs.org)の2つの人気のあるライブラリです：
 
 - [Appkit](#1.1-appkit-example)
 - [Web3-Onboard](#1.2-web3-onboard-example)
@@ -81,17 +81,17 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 ユーティリティライブラリを使用してアカウントを接続したり、ネイティブトークン（KAIA/ETHなど）を送信したりすることは、構文やコード行数\*の点で、プロバイダを直接呼び出すのと変わりません。 図書館が主に改善するのは、以下の分野である：
 
 - スマートコントラクトの相互作用
-  - これらには、ABI、エンコード入力、デコード出力が含まれる。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。
+  - これらには、ABI、エンコード入力、デコード出力が含まれる。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。 ライブラリーがないと、これらのコードは冗長でエラーになりやすい。
 - エラー処理
   - 文字列エラーコード/メッセージは、カスタムプロパティとメソッドを持つエラークラスにマッピングされます。
-- ドキュメンテーションと型式安全性
+- ドキュメンテーションと安全性
 
 ### 2.1. kaia-sdk
 
-[kaia-sdk](https://github.com/kaiachain/kaia-sdk)は、[ethers.js](https://docs.ethers.io/v6)や[web3.js](https://web3js.org)のような他のユーティリティ・ライブラリのドロップイン拡張のセットです。 これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます：
+[kaia-sdk](https://github.com/kaiachain/kaia-sdk)は、[ethers.js](https://docs.ethers.io/v6)や[web3.js](https://web3js.org)のような他のユーティリティ・ライブラリのドロップイン拡張のセットです。 これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます： これにより、[カイア固有のメソッド](https://docs.kaia.io/references/json-rpc/kaia/account-created/)のファーストパーティ・サポートを公開しながら、お好みのライブラリを使用することができます：
 
 - 取引、口座、口座キーの種類
-- 手数料の委任
+- Fee Delegation
 
 :::note
 
@@ -101,7 +101,7 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 
 ### 2.2. ethers.jsの例
 
-[ethers.js](https://docs.ethers.io/v6)は、ブロックチェーンと対話するための[最も人気のある](https://npmtrends.com/web3klaytn-vs-ethers-vs-viem-vs-web3)JavaScriptユーティリティライブラリです。 それを目指している：
+[ethers.js](https://docs.ethers.io/v6)は、ブロックチェーンと対話するための[最も人気のある](https://npmtrends.com/web3klaytn-vs-ethers-vs-viem-vs-web3)JavaScriptユーティリティライブラリです。 それを目指している： それを目指している：
 
 - 広範囲：複数の財布フォーマット、言語、機能をサポート
 - 堅牢：包括的なテスト、文書化、型付け

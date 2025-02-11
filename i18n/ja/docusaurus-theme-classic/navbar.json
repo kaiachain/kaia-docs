@@ -4,7 +4,7 @@
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "Kaia Logo",
+    "message": "Kaia ロゴ",
     "description": "The alt text of navbar logo"
   },
   "item.label.Learn": {
@@ -100,7 +100,7 @@
     "description": "Navbar item with label Ethers.js Extension"
   },
   "item.label.Contract Addresses": {
-    "message": "契約住所",
+    "message": "コントラクト住所",
     "description": "Navbar item with label Contract Addresses"
   }
 }

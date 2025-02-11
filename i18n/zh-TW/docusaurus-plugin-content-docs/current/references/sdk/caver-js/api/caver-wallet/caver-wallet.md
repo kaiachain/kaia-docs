@@ -346,12 +346,12 @@ caver.wallet.sign(address, transaction [, index] [, hasher])
 
 **參數**
 
-| 名稱          | 類型       | 描述                                                                                                                                                                                      |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address     | string   | 要使用的 keyring 地址。                                                                                                                                                                        |
-| transaction | object   | [Transaction]（.../caver-transaction/caver-transaction.md#class）的實例。 |
-| index       | number   | (可選）要使用的私人密鑰的索引。 索引必須小於為每個角色定義的私鑰數組的長度。 如果沒有定義索引，該方法將使用所有私鑰。                                                                                                         |
-| hasher      | function | (可選）用於獲取交易哈希值的哈希函數。 如果將 `hasher` 作為參數，它將計算事務哈希值，而不是使用 caver-js 中的默認方法計算事務哈希值。 有關事務散列生成的默認方法，請參閱 [Basic](../../../../../../learn/transactions/basic.md) 。             |
+| 名稱          | 類型       | 描述                                                                                                                                                                                                                                             |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address     | string   | 要使用的 keyring 地址。                                                                                                                                                                                                                               |
+| transaction | object   | [Transaction]（.../caver-transaction/caver-transaction.md#class）的實例。                                                        |
+| index       | number   | (可選）要使用的私人密鑰的索引。 索引必須小於為每個角色定義的私鑰數組的長度。 如果沒有定義索引，該方法將使用所有私鑰。                                                                                                                                                                |
+| hasher      | function | (可選）用於獲取交易哈希值的哈希函數。 如果將 `hasher` 作為參數，它將計算事務哈希值，而不是使用 caver-js 中的默認方法計算事務哈希值。 See [Basic](../../../../../build/transactions/basic.md) for details about the default method for transaction hash generation. |
 
 **返回價值**
 

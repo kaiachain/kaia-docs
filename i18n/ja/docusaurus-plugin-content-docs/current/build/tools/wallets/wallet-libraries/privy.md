@@ -8,13 +8,13 @@ sidebar_label: Privy
 
 ## はじめに
 
-[Privy](https://docs.privy.io/) は、Web3におけるプログレッシブ認証のためのシンプルなウォレットツールキットです。 Privyを使用すると、開発者は従来の認証方法とWeb3認証方法を使用してユーザーをオンボーディングすることができ、ユーザーのコンバージョンを高めるプログレッシブオンボーディングが可能になります。
+[Privy](https://docs.privy.io/) は、Web3におけるプログレッシブ認証のためのシンプルなウォレットツールキットです。 Privyを使用すると、開発者は従来の認証方法とWeb3認証方法を使用してユーザーをオンボーディングすることができ、ユーザーのコンバージョンを高めるプログレッシブオンボーディングが可能になります。 Privyを使用すると、開発者は従来の認証方法とWeb3認証方法を使用してユーザーをオンボーディングすることができ、ユーザーのコンバージョンを高めるプログレッシブオンボーディングが可能になります。
 
 このガイドでは、Privy wallet toolkitを使用して、Metamask、Coinbase Wallet、Google、Twitter、Emailなどのソーシャルログインなどの外部ウォレットをKaia Network上に構築したdAppに統合します。
 
 ## 前提条件
 
-- 動くNext.jsプロジェクト。 Privyが提供するこの[create-next-app](https://github.com/privy-io/create-next-app)テンプレートをクローンして、このチュートリアルに沿って進めることができる。
+- 動くNext.jsプロジェクト。 動くNext.jsプロジェクト。 Privyが提供するこの[create-next-app](https://github.com/privy-io/create-next-app)テンプレートをクローンして、このチュートリアルに沿って進めることができる。
 - Privy開発者コンソール](https://console.privy.io/)からの[appID](https://docs.privy.io/guide/console/api-keys#app-id)。
 
 ## はじめに
@@ -23,11 +23,11 @@ sidebar_label: Privy
 
 - **index.tsx**：このファイルは、ユーザーのログイン認証を処理する。
 - **app.tsx**：このファイルはPrivy SDKの初期化を処理し、PrivyProviderでコンポーネントをラップします。
-- **dashboard.tsx**：ログイン後にユーザーがリダイレクトされるページです。 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract.
+- **dashboard.tsx**：ログイン後にユーザーがリダイレクトされるページです。 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 These functionalities include:  getting user balance, sending KLAY to another account, deploying a contract, interacting with a smart contract. 各ログイン方法（Google、Twitter、Eメール、ウォレット）のテストにまつわるすべてを処理する。 このガイドでもっと重要なのは、MetaMaskのような外部ウォレットを使って接続したときに特定の機能を実行することだ。 これらの機能には、ユーザー残高の取得、別のアカウントへのKAIAの送信、コントラクトの展開、スマートコントラクトとのやり取りなどが含まれる。
 
 ## インストール
 
-あなたのdAppでPrivyを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsと[Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)をセットアップする必要がある。 Privyは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/)のいずれかのライブラリと一緒に使って、カイア・ブロックチェーンと通信することができます。 このガイドでは、ethers.jsライブラリを使用する。
+あなたのdAppでPrivyを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 あなたのdAppでPrivyを利用するには、まず必要なライブラリとSDKをインストールする必要があります。 したがって、ethers.jsと[Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)をセットアップする必要がある。 Privyは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/)のいずれかのライブラリと一緒に使って、カイア・ブロックチェーンと通信することができます。 このガイドでは、ethers.jsライブラリを使用する。 Privyは、[ethers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/)のいずれかのライブラリと一緒に使って、カイア・ブロックチェーンと通信することができます。 このガイドでは、ethers.jsライブラリを使用する。
 
 プロジェクトフォルダを開き、以下のコマンドを実行して必要なライブラリとSDKをインストールします：
 
@@ -40,7 +40,7 @@ npm install --save ethers
 
 必要なライブラリのインストールに成功したら、次はコンポーネントを[PrivyProvider](https://docs.privy.io/reference/react-auth/modules#privyprovider)でラップする。
 
-PrivyProviderは、Privy SDKを使用するすべてのコンポーネントをラップする必要があります。 そのためには、_app.tsxファイルを開き、以下のコードを貼り付ける：
+PrivyProviderは、Privy SDKを使用するすべてのコンポーネントをラップする必要があります。 そのためには、_app.tsxファイルを開き、以下のコードを貼り付ける： そのためには、_app.tsxファイルを開き、以下のコードを貼り付ける：
 
 ```tsx
 import '../styles/globals.css';
@@ -68,14 +68,14 @@ function MyApp({Component, pageProps}: AppProps) {
 export default MyApp;
 ```
 
-プリヴィー・プロバイダーが以下のプロパティを取ることに注意することが重要である：
+Privy provider が以下のプロパティを取ることに注意することが重要である：
 
-- .envファイルで更新する必要があります。 テスト用にPrivyから提供された`test App ID: clpispdty00ycl80fpueukbhl`で始めることができる。
+- .envファイルで更新する必要があります。 .envファイルで更新する必要があります。 テスト用にPrivyから提供された`test App ID: clpispdty00ycl80fpueukbhl`で始めることができる。
 - オプションの `onSuccess` コールバックは、ユーザがログインに成功すると実行される。
 - オプションの `createPrivyWalletOnLogin` boolean で、ログイン時に埋め込みウォレットを作成させるかどうかを設定します。
 - オンボーディング体験をカスタマイズするためのオプションの設定プロパティです。
 
-## コネクティング・ウォレット
+## ウォレットを接続する
 
 `index.tsx`ファイル内のLoginPage関数内で、[login](https://docs.privy.io/reference/react-auth/interfaces/PrivyInterface#login) メソッドを呼び出します。このメソッドは、Privyのログインモーダルを開き、ユーザーにログインを促します。
 
@@ -97,7 +97,7 @@ export default MyApp;
 
 ## アカウントと残高の取得
 
-先ほどのステップで、ウォレットを接続してログインしたことがわかるだろう。 このステップでは、ユーザーの関連するカイアのアドレスを取得する。 Additionally, you can retrieve its current balance (in KLAY) using ethers.js.
+先ほどのステップで、ウォレットを接続してログインしたことがわかるだろう。 このステップでは、ユーザーの関連するカイアのアドレスを取得する。 先ほどのステップで、ウォレットを接続してログインしたことがわかるだろう。 このステップでは、ユーザーの関連するカイアのアドレスを取得する。 Additionally, you can retrieve its current balance (in KLAY) using ethers.js.
 
 dashboard.tsxファイルに以下のコードを貼り付けます：
 
@@ -147,7 +147,7 @@ return (
 ## ウォレットの切断
 
 ウォレットを切断する
-ユーザーがログインしたら、usePrivy から派生した `logout` メソッドを使って、プログラムでユーザーをログアウトさせることができます。 これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。
+ユーザーがログインしたら、usePrivy から派生した `logout` メソッドを使って、プログラムでユーザーをログアウトさせることができます。 これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。 これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。
 
 ```tsx
 const { logout } = usePrivy();
@@ -164,7 +164,7 @@ return (
 
 ## ユーザー情報の取得
 
-Privyは、ユーザーにウェブ3ウォレットとソーシャルログインの両方を使用してdAppに接続する快適さを提供します。 ユーザーがtwitterやdiscord、googleアカウントなどのソーシャルアカウントを使ってdAppに接続する場合、`usePrivy`から`user`を呼び出すことができる。
+Privyは、ユーザーにウェブ3ウォレットとソーシャルログインの両方を使用してdAppに接続する快適さを提供します。 ユーザーがtwitterやdiscord、googleアカウントなどのソーシャルアカウントを使ってdAppに接続する場合、`usePrivy`から`user`を呼び出すことができる。 はじめに
 
 ```tsx
 const  { user }  =  usePrivy();
@@ -183,7 +183,7 @@ return (
 
 ## ネイティブ・トランザクションの送信
 
-You can perform native transactions, like sending KLAY from one user to another.
+あるユーザーから別のユーザーへKAIAを送信するなど、ネイティブ・トランザクションを実行できる。
 
 ```tsx
 const [klayTransferTx, setKlayTransferTx] = useState("");
@@ -220,7 +220,7 @@ return (
 
 ## スマートコントラクトとの連携
 
-### 1. 契約の展開
+### 1. コントラクトのデプロイ
 
 スマート・コントラクトは、アプリケーション・バイナリ・インターフェース（ABI）とコントラクトのバイトコードによってデプロイできる。
 
@@ -296,7 +296,7 @@ return (
 );
 ```
 
-### 2. 契約書への書き込み
+### 2. コントラクトへの書き込み
 
 ```tsx
 const [contractWriteTx, setContractTx] = useState("");
@@ -375,7 +375,7 @@ return (
 );
 ```
 
-### 3. 契約書を読む
+### 3. コントラクトを読む
 
 ```tsx
 const [readContractMessage, setContractMessage] = useState();
@@ -449,4 +449,4 @@ return (
 
 ## 次のステップ
 
-Privyに関するより詳細なガイドについては、[Privy Docs](https://docs.privy.io/)および[Privy Githubリポジトリ](https://github.com/privy-io)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample)にあります。
+Privyに関するより詳細なガイドについては、[Privy Docs](https://docs.privy.io/)および[Privy Githubリポジトリ](https://github.com/privy-io)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample)にあります。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample)にあります。

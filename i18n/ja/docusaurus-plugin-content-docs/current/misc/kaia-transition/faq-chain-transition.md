@@ -15,7 +15,7 @@
   - [Klaytnは新しいKAIAトークンのためのスワップまたは移行ウェブサイトを提供しますか](#will-klaytn-provide-a-swap-or-migration-website-for-new-kaia-tokens-)
   - [KAIAトークンの受け取りが遅れることはありますか](#will-there-be-any-delay-in-receiving-kaia-tokens-)
   - [KLAYトークンとFNSAトークンのスワップに上限はありますか](#is-there-a-limit-on-the-amount-for-swapping-klay-and-fnsa-tokens-)
-  - [現在、FNSAに賭けている。 KAIAにスワップするためにFNSAを解除するのに7日間待つ必要がありますか](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
+  - [現在、FNSAにステーキングしている KAIAにスワップするためにFNSAを解除するのに7日間待つ必要がありますか](#im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-)
   - [KLAYとFNSAの過去の価格情報はどこで入手できますか？ CoinMarketCapやCoinGeckoではもう見つからないようだ](#where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-)
 
 - アプリビルダー
@@ -28,7 +28,7 @@
   - [メインネットのアップグレード後、カイアブランドにアップグレードしないとどうなるのか](#what-happens-if-we-dont-upgrade-to-the-kaia-brand-after-the-mainnet-upgrade-)
   - [デフォルトのエクスプローラーであるKlaytnscopeはどうなるのか](#what-will-happen-to-klaytnscope-the-default-explorer-)
 
-- 集中型取引所
+- Centralized exchanges
   - [KAIAはKLAYのリブランドなのか、それとも全く新しいトークンなのか](#is-kaia-a-rebrand-from-klay-or-a-completely-new-token-)
   - [カイアはクレイトンのメインネットにいるのか、それとも別のメインネットにいるのか](#will-kaia-be-on-the-klaytn-mainnet-or-a-different-mainnet-)
   - [現在のKlaytnメインネットはリブランド後も機能し続けるのか](#will-the-current-klaytn-mainnet-continue-to-work-after-the-rebrand-)
@@ -49,7 +49,7 @@ KlaytnとFinschiaは、両チェーンによるガバナンスの決定によっ
 
 KAIAコインの発売により、KLAYの残高は自動的にKAIAとして反映された。 FNSA保有者は、[Kaia Portal](https://portal.kaia.io/)上のスワップサービスを利用して、FNSAトークンをFinschiaネットワーク上で燃やし、KLAYトークンと同等の価値を請求することができます。 FNSAからKAIAへのスワップについては、[この投稿](https://medium.com/lineblockchain/preparations-for-the-upcoming-kaia-chain-token-swap-d9ccd853eda4)をお読みください。
 
-### カイア用に新しい財布を作る必要がありますか？ <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
+### カイア用に新しいウォレットを作る必要がありますか？ <a id="will-i-need-to-create-a-new-wallet-for-kaia-"></a>
 
 KlaytnウォレットはKaiaで使用できますが、Metamaskのようなサードパーティのマルチチェーンウォレットを使用している場合は、RPCとブロックエクスプローラーのURLを更新する必要があります。 これらは後日提供される。 フィンシャのウォレット保有者はカイアのウォレットを作成する必要があり、FNSA保有者がトークンを燃やしてKAIAの等価価値を請求できるウェブサイトが提供される。
 
@@ -65,13 +65,13 @@ KlaytnウォレットはKaiaで使用できますが、Metamaskのようなサ�
 
 2つのトークンの交換とブリッジに制限はない。
 
-### 今、FNSAに賭けている。 KAIAにスワップするためにFNSAを解除するのに7日間待つ必要がありますか？ <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
+### 今、FNSAにステーキングしている KAIAにスワップするためにFNSAを解除するのに7日間待つ必要がありますか？ <a id="im-currently-staking-fnsa-will-i-need-to-wait-7-days-to-unstake-my-fnsa-to-swap-to-kaia-"></a>
 
 今度のカイアのローンチに伴い、トークンとガバナンスメカニズムをスムーズに統合するためのガバナンス投票がFinschiaネットワーク上で提案されます。 投票が可決されれば、FNSA保有者は1週間待つことなく、ステイクを解除してスワップできるようになる。
 
 ### KLAYとFNSAの過去の価格情報はどこで見られますか？ CoinMarketCapやCoinGeckoではもう見つからないようだ。 <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
 
-KLAYとFNSAの合併と新しいトークンKAIAへの移行のため、KLAYとFNSAの過去の価格情報は暗号通貨追跡サイトでは利用できなくなりました。 しかし、我々は透明性と参考のためにこのデータを保存している。 KLAY と FNSA のヒストリカル価格データを含む CSV ファイルは、[Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing)からダウンロードできます。
+KLAYとFNSAの合併と新しいトークンKAIAへの移行のため、KLAYとFNSAの過去の価格情報は暗号通貨追跡サイトでは利用できなくなりました。 しかし、我々は透明性と参考のためにこのデータを保存している。 KLAY と FNSA の過去の価格データを含む CSV ファイルは、[Kaia native coin - KAIA](../../learn/token-economics/kaia-native-token.md#historical-pricing)からダウンロードできます。
 
 ## アプリビルダー
 
@@ -89,7 +89,7 @@ FinschiaエコシステムのDAppがKaiaに移行するには、Cosmwasmチェ�
 
 ## ウォレットプロバイダー
 
-### 財布のブランド名をKlaytnからKaiaに変更する必要がありますか？ <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
+### ウォレットのブランド名をKlaytnからKaiaに変更する必要がありますか？ <a id="is-it-necessary-to-update-the-brand-name-from-klaytn-to-kaia-in-the-wallet-"></a>
 
 はい、更新が必要な場合はエコパートナーに通知されます。
 
@@ -101,7 +101,7 @@ FinschiaエコシステムのDAppがKaiaに移行するには、Cosmwasmチェ�
 
 Klaytnscopeはこれまで通り機能し、3ヶ月後にアップグレードされる。
 
-## 集中型取引所
+## Centralized exchanges
 
 ### KAIAはKLAYのリブランドですか、それともまったく新しいトークンですか？ <a id="is-kaia-a-rebrand-from-klay-or-a-completely-new-token-"></a>
 

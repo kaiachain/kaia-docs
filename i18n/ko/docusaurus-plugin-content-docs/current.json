@@ -274,5 +274,29 @@
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
     "message": "Transition to Kaia",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.learnSidebar.category.Core Concepts": {
+    "message": "핵심 개념",
+    "description": "The label for category Core Concepts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Smart Contracts": {
+    "message": "스마트 계약",
+    "description": "The label for category Smart Contracts in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Advanced Topics": {
+    "message": "고급 주제",
+    "description": "The label for category Advanced Topics in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Transaction Execution": {
+    "message": "거래 실행",
+    "description": "The label for category Transaction Execution in sidebar learnSidebar"
+  },
+  "sidebar.learnSidebar.category.Token Economics": {
+    "message": "토큰 경제학",
+    "description": "The label for category Token Economics in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Transactions": {
+    "message": "거래",
+    "description": "The label for category Transactions in sidebar buildSidebar"
   }
 }

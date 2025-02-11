@@ -9,8 +9,8 @@ FoundryはRustで書かれたスマートコントラクト開発フレームワ
 Foundryは、高速でモジュール化されたスマート・コントラクト開発を可能にする4つの主要CLIツールで構成されている：
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)：  Forgeを使ってスマートコントラクトのデプロイ、テスト、コンパイルができる。
-- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にした。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。
-- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：ローカルノードをスピンアップする必要がありますか？ AnvilはFoundryが提供するローカルノード環境である。
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にするものであり、 チェーンデータの取得、トランザクションの送信などが含まれる。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。
+- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：ローカルノードをスピンアップする必要がありますか？ AnvilはFoundryが提供するローカルノード環境である。 AnvilはFoundryが提供するローカルノード環境である。
 - [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel)：高速で便利で冗長なsolidity REPL。
 
 このガイドでは、次のことを説明する：
@@ -24,7 +24,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 
 このチュートリアルに従うには、次のことが前提条件となる：
 
-- Code editor: a source-code editor such [VS-Code](https://code.visualstudio.com/download).
+- コードエディタ: [VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
 - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
@@ -32,7 +32,7 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 
 ## 開発環境のセットアップ
 
-ファウンドリのインストールが成功したかどうかを確認するには、以下のコマンドを実行してください：
+Foundryのインストールが成功したかどうかを確認するには、以下のコマンドを実行してください：
 
 ```bash
 forge -V
@@ -42,7 +42,7 @@ forge -V
 
 ![](/img/build/get-started/forge-version.png)
 
-foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。 次のステップでファウンドリー・プロジェクトをセットアップしてみよう：
+foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。 次のステップでfoundryプロジェクトをセットアップしてみよう：
 
 \*\*ステップ1新しいプロジェクトを開始するには、以下のコマンドを実行します：
 
@@ -57,7 +57,7 @@ cd foundry_example
 ls	 
 ```
 
-ファウンドリー・プロジェクトを初期化した後、カレント・ディレクトリーには以下が含まれているはずだ：
+ファウンドリー・プロジェクトを初期化した後、ディレクトリーには以下が含まれます：
 
 - **src**：スマートコントラクトのデフォルトディレクトリ。
 - **tests**：テスト用のデフォルト・ディレクトリ。
@@ -67,7 +67,7 @@ ls
 
 ## スマート・コントラクトのサンプル
 
-このセクションでは、初期化されたファウンドリー・プロジェクトのサンプル・カウンター契約を使用する。 `src/`フォルダにある`counter.sol`ファイルは以下のようになるはずだ：
+このセクションでは、初期化されたFoundryプロジェクトのサンプル・カウンター契約を使用する。 `src/`フォルダにある`counter.sol`ファイルは以下のようになるはずだ：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -89,7 +89,7 @@ contract Counter {
 
 ## スマートコントラクトのテスト
 
-Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. 初期化されたfoundryプロジェクトでは、`test/Counter.t.sol`がsolidityで書かれたテストの例です。 コードは次のようになる：
+Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. 初期化されたfoundryプロジェクトでは、`test/Counter.t.sol`がsolidityで書かれたテストの例です。 コードは次のようになる： コードは次のようになる：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -118,7 +118,7 @@ contract CounterTest is Test {
 上記のテストは以下のことをチェックする：
 
 - その数は増えているのか？
-- 数字は設定された数字と等しいか？
+- 数は設定された数と等しいか？
 
 テストがうまくいくかどうかを確認するには、以下のコマンドを実行する：
 
@@ -142,7 +142,7 @@ forge build
 
 ## 契約の展開
 
-ファウンドリを使用してコントラクトをデプロイするには、RPC URLと、コントラクトをデプロイするアカウントの秘密鍵を提供する必要があります。 Kaiaの[rpc-providers](../../../references/public-en.md)のリストを見て、あなたのrpc-urlを見つけ、[MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)を使ってアカウントを作成してください。
+ファウンドリを使用してコントラクトをデプロイするには、RPC URLと、コントラクトをデプロイするアカウントの秘密鍵を提供する必要があります。 ファウンドリを使用してコントラクトをデプロイするには、RPC URLと、コントラクトをデプロイするアカウントの秘密鍵を提供する必要があります。 Kaiaの[rpc-providers](../../../references/public-en.md)のリストを見て、あなたのrpc-urlを見つけ、[MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)を使ってアカウントを作成してください。
 
 **ステップ1**: 契約をカイア・カイロス・ネットワークに展開するには、以下のコマンドを実行します。
 
@@ -170,7 +170,7 @@ forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhd
 
 ## 契約とのやり取り
 
-スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
+スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  スマート・コントラクトのデプロイに成功したら、関数を正しく呼び出して実行したいだろう。 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) を使って、Kaia Kairos Networkに配備されたコントラクトとやりとりしてみましょう。  このセクションでは、[cast call](https://book.getfoundry.sh/reference/cast/cast-call) を使って `read-only` 関数を実行し、[cast send](https://book.getfoundry.sh/reference/cast/cast-send) を使って `write` 関数を実行する方法を学びます。
 
 **A. cast call**：コントラクトに格納されている数字を取得するには、`number`関数を呼び出します。 以下のコマンドを実行し、その動きを見てみよう。
 
@@ -236,7 +236,7 @@ cast call 0xe4d576c447733da7ca9197e88d34a74c3c865cff "number()" --rpc-url https:
 0x000000000000000000000000000000000000000000000000000000000000000a
 ```
 
-しかし、希望する結果を得るには、上記の結果をキャストで変換する。 この場合、データは数字なので、それを基数10に変換して、結果10を得ることができる：
+しかし、希望する結果を得るには、上記の結果をキャストで変換する。 しかし、希望する結果を得るには、上記の結果をキャストで変換する。 この場合、データは数字なので、それを基数10に変換して、結果10を得ることができる：
 
 ```bash
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
@@ -248,7 +248,7 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 
 ## キャストとアンヴィルによるメインネットのフォーク
 
-Foundryでは、メインネットをローカル開発ネットワーク（[Anvil](https://book.getfoundry.sh/reference/anvil/)）にフォークすることができる。 また、[Cast](https://book.getfoundry.sh/reference/cast/)を使って、実際のネットワーク上でコントラクトと対話し、テストすることができます。
+Foundryでは、メインネットをローカル開発ネットワーク（[Anvil](https://book.getfoundry.sh/reference/anvil/)）にフォークすることができる。 Foundryでは、メインネットをローカル開発ネットワーク（[Anvil](https://book.getfoundry.sh/reference/anvil/)）にフォークすることができる。 また、[Cast](https://book.getfoundry.sh/reference/cast/)を使って、実際のネットワーク上でコントラクトと対話し、テストすることができます。
 
 ### はじめに
 
@@ -276,7 +276,7 @@ anvil --fork-url https://archive-en.node.kaia.io
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-上記のタスクの結果は、[16進数から10進数](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って変換できる。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 これを確認するには、[Kaiascope](https://kaiascope.com/block/118704896?tabId=txList)のブロック番号をクロスリファレンスする。
+上記のタスクの結果は、[16進数から10進数](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って変換できる。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 これを確認するには、[Kaiascope](https://kaiascope.com/block/118704896?tabId=txList)のブロック番号をクロスリファレンスする。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 これを確認するには、[Kaiascope](https://kaiascope.com/block/118704896?tabId=txList)のブロック番号をクロスリファレンスする。
 
 ### イラスト
 
@@ -357,4 +357,4 @@ cast call $oUSDC \
 
 ![](/img/build/get-started/oUsdcHolderAfter.png)
 
-ファウンドリーに関するより詳細なガイドについては、[ファウンドリードキュメント](https://book.getfoundry.sh/)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry)にあります。
+ファウンドリーに関するより詳細なガイドについては、[ファウンドリードキュメント](https://book.getfoundry.sh/)を参照してください。 ファウンドリーに関するより詳細なガイドについては、[ファウンドリードキュメント](https://book.getfoundry.sh/)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry)にあります。

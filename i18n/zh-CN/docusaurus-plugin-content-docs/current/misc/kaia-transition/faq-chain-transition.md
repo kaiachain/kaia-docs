@@ -71,7 +71,7 @@ Klaytn 和 Finschia 通过管理决策合并为 Kaia。 您可以查看投票结
 
 ### 在哪里可以找到 KLAY 和 FNSA 的历史价格信息？ 我似乎在 CoinMarketCap 或 CoinGecko 上都找不到它了。 <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
 
-由于 KLAY 和 FNSA 的合并以及向新代币 KAIA 的过渡，加密货币跟踪网站上已不再提供 KLAY 和 FNSA 的历史价格信息。 不过，我们还是保留了这些数据，以提高透明度和供参考。 您可以从 [Kaia native coin - KAIA](../../learn/kaia-native-token.md#historical-pricing) 下载包含 KLAY 和 FNSA 历史价格数据的 CSV 文件。
+由于 KLAY 和 FNSA 的合并以及向新代币 KAIA 的过渡，加密货币跟踪网站上已不再提供 KLAY 和 FNSA 的历史价格信息。 不过，我们还是保留了这些数据，以提高透明度和供参考。 您可以从 [Kaia native coin - KAIA](../../learn/token-economics/kaia-native-token.md#historical-pricing) 下载包含 KLAY 和 FNSA 历史价格数据的 CSV 文件。
 
 ## 应用程序开发人员
 

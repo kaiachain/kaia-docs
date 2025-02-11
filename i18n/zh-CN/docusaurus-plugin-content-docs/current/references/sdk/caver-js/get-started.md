@@ -1,6 +1,6 @@
 # 新手指南
 
-本文档适用于使用 caver-js v1.5.0 或更高版本的开发人员。 如果使用的是旧版本，请参阅 [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
+本文档适用于使用 caver-js v1.5.0 或更高版本的开发人员。
 
 ## 先决条件<a href="#prerequisites" id="prerequisites"></a>
 
@@ -416,7 +416,7 @@ RoleBasedKeyring {
 
 ### 通过 Kairos 龙头获取 KAIA<a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-如果您需要 KAIA 进行测试，可以从 [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay) 获取 Kairos testnet KAIA。 使用私钥或密钥存储文件登录 kaia 钱包，并通过龙头接收 Kairos testnet KAIA 进行测试。
+如果您需要 KAIA 进行测试，可以从 [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet) 获取 Kairos testnet KAIA。
 
 ### 发送价值转移交易<a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-交易结果可通过收据的 "状态 "查询。 有关返回值的详细信息，请参阅 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)。 如果交易失败，可以在收据的 `txError` 中查看更多有关错误的信息。 有关 `txError` 的更多信息，请参阅 [txError: Detailed Information of Transaction Failures]（.../transaction-error-codes.md）。
+交易结果可通过收据的 "状态 "查询。 有关返回值的详细信息，请参阅 [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt)。 如果交易失败，可以在收据的 `txError` 中查看更多有关错误的信息。 有关 `txError` 的更多信息，请参阅 [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md)。
 
 ## 执行其他事务类型<a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia 提供各种事务类型，以提高可扩展性和性能。 更多信息，请参阅 [事务]（.../.../.../learn/transactions/）。 本节将介绍一些可与 caver-js 配合使用的示例。
+Kaia 提供各种事务类型，以提高可扩展性和性能。 更多信息，请参阅 [Transactions](../../../build/transactions/)。 本节将介绍一些可与 caver-js 配合使用的示例。
 
 ### 收费代表团<a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia 提供 [费用委托]（.../.../.../learn/transactions/transactions.md#fee-delegation）功能。 下面是一个制作 RLP 编码交易的示例，当您是此类交易的发送方时：
+Kaia 提供 [Fee Delegation](../../../build/transactions/transactions.md#fee-delegation) 功能。 下面是一个制作 RLP 编码交易的示例，当您是此类交易的发送方时：
 
 ```javascript
 // test.js
@@ -1769,8 +1769,8 @@ $ node ./test.js
 
 使用 caver-js 开发的 DApp（区块链应用程序）示例项目如下：
 
-- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
-- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](https://docs.klaytn.foundation/docs/build/tutorials/count-dapp/)
+- [Klaystagram](https://docs.klaytn.foundation/docs/build/tutorials/klaystagram/)
 
 ## 故障排除<a href="#troubleshooting" id="troubleshooting"></a>
 

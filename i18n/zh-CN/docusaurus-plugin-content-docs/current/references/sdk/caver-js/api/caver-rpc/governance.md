@@ -18,7 +18,7 @@ caver.rpc.governance.vote(key, value [, callback])
 | 值        | 字符串 \| 数字 \| 布尔值 | 每个键的各种类型的值。                                        |
 | callback | function         | (可选）可选回调，第一个参数返回错误对象，第二个参数返回结果。 |
 
-有关 `caver.rpc.governance.vote` 的 `key` 和 `value` 的更多详情，请参阅 [governance_vote](../../../../json-rpc/governance.md#governance_vote) 。
+有关 `caver.rpc.governance.vote` 的 `key` 和 `value` 的更多详情，请参阅 [governance_vote](https://docs.kaia.io/references/json-rpc/governance/vote/)。
 
 **回报价值**
 
@@ -498,9 +498,9 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 `Promise` returns `number`
 
-| 类型 | 描述                                                                                                                                     |
-| -- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| 对象 | 质押信息。 有关返回结果的说明，请参阅 [governance_getStakingInfo](../../../.././json-rpc/governance.md#governance_getstakinginfo) 。 |
+| 类型 | 描述                                                                                                                                           |
+| -- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象 | 质押信息。 有关返回结果的说明，请参阅 [governance_getStakingInfo](https://docs.kaia.io/references/json-rpc/governance/get-staking-info/)。 |
 
 **示例**
 

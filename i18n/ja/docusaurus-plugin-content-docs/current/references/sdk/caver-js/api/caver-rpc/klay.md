@@ -14,7 +14,7 @@ caver.rpc.klay.accountCreated(address [, blockNumber] [, callback])
 
 | 名称     | タイプ         | 説明                                                                                             |
 | ------ | ----------- | ---------------------------------------------------------------------------------------------- |
-| 住所     | ストリング       | ネットワーク上に作成されたかどうかを確認するために問い合わせたいアカウントのアドレス。                                                    |
+| アドレス   | ストリング       | ネットワーク上に作成されたかどうかを確認するために問い合わせたいアカウントのアドレス。                                                    |
 | ブロック番号 | number \\ | (オプション) ブロック番号、または `latest` または `earliest` という文字列。 省略した場合は `latest` が使用される。 |
 | コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。            |
 
@@ -484,11 +484,11 @@ caver.rpc.klay.getTransactionCount(address [, blockNumber] [, callback])
 
 **パラメーター**
 
-| 名称     | タイプ         | 説明                                                                                                                                                                                                                        |
-| ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 住所     | ストリング       | 取引件数を取得するアドレス。                                                                                                                                                                                                            |
-| ブロック番号 | number \\ | (オプション) ブロック番号、保留中の nonce を表す文字列 `pending` 、または [default block parameter](../../../../json-rpc/klay/block.md#the-default-block-parameter) にあるような文字列 `earliest` または `latest` 。 省略した場合は `latest` が使用される。 |
-| コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                                                                                                       |
+| 名称     | タイプ         | 説明                                                                                                                                                                       |
+| ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 住所     | ストリング       | 取引件数を取得するアドレス。                                                                                                                                                           |
+| ブロック番号 | number \\ | (optional) A block number, the string `pending` for the pending nonce, or the string `earliest` or `latest`. 省略した場合は `latest` が使用される。 |
+| コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                                                      |
 
 **リターン・バリュー**
 
@@ -545,9 +545,9 @@ true
 caver.rpc.klay.sign(address, message [, blockNumber] [, callback])
 ```
 
-カイア固有の署名データを生成する。 署名の生成方法については、[Kaia Platform API - klay_sign](../../../../json-rpc/klay/account.md#klay_sign) を参照してください。
+カイア固有の署名データを生成する。 Refer to [Kaia Platform API - klay_sign](https://docs.kaia.io/references/json-rpc/klay/sign/) to know how the signature is generated.
 
-**注意**：このAPIは、kaiaノードの[インポートアカウント](../../../../json-rpc/personal.md#personal_importrawkey)を使ってメッセージに署名する機能を提供します。 あなたのノードにインポートされたアカウントは、メッセージに署名するために[unlocked](../../../../json-rpc/personal.md#personal_unlockaccount)でなければなりません。 kaiaノードにインポートされたアカウントでトランザクションに署名するには、[caver.rpc.klay.signTransaction](#caver-rpc-klay-signtransaction)を使用する。
+**NOTE**: This API provides the function to sign a message using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign the message. To sign a transaction with imported account in your kaia node, use [caver.rpc.klay.signTransaction](#caverrpcklaysigntransaction).
 
 **パラメーター**
 
@@ -1411,12 +1411,12 @@ caver.rpc.klay.getStorageAt(address, position [, blockNumber] [, callback])
 
 **パラメーター**
 
-| 名称     | タイプ         | 説明                                                                                                                                        |
-| ------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 住所     | ストリング       | ストレージを取得するアドレス。                                                                                                                           |
-| 位置     | 番号          | ストレージのインデックス位置。 位置の計算\`の詳細については、[klay_getStorageAt](../../../../json-rpc/klay/block.md#klay_getstorageat) を参照してください。 |
-| ブロック番号 | number \\ | (オプション) ブロック番号、または `latest` または `earliest` という文字列。 省略した場合は `latest` が使用される。                                            |
-| コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                       |
+| 名称     | タイプ         | 説明                                                                                                                                                                                                    |
+| ------ | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 住所     | ストリング       | ストレージを取得するアドレス。                                                                                                                                                                                       |
+| 位置     | 番号          | ストレージのインデックス位置。 For more information on `calculating the position`, refer to [klay_getStorageAt](https://docs.kaia.io/references/json-rpc/klay/get-storage-at/). |
+| ブロック番号 | number \\ | (オプション) ブロック番号、または `latest` または `earliest` という文字列。 省略した場合は `latest` が使用される。                                                                                                        |
+| コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                                                                                   |
 
 **リターン・バリュー**
 
@@ -1798,10 +1798,10 @@ caver.rpc.klay.getTransactionBySenderTxHash(senderTxHash [, callback])
 
 **パラメーター**
 
-| 名称        | タイプ   | 説明                                                                                                        |
-| --------- | ----- | --------------------------------------------------------------------------------------------------------- |
-| 送信者TxHash | ストリング | 送信者トランザクションハッシュ。 詳細は[SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash)を参照のこと。 |
-| コールバック    | 機能    | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                       |
+| 名称        | タイプ   | 説明                                                                                                                                   |
+| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 送信者TxHash | ストリング | 送信者トランザクションハッシュ。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
+| コールバック    | 機能    | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                  |
 
 **リターン・バリュー**
 
@@ -1857,36 +1857,36 @@ caver.rpc.klay.getTransactionReceipt(transactionHash [, callback])
 
 `Promise` は `object` - トランザクションのレシートオブジェクト、またはレシートが見つからない場合は `null` を返す：
 
-| 名称             | タイプ   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ブロックハッシュ       | ストリング | このトランザクションが行われたブロックのハッシュ。                                                                                                                                                                                                                                                                                                                                                                                               |
-| ブロック番号         | ストリング | この取引が行われたブロック番号。                                                                                                                                                                                                                                                                                                                                                                                                        |
-| コードフォーマット      | ストリング | (オプション) スマートコントラクトのコードフォーマット。                                                                                                                                                                                                                                                                                                                                                                        |
-| 契約住所           | ストリング | トランザクションがコントラクトの作成である場合、作成されたコントラクトのアドレス。                                                                                                                                                                                                                                                                                                                                                                               |
-| 有効ガス価格         | ストリング | 送り主から差し引かれるガス1本あたりの実際の価値。 マグマのハードフォーク以前は、この値は取引のガス価格に等しかった。 Magmaのハードフォーク後は、ブロックヘッダの`baseFee`の値と等しくなる。                                                                                                                                                                                                                                                                                                                  |
-| 料金支払者          | ストリング | (任意）料金支払者の住所。                                                                                                                                                                                                                                                                                                                                                                                        |
-| 料金支払者の署名       | 配列    | (オプション) 料金支払人の署名オブジェクトの配列。 署名オブジェクトは3つのフィールド（V、R、S）を含む。 VはECDSAリカバリIDを含む。 RはECDSA署名rを含み、SはECDSA署名sを含む。                                                                                                                                                                                                                                                                                               |
-| 手数料率           | ストリング | (任意）料金支払者の料金比率。 30であれば、料金の30％を支払う。 70％は送り主が負担する。                                                                                                                                                                                                                                                                                                                                                     |
-| より             | ストリング | 差出人の住所                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ガス             | ストリング | 送り手が提供するガス。                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ガス価格           | ストリング | ガス料金は送り手からpebで提供される。                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ガス使用済み         | ストリング | この特定の取引だけで使用されたガスの量。                                                                                                                                                                                                                                                                                                                                                                                                    |
-| 人間可読           | ブーリアン | (オプション) 人間が読めるアドレスなら `true`、読めないアドレスなら `false` 。                                                                                                                                                                                                                                                                                                                                                     |
-| キー             | ストリング | (オプション) kaiaアカウントのAccountKeyを更新するために使用されるRLPエンコードされたAccountKey。                                                                                                                                                                                                                                                                                                                                      |
-| 入力             | ストリング | (オプション) トランザクションとともに送信されるデータ。                                                                                                                                                                                                                                                                                                                                                                        |
-| 過去ログ           | 配列    | このトランザクションが生成したログオブジェクトの配列。                                                                                                                                                                                                                                                                                                                                                                                             |
-| ログブルーム         | ストリング | ライトクライアント用のブルームフィルタで、関連ログを素早く取得。                                                                                                                                                                                                                                                                                                                                                                                        |
-| ノンス            | ストリング | 送信者がこのトランザクション以前に行ったトランザクションの数。                                                                                                                                                                                                                                                                                                                                                                                         |
-| 送信者TxHash      | ストリング | (オプション) 送信者のみが署名するトランザクションのハッシュ。 SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) を参照のこと。 この値は常に、フィー非依存トランザクションの `transactionHash` と同じである。 |
-| 署名             | 配列    | 署名オブジェクトの配列。 署名オブジェクトは3つのフィールド（V、R、S）を含む。 VはECDSAリカバリIDを含む。 RはECDSA署名rを含み、SはECDSA署名sを含む。                                                                                                                                                                                                                                                                                                                                |
-| ステータス          | ストリング | トランザクションが成功した場合は `0x1`、カイア仮想マシンがトランザクションを戻した場合は `0x0` となる。                                                                                                                                                                                                                                                                                                                                                              |
-| txエラー          | ストリング | (オプション) `status` が `0x0` の場合の詳細なエラーコード。                                                                                                                                                                                                                                                                                                                                                              |
-| への             | ストリング | 受信者の住所。 契約作成トランザクションの場合は `null` となる。                                                                                                                                                                                                                                                                                                                                                                                    |
-| トランザクションハッシュ   | ストリング | トランザクションのハッシュ。                                                                                                                                                                                                                                                                                                                                                                                                          |
-| トランザクションインデックス | ストリング | ブロック内のトランザクションインデックス位置の整数。                                                                                                                                                                                                                                                                                                                                                                                              |
-| タイプ            | ストリング | トランザクションのタイプを表す文字列。                                                                                                                                                                                                                                                                                                                                                                                                     |
-| typeInt        | 番号    | トランザクションのタイプを表す整数。                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 価値             | ストリング | ペブで移転された価値。                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名称             | タイプ   | 説明                                                                                                                                                                                                       |
+| -------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ブロックハッシュ       | ストリング | このトランザクションが行われたブロックのハッシュ。                                                                                                                                                                                |
+| ブロック番号         | ストリング | この取引が行われたブロック番号。                                                                                                                                                                                         |
+| コードフォーマット      | ストリング | (オプション) スマートコントラクトのコードフォーマット。                                                                                                                                                         |
+| 契約住所           | ストリング | トランザクションがコントラクトの作成である場合、作成されたコントラクトのアドレス。                                                                                                                                                                |
+| 有効ガス価格         | ストリング | 送り主から差し引かれるガス1本あたりの実際の価値。 マグマのハードフォーク以前は、この値は取引のガス価格に等しかった。 Magmaのハードフォーク後は、ブロックヘッダの`baseFee`の値と等しくなる。                                                                                                   |
+| 料金支払者          | ストリング | (任意）料金支払者の住所。                                                                                                                                                                         |
+| 料金支払者の署名       | 配列    | (オプション) 料金支払人の署名オブジェクトの配列。 署名オブジェクトは3つのフィールド（V、R、S）を含む。 VはECDSAリカバリIDを含む。 RはECDSA署名rを含み、SはECDSA署名sを含む。                                                                                |
+| 手数料率           | ストリング | (任意）料金支払者の料金比率。 30であれば、料金の30％を支払う。 70％は送り主が負担する。                                                                                                                                      |
+| より             | ストリング | 差出人の住所                                                                                                                                                                                                   |
+| ガス             | ストリング | 送り手が提供するガス。                                                                                                                                                                                              |
+| ガス価格           | ストリング | ガス料金は送り手からpebで提供される。                                                                                                                                                                                     |
+| ガス使用済み         | ストリング | この特定の取引だけで使用されたガスの量。                                                                                                                                                                                     |
+| 人間可読           | ブーリアン | (オプション) 人間が読めるアドレスなら `true`、読めないアドレスなら `false` 。                                                                                                                                      |
+| キー             | ストリング | (オプション) kaiaアカウントのAccountKeyを更新するために使用されるRLPエンコードされたAccountKey。                                                                                                                       |
+| 入力             | ストリング | (オプション) トランザクションとともに送信されるデータ。                                                                                                                                                         |
+| 過去ログ           | 配列    | このトランザクションが生成したログオブジェクトの配列。                                                                                                                                                                              |
+| ログブルーム         | ストリング | ライトクライアント用のブルームフィルタで、関連ログを素早く取得。                                                                                                                                                                         |
+| ノンス            | ストリング | 送信者がこのトランザクション以前に行ったトランザクションの数。                                                                                                                                                                          |
+| 送信者TxHash      | ストリング | (オプション) 送信者のみが署名するトランザクションのハッシュ。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash). この値は常に、フィー非依存トランザクションの `transactionHash` と同じである。 |
+| 署名             | 配列    | 署名オブジェクトの配列。 署名オブジェクトは3つのフィールド（V、R、S）を含む。 VはECDSAリカバリIDを含む。 RはECDSA署名rを含み、SはECDSA署名sを含む。                                                                                                                 |
+| ステータス          | ストリング | トランザクションが成功した場合は `0x1`、カイア仮想マシンがトランザクションを戻した場合は `0x0` となる。                                                                                                                                               |
+| txエラー          | ストリング | (オプション) `status` が `0x0` の場合の詳細なエラーコード。                                                                                                                                               |
+| への             | ストリング | 受信者の住所。 契約作成トランザクションの場合は `null` となる。                                                                                                                                                                     |
+| トランザクションハッシュ   | ストリング | トランザクションのハッシュ。                                                                                                                                                                                           |
+| トランザクションインデックス | ストリング | ブロック内のトランザクションインデックス位置の整数。                                                                                                                                                                               |
+| タイプ            | ストリング | トランザクションのタイプを表す文字列。                                                                                                                                                                                      |
+| typeInt        | 番号    | トランザクションのタイプを表す整数。                                                                                                                                                                                       |
+| 価値             | ストリング | ペブで移転された価値。                                                                                                                                                                                              |
 
 **NOTE** `effectiveGasPrice` は caver-js [v1.9.0](https://www.npmjs.com/package/caver-js/v/1.9.0) からサポートされています。
 
@@ -1958,10 +1958,10 @@ caver.rpc.klay.getTransactionReceiptBySenderTxHash(senderTxHash [, callback])
 
 **パラメーター**
 
-| 名称        | タイプ   | 説明                                                                                                        |
-| --------- | ----- | --------------------------------------------------------------------------------------------------------- |
-| 送信者TxHash | ストリング | 送信者トランザクションハッシュ。 詳細は[SenderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash)を参照のこと。 |
-| コールバック    | 機能    | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                       |
+| 名称        | タイプ   | 説明                                                                                                                                   |
+| --------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 送信者TxHash | ストリング | 送信者トランザクションハッシュ。 See [SenderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) for more detail. |
+| コールバック    | 機能    | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。                                                  |
 
 **リターン・バリュー**
 
@@ -2069,7 +2069,7 @@ caver.rpc.klay.sendTransaction(transaction [, callback])
 
 各トランザクション・タイプの詳細については、[トランザクション](../caver-transaction/caver-transaction.md#class)を参照してください。
 
-**注**：このAPIは、kaiaノード内の[インポートされたアカウント](../../../../json-rpc/personal.md#personal_importrawkey)を使用してトランザクションに署名する機能を提供します。 取引に署名するためには、あなたのノードにインポートされたアカウントが[unlocked](../../../../json-rpc/personal.md#personal_unlockaccount)でなければなりません。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **パラメーター**
 
@@ -2139,7 +2139,7 @@ caver.rpc.klay.sendTransactionAsFeePayer(transaction [, callback])
 
 各トランザクション・タイプの詳細については、[トランザクション](../caver-transaction/caver-transaction.md#class)を参照してください。
 
-**注**：このAPIは、kaiaノード内の[インポートされたアカウント](../../../../json-rpc/personal.md#personal_importrawkey)を使用してトランザクションに署名する機能を提供します。 取引に署名するためには、あなたのノードにインポートされたアカウントが[unlocked](../../../../json-rpc/personal.md#personal_unlockaccount)でなければなりません。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **パラメーター**
 
@@ -2218,7 +2218,7 @@ caver.rpc.klay.signTransaction(transaction [, callback])
 
 各トランザクション・タイプの詳細については、[トランザクション](../caver-transaction/caver-transaction.md#class)を参照してください。
 
-**注**：このAPIは、kaiaノード内の[インポートされたアカウント](../../../../json-rpc/personal.md#personal_importrawkey)を使用してトランザクションに署名する機能を提供します。 取引に署名するためには、あなたのノードにインポートされたアカウントが[unlocked](../../../../json-rpc/personal.md#personal_unlockaccount)でなければなりません。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **パラメーター**
 
@@ -2274,7 +2274,7 @@ kaiaノードにある「インポートされたアカウントの秘密鍵」�
 
 各トランザクション・タイプの詳細については、[トランザクション](../caver-transaction/caver-transaction.md#class)を参照してください。
 
-**注**：このAPIは、kaiaノード内の[インポートされたアカウント](../../../../json-rpc/personal.md#personal_importrawkey)を使用してトランザクションに署名する機能を提供します。 取引に署名するためには、あなたのノードにインポートされたアカウントが[unlocked](../../../../json-rpc/personal.md#personal_unlockaccount)でなければなりません。
+**NOTE**: This API provides the function to sign a transaction using an [imported account](https://docs.kaia.io/references/json-rpc/personal/import-raw-key/) in your kaia node. The imported account in your node must be [unlocked](https://docs.kaia.io/references/json-rpc/personal/unlock-account/) to sign a transaction.
 
 **パラメーター**
 
@@ -2965,7 +2965,7 @@ caver.rpc.klay.newFilter(options [, callback])
 - 状態が変更されたかどうかを確認するには、[caver.rpc.klay.getFilterChanges](#caver-rpc-klay-getfilterchanges) を呼び出す。
 - `newFilter` によって作成されたフィルタにマッチするすべてのログを取得するには、[caver.rpc.klay.getFilterLogs](#caver-rpc-klay-getfilterlogs) を呼び出します。
 
-フィルターオブジェクトのトピックの詳細については、[Kaia Platform API - klay_newFilter](../../../../json-rpc/klay/filter.md#klay_newfilter) を参照してください。
+For detailed information about the topics in the filter object, please see [Kaia Platform API - klay_newFilter](https://docs.kaia.io/references/json-rpc/klay/new-filter/).
 
 **パラメーター**
 

@@ -4,7 +4,7 @@
 
 ## SolidityとKaia <a id="solidity-and-kaia"></a>
 
-[Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Solidityはもともとイーサリアム用に設計されたものだが、スマートコントラクトを記述するのに十分な汎用性があるため、Kaiaなど他のブロックチェーンプラットフォームにも使用できる。
+[Solidity](https://github.com/ethereum/solidity) は、イーサリアムプラットフォーム上でスマートコントラクトを実装するための、高レベルの静的型付けされたコントラクト指向言語です。 Solidityはもともとイーサリアム用に設計されたものだが、スマートコントラクトを記述するのに十分な汎用性があるため、Kaiaなど他のブロックチェーンプラットフォームにも使用できる。 Solidityはもともとイーサリアム用に設計されたものだが、スマートコントラクトを記述するのに十分な汎用性があるため、Kaiaなど他のブロックチェーンプラットフォームにも使用できる。
 
 Kaiaは、**ロンドン**のEthereum Virtual Machine (EVM) バージョンと正式に互換性があります。 カイアの他のEVMバージョンとの後方互換性は保証されません。 したがって、Istanbul ターゲットオプションを使用して Solidity コードをコンパイルすることを強く推奨します。 [solcのEVMバージョンの設定方法](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)をご参照ください。
 
@@ -15,8 +15,10 @@ It has been enabled from block number `#75,373,312` in case of Baobab network an
 
 v1.7.3プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
 It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
+It has been enabled from block number `#80,295,291` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 v1.8.0プロトコルアップグレード - **ロンドン**ハードフォークからのベースフィーを含む互換性のない変更。
+It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 It has been enabled from block number `#86,513,895` in case of Baobab network and `#86,816,005` for the Cypress network.
 
 :::
@@ -66,7 +68,7 @@ L19:    }
 L20: }
 ```
 
-したがって、他のプログラミング言語に慣れている人は、このセクションの以下の説明を読み飛ばして、次のセクションに飛んでも構わない。 しかし、コードが何をするのか明確に理解できない人や、Solidityが初めてのプログラミング言語である人のために、以下にソースコードの簡単な説明を記載します：
+したがって、他のプログラミング言語に慣れている人は、このセクションの以下の説明を読み飛ばして、次のセクションに飛んでも構わない。 しかし、コードが何をするのか明確に理解できない人や、Solidityが初めてのプログラミング言語である人のために、以下にソースコードの簡単な説明を記載します： この章では、Solidity で記述された高レベルの概念、開発プロセス、例のみを説明します。 言語の仕様や実装については、以下の[参考文献](#references)をご参照ください。 本章の内容は、[参考文献](#references)に掲載されている様々なウェブサイトに基づいている。
 
 - The portions of the code starting with a double forward slash (`//`) are comments rather than code; they are used to annotate and explain the code.  コンパイラーはコメントを無視する。
 - `L01`の`pragma`文は、コンパイラの最小バージョンを示す。
@@ -80,7 +82,7 @@ Solidity 言語の構文とセマンティクスの詳細については、[Soli
 
 ## コンパイル、デプロイ、実行の方法<a id="how-to-compile-deploy-and-execute"></a>
 
-Solidityコードをコンパイルする一つの方法は、コマンドラインコンパイラ_solc_を使用することです。 This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). 上記のコードを`UserStorage.sol`に保存すると仮定した場合（上記のソースファイルでは `L03` は除外されている）、`UserStorage.sol`をコンパイルする例を以下に示す。
+このセクションでは、スマートコントラクトがどのように見え、どのようにコントラクトを書くかを読者に提供するために、Solidityソースコードの例を示します。 ここに含まれるコードは、説明のためだけに提供されるものであり、本番用ではないことに注意されたい。 コード中の(require)`は、その行がSolidityソースファイルに必要であることを意味し、(optional)`は、その行が必ずしも必要でないことを意味します。 記号 `Ln:` は Solidity のコードの一部ではないので、ここでは行番号を表示するためだけに含まれています。 これらの記号は、実際の使用を目的としたソースコードには含めないでください。 This compiler can produce various outputs, ranging from simple binaries and assembly to an abstract syntax tree (parse tree). 上記のコードを`UserStorage.sol`に保存すると仮定した場合（上記のソースファイルでは `L03` は除外されている）、`UserStorage.sol`をコンパイルする例を以下に示す。
 
 ```bash
 $ solc --bin UserStorage.sol
@@ -113,7 +115,7 @@ solc --optimize --bin UserStorage.sol
 
 ## スマートコントラクトのデバッグ<a id="debugging-smart-contracts"></a>
 
-Solidity のコードをデバッグするのは、他のプログラミング言語で書かれたコードをデバッグするよりも難しい。 以下に、Solidity のデバッグに関するリソースをいくつか示します。
+Solidity のコードをデバッグするのは、他のプログラミング言語で書かれたコードをデバッグするよりも難しい。 以下に、Solidity のデバッグに関するリソースをいくつか示します。 以下に、Solidity のデバッグに関するリソースをいくつか示します。
 
 - [Remixによるトランザクションのデバッグ](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 - [Remixによるトランザクションのデバッグに関するチュートリアル](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
@@ -123,7 +125,7 @@ Solidity のコードをデバッグするのは、他のプログラミング�
 
 ## スマート・コントラクトのベスト・プラクティス<a id="smart-contract-best-practices"></a>
 
-スマートコントラクトからセキュリティの懸念とコード品質の問題を取り除くには、Solidityプログラミングのベストプラクティスを学び、それに従うことが重要です。 ここでは、Solidityのベストプラクティスのリファレンスを示します。
+スマートコントラクトからセキュリティの懸念とコード品質の問題を取り除くには、Solidityプログラミングのベストプラクティスを学び、それに従うことが重要です。 ここでは、Solidityのベストプラクティスのリファレンスを示します。 ここでは、Solidityのベストプラクティスのリファレンスを示します。
 
 - [スマート・コントラクト・セキュリティのベスト・プラクティス](https://github.com/ConsenSys/smart-contract-best-practices)
 

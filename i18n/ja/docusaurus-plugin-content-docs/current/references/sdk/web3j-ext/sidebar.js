@@ -2,12 +2,12 @@ export const sidebar = {
     type: 'カテゴリー',
     label: 'web3j-ext',
     link: {
-        type: 'ドク',
+        type: 'doc',
         id: 'リファレンス/sdk/web3j-ext/getting-started'
     },
     items: [
         {
-            type: 'ドク',
+            type: 'doc',
             label: 'はじめに',
             id: 'リファレンス/sdk/web3j-ext/getting-started'
         },

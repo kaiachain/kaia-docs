@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 返回 RLP 编码的事务字符串。
 
-有关如何为每种事务类型创建 RLP 编码字符串的信息，请参阅 [Kaia Design - Transactions]（.../../../../.../learn/transactions/transactions.md）。
+有关如何为每种事务类型制作 RLP 编码字符串的信息，请参阅 [Kaia Design - Transactions](../../../../../build/transactions/transactions.md)。
 
 **返回价值**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 返回一个 `transactionHash`.
 
-有关如何为每种事务类型创建事务哈希值的信息，请参阅 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
+有关如何为每种事务类型创建事务哈希值的信息，请参阅 [Kaia Design - Transactions](../../../../../build/transactions/transactions.md)。
 
 **返回价值**
 
@@ -536,11 +536,11 @@ transaction.getTransactionHash()
 transaction.getSenderTxHash()
 ```
 
-返回事务的 [senderTxHash]（.../.../.../.../.../learn/transactions/transactions.md#sendertxhash）。
+返回事务的 [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash)。
 
-[senderTxHash](.../.../.../.../.../learn/transactions/transactions.md#sendertxhash)是除缴费人地址和签名外的交易哈希值，因此[transactionHash](#transaction-gettransactionhash)和[senderTxHash](.../.../.../.../learn/transactions/transactions.md#sendertxhash)对于基本交易是相同的。
+发件人交易哈希值](../../../../../build/transactions/transactions.md#sendertxhash) 是除缴费人地址和签名外的交易哈希值，因此[transactionHash](#transaction-gettransactionhash) 和[senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) 在基本交易中是相同的。
 
-有关如何为每种事务类型创建 [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) 的信息，请参阅 [Kaia Design - Transactions](.../../../.../.../learn/transactions/transactions.md)。
+有关如何为每种交易类型创建 [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash) 的信息，请参阅 [Kaia Design - Transactions](../../../../../build/transactions/transactions.md) 。
 
 **返回价值**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 返回 RLP 编码的事务字符串，用于制作事务发送方的签名。 请注意，返回的 RLP 编码事务字符串不会与签名一起添加，而是用于生成此签名。
 
-关于如何制作 RLP 编码的事务字符串，以便为每种事务类型生成事务发送者签名，请参阅 [Kaia Design - Transactions]（.../.../.../.../.../learn/transactions/transactions.md）。
+关于如何制作 RLP 编码的交易字符串，以生成每种交易类型的交易发送人签名，请参阅 [Kaia Design - Transactions](../../../../../build/transactions/transactions.md)。
 
 **返回价值**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 返回 RLP 编码的交易字符串，用于缴费人签名。 请注意，返回的 RLP 编码事务字符串不会与签名一起添加，而是用于生成此签名。
 
-关于如何制作 RLP 编码的交易字符串以生成每种交易类型的缴费人签名，请参阅 [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+关于如何制作 RLP 编码的交易字符串，以便为每种交易类型生成缴费人签名，请参阅 [Kaia Design - Transactions](../../../../../build/transactions/transactions.md)。
 
 **注意**\* 该功能仅适用于 "收费委托 "交易或 "按比例收费委托 "交易。
 

@@ -2,11 +2,11 @@
 
 ## 概要<a id="overview"></a>
 
-カイアのトークンエコノミーは、エコシステムの強化、成長イニシアティブ、戦略的投資のための持続可能な資金調達構造を構築するために設計されています。 Many public blockchain projects have monetary systems that solely incentivize their node operators (miners or block producers), focusing only on the technical aspect of network maintenance. しかし、このような設計では、ネットワークのトークンエコノミーの成長に貢献したり、長期的な成長の見通しに投資したりする他のタイプの参加者にインセンティブを与えることの重要性を見逃してしまう。 対照的に、カイアのトークンエコノミーは、より幅広い参加者からの多様な形の貢献を補償するように設計されており、ブロックチェーンノードの維持に加えて、将来の成長イニシアティブや戦略的に調達された投資プロジェクトに燃料を供給するための持続的なリソースを調達するための資金調達構造が組み込まれている。
+カイアのトークンエコノミーは、エコシステムの強化、成長イニシアティブ、戦略的投資のための持続可能な資金調達構造を構築するために設計されています。 多くのパブリック・ブロックチェーン・プロジェクトは、ネットワーク保守の技術的側面だけに焦点を当て、ノード運用者（採掘者またはブロック生産者）にのみインセンティブを与える金銭システムを有している。 しかし、このような設計では、ネットワークのトークンエコノミーの成長に貢献したり、長期的な成長の見通しに投資したりする他のタイプの参加者にインセンティブを与えることの重要性を見逃してしまう。 対照的に、カイアのトークンエコノミーは、より幅広い参加者からの多様な形の貢献を補償するように設計されており、ブロックチェーンノードの維持に加えて、将来の成長イニシアティブや戦略的に調達された投資プロジェクトに燃料を供給するための持続的なリソースを調達するための資金調達構造が組み込まれている。
 
 ## 資金調達の仕組み<a id="funding-structure"></a>
 
-カイアの資金調達構造は、カイアネットワークのブロック生成と連動している。 With every new block, newly issued KLAY and the sum of transaction fees used in the block (collectively called “block reward”) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
+カイアの資金調達構造は、カイアネットワークのブロック生成と連動している。 新規ブロックごとに、新規に発行されたKAIAと、そのブロックに使用された取引手数料の合計（まとめて「ブロック報酬」と呼ぶ）を集計し、所定の比率に従って、以下の3つの宛先口座に分配する：
 
 - 検証者とコミュニティ：50
   - ブロック提案者報酬：50％の20％（全体の10）
@@ -14,7 +14,7 @@
 - カイア・エコシステム・ファンド（KEF）：25
 - カイア・インフラストラクチャー・ファンド（KIF）：25
 
-9.6 KAIAは新しいブロックごとに鋳造される。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、[「取引手数料」](../transaction-fees/transaction-fees.md)をご参照ください。
+9.6 KAIAは新しいブロックごとにミントされる。 これは、年間約3億KAIAが鋳造されることを意味し、市場におけるKAIAトークン総量に対して年間5.2％のインフレ率に相当します（年間インフレ率は、カイア・ガバナンス・プロセスを通じて変更される可能性があります）。 取引手数料は、あらかじめ決められた手数料テーブルに従って請求され、計量される。 取引手数料の詳細については、[「取引手数料」](../transaction-fees/transaction-fees.md)をご参照ください。
 
 ## カイア統治評議会の報酬<a id="kaia-governance-council-reward"></a>
 
@@ -24,13 +24,13 @@
 
 Kaiaブロックチェーンの各ブロックについて、委員会はKaiaガバナンス評議会(GC)からランダムにメンバーを選ぶことで形成される。 この委員会は、プロポーザーの役割を割り当てられた1名の委員で構成され、残りの委員はバリデーターの役割を担う。 ブロックが正常に作成され、カイアブロックチェーンに追加されると、ブロック報酬は前述の比率に従ってカウンシルメンバーと様々なファンドに分配されます。
 
-すべての評議会メンバーは、あるブロックの提案者に選ばれる確率が等しく、ブロック提案者報酬は評議会メンバー間で均等に分配される。 However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. This means that Council members who stake a larger amount of KLAY beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KLAY to maximize their potential rewards from the GC staking award portion of the block reward distribution.
+すべての評議会メンバーは、あるブロックの提案者に選ばれる確率が等しく、ブロック提案者報酬は評議会メンバー間で均等に分配される。 However, the GC staking reward is allocated proportionally based on the amount of KLAY staked by each member, minus the minimum requirement of 5 million KLAY. これは、最低閾値を超えてより多くのKAIAをステークするカウンシルメンバーは、より少ないステークに比べ、より多くのステーク報酬を受け取ることを意味します。 その結果、カウンシルメンバーは、ブロック報酬分配のGCステーク賞部分からの潜在的な報酬を最大化するために、より多くのKAIAをステークする動機付けを受けます。
 
-最低500万KAIAのステーキング要件が満たされている限り、カイア統治評議会のメンバーは自分のKAIAを自由にステーキングまたはアンステーキングすることができます。 Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. Withdrawing staked KLAY requires one week of delay to prevent malicious members from immediately exiting.
+最低500万KAIAのステーキング要件が満たされている限り、カイア統治評議会のメンバーは自分のKAIAを自由にステーキングまたはアンステーキングすることができます。 Staking information is updated every 86,400 blocks, and newly staked KLAY comes info effect two update cycles later from when the staking is completed. ステークされたKAIAの退会には、悪意のあるメンバーがすぐに退会するのを防ぐため、1週間の遅延が必要です。
 
 ### 不品行な議員に対する罰則<a id="penalty-for-misbehaving-council-members"></a>
 
-審議会議員は、以下に定義される不正行為を行った場合、罰則の対象となることがある。 将来的には、カイア・ガバナンス・プロセスを通じて、より多くの罰則規定を設け、洗練させることができる。
+カウンシルメンバーは、以下に定義される不正行為を行った場合、罰則の対象となることがある。 将来的には、カイア・ガバナンス・プロセスを通じて、より多くの罰則規定を設け、洗練させることができる。
 
 安全性の失敗の原因：
 
@@ -40,7 +40,7 @@ Kaiaブロックチェーンの各ブロックについて、委員会はKaiaガ
 ライブネス失敗の原因：
 
 - 提案者として選出された議員は、有効なブロックを作成しなければならない。
-- バリデーターに選ばれた審議会委員は、提案者が提案したブロックを検証しなければならない。
+- バリデーターに選ばれたカウンシルメンバーは、提案者が提案したブロックを検証しなければならない。
 
 ## カイア・エコシステム・ファンド<a id="kaia-ecosystem-fund"></a>
 
@@ -73,11 +73,11 @@ KIFは、ブロック創設時に発行されたKAIA総額の25％を資金源�
 
 ## 財務省のリバランス
 
-カイアのトークンエコノミーの柔軟性と適応性を確保するため、財務省のリバランスメカニズムが導入されている。 このプロセスは、生態系のニーズや市場環境の変化に応じて、自己資金を調整することを可能にする。
+カイアのトークンエコノミーの柔軟性と適応性を確保するため、財務省のリバランスメカニズムが導入されている。 このプロセスは、エコシステムのニーズや市場環境の変化に応じて、自己資金を調整することを可能にする。
 
 ### 財務省のリバランス契約
 
-トレジャリー・リバランス・コントラクトは、透明かつ安全な方法でリバランス・プロセスを管理するために設計されたスマート・コントラクトである。 契約は、初期化、登録、承認、確定といった段階を経て、有限状態マシンとして動作する。 この構造化されたアプローチにより、すべての利害関係者が変更を実施する前にレビューし、承認する機会が確保される。
+トレジャリー・リバランス・コントラクトは、透明かつ安全な方法でリバランス・プロセスを管理するために設計されたスマート・コントラクトである。 コントラクトは、初期化、登録、承認、確定といった段階を経て、有限状態マシンとして動作する。 この構造化されたアプローチにより、すべての利害関係者が変更を実施する前にレビューし、承認する機会が確保される。
 
 この契約の主な特徴は以下の通り：
 

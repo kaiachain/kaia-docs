@@ -28,6 +28,6 @@ Kaia Wallet supports Kaia's Kairos testnet as well as the Mainnet. Moreover, Kai
 ## Signing web-based dApp transactions
 
 Kaia Wallet simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaia Wallet account.
-Kaia Wallet is also an aidful utility for developers to handle [fee-delegated transactions](../../../learn/transactions/transactions.md#fee-delegation). Using Kaia Wallet, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
+카이아 지갑은 개발자가 [수수료 위임 거래]를 처리하는 데 유용한 유틸리티이기도 합니다(../../transactions/transactions.md#fee-delegation). Using Kaia Wallet, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
 
 [Kaiascope]: ../block-explorers/kaiascope.md

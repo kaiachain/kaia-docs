@@ -78,7 +78,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 ---
 
 ```zsh output
-java SignMsgWithMultiSigExample.java
+❯ java SignMsgWithMultiSigExample.java
 オリジナルアドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 キー1の結果アドレス : 0x82c6a8d94993d49cfd0c1d30f0f8caa65782cc7e
 キー2の結果アドレス ：0xa2a8854b1802d8cd5de631e690817c253d6a9153
@@ -175,7 +175,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 
 ---
 
-秘密鍵から**マルチシグ認証情報**を3つロードする。
+3つのmulti-sig credentialsを秘密鍵からロードします。
 
 ```java SignMsgWithMultiSigExample.java focus=24:29
 
@@ -207,7 +207,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 
 ---
 
-3つのマルチシグ認証情報を順番に使って**メッセージ**に署名し、署名出力を文字列として取得する。
+すべての3つのmulti-sig credentialsを順番に使ってメッセージに署名し、署名の出力を文字列として取得します。
 
 ```java SignMsgWithMultiSigExample.java focus=34:41
 

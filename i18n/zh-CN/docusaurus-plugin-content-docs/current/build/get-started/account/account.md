@@ -60,7 +60,7 @@ $ ken account new --datadir "~/kend_home"
 
 ## JavaScript 控制台<a id="javascript-console"></a>
 
-要连接 JavaScript 控制台，EN 必须处于运行状态。 更多信息，请参阅 [启动 EN](./../smart-contracts/deploy/ken.md)。 启动 EN 并连接到控制台，如下所示。
+要连接 JavaScript 控制台，EN 必须处于运行状态。 更多信息，请参阅 [启动 EN](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en)。 启动 EN 并连接到控制台，如下所示。
 
 ### 使用方法<a id="usage"></a>
 

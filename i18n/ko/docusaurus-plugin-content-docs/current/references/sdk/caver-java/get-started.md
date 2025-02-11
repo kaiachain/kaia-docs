@@ -23,7 +23,7 @@ caver.wallet is a package that manages Keyring instances in in-memory wallet. A 
 
 ### caver.transaction
 
-caver.transaction is a package that provides functionality related to [Transaction](../../../learn/transactions/transactions.md#transactions-overview).
+caver.transaction은 [트랜잭션](../../../build/transactions/transactions.md#transactions-overview)과 관련된 기능을 제공하는 패키지입니다.
 
 - `caver.transaction` replaces `caver.tx` in caver-java 1.4.0
 
@@ -394,7 +394,7 @@ This section will show you how to send KAIA using caver-java on Kairos Testnet.
 
 ### Getting KAIA via Kairos Faucet <a id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+테스트를 위해 KAIA가 필요한 경우, [카이아 수도꼭지](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet)에서 카이로스 테스트넷 KAIA를 받을 수 있습니다.
 
 ### Sending a Value Transfer Transaction <a id="sending-a-value-transfer-transaction"></a>
 
@@ -556,11 +556,11 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. txError\`에 대한 자세한 내용은 [txError: 트랜잭션 실패 상세 정보](../../transaction-error-codes.md)를 참조하세요.
 
 ## Executing Other Transaction Types <a id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/transactions.md). This section describes some examples that can be used with caver-java.
+Kaia provides various transaction types for extensibility and performance. 자세한 내용은 [거래](../../../build/transactions/transactions.md)를 참조하세요. This section describes some examples that can be used with caver-java.
 
 ### Fee Delegation <a id="fee-delegation"></a>
 
@@ -637,7 +637,7 @@ try {
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see `caver.rpc.klay.getTransactionReceipt`. If a transaction is failed, you can check more about the error in `txError` of the receipt. txError\`에 대한 자세한 내용은 [txError: 트랜잭션 실패 상세 정보](../../transaction-error-codes.md)를 참조하세요.
 
 ### Account Update <a id="account-update"></a>
 

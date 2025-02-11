@@ -549,11 +549,11 @@
   },
   "homepage.favorites.rpc.title": {
     "message": "公共 JSON RPC 端點",
-    "description": "Title for Public JSON RPC Endpoints"
+    "description": "Title for RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
     "message": "無需運行自己的節點，即可構建和測試您的產品。",
-    "description": "Description for Public JSON RPC Endpoints"
+    "description": "Description for RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
     "message": "錢包",

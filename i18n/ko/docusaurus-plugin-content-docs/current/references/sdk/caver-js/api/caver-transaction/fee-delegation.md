@@ -10,7 +10,7 @@ sidebar_label: Fee Delegation
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransfer` represents a [fee delegated value transfer transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransfer` transaction.
+'수수료 위임 가치 전송'은 [수수료 위임 가치 전송 트랜잭션](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer)을 나타냅니다. The `transactionObject` can have properties below to create a `FeeDelegatedValueTransfer` transaction.
 
 `FeeDelegatedValueTransfer` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransfer` transaction.
 
@@ -71,7 +71,7 @@ FeeDelegatedValueTransfer {
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemo` represents a [fee delegated value transfer memo transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemo` transaction.
+'수수료 위임 가치 전송 메모'는 [수수료 위임 가치 전송 메모 거래]를 나타냅니다(../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). The `transactionObject` can have properties below to create a `FeeDelegatedValueTransferMemo` transaction.
 
 `FeeDelegatedValueTransferMemo` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedValueTransferMemo` transaction.
 
@@ -135,7 +135,7 @@ FeeDelegatedValueTransferMemo {
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdate` represents a [fee delegated account update transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate). The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdate` transaction.
+'수수료 위임 계정 업데이트'는 [수수료 위임 계정 업데이트 트랜잭션](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate)을 나타냅니다. The `transactionObject` can have properties below to create a `FeeDelegatedAccountUpdate` transaction.
 
 `FeeDelegatedAccountUpdate` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedAccountUpdate` transaction.
 
@@ -198,7 +198,7 @@ FeeDelegatedAccountUpdate {
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeploy` represents a [fee delegated smart contract deploy transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractDeploy` transaction.
+수수료 위임 스마트 컨트랙트 배포 트랜잭션`(../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy)은 `수수료 위임 스마트 컨트랙트 배포`를 나타냅니다. The `transactionObject`can have properties below to create a`FeeDelegatedSmartContractDeploy\` transaction.
 
 `FeeDelegatedSmartContractDeploy` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractDeploy` transaction.
 
@@ -264,7 +264,7 @@ FeeDelegatedSmartContractDeploy {
 caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecution` transaction.
+'수수료 위임 스마트 컨트랙트 실행'은 [수수료 위임 스마트 컨트랙트 실행 트랜잭션]을 나타냅니다(../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). The `transactionObject` can have properties below to create a `FeeDelegatedSmartContractExecution` transaction.
 
 `FeeDelegatedSmartContractExecution` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedSmartContractExecution` transaction.
 
@@ -327,7 +327,7 @@ FeeDelegatedSmartContractExecution {
 caver.transaction.feeDelegatedCancel.create(transactionObject)
 ```
 
-`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel). The `transactionObject` can have properties below to create a `FeeDelegatedCancel` transaction.
+'수수료 위임 취소'는 [수수료 위임 취소 거래]를 나타냅니다(../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedcancel). The `transactionObject` can have properties below to create a `FeeDelegatedCancel` transaction.
 
 `FeeDelegatedCancel` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedCancel` transaction.
 
@@ -383,7 +383,7 @@ FeeDelegatedCancel {
 caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoring` transaction.
+'수수료 위임 체인 데이터 앵커링'은 [수수료 위임 체인 데이터 앵커링 트랜잭션]을 나타냅니다(../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). The `transactionObject` can have properties below to create a `FeeDelegatedChainDataAnchoring` transaction.
 
 `FeeDelegatedChainDataAnchoring` has the properties below as its member variables. Properties marked as `optional` refer to properties that can be optionally defined in `transactionObject` when the user creates `FeeDelegatedChainDataAnchoring` transaction.
 

@@ -1,6 +1,6 @@
 # Getting Started
 
-This documentation is for developers using caver-js v1.5.0 or higher. If you are using an older version, see [Getting Started (\~v1.4.1)](../caver-js-1.4.1/get-started-1.4.1.md).
+This documentation is for developers using caver-js v1.5.0 or higher.
 
 ## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
@@ -416,7 +416,7 @@ This section will show you how to send KAIA using caver-js on  Kairos Testnet.
 
 ### Getting KAIA via Kairos Faucet <a href="#getting-klay-via-kairos-faucet" id="getting-klay-via-kairos-faucet"></a>
 
-If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Wallet](../../../build/tools/wallets/klaytn-wallet.md#how-to-receive-baobab-testnet-klay). Log in to the kaia Wallet using the private key or the keystore file and receive Kairos testnet KAIA via the faucet for testing.
+If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Faucet](../../../build/get-started/getting-kaia.md#kairos-testnet-and-faucet).
 
 ### Sending a Value Transfer Transaction <a href="#sending-a-value-transfer-transaction" id="sending-a-value-transfer-transaction"></a>
 
@@ -610,15 +610,15 @@ $ node ./test.js
 }
 ```
 
-The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../transaction-error-codes.md).
+The result of the transaction can be found through the `status` of the receipt. For the details of the return values, see [caver.rpc.klay.getTransactionReceipt](api/caver-rpc/klay.md#caver-rpc-klay-gettransactionreceipt). If a transaction is failed, you can check more about the error in `txError` of the receipt. For more information about `txError`, see [txError: Detailed Information of Transaction Failures](../../transaction-error-codes.md).
 
 ## Executing Other Transaction Types <a href="#executing-other-transaction-types" id="executing-other-transaction-types"></a>
 
-Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../learn/transactions/). This section describes some examples that can be used with caver-js.
+Kaia provides various transaction types for extensibility and performance. For more information, see [Transactions](../../../build/transactions/). This section describes some examples that can be used with caver-js.
 
 ### Fee Delegation <a href="#fee-delegation" id="fee-delegation"></a>
 
-Kaia provides [Fee Delegation](../../../learn/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
+Kaia provides [Fee Delegation](../../../build/transactions/transactions.md#fee-delegation) feature. Here's an example of making a RLP-encoded transaction when you are a sender of this kind of transaction:
 
 ```javascript
 // test.js
@@ -1769,8 +1769,8 @@ $ node ./test.js
 
 The DApp (Blockchain Application) Development sample projects using caver-js are the following:
 
-- [Count DApp](../../../build/tutorials/count-dapp/count-dapp.md)
-- [Klaystagram](../../../build/tutorials/klaystagram/klaystagram.md)
+- [Count DApp](https://docs.klaytn.foundation/docs/build/tutorials/count-dapp/)
+- [Klaystagram](https://docs.klaytn.foundation/docs/build/tutorials/klaystagram/)
 
 ## Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
 

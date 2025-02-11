@@ -10,7 +10,7 @@ sidebar_label: ベーシック
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction`は[レガシートランザクション](../../../../../learn/transactions/basic.md#txtypelegacytransaction)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `LegacyTransaction` を実行できるのは、[AccountKeyLegacy] を持つ場合のみです。 `transactionObject` には、`LegacyTransaction` を作成するための以下のプロパティを指定することができる。
+`LegacyTransaction` represents a [legacy transaction](../../../../../build/transactions/basic.md#txtypelegacytransaction). [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `LegacyTransaction` を実行できるのは、[AccountKeyLegacy] を持つ場合のみです。 `transactionObject` には、`LegacyTransaction` を作成するための以下のプロパティを指定することができる。
 
 `LegacyTransaction`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `LegacyTransaction` を作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
 
@@ -25,17 +25,17 @@ caver.transaction.legacyTransaction.create(transactionObject)
 
 **プロパティ**
 
-| 名称     | タイプ   | 説明                                                                                                                                                                     |
-| ------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ガス     | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                               |
-| 価値     | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                           |
-| より     | ストリング | (オプション) 送信者のアドレス。 省略した場合は、署名に使用するキーリング・アドレスが設定される。                                                                                                  |
-| への     | ストリング | (オプション、デフォルト: `'0x'`) 送金された値を受け取る口座アドレス、またはレガシー取引でスマートコントラクトを実行する場合はスマートコンタクトアドレス。 レガシートランザクションがスマートコントラクトをデプロイする場合、`to`を定義する必要はない。 |
-| 入力     | ストリング | (オプション）スマートコントラクトの展開/実行に使用される、トランザクションに添付されたデータ。                                                                                                    |
-| 署名     | 配列    | (オプション) シグネチャの配列。 レガシートランザクションは1つの署名しか持つことができない。                                                                                                    |
-| ノンス    | ストリング | (オプション) 送信者のトランザクションを一意に識別するための値。 省略された場合、`caver.rpc.klay.getTransactionCount(address, 'pending')` が nonce の設定に使用される。                               |
-| ガス価格   | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                                                            |
-| チェーンID | ストリング | (オプション) kaiaネットワークのチェーンID。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。                                                                 |
+| 名称       | タイプ   | 説明                                                                                                                                                                     |
+| -------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| gas      | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                                               |
+| 価値       | ストリング | (オプション、デフォルト: `'0x0'`) 転送するKAIAの量をpebで指定する。 `caver.utils.toPeb`を使うことができる。                                                           |
+| より       | ストリング | (オプション) 送信者のアドレス。 省略した場合は、署名に使用するキーリング・アドレスが設定される。                                                                                                  |
+| への       | ストリング | (オプション、デフォルト: `'0x'`) 送金された値を受け取る口座アドレス、またはレガシー取引でスマートコントラクトを実行する場合はスマートコンタクトアドレス。 レガシートランザクションがスマートコントラクトをデプロイする場合、`to`を定義する必要はない。 |
+| 入力       | ストリング | (オプション）スマートコントラクトの展開/実行に使用される、トランザクションに添付されたデータ。                                                                                                    |
+| 署名       | 配列    | (オプション) シグネチャの配列。 レガシートランザクションは1つの署名しか持つことができない。                                                                                                    |
+| ノンス      | ストリング | (オプション) 送信者のトランザクションを一意に識別するための値。 省略された場合、`caver.rpc.klay.getTransactionCount(address, 'pending')` が nonce の設定に使用される。                               |
+| gasPrice | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                                                            |
+| チェーンID   | ストリング | (オプション) kaiaネットワークのチェーンID。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。                                                                 |
 
 **例**
 
@@ -81,7 +81,7 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer`は[価値移転トランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfer)を表す。 トランザクションオブジェクト `transactionObject` は `ValueTransfer` トランザクションを作成するために以下のプロパティを持つことができる。
+`ValueTransfer` represents a [value transfer transaction](../../../../../build/transactions/basic.md#txtypevaluetransfer). トランザクションオブジェクト `transactionObject` は `ValueTransfer` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `ValueTransfer`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティを指す。
 
@@ -138,7 +138,7 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-`ValueTransferMemo`は[値移転メモトランザクション](../../../../../learn/transactions/basic.md#txtypevaluetransfermemo)を表す。 トランザクションオブジェクト `transactionObject` は `ValueTransferMemo` トランザクションを作成するために以下のプロパティを持つことができる。
+`ValueTransferMemo` represents a [value transfer memo transaction](../../../../../build/transactions/basic.md#txtypevaluetransfermemo). トランザクションオブジェクト `transactionObject` は `ValueTransferMemo` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `ValueTransferMemo`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ValueTransferMemo` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
@@ -198,7 +198,7 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate`は[アカウント更新トランザクション](../../../../../learn/transactions/basic.md#txtypeaccountupdate)を表す。 トランザクションオブジェクト `transactionObject` は、`AccountUpdate` トランザクションを作成するために以下のプロパティを持つことができる。
+`AccountUpdate` represents a [account update transaction](../../../../../build/transactions/basic.md#txtypeaccountupdate). トランザクションオブジェクト `transactionObject` は、`AccountUpdate` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `AccountUpdate`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `AccountUpdate` トランザクションを作成するときに `transactionObject` にオプションで与えることができるプロパティである。
 
@@ -257,7 +257,7 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-`SmartContractDeploy` は[スマートコントラクトのデプロイトランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractdeploy)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractDeploy` トランザクションを作成することができる。
+`SmartContractDeploy` represents a [smart contract deploy transaction](../../../../../build/transactions/basic.md#txtypesmartcontractdeploy). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractDeploy` トランザクションを作成することができる。
 
 `SmartContractDeploy` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `SmartContractDeploy` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
@@ -319,7 +319,7 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-`SmartContractExecution` は[スマートコントラクトの実行トランザクション](../../../../../learn/transactions/basic.md#txtypesmartcontractexecution)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractExecution` トランザクションを作成することができる。
+`SmartContractExecution` represents a [smart contract execution transaction](../../../../../build/transactions/basic.md#txtypesmartcontractexecution). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`SmartContractExecution` トランザクションを作成することができる。
 
 `SmartContractExecution` は、以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `SmartContractExecution` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティである。
 
@@ -378,7 +378,7 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel`は[トランザクションのキャンセル](../../../../../learn/transactions/basic.md#txtypecancel)を表す。 トランザクションオブジェクト `transactionObject` は `Cancel` トランザクションを作成するために以下のプロパティを持つことができる。
+`Cancel` represents a [cancel transaction](../../../../../build/transactions/basic.md#txtypecancel). トランザクションオブジェクト `transactionObject` は `Cancel` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `Cancel`トランザクションはトランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。
 
@@ -432,7 +432,7 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring`は[チェーンデータアンカリングトランザクション](../../../../../learn/transactions/basic.md#txtypechaindataanchoring)を表す。 トランザクションオブジェクト `transactionObject` には、`ChainDataAnchoring` トランザクションを作成するための以下のプロパティを指定することができる。
+`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../build/transactions/basic.md#txtypechaindataanchoring). トランザクションオブジェクト `transactionObject` には、`ChainDataAnchoring` トランザクションを作成するための以下のプロパティを指定することができる。
 
 `ChainDataAnchoring`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `ChainDataAnchoring` トランザクションを作成するときに `transactionObject` にオプションで指定できるプロパティを指す。
 
@@ -486,7 +486,7 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-`EthereumAccessList`は[イーサリアムのアクセスリストトランザクション](../../../../../learn/transactions/basic.md#txtypeethereumaccesslist)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `EthereumAccessList` を実行できるのは、[AccountKeyLegacy] がある場合のみです。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`EthereumAccessList` を作成することができる。
+`EthereumAccessList` represents an [Ethereum access list transaction](../../../../../build/transactions/basic.md#txtypeethereumaccesslist). [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) が `EthereumAccessList` を実行できるのは、[AccountKeyLegacy] がある場合のみです。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`EthereumAccessList` を作成することができる。
 
 `EthereumAccessList` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `EthereumAccessList` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
 
@@ -558,7 +558,7 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-`EthereumDynamicFee`は[イーサリアムの動的手数料取引](../../../../../learn/transactions/basic.md#txtypeethereumdynamicfee)を表す。 [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) は、[AccountKeyLegacy] がある場合のみ、`EthereumDynamicFee` を実行することができます。 `EthereumDynamicFee`を作成するために、`transactionObject`は以下のプロパティを持つことができる。
+`EthereumDynamicFee` represents an [Ethereum dynamic fee transaction](../../../../../build/transactions/basic.md#txtypeethereumdynamicfee). [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) は、[AccountKeyLegacy] がある場合のみ、`EthereumDynamicFee` を実行することができます。 `EthereumDynamicFee`を作成するために、`transactionObject`は以下のプロパティを持つことができる。
 
 `EthereumDynamicFee`は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザーが `EthereumDynamicFee` を作成する際に `transactionObject` にオプションで指定できるプロパティを指す。
 また、`EthereumDynamicFee` は `gasPrice` を使用せず、`maxPriorityFeePerGas` と `maxFeePerGas` を使用することに注意。
@@ -627,5 +627,5 @@ EthereumDynamicFee {
 }
 ```
 
-[AccountKeyLegacy]: .../.../.../.../学習/アカウント.md#accountkeylegacy
+[AccountKeyLegacy]: ../../../../../learn/accounts.md#accountkeylegacy
 [Account]: ../caver.account.md#account

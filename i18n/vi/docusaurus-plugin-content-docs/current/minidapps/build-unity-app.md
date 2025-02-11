@@ -479,8 +479,18 @@ Copy and paste the code below in your `index.html` file:
 
 ### Step 4: Setting Up Dapp Portal SDK
 
-1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk-0.9.2.js
+1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
 2. Save the content to your `scripts/dapp_portal_sdk.js`.  Using a local Dapp Portal SDK file improves load times and reliability.
+
+:::note
+Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+
+```js
+// <script src="scripts/dapp_portal_sdk.js"></script>
+<script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
+```
+
+:::
 
 ### Step 5: Configure Unity to Use Custom Template
 

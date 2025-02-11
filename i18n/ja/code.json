@@ -9,7 +9,7 @@
     "message": "はじめに"
   },
   "Node Operators": {
-    "message": "ノード演算子"
+    "message": "ノードオペレーター"
   },
   "API references": {
     "message": "APIリファレンス"
@@ -18,10 +18,10 @@
     "message": "APIとライブラリ"
   },
   "Got a question? Visit our forum!": {
-    "message": "ご質問ですか？フォーラムをご覧ください！"
+    "message": "ご不明な点があればフォーラムをご覧ください！"
   },
   "theme.ErrorPageContent.title": {
-    "message": "このページはクラッシュした。",
+    "message": "エラーが発生しました",
     "description": "The title of the fallback page when the page crashed"
   },
   "theme.BackToTopButton.buttonAriaLabel": {
@@ -37,7 +37,7 @@
     "description": "The page & hero description of the blog archive page"
   },
   "theme.blog.paginator.navAriaLabel": {
-    "message": "ブログ一覧ページナビゲーション",
+    "message": "ブログ一覧ページを確認",
     "description": "The ARIA label for the blog pagination"
   },
   "theme.blog.paginator.newerEntries": {
@@ -89,7 +89,7 @@
     "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.DocCard.categoryDescription": {
-    "message": "{count} 項目",
+    "message": "{count} アイテム",
     "description": "The default description for a category card in the generated index about how many items this category includes"
   },
   "theme.docs.paginator.navAriaLabel": {
@@ -180,7 +180,7 @@
     "description": "The default label used for the Note admonition (:::note)"
   },
   "theme.admonition.tip": {
-    "message": "チップ",
+    "message": "ヒント",
     "description": "The default label used for the Tip admonition (:::tip)"
   },
   "theme.admonition.warning": {
@@ -549,11 +549,11 @@
   },
   "homepage.favorites.rpc.title": {
     "message": "パブリックJSON RPCエンドポイント",
-    "description": "Title for Public JSON RPC Endpoints"
+    "description": "Title for RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
     "message": "自前のノードを運用することなく、製品を構築し、テストすることができます。",
-    "description": "Description for Public JSON RPC Endpoints"
+    "description": "Description for RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
     "message": "財布",

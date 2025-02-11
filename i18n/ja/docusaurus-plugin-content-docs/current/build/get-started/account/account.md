@@ -1,6 +1,6 @@
-# 口座の基本
+# アカウントの基本
 
-\*\*警告パスワードを忘れないでください。 アカウントのパスワードを紛失すると、そのアカウントにアクセスできなくなります。 \*\*パスワードを忘れました。 決して忘れてはならない。
+\*\*警告　パスワードを忘れないでください。 アカウントのパスワードを紛失すると、そのアカウントにアクセスできなくなります。 \*\*パスワードを忘れました。 紛失しないようにしてください。
 
 Kaiaは開発者がアカウントを管理するために、`ken`と`JavaScript console`という2つの便利なコマンドラインツールを提供している。 暗号化されていない形式で秘密鍵をエクスポートすることはサポートされていません。
 
@@ -60,7 +60,7 @@ $ ken account new --datadir "~/kend_home"
 
 ## JavaScriptコンソール<a id="javascript-console"></a>
 
-JavaScriptコンソールに接続するには、ENが実行中でなければなりません。 詳しくは、[ENを起動する](../../smart-contracts/deploy/ken.md)を参照してください。 ENを起動し、以下のようにコンソールに接続する。
+JavaScriptコンソールに接続するには、ENが実行中でなければなりません。 詳細については、[EN の起動](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en) を参照してください。 ENを起動し、以下のようにコンソールに接続する。
 
 ### 使用方法<a id="usage"></a>
 
@@ -92,4 +92,4 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 
 ### データディレクトリ<a id="data-directory"></a>
 
-アカウントを作成すると、キーストア・ファイルは`<DATADIR>/keystore`に保存される。 `<DATADIR>` は `kend.conf` で設定した `DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home`でなければならない。
+アカウントを作成すると、キーストア・ファイルは`<DATADIR>/keystore`に保存される。 `<DATADIR>` は `kend.conf` で設定した `DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home`でなければならない。 `<DATADIR>` は `kend.conf` で設定した `DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home`にする必要があります。

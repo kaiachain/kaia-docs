@@ -18,7 +18,7 @@ Submits a new vote. If the node has the right to vote based on the governance mo
 | value    | string \\ | Various types of value for each key.                                                                                                |
 | callback | function    | (optional) Optional callback, which returns an error object as the first parameter and the result as the second. |
 
-For more details about the `key` and `value` for `caver.rpc.governance.vote`, please refer to [governance_vote](../../../../json-rpc/governance.md#governance_vote).
+caver.rpc.governance.vote`의 `키`및`값\`에 대한 자세한 내용은 [governance_vote](https://docs.kaia.io/references/json-rpc/governance/vote/)를 참조하세요.
 
 **Return Value**
 
@@ -498,9 +498,9 @@ Returns the staking information at a specific block.
 
 `Promise` returns `object`
 
-| Type   | Description                                                                                                                                                                                                          |
-| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| object | Staking information. Refer to [governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) for a description of the return result. |
+| Type   | Description                                                                                                                                                                           |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| object | Staking information. 반환 결과에 대한 설명은 [거버넌스_겟스테이킹정보](https://docs.kaia.io/references/json-rpc/governance/get-staking-info/)를 참조하세요. |
 
 **Example**
 

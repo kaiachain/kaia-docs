@@ -4,7 +4,7 @@ sidebar_label: Sourcifyの使用
 
 # Sourcifyを使用してスマートコントラクトを検証する方法
 
-[Sourcify](sourcify.dev)は、イーサリアムとKaiaのようなEVM互換チェーンのためのSolidity（スマートコントラクト）ソースコード検証サービスです。 そのユニークな特徴の 1 つは、[Solidity メタデータ](https://docs.sourcify.dev/docs/metadata/) ファイルを活用してコントラクトを [完全に検証](https://docs.sourcify.dev/docs/full-vs-partial-match/) することです。
+[Sourcify](sourcify.dev)は、イーサリアムとKaiaのようなEVM互換チェーンのためのSolidity（スマートコントラクト）ソースコード検証サービスです。 そのユニークな特徴の 1 つは、[Solidity メタデータ](https://docs.sourcify.dev/docs/metadata/) ファイルを活用してコントラクトを [完全に検証](https://docs.sourcify.dev/docs/full-vs-partial-match/) することです。 そのユニークな特徴の 1 つは、[Solidity メタデータ](https://docs.sourcify.dev/docs/metadata/) ファイルを活用してコントラクトを [完全に検証](https://docs.sourcify.dev/docs/full-vs-partial-match/) することです。
 
 このガイドでは、Sourcifyを使用してFoundry上でスマートコントラクトを検証する方法を見ていきます。
 

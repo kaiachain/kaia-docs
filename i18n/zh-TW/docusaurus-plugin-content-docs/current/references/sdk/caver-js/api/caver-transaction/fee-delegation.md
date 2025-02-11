@@ -10,7 +10,7 @@ sidebar_label: 費用委託
 caver.transaction.feeDelegatedValueTransfer.create(transactionObject)
 ```
 
-FeeDelegatedValueTransfer "代表[fee delegated value transfer transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer）。 transactionObject "可以具有以下屬性，以創建 "FeeDelegatedValueTransfer "事務。
+`FeeDelegatedValueTransfer` represents a [fee delegated value transfer transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfer). transactionObject "可以具有以下屬性，以創建 "FeeDelegatedValueTransfer "事務。
 
 FeeDelegatedValueTransfer\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedValueTransfer "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -71,7 +71,7 @@ FeeDelegatedValueTransfer {
 caver.transaction.feeDelegatedValueTransferMemo.create(transactionObject)
 ```
 
-FeeDelegatedValueTransferMemo "代表一個[收費委託價值轉移備忘錄事務]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo）。 transactionObject "可以具有以下屬性，以創建 "FeeDelegatedValueTransferMemo "事務。
+`FeeDelegatedValueTransferMemo` represents a [fee delegated value transfer memo transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedvaluetransfermemo). transactionObject "可以具有以下屬性，以創建 "FeeDelegatedValueTransferMemo "事務。
 
 FeeDelegatedValueTransferMemo\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedValueTransferMemo "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -135,7 +135,7 @@ FeeDelegatedValueTransferMemo {
 caver.transaction.feeDelegatedAccountUpdate.create(transactionObject)
 ```
 
-FeeDelegatedAccountUpdate "代表[fee delegated account update transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate）。 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedAccountUpdate "事務。
+`FeeDelegatedAccountUpdate` represents a [fee delegated account update transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedaccountupdate). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedAccountUpdate "事務。
 
 FeeDelegatedAccountUpdate\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedAccountUpdate "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -198,7 +198,7 @@ FeeDelegatedAccountUpdate {
 caver.transaction.feeDelegatedSmartContractDeploy.create(transactionObject)
 ```
 
-SmartContractDeploy "代表一個[fee delegated smart contract deploy transaction]（.../.../.../.../.../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy）。 事務對象 "可以具有以下屬性，以創建 "SmartContractDeploy "事務。
+`FeeDelegatedSmartContractDeploy` represents a [fee delegated smart contract deploy transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractdeploy). 事務對象 "可以具有以下屬性，以創建 "SmartContractDeploy "事務。
 
 `SmartContractDeploy` 的成員變量屬性如下。 標記為 "可選 "的屬性指的是用戶創建 "SmartContractDeploy "事務時可在 "transactionObject "中選擇給出的屬性。
 
@@ -264,7 +264,7 @@ FeeDelegatedSmartContractDeploy {
 caver.transaction.feeDelegatedSmartContractExecution.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractExecution "事務。
+`FeeDelegatedSmartContractExecution` represents a [fee delegated smart contract execution transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedsmartcontractexecution). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedSmartContractExecution "事務。
 
 FeeDelegatedSmartContractExecution\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedSmartContractExecution "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -327,7 +327,7 @@ FeeDelegatedSmartContractExecution {
 caver.transaction.feeDelegatedCancel.create(transactionObject)
 ```
 
-`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedcancel). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedCancel "事務。
+`FeeDelegatedCancel` represents a [fee delegated cancel transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedcancel). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedCancel "事務。
 
 FeeDelegatedCancel\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedCancel "事務時可在 "transactionObject "中選擇定義的屬性。
 
@@ -383,7 +383,7 @@ FeeDelegatedCancel {
 caver.transaction.feeDelegatedChainDataAnchoring.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../learn/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedChainDataAnchoring "事務。
+`FeeDelegatedChainDataAnchoring` represents a [fee delegated chain data anchoring transaction](../../../../../build/transactions/fee-delegation.md#txtypefeedelegatedchaindataanchoring). 事務對象 "可以具有以下屬性，以創建 "FeeDelegatedChainDataAnchoring "事務。
 
 FeeDelegatedChainDataAnchoring\` 的成員變量屬性如下。 標記為 "可選 "的屬性是指用戶創建 "FeeDelegatedChainDataAnchoring "事務時可在 "transactionObject "中選擇定義的屬性。
 

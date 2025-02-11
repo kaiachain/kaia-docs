@@ -10,7 +10,7 @@ sidebar_label: 料金の一部委任
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferWithRatio` は[比率トランザクションによる手数料委任価値譲渡](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedValueTransferWithRatio` トランザクションを作成することができる。
+`FeeDelegatedValueTransferWithRatio` represents a [fee delegated value transfer with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、`FeeDelegatedValueTransferWithRatio` トランザクションを作成することができる。
 
 `FeeDelegatedValueTransferWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransfer` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
@@ -30,13 +30,13 @@ caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 | 価値       | ストリング | 譲渡されるKAIAの金額。 `caver.utils.toPeb`を使うことができる。                                                                                              |
 | より       | ストリング | 送信者のアドレス。                                                                                                                                |
 | への       | ストリング | 送金された金額を受け取る口座アドレス。                                                                                                                      |
-| ガス       | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                 |
+| gas      | ストリング | トランザクションが使用できる取引手数料の上限額。                                                                                                                 |
 | 手数料率     | ストリング | 手数料支払者が負担する取引手数料の割合を示す比率。 この比率の有効範囲は1～99である。 0や100以上の比率は許されない。                                                                           |
 | 署名       | 配列    | (オプション) シグネチャの配列。                                                                                                     |
 | 料金支払者の署名 | 配列    | (オプション) feePayerSignatures の配列。                                                                                       |
-| 料金支払者    | ストリング | (任意）料金支払者の住所。                                                                                                         |
+| 料金支払者    | ストリング | (任意）料金支払者のアドレス。                                                                                                       |
 | ノンス      | ストリング | (オプション) 送信者のトランザクションを一意に識別するための値。 省略された場合、`caver.rpc.klay.getTransactionCount(address, 'pending')` が nonce の設定に使用される。 |
-| ガス価格     | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                              |
+| gasPrice | ストリング | (オプション) 送信者がトークンで支払う金額を得るための乗数。 省略された場合は、`caver.rpc.klay.getGasPrice`がgasPriceの設定に使用される。                              |
 | チェーンID   | ストリング | (オプション) kaiaネットワークのチェーンID。 省略した場合は、`caver.rpc.klay.getChainId` を使用して chainId を設定する。                                   |
 
 **例**
@@ -74,7 +74,7 @@ FeeDelegatedValueTransferWithRatio {
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedValueTransferMemoWithRatio` は[比率取引による手数料委任価値移転メモ](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedValueTransferMemoWithRatio` トランザクションを作成することができる。
+`FeeDelegatedValueTransferMemoWithRatio` represents a [fee delegated value transfer memo with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedValueTransferMemoWithRatio` トランザクションを作成することができる。
 
 `FeeDelegatedValueTransferMemoWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedValueTransferMemoWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
@@ -141,7 +141,7 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedAccountUpdateWithRatio` は[比率トランザクションによる手数料委任口座更新](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedAccountUpdateWithRatio` トランザクションを作成するために以下のプロパティを持つことができる。
+`FeeDelegatedAccountUpdateWithRatio` represents a [fee delegated account update with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio). トランザクションオブジェクト `transactionObject` は、`FeeDelegatedAccountUpdateWithRatio` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `FeeDelegatedAccountUpdateWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedAccountUpdateWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
@@ -207,7 +207,7 @@ FeeDelegatedAccountUpdateWithRatio {
 Caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractDeployWithRatio` は [fee delegated smart contract deploy with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio) を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedSmartContractDeployWithRatio` トランザクションを作成することができる。
+`FeeDelegatedSmartContractDeployWithRatio` represents a [fee delegated smart contract deploy with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio). トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedSmartContractDeployWithRatio` トランザクションを作成することができる。
 
 `FeeDelegatedSmartContractDeployWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractDeployWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
 
@@ -276,7 +276,7 @@ FeeDelegatedSmartContractDeployWithRatio {
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedSmartContractExecutionWithRatio` は、[比率トランザクションによる手数料委任スマートコントラクトの実行](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedSmartContractExecutionWithRatio` トランザクションを作成するために、以下のプロパティを持つことができる。
+`FeeDelegatedSmartContractExecutionWithRatio` represents a [fee delegated smart contract execution with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio). トランザクションオブジェクト `transactionObject` は、`FeeDelegatedSmartContractExecutionWithRatio` トランザクションを作成するために、以下のプロパティを持つことができる。
 
 `FeeDelegatedSmartContractExecutionWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedSmartContractExecutionWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
 
@@ -342,7 +342,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedCancelWithRatio` は [fee delegated cancel with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio) を表す。 トランザクションオブジェクト `transactionObject` は、`FeeDelegatedCancelWithRatio` トランザクションを作成するために以下のプロパティを持つことができる。
+`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). トランザクションオブジェクト `transactionObject` は、`FeeDelegatedCancelWithRatio` トランザクションを作成するために以下のプロパティを持つことができる。
 
 `FeeDelegatedCancelWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedCancelWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティである。
 
@@ -401,7 +401,7 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio` は [fee delegated chain data anchoring with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio) を表す。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成することができる。
+`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)。 トランザクションオブジェクト `transactionObject` は以下のプロパティを持つことができ、 `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成することができる。
 
 `FeeDelegatedChainDataAnchoringWithRatio` は以下のプロパティをメンバ変数として持つ。 `optional`とマークされたプロパティは、ユーザが `FeeDelegatedChainDataAnchoringWithRatio` トランザクションを作成するときに `transactionObject` にオプションで定義できるプロパティを指す。
 

@@ -38,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
-Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../../learn/transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](../../learn/computation/precompiled-contracts.md).
+Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). If user [updates account](../transactions/basic.md#txtypeaccountupdate), the private key for a specific account is replaced with another one. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. For more details, refer to [here](../../learn/smart-contracts/precompiled-contracts.md).

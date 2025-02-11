@@ -1,6 +1,6 @@
 # サービスチェーンの設置
 
-## 対象読者<a id="intended-audience"></a>
+## 対象オーディエンス<a id="intended-audience"></a>
 
 - メタバース、GameFi、NFT向けにブロックチェーンを構築したい企業
 - 高いTPS、最小限の取引手数料、データプライバシーを必要とするdApp開発者。
@@ -245,7 +245,7 @@ $ kscnd stop
 
 ```
 
-**status**
+**ステータス**
 
 ```bash
 ## when installed from rpm distribution 

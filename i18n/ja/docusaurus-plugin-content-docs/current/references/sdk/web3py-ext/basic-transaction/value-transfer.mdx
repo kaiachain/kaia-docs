@@ -2,7 +2,7 @@
 
 TxTypeValueTransferは、ユーザーがKAIAを送信したいときに使用される。
 
-- kaiaは、各トランザクションタイプが単一の目的を果たすように複数のトランザクションタイプを提供しているため、TxTypeValueTransferは、KAIAを外部所有口座（EOA）に送信するように制限されている。
+- カイアは、各トランザクションタイプを単一目的で使用できるように複数のトランザクションタイプを提供するため、TxTypeValueTransferは外部所有アカウント(EOA)にKAIAを転送することが制限されます。
 
 <CH.Spotlight>
 <CH.Code>
@@ -83,7 +83,7 @@ tx ハッシュ：  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c8
 
 ---
 
-web3をkaia web3に拡張するために、**web3py_ext**から**extend**をインポートする。
+**web3py_ext** から **extend** をインポートして、web3 を kaia web3 に拡張します
 
 ```py txTypeValueTransferTransaction.py focus=1,2
 
@@ -281,7 +281,7 @@ tx hash:  0xd47018a0bc908e18f980bc59ee454e6016317300e4f207341eaa77a8c841bc0f rec
 
 ---
 
-最後に結果を出す。
+最後に結果を出します。
 
 <CH.Code>
 ```python txTypeValueTransferTransaction.py focus=41

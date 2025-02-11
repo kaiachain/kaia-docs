@@ -10,15 +10,15 @@
 
 ## 3. プラットフォームへのdAppのインストール<a id="3-your-installation-of-dapp-on-the-platform"></a>
 
-オープンソースソフトウェアの使用は無料です。 However, you may be required to pay a certain number of KLAY as a transaction fee in order to execute a transaction on the Platform, including the installation of the dApp on the Platform.
+オープンソースソフトウェアの使用は無料です。 ただし、本プラットフォームへのdAppのインストールを含め、本プラットフォーム上で取引を実行するためには、取引手数料として一定のKAIAを支払う必要がある場合があります。
 
 トランザクションが正常に実行され、それぞれのブロック生成がプラットフォームのメカニズムによって正常に検証されると、そのブロックはブロックチェーンに不可逆的に保存される。 そのため、お客様によるdAppのインストール、プラットフォーム上でのその他の取引、および取引手数料の提出は、最終的なものであり、取り消すことはできません。
 
 ## 4. ユーザーコンテンツ<a id="4-user-content"></a>
 
-If you or the users of your dApp post, upload, input, provide or submit any content on the Platform (collectively, your "User Content"), you must ensure that the User Content provided by you or the users of your dApp at that or at any other time is true, accurate, up to date and complete and that any User Content you or the users of your dApp post, upload, input, provide or submit via the Platform do not breach or infringe legal rights of any third party. To the extent that is technically possible, you agree to prevent, remove or block access of any User Content that you or the users of your dApp post, upload, input, provide or submit via the Platform that violate or may violate legal rights (such as rights of privacy and publicity) of others or any applicable laws or regulations. 当社は、本プラットフォームを介して送信、保存、または処理される、または当社に送信されるユーザーコンテンツを所有、管理、または保証するものではなく、いかなるユーザーコンテンツに対しても責任を負いません。 当社は、お客様のコンテンツが保護されること、または当該コンテンツが機密性を保持することを保証しません。
+お客様またはお客様のdAppのユーザーが本プラットフォームにコンテンツを投稿、アップロード、入力、提供または送信する場合（以下、総称して「ユーザーコンテンツ」といいます）、お客様は、お客様またはお客様のdAppのユーザーがその時点またはその他のいかなる時点においても提供するユーザーコンテンツが真実、正確、最新かつ完全であること、およびお客様またはお客様のdAppのユーザーが本プラットフォームを通じて投稿、アップロード、入力、提供または送信するユーザーコンテンツが第三者の法的権利を侵害しないことを保証する必要があります。 技術的に可能な範囲で、お客様は、お客様またはお客様のdAppのユーザーが本プラットフォームを通じて投稿、アップロード、入力、提供または送信するユーザーコンテンツが、他人の法的権利（プライバシー権やパブリシティ権など）または適用される法令に違反する、または違反する可能性がある場合、そのアクセスを防止、削除またはブロックすることに同意するものとします。 当社は、本プラットフォームを介して送信、保存、または処理される、または当社に送信されるユーザーコンテンツを所有、管理、または保証するものではなく、いかなるユーザーコンテンツに対しても責任を負いません。 当社は、お客様のコンテンツが保護されること、または当該コンテンツが機密性を保持することを保証しません。
 
-You are solely responsible and liable for all of your User Content and for your use of any interactive features, links or information or content on the Platform, and you represent and warrant that (i) you own all intellectual property rights (or have obtained all necessary permissions) to provide your User Content and to grant the licenses in these Terms of Use; (ii) your User Content will not violate any agreements or confidentiality obligations; and (iii) your User Content will not violate, infringe or misappropriate any intellectual property right or other proprietary right, including the right of publicity or privacy, of any person or entity.
+お客様は、お客様のユーザーコンテンツすべて、およびお客様が本プラットフォーム上のインタラクティブ機能、リンク、情報またはコンテンツを使用することについて、単独で責任および義務を負い、お客様は、お客様のユーザーコンテンツを提供し、本利用規約のライセンスを付与するために必要なすべての知的財産権をお客様が所有している（または必要なすべての許可を取得している）ことを表明し、保証するものとします；\お客様のユーザーコンテンツが、いかなる契約または秘密保持義務にも違反しないこと。
 
 ユーザーは、ユーザーコンテンツに生産データ、機密データ、専有データ、秘密データ、または特定もしくは識別可能な自然人に関する個人情報など、データ保護が特に要求されるその他のデータをアップロード、送信、または本サービス環境に作成もしくは含めることはできません。
 

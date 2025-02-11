@@ -1,4 +1,4 @@
-# ケイバー
+# caver.rpc.governance
 
 `caver.rpc.governance` は `governance` 名前空間を持つ JSON-RPC コールを提供する。
 
@@ -18,7 +18,7 @@ caver.rpc.governance.vote(key, value [, callback])
 | 価値     | string \\ | 各キーには様々なタイプの値がある。                                                                   |
 | コールバック | 機能          | (オプション) オプションのコールバックで、最初のパラメータとしてエラーオブジェクトを、2番目のパラメータとして結果を返します。 |
 
-`caver.rpc.governance.vote`の `key` と `value` の詳細については、[governance_vote](../../../../json-rpc/governance.md#governance_vote) を参照してください。
+caver.rpc.governance.vote`の `key`と`value\` の詳細については、[governance_vote](https://docs.kaia.io/references/json-rpc/governance/vote/) を参照してください。
 
 **リターン・バリュー**
 
@@ -498,9 +498,9 @@ caver.rpc.governance.getStakingInfo([blockNumberOrTag] [, callback])
 
 `Promise` は `object` を返す。
 
-| タイプ    | 説明                                                                                                                                          |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| オブジェクト | ステーキング情報 返される結果については、[governance_getStakingInfo](../../../../json-rpc/governance.md#governance_getstakinginfo) を参照のこと。 |
+| タイプ    | 説明                                                                                                                                                       |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オブジェクト | ステーキング情報 戻り結果の説明については、[governance_getStakingInfo](https://docs.kaia.io/references/json-rpc/governance/get-staking-info/) を参照してください。 |
 
 **例**
 

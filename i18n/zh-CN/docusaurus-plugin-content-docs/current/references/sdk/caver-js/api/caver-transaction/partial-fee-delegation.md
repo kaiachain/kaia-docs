@@ -10,7 +10,7 @@ sidebar_label: 部分费用授权
 caver.transaction.feeDelegatedValueTransferWithRatio.create(transactionObject)
 ```
 
-"FeeDelegatedValueTransferWithRatio "表示[带比率的费用委托价值转移交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedValueTransferWithRatio "事务。
+FeeDelegatedValueTransferWithRatio "表示[带比率的收费委托价值转移交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransferwithratio)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedValueTransferWithRatio "事务。
 
 FeeDelegatedValueTransferWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransfer "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -74,7 +74,7 @@ FeeDelegatedValueTransferWithRatio {
 caver.transaction.feeDelegatedValueTransferMemoWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedValueTransferMemoWithRatio "表示[带比率的收费委托价值转移备忘录交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio）。 "transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
+FeeDelegatedValueTransferMemoWithRatio "表示[带比率的费用委托价值转移备忘录交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedvaluetransfermemowithratio)。 "transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
 
 FeeDelegatedValueTransferMemoWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedValueTransferMemoWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -141,7 +141,7 @@ FeeDelegatedValueTransferMemoWithRatio {
 caver.transaction.feeDelegatedAccountUpdateWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedAccountUpdateWithRatio "表示[按比率更新收费委托帐户交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio）。 "transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
+FeeDelegatedAccountUpdateWithRatio "表示[按比率更新收费委托账户](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedaccountupdatewithratio)。 "transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
 
 FeeDelegatedAccountUpdateWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedAccountUpdateWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -207,7 +207,7 @@ FeeDelegatedAccountUpdateWithRatio {
 caver.transaction.feeDelegatedSmartContractDeployWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractDeployWithRatio "代表一个[费用委托智能合约部署比率交易]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractDeployWithRatio "事务。
+FeeDelegatedSmartContractDeployWithRatio "表示[按比率部署的收费委托智能合约交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractdeploywithratio)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractDeployWithRatio "事务。
 
 FeeDelegatedSmartContractDeployWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedSmartContractDeployWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -276,7 +276,7 @@ FeeDelegatedSmartContractDeployWithRatio {
 caver.transaction.feeDelegatedSmartContractExecutionWithRatio.create(transactionObject)
 ```
 
-FeeDelegatedSmartContractExecutionWithRatio "表示[按比例执行的收费智能合约]（.../.../.../.../.../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio）。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractExecutionWithRatio "事务。
+FeeDelegatedSmartContractExecutionWithRatio "代表一个[按比率收费的智能合约执行交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedsmartcontractexecutionwithratio)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedSmartContractExecutionWithRatio "事务。
 
 FeeDelegatedSmartContractExecutionWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedSmartContractExecutionWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -342,7 +342,7 @@ FeeDelegatedSmartContractExecutionWithRatio {
 caver.transaction.feeDelegatedCancelWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedCancelWithRatio` represents a [fee delegated cancel with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio). 事务对象 "可以具有以下属性，以创建 "FeeDelegatedCancelWithRatio "事务。
+FeeDelegatedCancelWithRatio "表示[收费委托取消比率交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedcancelwithratio)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedCancelWithRatio "事务。
 
 FeeDelegatedCancelWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedCancelWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 
@@ -401,7 +401,7 @@ FeeDelegatedCancelWithRatio {
 caver.transaction.feeDelegatedChainDataAnchoringWithRatio.create(transactionObject)
 ```
 
-`FeeDelegatedChainDataAnchoringWithRatio` represents a [fee delegated chain data anchoring with ratio transaction](../../../../../learn/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio). 事务对象 "可以具有以下属性，以创建 "FeeDelegatedChainDataAnchoringWithRatio "事务。
+FeeDelegatedChainDataAnchoringWithRatio "表示[带比率的收费委托链数据锚定交易](../../../../../build/transactions/partial-fee-delegation.md#txtypefeedelegatedchaindataanchoringwithratio)。 事务对象 "可以具有以下属性，以创建 "FeeDelegatedChainDataAnchoringWithRatio "事务。
 
 FeeDelegatedChainDataAnchoringWithRatio\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "FeeDelegatedChainDataAnchoringWithRatio "事务时可在 "transactionObject "中选择定义的属性。
 

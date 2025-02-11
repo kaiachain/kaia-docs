@@ -1,14 +1,14 @@
 ---
 id: kaia-safe-api-kit
-title: カイアセーフAPI-Kit
+title: Kaia Safe APIキット
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# カイア安全APIキット
+# Kaia Safe APIキット
 
-API-Kitは、[Safe Transaction API](https://github.com/safe-global/safe-transaction-service)と安全にやり取りするためのキットです。 このキットの中核は、有効な署名者が Safe の他の署名者に取引を提案・共有したり、署名を収集するサービスに署名を送信したり、Safe に関する情報（取引履歴、保留中の取引、有効なモジュールやガードなど）を取得したりできるようにすることである。
+APIキットは、[Safe Transaction API](https://github.com/safe-global/safe-transaction-service)と安全にやり取りするためのキットです。 このキットの中核は、有効な署名者が Safe の他の署名者に取引を提案・共有したり、署名を収集するサービスに署名を送信したり、Safe に関する情報（取引履歴、保留中の取引、有効なモジュールやガードなど）を取得したりできるようにすることである。
 
 ## クイックスタート<a id="Quickstart"></a>
 
@@ -90,7 +90,7 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction wh
 
 ### ステップ1：APIキットの初期化
 
-API Kitを初期化するには、API Kitのインスタンスを作成する必要がある。
+APIキットを初期化するには、APIキットのインスタンスを作成する必要がある。
 
 > Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) がサポートされているチェーンでは、chainId プロパティを指定するだけで十分です。
 
@@ -118,7 +118,7 @@ const protocolKitOwner1 = await Safe.default.init({
 
 ### ステップ3：サービスにトランザクションを提案する
 
-API Kitの中核機能の1つは、有効な署名者が他の署名者とトランザクションを共有できるようにすることである。 しかし、その前に、セーフサイナーの誰かが取引のプロポーザルを作成し、プロセスを開始する必要がある。 この取引は、他の所有者がアクセスできるようにするためにサービスに送信され、他の所有者も同様に承認を与え、取引に署名することができる。
+API Kitの中核機能の1つは、有効な署名者が他の署名者とトランザクションを共有できるようにすることである。 しかし、その前に、セーフサイナーの誰かが取引のプロポーザルを作成し、プロセスを開始する必要がある。 この取引は、他の所有者がアクセスできるようにするためにサービスに送信され、他の所有者も同様に承認を与え、取引に署名することができる。 しかし、その前に、セーフサイナーの誰かが取引のプロポーザルを作成し、プロセスを開始する必要がある。 この取引は、他の所有者がアクセスできるようにするためにサービスに送信され、他の所有者も同様に承認を与え、取引に署名することができる。
 
 ```js
 const safeTransactionData = {
@@ -148,7 +148,7 @@ try {
 
 ### ステップ4：保留中のトランザクションを取得する
 
-API Kitは、状況に応じて保留中のトランザクションを取得するためのさまざまな方法を提供してくれる。 このガイドでは、セーフトランザクションハッシュと以下に示すその他の利用可能なメソッドを使用してトランザクショ ンを取得する：
+APIキットは、状況に応じて保留中のトランザクションを取得するためのさまざまな方法を提供してくれる。 このガイドでは、セーフトランザクションハッシュと以下に示すその他の利用可能なメソッドを使用してトランザクショ ンを取得する：
 
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
@@ -179,7 +179,7 @@ const signatureResponse = await apiKit.confirmTransaction(
 
 ### ステップ6：トランザクションの実行
 
-これで Safe トランザクションを実行する準備ができた。 これは、[Safe Wallet Web](https://app.safe.global/)インターフェース、[Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction)、Safe CLI、または利用可能なその他のツールを使用して行うことができます。
+これで Safe トランザクションを実行する準備ができた。 これで Safe トランザクションを実行する準備ができた。 これは、[Safe Wallet Web](https://app.safe.global/)インターフェース、[Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction)、Safe CLI、または利用可能なその他のツールを使用して行うことができます。
 
 この最後のステップでは、Protocol Kitを使って安全なトランザクションを実行した。
 
@@ -267,4 +267,4 @@ console.log('Transaction executed:');
 console.log(`https://kairos.kaiascan.io/tx/${hash}`)
 ```
 
-詳細については、[API Kit Reference](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。また、このガイドの全ソースコードにアクセスするには、[Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets)に移動してください。
+APIキットは、状況に応じて保留中のトランザクションを取得するためのさまざまな方法を提供してくれる。

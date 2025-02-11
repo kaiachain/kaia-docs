@@ -2,12 +2,12 @@ export const sidebar = {
     type: 'カテゴリー',
     label: 'ethers-ext < v1.0.1',
     link: {
-        type: 'ドク',
+        type: 'doc',
         id: 'リファレンス/sdk/ethers-ext-prior-v1-0-1/getting-started',
     },
     items: [
         {
-            type: 'ドク',
+            type: 'doc',
             label: 'はじめに',
             id: 'リファレンス/sdk/ethers-ext-prior-v1-0-1/getting-started',
         },
@@ -67,7 +67,7 @@ export const sidebar = {
         },
         {
             type: 'カテゴリー',
-            label: '手数料 委任取引',
+            label: 'Fee Delegated トランザクション',
             items: [
                 '参考文献/sdk/ethers-ext-prior-v1-0-1/fee-delegated-transaction/value-transfer',
                 '参考文献/sdk/ethers-ext-prior-v1-0-1/fee-delegated-transaction/value-transfer-memo',

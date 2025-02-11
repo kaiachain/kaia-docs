@@ -471,7 +471,7 @@ transaction.getRLPEncoding()
 
 Returns a RLP-encoded transaction string.
 
-For information on how to make the RLP-encoded string for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+각 트랜잭션 유형에 대한 RLP 인코딩 문자열을 만드는 방법에 대한 자세한 내용은 [Kaia 디자인 - 트랜잭션](../../../../../build/transactions/transactions.md)을 참조하세요.
 
 **Return Value**
 
@@ -515,7 +515,7 @@ transaction.getTransactionHash()
 
 Returns a `transactionHash`.
 
-For information on how to make the transaction hash for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+각 트랜잭션 유형에 대한 트랜잭션 해시 생성 방법에 대한 자세한 내용은 [카이아 디자인 - 트랜잭션](../../../../../build/transactions/transactions.md)을 참조하세요.
 
 **Return Value**
 
@@ -536,11 +536,11 @@ For information on how to make the transaction hash for each transaction type, s
 transaction.getSenderTxHash()
 ```
 
-Returns a [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) of transaction.
+트랜잭션의 [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash)를 반환합니다.
 
-The [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) is a hash of the transaction except for the fee payer's address and signature, so [transactionHash](#transaction-gettransactionhash) and [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) are the same for basic transactions.
+트랜잭션 해시](../../../../../build/transactions/transactions.md#sendertxhash)는 수수료 납부자의 주소와 서명을 제외한 트랜잭션의 해시이므로 [트랜잭션 해시](#transaction-gettransactionhash)와 [발신자 해시](../../../../../build/transactions/transactions.md#sendertxhash)는 기본 트랜잭션에서 동일합니다.
 
-For information on how to make the [senderTxHash](../../../../../learn/transactions/transactions.md#sendertxhash) for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+각 트랜잭션 유형에 대한 [senderTxHash](../../../../../build/transactions/transactions.md#sendertxhash)를 만드는 방법에 대한 자세한 내용은 [카이아 디자인 - 트랜잭션](../../../../../build/transactions/transactions.md)을 참조하세요.
 
 **Return Value**
 
@@ -563,7 +563,7 @@ transaction.getRLPEncodingForSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the transaction sender. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the transaction sender's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+각 트랜잭션 유형에 대한 트랜잭션 발신자의 서명을 생성하기 위해 RLP 인코딩된 트랜잭션 문자열을 만드는 방법에 대한 자세한 내용은 [Kaia 디자인 - 트랜잭션](../../../../../build/transactions/transactions.md)을 참조하세요.
 
 **Return Value**
 
@@ -586,7 +586,7 @@ transaction.getRLPEncodingForFeePayerSignature()
 
 Returns a RLP-encoded transaction string for making the signature of the fee payer. Note that the returned RLP-encoded transaction string is not added with the signature and rather is used to generate this signature.
 
-For information on how to make a RLP-encoded transaction string to generate the fee payer's signature for each transaction type, see [Kaia Design - Transactions](../../../../../learn/transactions/transactions.md).
+각 거래 유형에 대한 수수료 납부자의 서명을 생성하기 위해 RLP로 인코딩된 거래 문자열을 만드는 방법에 대한 자세한 내용은 [Kaia 디자인 - 거래](../../../../../build/transactions/transactions.md)를 참조하세요.
 
 **NOTE** This function works only for "fee-delegated" transactions or "fee-delegated with ratio" transactions.
 

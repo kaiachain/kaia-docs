@@ -10,7 +10,7 @@ sidebar_label: 基本
 caver.transaction.legacyTransaction.create(transactionObject)
 ```
 
-`LegacyTransaction` represents a [legacy transaction](../../../../../learn/transactions/basic.md#txtypelegacytransaction). kaiaaccount]\(.../.../.../.../.../learn/accounts.md#klaytn-accounts)只能通过[AccountKeyLegacy]执行 "LegacyTransaction"。 transactionObject "可以具有以下属性，以创建 "LegacyTransaction"。
+传统事务 "代表[传统事务](../../../../../build/transactions/basic.md#txtypelegacytransaction)。 kaiaaccount]\(.../.../.../.../.../learn/accounts.md#klaytn-accounts)只能通过[AccountKeyLegacy]执行 "LegacyTransaction"。 transactionObject "可以具有以下属性，以创建 "LegacyTransaction"。
 
 LegacyTransaction\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "LegacyTransaction "时可在 "transactionObject "中选择给出的属性。
 
@@ -81,7 +81,7 @@ LegacyTransaction {
 caver.transaction.valueTransfer.create(transactionObject)
 ```
 
-`ValueTransfer` represents a [value transfer transaction](../../../../../learn/transactions/basic.md#txtypevaluetransfer). transactionObject "可以具有以下属性，以创建 "ValueTransfer "事务。
+`ValueTransfer` 表示[价值转移交易](../../../../../build/transactions/basic.md#txtypevaluetransfer)。 transactionObject "可以具有以下属性，以创建 "ValueTransfer "事务。
 
 `ValueTransfer` 的成员变量属性如下。 标记为 "可选 "的属性是指当用户创建 "ValueTransfer "事务时，可以在 "transactionObject "中选择给出的属性。
 
@@ -138,7 +138,7 @@ ValueTransfer {
 caver.transaction.valueTransferMemo.create(transactionObject)
 ```
 
-ValueTransferMemo "代表一个[价值转移备忘录事务]（.../.../.../.../.../learn/transactions/basic.md#txtypevaluetransfermemo）。 transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
+`ValueTransferMemo` 表示[价值转移备忘录交易](../../../../../build/transactions/basic.md#txtypevaluetransfermemo)。 transactionObject "可以具有以下属性，以创建一个 "ValueTransferMemo "事务。
 
 `ValueTransferMemo` 的成员变量属性如下。 标记为 "可选 "的属性是指当用户创建 "ValueTransferMemo "事务时，可选择在 "transactionObject "中给出的属性。
 
@@ -198,7 +198,7 @@ ValueTransferMemo {
 caver.transaction.accountUpdate.create(transactionObject)
 ```
 
-`AccountUpdate` represents a [account update transaction](../../../../../learn/transactions/basic.md#txtypeaccountupdate). 事务对象 "可以具有以下属性，以创建 "账户更新 "事务。
+`AccountUpdate` 表示[账户更新事务](../../../../../build/transactions/basic.md#txtypeaccountupdate)。 事务对象 "可以具有以下属性，以创建 "账户更新 "事务。
 
 `AccountUpdate` 的成员变量属性如下。 标记为 "可选 "的属性是指当用户创建 "账户更新 "事务时，可在 "事务对象 "中选择给出的属性。
 
@@ -257,7 +257,7 @@ AccountUpdate {
 caver.transaction.smartContractDeploy.create(transactionObject)
 ```
 
-SmartContractDeploy "代表一个[智能合约部署事务]（.../.../.../.../.../learn/transactions/basic.md#txtypesmartcontractdeploy）。 事务对象 "可以具有以下属性，以创建 "SmartContractDeploy "事务。
+`SmartContractDeploy` 表示[智能合约部署交易](../../../../../build/transactions/basic.md#txtypesmartcontractdeploy)。 事务对象 "可以具有以下属性，以创建 "SmartContractDeploy "事务。
 
 `SmartContractDeploy` 的成员变量属性如下。 标记为 "可选 "的属性指的是用户创建 "SmartContractDeploy "事务时可在 "transactionObject "中选择给出的属性。
 
@@ -319,7 +319,7 @@ SmartContractDeploy {
 caver.transaction.smartContractExecution.create(transactionObject)
 ```
 
-SmartContractExecution "代表一个[智能合约执行事务]（.../.../.../.../.../learn/transactions/basic.md#txtypesmartcontractexecution）。 事务对象 "可以具有以下属性，以创建 "智能合约执行 "事务。
+`SmartContractExecution` 表示一个[智能合约执行交易](../../../../../build/transactions/basic.md#txtypesmartcontractexecution)。 事务对象 "可以具有以下属性，以创建 "智能合约执行 "事务。
 
 SmartContractExecution\` 的成员变量属性如下。 标记为 "可选 "的属性指的是用户创建 "SmartContractExecution "事务时可在 "transactionObject "中选择给出的属性。
 
@@ -378,7 +378,7 @@ SmartContractExecution {
 caver.transaction.cancel.create(transactionObject)
 ```
 
-`Cancel` represents a [cancel transaction](../../../../../learn/transactions/basic.md#txtypecancel). 事务对象 "可以具有以下属性，以创建 "取消 "事务。
+`Cancel` 表示[取消交易](../../../../../build/transactions/basic.md#txtypecancel)。 事务对象 "可以具有以下属性，以创建 "取消 "事务。
 
 Cancel "事务会取消事务池中具有相同 nonce 的事务的执行。
 
@@ -432,7 +432,7 @@ Cancel {
 caver.transaction.chainDataAnchoring.create(transactionObject)
 ```
 
-`ChainDataAnchoring` represents a [chain data anchoring transaction](../../../../../learn/transactions/basic.md#txtypechaindataanchoring). 事务对象 "可以具有以下属性，以创建 "ChainDataAnchoring "事务。
+链数据锚定 "代表一个[链数据锚定事务](../../../../../build/transactions/basic.md#txtypechaindataanchoring)。 事务对象 "可以具有以下属性，以创建 "ChainDataAnchoring "事务。
 
 ChainDataAnchoring\` 的成员变量属性如下。 标记为 "可选 "的属性是指用户创建 "ChainDataAnchoring "事务时，可在 "transactionObject "中选择给出的属性。
 
@@ -485,7 +485,7 @@ ChainDataAnchoring {
 caver.transaction.ethereumAccessList.create(transactionObject)
 ```
 
-EthereumAccessList "代表一个[以太坊访问列表事务](.../.../.../.../.../learn/transactions/basic.md#txtypeethereumaccesslist)。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
+以太坊访问列表 "代表一个[以太坊访问列表交易](../../../../../build/transactions/basic.md#txtypeethereumaccesslist)。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumAccessList` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumAccessList`.
 
 `EthereumAccessList` 的成员变量属性如下。 标记为 "optional "的属性指用户创建 "EthereumAccessList "时可在 "transactionObject "中选择给出的属性。
 
@@ -557,7 +557,7 @@ EthereumAccessList {
 caver.transaction.ethereumDynamicFee.create(transactionObject)
 ```
 
-EthereumDynamicFee "代表\[以太坊动态费用交易]（.../.../.../.../.../learn/transactions/basic.md#txtypeethereumdynamicfee）。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
+`EthereumDynamicFee` 表示[以太坊动态费用交易](../../../../../build/transactions/basic.md#txtypeethereumdynamicfee)。 A [kaiaaccount](../../../../../learn/accounts.md#klaytn-accounts) can execute a `EthereumDynamicFee` only with [AccountKeyLegacy]. The `transactionObject` can have properties below to create a `EthereumDynamicFee`.
 
 EthereumDynamicFee\` 的成员变量属性如下。 标记为 "可选 "的属性指的是用户创建 "以太坊动态费用 "时可在 "交易对象 "中选择给出的属性。
 请注意，"EthereumDynamicFee "不使用 "gasPrice"，而是使用 "maxPriorityFeePerGas "和 "maxFeePerGas"。

@@ -1,11 +1,11 @@
-# kaia用Web3j拡張機能
+# kaia用Web3j拡張
 
 ## 必要条件
 
 ### Javaの設定
 
-- javaのバージョンを使う： 11 `<=` v `<=` 18
-- https://adoptopenjdk.net/。
+- Javaバージョン: 11 `<=` v `<=` 18
+- Visit https://adoptopenjdk.net/ site
 - OpenJDKのダウンロード
 
 ## Web3j kaiaエクステンションをインストールする
@@ -35,7 +35,7 @@ Web3jの基本的な使い方については、[Web3jチュートリアル](http
 
 ### Kairos Testnetで手数料の委任取引を送信する
 
-kaiaネットワークがサポートする手数料委任取引の概念について詳しくお知りになりたい場合は、[kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions)をご参照ください。
+kaiaネットワークがサポートする手数料委任トランザクションの概念についてさらに詳しく知りたい場合は、[kaiadocs] を参照してください。(https://docs.klaytn.foundation/content/klaytn/design/transactions)をご参照ください。
 
 web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example) の FeeDelegatedValueTransferExample.java ファイルを確認してください。
 

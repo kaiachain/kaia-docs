@@ -67,7 +67,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 - 시간: 블록이 생성된 후 경과한 시간입니다. 마우스를 가져가면 정확한 날짜와 시간을 확인할 수 있습니다.
 - 총 트랜잭션 수: 블록에 포함된 총 트랜잭션 수입니다.
 - 블록 제안자: 블록을 제안한 무작위적이지만 결정론적으로 선택된 합의 노드입니다. 주소를 클릭하면 상세 정보 페이지로 쉽게 이동할 수 있습니다.
-- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. 블록 상세 페이지에서 블록 보상 섹션에 커서를 올리면 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. 블록 상세 페이지에서 블록 보상 섹션에 커서를 올리면 자세한 정보를 확인할 수 있습니다. 블록 보상 분배 시스템에 대한 자세한 내용은 [카이아 토큰 이코노미](../../../learn/token-economics/token-economics.md)에서 확인하실 수 있습니다.
 - 크기: 블록의 크기를 바이트 단위로 측정한 값입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
 ### 트랜잭션 <a id="transactions"></a>
@@ -80,7 +80,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 - 블록 번호: 해당 트랜잭션이 포함된 블록의 번호입니다. 번호를 클릭하면 해당 블록의 상세 정보 페이지로 이동합니다.
 - 시간: 트랜잭션이 실행된 후 경과한 시간입니다. 마우스를 가져가면 정확한 날짜와 시간을 확인할 수 있습니다.
 - 발신자 -> 수신자: 발신자와 수신자의 주소입니다. 주소를 클릭하면 상세 정보 페이지로 쉽게 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소가 컨트랙트임을 의미합니다.
-- TX 유형: 트랜잭션 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 가져올 수 있습니다. 자세한 내용은 \\[Transaction]을 참조하세요.
+- TX 유형: 트랜잭션 유형입니다. 필터를 적용하여 특정 유형의 트랜잭션을 가져올 수 있습니다. 자세한 내용은 [거래](../../transactions/transactions.md)를 참조하세요.
 - 금액: 트랜잭션을 통해 전송된 금액입니다.
 - TX 수수료: 트랜잭션 처리에 사용된 실제 비용입니다.
 
@@ -100,7 +100,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 - 해시: 블록의 고유 식별자입니다. 복사 버튼을 누르면 해시를 쉽게 복사할 수 있습니다.
 - 부모 해시: 이전 블록의 고유 식별자입니다. 해시를 클릭하면 상위 해시의 상세 보기로 이동합니다.
 - 총 TX: 블록에 포함된 총 트랜잭션 수입니다.
-- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. 블록 보상 분배 시스템에 대한 더 자세한 내용은 \\[카이아 토큰 이코노미]에서 확인할 수 있습니다.
+- Block Reward: Aggregation of the newly minted KAIA \(9.6 KAIA\) and the transaction fees collected in the block. If you hover, you will find detailed information on Kaia Governance Council Reward, Proof of Contribution and Kaia Ecosystem Fund. 블록 보상 분배 시스템에 대한 더 자세한 내용은 \[카이아 토큰 이코노미]에서 확인할 수 있습니다.
 - 블록 크기: 바이트 단위로 측정된 블록의 크기입니다. 트랜잭션이 많이 포함될수록 블록 크기가 커집니다.
 
 #### 위원회 <a id="committee"></a>
@@ -123,7 +123,7 @@ Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. Klaytnscope�
 거래에 대한 전반적인 정보입니다.
 
 - 상태 표시기: 오른쪽 상단에 있습니다. 트랜잭션 성공 여부를 나타내는 표시기입니다.
-- TX 유형: 트랜잭션 유형입니다. 자세한 내용은 \\[Transaction]을 참고하시기 바랍니다.
+- TX 유형: 트랜잭션 유형입니다. 자세한 내용은 \[Transaction]을 참고하시기 바랍니다.
 - 블록 번호: 이 트랜잭션이 포함된 블록의 번호입니다. 번호를 클릭하면 해당 블록의 상세 보기로 이동합니다.
 - 발신자 -> 수신자: 발신자와 수신자의 주소입니다. 주소를 클릭하면 계정의 상세 보기로 이동할 수 있습니다. 주소 옆에 파일 아이콘이 표시되면 해당 주소가 컨트랙트임을 의미합니다.
 - 수수료 납부자: TX 유형이 수수료 위임 또는 비율 위임인 경우 표시됩니다. 수수료 납부자 주소를 클릭하면 해당 계정의 상세 보기로 이동할 수 있습니다.
@@ -225,8 +225,3 @@ If you search for a keyword that doesn't fit in the specified format or informat
 
 - 아직 생성되지 않은 블록 \(입력한 블록 번호가 최근에 생성된 블록 번호보다 높은 경우\)
 - 존재하지 않는 TX 해시
-
-[Transactions]: ../../../learn/transactions/transactions.md
-[Kaia Token Economy]: ../../../learn/token-economy.md
-
-//scope_04_block_list

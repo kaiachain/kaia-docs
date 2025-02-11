@@ -4,10 +4,10 @@ Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaia
 
 トークンスワッププロセスは、Finschiaユーザーが`fwsap`モジュールにFNSAトークンを送信することから始まります。 トークンはまず `cony` デノミネーションから `kei` デノミネーションにスワップされ、次に `fbridge` モジュールに転送される。 `fbridge`からのイベントは信頼できる中継者によって認識され、カイアチェーン上のブリッジスマートコントラクトに提出される。 ブリッジング・リクエストは複数のステップで処理される：
 
-- 機内：トークンはFinschiaの`fbridge`モジュールに到着したが、中継者はKaiaスマートコントラクトに報告しなかった。
-- 確認済み：中継者が契約書（「提供書」）に要望書を提出。 これでリクエストは30分のタイムロックに入った。
-- クレーム：タイムロックが切れた後、トークンはカイアチェーン上の譲渡先アカウントに譲渡（「クレーム」）されます。
+- Inflight：トークンはFinschiaの`fbridge`モジュールに到着したが、中継者はKaiaスマートコントラクトに報告しなかった。
+- Confirmed:：中継者が契約書（「提供書」）に要望書を提出。 これでリクエストは30分のタイムロックに入った。
+- Claimed：タイムロックが切れた後、トークンはカイアチェーン上の譲渡先アカウントに譲渡（「クレーム」）されます。
 
 Kaiabridgeスマートコントラクトにはマルチシグ機能が組み込まれている。 例えば、リクエストが「確認」されるには、「オペレーター」アカウントからの複数の提供取引が必要です。 各オペレーターのアカウントは中継者によって保有され、中継者はカイア財団とフィンシャ財団によって管理されている。
 
-契約書のソースコードは[kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge)に、デプロイされたアドレスは[契約書アドレス](https://docs.kaia.io/references/contract-addresses/)のページにあります。
+コントラクトのソースコードは[kaiachain GitHub](https://github.com/kaiachain/kaia/tree/dev/contracts/contracts/system_contracts/kaiabridge)に、デプロイされたアドレスは[コントラクトアドレス](https://docs.kaia.io/references/contract-addresses/)のページにあります。

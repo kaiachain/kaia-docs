@@ -10,7 +10,7 @@
 
 ### ベアメタルサーバー<a id="bare-metal-server"></a>
 
-| カテゴリー | 仕様                                                                                                                                              |
+| カテゴリー | Specification                                                                                                                                   |
 | :---- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | サーバー  | インテル® サーバー・システム [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
 | CPU   | Intel® Xeon 8358 2.60 GHz (32-core/64-thread)                                                                |

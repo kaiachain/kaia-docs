@@ -4,19 +4,19 @@
 
 ## 概要<a href="#overview" id="overview"></a>
 
-Remixは、Solidityコントラクトを開発するためのブラウザベースのIDE（統合開発環境）です。 このガイドでは、その方法を学ぶことができる：
+Remixは、Solidityコントラクトを開発するためのブラウザベースのIDE（統合開発環境）です。 このガイドでは、その方法を学ぶことができる： このガイドでは、その方法を学ぶことができる：
 
 - Remix IDEで事前に構築されたスマートコントラクトを作成し、アップロードします。
 - スマート・コントラクトをコンパイルする。
 - Remix IDE用Kaiaプラグインに接続する
 - デプロイ環境のセットアップ
 - インポートアカウント
-- カイア・ウォレットを使ってカイアとリミックスをつなぐ
+- カイア・ウォレットを使ってカイアとRemixをつなぐ
 - MetaMaskを使ってKaiaとRemixを接続
 - スマートコントラクトをデプロイする。
 - スマート・コントラクトを検証する。
 
-これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
+スマート・コントラクトをコンパイルする。 これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
 
 ## Remixでファイルを作成する<a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
@@ -48,7 +48,7 @@ contract KaiaGreeter {
 
 ## スマート・コントラクトのコンパイル<a href="#compile-smart-contract" id="compile-smart-contract"></a>
 
-契約書をまとめるには、以下のようにする：
+コントラクトをコンパイルするには、以下のようにする：
 
 - **Solidity Compiler** タブに移動します。
 - コンパイラのバージョンを0.8.27に選択
@@ -64,7 +64,7 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 
 - **Plugin manager**タブに移動します。
 - 検索フィールドにKlaytnを入れる
-- Klaytnプラグインを有効にします。 Klaytnタブが表示されたら、カイアと対話する準備はできている。
+- スマートコントラクトをデプロイする。 Klaytnプラグインを有効にします。 Klaytnタブが表示されたら、カイアと対話する準備はできている。
 
 ![](/img/build/smart-contracts/remix-plugin-addon.png)
 
@@ -86,7 +86,7 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 
 - アカウントの横にあるプラスボタンをクリックします。
 - 次に秘密鍵またはキーストアを置く。
-- feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。
+- feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。 秘密鍵にしか対応していない。
 
 ![](/img/build/smart-contracts/remix-import-acc.png)
 
@@ -109,13 +109,13 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 - MetaMaskのポップアップが表示されたら、アカウントをクリックして選択します。
 - ネットワークに正常に接続されると、接続されたネットワークのチェーンIDとアカウントが表示されます。
 
-## スマートコントラクトの導入<a href="#deploying-contract" id="deploying-contract"></a>
+## スマートコントラクトのデプロイ<a href="#deploying-contract" id="deploying-contract"></a>
 
-このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
+このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
 
-- デプロイメント環境を「Injected Provider - Kaikas Wallet」に設定します。 Remixへのすべての接続プロンプトを確認してください。
-- CONTRACTフィールドで展開したい契約を選択します。
-- Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！
+- コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください： Remixへのすべての接続プロンプトを確認してください。
+- CONTRACTフィールドでデプロイしたいコントラクトを選択します。
+- Deployボタンをクリックします。 Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！ 取引を確認するだけです！
 
 ![](/img/build/smart-contracts/remix-deploy-contract.png)
 
