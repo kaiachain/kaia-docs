@@ -60,7 +60,7 @@ $ ken account new --datadir "~/kend_home"
 
 ## JavaScriptコンソール<a id="javascript-console"></a>
 
-JavaScriptコンソールに接続するには、ENが実行中でなければなりません。 詳しくは、[ENを起動する](../../smart-contracts/deploy/ken.md)を参照してください。 ENを起動し、以下のようにコンソールに接続する。 詳細については、[EN の起動](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en) を参照してください。 ENを起動し、以下のようにコンソールに接続する。
+JavaScriptコンソールに接続するには、ENが実行中でなければなりません。 詳細については、[EN の起動](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en) を参照してください。 ENを起動し、以下のようにコンソールに接続する。
 
 ### 使用方法<a id="usage"></a>
 
