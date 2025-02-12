@@ -6,7 +6,7 @@
 
 :::info[SDK Recommendation]
 
-We recommend using [ethers-ext](../ethers-ext/getting-started.md) or [web3js-ext](../web3js-ext/getting-started.md) SDK instead of `javer-js`. These SDKs provide the latest features and improved developer experience and can benefit both new and existing developers in the Kaia ecosystem. While existing `caver-js` implementations remain supported, our primary focus is on enhancing the `ethers-ext` and `web3js-ext` ecosystem.
+We recommend using [ethers-ext](../ethers-ext/getting-started.md) or [web3js-ext](../web3js-ext/getting-started.md) SDK instead of `caver-js`. These SDKs provide the latest features and improved developer experience and can benefit both new and existing developers in the Kaia ecosystem. While existing `caver-js` implementations remain supported, our primary focus is on enhancing the `ethers-ext` and `web3js-ext` ecosystem.
 
 :::
 
