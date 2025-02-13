@@ -296,6 +296,28 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Token Management',
+          link: {
+            type: 'doc',
+            id: 'build/tools/token-management/token-management',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Team Finance',
+              link: {
+                type: 'doc',
+                id: 'build/tools/token-management/team-finance/team-finance',
+              },
+              items: [
+                'build/tools/token-management/team-finance/liquidity-locks',
+                'build/tools/token-management/team-finance/team-token-locks',
+              ],
+            },
+          ]
+        },
         'build/tools/kaia-contracts-wizard',
       ],
     },
