@@ -49,7 +49,7 @@ In this tutorial, you will learn how to lock liquidity using Team Finance. Let's
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-7a.png)
 
-This prompts you to sign an authorisation transaction.
+> This prompts you to sign an authorisation transaction.
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-7b.png)
 
@@ -59,13 +59,13 @@ This prompts you to sign an authorisation transaction.
 
 9. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
 
-![](/img/build/tools/token-management/liquidity-locks/ll-step-9.png)
+![](/img/build/tools/token-management/liquidity-locks/ll-step-9a.png)
+
+![](/img/build/tools/token-management/liquidity-locks/ll-step-9b.png)
 
 10. Congratulations! You have successfully created a liquidity lock using Team Finance. You can view the details of your lock and track its progress on the dashboard.
 
-![](/img/build/tools/token-management/liquidity-locks/ll-step-10a.png)
-
-![](/img/build/tools/token-management/liquidity-locks/ll-step-10b.png)
+![](/img/build/tools/token-management/liquidity-locks/ll-step-10.png)
 
 
 

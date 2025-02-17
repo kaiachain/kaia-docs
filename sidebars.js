@@ -314,6 +314,10 @@ const sidebars = {
               items: [
                 'build/tools/token-management/team-finance/liquidity-locks',
                 'build/tools/token-management/team-finance/team-token-locks',
+                'build/tools/token-management/team-finance/token-vesting',
+                'build/tools/token-management/team-finance/token-creation',
+                'build/tools/token-management/team-finance/nft-locks',
+                'build/tools/token-management/team-finance/multisender',
               ],
             },
           ]
