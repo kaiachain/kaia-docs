@@ -12,4 +12,4 @@ Team Finance supports **Kaia Mainnet**. To get started using Team Finance token 
 * [Token Vesting](./token-vesting.md)
 * [Token Creation](./token-creation.md)
 * [NFT Locks](./nft-locks.md)
-* [Multisender](https://docs.team.finance/services/multisender)
+* [Multisender](./multisender.md)
