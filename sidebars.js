@@ -296,6 +296,32 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Token Management',
+          link: {
+            type: 'doc',
+            id: 'build/tools/token-management/token-management',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Team Finance',
+              link: {
+                type: 'doc',
+                id: 'build/tools/token-management/team-finance/team-finance',
+              },
+              items: [
+                'build/tools/token-management/team-finance/liquidity-locks',
+                'build/tools/token-management/team-finance/team-token-locks',
+                'build/tools/token-management/team-finance/token-vesting',
+                'build/tools/token-management/team-finance/token-creation',
+                'build/tools/token-management/team-finance/nft-locks',
+                'build/tools/token-management/team-finance/multisender',
+              ],
+            },
+          ]
+        },
         'build/tools/kaia-contracts-wizard',
       ],
     },
