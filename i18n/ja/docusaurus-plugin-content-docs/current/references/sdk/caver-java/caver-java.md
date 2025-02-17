@@ -4,6 +4,12 @@
 
 `caver-java`は、kaiaネットワーク上のクライアント(ノード)と対話するための、軽 量でモジュール性の高い便利なJavaおよびAndroidライブラリです：このライブラリは、Javaアプリケーションが[kaia](https://kaia.io)ネットワークと簡単に通信できるようにするインターフェースです。
 
+:::info[SDK Recommendation]
+
+We recommend using [web3j-ext](../web3j-ext/getting-started.md) SDK instead of `caver-java` because it provides the latest features and improved developer experience and an benefit both new and existing developers in the Kaia ecosystem.
+
+:::
+
 ## 特徴<a id="features"></a>
 
 - HTTPおよびIPCによるKaiaのJSON-RPCクライアントAPIの完全な実装
