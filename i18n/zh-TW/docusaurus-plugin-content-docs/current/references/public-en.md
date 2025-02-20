@@ -100,6 +100,32 @@ KAS 提供各種應用程序接口，以支持更簡單、更快速的區塊鏈�
 - [訂閱](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
 
+### Chainstack
+
+[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+
+To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+
+#### 特點
+
+- Free Developer plan supported
+- Scaling to paid plans supported
+- Pay-as-you-go supported
+- 25+ bockchains supported
+- 正常運行時間 99.9%+
+- Load-Balancing
+- Infinite scalability
+- Sign up with social account
+- Top up with crypto, including Kaia tokens
+- Support through Telegram, email, rich documentation and more
+- Customer stories with our dedicated Web3 copywriters
+
+#### 參考資料
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [Subscription](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
+
 ### All That Node
 
 All That Node 的目標是成為 Web3 基礎設施的可靠網關，讓構建者不再為區塊鏈網絡問題所困擾。 All That Node 保證以最低的延遲性能快速、穩健地連接 RPC 節點。
@@ -113,7 +139,7 @@ All That Node 的目標是成為 Web3 基礎設施的可靠網關，讓構建者
 - 現有檔案數據
 - 可用的 Websocket API
 - 提供跟蹤/調試 API
-- 正常運行時間 99.9%+
+- Uptime 99.9%+
 - 實施負載平衡
 - 無限可擴展性
 - Discord 社區提供全天候支持
@@ -300,7 +326,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 
 為 Kaia、Ethereum、Polygon、Arbitrum 等提供去中心化 RPC 節點。 您值得信賴的 Web3 基礎設施合作伙伴。
 
-#### 特點
+#### Features
 
 - 一般支持的公共節點無申請限制。
 - 高性能節點還可選擇增長計劃和企業計劃。
@@ -308,7 +334,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - 人工智能驅動的負載平衡器
 - 富有洞察力的分析。
 
-#### 參考資料
+#### References
 
 - [網站](https://drpc.org/)
 - [文檔](https://drpc.org/docs)
