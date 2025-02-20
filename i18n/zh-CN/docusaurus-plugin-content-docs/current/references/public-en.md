@@ -49,6 +49,7 @@
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
@@ -58,6 +59,7 @@
 |                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)            | wss://klaytn.drpc.org                                                      | kaia,klay,eth,net | 全部 |
 
 ### Testnet（Kairos）公共 JSON-RPC 端点
 
@@ -302,7 +304,7 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 - 一般支持的公共节点无申请限制。
 - 高性能节点还可选择增长计划和企业计划。
-- 跨越 100 多个网络的 50 多个区块链
+- 跨越 100 多个网络的 90 多个区块链
 - 人工智能驱动的负载平衡器
 - 富有洞察力的分析。
 
