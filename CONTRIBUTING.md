@@ -99,6 +99,4 @@ If your contribution involves adding new code or dependencies, ensure the projec
 
 ## Contributor License Agreement (CLA)
 
-Keep in mind when you submit your pull request, you'll need to sign the CLA via [CLA-Assistant](https://cla-assistant.io/klaytn/klaytn-docs) for legal purposes. You will have to sign the CLA just one time, either as an individual or corporation.
-
-You will be also prompted to sign the agreement by CLA Assistant (bot) when you open a Pull Request for the first time. Post the comment "I have read the CLA Document and I hereby sign the CLA" in the PR.
+Keep in mind when you submit your first pull request, you'll need to sign the CLA by posting the comment "I have read the CLA Document and I hereby sign the CLA" in the PR. You will have to sign the CLA just one time, either as an individual or corporation.

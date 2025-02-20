@@ -1,6 +1,6 @@
-# Klaytn Docs Style Guide
+# Kaia Docs Style Guide
 
-Please refer to this style guide when you contribute to Klaytn Docs.
+Please refer to this style guide when you contribute to Kaia Docs.
 
 ## Ground rules
 
@@ -17,7 +17,7 @@ Use clear language, while maintaining technical accuracy. Replace technical jarg
 
 ### Be aware of your audience
 
-Always consider Klaytn users' needs and help them complete processes quickly and easily. Do this by including all steps in procedures, suggesting best practices, and including tips and other types of notes.
+Always consider Kaia users' needs and help them complete processes quickly and easily. Do this by including all steps in procedures, suggesting best practices, and including tips and other types of notes.
 
 ### Get to the point
 
@@ -51,7 +51,7 @@ Use sentence-style capitalization in all levels of headings.
 
 Use the present tense and active voice.
 
-### Klaytn conventions
+### Kaia conventions
 
-- KLAY is always capitalized. There is no plural form. (2 KLAY)
-- Klaytn is written in sentence case.
+- KAIA is always capitalized. There is no plural form. (2 KAIA)
+- Kaia is written in sentence case.
