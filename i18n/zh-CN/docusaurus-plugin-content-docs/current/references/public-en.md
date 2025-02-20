@@ -49,6 +49,7 @@
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
@@ -58,6 +59,7 @@
 |                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)            | wss://klaytn.drpc.org                                                      | kaia,klay,eth,net | 全部 |
 
 ### Testnet（Kairos）公共 JSON-RPC 端点
 
@@ -97,6 +99,32 @@ KAS 提供各种应用程序接口，以支持更简单、更快速的区块链�
 - [文件](https://www.klaytnapi.com/en/resource/docs/readme)
 - [订阅](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
+
+### 链式堆栈
+
+[Chainstack](https://chainstack.com/) 是领先的 Web3 基础设施提供商，为 Kaia 提供免费和付费终端。 免费开发者计划的起始条件为每月 300 万次请求和每秒 25 次请求 (RPS)。 您可以轻松扩展付费计划。
+
+要开始使用免费的开发者计划端点，只需使用电子邮件或任何社交账户（如 GitHub 或 X (Twitter)）注册即可。
+
+#### 特点
+
+- 支持免费开发人员计划
+- 支持扩展到付费计划
+- 支持现收现付
+- 支持 25+ 个博克链
+- 正常运行时间 99.9%+
+- 负载平衡
+- 无限可扩展性
+- 使用社交账户注册
+- 使用加密货币充值，包括 Kaia 代币
+- 通过 Telegram、电子邮件和丰富的文档等提供支持
+- 与我们的 Web3 专职文案撰稿人分享客户故事
+
+#### 参考资料
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [订阅](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
 
 ### All That Node
 
@@ -302,7 +330,7 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 - 一般支持的公共节点无申请限制。
 - 高性能节点还可选择增长计划和企业计划。
-- 跨越 100 多个网络的 50 多个区块链
+- 跨越 100 多个网络的 90 多个区块链
 - 人工智能驱动的负载平衡器
 - 富有洞察力的分析。
 
