@@ -100,6 +100,33 @@ KAS provides various APIs to support easier and quicker blockchain application d
 * [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 * [Website](https://www.klaytnapi.com/en/landing/main)
 
+### Chainstack
+
+[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+
+To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+
+#### Features
+
+- Free Developer plan supported
+- Scaling to paid plans supported
+- Pay-as-you-go supported
+- 25+ bockchains supported
+- Uptime 99.9%+
+- Load-Balancing
+- Infinite scalability
+- Sign up with social account
+- Top up with crypto, including Kaia tokens
+- Support through Telegram, email, rich documentation and more
+- Customer stories with our dedicated Web3 copywriters
+
+#### References
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [Subscription](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
+
+
 ### All That Node
 
 All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
