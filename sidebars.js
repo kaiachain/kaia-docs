@@ -289,6 +289,7 @@ const sidebars = {
           },
           items: [
             'build/tools/block-explorers/kaiascope',
+            'build/tools/block-explorers/okx-kaia-explorer',
             {
               type: 'link',
               label: 'KaiaScan',
