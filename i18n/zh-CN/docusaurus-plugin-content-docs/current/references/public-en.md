@@ -100,6 +100,32 @@ KAS 提供各种应用程序接口，以支持更简单、更快速的区块链�
 - [订阅](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
 
+### 链式堆栈
+
+[Chainstack](https://chainstack.com/) 是领先的 Web3 基础设施提供商，为 Kaia 提供免费和付费终端。 免费开发者计划的起始条件为每月 300 万次请求和每秒 25 次请求 (RPS)。 您可以轻松扩展付费计划。
+
+要开始使用免费的开发者计划端点，只需使用电子邮件或任何社交账户（如 GitHub 或 X (Twitter)）注册即可。
+
+#### 特点
+
+- 支持免费开发人员计划
+- 支持扩展到付费计划
+- 支持现收现付
+- 支持 25+ 个博克链
+- 正常运行时间 99.9%+
+- 负载平衡
+- 无限可扩展性
+- 使用社交账户注册
+- 使用加密货币充值，包括 Kaia 代币
+- 通过 Telegram、电子邮件和丰富的文档等提供支持
+- 与我们的 Web3 专职文案撰稿人分享客户故事
+
+#### 参考资料
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [订阅](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
+
 ### All That Node
 
 All That Node 的目标是成为 Web3 基础设施的可靠网关，让构建者不再为区块链网络问题所困扰。 All That Node 保证以最低的延迟性能快速、稳健地连接 RPC 节点。
