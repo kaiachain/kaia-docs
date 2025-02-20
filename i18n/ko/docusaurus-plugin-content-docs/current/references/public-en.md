@@ -100,6 +100,32 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
 
+### 체인스택
+
+[체인스택](https://chainstack.com/)은 선도적인 웹3 인프라 제공업체로, Kaia를 위한 무료 및 유료 엔드포인트를 제공합니다. 무료 개발자 요금제는 월 300만 건의 요청과 초당 25건의 요청(RPS)으로 시작합니다. 유료 요금제로 쉽게 확장할 수 있습니다.
+
+무료 개발자 플랜 엔드포인트를 시작하려면 이메일 또는 GitHub 또는 X(트위터)와 같은 소셜 계정으로 가입하기만 하면 됩니다.
+
+#### Features
+
+- 무료 개발자 플랜 지원
+- 유료 요금제로의 확장 지원
+- 종량제 지원
+- 25개 이상의 블록체인을 지원
+- Uptime 99.9%+
+- 로드 밸런싱
+- 무한한 확장성
+- 소셜 계정으로 가입하기
+- 카이아 토큰을 포함한 암호화폐로 충전하기
+- 텔레그램, 이메일, 풍부한 문서 등을 통한 지원
+- 전담 웹3 카피라이터와 함께하는 고객 스토리
+
+#### References
+
+- [문서](https://chainstack.com/build-better-with-kaia/)
+- [구독](https://chainstack.com/pricing/)
+- [웹사이트](https://chainstack.com/)
+
 ### All That Node
 
 All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
@@ -113,7 +139,7 @@ All That Node aims to become trusty gateway to Web3 infrastructure allowing buil
 - Archival Data Available
 - Websocket API Available
 - Trace/Debug API Available
-- Uptime 99.9%+
+- 가동 시간 99.9% 이상
 - Load-Balancing implemented
 - Infinite Scalability
 - 24/7 Support with the Discord Community
@@ -300,7 +326,7 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 
 Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
 
-#### Features
+#### 특징
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
@@ -308,7 +334,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 - AI-driven load balancer
 - Insightful analytics.
 
-#### References
+#### 참조
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)
