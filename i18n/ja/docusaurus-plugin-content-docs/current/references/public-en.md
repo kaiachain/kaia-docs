@@ -100,6 +100,32 @@ KASは、より簡単で迅速なブロックチェーンアプリケーショ�
 - [購読](https://www.klaytnapi.com/en/landing/pricings)
 - [ウェブサイト](https://www.klaytnapi.com/en/landing/main)
 
+### Chainstack
+
+[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+
+To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+
+#### 特徴
+
+- Free Developer plan supported
+- Scaling to paid plans supported
+- Pay-as-you-go supported
+- 25+ bockchains supported
+- アップタイム99.9%以上
+- Load-Balancing
+- Infinite scalability
+- Sign up with social account
+- Top up with crypto, including Kaia tokens
+- Support through Telegram, email, rich documentation and more
+- Customer stories with our dedicated Web3 copywriters
+
+#### 参考文献
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [Subscription](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
+
 ### All That Node
 
 All That Nodeは、Web3インフラへの信頼できるゲートウェイとなることを目指しており、ビルダーはブロックチェーン・ネットワークに関する問題に惑わされることはない。 オール・ザット・ノードは、RPCノードへの高速かつ堅牢な接続を最低のレイテンシー性能で保証します。
@@ -113,7 +139,7 @@ All That Nodeは、Web3インフラへの信頼できるゲートウェイとな
 - アーカイブデータあり
 - 利用可能なWebsocket API
 - トレース/デバッグAPIが利用可能
-- アップタイム99.9%以上
+- Uptime 99.9%+
 - ロードバランシングの実施
 - 無限のスケーラビリティ
 - Discordコミュニティによる24時間365日のサポート
@@ -300,7 +326,7 @@ Quicknodeは、安全で分散型のイノベーションを促進するブロ�
 
 Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバイダ。 信頼できるWeb3のインフラパートナーです。
 
-#### 特徴
+#### Features
 
 - GeneralサポートのPublicノードはリクエスト制限なし。
 - 高性能ノード向けには、グロースプランとエンタープライズプランもご用意しています。
@@ -308,7 +334,7 @@ Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバ�
 - AIロードバランサー
 - 洞察に満ちた分析。
 
-#### 参考文献
+#### References
 
 - [ウェブサイト](https://drpc.org/)
 - [ドキュメント](https://drpc.org/docs)
