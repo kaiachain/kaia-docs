@@ -1,6 +1,6 @@
 # Glossary
 
-This glossary provides explanation on technical terms specific to the Kaia Blockchain. It stands as your goto for understanding numerous terms you will encounter while exploring Kaia documentation, guides and tutorials.
+This glossary provides explanation on technical terms specific to the Kaia Blockchain. It stands as your go-to for understanding numerous terms you will encounter while exploring Kaia documentation, guides and tutorials.
 
 ### anchor
 A cryptographically secure reference to data stored outside of a blockchain. Anchors can be used to link data from different systems together, or to provide tamper-proof evidence of the existence of data at a specific point in time.
