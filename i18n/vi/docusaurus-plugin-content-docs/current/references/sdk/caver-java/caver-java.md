@@ -4,6 +4,12 @@
 
 `caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network: This library is an interface which allows Java applications to easily communicate with [kaia](https://kaia.io) network.
 
+:::info[SDK Recommendation]
+
+We recommend using [web3j-ext](../web3j-ext/getting-started.md) SDK instead of `caver-java` because it provides the latest features and improved developer experience and an benefit both new and existing developers in the Kaia ecosystem.
+
+:::
+
 ## Features <a id="features"></a>
 
 - Complete implementation of Kaia’s JSON-RPC client API over HTTP and IPC
