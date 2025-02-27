@@ -21,3 +21,6 @@ jobs:
           branch: "main"
           allowlist: dependabot[bot]
           remote-repository-name: ${{ secrets.CLA_REPOSITORY }}
+          custom-notsigned-prcomment: "Pls sign me"
+          custom-pr-sign-comment: "thank for signing"
+          custom-allsigned-prcomment: "everyone signed"
