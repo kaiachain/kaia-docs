@@ -21,9 +21,9 @@ jobs:
           branch: "main"
           allowlist: dependabot[bot]
           remote-repository-name: ${{ secrets.CLA_REPOSITORY }}
-          custom-notsigned-prcomment: "Pls sign me"
+          custom-notsigned-prcomment: |
+            <br/>Thank you ${{ github.event.pull_request.user.login }} for your submission, we really appreciate it. Like many open-source projects, we ask that you sign our [Contributor License Agreement](https://github.com/kaiachain/kaia-docs/blob/main/.github/CLA.md) before we can accept your contribution. You can sign the CLA by just posting a Pull Request Comment same as the below format.<br/>
           custom-pr-sign-comment: |
-            <br/>Thank you for your submission, we really appreciate it. Like many open-source projects, we ask that you sign our [Contributor License Agreement](https://github.com/kaiachain/kaia-docs/blob/main/.github/CLA.md) before we can accept your contribution. You can sign the CLA by just posting a Pull Request Comment same as the below format.<br/>
-          custom-allsigned-prcomment: |
             I have read the CLA Document and I hereby sign the CLA
             <sub>You can retrigger this bot by commenting **recheck** in this Pull Request
+      
