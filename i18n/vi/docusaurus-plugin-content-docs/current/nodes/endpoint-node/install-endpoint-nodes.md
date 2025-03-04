@@ -237,3 +237,4 @@ You can get the latest block number to see if blocks are propagated properly.
 ```
 
 The above command line returns the number of nodes that the EN connects to.
+
