@@ -185,20 +185,20 @@ brew services start grafana
 
 3. プロメテウスをデータソースとして追加する。
 
-   - **Configiguration** -> **Data Sources** に移動します。
-   - **Add data source**をクリックします。
-   - タイプは**Prometheus**を選択してください。
-   - **URL** を `http://localhost:9090` に設定してください（Prometheus が別のサーバーにある場合は変更してください）。
-   - **Save & Test**をクリックして接続を確認します。
+  - **Configiguration** -> **Data Sources** に移動します。
+  - **Add data source**をクリックします。
+  - タイプは**Prometheus**を選択してください。
+  - **URL** を `http://localhost:9090` に設定してください（Prometheus が別のサーバーにある場合は変更してください）。
+  - **Save & Test**をクリックして接続を確認します。
 
 4. カイアのダッシュボードを追加し、カイアのブロック番号を可視化するパネルを追加する。
-   - [新しいダッシュボードを作成する](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)、または既存のダッシュボードに移動する。
-   - 右上の**Edit**をクリックし、ダッシュボードのヘッダーにある**Add**をクリックし、ドロップダウンから**Visualization**を選択してパネルを追加します。
-   - **Query**の下：
-     1. プロメテウスを**Data source**として選択します。
-     2. **Metric**フィールドに `klaytn_blockchain_head_blocknumber` と入力する。
-     3. **Options**で、**Legend** ドロップダウンから**Custom** を選択し、カスタム凡例フォーマットとして `{{instance}}` を入力する。
-   - **Apply**をクリックしてパネルをダッシュボードに保存します。
+  - [新しいダッシュボードを作成する](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/)、または既存のダッシュボードに移動する。
+  - 右上の**Edit**をクリックし、ダッシュボードのヘッダーにある**Add**をクリックし、ドロップダウンから**Visualization**を選択してパネルを追加します。
+  - **Query**の下：
+    1. プロメテウスを**Data source**として選択します。
+    2. **Metric**フィールドに `klaytn_blockchain_head_blocknumber` と入力する。
+    3. **Options**で、**Legend** ドロップダウンから**Custom** を選択し、カスタム凡例フォーマットとして `{{instance}}` を入力する。
+  - **Apply**をクリックしてパネルをダッシュボードに保存します。
 
 :::note[Additional カイア・ダッシュボード］
 
