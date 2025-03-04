@@ -23,7 +23,8 @@
 ![](/img/build/tools/token-management/token-vesting/tv-step-3.png)
 
 4. 입력 필드에 부여하려는 토큰의 **토큰 주소**를 입력하고 확인한 후 **계속하기**를 클릭합니다.
-   ![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
 
 > 저희의 경우 교육 목적으로 카이아 체인에서 만들어진 **Eddie** 토큰을 사용하고 있습니다.
 
@@ -54,4 +55,6 @@
 ![](/img/build/tools/token-management/token-vesting/tv-step-8b.png)
 
 9. 축하합니다! 팀 재정을 사용하여 토큰을 성공적으로 획득했습니다. 대시보드에서 토큰 베스팅에 대한 세부 정보를 확인하고 진행 상황을 추적할 수 있습니다.
-   ![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
