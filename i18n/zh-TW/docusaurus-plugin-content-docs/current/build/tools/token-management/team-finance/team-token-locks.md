@@ -13,35 +13,45 @@ By utilizing platforms like Team Finance for team token locks, crypto projects c
 In this tutorial, you will learn how to lock liquidity using Team Finance. Let's get started!
 
 1. Navigate to Team Finance [Team token locks](https://team.finance/team-token-locks) and click on **"Create team token lock"**.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-1.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-1.jpeg)
 
 2. Connect your wallet to Team Finance by clicking on **"Select Wallet"** and click **"Continue"**.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-2.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-2.jpeg)
 
 3. Select **Kaia** under the blockchain networks and click on **"Continue"**.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-3.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-3.jpeg)
 
 4. Enter the **Token address** of your KAIA token in the input field, verify and click **"Continue"**.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-4.jpeg)
 
-In our case we are using **KTT** token made on Kaia chain.
+![](/img/build/tools/token-management/team-token-locks/ttl-step-4.jpeg)
+
+> In our case we are using **KTT** token made on Kaia chain.
 
 5. Add the details of the team token lock, including the **Lock amount** and **Lock duration**. Click **"Continue"** to proceed.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-5.jpeg)
 
-In this case, we have locked **1000KTT** tokens until **January 1, 2026**.
+![](/img/build/tools/token-management/team-token-locks/ttl-step-5.jpeg)
+
+> In this case, we have locked **1000KTT** tokens until **January 1, 2026**.
 
 6. Click on **"Give Permission"** and go to your wallet to sign the transaction.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-6.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-6.jpeg)
 
 7. You will receive a confirmation message once you have signed. Click **"Continue"** to proceed.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-7.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-7.jpeg)
 
 8. Now, verify the details of your team token lock and click **"Confirm transaction"** to finalize the lock. Go to your wallet and sign the transaction to complete the process.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-8.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-8.jpeg)
 
 9. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
-   ![](/img/build/tools/token-management/team-token-locks/ttl-step-9.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-9.jpeg)
 
 10. Congratulations! You have successfully created a team token lock using Team Finance. You can view the details of your lock and track its progress on the dashboard.
-    ![](/img/build/tools/token-management/team-token-locks/ttl-step-10.jpeg)
+
+![](/img/build/tools/token-management/team-token-locks/ttl-step-10.jpeg)
