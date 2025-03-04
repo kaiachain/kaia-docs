@@ -10,6 +10,7 @@ With Team Finance, projects and founders can save time and money on audits and d
 In this tutorial, you will learn how to easily create tokens with Team Finance. Let's get started!
 
 1. Navigate to Team Finance [Token creation](https://app.team.finance/token-creation) tab and click on **Create token**.
+
 ![](/img/build/tools/token-management/token-creation/tc-step-1.png)
 
 2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.

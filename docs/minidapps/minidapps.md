@@ -12,5 +12,5 @@ You will learn how to create a mini dApp that enables users to connect their wal
 
 Ready to build your first LINE mini dApp? We'll walk through creating a dApp using Unity WebGL, transform it into a LIFF (LINE Front-end Framework) app, and add some exciting token minting capabilities. If you're unfamiliar with some of these terms, each concept will be explained thoroughly.
 
-![](/img/minidapps/unity-minidapp/info-minidapp-banner.png)
+![](/img/minidapps/unity-minidapp/unity-minidapp-banner.png)
 
