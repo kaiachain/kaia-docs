@@ -15,7 +15,7 @@ jobs:
           # added, diff_context, file, nofilter
           filter_mode: added
           # github-pr-check, github-pr-review, github-check
-          reporter: github-pr-review
+          reporter: github-pr-check
           vale_flags: --glob=*.{md} --minAlertLevel=error
           fail_on_error: false
         env:
