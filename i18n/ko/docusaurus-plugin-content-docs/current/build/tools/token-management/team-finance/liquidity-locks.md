@@ -67,3 +67,13 @@
 10. 축하합니다! 팀 재정을 사용하여 유동성 잠금을 성공적으로 만들었습니다. 대시보드에서 잠금에 대한 세부 정보를 확인하고 진행 상황을 추적할 수 있습니다.
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-10.png)
+
+
+
+
+
+
+
+
+
+
