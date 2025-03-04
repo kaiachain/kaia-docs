@@ -13,7 +13,7 @@ jobs:
         with:
           files: docs
           # added, diff_context, file, nofilter
-          filter_mode: diff_context
+          filter_mode: added
           # github-pr-check, github-pr-review, github-check
           reporter: github-pr-check
           vale_flags: --glob=*.{md} --minAlertLevel=error
