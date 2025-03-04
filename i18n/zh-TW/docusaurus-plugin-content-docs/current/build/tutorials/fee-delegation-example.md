@@ -316,7 +316,7 @@ sentTx TransactionResponse {
 
 ### 4.4 View on Kaiascan <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
 
-You can also find the above transaction on [Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview\&page=1).
+You can also find the above transaction on Kaiascan.
 
 It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x88311cd55b656d2502b50f62e83f8279c1641e70` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
 
