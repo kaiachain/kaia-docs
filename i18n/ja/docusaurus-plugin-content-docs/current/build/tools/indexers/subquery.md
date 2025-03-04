@@ -30,9 +30,9 @@ dApp開発者のための最もオープンでパフォーマンス、信頼性�
 
 SubQueryを使い始めるのに役立つ追加リソースをいくつかご紹介します：
 
-- [SubQueryウェブサイト](https://subquery.network/?utm_source=klaytn\\\\\&utm_medium=partner-docs)
-- [ドキュメント](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
-- [SubQuery Kaia サポート 発表](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\\\\\&utm_medium=partner-docs)
-- [カイア・クイックスタート](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\&utm_medium=partner-docs)
+- [SubQueryウェブサイト](https://subquery.network/?utm_source=klaytn\\\\&utm_medium=partner-docs)
+- [ドキュメント](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
+- [SubQuery Kaia サポート 発表](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\\\\&utm_medium=partner-docs)
+- [カイア・クイックスタート](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
 - [カイヤスタータープロジェクト](https://github.com/subquery/ethereum-subql-starter/tree/main/Kaia/klaytn-starter)
-- [ディスコードサポート](https://discord.com/invite/subquery/?utm_source=klaytn\&utm_medium=partner-docs)
+- [ディスコードサポート](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
