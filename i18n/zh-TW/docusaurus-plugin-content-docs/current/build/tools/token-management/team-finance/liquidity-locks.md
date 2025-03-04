@@ -67,3 +67,13 @@ In this tutorial, you will learn how to lock liquidity using Team Finance. Let's
 10. Congratulations! You have successfully created a liquidity lock using Team Finance. You can view the details of your lock and track its progress on the dashboard.
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-10.png)
+
+
+
+
+
+
+
+
+
+
