@@ -27,7 +27,7 @@ export const getPath = ({
   module: `/${string}`
   route: RoutePath
 }): string => {
-  return `https://codesandbox.io/embed/47sz67?module=${encodeURIComponent(
+  return `https://codesandbox.io/embed/ldf48w?module=${encodeURIComponent(
     module
   )}&initialpath=${encodeURIComponent(route)}`
 }
