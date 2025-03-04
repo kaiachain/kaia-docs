@@ -16,7 +16,7 @@ jobs:
           filter_mode: added
           # github-pr-check, github-pr-review, github-check
           reporter: github-pr-review
-          vale_flags: --glob=*.{md} --minAlertLevel=error
+          vale_flags: --glob=*.{md,mdx} --minAlertLevel=error
           fail_on_error: false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
