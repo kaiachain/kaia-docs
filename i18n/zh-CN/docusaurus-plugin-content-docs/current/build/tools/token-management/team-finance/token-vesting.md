@@ -23,7 +23,8 @@
 ![](/img/build/tools/token-management/token-vesting/tv-step-3.png)
 
 4. 在输入框中输入要归属的令牌的**令牌地址**，验证后点击**继续**。
-   ![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
 
 > 在我们的案例中，出于教育目的，我们使用的是在 Kaia 链上制作的 **Eddie** 标记。
 
@@ -54,4 +55,6 @@
 ![](/img/build/tools/token-management/token-vesting/tv-step-8b.png)
 
 9. 祝贺你 您已使用 Team Finance 成功归属代币。 您可以在仪表板上查看代币归属的详细信息并跟踪其进度。
-   ![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
