@@ -11,7 +11,8 @@
 이 튜토리얼에서는 팀 파이낸스로 토큰을 쉽게 생성하는 방법을 알려드리겠습니다. 시작해보자!
 
 1. 팀 재무 [토큰 생성](https://app.team.finance/token-creation) 탭으로 이동하여 **토큰 생성**을 클릭합니다.
-   ![](/img/build/tools/token-management/token-creation/tc-step-1.png)
+
+![](/img/build/tools/token-management/token-creation/tc-step-1.png)
 
 2. 지갑을 **지갑 선택**을 클릭하고 **계속**을 클릭하여 팀 재무에 지갑을 연결합니다.
 
