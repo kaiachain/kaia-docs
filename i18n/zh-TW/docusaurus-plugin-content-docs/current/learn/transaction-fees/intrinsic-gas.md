@@ -67,11 +67,11 @@ klaytn 有三種交易類型："基本"、"費用委託 "和 "費用委託與費
 這在計算 TxTypedGas 時非常重要：
 
 - 首先，檢查 TxType 是否為 "feeDelegated "或 "feeDelegatedWithFeeRatio"。
-  - 如果 TxType 為 "委託收費"，則在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
-  - 如果 TxType 為 "feeDelegatedWithFeeRatio"，則在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
+    - 如果 TxType 為 "委託收費"，則在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
+    - 如果 TxType 為 "feeDelegatedWithFeeRatio"，則在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
 - 第二，檢查交易是否創建了合同。
-  - 如果交易創建了合同，則在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
-  - 否則，在 TxTypedGas 中添加 `TxGas (21000)`。
+    - 如果交易創建了合同，則在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
+    - 否則，在 TxTypedGas 中添加 `TxGas (21000)`。
 
 例如
 
@@ -85,3 +85,4 @@ klaytn 有三種交易類型："基本"、"費用委託 "和 "費用委託與費
 | --------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 上海 EVM    | 計算本徵氣體時的限制和儀表初始代碼<br/>- 開始每字初始代碼添加 2 個氣體                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | 伊斯坦布爾 EVM | make the [PayloadGas](#payloadgas) of legacyTxType consistent with other TxTypes<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](#keyvalidationgas) calculation logic<br/>- Before: KeyValidationGas=(number of keys - 1) x 15,000<br/>- After: KeyValidationGas=(number of signatures - 1) x 15,000 |
+
