@@ -19,4 +19,4 @@ jobs:
           vale_flags: --glob=*.{md} --minAlertLevel=error
           fail_on_error: false
         env:
-          GITHUB_TOKEN: ${{ secrets.CLA_PERSONAL_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
