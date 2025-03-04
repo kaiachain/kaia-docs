@@ -60,13 +60,13 @@ npx thirdweb create --contract
 
 2. Enter your preferred values for the command-line prompts:
 
-   i. Give your project a name.
+  i. Give your project a name.
 
-   ii. Choose your preferred framework: **Hardhat** or **Foundry**.
+  ii. Choose your preferred framework: **Hardhat** or **Foundry**.
 
-   iii. Name your smart contract.
+  iii. Name your smart contract.
 
-   iv. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**. Add any desired **extensions**. For this tutorial, we will select ERC721 and setting the extension to none.
+  iv. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**. Add any desired **extensions**. For this tutorial, we will select ERC721 and setting the extension to none.
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
@@ -117,10 +117,10 @@ Executing this command will trigger the following actions:
 - upload your compiled smart contract code (in the form of an Application Binary Interface, or ABI) to IPFS.
 
 2. When deployment is complete, a dashboard interface will open to fill out the remaining parameters.
-   - **_name**: contract name
-   - **_symbol**: symbol or "ticker"
-   - **_royaltyRecipient**: wallet address to receive royalties from secondary sales
-   - **_royaltyBps**: basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g., 500 = 5%
+  - **_name**: contract name
+  - **_symbol**: symbol or "ticker"
+  - **_royaltyRecipient**: wallet address to receive royalties from secondary sales
+  - **_royaltyBps**: basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g., 500 = 5%
 
 3. Select `Kaia Mainnet` as the network to deploy the contract to.
 
@@ -167,3 +167,4 @@ Congratulations! if you made it to the end of this guide. If you have any questi
 - [Thirdweb Docs](https://portal.thirdweb.com/)
 - [How to build a dApp using Thirdweb](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
 - [Create your own NFT marketplace with NextJS and TypeScript](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
+
