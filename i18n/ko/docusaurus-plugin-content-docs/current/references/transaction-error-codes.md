@@ -33,3 +33,4 @@ Kaia provides a field `txError` in the transaction receipt to give developers mo
 | 0x1c       | deprecated feature                                                                                                      |
 | 0x1d       | not supported                                                                                                           |
 | 0x1e       | smart contract code format is invalid                                                                                   |
+
