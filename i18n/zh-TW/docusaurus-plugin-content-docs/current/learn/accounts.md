@@ -287,3 +287,4 @@ RLP: 0x05f898a302a103e4a01407460c1c03ac0c82fd84f303a699b210c0b054f4aff72ff7dcdf0
 | AccountKeyFail             | 0x03      |
 | AccountKeyWeightedMultiSig | 0x04      |
 | AccountKeyRoleBased        | 0x05      |
+
