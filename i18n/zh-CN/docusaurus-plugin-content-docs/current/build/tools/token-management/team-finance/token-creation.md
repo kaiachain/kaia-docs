@@ -11,7 +11,8 @@
 在本教程中，您将学习如何使用 Team Finance 轻松创建代币。 让我们开始吧！
 
 1. 导航至团队财务 [令牌创建](https://app.team.finance/token-creation) 选项卡，点击 **创建令牌**。
-   ![](/img/build/tools/token-management/token-creation/tc-step-1.png)
+
+![](/img/build/tools/token-management/token-creation/tc-step-1.png)
 
 2. 点击**选择钱包**，然后点击**继续**，将您的钱包连接到 Team Finance。
 
