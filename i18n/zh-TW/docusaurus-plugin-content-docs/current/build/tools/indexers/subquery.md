@@ -30,9 +30,9 @@ SubQuery 是開源的，這意味著你可以通過以下三種方式自由運�
 
 下面是一些幫助您開始使用 SubQuery 的其他資源：
 
-- [子查詢網站](https://subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
-- [文件](https://academy.subquery.network/?utm_source=klaytn\&utm_medium=partner-docs)
-- [SubQuery Kaia 支持公告](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn\&utm_medium=partner-docs)
-- [Kaia快速啟動](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn\&utm_medium=partner-docs)
+- [子查詢網站](https://subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
+- [文件](https://academy.subquery.network/?utm_source=klaytn&utm_medium=partner-docs)
+- [SubQuery Kaia 支持公告](https://subquery.medium.com/subquerys-data-indexing-supports-builders-on-klaytn-e5a3aec4bc14?utm_source=klaytn&utm_medium=partner-docs)
+- [Kaia快速啟動](https://academy.subquery.network/quickstart/quickstart_chains/klaytn.html/?utm_source=klaytn&utm_medium=partner-docs)
 - [Kaia啟動項目](https://github.com/subquery/ethereum-subql-starter/tree/main/Kaia/klaytn-starter)
-- [Discord支持](https://discord.com/invite/subquery/?utm_source=klaytn\&utm_medium=partner-docs)
+- [Discord支持](https://discord.com/invite/subquery/?utm_source=klaytn&utm_medium=partner-docs)
