@@ -5,7 +5,7 @@ In addition to the basic [Address](https://www.okx.com/web3/explorer/kaia/addres
 
 OKX Kaia Explorer also supports:
 
-- [Contract difference checker](https://www.okx.com/web3/explorer/contract-diff#source-chain=klaytn\&target-chain=klaytn): This tool is particularly useful for comparing legitimate contract source code with suspicious contracts. It highlights differences to help detect potential threats to investors. Developers can also use this to enhance security and functionality by referencing robust, proven code.
+- Contract difference checker: This tool is particularly useful for comparing legitimate contract source code with suspicious contracts. It highlights differences to help detect potential threats to investors. Developers can also use this to enhance security and functionality by referencing robust, proven code.
 - [Similar contract finder](https://www.okx.com/web3/explorer/similar-contract#source-chain=klaytn): A handy tool that displays source code and Read/Write capabilities for contracts with similar bytecode but different constructor arguments.
 - [Large transfer monitor](https://www.okx.com/web3/explorer/large-transfer-monitor/kaia) : Provides real-time data on large token transfers, making it easy to track market trends and spot high-return opportunities.
 - [Token alert](https://www.okx.com/web3/explorer/token-alert): Get instant access to comprehensive, real-time on-chain data, including large transactions and significant fund movements, unlocking valuable market insights.
