@@ -23,7 +23,8 @@ In this tutorial, you will learn how to vest tokens for a certain period using v
 ![](/img/build/tools/token-management/token-vesting/tv-step-3.png)
 
 4. Enter the **Token address** for the token you are vesting in the input field, verify and click **Continue**.
-   ![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
 
 > In our case for educational purpose, we are using **Eddie** token made on Kaia chain.
 
@@ -54,4 +55,6 @@ Click **Add Address** to manually add more vesting schedules and then click **Co
 ![](/img/build/tools/token-management/token-vesting/tv-step-8b.png)
 
 9. Congratulations! You have successfully vested tokens using Team Finance. You can view the details of your token vesting and track its progress on the dashboard.
-   ![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
+![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
+
