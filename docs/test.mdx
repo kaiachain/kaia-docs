@@ -1,0 +1,122 @@
+---
+id: connecting-metamask
+title: Connecting MetaMask to Kaia
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Connect MetaMask to Kaia
+
+![](/img/banners/kaia-metamask.png)
+
+> **Note**: MetaMask is mostly used as a wallet for Ethereum, but it is also compatible with Kaia due to the identical address structures. Kaia also has a browser extension wallet called [Kaia Wallet](../tools/wallets/kaia-wallet.md), so it basically provides the same features as MetaMask, except for Remix.
+
+## Step 1. Install MetaMask <a href="#install-metamask" id="install-metamask"></a>
+
+* We will be using Chrome browser in this example. ([**Install Chrome**](https://www.google.com/intl/en_us/chrome/))
+*   Add [**MetaMask Extension**](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) to Chrome.
+
+    > **Note:** You may need additional installations if you are using another browser.
+* You can start MetaMask by clicking on the icon in the upper right-hand corner of your chrome browser.
+
+## Step 2. Generate a MetaMask Wallet <a href="#generate-a-metamask" id="generate-a-metamask"></a>
+
+![Create a Wallet](/img/build/tutorials/new-to-metamask.png)
+
+* Click on \[Create a Wallet].
+* Set a password.
+*   You will be given a 12 word seed phrase; back it up somewhere secure.
+
+    > **Note:** You can only restore your wallet with the seed phrase. Sharing your seed phrase with others may result in losing all of your funds. Therefore, it is recommended that you either write it down manually or store it in an offline device.
+
+![Seed phrase and Wallet](/img/build/tutorials/metamask-secret-backup.png)
+
+## Step 3. Connect to Kaia Network <a href="#connect-to-kaia-network" id="connect-to-kaia-network"></a>
+
+### A. Quick Configuration
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">Use <a href="https://chainlist.org/chain/8217">ChainList</a> for a one-click configuration and follow the instructions.</TabItem>
+
+ <TabItem value="kairos-testnet" label="Kaia Kairos Testnet">Use <a href="https://chainlist.org/chain/1001">ChainList</a> for a one-click configuration and follow the instructions.</TabItem>
+</Tabs>
+
+
+### B. Manual Configuration
+
+1. Click on the upper Networks tab, which is on Ethereum Mainnet as default, and select \[Add network].
+
+![Add Network](/img/build/tutorials/mm-network-btn.png)
+
+
+2. Enter the following Kaia network details in the **Add a network manually** page and click **Save**
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">
+
+```jsx title="Network Name "
+Kaia Mainnet
+```
+
+```jsx title="New RPC URL "
+https://public-en.node.kaia.io
+```
+
+```jsx title="Chain ID "
+8217
+```
+
+```jsx title="Network Symbol "
+KAIA
+```
+
+```jsx title="Block Explorer URL"
+https://kaiascan.io
+```
+
+  </TabItem>
+  <TabItem value="kairos-testnet" label="Kaia Kairos Testnet">
+
+```jsx title="Network Name "
+Kaia Kairos Testnet
+```
+
+```jsx title="New RPC URL "
+https://public-en-kairos.node.kaia.io
+```
+
+```jsx title="Chain ID "
+1001
+```
+
+```jsx title="Network Symbol "
+KAIA
+```
+
+```jsx title="Block Explorer URL"
+https://kairos.kaiascan.io
+```
+
+  </TabItem>
+</Tabs>
+
+## Step 4. Send KAIA <a href="#send-klay" id="send-klay"></a>
+
+**Note:** The following steps require KAIA. For this guide, we will be using Kairos Testnet. You can obtain Test KAIA in [**Kaia Faucet**](https://faucet.kaia.io).
+
+
+* Click \[Send] on the main page and enter the recipient address and the amount of KAIA.
+
+![Send KAIA 1](/img/build/tutorials/kairos-metamask-send.png)
+
+**NOTE:** Sending KAIA is a payment transaction, for which you need KAIA.
+
+* Since Kaia v1.9.0, a [dynamic gas fee mechanism](https://medium.com/klaytn/dynamic-gas-fee-pricing-mechanism-1dac83d2689) has replaced the existing fixed price policy.
+* So you don't have to set the fixed gas fee manually.
+* Check the amount to send and the transaction fee and click \[Confirm] to complete the KAIA transfer, after which you will be redirected to the main page.
+* Click \[Activity] on the main page to confirm the transaction history.
+
+![Send KAIA 2](/img/build/tutorials/kairos-metamask-send-ii.png)
+
+
