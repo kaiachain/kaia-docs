@@ -92,3 +92,4 @@ $ systemctl restart telegraf
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
 作為 CC 操作員，您可以在 Slack 頻道中提供公司名稱和電子郵件地址，申請一個賬戶。 請注意，只有 CC 操作員才能申請 Grafana 帳戶。
+
