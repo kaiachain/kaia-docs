@@ -60,13 +60,13 @@ npx thirdweb create --contract
 
 2. コマンドラインのプロンプトにお好みの値を入力してください：
 
-   i. プロジェクトに名前をつける。
+  i. プロジェクトに名前をつける。
 
-   ii. お好きなフレームワークをお選びください：**Hardhat**または**Foundry**。
+  ii. お好きなフレームワークをお選びください：**Hardhat**または**Foundry**。
 
-   iii. スマート・コントラクトに名前を付ける。
+  iii. スマート・コントラクトに名前を付ける。
 
-   iv. ベース契約のタイプを選択する：**Empty**、**ERC20**、**ERC721**、**ERC1155**。 必要な**拡張機能**を追加する。 このチュートリアルでは、ERC721を選択し、拡張子をnoneに設定します。
+  iv. ベース契約のタイプを選択する：**Empty**、**ERC20**、**ERC721**、**ERC1155**。 必要な**拡張機能**を追加する。 このチュートリアルでは、ERC721を選択し、拡張子をnoneに設定します。
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
@@ -117,10 +117,10 @@ npx thirdweb deploy
 - コンパイルしたスマートコントラクトのコードを（アプリケーション・バイナリ・インターフェース（ABI）の形で）IPFSにアップロードします。
 
 2. 配備が完了すると、ダッシュボードのインターフェイスが開き、残りのパラメータを入力する。
-   - **_name**：契約名
-   - **_symbol**：シンボルまたは "ティッカー"
-   - **__royaltyRecipient**：二次販売からのロイヤルティを受け取るウォレットアドレス
-   - **ロイヤリティBps**：二次販売ごとにロイヤリティ受取人に付与されるベーシス・ポイント（bps）。
+  - **_name**：契約名
+  - **_symbol**：シンボルまたは "ティッカー"
+  - **__royaltyRecipient**：二次販売からのロイヤルティを受け取るウォレットアドレス
+  - **ロイヤリティBps**：二次販売ごとにロイヤリティ受取人に付与されるベーシス・ポイント（bps）。
 
 3. 契約を展開するネットワークとして`Kaia Mainnet`を選択する。
 
@@ -167,3 +167,4 @@ thirdwebのデプロイコマンドについては、こちらの[デプロイ�
 - [サードウェブ・ドックス](https://portal.thirdweb.com/)
 - [Thirdwebを使ったdAppの作り方](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
 - [NextJSとTypeScriptで独自のNFTマーケットプレイスを作ろう](https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next/)
+
