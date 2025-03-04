@@ -27,3 +27,4 @@ Because the signing must happen automatically unattended, those keys have to be 
 
 In the future, the nodes could support storing the keys in an external provider such as key management systems (KMS) or hardware security modules (HSM). Note that node security is still important even with these key management mechanisms. Although the keys cannot be copied, a compromised node can still initiate the signing of malicious payloads.
 On top of key theft, key loss is also a risk to manage. It is recommended to backup the node keys in an encrypted keystore file, and preserve in an offline storage.
+
