@@ -64,19 +64,19 @@ Remix IDE :
 
 - Remix IDE에서 **Solidity compiler 탭**으로 이동합니다.
 
-  - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
-  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
-  - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
-  - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
+    - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
+    - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
+    - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
+    - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
 
-  ![](/img/build/tutorials/counter-veri-parameters.png)
+    ![](/img/build/tutorials/counter-veri-parameters.png)
 
 - Remix IDE에서 **Kaia 탭**으로 이동합니다.
 
-  - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
-  - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
+    - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
+    - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
 
-  ![](/img/build/tutorials/counter-veri-parametersII.png)
+    ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## 여러 부분으로 구성된 컨트랙트 배포하기
 
@@ -124,15 +124,15 @@ Remix IDE:
 
 - Remix IDE에서 **File explorer 탭**으로 이동합니다.
 
-  - **contracts** 폴더에서 새로 생성한 컨트랙트를 선택합니다.
-  - 두 손가락으로 클릭하거나 탭하여 컨트랙트에서 사용 가능한 모든 명령을 확인합니다.
-  - **flatten**을 선택합니다.
+    - **contracts** 폴더에서 새로 생성한 컨트랙트를 선택합니다.
+    - 두 손가락으로 클릭하거나 탭하여 컨트랙트에서 사용 가능한 모든 명령을 확인합니다.
+    - **flatten**을 선택합니다.
 
-  ![](/img/build/tutorials/airdropToken-flattened.png)
+    ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - 코드가 평탄화되면 `airdropTokens_flattened.sol`이라는 이름의 새 컨트랙트가 표시됩니다.
+    - 코드가 평탄화되면 `airdropTokens_flattened.sol`이라는 이름의 새 컨트랙트가 표시됩니다.
 
-  ![](/img/build/tutorials/airdropToken-flattened-file.png)
+    ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
