@@ -27,3 +27,4 @@
 建議使用 [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/)。
 Kaia 二進制文件已在亞馬遜 Linux 2 上進行了全面測試，但也可在其他基於 Linux 的環境中運行。
 還提供了用於開發的 macOS 二進制文件。
+
