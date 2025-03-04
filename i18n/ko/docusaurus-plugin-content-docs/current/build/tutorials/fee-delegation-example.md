@@ -316,7 +316,7 @@ $ node feepayer_server.js
 
 ### 4.4 카이아스캔에서 보기 <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
 
-위의 거래는 [카이아스캔](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview\&page=1)에서도 확인할 수 있습니다.
+위의 거래는 카이아스캔에서도 확인할 수 있습니다.
 
 트랜잭션은 `TxTypeFeeDelegatedValueTransfer`이고 `수수료 납부자`는 `0x88311cd55b656d2502b50f62e83f8279c1641e70` 또는 입력한 `feepayerAddress`이며 `발신자`는 위 예시에서 `발신자 주소`가 되어야 하는 다른 주소임을 알 수 있습니다.
 
