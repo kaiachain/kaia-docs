@@ -12,4 +12,5 @@ LINEは、2億人以上のアクティブユーザーを抱える総合的なコ
 
 初めてのLINE mini dAppを作る準備はできていますか？ Unity WebGLを使ってdAppを作成し、LIFF（LINE Front-end Framework）アプリに変換して、エキサイティングなトークン鋳造機能を追加します。 これらの用語に馴染みがない場合は、各コンセプトを徹底的に説明する。
 
-![](/img/minidapps/unity-minidapp/info-minidapp-banner.png)
+![](/img/minidapps/unity-minidapp/unity-minidapp-banner.png)
+

@@ -352,3 +352,4 @@ SC_VTRECOVERY_INTERVAL=5
 本節將解釋如何定製 Bridge 合同，並介紹示例代碼。
 
 \*\*即將更新。
+

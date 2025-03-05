@@ -401,8 +401,8 @@ If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Fau
 caver-javaウォレットを使用して、取引の署名を生成することができます。 トランザクションをネットワークに送信するには、以下の2つのステップを踏む必要がある。
 
 1. 取引に署名する
-   - 使いたいキーリングが `caver.wallet` に追加されていれば、`caver.wallet.sign` 関数を使って署名することができる。
-   - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
+  - 使いたいキーリングが `caver.wallet` に追加されていれば、`caver.wallet.sign` 関数を使って署名することができる。
+  - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
 2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
 **注意：** 送金者は、送金されるKAIAの十分な数と取引手数料を支払う必要があります。

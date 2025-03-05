@@ -319,3 +319,6 @@ npx ts-node interact.ts
 ![](/img/references/viem-interact.png)
 
 viemに関するより詳細なガイドについては、[viem docs](https://viem.sh/docs/getting-started)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem)にあります。
+
+
+

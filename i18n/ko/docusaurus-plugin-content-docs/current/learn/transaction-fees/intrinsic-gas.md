@@ -69,11 +69,11 @@ For example,
 This is important when calculating TxTypedGas:
 
 - First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
-  - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
-  - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+    - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+    - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
 - Second, check the transaction creates contract or not.
-  - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
-  - Otherwise, add `TxGas (21000)` to TxTypedGas.
+    - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+    - Otherwise, add `TxGas (21000)` to TxTypedGas.
 
 For example,
 
@@ -87,3 +87,4 @@ For example,
 | ------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Shanghai EVM | limit and meter initcode when calculating intrinsicGas<br/>- started to add 2 gas per word of the initcode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Istanbul EVM | legacyTxType의 [PayloadGas](#payloadgas)를 다른 TxType과 일관되게 만듭니다.<br/>- Before: PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68 <br/> - After: PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>change [keyValidationGas](#keyvalidationgas) 계산 로직<br/>- Before: KeyValidationGas=(키 수 - 1) x 15,000<br/>- 이후: KeyValidationGas=(서명 수 - 1) x 15,000 |
+

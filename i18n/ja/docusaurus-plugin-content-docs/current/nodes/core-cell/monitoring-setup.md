@@ -92,3 +92,4 @@ $ systemctl restart telegraf
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
 CCの運営者として、Slackチャンネルに会社名とメールアドレスを記入し、アカウントをリクエストすることができます。 なお、GrafanaアカウントをリクエストできるのはCCオペレーターのみです。
+

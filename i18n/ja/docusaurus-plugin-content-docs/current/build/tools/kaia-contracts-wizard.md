@@ -32,9 +32,9 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 - **特徴セクション**：各トークン規格で利用可能なすべての特徴から構成されています。 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください： 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください：
 
-  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+    - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+    - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+    - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
 - **アクセス制御セクション**：各トークン規格で利用可能なすべてのアクセス制御メカニズムから構成される。
 

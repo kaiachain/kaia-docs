@@ -52,3 +52,4 @@
 ## 其他考虑因素<a id="additional-considerations"></a>
 
 将故障 CN 的公共 IP 重新分配给替换 CN，可使替换 CN 立即连接到其他 CN。 如果 IP 变更，在所有其他 CCO 更新其防火墙配置之前，新的 CN 将无法连接到网络。
+

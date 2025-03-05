@@ -13,3 +13,4 @@ KAIAは様々な取引所に上場している。  KAIAは様々な取引所に�
 
 - [CoinGeckoにリストされているKAIA取引所](https://www.coingecko.com/en/coins/klay#markets)
 - [CoinMarketCapに掲載されているKAIA取引所](https://coinmarketcap.com/currencies/klaytn/markets/)
+

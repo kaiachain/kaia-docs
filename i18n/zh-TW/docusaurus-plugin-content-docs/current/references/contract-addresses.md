@@ -31,3 +31,4 @@ Kaia 的某些功能依賴於稱為_系統合約_的特殊智能合約。 它們
 | Kaiabridge Judge                | 0x64c91d6517b8f2fd7f4157c32DE4acfe1AeA2611 | 0x3735Ba95cca5DEd47Fa5b202a2Bbda4c63c0B1DD |
 | Kaiabridge Guardian             | 0xE49D152E5FA576caFC18D2775AF4E58C135a6851 | 0xc9e8342C1da4c89A423258d9030414331b4761Cf |
 | KIP-163 PublicDelegationFactory | 0x29C8cc53d22F79D4024ecB67DB1a09b37bCdE415 | 0x98c47c2cda854cbb025d47de72149a7ec238ec33 |
+

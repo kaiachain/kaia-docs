@@ -40,8 +40,8 @@ Kaia's network is structured into three logical subnetworks:
 
 1. **Core Cell (CC)**: Composed of one Consensus Node (CN) and two Proxy Nodes (PNs).
 
-   - **Consensus Node (CN)**: Participates in block generation.
-   - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
+  - **Consensus Node (CN)**: Participates in block generation.
+  - **Proxy Node (PN)**: Provides network interface, transmits transaction requests, and propagates blocks.
 
 2. **Endpoint Node (EN)**: Serves as network endpoints, handling API requests and data processing.
 

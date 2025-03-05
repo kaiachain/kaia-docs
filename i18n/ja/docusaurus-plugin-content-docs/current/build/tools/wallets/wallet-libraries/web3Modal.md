@@ -574,3 +574,6 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 ## 次のステップ
 
 Web3Modalに関するより詳細なガイドについては、[Web3Modal Docs](https://docs.walletconnect.com/2.0/web3modal/about)と[Web3Modal Githubリポジトリ](https://github.com/klaytn/klaytn-web3modal)を参照してください。 また、このガイドのコードの完全な実装は[GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample)にあります。 はじめに
+
+
+

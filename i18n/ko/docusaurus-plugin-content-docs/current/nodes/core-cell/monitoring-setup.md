@@ -92,3 +92,4 @@ $ systemctl restart telegraf
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
 CC 운영자는 Slack 채널에서 회사 이름과 이메일 주소를 제공하여 계정을 요청할 수 있습니다. CC 운영자만 그라파나 계정을 요청할 수 있다는 점에 유의하세요.
+

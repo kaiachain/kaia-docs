@@ -100,3 +100,4 @@ window.klaytn.request({ method: "eth_signTypedData_v4", params: ["0xbc7d1abe33e6
 ```
 
 请参阅 [此处](https://docs.metamask.io/wallet/how-to/sign-data/)，了解示例的构建过程。
+

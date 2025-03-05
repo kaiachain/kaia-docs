@@ -9,8 +9,8 @@
 - [Download](../../downloads/downloads.md) から `kscn`, `homi` バイナリのパッケージをダウンロードする。
 - LinuxまたはMacOSサーバー4台
 - 最小ハードウェア要件
-  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-  - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
+ - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+ - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
 
 ## ステップ 0: 全ノードに SCN をインストール<a id="install-scn"></a>
 

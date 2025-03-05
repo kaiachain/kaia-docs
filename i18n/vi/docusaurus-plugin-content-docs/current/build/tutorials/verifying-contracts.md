@@ -64,19 +64,19 @@ Remix IDE :
 
 - On Remix IDE, navigate to the **Solidity compiler tab**.
 
-  - Observe the **compiler version** used to compile and deploy the contract.
-  - Observe the **Open Source License Type** used in the contract. This means the SPDX license identifier used at the beginning of the Solidity source file. In the `Counter.sol` file we used `// SPDX-License-Identifier: MIT`
-  - Observe the **EVM version** used for deploying contracts.
-  - (Optional) If **optimization** is enabled during compilation, take note of the value of the optimization runs parameter
+    - Observe the **compiler version** used to compile and deploy the contract.
+    - Observe the **Open Source License Type** used in the contract. This means the SPDX license identifier used at the beginning of the Solidity source file. In the `Counter.sol` file we used `// SPDX-License-Identifier: MIT`
+    - Observe the **EVM version** used for deploying contracts.
+    - (Optional) If **optimization** is enabled during compilation, take note of the value of the optimization runs parameter
 
-  ![](/img/build/tutorials/counter-veri-parameters.png)
+    ![](/img/build/tutorials/counter-veri-parameters.png)
 
 - On Remix IDE, navigate to **Kaia tab**.
 
-  - (Optional) If the contract constructor method accepts arguments, take note of the [ABI-encoded form](https://docs.soliditylang.org/en/develop/abi-spec.html) of the constructor arguments
-  - Take note of the contract address of the smart contract on the **Deployed Contracts** tab after successful deployment.
+    - (Optional) If the contract constructor method accepts arguments, take note of the [ABI-encoded form](https://docs.soliditylang.org/en/develop/abi-spec.html) of the constructor arguments
+    - Take note of the contract address of the smart contract on the **Deployed Contracts** tab after successful deployment.
 
-  ![](/img/build/tutorials/counter-veri-parametersII.png)
+    ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## Deploying a multi-part contract
 
@@ -124,15 +124,15 @@ Remix IDE:
 
 - On Remix IDE, navigate to the **File explorer tab**.
 
-  - Select the newly created contract under the **contracts** folder
-  - Click or tap with two fingers to see all commands available on the contract.
-  - Select **flatten**
+    - Select the newly created contract under the **contracts** folder
+    - Click or tap with two fingers to see all commands available on the contract.
+    - Select **flatten**
 
-  ![](/img/build/tutorials/airdropToken-flattened.png)
+    ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - Once code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
+    - Once code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
 
-  ![](/img/build/tutorials/airdropToken-flattened-file.png)
+    ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 

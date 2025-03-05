@@ -73,10 +73,10 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 - Klaytnプラグインをクリックします。
 - 適切な[環境]を選択します。
 - Kairos、Mainnet、Injected Provider - Kaia Wallet、Injected Provider - MetaMaskを選択できます。
-  - [カイロス］カイロス・ネットワークに接続
-  - [メインネット]：メインネットに接続する
-  - [インジェクション・プロバイダー - カイア・ウォレット]：カイア・ウォレットに接続
-  - [注入プロバイダ - MetaMask ]：メタマスクに接続する
+    - [カイロス］カイロス・ネットワークに接続
+    - [メインネット]：メインネットに接続する
+    - [インジェクション・プロバイダー - カイア・ウォレット]：カイア・ウォレットに接続
+    - [注入プロバイダ - MetaMask ]：メタマスクに接続する
 
 ![](/img/build/smart-contracts/remix-deploy-env.png)
 

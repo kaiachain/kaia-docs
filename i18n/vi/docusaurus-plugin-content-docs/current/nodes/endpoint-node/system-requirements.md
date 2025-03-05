@@ -27,3 +27,4 @@ Assuming 100 TPS in average,  300 bytes average transaction size, and 1-second b
 Recommended environment is [Amazon Linux 2](https://aws.amazon.com/ko/about-aws/whats-new/2017/12/introducing-amazon-linux-2/).
 Kaia binaries are fully tested on Amazon Linux 2, but they should work on other linux-based environments as well.
 macOS binaries are also provided for development purpose.
+
