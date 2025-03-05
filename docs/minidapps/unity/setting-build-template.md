@@ -1,4 +1,4 @@
-# Configuring WebGL Build Settings 
+# WebGL Build Settings
 
 In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
 
@@ -13,8 +13,7 @@ This might take a few minutes if it's your first time switching.
 
 ![](/img/minidapps/unity-minidapp/ui-webgl-switch.png)
 
-
-## Step 2: Creating a Custom WebGL Template 
+## Step 2: Creating a Custom WebGL Template
 
 We need a custom template to integrate Web3 capabilities. Here's our folder structure:
 
@@ -33,10 +32,10 @@ Assets/
 
 The default Unity template doesn't include Web3 support. Our custom template will:
 
-* Load necessary Web3 libraries.
-* Enable Kaia Wallet integration.
-* Handle blockchain interactions properly.
-:::
+- Load necessary Web3 libraries.
+- Enable Kaia Wallet integration.
+- Handle blockchain interactions properly.
+  :::
 
 ## Step 3: Setting Up index.html
 
@@ -121,7 +120,7 @@ Copy and paste the code below in your `index.html` file:
 
          const provider = sdk.getWalletProvider();
          const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-         
+
          if (accounts && accounts.length > 0) {
            connectedAddress = accounts[0];
            myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -138,7 +137,7 @@ Copy and paste the code below in your `index.html` file:
      window.MintToken = async function(amount) {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const mintSignature = '0xa0712d68';
          const amountHex = amount.toString(16).padStart(64, '0');
          const data = mintSignature + amountHex;
@@ -166,7 +165,7 @@ Copy and paste the code below in your `index.html` file:
      window.GetBalance = async function() {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const balanceSignature = '0x70a08231';
          const addressParam = connectedAddress.substring(2).padStart(64, '0');
          const data = balanceSignature + addressParam;
@@ -204,32 +203,33 @@ Copy and paste the code below in your `index.html` file:
 
 ```
 
-## Step 4: Setting Up Dapp Portal SDK
+## Step 4: Setting Up Mini Dapp SDK
 
 1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. Save the content to your `scripts/dapp_portal_sdk.js`.  Using a local Dapp Portal SDK file improves load times and reliability.
+2. Save the content to your `scripts/dapp_portal_sdk.js`. Using a local Mini Dapp SDK file improves load times and reliability.
 
 :::note
-Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` in the `script` tag in your `index.html`.
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
 ```
+
 :::
 
 ## Step 5: Configure Unity to Use Custom Template
 
-* Open Build Settings.
-* Navigate to Player Settings.
-* Under "Resolution and Presentation":
-    * Find "WebGL Template".
-    * Select "KaiaTemplate".
-* Under "Publish Settings" select **disabled** in the Compression Format field.
+- Open Build Settings.
+- Navigate to Player Settings.
+- Under "Resolution and Presentation":
+  - Find "WebGL Template".
+  - Select "KaiaTemplate".
+- Under "Publish Settings" select **disabled** in the Compression Format field.
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
-## Step 6: Building Your dApp 
+## Step 6: Building Your dApp
 
 Now Let's bring it all together:
 
@@ -246,7 +246,7 @@ minidapp/
 └── minidapp.wasm
 ```
 
-## Step 7: Post-Build Configuration 
+## Step 7: Post-Build Configuration
 
 After building your project,
 
@@ -254,17 +254,17 @@ After building your project,
 2. Note all generated file names.
 3. Update your index.html to match these names.
 4. Save changes and rebuild.
-5. You should now see a tab opened in your browser. 
+5. You should now see a tab opened in your browser.
 
 ![](/img/minidapps/unity-minidapp/ui_build_app.png)
 
 ## Step 8: Route WebGL build to Localhost:3000
 
-For security and development purposes, the DApp Portal SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
 
 To do so, follow the steps below:
 
-1. Copy and Paste the code below in your project terminal 
+1. Copy and Paste the code below in your project terminal
 
 ```bash
 # Install http-server globally
@@ -282,19 +282,14 @@ cd path/to/minidapp
 ```bash
 http-server -p 3000
 ```
+
 ![](/img/minidapps/unity-minidapp/lh_3000.png)
 
 ## Testing and running application
 
-Now that we have our project running, let’s test and interact with it. 
-* Click on the Connect Wallet button to connect to Dapp Portal Wallet. 
-* Once connected, fill in details (amount) to mint to the connected address.
+Now that we have our project running, let’s test and interact with it.
+
+- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
+- Once connected, fill in details (amount) to mint to the connected address.
 
 ![](/img/minidapps/unity-minidapp/minidapp.gif)
-
-
-
-
-
-
-
