@@ -113,7 +113,7 @@ Assets/
 - Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](../minidapps/convert-unity-liff.md#appendix-b)
+2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](convert-unity-liff.md#appendix-b)
 
 ### Part 3: Setting Up the Web3Manager GameObject
 
