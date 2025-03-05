@@ -1,0 +1,22 @@
+name: Vale Linting
+on: [pull_request]
+jobs:
+  vale:
+    name: Writing Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Vale Check
+        uses: errata-ai/vale-action@v2.1.1
+        with:
+          files: docs
+          # added, diff_context, file, nofilter
+          filter_mode: added
+          # github-pr-check, github-pr-review, github-check
+          reporter: github-pr-review
+          vale_flags: "--glob=*.{md,mdx} --minAlertLevel=error"
+          fail_on_error: false
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
