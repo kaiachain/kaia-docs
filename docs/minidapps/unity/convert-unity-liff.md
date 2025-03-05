@@ -1,25 +1,26 @@
-# Converting Your Unity Build to a LINE LIFF App
+# Convert to LINE LIFF
 
-Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE! 
+Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE!
 
-## Step 1: Create Your LIFF App <a id="create-liff-app"></a> 
+## Step 1: Create Your LIFF App <a id="create-liff-app"></a>
 
 First, let's set up your app in the LINE ecosystem:
 
 1. LINE Developers Console Setup:
-    * Visit LINE Developers Console.
-    * Create a Provider (skip if you already have one).
 
-    ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
+   - Visit LINE Developers Console.
+   - Create a Provider (skip if you already have one).
 
-    * Create a new LINE Login channel.
+   ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
 
-    ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   - Create a new LINE Login channel.
 
-    * Navigate to the LIFF tab
-    * Click "Add LIFF app"
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-    ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   - Navigate to the LIFF tab
+   - Click "Add LIFF app"
+
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. Configure LIFF Settings:
 
@@ -33,9 +34,8 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step! 
+Save your LIFF ID - you'll need it in the next step!
 :::
-
 
 ## Step 2: Modify Your WebGL Template <a id="modify-webgl-template"></a>
 
@@ -115,7 +115,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
           clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
           chainId: '1001'
         });
-        
+
         console.log("SDKs initialized");
         return true;
       } catch (error) {
@@ -138,7 +138,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
 
         const provider = sdk.getWalletProvider();
         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-        
+
         if (accounts && accounts.length > 0) {
           connectedAddress = accounts[0];
           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -153,7 +153,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
         if (liff.isLoggedIn()) {
           await liff.logout();
         }
-        
+
         const provider = sdk.getWalletProvider();
         await provider.request({ method: 'kaia_disconnect' });
         connectedAddress = null;
@@ -171,7 +171,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.MintToken = async function(amount) {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const mintSignature = '0xa0712d68';
         const amountHex = amount.toString(16).padStart(64, '0');
         const data = mintSignature + amountHex;
@@ -199,7 +199,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.GetBalance = async function() {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const balanceSignature = '0x70a08231';
         const addressParam = connectedAddress.substring(2).padStart(64, '0');
         const data = balanceSignature + addressParam;
@@ -237,12 +237,12 @@ The index.html file helps us to check web3 availability, set up LINE integration
 
 ```
 
-Make sure to change your LIFF-ID in the code snippet above. 
+Make sure to change your LIFF-ID in the code snippet above.
 
 ## Step 3: Deploy Your WebGL Build <a id="step3-deploy-webgl-build"></a>
 
-* Build your Unity project for WebGL
-* Upload all build files to a web server; e.g Netlify
+- Build your Unity project for WebGL
+- Upload all build files to a web server; e.g Netlify
 
 Your deployment folder structure should look like this:
 
@@ -261,34 +261,33 @@ Minidapp/
 ## Step 4: Final Configuration & Testing <a id="step4-final-config-testing"></a>
 
 1. Update your LIFF endpoint:
-    * Return to LINE Developers Console
-    * Locate your LIFF app
-    * Click "Edit"
-    * Update URL to your deployed site.
-    
-Now your mini dApp should be readily available. 
+   - Return to LINE Developers Console
+   - Locate your LIFF app
+   - Click "Edit"
+   - Update URL to your deployed site.
+
+Now your mini dApp should be readily available.
 
 ## Summing Up <a id="summing-up"></a>
 
-Congratulations! You've successfully created your first LINE mini dApp with Unity! By completing this guide, you've implemented a mini dApp with token minting functionalities. Building a LINE mini dApp transcends traditional app development - it's about creating seamless Web3 experiences within an ecosystem that users already trust and use daily. 
+Congratulations! You've successfully created your first LINE mini dApp with Unity! By completing this guide, you've implemented a mini dApp with token minting functionalities. Building a LINE mini dApp transcends traditional app development - it's about creating seamless Web3 experiences within an ecosystem that users already trust and use daily.
 
 Through Kaia's integration, you've unlocked the ability to bring blockchain functionality directly to users' fingertips, eliminating the usual barriers to Web3 adoption. This combination of LINE's extensive reach and Web3 capabilities creates a unique opportunity to innovate in ways that were previously impossible.
 
-The power of LINE mini dApps lies in their versatility and accessibility. Whether you're a developer exploring new blockchain implementations, a business looking to enhance customer engagement, or an innovator seeking to create novel digital experiences, the platform provides all the tools needed to bring your vision to life. 
+The power of LINE mini dApps lies in their versatility and accessibility. Whether you're a developer exploring new blockchain implementations, a business looking to enhance customer engagement, or an innovator seeking to create novel digital experiences, the platform provides all the tools needed to bring your vision to life.
 
 For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
 
-* [Kaia Documentation](https://docs.kaia.io/)
-* [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
-* [Unity Documentation](https://docs.unity.com/)
-
+- [Kaia Documentation](https://docs.kaia.io/)
+- [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
+- [Unity Documentation](https://docs.unity.com/)
 
 ## Appendix <a id="appendix"></a>
 
 ### Appendix A <a id="appendix-a"></a>
+
 [KaiaPlugin.jslib source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-kaiaplugin-jslib)
 
 ### Appendix B <a id="appendix-b"></a>
+
 [Web3Manager.cs source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
-
-
