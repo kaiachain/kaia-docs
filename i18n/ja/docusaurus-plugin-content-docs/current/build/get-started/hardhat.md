@@ -74,7 +74,7 @@ hardhatプロジェクトを開始するには、以下のコマンドを実行�
 npx hardhat
 ```
 
-このガイドでは、以下のようにタイプスクリプト・プロジェクトを選択する：
+このガイドでは、以下のようにTypeScriptプロジェクトを選択する：
 
 ![](/img/build/get-started/hardhat-init.png)
 
