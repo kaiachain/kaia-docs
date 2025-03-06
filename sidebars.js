@@ -556,6 +556,17 @@ const sidebars = {
         'minidapps/cocos-creator/convert-to-liff',
       ],
     },
+    {
+      type: 'category',
+      label: 'Survey Mini DApp',
+      link: { type: 'doc', id: 'minidapps/survey-minidapp/intro' },
+      items: [
+        'minidapps/survey-minidapp/intro',
+        'minidapps/survey-minidapp/build-smart-contract',
+        'minidapps/survey-minidapp/integrating-frontend',
+        'minidapps/survey-minidapp/api-reference',
+      ],
+    },
     ...commonSidebar,
   ],
 }
