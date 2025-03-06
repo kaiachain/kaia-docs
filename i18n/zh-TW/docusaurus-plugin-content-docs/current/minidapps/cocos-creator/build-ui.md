@@ -1,4 +1,4 @@
-# Building UI for the dApp
+# UI Creation
 
 In this section, we'll build the user interface (UI) for our dApp, including wallet connection, balance updates, and minting functionality.
 
@@ -27,7 +27,7 @@ In this section, we'll build the user interface (UI) for our dApp, including wal
 ### Step 3: Creating the Web3UI Container <a id="create-web3ui-container"></a>
 
 - Right-click on the newly created **Canvas**.
-- Select **Create  → Empty Node**.
+- Select **Create → Empty Node**.
 - Rename it to **Web3UI**.
 
 ![](/img/minidapps/cocos-creator/cp-create-web3-ui-r.png)
@@ -86,5 +86,3 @@ Canvas
 :::note
 To properly arrange your components, use the alignment tools at top of the Scene. Click on each component and adjust its position as needed
 :::
-
-

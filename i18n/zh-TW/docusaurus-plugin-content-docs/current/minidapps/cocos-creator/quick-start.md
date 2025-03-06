@@ -9,10 +9,10 @@
 - A [Cocos Developer Account](https://auth.cocos.com/#/sign_up/register?language=en)
 - A LINE Developer Account (easily created with your email)
 - Test KAIA tokens from the [Kaia Faucet](https://faucet.kaia.io/)
-- DApp Portal SDK Client ID (provided by the DApp Portal team)
+- Mini Dapp SDK Client ID (provided by the DApp Portal team)
 - Basic Web3 familiarity(a general understanding of wallets and tokens is sufficient)
 
-## Setting Up Development Environment for Cocos Creator  <a id="setting-up-dev-environment"></a>
+## Setting Up Development Environment for Cocos Creator <a id="setting-up-dev-environment"></a>
 
 Before we begin, let's ensure your development environment is properly set up. We'll start by installing and verifying the Cocos Dashboard.
 

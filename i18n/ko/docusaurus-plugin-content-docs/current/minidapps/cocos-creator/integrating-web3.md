@@ -1,6 +1,6 @@
-# Web3를 Cocos 크리에이터 프로젝트에 통합하기
+# Web3 통합
 
-이 섹션에서는 토큰 컨트랙트를 만들고, 토큰과 상호작용하는 스크립트를 작성하고, 지갑 연결, 토큰 채굴 및 잔액 검색을 위해 DApp 포털 SDK를 활용하여 웹3 기능을 Cocos 크리에이터 프로젝트에 통합해 보겠습니다. 결국, 디앱은 블록체인과 원활하게 상호 작용하여 게임 내에서 원활한 웹3.0 상호작용을 가능하게 합니다.
+이 섹션에서는 토큰 컨트랙트를 만들고, 토큰과 상호작용하는 스크립트를 작성하고, 지갑 연결, 토큰 채굴, 잔액 검색을 위해 미니 댑 SDK를 활용하여 웹3 기능을 코코스 크리에이터 프로젝트에 통합해 보겠습니다. 결국, 디앱은 블록체인과 원활하게 상호 작용하여 게임 내에서 원활한 웹3.0 상호작용을 가능하게 합니다.
 
 ## KIP7 스마트 컨트랙트 생성 및 배포 <a id="creating-and-deploying-smart-contract"></a>
 
@@ -69,7 +69,7 @@ Web3 기능을 통합하려면 블록체인 상호작용과 UI 관리를 처리�
 
 **1. 스크립트 폴더 만들기**
 
-- 프로젝트의 _자산_ 폴더로 이동합니다.
+- 프로젝트의 _assets_ 폴더로 이동합니다.
 - 마우스 오른쪽 버튼을 클릭하고 **만들기 → 폴더**를 선택합니다.
 
 ![](/img/minidapps/cocos-creator/cp-create-script-r.png)
@@ -102,7 +102,7 @@ Web3Manager 스크립트는 모든 블록체인 관련 기능을 담당합니다
 
 **주요 기능**
 
-- SDK 초기화 - 디앱 포털 SDK를 설정합니다.
+- SDK 초기화 - 미니 디앱 SDK를 설정합니다.
 - 지갑 연결 - 사용자가 지갑을 연결할 수 있습니다.
 - 토큰 발행 - 토큰 발행 기능을 활성화합니다.
 - 잔액 검색 - 사용자의 토큰 잔액을 가져옵니다.
@@ -110,142 +110,146 @@ Web3Manager 스크립트는 모든 블록체인 관련 기능을 담당합니다
 코드 구현:
 
 ```typescript
-import { _decorator, Component, Node, director, EventTarget, sys } from 'cc';
-const { ccclass, property } = _decorator;
+import { _decorator, Component, Node, director, EventTarget, sys } from 'cc'
+const { ccclass, property } = _decorator
 // Global event bus for Web3 events
-export const web3Events = new EventTarget();
+export const web3Events = new EventTarget()
 @ccclass('Web3Manager')
 export class Web3Manager extends Component {
-    private static instance: Web3Manager = null;
-    private sdk: any = null;
-    private connectedAddress: string = '';
-    
-    // Configuration
-    private readonly CONTRACT_ADDRESS = '0xbe9b8eB864F7E363ee834054e4391fb9b4e69B90'; // REPLACE CONTRACT ADDRESS
-    private readonly CHAIN_ID = '1001';
-    private readonly CLIENT_ID = 'PASTE CLIENT ID';
-    onLoad() {
-        if (Web3Manager.instance === null) {
-            Web3Manager.instance = this;
-            director.addPersistRootNode(this.node);
-            this.initializeSDK();
-            this.tryRestoreSession();
-        } else {
-            this.node.destroy();
-        }
+  private static instance: Web3Manager = null
+  private sdk: any = null
+  private connectedAddress: string = ''
+
+  // Configuration
+  private readonly CONTRACT_ADDRESS =
+    '0xbe9b8eB864F7E363ee834054e4391fb9b4e69B90' // REPLACE CONTRACT ADDRESS
+  private readonly CHAIN_ID = '1001'
+  private readonly CLIENT_ID = 'PASTE CLIENT ID'
+  onLoad() {
+    if (Web3Manager.instance === null) {
+      Web3Manager.instance = this
+      director.addPersistRootNode(this.node)
+      this.initializeSDK()
+      this.tryRestoreSession()
+    } else {
+      this.node.destroy()
     }
-    private async initializeSDK(): Promise<boolean> {
-        try {
-            // @ts-ignore
-            this.sdk = await window.DappPortalSDK.init({
-                clientId: this.CLIENT_ID,
-                chainId: this.CHAIN_ID
-            });
-            console.log("SDK initialized successfully");
-            web3Events.emit('sdkInitialized');
-            return true;
-        } catch (error) {
-            console.error("SDK initialization error:", error);
-            web3Events.emit('sdkInitError', error.message);
-            return false;
-        }
+  }
+  private async initializeSDK(): Promise<boolean> {
+    try {
+      // @ts-ignore
+      this.sdk = await window.DappPortalSDK.init({
+        clientId: this.CLIENT_ID,
+        chainId: this.CHAIN_ID,
+      })
+      console.log('SDK initialized successfully')
+      web3Events.emit('sdkInitialized')
+      return true
+    } catch (error) {
+      console.error('SDK initialization error:', error)
+      web3Events.emit('sdkInitError', error.message)
+      return false
     }
-    private async tryRestoreSession() {
-        const savedAddress = sys.localStorage.getItem('connectedAddress');
-        if (savedAddress) {
-            this.connectedAddress = savedAddress;
-            web3Events.emit('walletConnected', this.connectedAddress);
-            this.getBalance();
-        }
+  }
+  private async tryRestoreSession() {
+    const savedAddress = sys.localStorage.getItem('connectedAddress')
+    if (savedAddress) {
+      this.connectedAddress = savedAddress
+      web3Events.emit('walletConnected', this.connectedAddress)
+      this.getBalance()
     }
-    public async connectWallet(): Promise<void> {
-        try {
-            if (!this.sdk) {
-                const initialized = await this.initializeSDK();
-                if (!initialized) return;
-            }
-            const provider = this.sdk.getWalletProvider();
-            const accounts = await provider.request({ 
-                method: 'kaia_requestAccounts' 
-            });
-            if (accounts && accounts.length > 0) {
-                this.connectedAddress = accounts[0];
-                sys.localStorage.setItem('connectedAddress', this.connectedAddress);
-                web3Events.emit('walletConnected', this.connectedAddress);
-                this.getBalance();
-            }
-        } catch (error) {
-            console.error("Wallet connection error:", error);
-            web3Events.emit('walletError', error.message);
-        }
+  }
+  public async connectWallet(): Promise<void> {
+    try {
+      if (!this.sdk) {
+        const initialized = await this.initializeSDK()
+        if (!initialized) return
+      }
+      const provider = this.sdk.getWalletProvider()
+      const accounts = await provider.request({
+        method: 'kaia_requestAccounts',
+      })
+      if (accounts && accounts.length > 0) {
+        this.connectedAddress = accounts[0]
+        sys.localStorage.setItem('connectedAddress', this.connectedAddress)
+        web3Events.emit('walletConnected', this.connectedAddress)
+        this.getBalance()
+      }
+    } catch (error) {
+      console.error('Wallet connection error:', error)
+      web3Events.emit('walletError', error.message)
     }
-    public async mintToken(amount: number): Promise<void> {
-        try {
-            if (!this.connectedAddress) {
-                throw new Error('Wallet not connected');
-            }
-    
-            const provider = this.sdk.getWalletProvider();
-            const mintSignature = '0xa0712d68';
-            // @ts-ignore
-            const amountHex = amount.toString(16).padStart(64, '0');
-            const data = mintSignature + amountHex;
-    
-            const tx = {
-                from: this.connectedAddress,
-                to: this.CONTRACT_ADDRESS,
-                value: '0x0',
-                data: data,
-                gas: '0x4C4B40'
-            };
-    
-            const txHash = await provider.request({
-                method: 'kaia_sendTransaction',
-                params: [tx]
-            });
-    
-            // After getting txHash, immediately update balance
-            web3Events.emit('mintSuccess', txHash);
-            await this.getBalance(); // Get updated balance right after minting
-        } catch (error) {
-            console.error("Minting error:", error);
-            web3Events.emit('mintError', error.message);
-        }
+  }
+  public async mintToken(amount: number): Promise<void> {
+    try {
+      if (!this.connectedAddress) {
+        throw new Error('Wallet not connected')
+      }
+
+      const provider = this.sdk.getWalletProvider()
+      const mintSignature = '0xa0712d68'
+      // @ts-ignore
+      const amountHex = amount.toString(16).padStart(64, '0')
+      const data = mintSignature + amountHex
+
+      const tx = {
+        from: this.connectedAddress,
+        to: this.CONTRACT_ADDRESS,
+        value: '0x0',
+        data: data,
+        gas: '0x4C4B40',
+      }
+
+      const txHash = await provider.request({
+        method: 'kaia_sendTransaction',
+        params: [tx],
+      })
+
+      // After getting txHash, immediately update balance
+      web3Events.emit('mintSuccess', txHash)
+      await this.getBalance() // Get updated balance right after minting
+    } catch (error) {
+      console.error('Minting error:', error)
+      web3Events.emit('mintError', error.message)
     }
-    public async getBalance(): Promise<void> {
-        try {
-            if (!this.connectedAddress) {
-                throw new Error('Wallet not connected');
-            }
-            const provider = this.sdk.getWalletProvider();
-            const balanceSignature = '0x70a08231';
-            // @ts-ignore
-            const addressParam = this.connectedAddress.substring(2).padStart(64, '0');
-            const data = balanceSignature + addressParam;
-            const result = await provider.request({
-                method: 'kaia_call',
-                params: [{
-                    from: this.connectedAddress,
-                    to: this.CONTRACT_ADDRESS,
-                    data: data
-                }, 'latest']
-            });
-            const balance = parseInt(result, 16);
-            web3Events.emit('balanceReceived', balance.toString());
-        } catch (error) {
-            console.error("Balance fetch error:", error);
-            web3Events.emit('balanceError', error.message);
-        }
+  }
+  public async getBalance(): Promise<void> {
+    try {
+      if (!this.connectedAddress) {
+        throw new Error('Wallet not connected')
+      }
+      const provider = this.sdk.getWalletProvider()
+      const balanceSignature = '0x70a08231'
+      // @ts-ignore
+      const addressParam = this.connectedAddress.substring(2).padStart(64, '0')
+      const data = balanceSignature + addressParam
+      const result = await provider.request({
+        method: 'kaia_call',
+        params: [
+          {
+            from: this.connectedAddress,
+            to: this.CONTRACT_ADDRESS,
+            data: data,
+          },
+          'latest',
+        ],
+      })
+      const balance = parseInt(result, 16)
+      web3Events.emit('balanceReceived', balance.toString())
+    } catch (error) {
+      console.error('Balance fetch error:', error)
+      web3Events.emit('balanceError', error.message)
     }
-    public getConnectedAddress(): string {
-        return this.connectedAddress || '';
-    }
+  }
+  public getConnectedAddress(): string {
+    return this.connectedAddress || ''
+  }
 }
 ```
 
 **주요 기능**
 
-- initializeSDK() - 디앱 포털 SDK를 초기화합니다.
+- initializeSDK() - 미니 댑 SDK를 초기화합니다.
 - connectWallet() - 지갑 연결을 처리합니다.
 - mintToken(amount) - 민트 토큰을 발행합니다.
 - getBalance() - 토큰 잔액을 검색합니다.
@@ -263,90 +267,93 @@ UIManager 스크립트는 모든 UI 구성 요소와 사용자 상호 작용을 
 **코드 구현:**
 
 ```typescript
-import { _decorator, Component, Node, Label, Button } from 'cc';
-import { Web3Manager, web3Events } from './Web3Manager';
-const { ccclass, property } = _decorator;
+import { _decorator, Component, Node, Label, Button } from 'cc'
+import { Web3Manager, web3Events } from './Web3Manager'
+const { ccclass, property } = _decorator
 @ccclass('UIManager')
 export class UIManager extends Component {
-    @property(Label)
-    addressLabel: Label = null;
-    @property(Label)
-    balanceLabel: Label = null;
-    @property(Button)
-    connectButton: Button = null;
-    @property(Button)
-    mintButton: Button = null;
-    private web3Manager: Web3Manager = null;
-    start() {
-        this.web3Manager = this.getComponent(Web3Manager);
-        this.updateUIState(false);
-        this.setupEventListeners();
-        this.setupButtonHandlers();
+  @property(Label)
+  addressLabel: Label = null
+  @property(Label)
+  balanceLabel: Label = null
+  @property(Button)
+  connectButton: Button = null
+  @property(Button)
+  mintButton: Button = null
+  private web3Manager: Web3Manager = null
+  start() {
+    this.web3Manager = this.getComponent(Web3Manager)
+    this.updateUIState(false)
+    this.setupEventListeners()
+    this.setupButtonHandlers()
+  }
+  private setupEventListeners() {
+    web3Events.on('sdkInitialized', this.onSDKInitialized, this)
+    web3Events.on('walletConnected', this.onWalletConnected, this)
+    web3Events.on('balanceReceived', this.onBalanceReceived, this)
+    web3Events.on('mintSuccess', this.onMintSuccess, this)
+    web3Events.on('walletError', this.onError, this)
+    web3Events.on('mintError', this.onError, this)
+    web3Events.on('balanceError', this.onError, this)
+  }
+  private setupButtonHandlers() {
+    this.connectButton.node.on('click', this.onConnectClick, this)
+    this.mintButton.node.on('click', this.onMintClick, this)
+  }
+  onDestroy() {
+    web3Events.off('sdkInitialized', this.onSDKInitialized, this)
+    web3Events.off('walletConnected', this.onWalletConnected, this)
+    web3Events.off('balanceReceived', this.onBalanceReceived, this)
+    web3Events.off('mintSuccess', this.onMintSuccess, this)
+    web3Events.off('walletError', this.onError, this)
+    web3Events.off('mintError', this.onError, this)
+    web3Events.off('balanceError', this.onError, this)
+  }
+  private updateUIState(isConnected: boolean) {
+    if (this.connectButton) {
+      this.connectButton.node.active = !isConnected
     }
-    private setupEventListeners() {
-        web3Events.on('sdkInitialized', this.onSDKInitialized, this);
-        web3Events.on('walletConnected', this.onWalletConnected, this);
-        web3Events.on('balanceReceived', this.onBalanceReceived, this);
-        web3Events.on('mintSuccess', this.onMintSuccess, this);
-        web3Events.on('walletError', this.onError, this);
-        web3Events.on('mintError', this.onError, this);
-        web3Events.on('balanceError', this.onError, this);
+    if (this.mintButton) {
+      this.mintButton.interactable = isConnected
     }
-    private setupButtonHandlers() {
-        this.connectButton.node.on('click', this.onConnectClick, this);
-        this.mintButton.node.on('click', this.onMintClick, this);
+    if (this.addressLabel) {
+      this.addressLabel.node.active = isConnected
     }
-    onDestroy() {
-        web3Events.off('sdkInitialized', this.onSDKInitialized, this);
-        web3Events.off('walletConnected', this.onWalletConnected, this);
-        web3Events.off('balanceReceived', this.onBalanceReceived, this);
-        web3Events.off('mintSuccess', this.onMintSuccess, this);
-        web3Events.off('walletError', this.onError, this);
-        web3Events.off('mintError', this.onError, this);
-        web3Events.off('balanceError', this.onError, this);
+    if (this.balanceLabel) {
+      this.balanceLabel.node.active = isConnected
     }
-    private updateUIState(isConnected: boolean) {
-        if (this.connectButton) {
-            this.connectButton.node.active = !isConnected;
-        }
-        if (this.mintButton) {
-            this.mintButton.interactable = isConnected;
-        }
-        if (this.addressLabel) {
-            this.addressLabel.node.active = isConnected;
-        }
-        if (this.balanceLabel) {
-            this.balanceLabel.node.active = isConnected;
-        }
+  }
+  async onConnectClick() {
+    await this.web3Manager.connectWallet()
+  }
+  async onMintClick() {
+    await this.web3Manager.mintToken(1) // Mint 1 token as example
+  }
+  onSDKInitialized() {
+    console.log('SDK initialized')
+  }
+  onWalletConnected(address: string) {
+    this.updateUIState(true)
+    if (this.addressLabel) {
+      this.addressLabel.string = `Connected: ${address.substring(
+        0,
+        6
+      )}...${address.substring(address.length - 4)}`
     }
-    async onConnectClick() {
-        await this.web3Manager.connectWallet();
+  }
+  onBalanceReceived(balance: string) {
+    if (this.balanceLabel) {
+      this.balanceLabel.string = `Balance: ${balance}`
+      console.log('Balance updated:', balance) // Add this to debug
     }
-    async onMintClick() {
-        await this.web3Manager.mintToken(1); // Mint 1 token as example
-    }
-    onSDKInitialized() {
-        console.log('SDK initialized');
-    }
-    onWalletConnected(address: string) {
-        this.updateUIState(true);
-        if (this.addressLabel) {
-            this.addressLabel.string = `Connected: ${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
-        }
-    }
-    onBalanceReceived(balance: string) {
-        if (this.balanceLabel) {
-            this.balanceLabel.string = `Balance: ${balance}`;
-            console.log('Balance updated:', balance); // Add this to debug
-        }
-    }
-    onMintSuccess(txHash: string) {
-        console.log(`Mint successful! TX: ${txHash}`);
-        // The balance update will happen automatically because we called getBalance() in mintToken
-    }
-    onError(error: string) {
-        console.error('Error:', error);
-    }
+  }
+  onMintSuccess(txHash: string) {
+    console.log(`Mint successful! TX: ${txHash}`)
+    // The balance update will happen automatically because we called getBalance() in mintToken
+  }
+  onError(error: string) {
+    console.error('Error:', error)
+  }
 }
 ```
 

@@ -8,7 +8,7 @@ Before we dive in, make sure you have:
 - Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
 - A LINE Developer account - you can easily create one using your email
 - [Kaia Faucet】のカイアを試す(https://faucet.kaia.io/)
-- Dapp Portal SDK Client ID receiveed from Dapp Portal team.
+- Mini Dapp SDK Client ID receiveed from Dapp Portal team.
 - Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
 
 ## Setting Up Your Unity Environment
