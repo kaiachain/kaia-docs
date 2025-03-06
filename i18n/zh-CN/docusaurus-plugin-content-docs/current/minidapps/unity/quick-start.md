@@ -8,7 +8,7 @@
 - 基本的 C# 和 JavaScript 知识 - 不用太花哨，只需基本知识
 - LINE Developer 账户--您可以使用电子邮件轻松创建一个账户
 - 从 [Kaia 水龙头] 测试 Kaia(https://faucet.kaia.io/)
-- 从 Dapp Portal 团队获得的 Dapp Portal SDK 客户 ID。
+- 从 Dapp Portal 团队收到的 Mini Dapp SDK 客户 ID。
 - 对 Web3 概念有一定的了解--如果了解钱包和代币，就可以使用。
 
 ## 设置 Unity 环境
