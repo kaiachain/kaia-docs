@@ -1,4 +1,4 @@
-# WebGL 빌드 설정 구성
+# WebGL 빌드 설정
 
 이 섹션에서는 웹용 디앱을 구성해 보겠습니다! 이렇게 하면 Web3 호환성을 위해 Unity를 구성하고 Kaia 통합을 위한 커스텀 템플릿을 생성합니다.
 
@@ -120,7 +120,7 @@ Assets/
 
          const provider = sdk.getWalletProvider();
          const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-         
+
          if (accounts && accounts.length > 0) {
            connectedAddress = accounts[0];
            myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -137,7 +137,7 @@ Assets/
      window.MintToken = async function(amount) {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const mintSignature = '0xa0712d68';
          const amountHex = amount.toString(16).padStart(64, '0');
          const data = mintSignature + amountHex;
@@ -165,7 +165,7 @@ Assets/
      window.GetBalance = async function() {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const balanceSignature = '0x70a08231';
          const addressParam = connectedAddress.substring(2).padStart(64, '0');
          const data = balanceSignature + addressParam;
@@ -203,13 +203,13 @@ Assets/
 
 ```
 
-## 4단계: Dapp 포털 SDK 설정하기
+## 4단계: 미니 앱 SDK 설정하기
 
 1. 방문: https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. 스크립트/dapp_portal_sdk.js\`에 콘텐츠를 저장합니다.  로컬 Dapp 포털 SDK 파일을 사용하면 로드 시간과 안정성이 향상됩니다.
+2. 스크립트/dapp_portal_sdk.js\`에 콘텐츠를 저장합니다. 로컬 미니 앱 SDK 파일을 사용하면 로드 시간과 안정성이 향상됩니다.
 
 :::note
-또는 'index.html'의 '스크립트' 태그에 '스크립트'로 Dapp 포털 SDK 링크를 직접 추가할 수도 있습니다.
+또는 'index.html'의 '스크립트' 태그에 미니 앱 SDK 링크를 '스크립트'로 직접 추가할 수도 있습니다.
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
@@ -260,7 +260,7 @@ minidapp/
 
 ## 8단계: WebGL 빌드를 Localhost:3000으로 라우팅하기
 
-보안 및 개발 목적으로 현재 DApp 포털 SDK는 로컬호스트:3000에서 작동합니다. 현재 기본 Unity WebGL 빌드는 임의의 포트(예: 61445)를 사용하므로 앱이 효율적으로 작동하려면 Unity WebGL 빌드가 localhost:3000에서 열리도록 구성해야 합니다.
+보안 및 개발 목적으로 현재 미니 앱 SDK는 로컬호스트:3000에서 작동합니다. 현재 기본 Unity WebGL 빌드는 임의의 포트(예: 61445)를 사용하므로 앱이 효율적으로 작동하려면 Unity WebGL 빌드가 localhost:3000에서 열리도록 구성해야 합니다.
 
 이렇게 하려면 아래 단계를 따르세요:
 
@@ -293,10 +293,3 @@ http-server -p 3000
 - 연결되면 연결된 주소로 발행할 세부 정보(금액)를 입력합니다.
 
 ![](/img/minidapps/unity-minidapp/minidapp.gif)
-
-
-
-
-
-
-
