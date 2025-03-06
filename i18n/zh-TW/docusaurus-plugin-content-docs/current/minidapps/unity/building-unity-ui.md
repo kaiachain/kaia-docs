@@ -1,4 +1,4 @@
-# Creating UI for dApp
+# UI Creation
 
 In this section, we will build our dApp's user interface! We'll create a structured UI system with three main panels for status updates, actions, and minting functionality.
 
@@ -21,9 +21,9 @@ Inside Web3UI, create three panel objects:
 
 1. Right-click on Web3UI and select "Create Empty".
 2. Create and rename these panels:
-    - StatusPanel - Your dApp's information display
-    - ButtonPanel - For user interactions
-    - MintPanel - For token minting features
+   - StatusPanel - Your dApp's information display
+   - ButtonPanel - For user interactions
+   - MintPanel - For token minting features
 
 ## Creating Panel Components
 
@@ -71,8 +71,8 @@ ButtonPanel
 
 The token minting interface:
 
-- Right click on MintPanel, click on UI → Input Field → TextMeshPro  and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
-- Right click on MintPanel, click on UI →  Button → TextMeshPro  and then rename to MintButton. Make sure to fill the text object with "Mint"
+- Right click on MintPanel, click on UI → Input Field → TextMeshPro and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
+- Right click on MintPanel, click on UI → Button → TextMeshPro and then rename to MintButton. Make sure to fill the text object with "Mint"
 
 ```code
 MintPanel
