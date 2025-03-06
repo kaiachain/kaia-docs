@@ -19,7 +19,7 @@ Before submitting PRs, make sure to:
 
 ### Contributing Translations
 
-Kaia docs is available in the following languages:
+Kaia docs are available in the following languages:
 
 - English
 - 한국어
