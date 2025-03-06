@@ -1,4 +1,4 @@
-# Setting Up Web3 Integration
+# Web3 Integration
 
 In this section, we will build up pieces to integrate web3 into our Unity project.
 
@@ -11,10 +11,10 @@ First, we'll use Kaia Contract Wizard to generate our smart contract.
 1. Navigate to Kaia Contract Wizard.
 2. Select KIP7 (Kaia's token standard, similar to ERC20).
 3. Configure your token:
- - Name: ExampleTestToken (or something else!)
- - Symbol: ET (your token's ticker)
- - Premint: 100 (initial token supply)
- - Features: Check ✅ Mintable
+  - Name: ExampleTestToken (or something else!)
+  - Symbol: ET (your token's ticker)
+  - Premint: 100 (initial token supply)
+  - Features: Check ✅ Mintable
 
 For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
 
@@ -50,14 +50,14 @@ We removed the onlyOwner modifier to allow anyone to call the mint function othe
 
 1. Copy and Paste the code above in a newly created file `ET.sol` on Remix IDE.
 2. In Remix IDE:
- - Click the **Compile contract** button.
- - Activate the **Kaia plugin** in the plugin manager.
- - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
- - Find your contract (ExampleTokens) in the **Contract** dropdown.
- - Click **Deploy** to launch your token!
+  - Click the **Compile contract** button.
+  - Activate the **Kaia plugin** in the plugin manager.
+  - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
+  - Find your contract (ExampleTokens) in the **Contract** dropdown.
+  - Click **Deploy** to launch your token!
 3. When your Kaia Wallet pops up:
- - Review the deployment details.
- - Click Confirm to deploy to Kaia Kairos Testnet.
+  - Review the deployment details.
+  - Click Confirm to deploy to Kaia Kairos Testnet.
 
 :::important
 Copy and save the deployed contract address. You'll need it later in the tutorial.
@@ -83,9 +83,9 @@ Assets/
 2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
 
 3. The plugin will handle three core functions:
- - ConnectWallet() - Handles Kaia Wallet connections
- - GetTokenBalance() - Checks token balances
- - MintTokens() - Manages token minting
+  - ConnectWallet() - Handles Kaia Wallet connections
+  - GetTokenBalance() - Checks token balances
+  - MintTokens() - Manages token minting
 
 Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](../minidapps/convert-unity-liff.md#appendix-a):
 
@@ -111,29 +111,29 @@ Assets/
 - Updates UI elements based on blockchain events.
 - Handles all wallet and token operations.
 - Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
- :::
+  :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](../minidapps/convert-unity-liff.md#appendix-b)
+2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](convert-unity-liff.md#appendix-b)
 
 ### Part 3: Setting Up the Web3Manager GameObject
 
 Finally, let's bring it all together in Unity:
 
 1. Create the Manager Object:
- - Right-click in the Hierarchy window (root level).
- - Select "Create Empty Object".
- - Name it "Web3Manager".
+  - Right-click in the Hierarchy window (root level).
+  - Select "Create Empty Object".
+  - Name it "Web3Manager".
 2. Attach Your Script:
- - Select the Web3Manager GameObject.
- - In Inspector, click Add Component.
- - Search for and select "Web3Manager".
+  - Select the Web3Manager GameObject.
+  - In Inspector, click Add Component.
+  - Search for and select "Web3Manager".
 3. Connect UI Elements:
- - With Web3Manager selected, look in the Inspector.
- - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
-  - StatusText
-  - AddressText
-  - TokenBalanceText
-  - Connect / Mint buttons
-  - Input fields
+  - With Web3Manager selected, look in the Inspector.
+  - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
+    - StatusText
+    - AddressText
+    - TokenBalanceText
+    - Connect / Mint buttons
+    - Input fields
 
 ![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
