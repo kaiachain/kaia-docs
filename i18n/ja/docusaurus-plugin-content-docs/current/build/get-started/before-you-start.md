@@ -11,7 +11,7 @@
 - `ken`はKaia Endpoint Nodeのバイナリである。 `ken` は2つのインターフェイス、[コマンドラインインターフェイス](../../nodes/endpoint-node/ken-cli-commands.md)と[JSON-RPC API](../../../references/json-rpc/klay/account-created)を公開している。 `ken`はLinuxとMacOSで動作する。
 - `ken` CLI はいくつかのユーティリティとノード管理機能を備えている。
 
-**スマートな契約開発**
+**スマートコントラクト開発**
 
 - [Kaia Plugin for Remix](https://ide.kaia.io) - ブラウザベースのコンパイラとIDEであるRemix用のKaiaプラグイン。
 - [Truffle](https://github.com/trufflesuite/truffle) - Solidityでスマートコントラクトを開発するためのオープンソースツール。
