@@ -194,23 +194,16 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 ## Get Involved
 
-We welcome contributions from the developer community! To explore more about the Kaia blockchain, visit:
+We welcome contributions from the developer community. To explore more about the Kaia blockchain, visit:
 
 - [Kaia Documentation](https://docs.kaia.io/)
 - [Kaia Developer Portal](https://www.kaia.io/developers)
 - [KaiaScan Explorer](https://kaiascan.io)
 - [KaiaScan API Docs](https://docs.kaiascan.io/)
-- [Kaia GitHub Repository](https://github.com/kaiachain)
+- [Kaia Github Repository](https://github.com/kaiachain)
 
 ## Conclusion
 
 The **Kaia Eliza Plugin** seamlessly integrates with the **ElizaOS AI agent framework**, enabling intelligent and efficient interaction with the **Kaia Mainnet** and **Kairos Testnet**. With its powerful wallet, transaction, and token management features, it empowers developers to build smarter, more responsive decentralized applications while simplifying blockchain interactions.
 
 Ready to enhance your AI-driven blockchain experience? Integrate the Kaia plugin with **ElizaOS** today and unlock new possibilities!
-
-
-
-
-
-
-
