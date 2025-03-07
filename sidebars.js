@@ -191,6 +191,7 @@ const sidebars = {
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
+        'build/tutorials/eliza-plugin-guide',
         'build/tutorials/kaia-wallet-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
       ],
