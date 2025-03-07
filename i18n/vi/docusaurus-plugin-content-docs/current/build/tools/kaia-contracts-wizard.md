@@ -291,7 +291,7 @@ In this section we will go through deploying our generated smart contract code u
 
 ### Getting Started
 
-While getting started with foundry, you must have been exposed to the preliminary way of delaying contracts using [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html). Recently, the Foundry team came up with a more user friendly way of declaratively deploying contracts using Solidity called [Solidity Scripting](https://book.getfoundry.sh/guides/scripting-with-solidity#scripting-with-solidity) i.e writing deployment scripts in solidity instead of JavaScript.
+While getting started with foundry, you must have been exposed to the preliminary way of delaying contracts using [forge create](https://book.getfoundry.sh/reference/forge/forge-create.html). Recently, the Foundry team came up with a more user friendly way of declaratively deploying contracts using Solidity called [Solidity Scripting](https://book.getfoundry.sh/tutorials/solidity-scripting#solidity-scripting) i.e writing deployment scripts in solidity instead of JavaScript.
 
 In this section, we will deploy our contract using solidity scripting in Foundry.
 
@@ -415,7 +415,7 @@ Subsequently, we called the **vm.startBroadcast(deployerPrivateKey)** special ch
 
 We then created the respective contract. This contract creation will be recorded by forge because we previously called the vm.startBroadcast() cheat code.
 
-Now that we have gotten an overview of what each line entails, you can move on to deploy the contracts.  Click this [link](https://book.getfoundry.sh/guides/scripting-with-solidity#writing-the-script), to learn more about writing scripts and other details.
+Now that we have gotten an overview of what each line entails, you can move on to deploy the contracts.  Click this [link](https://book.getfoundry.sh/tutorials/solidity-scripting#writing-the-script), to learn more about writing scripts and other details.
 
 At the root of the project run
 

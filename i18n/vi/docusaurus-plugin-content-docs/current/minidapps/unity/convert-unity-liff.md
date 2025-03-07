@@ -1,4 +1,4 @@
-# Converting Your Unity Build to a LINE LIFF App
+# Convert to LINE LIFF
 
 Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE!
 
@@ -115,7 +115,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
           clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
           chainId: '1001'
         });
-        
+
         console.log("SDKs initialized");
         return true;
       } catch (error) {
@@ -138,7 +138,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
 
         const provider = sdk.getWalletProvider();
         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-        
+
         if (accounts && accounts.length > 0) {
           connectedAddress = accounts[0];
           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -153,7 +153,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
         if (liff.isLoggedIn()) {
           await liff.logout();
         }
-        
+
         const provider = sdk.getWalletProvider();
         await provider.request({ method: 'kaia_disconnect' });
         connectedAddress = null;
@@ -171,7 +171,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.MintToken = async function(amount) {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const mintSignature = '0xa0712d68';
         const amountHex = amount.toString(16).padStart(64, '0');
         const data = mintSignature + amountHex;
@@ -199,7 +199,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.GetBalance = async function() {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const balanceSignature = '0x70a08231';
         const addressParam = connectedAddress.substring(2).padStart(64, '0');
         const data = balanceSignature + addressParam;
@@ -291,5 +291,3 @@ For more detailed information on developing LINE mini dApps, explore these compr
 ### Appendix B <a id="appendix-b"></a>
 
 [Web3Manager.cs source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
-
-
