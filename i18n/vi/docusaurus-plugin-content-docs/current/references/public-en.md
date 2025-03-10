@@ -49,6 +49,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
+| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
 
 **WebSocket**
 
@@ -58,6 +59,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
+| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
@@ -97,6 +99,32 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - [Docs](https://www.klaytnapi.com/en/resource/docs/readme)
 - [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
+
+### Chainstack
+
+[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+
+To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+
+#### Features
+
+- Free Developer plan supported
+- Scaling to paid plans supported
+- Pay-as-you-go supported
+- 25+ bockchains supported
+- Uptime 99.9%+
+- Load-Balancing
+- Infinite scalability
+- Sign up with social account
+- Top up with crypto, including Kaia tokens
+- Support through Telegram, email, rich documentation and more
+- Customer stories with our dedicated Web3 copywriters
+
+#### References
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [Subscription](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
 
 ### All That Node
 
@@ -302,7 +330,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
-- 50+ blockchains across 100+ networks
+- 90+ blockchains across 100+ networks
 - AI-driven load balancer
 - Insightful analytics.
 

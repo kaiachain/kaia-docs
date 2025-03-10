@@ -4,6 +4,12 @@
 
 caver-js "是一个 JavaScript API 库，允许开发人员使用 HTTP 或 Websocket 连接与 kaia 节点进行交互。 它可在 [npm](https://www.npmjs.com/package/caver-js) 上获取。
 
+:::info[SDK 建议］
+
+我们建议使用 [ethers-ext](../ethers-ext/getting-started.md) 或 [web3js-ext](../web3js-ext/getting-started.md) SDK 而不是 `caver-js`。 这些 SDK 提供了最新的功能和更好的开发人员体验，Kaia 生态系统中的新老开发人员都能从中受益。 虽然现有的 `caver-js` 实现仍受支持，但我们的主要重点是加强 `ethers-ext` 和 `web3js-ext` 生态系统。
+
+:::
+
 ## 特色<a href="#features" id="features"></a>
 
 - 通过 HTTP 和 Websocket 完整实现 kaia 的 JSON-RPC 客户端 API

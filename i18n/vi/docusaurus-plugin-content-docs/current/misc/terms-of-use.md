@@ -33,3 +33,4 @@ You are entirely responsible for any and all activities that occur under your ac
 By posting, uploading, inputting, providing or submitting your User Content to the Platform, you grant to participants of the Platform and any necessary sub-licensees a non-exclusive, worldwide, perpetual, right and permission to use, reproduce, copy, edit, modify, translate, reformat, create derivative works from, distribute, transmit, publicly perform and publicly display your User Content and sub-license such rights to others.
 
 If we have reason to believe that there is likely to be a breach of security, breach or misuse of the Platform or if you breach any of your obligations under these terms, we may suspend your use of the Platform at any time and for any reason.
+

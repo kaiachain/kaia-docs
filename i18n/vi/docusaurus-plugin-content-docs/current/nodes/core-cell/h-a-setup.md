@@ -52,3 +52,4 @@ Create a new CN using the base CN image and the chaindata image:
 ## Additional Considerations <a id="additional-considerations"></a>
 
 Reassigning the public IP of the failed CN to the replacement CN will allow the replacement to connect immediately to other CNs. If the IP changes, the new CN will not be able to connect to the network until all other CCOs have updated their firewall configurations.
+

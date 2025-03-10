@@ -64,19 +64,19 @@ Remix IDE :
 
 - 在 Remix IDE 上，導航至**Solidity 編譯器選項卡**。
 
-  - 觀察用於編譯和部署合同的 \*\* 編譯器版本\*\*。
-  - 注意合同中使用的**開源許可類型**。 這意味著在 Solidity 源文件開頭使用的 SPDX 許可證標識符。 在 `Counter.sol` 文件中，我們使用了 `// SPDX-License-Identifier：MIT`
-  - 注意用於部署合同的 **EVM 版本**。
-  - (可選）如果在編譯過程中啟用了**優化**，請注意優化運行參數的值
+    - 觀察用於編譯和部署合同的 \*\* 編譯器版本\*\*。
+    - 注意合同中使用的**開源許可類型**。 這意味著在 Solidity 源文件開頭使用的 SPDX 許可證標識符。 在 `Counter.sol` 文件中，我們使用了 `// SPDX-License-Identifier：MIT`
+    - 注意用於部署合同的 **EVM 版本**。
+    - (可選）如果在編譯過程中啟用了**優化**，請注意優化運行參數的值
 
-  ![](/img/build/tutorials/counter-veri-parameters.png)
+    ![](/img/build/tutorials/counter-veri-parameters.png)
 
 - 在 Remix IDE 上，導航至 **Kaia 選項卡**。
 
-  - (可選） 如果合約構造函數方法接受參數，請注意構造函數參數的[ABI-編碼形式](https://docs.soliditylang.org/en/develop/abi-spec.html)
-  - 成功部署後，在**已部署合約**選項卡上記下智能合約的合約地址。
+    - (可選） 如果合約構造函數方法接受參數，請注意構造函數參數的[ABI-編碼形式](https://docs.soliditylang.org/en/develop/abi-spec.html)
+    - 成功部署後，在**已部署合約**選項卡上記下智能合約的合約地址。
 
-  ![](/img/build/tutorials/counter-veri-parametersII.png)
+    ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## 部署多部分合同
 
@@ -124,15 +124,15 @@ Remix IDE:
 
 - 在 Remix IDE 上，導航至**文件資源管理器選項卡**。
 
-  - 在**合同**文件夾下選擇新創建的合同
-  - 點擊或用雙指輕點，即可查看合同上的所有可用命令。
-  - 選擇 \*\* 壓平\*\*
+    - 在**合同**文件夾下選擇新創建的合同
+    - 點擊或用雙指輕點，即可查看合同上的所有可用命令。
+    - 選擇 \*\* 壓平\*\*
 
-  ![](/img/build/tutorials/airdropToken-flattened.png)
+    ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - 一旦代碼被扁平化，你將看到一個名為 `airdropTokens_flattened.sol` 的新合約。
+    - 一旦代碼被扁平化，你將看到一個名為 `airdropTokens_flattened.sol` 的新合約。
 
-  ![](/img/build/tutorials/airdropToken-flattened-file.png)
+    ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 

@@ -100,3 +100,4 @@ window.klaytn.request({ method: "eth_signTypedData_v4", params: ["0xbc7d1abe33e6
 ```
 
 See [here](https://docs.metamask.io/wallet/how-to/sign-data/) to learn how the example was built.
+

@@ -18,3 +18,8 @@
 
 - JSON-RPC API: JSON-RPC 서버는 노드 내부에서 실행되며, 블록체인 애플리케이션 개발을 위한 [API](../../references/json-rpc/klay/account-created)를 노출합니다. 여러 노드 관리 API도 있습니다.
 - 명령줄 인터페이스: 계정 관리 및 노드 구성 기능을 제공합니다. 노드에 연결된 대화형 JavaScript 콘솔도 제공됩니다. JavaScript 콘솔은 대부분의 [caver-js API](../../references/sdk/caver-js/caver-js.md)를 구현합니다.
+
+
+
+
+

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const endpointRegex = /<MethodEndpoint(.*?)MethodEndpoint>/s;
-const titleRegex = /sidebar_label: "\[[a-zA-Z]+\]/s;
+const titleRegex = /sidebar_label: "\[[a-zA-Z]+\]"/s;
 
 const deleteEndpoint = (path) => {
     fs.readdir(path, (err, files) => {

@@ -9,7 +9,7 @@ Then you will register the contract address on SCN. And you will test an ERC-20 
 - We assume that you installed the ServiceChain, and connected the ServiceChain to the Kairos EN by the instructions in [Connecting to Kairos](en-scn-connection.md).
 - Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 - Install `Node.js` (v14) and `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
-  - This example leverages two packages, axios and caver-js, which both support v14.
+ - This example leverages two packages, axios and caver-js, which both support v14.
 
 ## ERC-20 Token Transfer (one-step) <a id="erc-20-token-transfer-onestep"></a>
 
@@ -62,7 +62,7 @@ Check if the operator accounts have enough balance. You can query from the conso
 ### Step 2: Deploy Contracts <a id="step-2-deploy-contracts"></a>
 
 - Connect to the SCN and prepare the node environment for contract deployment.
-  Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
+ Clone the repository [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples).
 
 ![](/img/nodes/sc-vt-deploy.png)
 

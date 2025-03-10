@@ -12,4 +12,5 @@ LINE 是一个综合性通信和生活方式平台，拥有超过 2 亿活跃用
 
 准备好创建您的第一个 LINE mini dApp了吗？ 我们将使用 Unity WebGL 创建一个 dApp，将其转换为 LIFF（LINE 前端框架）应用程序，并添加一些令人兴奋的代币铸造功能。 如果您对其中一些术语不熟悉，我们将对每个概念进行详细解释。
 
-![](/img/minidapps/unity-minidapp/info-minidapp-banner.png)
+![](/img/minidapps/unity-minidapp/unity-minidapp-banner.png)
+

@@ -67,3 +67,4 @@ A single subnet of a Core Cell is built for the development/test purpose or unde
 All nodes are setup under a single CC subnet. Firewall setup is also necessary for the CN to connect to other CNs within the CNN using P2P port (32323, 32324 for multichannel option). The P2P port of the PN is opened to connect with ENs in Endpoint Node Network (ENN) and PNs in the Core Cell Network (CNN). Additionally, an optional VPN and monitoring servers are required to be managed remotely.
 
 ![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
+

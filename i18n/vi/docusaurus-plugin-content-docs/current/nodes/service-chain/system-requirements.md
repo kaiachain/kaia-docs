@@ -5,3 +5,4 @@ For the commercial use, you can refer to the recommended specifications of the E
 
 - [Endpoint Node System Requirements](../endpoint-node/system-requirements.md)
 - [Core Cell System Requirements](../core-cell/system-requirements.md)
+

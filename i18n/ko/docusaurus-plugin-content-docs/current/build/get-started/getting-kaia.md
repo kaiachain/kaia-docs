@@ -13,3 +13,4 @@ KAIA는 다양한 거래소에 상장되어 있습니다.  다음 링크를 통�
 
 - [CoinGecko에 상장된 KAIA 거래소](https://www.coingecko.com/en/coins/klay#markets)
 - [CoinMarketCap에 상장된 KAIA 거래소](https://coinmarketcap.com/currencies/klaytn/markets/)
+

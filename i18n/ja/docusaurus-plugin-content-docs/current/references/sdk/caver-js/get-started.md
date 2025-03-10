@@ -423,8 +423,8 @@ RoleBasedKeyring {
 caver-jsウォレットを使用して、取引の署名を生成することができます。 トランザクションをネットワークに送信するには、以下の2つのステップを踏む必要がある。
 
 1. 取引に署名する
-   - 使いたいキーリングが[caver.wallet](api/caver-wallet/caver-wallet.md)に追加されていれば、`caver.wallet.sign`関数を使って署名することができます。
-   - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
+  - 使いたいキーリングが[caver.wallet](api/caver-wallet/caver-wallet.md)に追加されていれば、`caver.wallet.sign`関数を使って署名することができます。
+  - キーリングを `caver.wallet` に追加せずに別途管理する場合は、`transaction.sign` 関数を使用してトランザクションに署名することができる。
 2. `caver.rpc.klay.sendRawTransaction`を介して、署名されたトランザクションのRLPエンコード文字列をkaiaに送信する。
 
 **注意：** 送信者は十分な数のKAIAを持っていなければならない。

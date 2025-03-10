@@ -67,3 +67,4 @@ PN 子網與以下節點相連：
 所有節點都設置在一個 CC 子網下。 還必須設置防火牆，CN 才能使用 P2P 端口（多通道選項為 32323、32324）連接 CNN 內的其他 CN。 PN 的 P2P 端口打開後，可與端點節點網絡 (ENN) 中的 EN 和核心小區網絡 (CNN) 中的 PN 連接。 此外，還需要可選的 VPN 和監控服務器，以便進行遠程管理。
 
 ![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
+

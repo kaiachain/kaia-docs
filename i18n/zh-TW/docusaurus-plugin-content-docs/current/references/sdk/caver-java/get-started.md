@@ -401,8 +401,8 @@ If you need KAIA for testing, you can get Kairos testnet KAIA from the [Kaia Fau
 您可以使用 caver-java 錢包生成交易簽名。 您必須經過以下兩個步驟才能將交易發送到網絡。
 
 1. 簽署交易
-   - 如果要使用的密鑰已添加到 `caver.wallet`，則可以使用 `caver.wallet.sign`函數簽名。
-   - 如果單獨管理鑰匙圈而不將其添加到 `caver.wallet` 中，則可以通過 `transaction.sign` 函數簽署交易。
+  - 如果要使用的密鑰已添加到 `caver.wallet`，則可以使用 `caver.wallet.sign`函數簽名。
+  - 如果單獨管理鑰匙圈而不將其添加到 `caver.wallet` 中，則可以通過 `transaction.sign` 函數簽署交易。
 2. 通過 `caver.rpc.klay.sendRawTransaction`，向 kaia 發送已簽名事務的 RLP 編碼字符串。
 
 **注意：** 匯款人必須有足夠的 KAIA 數量進行轉賬並支付交易費用。

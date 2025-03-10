@@ -185,20 +185,20 @@ For other operating systems, refer to the [official Grafana documentation](https
 
 3. Add Prometheus as a Data Source.
 
-   - Navigate to **Cofiguration** -> **Data Sources**.
-   - Click on **Add data source**.
-   - Select **Prometheus** as the type.
-   - Set the **URL** to `http://localhost:9090` (modify if Prometheus is on a different server).
-   - Click **Save & Test** to verify the connection.
+  - Navigate to **Cofiguration** -> **Data Sources**.
+  - Click on **Add data source**.
+  - Select **Prometheus** as the type.
+  - Set the **URL** to `http://localhost:9090` (modify if Prometheus is on a different server).
+  - Click **Save & Test** to verify the connection.
 
 4. Add a Kaia dashboard and add a panel to visualize Kaia block number.
-   - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) or navigate to an existing one.
-   - Click **Edit** in the top-right corner, click **Add** in the dashboard header, and select **Visualization** in the drop-down to add a panel.
-   - Under **Query**:
-     1. Select your Prometheus as **Data source**.
-     2. Enter `klaytn_blockchain_head_blocknumber` in the **Metric** field.
-     3. In **Options**, select **Custom** from the **Legend** dropdown and enter `{{instance}}` as the custom legend format.
-   - Click **Apply** to save the panel to your dashboard.
+  - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) or navigate to an existing one.
+  - Click **Edit** in the top-right corner, click **Add** in the dashboard header, and select **Visualization** in the drop-down to add a panel.
+  - Under **Query**:
+    1. Select your Prometheus as **Data source**.
+    2. Enter `klaytn_blockchain_head_blocknumber` in the **Metric** field.
+    3. In **Options**, select **Custom** from the **Legend** dropdown and enter `{{instance}}` as the custom legend format.
+  - Click **Apply** to save the panel to your dashboard.
 
 :::note[Additional Kaia Dashboards]
 

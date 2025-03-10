@@ -13,3 +13,4 @@ KAIA được niêm yết trên nhiều sàn giao dịch.  Vui lòng xem danh s�
 
 - [Các sàn giao dịch KAIA được niêm yết tại CoinGecko](https://www.coingecko.com/en/coins/klay#markets)
 - [Các sàn giao dịch KAIA được niêm yết tại CoinMarketCap](https://coinmarketcap.com/currencies/klaytn/markets/)
+

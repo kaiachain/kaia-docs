@@ -423,8 +423,8 @@ RoleBasedKeyring {
 您可以使用 caver-js 钱包生成交易签名。 您必须经过以下两个步骤才能将交易发送到网络。
 
 1. 签署交易
-   - 如果要使用的密钥已添加到 [caver.wallet](api/caver-wallet/caver-wallet.md)，则可以使用 `caver.wallet.sign` 函数签名。
-   - 如果单独管理钥匙圈而不将其添加到 `caver.wallet` 中，则可以通过 `transaction.sign` 函数签署交易。
+  - 如果要使用的密钥已添加到 [caver.wallet](api/caver-wallet/caver-wallet.md)，则可以使用 `caver.wallet.sign` 函数签名。
+  - 如果单独管理钥匙圈而不将其添加到 `caver.wallet` 中，则可以通过 `transaction.sign` 函数签署交易。
 2. 通过 `caver.rpc.klay.sendRawTransaction`，向 kaia 发送已签名事务的 RLP 编码字符串。
 
 **注意：** 发件人应有足够数量的 KAIA。
