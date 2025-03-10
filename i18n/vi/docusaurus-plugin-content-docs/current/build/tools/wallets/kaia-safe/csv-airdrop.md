@@ -68,3 +68,4 @@ For this illustration, we have 2 native transfers, 2 ERC20 transfers and 1 ERC72
 ## Step 4: Review and submit transaction <a id="review-submit-transaction"></a>
 
 You'll be able to review and confirm the transaction. Once ready, click Submit to execute the transaction just like any other Safe transaction.
+

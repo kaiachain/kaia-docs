@@ -215,3 +215,17 @@ targetNetworks: [chains.klaytnBaobab],
 祝贺你 您已成功使用 Scaffold-ETH 2 在 Kaia 上部署了一个合约并运行了一个 dApp。 现在您已经了解 Scaffold-ETH 2 的工作原理，可以随意创建和部署自己的智能合约，并修改前端以满足您的 dApp 需求！
 
 如需了解更多信息，请访问 [Scaffold-ETH 2 文档](https://docs.scaffoldeth.io/) ；如有任何疑问，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
+
+
+
+
+
+
+
+
+
+
+
+
+
+

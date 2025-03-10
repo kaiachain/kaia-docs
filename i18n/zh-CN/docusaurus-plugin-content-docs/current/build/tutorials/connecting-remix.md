@@ -73,10 +73,10 @@ contract KaiaGreeter {
 - 点击 Klaytn 插件。
 - 选择适当的 [环境]。
 - 您可以选择 Kairos、主网、注入式提供程序 - Kaia 钱包、注入式提供程序 - MetaMask
-  - [凯罗斯]：连接至 Kairos 网络
-  - [主网]：连接到主网
-  - [注入式提供程序 - Kaia 钱包]：连接至 Kaia 钱包
-  - [注入式提供程序 - MetaMask ]：连接到 MetaMask
+    - [凯罗斯]：连接至 Kairos 网络
+    - [主网]：连接到主网
+    - [注入式提供程序 - Kaia 钱包]：连接至 Kaia 钱包
+    - [注入式提供程序 - MetaMask ]：连接到 MetaMask
 
 ![](/img/build/smart-contracts/remix-deploy-env.png)
 

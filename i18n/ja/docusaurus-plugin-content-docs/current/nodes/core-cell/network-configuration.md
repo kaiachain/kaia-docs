@@ -67,3 +67,4 @@ Mgmt Subnetは、オペレーターがsshを通してコアセルノードに入
 すべてのノードは1つのCCサブネットの下にセットアップされる。 CNがP2Pポート（マルチチャンネルオプションの場合は32323、32324）を使ってCNN内の他のCNに接続するためには、ファイアウォールの設定も必要である。 PNのP2Pポートは、ENN（Endpoint Node Network）のENやCNN（Core Cell Network）のPNと接続するために開放される。 さらに、リモートで管理するためには、オプションのVPNと監視サーバーが必要です。
 
 ![CC with a Single Subnet](/img/nodes/cc_single_subnet.png)
+

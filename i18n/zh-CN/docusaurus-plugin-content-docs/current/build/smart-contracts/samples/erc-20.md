@@ -431,7 +431,7 @@ MyERC20.sol "由一个接口 "IERC20"、一个库 "SafeMath "和一个实现 "IE
 - IERC20 "接口定义了[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20) 中描述的强制接口。
 - SafeMath "库定义了 Solidity 算术运算的包装器，并增加了溢出检查功能，可安全计算 Solidity 的 "uint256 "类型。
 - MyERC20 "实现了 "IERC20 "接口，还定义了三个可选方法，详见[ERC-20 规范](https://eips.ethereum.org/EIPS/eip-20)。
-  - 除 ERC20 外，还定义了 "构造器"，该构造器用于定义新的 ERC20 令牌名称和符号，并铸造预定数量的令牌。 `constructor` 在首次部署时被调用一次。
+ - 除 ERC20 外，还定义了 "构造器"，该构造器用于定义新的 ERC20 令牌名称和符号，并铸造预定数量的令牌。 `constructor` 在首次部署时被调用一次。
 
 ### 1.2 看看重要的方法<a id="1-2-take-a-look-at-important-methods"></a>
 
@@ -579,3 +579,5 @@ Kaia 钱包
 - 然后按照提示添加令牌。 您的令牌列表模式应该是这样的：
 
 ![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)
+
+

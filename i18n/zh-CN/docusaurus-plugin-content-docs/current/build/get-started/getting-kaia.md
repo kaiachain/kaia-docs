@@ -13,3 +13,4 @@ KAIA 在多家交易所上市。  请通过以下链接查看韩国国际交流�
 
 - [KAIA交易所在CoinGecko上市](https://www.coingecko.com/en/coins/klay#markets)
 - [KAIA交易所在CoinMarketCap上市](https://coinmarketcap.com/currencies/klaytn/markets/)
+

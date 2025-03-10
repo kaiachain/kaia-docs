@@ -401,8 +401,8 @@ This section will show you how to send KAIA using caver-java on Kairos Testnet.
 You can use a caver-java wallet to generate a signature of a transaction. You have to go through two steps below to send the transaction to the network.
 
 1. Sign a transaction
-   - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
-   - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
+  - If the keyring you want to use is added to `caver.wallet`, you can use `caver.wallet.sign` function to sign.
+  - If you manage the keyring separately without adding it to `caver.wallet`, you can sign the transaction through `transaction.sign` function.
 2. Send the RLP-encoded string of the signed transaction to the kaia via `caver.rpc.klay.sendRawTransaction`.
 
 **Note:** The sender should have enough number of KAIA to be transferred and also to pay the transaction fee.

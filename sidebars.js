@@ -62,9 +62,7 @@ const sidebars = {
           type: 'category',
           label: 'Smart Contracts',
           link: { type: 'doc', id: 'learn/smart-contracts/smart-contracts' },
-          items: [
-            'learn/smart-contracts/precompiled-contracts',
-          ],
+          items: ['learn/smart-contracts/precompiled-contracts'],
         },
         'learn/consensus-mechanism',
         'learn/kni',
@@ -88,10 +86,7 @@ const sidebars = {
           type: 'category',
           label: 'Data Management',
           link: { type: 'doc', id: 'learn/storage/storage' },
-          items: [
-            'learn/storage/block-sync',
-            'learn/storage/state-pruning',
-          ],
+          items: ['learn/storage/block-sync', 'learn/storage/state-pruning'],
         },
         'learn/scaling-solutions',
       ],
@@ -196,6 +191,7 @@ const sidebars = {
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
+        'build/tutorials/eliza-plugin-guide',
         'build/tutorials/kaia-wallet-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
       ],
@@ -233,7 +229,7 @@ const sidebars = {
                 'build/tools/wallets/kaia-safe/tx-builder',
                 'build/tools/wallets/kaia-safe/csv-airdrop',
                 'build/tools/wallets/kaia-safe/faqs',
-                'build/tools/wallets/kaia-safe/kaia-safe-api-kit'
+                'build/tools/wallets/kaia-safe/kaia-safe-api-kit',
               ],
             },
             'build/tools/wallets/kaia-wallet',
@@ -269,15 +265,19 @@ const sidebars = {
           type: 'category',
           label: 'Indexers',
           link: { type: 'doc', id: 'build/tools/indexers/indexers' },
-          items: ['build/tools/indexers/thegraph', 'build/tools/indexers/subquery'],
+          items: [
+            'build/tools/indexers/thegraph',
+            'build/tools/indexers/subquery',
+          ],
         },
         {
           type: 'category',
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
-          items: ['build/tools/cross-chain/layerzero',
+          items: [
+            'build/tools/cross-chain/layerzero',
             'build/tools/cross-chain/wormhole',
-            'build/tools/cross-chain/stargate'
+            'build/tools/cross-chain/stargate',
           ],
         },
         {
@@ -321,7 +321,7 @@ const sidebars = {
                 'build/tools/token-management/team-finance/multisender',
               ],
             },
-          ]
+          ],
         },
         'build/tools/kaia-contracts-wizard',
       ],
@@ -435,7 +435,8 @@ const sidebars = {
       label: 'SDKs and Libraries',
       link: { type: 'doc', id: 'references/sdk/sdk' },
       items: [
-        require('./docs/references/sdk/ethers-ext-prior-v1-0-1/sidebar').sidebar,
+        require('./docs/references/sdk/ethers-ext-prior-v1-0-1/sidebar')
+          .sidebar,
         require('./docs/references/sdk/ethers-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3js-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3j-ext/sidebar').sidebar,
@@ -534,11 +535,26 @@ const sidebars = {
   miniDappSidebar: [
     {
       type: 'category',
-      label: 'Build Mini dApps on LINE with Unity',
+      label: 'LINE Mini DApp with Unity',
       link: { type: 'doc', id: 'minidapps/minidapps' },
       items: [
-        'minidapps/build-unity-app',
-        'minidapps/convert-unity-liff',
+        'minidapps/unity/quick-start',
+        'minidapps/unity/building-unity-ui',
+        'minidapps/unity/integrate-web3-unity',
+        'minidapps/unity/setting-build-template',
+        'minidapps/unity/convert-unity-liff',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'LINE Mini DApp with Cocos',
+      link: { type: 'doc', id: 'minidapps/cocos-creator/cocos-creator' },
+      items: [
+        'minidapps/cocos-creator/quick-start',
+        'minidapps/cocos-creator/build-ui',
+        'minidapps/cocos-creator/integrating-web3',
+        'minidapps/cocos-creator/configure-build-template',
+        'minidapps/cocos-creator/convert-to-liff',
       ],
     },
     ...commonSidebar,

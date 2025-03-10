@@ -32,9 +32,9 @@ Kaia Contracts Wizard는 다음 섹션으로 구성되어 있습니다:
 
 - **기능 섹션**: 각 토큰 표준에서 사용할 수 있는 모든 기능으로 구성됩니다. 각 토큰에서 사용할 수 있는 다양한 확장 기능에 대한 자세한 정보는 다음 링크에서 확인할 수 있습니다:
 
-  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+    - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+    - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+    - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
 - **접근 제어 섹션**: 각 토큰 표준에 대해 사용 가능한 모든 접근 제어 메커니즘으로 구성됩니다.
 

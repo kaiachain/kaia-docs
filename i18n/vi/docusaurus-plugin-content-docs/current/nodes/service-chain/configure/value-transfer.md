@@ -352,3 +352,4 @@ In ServiceChain, you can use your own customized Bridge contract that inherits f
 This section explains how to customize the Bridge contract and presents the example code.
 
 **It will be updated soon.**
+

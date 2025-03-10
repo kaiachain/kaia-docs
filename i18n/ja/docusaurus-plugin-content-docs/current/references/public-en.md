@@ -49,34 +49,36 @@
 | [OnFinality](https://onfinality.io/) | `https://klaytn.api.onfinality.io/public`                  | カイア、クレイ、エス、ネット | フル    |
 | [ポクト・ネットワーク](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | カイア、クレイ、エス、ネット | フル    |
 | [GetBlock](https://getblock.io/)     | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | カイア、クレイ、エス、ネット | フル    |
+| [dRPC](https://drpc.org/)            | `https://klaytn.drpc.org`                                  | カイア、クレイ、エス、ネット | フル    |
 
 **ウェブソケット**
 
-| サービスプロバイダー                          | エンドポイント                                                                                                                                   | 名前空間           | タイプ   |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)        | `wss://public-ja.node.kaia.io/ws`。                                                                                                        | カイア、クレイ、エス、ネット | フル    |
-|                                     | `wss://archive-ja.node.kaia.io/ws`。                                                                                                       | カイア、クレイ、エス、ネット | アーカイブ |
-| [クイックノード](https://quicknode.com/)   | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`. | カイア、クレイ、エス、ネット | フル    |
-| [オンファイナリティ](https://onfinality.io/) | `wss://klaytn.api.onfinality.io/public-ws`。                                                                                               | カイア、クレイ、エス、ネット | フル    |
+| サービスプロバイダー                          | エンドポイント                                                                                                                                   | 名前空間              | タイプ   |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----- |
+| [カイア財団](https://www.kaia.io)        | `wss://public-ja.node.kaia.io/ws`。                                                                                                        | カイア、クレイ、エス、ネット    | フル    |
+|                                     | `wss://archive-ja.node.kaia.io/ws`。                                                                                                       | kaia,klay,eth,net | アーカイブ |
+| [クイックノード](https://quicknode.com/)   | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`. | カイア、クレイ、エス、ネット    | Full  |
+| [オンファイナリティ](https://onfinality.io/) | `wss://klaytn.api.onfinality.io/public-ws`。                                                                                               | カイア、クレイ、エス、ネット    | フル    |
+| [dRPC](https://drpc.org/)           | `wss://klaytn.drpc.org`                                                                                                                   | カイア、クレイ、エス、ネット    | フル    |
 
 ### Testnet (Kairos) パブリックJSON-RPCエンドポイント
 
 **HTTPS**
 
-| サービスプロバイダー                           | エンドポイント                                                      | 名前空間           | タイプ   |
-| ------------------------------------ | ------------------------------------------------------------ | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | カイア、クレイ、エス、ネット | フル    |
-|                                      | `https://archive-en-kairos.node.kaia.io/`                    | カイア、クレイ、エス、ネット | アーカイブ |
-| [クイックノード](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
-| [BlockPIネットワーク](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | カイア、クレイ、エス、ネット | フル    |
+| サービスプロバイダー                           | エンドポイント                                                      | 名前空間              | タイプ   |
+| ------------------------------------ | ------------------------------------------------------------ | ----------------- | ----- |
+| [カイア財団](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | カイア、クレイ、エス、ネット    | フル    |
+|                                      | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | アーカイブ |
+| [クイックノード](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット    | フル    |
+| [BlockPIネットワーク](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | カイア、クレイ、エス、ネット    | フル    |
 
 **ウェブソケット**
 
-| サービスプロバイダー                        | エンドポイント                                                    | 名前空間           | タイプ   |
-| --------------------------------- | ---------------------------------------------------------- | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)      | `wss://public-en-kairos.node.kaia.io/ws`。                  | カイア、クレイ、エス、ネット | フル    |
-|                                   | `wss://archive-ja-kairos.node.kaia.io/ws`。                 | カイア、クレイ、エス、ネット | アーカイブ |
-| [クイックノード](https://quicknode.com/) | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | カイア、クレイ、エス、ネット | フル    |
+| サービスプロバイダー                        | エンドポイント                                                    | 名前空間              | タイプ   |
+| --------------------------------- | ---------------------------------------------------------- | ----------------- | ----- |
+| [カイア財団](https://www.kaia.io)      | `wss://public-en-kairos.node.kaia.io/ws`。                  | カイア、クレイ、エス、ネット    | Full  |
+|                                   | `wss://archive-ja-kairos.node.kaia.io/ws`。                 | kaia,klay,eth,net | アーカイブ |
+| [クイックノード](https://quicknode.com/) | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full  |
 
 ## RPCサービスプロバイダー
 
@@ -98,6 +100,32 @@ KASは、より簡単で迅速なブロックチェーンアプリケーショ�
 - [購読](https://www.klaytnapi.com/en/landing/pricings)
 - [ウェブサイト](https://www.klaytnapi.com/en/landing/main)
 
+### Chainstack
+
+[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+
+To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+
+#### 特徴
+
+- Free Developer plan supported
+- Scaling to paid plans supported
+- Pay-as-you-go supported
+- 25+ bockchains supported
+- アップタイム99.9%以上
+- Load-Balancing
+- Infinite scalability
+- Sign up with social account
+- Top up with crypto, including Kaia tokens
+- Support through Telegram, email, rich documentation and more
+- Customer stories with our dedicated Web3 copywriters
+
+#### 参考文献
+
+- [Docs](https://chainstack.com/build-better-with-kaia/)
+- [Subscription](https://chainstack.com/pricing/)
+- [Website](https://chainstack.com/)
+
 ### All That Node
 
 All That Nodeは、Web3インフラへの信頼できるゲートウェイとなることを目指しており、ビルダーはブロックチェーン・ネットワークに関する問題に惑わされることはない。 オール・ザット・ノードは、RPCノードへの高速かつ堅牢な接続を最低のレイテンシー性能で保証します。
@@ -111,7 +139,7 @@ All That Nodeは、Web3インフラへの信頼できるゲートウェイとな
 - アーカイブデータあり
 - 利用可能なWebsocket API
 - トレース/デバッグAPIが利用可能
-- アップタイム99.9%以上
+- Uptime 99.9%+
 - ロードバランシングの実施
 - 無限のスケーラビリティ
 - Discordコミュニティによる24時間365日のサポート
@@ -298,15 +326,15 @@ Quicknodeは、安全で分散型のイノベーションを促進するブロ�
 
 Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバイダ。 信頼できるWeb3のインフラパートナーです。
 
-#### 特徴
+#### Features
 
 - GeneralサポートのPublicノードはリクエスト制限なし。
 - 高性能ノード向けには、グロースプランとエンタープライズプランもご用意しています。
-- 100以上のネットワークにまたがる50以上のブロックチェーン
+- 90+ blockchains across 100+ networks
 - AIロードバランサー
 - 洞察に満ちた分析。
 
-#### 参考文献
+#### References
 
 - [ウェブサイト](https://drpc.org/)
 - [ドキュメント](https://drpc.org/docs)

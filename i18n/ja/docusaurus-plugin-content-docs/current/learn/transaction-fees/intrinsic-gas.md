@@ -70,11 +70,11 @@ klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegate
 これはTxTypedGasを計算する際に重要である：
 
 - まず、TxType が `feeDelegated` または `feeDelegatedWithFeeRatio` であることを確認する。
-  - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
-  - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
+    - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
+    - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
 - 次に、取引が契約を結ぶかどうかをチェックする。
-  - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
-  - そうでなければ、TxTypedGasに`TxGas (21000)`を加える。
+    - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
+    - そうでなければ、TxTypedGasに`TxGas (21000)`を加える。
 
 例えば、こうだ、
 
@@ -88,3 +88,4 @@ klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegate
 | ---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 例：         | intrinsicGas<br/> を計算する際の limit と meter initcode - initcode のワードごとに 2 ガスを追加するようになった。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | イスタンブールEVM | legacyTxType の [PayloadGas](#payloadgas) を他の TxType と整合させる<br/>- 変更前：PayloadGas=number_of_zero_bytes_of_tx_input x 4 + number_of_nonzero_bytes_of_tx_input x 68<br/> - After：PayloadGas=number_of_bytes_of_tx_input x 100<br/><br/>変更 [keyValidationGas](#keyvalidationgas) 計算ロジック<br/>- 変更前：KeyValidationGas=(key number of keys - 1) x 15,000<br/>- After：KeyValidationGas=(署名数 - 1) x 15,000 |
+

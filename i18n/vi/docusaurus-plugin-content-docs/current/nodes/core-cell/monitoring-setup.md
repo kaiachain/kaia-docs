@@ -92,3 +92,4 @@ If each CN/PN has the above configuration and agent, you can check the metrics a
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
 As a CC operator, you may request an account by providing your company name and email address in the Slack channel. Please note that only CC operators are allowed to request a Grafana account.
+

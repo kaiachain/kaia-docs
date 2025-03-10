@@ -574,3 +574,6 @@ BREAKING CHANGES: webpack<5 used to include polyfills for node.js core modules b
 ## 下一步
 
 有關 Web3Modal 的更多深入指南，請參閱 [Web3Modal 文檔](https://docs.walletconnect.com/2.0/web3modal/about) 和 [Web3Modal Github 代碼庫](https://github.com/klaytn/klaytn-web3modal)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/web3Modal-sample) 上找到本指南的完整實現代碼。
+
+
+

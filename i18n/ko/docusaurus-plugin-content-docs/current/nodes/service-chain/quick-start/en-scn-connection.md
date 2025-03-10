@@ -9,14 +9,14 @@ Kairos EN을 설정하고 이 EN을 SCN 중 하나에 연결합니다. 그런 �
 
 - EN용 Linux 또는 MacOS 서버 1대
 - 테스트를 위한 최소 하드웨어 요구 사항
-  - CPU: 4코어(인텔 제온 또는 동급), RAM: 16GB, HDD: 50GB
-  - 자세한 설명은 [시스템 요구사항](../system-requirements.md)을 참조하세요.
+ - CPU: 4코어(인텔 제온 또는 동급), RAM: 16GB, HDD: 50GB
+ - 자세한 설명은 [시스템 요구사항](../system-requirements.md)을 참조하세요.
 - Kairos EN 실행 파일을 다운로드합니다. 다운로드 가능한 바이너리의 전체 목록은 [다운로드](../../downloads/downloads.md)를 참조하세요.
 - 가정 및 제한 사항
-  - 서비스체인 네트워크가 설치되어 실행 중입니다. 네트워크 설정은 [4노드 서비스체인 설정하기](4nodes-setup-guide.md)를 참고하세요.
-  - Kairos EN.
-  - 일대일 연결만 지원되므로 하나의 EN은 하나의 SCN에만 연결할 수 있습니다.
-  - 모든 SCN이 EN에 연결될 필요는 없습니다.
+ - 서비스체인 네트워크가 설치되어 실행 중입니다. 네트워크 설정은 [4노드 서비스체인 설정하기](4nodes-setup-guide.md)를 참고하세요.
+ - Kairos EN.
+ - 일대일 연결만 지원되므로 하나의 EN은 하나의 SCN에만 연결할 수 있습니다.
+ - 모든 SCN이 EN에 연결될 필요는 없습니다.
 
 ## 0단계: Kairos EN 설치 <a id="install-baobab-en"></a>
 

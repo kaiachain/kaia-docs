@@ -64,19 +64,19 @@ Remix IDE :
 
 - Remix IDEで、**Solidityコンパイラタブ**に移動します。
 
-  - 契約のコンパイルとデプロイに使用された**コンパイラのバージョン**を確認してください。
-  - 契約で使用されている**オープンソースライセンスの種類**を確認してください。 はじめに `Counter.sol`ファイルでは、`// SPDX-License-Identifier：MIT`
-  - コントラクトのデプロイに使用される**EVMバージョン**を確認してください。
-  - (オプション）コンパイル時に**最適化**が有効になっている場合、最適化実行パラメータの値に注意する。
+    - 契約のコンパイルとデプロイに使用された**コンパイラのバージョン**を確認してください。
+    - 契約で使用されている**オープンソースライセンスの種類**を確認してください。 はじめに `Counter.sol`ファイルでは、`// SPDX-License-Identifier：MIT`
+    - コントラクトのデプロイに使用される**EVMバージョン**を確認してください。
+    - (オプション）コンパイル時に**最適化**が有効になっている場合、最適化実行パラメータの値に注意する。
 
-  ![](/img/build/tutorials/counter-veri-parameters.png)
+    ![](/img/build/tutorials/counter-veri-parameters.png)
 
 - Remix IDEで**Kaiaタブ**に移動します。
 
-  - (オプション) コンストラクタのメソッドが引数を受け付ける場合は、コンストラクタの引数の [ABI エンコード形式](https://docs.soliditylang.org/en/develop/abi-spec.html) に注意してください。
-  - デプロイに成功したら、**Deployed Contracts**タブでスマートコントラクトのコントラクトアドレスをメモしてください。
+    - (オプション) コンストラクタのメソッドが引数を受け付ける場合は、コンストラクタの引数の [ABI エンコード形式](https://docs.soliditylang.org/en/develop/abi-spec.html) に注意してください。
+    - デプロイに成功したら、**Deployed Contracts**タブでスマートコントラクトのコントラクトアドレスをメモしてください。
 
-  ![](/img/build/tutorials/counter-veri-parametersII.png)
+    ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## マルチパートコントラクトのデプロイ
 
@@ -124,15 +124,15 @@ Remix IDE:
 
 - Remix IDEで、**ファイルエクスプローラタブ**に移動します。
 
-  - **contracts**フォルダの下に新しく作成した契約を選択します。
-  - 2本指でクリックまたはタップすると、契約で利用可能なすべてのコマンドが表示されます。
-  - フラット化\*\*を選択
+    - **contracts**フォルダの下に新しく作成した契約を選択します。
+    - 2本指でクリックまたはタップすると、契約で利用可能なすべてのコマンドが表示されます。
+    - フラット化\*\*を選択
 
-  ![](/img/build/tutorials/airdropToken-flattened.png)
+    ![](/img/build/tutorials/airdropToken-flattened.png)
 
-  - コードがフラット化されると、`airdropTokens_flattened.sol`という新しいコントラクトが表示されます。
+    - コードがフラット化されると、`airdropTokens_flattened.sol`という新しいコントラクトが表示されます。
 
-  ![](/img/build/tutorials/airdropToken-flattened-file.png)
+    ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
