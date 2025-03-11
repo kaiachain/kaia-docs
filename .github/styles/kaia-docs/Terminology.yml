@@ -1,0 +1,9 @@
+extends: substitution
+message: "If it's the first word of the sentence, use '%s' instead of '%s'"
+level: error
+ignorecase: false
+swap:
+  Dapp: DApp
+  DAPP: DApp
+  Dapps: DApps
+  DAPPS: DApps
