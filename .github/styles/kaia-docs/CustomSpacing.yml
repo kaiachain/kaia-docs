@@ -1,0 +1,13 @@
+extends: existence
+message: "'%s' should have one space."
+link: 'https://developers.google.com/style/sentence-spacing'
+level: error
+nonword: true
+action:
+  name: remove
+tokens:
+  - '[a-z][.?!] {2,}[A-Z]'  # Multiple spaces
+  - '[a-z][.?!][A-Z]'       # No space
+# Exceptions to ignore patterns like "ethers.Contract"
+raw:
+  - '(?<![A-Za-z0-9])[a-z]+\.[A-Z][a-zA-Z0-9]+(?![A-Za-z0-9])'
