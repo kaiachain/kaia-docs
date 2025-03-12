@@ -8,7 +8,7 @@ This comprehensive guide covers:
 - Setting up a smart contract development environment.
 - Frontend integration and deployment.
 
-To get started quickly, you'll find the entire code for this tutorial on [GitHub](https://github.com/kjeom/ExampleMiniDapp). This way, you can explore the application's inner workings as you follow along.
+To get started quickly, you'll find the entire code for this tutorial on [Github](https://github.com/kjeom/ExampleMiniDapp). This way, you can explore the application's inner workings as you follow along.
 
 ## Prerequisite <a id="prerequisite"></a> 
 
@@ -27,7 +27,7 @@ To build this application, ensure you have the following:
 
 ## Project Setup and Installation <a id="project-setup-installation"></a> 
 
-To start the project setup and installation quickly, clone this project on GitHub using the following command.
+To start the project setup and installation quickly, clone this project on Github using the following command.
 
 ```bash
 # clone project
