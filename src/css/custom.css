@@ -92,3 +92,103 @@ html[data-theme='dark'] .sidebar-divider {
 body {
   overflow-y: auto;
 }
+
+/* Custom navbar positioning */
+:root {
+  --navbar-padding-horizontal: 1rem;
+  --max-group-spacing: 9rem; /* Maximum spacing when window is wide enough */
+  --min-group-spacing: 0.5rem; /* Minimum spacing before collapsing to mobile */
+  --collapse-breakpoint: 1210px; /* Width where we switch to mobile menu */
+}
+
+/* Center the navbar container */
+.navbar__inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--navbar-padding-horizontal);
+}
+
+/* Create the three-group layout */
+.navbar__items {
+  flex: 0 0 auto; /* Don't grow or shrink */
+}
+
+/* Logo group */
+.navbar__inner .navbar__items:first-child {
+  justify-content: flex-start;
+}
+
+/* 
+ * Dynamic spacing calculation:
+ * - Start with minimum spacing
+ * - Add extra space proportional to viewport width
+ * - Cap at maximum spacing using min()
+ */
+.navbar__inner .navbar__brand {
+  margin-right: min(
+    var(--max-group-spacing), 
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+  );
+}
+
+/* Middle group (nav links) */
+.navbar__inner .navbar__items:not(:first-child):not(.navbar__items--right) {
+  justify-content: center;
+  flex: 1 1 auto; /* Allow to grow and shrink */
+  margin-left: 0; /* Reset any default margin */
+}
+
+/* Right group with dynamic spacing */
+.navbar__inner .navbar__items--right {
+  justify-content: flex-end;
+  margin-left: min(
+    var(--max-group-spacing), 
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+  );
+}
+
+/* Custom breakpoint for collapsing to hamburger menu earlier */
+@media (max-width: 1210px) {
+  /* Hide all navbar items except logo and search */
+  .navbar__item:not(.navbar__search) {
+    display: none;
+  }
+  
+  /* Always show the toggle button at this breakpoint */
+  .navbar__toggle {
+    display: flex !important;
+  }
+  
+  /* Keep the search visible alongside logo */
+  .navbar__search {
+    display: flex !important;
+  }
+  
+  /* Ensure the right items container stays visible for search */
+  .navbar__items--right {
+    display: flex !important;
+  }
+  
+  /* Adjust spacing for collapsed menu */
+  .navbar__items:first-child {
+    margin-right: auto;
+  }
+  
+  .navbar__items--right {
+    margin-left: 0;
+  }
+}
+
+/* Standard mobile layout adjustments */
+@media (max-width: 768px) {
+  :root {
+    --navbar-padding-horizontal: 1rem;
+  }
+  
+  .navbar__inner {
+    padding: 0 var(--navbar-padding-horizontal);
+  }
+}
