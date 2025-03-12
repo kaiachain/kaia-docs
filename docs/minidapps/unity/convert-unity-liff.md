@@ -41,7 +41,7 @@ Save your LIFF ID - you'll need it in the next step!
 
 The index.html file helps us to check web3 availability, set up LINE integration (LIFF), proceed to load our Unity game and connect everything together.
 
-```code
+```html
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -155,12 +155,16 @@ The index.html file helps us to check web3 availability, set up LINE integration
         }
 
         const provider = sdk.getWalletProvider();
-        await provider.request({ method: 'kaia_disconnect' });
-        connectedAddress = null;
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+
       } catch (error) {
-        console.error("Disconnect error:", error);
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+           console.error("Disconnect error:", error);
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
       }
     }
 
@@ -234,7 +238,6 @@ The index.html file helps us to check web3 availability, set up LINE integration
   </script>
 </body>
 </html>
-
 ```
 
 Make sure to change your LIFF-ID in the code snippet above.

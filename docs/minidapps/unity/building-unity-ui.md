@@ -61,10 +61,14 @@ Your main interaction buttons:
 
 - Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
 
+- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to DisconnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with “Disconnect Wallet".
+
 ```code
 ButtonPanel
-├── ConnectButton (Button - TextMeshPro)
+├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
+├── DisconnectWalletButton (Button - TextMeshPro)
+│   └── Text: "Disconnect Wallet"
 ```
 
 ### MintPanel Components
@@ -92,7 +96,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
+![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
 For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
