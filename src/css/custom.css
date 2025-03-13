@@ -92,3 +92,91 @@ html[data-theme='dark'] .sidebar-divider {
 body {
   overflow-y: auto;
 }
+
+/* Custom navbar positioning */
+:root {
+  --navbar-padding-horizontal: 1rem;
+  --max-group-spacing: 9rem;
+  --min-group-spacing: 0.5rem;
+  --collapse-breakpoint: 1210px;
+}
+
+/* Center the navbar container */
+.navbar__inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--navbar-padding-horizontal);
+}
+
+/* Create the three-group layout */
+.navbar__items {
+  flex: 0 0 auto;
+}
+
+/* Logo group with dynamic spacing */
+.navbar__inner .navbar__items:first-child {
+  justify-content: flex-start;
+}
+
+.navbar__inner .navbar__brand {
+  margin-right: min(
+    var(--max-group-spacing), 
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+  );
+}
+
+/* Middle group (nav links) */
+.navbar__inner .navbar__items:not(:first-child):not(.navbar__items--right) {
+  justify-content: center;
+  flex: 1 1 auto;
+  margin-left: 0;
+}
+
+/* Right group with dynamic spacing */
+.navbar__inner .navbar__items--right {
+  justify-content: flex-end;
+  margin-left: min(
+    var(--max-group-spacing), 
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+  );
+}
+
+/* Custom breakpoint for collapsing to hamburger menu earlier */
+@media (max-width: 1210px) {
+  .navbar__item:not(.navbar__search) {
+    display: none;
+  }
+  
+  .navbar__toggle {
+    display: flex !important;
+  }
+  
+  .navbar__search {
+    display: flex !important;
+  }
+  
+  .navbar__items--right {
+    display: flex !important;
+  }
+  
+  .navbar__items:first-child {
+    margin-right: auto;
+  }
+  
+  .navbar__items--right {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-padding-horizontal: 1rem;
+  }
+  
+  .navbar__inner {
+    padding: 0 var(--navbar-padding-horizontal);
+  }
+}
