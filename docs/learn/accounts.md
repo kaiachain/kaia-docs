@@ -165,7 +165,7 @@ If an account has the key AccountKeyFail, the transaction validation process alw
 
 | Attribute | Type | Description |
 | :--- | :--- | :--- |
-| Type | uint8 \(Go\) | The type of AcccountKeyFail. It must be **0x03**. |
+| Type | uint8 \(Go\) | The type of AccountKeyFail. It must be **0x03**. |
 
 #### RLP Encoding <a id="rlp-encoding"></a>
 
