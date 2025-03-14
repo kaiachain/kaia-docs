@@ -9,10 +9,10 @@
 - 코코스 개발자 계정](https://auth.cocos.com/#/sign_up/register?language=en)
 - LINE 개발자 계정(이메일로 간편하게 생성)
 - 카이아 수도꼭지](https://faucet.kaia.io/)에서 카이아 토큰을 테스트하세요.
-- 디앱 포털 SDK 클라이언트 ID(디앱 포털 팀에서 제공)
+- 미니 디앱 SDK 클라이언트 ID(디앱 포털 팀에서 제공)
 - 기본적인 웹3.0 숙지(지갑과 토큰에 대한 일반적인 이해 정도면 충분)
 
-## 코코스 크리에이터를 위한 개발 환경 설정하기 <a id="setting-up-dev-environment"></a>
+## Cocos 크리에이터를 위한 개발 환경 설정하기 <a id="setting-up-dev-environment"></a>
 
 시작하기 전에 개발 환경이 제대로 설정되어 있는지 확인해 보겠습니다. 먼저 Cocos 대시보드를 설치하고 확인하는 것으로 시작하겠습니다.
 

@@ -1,6 +1,6 @@
-# 为 DApp Portal SDK 配置构建模板
+# 迷你 Dapp SDK 集成
 
-在本节中，我们将确保在游戏中加载 DApp Portal SDK。 为此，Cocos Creator 的 build-templates 目录允许自定义游戏在网络平台上的构建方式，这对于在游戏开始前预载 SDK 至关重要。
+在本节中，我们将确保在游戏中加载 Mini Dapp SDK。 为此，Cocos Creator 的 build-templates 目录允许自定义游戏在网络平台上的构建方式，这对于在游戏开始前预载 SDK 至关重要。
 
 通过在 **build-templates/web-desktop** 中创建自定义模板，我们可以在每次构建时自动包含 SDK，从而简化开发和部署。
 
@@ -32,9 +32,9 @@ mkdir -p build-templates/web-desktop
 cp build/web-desktop/index.html build-templates/web-desktop/
 ```
 
-## 步骤 4：修改 index.html 以包含 DApp Portal SDK<a id="modify-index-html-to-include-dapp-portal-sdk"></a>
+## 第 4 步：修改 index.html 以包含 Mini Dapp SDK<a id="modify-index-html-to-include-dapp-portal-sdk"></a>
 
-编辑 `build-templates/web-desktop/index.html` 并在 `<head> </head>` 部分中添加以下 DApp Portal SDK 脚本标记：
+编辑 `build-templates/web-desktop/index.html` 并在 `<head> </head>` 部分中添加以下 Mini Dapp SDK 脚本标记：
 
 ```bash
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
@@ -44,11 +44,11 @@ cp build/web-desktop/index.html build-templates/web-desktop/
 
 - 在 Cocos Creator 中重建项目。
 - 检查生成的 `build/web-desktop/index.html`。
-- 确认已正确包含 **DApp Portal SDK 脚本**。
+- 确认已正确包含 **Mini Dapp SDK 脚本**。
 
 ## 第 6 步：构建和预览项目<a id="build-preview-project"></a>
 
-完成设置后，单击 Cocos Creator 编辑器顶部的_Play on Device_（在设备上播放）。 您的游戏应在新的浏览器标签页中打开。
+完成设置后，单击 Cocos Creator 编辑器顶部的 _Play on Device_（在设备上播放）。 您的游戏应在新的浏览器标签页中打开。
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
@@ -56,7 +56,7 @@ cp build/web-desktop/index.html build-templates/web-desktop/
 
 # 将网络构建路由至 Localhost:3000<a id="route-web-build"></a>
 
-出于安全和开发目的，DApp Portal SDK 目前在 localhost:3000 上运行。 目前，默认的 Unity WebGL 构建使用随机端口（如 7457），为了让我们的应用程序高效运行，我们需要将 Unity WebGL 构建配置为在 localhost:3000 上打开。
+出于安全和开发目的，Mini Dapp SDK 目前在 localhost:3000 上运行。 目前，默认的 Unity WebGL 构建使用随机端口（如 7457），为了让我们的应用程序高效运行，我们需要将 Unity WebGL 构建配置为在 localhost:3000 上打开。
 
 为此，请按照以下步骤操作：
 
@@ -79,7 +79,7 @@ cd build/web-desktop
 http-server -p 3000
 ```
 
-# 测试和运行应用程序 <a id="route-web-build"></a>
+# 测试和运行应用程序<a id="route-web-build"></a>
 
 现在，我们的项目已经运行，让我们对其进行测试和交互。
 
@@ -87,4 +87,3 @@ http-server -p 3000
 - 连接后，向连接地址发送固定金额的薄荷糖。
 
 ![](/img/minidapps/cocos-creator/cocos-demo.gif)
-

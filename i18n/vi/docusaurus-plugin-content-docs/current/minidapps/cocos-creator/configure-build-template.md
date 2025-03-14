@@ -1,6 +1,6 @@
-# Configuring Build Templates for DApp Portal SDK
+# Mini Dapp SDK Integration
 
-In this section, we will ensure the DApp Portal SDK is loaded in our game. To do that, Cocos Creator’s build-templates directory allows customization of how the game is built for the web platform, making it essential for preloading the SDK before the game starts.
+In this section, we will ensure the Mini Dapp SDK is loaded in our game. To do that, Cocos Creator’s build-templates directory allows customization of how the game is built for the web platform, making it essential for preloading the SDK before the game starts.
 
 By creating a custom template in **build-templates/web-desktop**, we can automatically include the SDK in every build, streamlining development and deployment.
 
@@ -32,9 +32,9 @@ Once the build is complete, copy the index.html file into the build-templates di
 cp build/web-desktop/index.html build-templates/web-desktop/
 ```
 
-## Step 4: Modify index.html to Include the DApp Portal SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
+## Step 4: Modify index.html to Include the Mini Dapp SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
 
-Edit `build-templates/web-desktop/index.html` and add the following DApp Portal SDK script tag inside the `<head> </head>` section:
+Edit `build-templates/web-desktop/index.html` and add the following Mini Dapp SDK script tag inside the `<head> </head>` section:
 
 ```bash
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
@@ -44,7 +44,7 @@ Edit `build-templates/web-desktop/index.html` and add the following DApp Portal 
 
 - Rebuild your project in Cocos Creator.
 - Check the generated `build/web-desktop/index.html`.
-- Confirm that the **DApp Portal SDK script** is correctly included.
+- Confirm that the **Mini Dapp SDK script** is correctly included.
 
 ## Step 6: Build & Preview the Project <a id="build-preview-project"></a>
 
@@ -56,7 +56,7 @@ After completing the setup, click _Play on Device_ at the top of the Cocos Creat
 
 # Route Web build to Localhost:3000 <a id="route-web-build"></a>
 
-For security and development purposes, the DApp Portal SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 7457) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 7457) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
 
 To do so, follow the steps below:
 
@@ -79,12 +79,11 @@ cd build/web-desktop
 http-server -p 3000
 ```
 
-# Testing and running application  <a id="route-web-build"></a>
+# Testing and running application <a id="route-web-build"></a>
 
 Now that we have our project running, let’s test and interact with it.
 
 - Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, mint a fixed amount  to the connected address.
+- Once connected, mint a fixed amount to the connected address.
 
 ![](/img/minidapps/cocos-creator/cocos-demo.gif)
-

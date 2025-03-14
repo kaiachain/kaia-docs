@@ -1,4 +1,4 @@
-# UnityビルドをLINE LIFFアプリに変換する
+# Convert to LINE LIFF
 
 さて、ここからがエキサイティングなところです。Unity WebGLビルドをLINEからアクセスできるミニdAppに変身させるのです！
 
@@ -34,7 +34,7 @@ Permissions: Enable as needed
 ```
 
 :::note
-LIFF IDを保存してください - 次のステップで必要になります！
+Save your LIFF ID - you'll need it in the next step!
 :::
 
 ## ステップ2：WebGLテンプレートを修正する<a id="modify-webgl-template"></a>
@@ -115,7 +115,7 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
           clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
           chainId: '1001'
         });
-        
+
         console.log("SDKs initialized");
         return true;
       } catch (error) {
@@ -138,7 +138,7 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
 
         const provider = sdk.getWalletProvider();
         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-        
+
         if (accounts && accounts.length > 0) {
           connectedAddress = accounts[0];
           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -153,7 +153,7 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
         if (liff.isLoggedIn()) {
           await liff.logout();
         }
-        
+
         const provider = sdk.getWalletProvider();
         await provider.request({ method: 'kaia_disconnect' });
         connectedAddress = null;
@@ -171,7 +171,7 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
     window.MintToken = async function(amount) {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const mintSignature = '0xa0712d68';
         const amountHex = amount.toString(16).padStart(64, '0');
         const data = mintSignature + amountHex;
@@ -199,7 +199,7 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
     window.GetBalance = async function() {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const balanceSignature = '0x70a08231';
         const addressParam = connectedAddress.substring(2).padStart(64, '0');
         const data = balanceSignature + addressParam;
@@ -291,5 +291,3 @@ LINE mini dAppsの開発に関するより詳細な情報については、以�
 ### 付録B<a id="appendix-b"></a>
 
 [Web3Manager.cs ソースコード](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
-
-

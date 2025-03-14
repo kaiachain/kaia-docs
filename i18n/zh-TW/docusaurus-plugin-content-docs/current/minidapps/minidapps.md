@@ -1,4 +1,4 @@
-# 使用 Unity 在 LINE 上構建迷你 dApps
+# LINE Mini DApp with Unity
 
 ## 介紹
 
@@ -13,4 +13,3 @@ LINE 是一個綜合性通信和生活方式平臺，擁有超過 2 億活躍用
 準備好創建您的第一個 LINE mini dApp了嗎？ 我們將使用 Unity WebGL 創建一個 dApp，將其轉換為 LIFF（LINE 前端框架）應用程序，並添加一些令人興奮的代幣鑄造功能。 如果您對其中一些術語不熟悉，我們將對每個概念進行詳細解釋。
 
 ![](/img/minidapps/unity-minidapp/unity-minidapp-banner.png)
-
