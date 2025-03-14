@@ -87,7 +87,7 @@ Assets/
    - GetTokenBalance() - Checks token balances
    - MintTokens() - Manages token minting
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](../minidapps/convert-unity-liff.md#appendix-a):
+Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](convert-unity-liff.md#appendix-a):
 
 ### Part 2: Creating the C# Manager (Web3Manager.cs)
 
@@ -133,7 +133,7 @@ Finally, let's bring it all together in Unity:
      - StatusText
      - AddressText
      - TokenBalanceText
-     - Connect / Mint buttons
+     - Connect, Disconnect, Mint buttons
      - Input fields
 
-![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
+![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
