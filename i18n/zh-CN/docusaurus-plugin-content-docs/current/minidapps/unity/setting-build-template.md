@@ -41,7 +41,7 @@ Assets/
 
 将下面的代码复制并粘贴到您的 `index.html` 文件中：
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en-us">
  <head>
@@ -87,6 +87,9 @@ Assets/
          ConnectWallet: function() {
            window.ConnectWallet();
          },
+         DisconnectWallet: function() {
+          window.DisconnectWallet();
+         },
          GetConnectedAddress: function() {
            var address = window.GetConnectedAddress();
            var bufferSize = lengthBytesUTF8(address) + 1;
@@ -127,6 +130,26 @@ Assets/
          }
        } catch (error) {
          myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+       }
+     }
+
+     window.DisconnectWallet = async function() {
+       try {
+         if (!sdk) {
+           console.error("SDK not initialized");
+           return;
+         }
+
+         const provider = sdk.getWalletProvider();
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+       } catch (error) {
+         console.error("Disconnect error:", error);
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
        }
      }
 
@@ -200,7 +223,6 @@ Assets/
    </script>
  </body>
 </html>
-
 ```
 
 ## 步骤 4：设置 Mini Dapp SDK
@@ -256,7 +278,7 @@ minidapp/
 4. 保存更改并重建。
 5. 现在你应该看到浏览器中打开了一个标签页。
 
-![](/img/minidapps/unity-minidapp/ui_build_app.png)
+![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
 ## 第 8 步：将 WebGL 构建路由至 Localhost:3000
 
@@ -292,4 +314,4 @@ http-server -p 3000
 - 点击连接钱包按钮，连接到 Dapp Portal 钱包。
 - 连接后，填写详细信息（金额），向连接的地址汇款。
 
-![](/img/minidapps/unity-minidapp/minidapp.gif)
+![](/img/minidapps/unity-minidapp/minidapp-demo.gif)
