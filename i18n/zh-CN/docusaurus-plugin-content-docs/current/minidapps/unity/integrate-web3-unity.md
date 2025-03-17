@@ -87,7 +87,7 @@ Assets/
   - GetTokenBalance() - 检查令牌余额
   - MintTokens() - 管理代币铸造
 
-在 VS Code 中打开该文件并粘贴 [Appendix A](../minidapps/convert-unity-liff.md#appendix-a) 中的`KaiaPlugin.jslib`源代码：
+在 VS Code 中打开该文件并粘贴 [Appendix A](convert-unity-liff.md#appendix-a) 中的`KaiaPlugin.jslib`源代码：
 
 ### 第 2 部分：创建 C# 管理器 (Web3Manager.cs)
 
@@ -133,7 +133,7 @@ Assets/
     - 状态文本
     - 地址文本
     - 令牌余额文本
-    - 连接/薄荷按钮
+    - 连接、断开、薄荷按钮
     - 输入字段
 
-![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
+![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
