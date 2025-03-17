@@ -41,7 +41,7 @@ The default Unity template doesn't include Web3 support. Our custom template wil
 
 Copy and paste the code below in your `index.html` file:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en-us">
  <head>
@@ -87,6 +87,9 @@ Copy and paste the code below in your `index.html` file:
          ConnectWallet: function() {
            window.ConnectWallet();
          },
+         DisconnectWallet: function() {
+          window.DisconnectWallet();
+         },
          GetConnectedAddress: function() {
            var address = window.GetConnectedAddress();
            var bufferSize = lengthBytesUTF8(address) + 1;
@@ -127,6 +130,26 @@ Copy and paste the code below in your `index.html` file:
          }
        } catch (error) {
          myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+       }
+     }
+
+     window.DisconnectWallet = async function() {
+       try {
+         if (!sdk) {
+           console.error("SDK not initialized");
+           return;
+         }
+
+         const provider = sdk.getWalletProvider();
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+       } catch (error) {
+         console.error("Disconnect error:", error);
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
        }
      }
 
@@ -200,7 +223,6 @@ Copy and paste the code below in your `index.html` file:
    </script>
  </body>
 </html>
-
 ```
 
 ## Step 4: Setting Up Mini Dapp SDK
@@ -256,7 +278,7 @@ After building your project,
 4. Save changes and rebuild.
 5. You should now see a tab opened in your browser.
 
-![](/img/minidapps/unity-minidapp/ui_build_app.png)
+![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
 ## Step 8: Route WebGL build to Localhost:3000
 
@@ -292,4 +314,4 @@ Now that we have our project running, let’s test and interact with it.
 - Click on the Connect Wallet button to connect to Dapp Portal Wallet.
 - Once connected, fill in details (amount) to mint to the connected address.
 
-![](/img/minidapps/unity-minidapp/minidapp.gif)
+![](/img/minidapps/unity-minidapp/minidapp-demo.gif)
