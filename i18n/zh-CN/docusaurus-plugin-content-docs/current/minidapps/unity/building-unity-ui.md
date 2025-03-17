@@ -61,10 +61,14 @@
 
 - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
 
+- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
+
 ```code
 ButtonPanel
-├── ConnectButton (Button - TextMeshPro)
+├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
+├── DisconnectWalletButton (Button - TextMeshPro)
+│   └── Text: "Disconnect Wallet"
 ```
 
 ### MintPanel 组件
@@ -92,7 +96,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
+![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
 要使组件排列整齐，如上图所示，必须在点击每个组件时使用右侧的图标手动排列。
