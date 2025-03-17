@@ -87,7 +87,7 @@ Assets/
   - GetTokenBalance() - 토큰 잔액을 확인합니다.
   - MintTokens() - 토큰 발행을 관리합니다.
 
-이 파일을 VS Code에서 열고 [부록 A](../minidapps/convert-unity-liff.md#appendix-a)에 `KaiaPlugin.jslib` 소스 코드를 붙여넣습니다:
+이 파일을 VS Code에서 열고 [부록 A](convert-unity-liff.md#appendix-a)에 `KaiaPlugin.jslib` 소스 코드를 붙여넣습니다:
 
 ### 2부: C# 관리자 만들기(Web3Manager.cs)
 
@@ -133,7 +133,7 @@ Assets/
     - 상태 텍스트
     - 주소 텍스트
     - 토큰 잔액 텍스트
-    - 연결 / 민트 버튼
+    - 연결, 연결 끊기, 민트 버튼
     - 입력 필드
 
-![](/img/minidapps/unity-minidapp/connect_ui_manager.png)
+![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
