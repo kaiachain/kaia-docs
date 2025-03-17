@@ -41,7 +41,7 @@ Save your LIFF ID - you'll need it in the next step!
 
 index.htmlファイルは、web3の可用性をチェックし、LINE統合（LIFF）を設定し、Unityゲームのロードを進め、すべてを接続するのに役立ちます。
 
-```code
+```html
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -155,12 +155,16 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
         }
 
         const provider = sdk.getWalletProvider();
-        await provider.request({ method: 'kaia_disconnect' });
-        connectedAddress = null;
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+
       } catch (error) {
-        console.error("Disconnect error:", error);
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+           console.error("Disconnect error:", error);
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
       }
     }
 
@@ -234,7 +238,6 @@ index.htmlファイルは、web3の可用性をチェックし、LINE統合（LI
   </script>
 </body>
 </html>
-
 ```
 
 上記のコード・スニペットでLIFF-IDを変更してください。
