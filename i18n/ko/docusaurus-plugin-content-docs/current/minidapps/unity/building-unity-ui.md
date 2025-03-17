@@ -61,10 +61,14 @@ TextMeshPro 엘리먼트를 처음 생성할 때(UI - 텍스트 - TextMeshPro), 
 
 - 버튼패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 - TextMeshPro를 클릭한 다음 이름을 ConnectWalletButton으로 변경합니다. 인스펙터 창의 '텍스트 입력' 필드에 '지갑 연결'을 입력해야 합니다.
 
+- 버튼패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 - TextMeshPro를 클릭한 다음 이름을 DisconnectWalletButton으로 변경합니다. 인스펙터 창의 '텍스트 입력' 필드에 '지갑 연결 해제'를 입력해야 합니다.
+
 ```code
 ButtonPanel
-├── ConnectButton (Button - TextMeshPro)
+├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
+├── DisconnectWalletButton (Button - TextMeshPro)
+│   └── Text: "Disconnect Wallet"
 ```
 
 ### 민트패널 구성 요소
@@ -92,7 +96,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
+![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
 위 이미지와 같이 컴포넌트가 잘 정렬되려면 각 컴포넌트를 클릭할 때 오른쪽에 있는 아이콘을 사용하여 수동으로 정렬해야 합니다.
