@@ -40,7 +40,7 @@ export const sidebar = {
                 },
                 {
                     type: 'category', 
-                    label: 'keystore',
+                    label: 'Keystore',
                     items: [
                         'references/sdk/web3js-ext/account-management/keystore/keystoreV3',
                         'references/sdk/web3js-ext/account-management/keystore/keystoreV4-single',
