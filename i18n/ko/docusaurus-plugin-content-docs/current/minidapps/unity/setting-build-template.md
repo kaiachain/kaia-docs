@@ -41,7 +41,7 @@ Assets/
 
 아래 코드를 복사하여 `index.html` 파일에 붙여넣습니다:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en-us">
  <head>
@@ -87,6 +87,9 @@ Assets/
          ConnectWallet: function() {
            window.ConnectWallet();
          },
+         DisconnectWallet: function() {
+          window.DisconnectWallet();
+         },
          GetConnectedAddress: function() {
            var address = window.GetConnectedAddress();
            var bufferSize = lengthBytesUTF8(address) + 1;
@@ -127,6 +130,26 @@ Assets/
          }
        } catch (error) {
          myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+       }
+     }
+
+     window.DisconnectWallet = async function() {
+       try {
+         if (!sdk) {
+           console.error("SDK not initialized");
+           return;
+         }
+
+         const provider = sdk.getWalletProvider();
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+       } catch (error) {
+         console.error("Disconnect error:", error);
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
        }
      }
 
@@ -200,7 +223,6 @@ Assets/
    </script>
  </body>
 </html>
-
 ```
 
 ## 4단계: 미니 앱 SDK 설정하기
@@ -256,7 +278,7 @@ minidapp/
 4. 변경 사항을 저장하고 다시 빌드합니다.
 5. 이제 브라우저에 탭이 열립니다.
 
-![](/img/minidapps/unity-minidapp/ui_build_app.png)
+![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
 ## 8단계: WebGL 빌드를 Localhost:3000으로 라우팅하기
 
@@ -292,4 +314,4 @@ http-server -p 3000
 - 지갑 연결 버튼을 클릭하여 Dapp 포털 지갑에 연결합니다.
 - 연결되면 연결된 주소로 발행할 세부 정보(금액)를 입력합니다.
 
-![](/img/minidapps/unity-minidapp/minidapp.gif)
+![](/img/minidapps/unity-minidapp/minidapp-demo.gif)
