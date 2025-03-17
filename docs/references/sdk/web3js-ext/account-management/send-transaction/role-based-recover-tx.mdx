@@ -1,5 +1,13 @@
 # Role-based Account Key
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor
+  module='/src/pages/web3js-ext/SignTransaction/AccountKeyRoleBased.tsx'
+  route={RoutePath.Web3jsExt_SignTx_Role}
+/>
+
 **AccountKeyRoleBased** represents a role-based key. If an account has an **AccountKeyRoleBased** object and the transaction type is one **except account update**, the validation process is done according to each roles like below:
 
 <CH.Spotlight>

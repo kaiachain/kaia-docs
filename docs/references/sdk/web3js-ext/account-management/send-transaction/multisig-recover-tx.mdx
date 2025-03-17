@@ -1,5 +1,13 @@
 # Multisig Account Key
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor
+  module='/src/pages/web3js-ext/SignTransaction/AccountKeyWeightedMultiSig.tsx'
+  route={RoutePath.Web3jsExt_SignTx_MultiSig}
+/>
+
 **AccountKeyWeightedMultiSig** is an account key type containing a threshold and WeightedPublicKeys which contains a list consisting of a public key and its weight.
 
 In order for a transaction to be valid for an account associated with **AccountKeyWeightedMultiSig**, the following conditions should be satisfied:
