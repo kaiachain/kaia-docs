@@ -41,7 +41,7 @@ Save your LIFF ID - you'll need it in the next step!
 
 index.html 文件可幫助我們檢查 web3 是否可用、設置 LINE 集成 (LIFF)、加載 Unity 遊戲並將所有內容連接在一起。
 
-```code
+```html
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -155,12 +155,16 @@ index.html 文件可幫助我們檢查 web3 是否可用、設置 LINE 集成 (L
         }
 
         const provider = sdk.getWalletProvider();
-        await provider.request({ method: 'kaia_disconnect' });
-        connectedAddress = null;
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+
       } catch (error) {
-        console.error("Disconnect error:", error);
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+           console.error("Disconnect error:", error);
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
       }
     }
 
@@ -234,7 +238,6 @@ index.html 文件可幫助我們檢查 web3 是否可用、設置 LINE 集成 (L
   </script>
 </body>
 </html>
-
 ```
 
 確保在上述代碼片段中更改您的 LIFF-ID 。
