@@ -98,7 +98,7 @@ body {
   --navbar-padding-horizontal: 1rem;
   --max-group-spacing: 9rem;
   --min-group-spacing: 0.5rem;
-  --collapse-breakpoint: 1210px;
+  --collapse-breakpoint: 1320px;
 }
 
 /* Center the navbar container */
@@ -106,7 +106,7 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1540px;
   margin: 0 auto;
   padding: 0 var(--navbar-padding-horizontal);
 }
@@ -145,7 +145,7 @@ body {
 }
 
 /* Custom breakpoint for collapsing to hamburger menu earlier */
-@media (max-width: 1210px) {
+@media (max-width: 1320px) {
   .navbar__item:not(.navbar__search) {
     display: none;
   }
