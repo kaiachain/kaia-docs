@@ -1,4 +1,4 @@
-# Converting Your Unity Build to a LINE LIFF App
+# LINE LIFF로 전환
 
 Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE!
 
@@ -34,14 +34,14 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+다음 단계에 필요한 LIFF ID를 저장하세요!
 :::
 
 ## Step 2: Modify Your WebGL Template <a id="modify-webgl-template"></a>
 
 The index.html file helps us to check web3 availability, set up LINE integration (LIFF), proceed to load our Unity game and connect everything together.
 
-```code
+```html
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -115,7 +115,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
           clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
           chainId: '1001'
         });
-        
+
         console.log("SDKs initialized");
         return true;
       } catch (error) {
@@ -138,7 +138,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
 
         const provider = sdk.getWalletProvider();
         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-        
+
         if (accounts && accounts.length > 0) {
           connectedAddress = accounts[0];
           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -153,14 +153,18 @@ The index.html file helps us to check web3 availability, set up LINE integration
         if (liff.isLoggedIn()) {
           await liff.logout();
         }
-        
+
         const provider = sdk.getWalletProvider();
-        await provider.request({ method: 'kaia_disconnect' });
-        connectedAddress = null;
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+
       } catch (error) {
-        console.error("Disconnect error:", error);
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+           console.error("Disconnect error:", error);
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
       }
     }
 
@@ -171,7 +175,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.MintToken = async function(amount) {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const mintSignature = '0xa0712d68';
         const amountHex = amount.toString(16).padStart(64, '0');
         const data = mintSignature + amountHex;
@@ -199,7 +203,7 @@ The index.html file helps us to check web3 availability, set up LINE integration
     window.GetBalance = async function() {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const balanceSignature = '0x70a08231';
         const addressParam = connectedAddress.substring(2).padStart(64, '0');
         const data = balanceSignature + addressParam;
@@ -234,7 +238,6 @@ The index.html file helps us to check web3 availability, set up LINE integration
   </script>
 </body>
 </html>
-
 ```
 
 Make sure to change your LIFF-ID in the code snippet above.
@@ -291,5 +294,3 @@ For more detailed information on developing LINE mini dApps, explore these compr
 ### Appendix B <a id="appendix-b"></a>
 
 [Web3Manager.cs source code](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
-
-

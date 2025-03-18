@@ -9,10 +9,10 @@
 - 一个 [Cocos 开发者账户](https://auth.cocos.com/#/sign_up/register?language=en)
 - LINE Developer 帐户（使用您的电子邮件轻松创建）
 - 从 [Kaia 水龙头] 测试 KAIA 代币 (https://faucet.kaia.io/)
-- DApp Portal SDK 客户端 ID（由 DApp Portal 团队提供）
+- 迷你 Dapp SDK 客户端 ID（由 DApp 门户团队提供）
 - 熟悉 Web3 的基本知识（对钱包和代币有一般了解即可）
 
-## 为 Cocos Creator 设置开发环境 <a id="setting-up-dev-environment"></a>
+## 为 Cocos Creator 设置开发环境<a id="setting-up-dev-environment"></a>
 
 在开始之前，让我们确保您的开发环境已正确设置。 我们先安装并验证 Cocos 控制面板。
 
@@ -33,7 +33,7 @@
 1. 打开 **Cocos 控制面板**，导航至项目选项卡。
 2. 点击右上角的**新建项目**。
 3. 在**模板**下，选择**空（3D）**。
-4. 输入项目名称（如 _cocos-mini-dapp-example_）。
+4. 输入项目名称（例如 _cocos-mini-dapp-example_）。
 5. 为项目文件选择首选位置。
 6. 点击 **创建并打开**，完成设置。
 

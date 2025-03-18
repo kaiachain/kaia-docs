@@ -47,7 +47,7 @@ export const sidebar = {
                 },
                 {
                     type: 'category',
-                    label: 'keystore',
+                    label: '키스토어',
                     items: [
                         'references/sdk/web3js-ext/account-management/keystore/keystoreV3',
                         'references/sdk/web3js-ext/account-management/keystore/keystoreV4-single',

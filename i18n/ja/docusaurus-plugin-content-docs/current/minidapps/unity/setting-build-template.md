@@ -1,4 +1,4 @@
-# Configuring WebGL Build Settings
+# WebGL Build Settings
 
 In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
 
@@ -41,7 +41,7 @@ The default Unity template doesn't include Web3 support. Our custom template wil
 
 Copy and paste the code below in your `index.html` file:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en-us">
  <head>
@@ -87,6 +87,9 @@ Copy and paste the code below in your `index.html` file:
          ConnectWallet: function() {
            window.ConnectWallet();
          },
+         DisconnectWallet: function() {
+          window.DisconnectWallet();
+         },
          GetConnectedAddress: function() {
            var address = window.GetConnectedAddress();
            var bufferSize = lengthBytesUTF8(address) + 1;
@@ -120,13 +123,33 @@ Copy and paste the code below in your `index.html` file:
 
          const provider = sdk.getWalletProvider();
          const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-         
+
          if (accounts && accounts.length > 0) {
            connectedAddress = accounts[0];
            myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
          }
        } catch (error) {
          myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+       }
+     }
+
+     window.DisconnectWallet = async function() {
+       try {
+         if (!sdk) {
+           console.error("SDK not initialized");
+           return;
+         }
+
+         const provider = sdk.getWalletProvider();
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+       } catch (error) {
+         console.error("Disconnect error:", error);
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
        }
      }
 
@@ -137,7 +160,7 @@ Copy and paste the code below in your `index.html` file:
      window.MintToken = async function(amount) {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const mintSignature = '0xa0712d68';
          const amountHex = amount.toString(16).padStart(64, '0');
          const data = mintSignature + amountHex;
@@ -165,7 +188,7 @@ Copy and paste the code below in your `index.html` file:
      window.GetBalance = async function() {
        try {
          const provider = sdk.getWalletProvider();
-         
+
          const balanceSignature = '0x70a08231';
          const addressParam = connectedAddress.substring(2).padStart(64, '0');
          const data = balanceSignature + addressParam;
@@ -200,16 +223,15 @@ Copy and paste the code below in your `index.html` file:
    </script>
  </body>
 </html>
-
 ```
 
-## Step 4: Setting Up Dapp Portal SDK
+## Step 4: Setting Up Mini Dapp SDK
 
 1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. Save the content to your `scripts/dapp_portal_sdk.js`.  Using a local Dapp Portal SDK file improves load times and reliability.
+2. Save the content to your `scripts/dapp_portal_sdk.js`. Using a local Mini Dapp SDK file improves load times and reliability.
 
 :::note
-Alternatively, you can directly add the link to the Dapp Portal SDK as the `src` in the `script` tag in your `index.html`.
+Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` in the `script` tag in your `index.html`.
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
@@ -256,11 +278,11 @@ After building your project,
 4. Save changes and rebuild.
 5. You should now see a tab opened in your browser.
 
-![](/img/minidapps/unity-minidapp/ui_build_app.png)
+![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
 ## Step 8: Route WebGL build to Localhost:3000
 
-For security and development purposes, the DApp Portal SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
 
 To do so, follow the steps below:
 
@@ -292,11 +314,4 @@ Now that we have our project running, let’s test and interact with it.
 - Click on the Connect Wallet button to connect to Dapp Portal Wallet.
 - Once connected, fill in details (amount) to mint to the connected address.
 
-![](/img/minidapps/unity-minidapp/minidapp.gif)
-
-
-
-
-
-
-
+![](/img/minidapps/unity-minidapp/minidapp-demo.gif)

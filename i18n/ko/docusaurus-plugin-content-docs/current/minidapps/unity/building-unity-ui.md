@@ -1,4 +1,4 @@
-# dApp용 UI 만들기
+# UI 생성
 
 이 섹션에서는 디앱의 사용자 인터페이스를 구축해 보겠습니다! 상태 업데이트, 작업, 채굴 기능을 위한 세 가지 주요 패널로 구성된 구조화된 UI 시스템을 만들 것입니다.
 
@@ -21,9 +21,9 @@ Web3UI 내에서 세 개의 패널 객체를 만듭니다:
 
 1. Web3UI를 마우스 오른쪽 버튼으로 클릭하고 "비어 있음 만들기"를 선택합니다.
 2. 이러한 패널을 만들고 이름을 변경합니다:
-    - StatusPanel - 디앱의 정보 디스플레이
-    - ButtonPanel - 사용자 상호작용용
-    - MintPanel - 토큰 채굴 기능용
+   - StatusPanel - 디앱의 정보 디스플레이
+   - ButtonPanel - 사용자 상호작용용
+   - MintPanel - 토큰 채굴 기능용
 
 ## 패널 구성 요소 만들기
 
@@ -61,10 +61,14 @@ TextMeshPro 엘리먼트를 처음 생성할 때(UI - 텍스트 - TextMeshPro), 
 
 - 버튼패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 - TextMeshPro를 클릭한 다음 이름을 ConnectWalletButton으로 변경합니다. 인스펙터 창의 '텍스트 입력' 필드에 '지갑 연결'을 입력해야 합니다.
 
+- 버튼패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 - TextMeshPro를 클릭한 다음 이름을 DisconnectWalletButton으로 변경합니다. 인스펙터 창의 '텍스트 입력' 필드에 '지갑 연결 해제'를 입력해야 합니다.
+
 ```code
 ButtonPanel
-├── ConnectButton (Button - TextMeshPro)
+├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
+├── DisconnectWalletButton (Button - TextMeshPro)
+│   └── Text: "Disconnect Wallet"
 ```
 
 ### 민트패널 구성 요소
@@ -72,7 +76,7 @@ ButtonPanel
 토큰 채굴 인터페이스입니다:
 
 - MintPanel을 마우스 오른쪽 버튼으로 클릭하고 UI → 입력 필드 → TextMeshPro를 클릭한 다음 이름을 MintAmountInput으로 변경합니다. 플레이스홀더 객체에 "금액 입력…"을 입력해야 합니다.
-- 민트패널을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 → TextMeshPro를 클릭한 다음 이름을 민트버튼으로 변경합니다. 텍스트 개체를 "민트"로 채워야 합니다.
+- MintPanel을 마우스 오른쪽 버튼으로 클릭하고 UI → 버튼 → TextMeshPro를 클릭한 다음 이름을 MintButton으로 변경합니다. 텍스트 개체를 "민트"로 채워야 합니다.
 
 ```code
 MintPanel
@@ -92,7 +96,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
+![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
 위 이미지와 같이 컴포넌트가 잘 정렬되려면 각 컴포넌트를 클릭할 때 오른쪽에 있는 아이콘을 사용하여 수동으로 정렬해야 합니다.

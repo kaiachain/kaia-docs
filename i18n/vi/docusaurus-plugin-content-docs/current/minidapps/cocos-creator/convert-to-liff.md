@@ -1,4 +1,4 @@
-# Converting Your Cocos Creator Build to a LINE LIFF App
+# Convert to LINE LIFF
 
 In this section, we’ll walk through the steps to convert, integrate, and deploy your build as a LINE LIFF (LINE Front-end Framework) app, making it seamlessly accessible within the LINE ecosystem.
 
@@ -47,46 +47,67 @@ Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Cocos Creator | dapp-portal-example</title>
-     <!-- LIFF SDK -->
+    <!-- LIFF SDK -->
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <!-- DappPortal SDK -->
     <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
-        
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="full-screen" content="yes"/>
-    <meta name="screen-orientation" content="portrait"/>
-    <meta name="x5-fullscreen" content="true"/>
-    <meta name="360-fullscreen" content="true"/>
-    
-    <meta name="renderer" content="webkit"/>
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    
-    <link rel="stylesheet" type="text/css" href="./style.css"/>
-    <link rel="icon" href="favicon.ico"/>
+
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="yes" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="icon" href="favicon.ico" />
   </head>
   <body>
     <h1 class="header">dapp-portal-example</h1>
-    <div id="GameDiv" cc_exact_fit_screen="false" style="width: 1280px; height: 960px;">
+    <div
+      id="GameDiv"
+      cc_exact_fit_screen="false"
+      style="width: 1280px; height: 960px;"
+    >
       <div id="Cocos3dGameContainer">
-        <canvas id="GameCanvas" width="1280" height="960" tabindex="99"></canvas>
+        <canvas
+          id="GameCanvas"
+          width="1280"
+          height="960"
+          tabindex="99"
+        ></canvas>
       </div>
     </div>
     <p class="footer">
-      Created with <a href="https://www.cocos.com/products" title="Cocos Creator">Cocos Creator</a>
+      Created with
+      <a href="https://www.cocos.com/products" title="Cocos Creator"
+        >Cocos Creator</a
+      >
     </p>
     <!-- Polyfills bundle. -->
-<script src="src/polyfills.bundle.js" charset="utf-8"> </script>    
-<!-- SystemJS support. -->
-<script src="src/system.bundle.js" charset="utf-8"> </script>
-<!-- Import map -->
-<script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
-<script>
-    System.import('./index.js').catch(function(err) { console.error(err); })
-</script>
+    <script src="src/polyfills.bundle.js" charset="utf-8"></script>
+    <!-- SystemJS support. -->
+    <script src="src/system.bundle.js" charset="utf-8"></script>
+    <!-- Import map -->
+    <script
+      src="src/import-map.json"
+      type="systemjs-importmap"
+      charset="utf-8"
+    ></script>
+    <script>
+      System.import('./index.js').catch(function (err) {
+        console.error(err)
+      })
+    </script>
   </body>
 </html>
 ```
@@ -99,49 +120,48 @@ Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
 // Web3Manager.ts
 @ccclass('Web3Manager')
 export class Web3Manager extends Component {
-    private static instance: Web3Manager = null;
-    private sdk: any = null;
-    private connectedAddress: string = '';
-    
-    // Configuration
-    private readonly CONTRACT_ADDRESS = 'YOUR_CONTRACT_ADDRESS';
-    private readonly CHAIN_ID = '1001';
-    private readonly CLIENT_ID = 'YOUR_CLIENT_ID';
-    private readonly LIFF_ID = 'YOUR_LIFF_ID';  // Add this
-    onLoad() {
-        if (Web3Manager.instance === null) {
-            Web3Manager.instance = this;
-            director.addPersistRootNode(this.node);
-            this.initializeLIFF();  // Initialize LIFF first
-        } else {
-            this.node.destroy();
-        }
-    }
-    private async initializeLIFF(): Promise<void> {
-        try {
-            await liff.init({
-                liffId: this.LIFF_ID
-            });
-            console.log("LIFF initialized");
-            
-            // Check if user is logged in
-            if (!liff.isLoggedIn()) {
-                console.log("User not logged in, redirecting to login");
-                liff.login();
-                return;
-            }
-            // Get LIFF profile
-            const profile = await liff.getProfile();
-            console.log("LIFF Profile:", profile);
-            // Initialize DappPortal SDK after LIFF
-            await this.initializeSDK();
-        } catch (error) {
-            console.error("LIFF initialization error:", error);
-        }
-    }
-    // Rest of your existing Web3Manager code...
-}
+  private static instance: Web3Manager = null
+  private sdk: any = null
+  private connectedAddress: string = ''
 
+  // Configuration
+  private readonly CONTRACT_ADDRESS = 'YOUR_CONTRACT_ADDRESS'
+  private readonly CHAIN_ID = '1001'
+  private readonly CLIENT_ID = 'YOUR_CLIENT_ID'
+  private readonly LIFF_ID = 'YOUR_LIFF_ID' // Add this
+  onLoad() {
+    if (Web3Manager.instance === null) {
+      Web3Manager.instance = this
+      director.addPersistRootNode(this.node)
+      this.initializeLIFF() // Initialize LIFF first
+    } else {
+      this.node.destroy()
+    }
+  }
+  private async initializeLIFF(): Promise<void> {
+    try {
+      await liff.init({
+        liffId: this.LIFF_ID,
+      })
+      console.log('LIFF initialized')
+
+      // Check if user is logged in
+      if (!liff.isLoggedIn()) {
+        console.log('User not logged in, redirecting to login')
+        liff.login()
+        return
+      }
+      // Get LIFF profile
+      const profile = await liff.getProfile()
+      console.log('LIFF Profile:', profile)
+      // Initialize DappPortal SDK after LIFF
+      await this.initializeSDK()
+    } catch (error) {
+      console.error('LIFF initialization error:', error)
+    }
+  }
+  // Rest of your existing Web3Manager code...
+}
 ```
 
 ## Step: 4: Build and Test Process <a id="build-and-test-process"></a>

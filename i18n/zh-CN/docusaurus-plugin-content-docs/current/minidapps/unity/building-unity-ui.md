@@ -1,4 +1,4 @@
-# 为应用程序创建用户界面
+# 创建用户界面
 
 在本节中，我们将构建 dApp 的用户界面！ 我们将创建一个结构化的用户界面系统，其中有三个主要面板，分别用于状态更新、操作和铸币功能。
 
@@ -21,9 +21,9 @@
 
 1. 右键单击 Web3UI 并选择 "创建空"。
 2. 创建并重新命名这些面板：
-    - StatusPanel - 您的 dApp 信息显示屏
-    - 按钮面板 - 用于用户交互
-    - MintPanel - 用于代币铸造功能
+   - StatusPanel - 您的 dApp 信息显示屏
+   - 按钮面板 - 用于用户交互
+   - MintPanel - 用于代币铸造功能
 
 ## 创建面板组件
 
@@ -61,10 +61,14 @@
 
 - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
 
+- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
+
 ```code
 ButtonPanel
-├── ConnectButton (Button - TextMeshPro)
+├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
+├── DisconnectWalletButton (Button - TextMeshPro)
+│   └── Text: "Disconnect Wallet"
 ```
 
 ### MintPanel 组件
@@ -92,7 +96,7 @@ Canvas
     └── MintPanel
 ```
 
-![](/img/minidapps/unity-minidapp/unity_ui_canvas.png)
+![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
 要使组件排列整齐，如上图所示，必须在点击每个组件时使用右侧的图标手动排列。

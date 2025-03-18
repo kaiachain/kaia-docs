@@ -1,4 +1,4 @@
-# 将您的 Unity 构建转换为 LINE LIFF 应用程序
+# 转换为 LINE LIFF
 
 现在是激动人心的部分--将你的 Unity WebGL 构建转化为可通过 LINE 访问的迷你 dApp！
 
@@ -34,14 +34,14 @@ Permissions: Enable as needed
 ```
 
 :::note
-保存您的 LIFF ID - 下一步将用到它！
+保存您的 LIFF ID - 下一步您将需要它！
 :::
 
 ## 第 2 步：修改 WebGL 模板<a id="modify-webgl-template"></a>
 
 index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (LIFF)、加载 Unity 游戏并将所有内容连接在一起。
 
-```code
+```html
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -115,7 +115,7 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
           clientId: 'YOUR CLIENT ID', // Replace with your CLIENT ID
           chainId: '1001'
         });
-        
+
         console.log("SDKs initialized");
         return true;
       } catch (error) {
@@ -138,7 +138,7 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
 
         const provider = sdk.getWalletProvider();
         const accounts = await provider.request({ method: 'kaia_requestAccounts' });
-        
+
         if (accounts && accounts.length > 0) {
           connectedAddress = accounts[0];
           myGameInstance.SendMessage('Web3Manager', 'OnWalletConnected', connectedAddress);
@@ -153,14 +153,18 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
         if (liff.isLoggedIn()) {
           await liff.logout();
         }
-        
+
         const provider = sdk.getWalletProvider();
-        await provider.request({ method: 'kaia_disconnect' });
-        connectedAddress = null;
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         await provider.disconnect();
+         
+         // Reset connected address
+         connectedAddress = null;
+         myGameInstance.SendMessage('Web3Manager', 'OnWalletDisconnected');
+         console.log("Wallet disconnected successfully");
+
       } catch (error) {
-        console.error("Disconnect error:", error);
-        myGameInstance.SendMessage('Web3Manager', 'OnWalletError', error.message);
+           console.error("Disconnect error:", error);
+           myGameInstance.SendMessage('Web3Manager', 'OnWalletError', "Disconnect failed: " + error.message);
       }
     }
 
@@ -171,7 +175,7 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
     window.MintToken = async function(amount) {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const mintSignature = '0xa0712d68';
         const amountHex = amount.toString(16).padStart(64, '0');
         const data = mintSignature + amountHex;
@@ -199,7 +203,7 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
     window.GetBalance = async function() {
       try {
         const provider = sdk.getWalletProvider();
-        
+
         const balanceSignature = '0x70a08231';
         const addressParam = connectedAddress.substring(2).padStart(64, '0');
         const data = balanceSignature + addressParam;
@@ -234,7 +238,6 @@ index.html 文件可帮助我们检查 web3 是否可用、设置 LINE 集成 (L
   </script>
 </body>
 </html>
-
 ```
 
 确保在上述代码片段中更改您的 LIFF-ID 。
@@ -291,5 +294,3 @@ LINE mini dApps 的强大之处在于其多功能性和易用性。 无论您是
 ### 附录 B<a id="appendix-b"></a>
 
 [Web3Manager.cs源代码](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
-
-
