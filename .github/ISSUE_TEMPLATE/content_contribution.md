@@ -1,6 +1,6 @@
 ---
 name: Content Contribution
-about: Suggest a content contribution covering major content change (e.g. Adding/removing paragraph, chapter and graphical explanation, etc.) on the existing content of Klaytn Docs.
+about: Suggest a content contribution covering major content change (e.g. Adding/removing paragraph, chapter and graphical explanation, etc.) on the existing content of Kaia Docs.
 title: ''
 labels: ''
 assignees: ''

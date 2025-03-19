@@ -2,7 +2,7 @@
 
 ## What is the Kaia Online Toolkit? <a id="what-is-the-kaia-online-toolkit"></a>
 
-* `Kaia Online Toolkit` provides code examples to help you to utilize the `Kaia SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
+* `Kaia Online Toolkit` provides code examples to help you to utilize the `Kaia SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.kaia.io) for developers to use simple online tools.
 * `Kaia SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Kaia node using an HTTP or Websocket connection.
 * You can just try out Kaia's features without having to code.
 
