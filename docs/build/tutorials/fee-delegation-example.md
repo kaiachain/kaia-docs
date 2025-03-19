@@ -30,7 +30,7 @@ Let's skim through how fee delegation works.
 
 To sign a transaction, use [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) which signs a transaction with given private key.
 
-```
+```javascript
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey ="SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
@@ -65,7 +65,7 @@ When `fee payer` receives the `senderTxHashRLP`, `fee payer` signs the `senderTx
 
 Note that when the fee payer submits the transaction to Kaia on behalf of the sender, the `senderTxHashRLP` type must be a `FeeDelegatedValueTransfer` type of transaction.
 
-```
+```javascript
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
 
@@ -74,15 +74,6 @@ console.log("sentTx", sentTx);
 
 const rc = await sentTx.wait();
 console.log("receipt", rc);
-
-.on('transactionHash', function(hash){
-    ...
-})
-.on('receipt', function(receipt){
-    ...
-})
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
-
 ```
 
 ## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
@@ -93,7 +84,7 @@ Let's write a simple server and client using above fee delegation code.
 
 We will use `npm init -y` to setup our Node.js project, and install [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
 
-```
+```bash
 mkdir feedelegation_server
 cd feedelegation_server
 npm init -y
@@ -249,7 +240,7 @@ Prepare two terminals, one for `sender_client.js` and another for `feepayer_serv
 
 Run the command below to start the fee payer's server:
 
-```
+```bash
 node feepayer_server.js
 
 // output
@@ -262,7 +253,7 @@ The server starts and is now listening on port 1337.
 
 Let's run `sender_client.js` to send a fee delegated transaction.
 
-```
+```bash
 $ node sender_client.js
 
 // output
@@ -287,7 +278,7 @@ It will sign a transaction with the `sender` private key and send the signed tra
 
 On the server's console, you will see below outputs. It prints the transaction receipt from the Kaia.
 
-```
+```bash
 $ node feepayer_server.js
 
 Fee delegate service started ...

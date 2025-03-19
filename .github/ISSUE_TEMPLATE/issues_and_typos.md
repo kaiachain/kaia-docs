@@ -1,6 +1,6 @@
 ---
 name: Issues and Typos
-about: Create an issue reporting minor typos or errors on the existing content of Klaytn Docs.
+about: Create an issue reporting minor typos or errors on the existing content of Kaia Docs.
 title: ''
 labels: ''
 assignees: ''
