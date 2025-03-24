@@ -55,7 +55,7 @@ In this section, you will deploy the generated code from kaia contracts wizard t
 이 튜토리얼을 따라하기 위한 사전 요구 사항은 아래에 강조 표시되어 있습니다:
 
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
-- [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 코드를 복제합니다.
+- 카이아 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
@@ -70,7 +70,7 @@ In this section, you will deploy the generated code from kaia contracts wizard t
 
 에어드랍 컨트랙트로 수정하기 전에 KIP7 컨트랙트를 사용자 지정해야 합니다. 이를 위해서는 아래 단계를 따르세요:
 
-1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)으로 이동합니다.
+1. wizard.kaia.io](https://wizard.kaia.io)로 이동합니다.
 2. **Contracts** 탭에서 **KIP7**을 선택합니다.
 3. 다음으로 **SETTINGS** 탭에서 이름(KIP7 토큰 에어드랍)과 심볼(KTA)을 입력합니다. The pre-mint field is left empty
 4. 그 후 **FEATURES** 탭에서 **Mintable** 기능 상자를 선택하면 **ACCESS CONTROL** 탭에서 자동으로 소유 가능 기능을 선택합니다.
@@ -147,7 +147,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 
 에어드랍 컨트랙트로 수정하기 전에 KIP17 컨트랙트를 사용자 지정해야 합니다. 이를 위해서는 아래 단계를 따르세요:
 
-1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)으로 이동합니다.
+1. wizard.kaia.io](https://wizard.kaia.io/)로 이동합니다.
 2. **Contracts** 탭에서 **KIP17**을 선택합니다.
 3. 다음으로 **SETTINGS** 탭에서 이름(KIP7 NFT 에어드랍)과 심볼(KNA)을 입력합니다.  기본 URI 필드는 비워둬야 합니다.
 4. 이어서 **FEATURES** 탭에서 **Mintable**, **Auto-increment Ids**, **Enumerable** 기능 상자를 선택합니다. **ACCESS CONTROL** 탭의 소유 가능 기능이 자동으로 선택된 것을 확인할 수 있습니다.
@@ -245,7 +245,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 
 KIP37은 일괄 발행을 지원하므로 컨트랙트만 사용자 지정하여 그대로 사용할 것입니다. KIP37 컨트랙트를 사용자 지정하려면 아래 단계를 따르세요:
 
-1. [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/)으로 이동합니다.
+1. wizard.kaia.io](https://wizard.kaia.io)로 이동합니다.
 2. **Contracts** 탭에서 **KIP37**을 선택합니다.
 3. 다음으로 **SETTINGS** 탭에서 이름(KIP7 NFT 에어드랍)과 심볼(KNA)을 입력합니다.  기본 URI 필드는 비워둬야 합니다.
 4. 이어서 **FEATURES** 탭에서 **Mintable**, **Auto-increment Ids**, **Enumerable** 기능 상자를 선택합니다. **ACCESS CONTROL** 탭의 Ownable 기능이 자동으로 선택된 것을 확인할 수 있습니다.
