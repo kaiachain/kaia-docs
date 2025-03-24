@@ -30,7 +30,7 @@
 
 要签署事务，可使用 [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) 用给定的私钥签署事务。
 
-```
+```javascript
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
@@ -64,7 +64,7 @@ console.log("senderTxHashRLP", senderTxHashRLP)；
 
 请注意，当缴费人代表发件人向 Kaia 提交交易时，"senderTxHashRLP "类型必须是 "FeeDelegatedValueTransfer "类型的交易。
 
-```
+```javascript
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
 
@@ -72,16 +72,7 @@ const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
 console.log("sentTx", sentTx);
 
 const rc = await sentTx.wait();
-console.log("receipt", rc);
-
-.on('transactionHash', function(hash){
-    ...
-})
-.on('receipt', function(receipt){
-    ...
-})
-.on('error', console.error); // 如果出错，第二个参数就是收据。
-
+console.log("receipt", rc)；
 ```
 
 ## 3. 收费委托的简单服务器和客户端<a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
@@ -92,7 +83,7 @@ console.log("receipt", rc);
 
 我们将使用 `npm init -y` 设置 Node.js 项目，并安装 [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
 
-```
+```bash
 mkdir feedelegation_server
 cd feedelegation_server
 npm init -y
@@ -248,7 +239,7 @@ console.log("Fee delegate service started ...");
 
 运行以下命令启动缴费服务器：
 
-```
+```bash
 node feepayer_server.js
 
 // output
@@ -261,7 +252,7 @@ Fee delegate service started ...
 
 让我们运行 `sender_client.js` 发送一笔委托收费交易。
 
-```
+```bash
 $ node sender_client.js
 
 // output
@@ -286,7 +277,7 @@ senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc
 
 在服务器控制台，您将看到以下输出。 它可以打印来自 Kaia 的交易收据。
 
-```
+```bash
 $ node feepayer_server.js
 
 费用委托服务启动 ...
