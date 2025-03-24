@@ -30,7 +30,7 @@ Fee Delegationの仕組みをざっと説明しよう。
 
 トランザクションに署名するには、[signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) を使用します。これは、与えられた秘密鍵でトランザクションに署名します。
 
-```
+```javascript
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey ="SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
@@ -64,23 +64,15 @@ console.log("senderTxHashRLP", senderTxHashRLP)；
 
 料金支払者が送信者に代わってKaiaにトランザクションを送信する場合、`senderTxHashRLP` タイプは `FeeDelegatedValueTransfer` タイプのトランザクションでなければならないことに注意すること。
 
-```
+```javascript
 const feePayerAddress = "FEEPAYER_ADDRESS";
-const feePayerPrivateKey = "PRIVATE_KEY"
+const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
 
-caver.klay.accounts.wallet.add(feePayerPrivateKey, feePayerAddress);
+const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
+console.log("sentTx", sentTx);
 
-caver.klay.sendTransaction({
-  senderRawTransaction: senderRawTransaction,
-  feePayer: feePayerAddress,
-})
-.on('transactionHash', function(hash){
-    ...
-})
-.on('receipt', function(receipt){
-    ...
-})
-.on('error', console.error); // If an out-of-gas error, the second parameter is the receipt.
+const rc = await sentTx.wait();
+console.log("receipt", rc);
 ```
 
 ## ３． Fee Delegationのためのシンプルなサーバーとクライアント]()
@@ -91,7 +83,7 @@ caver.klay.sendTransaction({
 
 npm init -y\` を使って Node.js プロジェクトをセットアップし、[ether-ext](../../references/sdk/ethers-ext/getting-started.md) をインストールします。
 
-```
+```bash
 mkdir feedelegation_server
 cd feedelegation_server
 npm init -y
@@ -250,7 +242,7 @@ console.log("Fee delegate service started ...");
 
 以下のコマンドを実行して、料金支払者のサーバーを起動する：
 
-```
+```bash
 node feepayer_server.js
 
 // output
@@ -263,7 +255,7 @@ Fee delegate service started ...
 
 それでは、`sender_client.js` を実行して手数料の委任トランザクションを送信してみよう。
 
-```
+```bash
 $ node sender_client.js
 
 // 出力
@@ -288,7 +280,7 @@ senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc
 
 サーバーのコンソールには、以下のような出力が表示される。 カイアからの取引レシートを印刷する。
 
-```
+```bash
 $ node feepayer_server.js
 
 Fee delegate サービス開始 ...
