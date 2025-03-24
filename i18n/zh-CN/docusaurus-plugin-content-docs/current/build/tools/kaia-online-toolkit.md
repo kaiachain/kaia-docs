@@ -2,7 +2,7 @@
 
 ## 什么是 Kaia 在线工具包？ <a id="what-is-the-kaia-online-toolkit"></a>
 
-- Kaia在线工具包 "提供代码示例，帮助您轻松使用 "Kaia SDK(caver-js)"。 此外，它还提供了一个 [演示页面](https://toolkit.klaytn.foundation)，供开发人员使用简单的在线工具。
+- Kaia在线工具包 "提供代码示例，帮助您轻松使用 "Kaia SDK(caver-js)"。 此外，它还提供了一个 [演示页面]（https://toolkit.kaia.io），供开发人员使用简单的在线工具。
 - Kaia SDK(caver-js)\` 是一个 JavaScript API 库，允许开发人员使用 HTTP 或 Websocket 连接与 Kaia 节点进行交互。
 - 您可以直接试用 Kaia 的功能，而无需编写代码。
 
