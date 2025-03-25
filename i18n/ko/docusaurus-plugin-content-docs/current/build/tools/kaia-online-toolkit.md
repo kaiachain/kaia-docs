@@ -2,7 +2,7 @@
 
 ## 카이아 온라인 툴킷이란 무엇인가요? <a id="what-is-the-klaytn-online-toolkit"></a>
 
-- `카이아 온라인 툴킷`은 `카이아 SDK(caver-js)`를 쉽게 활용할 수 있도록 코드 예제를 제공합니다. 또한 개발자들이 간단한 온라인 툴을 사용할 수 있도록 [데모 페이지](https://toolkit.klaytn.foundation)를 제공합니다.
+- `카이아 온라인 툴킷`은 `카이아 SDK(caver-js)`를 쉽게 활용할 수 있도록 코드 예제를 제공합니다. 또한 개발자가 간단한 온라인 도구를 사용할 수 있도록 [데모 페이지](https://toolkit.kaia.io)를 제공합니다.
 - `카이아 SDK(caver-js)`는 개발자가 HTTP 또는 웹소켓 연결을 통해 카이아 노드와 상호작용할 수 있도록 해주는 JavaScript API 라이브러리입니다.
 - 코딩할 필요 없이 카이아의 기능을 사용해 볼 수 있습니다.
 

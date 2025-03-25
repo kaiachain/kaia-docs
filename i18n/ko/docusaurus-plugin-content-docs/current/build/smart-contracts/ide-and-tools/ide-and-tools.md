@@ -6,7 +6,7 @@
 
 Remix Online IDE는 EVM 호환 스마트 컨트랙트를 개발, 배포, 디버깅 및 테스트하기 위한 강력한 툴셋입니다. 카이아 플러그인을 사용하여 Remix IDE에서 카이아에서 스마트 컨트랙트를 작성, 컴파일, 배포 및 실행할 수 있습니다.
 
-#### [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#klaytn-contract-wizard" id="klaytn-contract-wizard"></a>
+#### [카이아 계약 마법사](https://wizard.kaia.io) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
 Kaia Contracts Wizard는 스마트 컨트랙트를 부트스트랩하고 카이아 컨트랙트에 대해 배울 수 있는 대화형 생성기입니다. OpenZeppelin 마법사를 기반으로 합니다.
 
