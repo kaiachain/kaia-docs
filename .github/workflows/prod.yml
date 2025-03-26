@@ -54,4 +54,5 @@ jobs:
           CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
         run: |
           aws s3 sync ./build/ $S3_BUCKET_PROD --delete
+          aws s3 cp llms.txt $S3_BUCKET_PROD
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
