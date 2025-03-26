@@ -1,0 +1,73 @@
+llms.txt
+# Kaia Docs
+## Learn
+[Why Kaia](https://docs.kaia.io/learn/why-kaia): Learn about why you should choose Kaia Chain
+[Accounts](https://docs.kaia.io/learn/accounts): Explains account structures, key management, and security features in the Kaia chain.
+[Transactions](https://docs.kaia.io/learn/transactions): Guide for understanding transaction on Kaia Chain
+[Transaction Fees](https://docs.kaia.io/learn/transaction-fees): Explain transaction fees on Kaia Chain
+[Smart Contracts](https://docs.kaia.io/learn/smart-contracts): Guide for understanding smart contracts and Kaia Virtual Machine
+[Precompiled Contracts](https://docs.kaia.io/learn/smart-contracts/precompiled-contracts): Explains Precompile contracts on Kaia Chain
+[Kaia Consensus Mechanism](https://docs.kaia.io/learn/consensus-mechanism): Explains Kaia's consensus mechanism for efficient and secure blockchain transactions.
+[Kaia Network Identifier](https://docs.kaia.io/learn/kni): Guide for Kaia Network Identifier.
+[Kaia Native Coin](https://docs.kaia.io/learn/token-economics/kaia-native-token): Provides information about Kaia Coin
+[Token Economy](https://docs.kaia.io/learn/token-economics/token-economy):Explains Kaia's token economy and funding structures for its blockchain ecosystem and growth initiatives.
+[Governance](https://docs.kaia.io/learn/governance/governance-by-kip): Provide information about various implementation for governance system.
+## Build
+[Getting Started](https://docs.kaia.io/build/get-started/before-you-start): Provide information about what is needed to get started building on Kaia
+[Deploy smart contract using Hardhat](https://docs.kaia.io/build/get-started/hardhat): Guide for deploying Soulbound Tokens on Kaia using Hardhat.
+[Get Kaia](https://docs.kaia.io/build/get-started/getting-kaia): Guide for obtaining KAIA via Faucets and Exchanges
+[Fee Delegation](https://docs.kaia.io/build/transactions/fee-delegation): Provide information about fee delegation
+[Partial Fee Delegation](https://docs.kaia.io/build/transactions/partial-fee-delegation): Provide information about partial fee delegation
+[IDE and Tools](https://docs.kaia.io/build/smart-contracts/ide-and-tools): Guide for list of development tools that is available to help smart contract development on Kaia.
+[Deploy smart contract using Foundry](https://docs.kaia.io/build/smart-contracts/deploy/foundry): Guide for deploying smart contract on Kaia using Foundry.
+[Deploy smart contract using Thirdweb](https://docs.kaia.io/build/smart-contracts/deploy/thirdweb): Guide for deploying smart contract on Kaia using Thirdweb.
+[Deploy smart contract using Private Network](https://docs.kaia.io/build/smart-contracts/deploy/private-network): Guide for deploying smart contract on Kaia using Private network.
+[Verify smart contract using Block Explorers](https://docs.kaia.io/build/smart-contracts/verify/block-explorers): Guide for verifying smart contract on Kaia using Block Explorer.
+[Verify smart contract using Hardhat](https://docs.kaia.io/build/smart-contracts/verify/hardhat): Guide for verifying smart contract on Kaia using Hardhat.
+[Verify smart contract using Sourcify](https://docs.kaia.io/build/smart-contracts/verify/sourcify): Guide for verifying smart contract on Kaia using Sourcify.
+[Kaia Compatible Tokens](https://docs.kaia.io/build/smart-contracts/token-standard): Provide information for Kaia Compatible Tokens
+[Build Fee Delegation Example](https://docs.kaia.io/build/tutorials/fee-delegation-example): Guide for building fee delegation example
+[Build a dApp using Scaffold-ETH 2](https://docs.kaia.io/build/tutorials/scaffold-eth): Guide for building a dApp using Scaffold-ETH 2
+[Build a Buy-Me-A-Coffee DApp](https://docs.kaia.io/build/tutorials/buy-me-a-coffee) : Guide for building a Buy-Me-A-COffee DApp
+[Connecting MetaMask to Kaia](https://docs.kaia.io/build/tutorials/connecting-metamask): Guide for connecting MetMask to Kaia
+[Connect Remix to Kaia](https://docs.kaia.io/build/tutorials/connecting-remix): Guide for connecting Remix IDE with Kaia for deploying smart contracts.
+[Kaia Eliza Plugin](https://docs.kaia.io/build/tutorials/eliza-plugin-guide): Guide for building ai agents on Kaia using ElizaOS
+[Migrate Ethereum App to Kaia](https://docs.kaia.io/build/tutorials/migrating-ethereum-app-to-kaia): Guide for migrating Ethereum dapp to Kaia chain
+[Kaia Online Toolkit](https://docs.kaia.io/build/tools/kaia-online-toolkit): provides code examples to help you to utilize the Kaia SDK(caver-js) easily and demo page for developers to use simple online tools.
+[Wallets](https://docs.kaia.io/build/tools/wallets): Provides information about supported wallets on Kaia
+[Oracles](https://docs.kaia.io/build/tools/oracles): Provides information and guide about decentralized oracle providers on Kaia
+[Indexers](https://docs.kaia.io/build/tools/indexers): Provides information and guide about indexers on Kaia
+[Crosschain](https://docs.kaia.io/build/tools/cross-chain): Provides information and guide about cross chain protocols supported by Kaia
+[Block Explorer](https://docs.kaia.io/build/tools/block-explorers): Guide on the various block explorers on Kaia.
+[Token Management](https://docs.kaia.io/build/tools/token-management): Guide on token management services on Kaia
+[Kaia Contract Wizard](https://docs.kaia.io/build/tools/kaia-contracts-wizard): Guide on using Kaia Contract Wizard
+## Node
+[About Kaia Nodes](https://docs.kaia.io/nodes): Explains the types of nodes on Kaia Chain
+[Endpoint Node](https://docs.kaia.io/nodes/endpoint-node): Provide information and guide on setting up Endpoint node
+[Core Cell Overview](https://docs.kaia.io/nodes/core-cell): Explains the structure and components of Core Cells in the Kaia blockchain network.
+[Service Chain](https://docs.kaia.io/nodes/service-chain): Provide information and guide on Service chain on Kaia
+[Node Package Download](https://docs.kaia.io/nodes/downloads): Guide on how to download the latest stable release of Kaia
+## References
+[Public JSON RPC References](https://docs.kaia.io/references/public-en): Provide access to public JSON-RPC endpoints for interacting with the Kaia network
+[RPC API Reference](https://docs.kaia.io/references/json-rpc/references): Provides information on all the RPC API Reference on Kaia
+[Kaia SDK References](https://docs.kaia.io/references/sdk): Provide API references and tutorials for interacting with kaia nodes and the kaia Network.
+[Ethers.js Extension Guide](https://docs.kaia.io/references/sdk/ethers-ext/getting-started): Guide for integrating Ethers.js Extension with Kaia SDK
+[Web3.js Extension Guide](https://docs.kaia.io/references/sdk/web3js-ext/getting-started): Guide for integrating Web3.js Extension with Kaia SDK
+[Web3.j Extension Guide](https://docs.kaia.io/references/sdk/web3j-ext/getting-started): Guide for integrating Web3.j Extension with Kaia SDK
+[Web3.py Extension Guide](https://docs.kaia.io/references/sdk/web3j-ext/getting-started): Guide for integrating Web3.py Extension with Kaia SDK
+[Message Signing Standards](https://docs.kaia.io/references/signed-message/): Explains message signing standards and practices for cryptographic actions in blockchain applications.
+[Transaction Error Codes](https://docs.kaia.io/references/transaction-error-codes): To provide developers with a reference for transaction error codes and their meanings in the Kaia platform.
+[Kaia Contract Addresses](https://docs.kaia.io/references/contract-addresses): Lists deployed addresses of notable system contracts for the Kaia blockchain.
+## Mini dApps
+[Line Mini DApp with Unity](https://docs.kaia.io/minidapps): Guide for building mini dApps on LINE with Web3 integration using Unity WebGL and Kaia's infrastructure.
+[LINE Mini DApp with Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator): Guide for building mini dApps on LINE with Web3 integration using Cocos Creator Web Build and Kaia's infrastructure.
+[Survey Mini DApp](https://docs.kaia.io/minidapps/survey-minidapp/intro): Guide for building an example survey mini dApp
+## Others
+[Kaia Node Setup Guide](https://docs.kaia.io/misc/operation/chaindata-snapshot): Instructions for using a chaindata snapshot to start a Kaia node efficiently.
+[Node Quick Reference](https://docs.kaia.io/misc/operation):  Guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes.
+[Kaia FAQ](https://docs.kaia.io/misc/faq): Provide FAQ information about Kaia blockchain and its development resources.
+[Glossary](https://docs.kaia.io/misc/glossary): Provides explanation on technical terms specific to the Kaia Blockchain
+[Open Source Kaia Development](https://docs.kaia.io/misc/opensource): Encouraging community involvement in the Kaia blockchain through open-source development and funding support.
+[Kaia Docs Localization Contribution](https://docs.kaia.io/misc/internationalization): Encourages contributions for translating and improving the localization of Kaia Docs
+[Kaia Transition](https://docs.kaia.io/misc/kaia-transition/): To inform users about the transition from Finschia and Klaytn blockchains to the Kaia blockchain and token swapping.
+[Kaia Brand Guidelines](https://docs.kaia.io/misc/brand): To provide branding guidelines for consistent logo and color usage for the Kaia project.
