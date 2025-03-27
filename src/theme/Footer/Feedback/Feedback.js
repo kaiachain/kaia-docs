@@ -5,6 +5,7 @@ import { FeedbackButton } from 'pushfeedback-react';
 import { defineCustomElements } from 'pushfeedback/loader';
 import 'pushfeedback/dist/pushfeedback/pushfeedback.css';
 import styles from './Feedback.module.css';
+import { useColorMode } from '@docusaurus/theme-common';
 
 const placeholders = {
   'en': {
@@ -109,14 +110,15 @@ export default function PushFeedback() {
   const { i18n } = useDocusaurusContext();
   const language = i18n.currentLocale;
   const [isLoaded, setIsLoaded] = useState(false);
+  const { colorMode } = useColorMode();
   const projectId = '8ou0itrmqd';
 
-useEffect(() => {
-  if (typeof window !== 'undefined') {
-    defineCustomElements(window);
-    setIsLoaded(true); // Set loaded immediately after defining elements
-  }
-}, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      defineCustomElements(window);
+      setIsLoaded(true); // Set loaded immediately after defining elements
+    }
+  }, []);
 
   const texts = placeholders[language] || placeholders.en;
 
@@ -126,7 +128,7 @@ useEffect(() => {
         project={projectId}
         button-position="bottom-right"
         modal-position="bottom-right"
-        button-style="dark"
+        button-style={colorMode === 'dark' ? "light" : "dark"}
         rating-mode="stars"
         {...texts}
       >

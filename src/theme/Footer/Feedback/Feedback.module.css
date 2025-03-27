@@ -14,7 +14,9 @@
   display: none;
 }
 
-:global(:root) {
-  --feedback-primary-color: #789806;
-  --feedback-button-dark-bg-color: var(--feedback-primary-color);
+:root {
+  --feedback-primary-color: var(--ifm-color-primary);
+  --feedback-button-light-bg-color: var(--ifm-color-primary);
+  --feedback-button-light-text-color: #191919;
+  --feedback-button-light-icon-color: #191919;
 }
