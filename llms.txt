@@ -1,6 +1,9 @@
-llms.txt
-# Kaia Docs
+# Kaia Documentation
+
+> Documentation for Kaia, the most efficient EVM-based blockchain & Asia's super app chain.
+
 ## Learn
+
 [Why Kaia](https://docs.kaia.io/learn/why-kaia): Learn about why you should choose Kaia Chain
 [Accounts](https://docs.kaia.io/learn/accounts): Explains account structures, key management, and security features in the Kaia chain.
 [Transactions](https://docs.kaia.io/learn/transactions): Guide for understanding transaction on Kaia Chain
@@ -12,7 +15,9 @@ llms.txt
 [Kaia Native Coin](https://docs.kaia.io/learn/token-economics/kaia-native-token): Provides information about Kaia Coin
 [Token Economy](https://docs.kaia.io/learn/token-economics/token-economy):Explains Kaia's token economy and funding structures for its blockchain ecosystem and growth initiatives.
 [Governance](https://docs.kaia.io/learn/governance/governance-by-kip): Provide information about various implementation for governance system.
+
 ## Build
+
 [Getting Started](https://docs.kaia.io/build/get-started/before-you-start): Provide information about what is needed to get started building on Kaia
 [Deploy smart contract using Hardhat](https://docs.kaia.io/build/get-started/hardhat): Guide for deploying Soulbound Tokens on Kaia using Hardhat.
 [Get Kaia](https://docs.kaia.io/build/get-started/getting-kaia): Guide for obtaining KAIA via Faucets and Exchanges
@@ -41,7 +46,9 @@ llms.txt
 [Block Explorer](https://docs.kaia.io/build/tools/block-explorers): Guide on the various block explorers on Kaia.
 [Token Management](https://docs.kaia.io/build/tools/token-management): Guide on token management services on Kaia
 [Kaia Contract Wizard](https://docs.kaia.io/build/tools/kaia-contracts-wizard): Guide on using Kaia Contract Wizard
+
 ## Node
+
 [About Kaia Nodes](https://docs.kaia.io/nodes): Explains the types of nodes on Kaia Chain
 [Endpoint Node](https://docs.kaia.io/nodes/endpoint-node): Provide information and guide on setting up Endpoint node
 [Core Cell Overview](https://docs.kaia.io/nodes/core-cell): Explains the structure and components of Core Cells in the Kaia blockchain network.
@@ -58,11 +65,15 @@ llms.txt
 [Message Signing Standards](https://docs.kaia.io/references/signed-message/): Explains message signing standards and practices for cryptographic actions in blockchain applications.
 [Transaction Error Codes](https://docs.kaia.io/references/transaction-error-codes): To provide developers with a reference for transaction error codes and their meanings in the Kaia platform.
 [Kaia Contract Addresses](https://docs.kaia.io/references/contract-addresses): Lists deployed addresses of notable system contracts for the Kaia blockchain.
+
 ## Mini dApps
+
 [Line Mini DApp with Unity](https://docs.kaia.io/minidapps): Guide for building mini dApps on LINE with Web3 integration using Unity WebGL and Kaia's infrastructure.
 [LINE Mini DApp with Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator): Guide for building mini dApps on LINE with Web3 integration using Cocos Creator Web Build and Kaia's infrastructure.
 [Survey Mini DApp](https://docs.kaia.io/minidapps/survey-minidapp/intro): Guide for building an example survey mini dApp
+
 ## Others
+
 [Kaia Node Setup Guide](https://docs.kaia.io/misc/operation/chaindata-snapshot): Instructions for using a chaindata snapshot to start a Kaia node efficiently.
 [Node Quick Reference](https://docs.kaia.io/misc/operation):  Guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes.
 [Kaia FAQ](https://docs.kaia.io/misc/faq): Provide FAQ information about Kaia blockchain and its development resources.
