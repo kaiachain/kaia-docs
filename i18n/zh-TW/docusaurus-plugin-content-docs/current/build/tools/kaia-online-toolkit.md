@@ -1,19 +1,30 @@
-# Kaia Online Toolkit
+# Kaia Toolkit
 
-## 什麼是 Kaia 在線工具包？ <a id="what-is-the-kaia-online-toolkit"></a>
+## What is the Kaia Toolkit?
 
-- Kaia在線工具包 "提供代碼示例，幫助您輕鬆使用 "Kaia SDK(caver-js)"。 Also it provides a [demo page](https://toolkit.kaia.io) for developers to use simple online tools.
-- Kaia SDK(caver-js)\` 是一個 JavaScript API 庫，允許開發人員使用 HTTP 或 Websocket 連接與 Kaia 節點進行交互。
-- 您可以直接試用 Kaia 的功能，而無需編寫代碼。
+[**Kaia Toolkit**](https://toolkit.kaia.io) provides developer-friendly code samples and interactive web tools to simplify integration with the Kaia blockchain. It serves as both a learning resource and practical utility suite for building decentralized applications.
 
-> 為了幫助更多的人使用 "Kaia 在線工具包"，我們編寫了["使用 Kaia 在線工具包"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) 系列。
+![Kaia Toolkit](/img/build/tools/klaytn-online-toolkit.png)
 
-## 鏈接<a id="links"></a>
+## Key Features
 
-以下是 "Kaia 在線工具包 "的鏈接。 歡迎使用 :)
+- **Multi-SDK Support**: Compatible with modern Ethereum-equivalent SDKs
+  - `Ethers-ext` (Extended ethers.js implementation)
+  - `Web3js-ext` (Enhanced web3.js library)
+  - `Viem` (TypeScript interface for EVM chains)
+- **Live Sandbox Environment**: Test blockchain interactions directly through the web interface without local setup
+- **Comprehensive Tools**:
+  - Wallet integration (KaiaWallet, MetaMask, RainbowKit, OKX)
+  - Account management (Basic/Mnemonic/Keystore)
+  - Token operations (KIP-7, KIP-17, KIP-37)
+  - Blockchain utilities (RLP encoder, unit converter, signature verification)
 
-- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
+## Developer Resources
+
+Here are the links for the Kaia Toolkit and related resources:
+
+- [GitHub Repository](https://github.com/kaiachain/kaia-online-toolkit)
 - [工具包頁面](https://toolkit.kaia.io)
-- [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
-
-![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+- [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
+- [Web3js-ext Documentation](../../references/sdk/web3js-ext/getting-started.md)
+- [Viem Documentation](../../references/sdk/viem/viem.md)
