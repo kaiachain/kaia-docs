@@ -1,6 +1,6 @@
 # Deploy Smart Contracts
 
-There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
+There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, you can use [Kaia Toolkit](https://toolkit.kaia.io/account/)."
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
