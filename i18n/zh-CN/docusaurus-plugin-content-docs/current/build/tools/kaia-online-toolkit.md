@@ -1,19 +1,30 @@
-# Kaia Online Toolkit
+# Kaia 工具包
 
-## 什么是 Kaia 在线工具包？ <a id="what-is-the-kaia-online-toolkit"></a>
+## 什么是 Kaia 工具包？
 
-- Kaia在线工具包 "提供代码示例，帮助您轻松使用 "Kaia SDK(caver-js)"。 此外，它还提供了一个 [演示页面]（https://toolkit.kaia.io），供开发人员使用简单的在线工具。
-- Kaia SDK(caver-js)\` 是一个 JavaScript API 库，允许开发人员使用 HTTP 或 Websocket 连接与 Kaia 节点进行交互。
-- 您可以直接试用 Kaia 的功能，而无需编写代码。
+[**Kaia Toolkit**](https://toolkit.kaia.io) 提供开发人员友好的代码示例和交互式网络工具，以简化与 Kaia 区块链的集成。 它既是学习资源，也是构建分散式应用程序的实用工具套件。
 
-> 为了帮助更多的人使用 "Kaia 在线工具包"，我们编写了["使用 Kaia 在线工具包"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) 系列。
+![Kaia Toolkit](/img/build/tools/klaytn-online-toolkit.png)
 
-## 链接<a id="links"></a>
+## 主要功能
 
-以下是 "Kaia 在线工具包 "的链接。 欢迎使用 :)
+- **支持多种 SDK**：兼容现代以太坊 SDK
+  - `Ethers-ext`（ether.js 扩展实现）
+  - Web3js-ext（增强型 web3.js 库）
+  - Viem（用于 EVM 链的 TypeScript 接口）
+- **实时沙盒环境**：直接通过网络界面测试区块链交互，无需本地设置
+- **综合工具**：
+  - 钱包集成（KaiaWallet、MetaMask、RainbowKit、OKX）
+  - 账户管理（基本/助记符/键库）
+  - 令牌操作（KIP-7、KIP-17、KIP-37）
+  - 区块链实用程序（RLP 编码器、单位转换器、签名验证）
 
-- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
+## 开发人员资源
+
+以下是 Kaia 工具包和相关资源的链接：
+
+- [GitHub Repository](https://github.com/kaiachain/kaia-online-toolkit)
 - [工具包页面](https://toolkit.kaia.io)
-- [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
-
-![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+- [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
+- [Web3js-ext Documentation](../../references/sdk/web3js-ext/getting-started.md)
+- [Viem Documentation](../../references/sdk/viem/viem.md)
