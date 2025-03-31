@@ -1,6 +1,6 @@
 # 스마트 컨트랙트 배포
 
-카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. To create an account, you can use [Kaia Online Toolkit](https://toolkit.kaia.io/account/accountKeyLegacy)."
+카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 다양한 도구를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다. 트랜잭션 수수료를 지불할 수 있는 충분한 KAIA를 보유한 카이아 계정이 있다고 가정합니다. 계정을 만들려면 [카이아 툴킷](https://toolkit.kaia.io/account/)을 사용할 수 있습니다."
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
