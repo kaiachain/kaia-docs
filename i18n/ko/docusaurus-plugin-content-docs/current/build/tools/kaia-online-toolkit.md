@@ -1,19 +1,30 @@
-# Kaia Online Toolkit
+# 카이아 툴킷
 
-## 카이아 온라인 툴킷이란 무엇인가요? <a id="what-is-the-klaytn-online-toolkit"></a>
+## 카이아 툴킷이란 무엇인가요?
 
-- `카이아 온라인 툴킷`은 `카이아 SDK(caver-js)`를 쉽게 활용할 수 있도록 코드 예제를 제공합니다. 또한 개발자가 간단한 온라인 도구를 사용할 수 있도록 [데모 페이지](https://toolkit.kaia.io)를 제공합니다.
-- `카이아 SDK(caver-js)`는 개발자가 HTTP 또는 웹소켓 연결을 통해 카이아 노드와 상호작용할 수 있도록 해주는 JavaScript API 라이브러리입니다.
-- 코딩할 필요 없이 카이아의 기능을 사용해 볼 수 있습니다.
+[카이아 툴킷\*\*](https://toolkit.kaia.io)은 개발자 친화적인 코드 샘플과 대화형 웹 도구를 제공하여 카이아 블록체인과의 통합을 간소화합니다. 분산형 애플리케이션을 구축하기 위한 학습 리소스이자 실용적인 유틸리티 제품군입니다.
 
-> 더 많은 분들이 '카이아 온라인 툴킷'을 사용하실 수 있도록 [카이아 온라인 툴킷 사용하기](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) 시리즈를 준비했습니다.
+![카이아 툴킷](/img/build/tools/klaytn-online-toolkit.png)
 
-## 링크 <a id="links"></a>
+## 주요 기능
 
-'카이아 온라인 툴킷'의 링크입니다. 자유롭게 사용해보세요.
+- **멀티 SDK 지원**: 최신 이더리움 동급 SDK와 호환 가능
+  - `Ethers-ext`(확장된 ethers.js 구현)
+  - 'Web3js-ext'(향상된 web3.js 라이브러리)
+  - Viem\`(EVM 체인을 위한 타입스크립트 인터페이스)
+- **라이브 샌드박스 환경**: 로컬 설정 없이 웹 인터페이스를 통해 직접 블록체인 상호 작용 테스트
+- **종합 도구**:
+  - 지갑 통합(KaiaWallet, MetaMask, RainbowKit, OKX)
+  - 계정 관리(기본/메모닉/키스토어)
+  - 토큰 작업(KIP-7, KIP-17, KIP-37)
+  - 블록체인 유틸리티(RLP 인코더, 단위 변환기, 서명 확인)
 
-- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
+## 개발자 리소스
+
+카이아 툴킷 및 관련 리소스에 대한 링크는 다음과 같습니다:
+
+- [깃허브 리포지토리](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)
-- [카이아 SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
-
-![카이아 온라인 툴킷](/img/build/tools/klaytn-online-toolkit.png)
+- [Ethers-ext 문서](../../references/sdk/ethers-ext/getting-started.md)
+- [Web3js-ext 문서](../../references/sdk/web3js-ext/getting-started.md)
+- [Viem 문서](../../references/sdk/viem/viem.md)
