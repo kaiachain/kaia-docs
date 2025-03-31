@@ -1,6 +1,6 @@
 # 部署智能合约
 
-在 Kaia 上部署智能合约有多种方法。 本文档提供了使用各种工具部署合同样本的分步指南。 我们假定您的 Kaia 账户有足够的 KAIA 支付交易费。 要创建账户，您可以使用 [Kaia 在线工具包](https://toolkit.kaia.io/account/accountKeyLegacy)"。
+在 Kaia 上部署智能合约有多种方法。 本文档提供了使用各种工具部署合同样本的分步指南。 我们假定您的 Kaia 账户有足够的 KAIA 支付交易费。 要创建账户，您可以使用 [Kaia Toolkit](https://toolkit.kaia.io/account/)"。
 
 ## Remix 在线集成开发环境<a id="remix-ide"></a>
 
