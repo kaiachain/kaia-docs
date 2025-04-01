@@ -98,7 +98,7 @@ body {
   --navbar-padding-horizontal: 1rem;
   --max-group-spacing: 9rem;
   --min-group-spacing: 0.5rem;
-  --collapse-breakpoint: 1320px;
+  --collapse-breakpoint: 1000px;
 }
 
 /* Center the navbar container */
@@ -124,7 +124,7 @@ body {
 .navbar__inner .navbar__brand {
   margin-right: min(
     var(--max-group-spacing), 
-    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.3)
   );
 }
 
@@ -140,12 +140,12 @@ body {
   justify-content: flex-end;
   margin-left: min(
     var(--max-group-spacing), 
-    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
+    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.3)
   );
 }
 
 /* Custom breakpoint for collapsing to hamburger menu earlier */
-@media (max-width: 1320px) {
+@media (max-width: 1000px) {
   .navbar__item:not(.navbar__search) {
     display: none;
   }

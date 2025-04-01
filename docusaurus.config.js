@@ -31,7 +31,8 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
+    locales: ['en', 'vi'],
+//    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
     path: 'i18n',
     localeConfigs: {
       'en': {
@@ -374,7 +375,7 @@ const config = {
             sidebarid: 'miniDappSidebar',
             label: 'Mini dApps',
           },
-          {
+/*          {
             type: 'docsVersionDropdown',
             position: 'right',
             dropdownActiveClassDisabled: true,
@@ -387,7 +388,7 @@ const config = {
                 label: 'Archived',
               },
             ],
-          },
+          },*/
           {
             type: 'localeDropdown',
             position: 'right',
