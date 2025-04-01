@@ -240,13 +240,13 @@ const config = {
         apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
         indexName: 'klaytn',
       },
-/**      announcementBar: {
-        id: 'docs_archive',
-        content: '<div style="font-size: 15px">📢 The Finschia and Klaytn blockchains have transitioned to the Kaia blockchain (<a target="_blank" href="https://docs.kaia.io/misc/kaia-transition/faq-chain-transition/">Transition FAQ</a>). For node operators, see <b><a target="_blank" href="https://docs.kaia.io/references/public-en/#public-json-rpc-endpoints-1">Old Endpoints Termination Notice</a></b> first! 🙏🏻</div>',
-        backgroundColor: '#789806',
-        textColor: '#FFFFFF',
+      announcementBar: {
+        id: 'endpoint_termination',
+        content: '<div style="font-size: 15px; font-weight: bold;">📢  <a target="_blank" href="https://www.blockjoy.com/">BlockJoy</a> archive node (<span style="font-size: 14px; font-family: monospace;">http://freely-inspired-ram.n0des.xyz</span>) shuts down by April 30, 2025. If you rely on it, update <a target="_blank" href="https://docs.kaia.io/references/public-en/">configurations</a> now to keep full history access. 🙏🏻</div>',
+        backgroundColor: '#abd908',
+        textColor: '#191919',
         isCloseable: true,
-      },*/
+      },
       navbar: {
         title: 'Kaia Docs',
         logo: {
