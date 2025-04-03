@@ -20,8 +20,10 @@
 
 **카이아 SDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) : 카이아 JSON-RPC API를 구현하는 JavaScript 라이브러리.
-- [caver-java](../../references/sdk/caver-java/caver-java.md) : 카이아 JSON-RPC API를 구현하는 자바 라이브러리입니다.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : ethers.js 라이브러리의 Kaia 확장.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : web3.js 라이브러리의 Kaia 확장.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : web3j 라이브러리의 Kaia 확장.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : web3.py 라이브러리의 카이아 확장.
 
 **카이아 툴킷**
 
