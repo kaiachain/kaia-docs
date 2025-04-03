@@ -20,8 +20,10 @@
 
 **Kaia SDKs**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) : A JavaScript library that implements the Kaia JSON-RPC APIs.
-- [caver-java](../../references/sdk/caver-java/caver-java.md) : A Java library that implements the Kaia JSON-RPC APIs.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
 
 **Kaia Toolkits**
 
