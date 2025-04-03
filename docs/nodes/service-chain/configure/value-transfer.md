@@ -218,7 +218,7 @@ For the ERC-20/721 token contract code,
 you can refer to the [Token standard](../../../build/smart-contracts/token-standard.md).
 
 ### Deployment  <a id="deployment"></a>
-SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via caver-js.
+SCN does not support an API to deploy ERC-20/721 tokens yet. You need to deploy the tokens via Kaia SDKs.
 When you deploy an ERC-20/721 contract, you should use the correct bridge operator account. Use the parent operator account for the main chain deploy, and the child operator for the service chain deploy.
 If a token contract was deployed with a wrong account, value transferring will not work and you need to deploy the token contract again with the correct account.
 

@@ -22,9 +22,8 @@ window.ethereum.request({ method: "eth_sign", params: ["0xbC7d1aBe33E6EC19cA873A
 Some Kaia nodes and SDKs have been providing a way to prefix messages with `"\x19Klaytn Signed Message:\n" + len(message)` before signing them. For details, please refer to [KIP-97](https://kips.kaia.io/KIPs/kip-97). Having the Klaytn- prefix can mitigate signature replay across chains, but the prefix alone cannot fully prevent replay attacks. Applications must employ replay protection mechanisms, including random challenges or timestamps, to defend against replay attacks within an application.
 
 KIP-97 signatures are supported by:
+
 - Kaia Wallet [`klay_sign`](https://docs.kaiawallet.io/api_reference/caver_methods#caverklaysign) method
-- caver-js [`keyring.signMessage`](../sdk/caver-js/api/caver-wallet/keyring) and [`utils.recover`](../sdk/caver-js/api/caver.utils) methods
-- caver-java [`AbstractKeyring.signMessage​`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) and [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) methods
 - In Kaia nodes until v1.0.0, [`eth_sign`](../json-rpc/eth/sign), [`kaia_sign`](../json-rpc/kaia/sign), [`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
 - In Kaia nodes of all versions, [`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 

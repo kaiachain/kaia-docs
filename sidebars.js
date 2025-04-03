@@ -441,90 +441,9 @@ const sidebars = {
         require('./docs/references/sdk/web3js-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3j-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3py-ext/sidebar').sidebar,
-        {
-          type: 'category',
-          label: 'caver-js',
-          link: { type: 'doc', id: 'references/sdk/caver-js/caver-js' },
-          items: [
-            'references/sdk/caver-js/get-started',
-            'references/sdk/caver-js/send-transaction',
-            {
-              type: 'category',
-              label: 'API References',
-              link: { type: 'doc', id: 'references/sdk/caver-js/api/api' },
-              items: [
-                'references/sdk/caver-js/api/caver.account',
-                {
-                  type: 'category',
-                  label: 'caver.wallet',
-                  link: {
-                    type: 'doc',
-                    id: 'references/sdk/caver-js/api/caver-wallet/caver-wallet',
-                  },
-                  items: ['references/sdk/caver-js/api/caver-wallet/keyring'],
-                },
-                {
-                  type: 'category',
-                  label: 'caver.transaction',
-                  link: {
-                    type: 'doc',
-                    id: 'references/sdk/caver-js/api/caver-transaction/caver-transaction',
-                  },
-                  items: [
-                    'references/sdk/caver-js/api/caver-transaction/basic',
-                    'references/sdk/caver-js/api/caver-transaction/fee-delegation',
-                    'references/sdk/caver-js/api/caver-transaction/partial-fee-delegation',
-                  ],
-                },
-                {
-                  type: 'category',
-                  label: 'caver.rpc',
-                  link: {
-                    type: 'doc',
-                    id: 'references/sdk/caver-js/api/caver-rpc/caver-rpc',
-                  },
-                  items: [
-                    'references/sdk/caver-js/api/caver-rpc/governance',
-                    'references/sdk/caver-js/api/caver-rpc/klay',
-                    'references/sdk/caver-js/api/caver-rpc/net',
-                  ],
-                },
-                'references/sdk/caver-js/api/caver.contract',
-                'references/sdk/caver-js/api/caver.abi',
-                {
-                  type: 'category',
-                  label: 'caver.kct',
-                  link: {
-                    type: 'doc',
-                    id: 'references/sdk/caver-js/api/caver-kct/caver-kct',
-                  },
-                  items: [
-                    'references/sdk/caver-js/api/caver-kct/kip7',
-                    'references/sdk/caver-js/api/caver-kct/kip17',
-                    'references/sdk/caver-js/api/caver-kct/kip37',
-                  ],
-                },
-                'references/sdk/caver-js/api/caver.validator',
-                'references/sdk/caver-js/api/caver.utils',
-                'references/sdk/caver-js/api/caver.ipfs',
-              ],
-            },
-          ],
-        },
-        {
-          type: 'category',
-          label: 'caver-java',
-          link: { type: 'doc', id: 'references/sdk/caver-java/caver-java' },
-          items: [
-            'references/sdk/caver-java/get-started',
-            {
-              type: 'link',
-              label: 'API References',
-              href: 'https://javadoc.io/doc/com.klaytn.caver/core/',
-            },
-          ],
-        },
         'references/sdk/viem/viem',
+        'references/sdk/caver-js/caver-js',
+        'references/sdk/caver-java/caver-java',
       ],
     },
     'references/signed-message',
