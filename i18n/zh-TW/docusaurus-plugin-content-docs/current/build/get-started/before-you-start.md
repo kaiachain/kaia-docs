@@ -20,8 +20,10 @@
 
 **Kaia SDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) ：實現 Kaia JSON-RPC API 的 JavaScript 庫。
-- [caver-java](../../references/sdk/caver-java/caver-java.md)：實現 Kaia JSON-RPC API 的 Java 庫。
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
 
 **Kaia工具包**
 
