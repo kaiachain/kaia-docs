@@ -20,8 +20,10 @@
 
 **カイアSDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) ：Kaia JSON-RPC APIを実装するJavaScriptライブラリ。
-- [caver-java](../../references/sdk/caver-java/caver-java.md) ：Kaia JSON-RPC APIを実装したJavaライブラリ。
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
 
 **カイア・ツールキット**
 
