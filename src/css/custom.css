@@ -96,9 +96,9 @@ body {
 /* Custom navbar positioning */
 :root {
   --navbar-padding-horizontal: 1rem;
-  --max-group-spacing: 9rem;
+  --max-group-spacing: 11rem;
   --min-group-spacing: 0.5rem;
-  --collapse-breakpoint: 1320px;
+  --collapse-breakpoint: 996px;
 }
 
 /* Center the navbar container */
@@ -121,6 +121,7 @@ body {
   justify-content: flex-start;
 }
 
+/* Dynamic spacing after logo */
 .navbar__inner .navbar__brand {
   margin-right: min(
     var(--max-group-spacing), 
@@ -131,11 +132,11 @@ body {
 /* Middle group (nav links) */
 .navbar__inner .navbar__items:not(:first-child):not(.navbar__items--right) {
   justify-content: center;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   margin-left: 0;
 }
 
-/* Right group with dynamic spacing */
+/* Dynamic spacing before right group */
 .navbar__inner .navbar__items--right {
   justify-content: flex-end;
   margin-left: min(
@@ -144,8 +145,51 @@ body {
   );
 }
 
-/* Custom breakpoint for collapsing to hamburger menu earlier */
-@media (max-width: 1320px) {
+/* Progressive compression at smaller screens */
+@media (max-width: 1300px) {
+  /* Reduce spacing between navbar items */
+  .navbar__items .navbar__item {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+  }
+  
+  .navbar__inner {
+    padding: 0 0.5rem;
+  }
+  
+  /* Reduce group spacing more aggressively */
+  .navbar__inner .navbar__brand {
+    margin-right: max(0.3rem, calc(var(--min-group-spacing) + (100vw - 1130px)*0.05));
+  }
+  
+  .navbar__inner .navbar__items--right {
+    margin-left: max(0.3rem, calc(var(--min-group-spacing) + (100vw - 1130px)*0.05));
+  }
+}
+
+/* Maximum compression before mobile breakpoint */
+@media (max-width: 1130px) and (min-width: 997px) {
+  .navbar__items .navbar__item {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  
+  .navbar__inner .navbar__brand {
+    margin-right: 0.25rem;
+    padding-right: 0.2rem;
+  }
+  
+  .navbar__inner .navbar__items--right {
+    margin-left: 0.25rem;
+  }
+  
+  .navbar__items {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 996px) {
   .navbar__item:not(.navbar__search) {
     display: none;
   }
@@ -154,11 +198,7 @@ body {
     display: flex !important;
   }
   
-  .navbar__search {
-    display: flex !important;
-  }
-  
-  .navbar__items--right {
+  .navbar__search, .navbar__items--right {
     display: flex !important;
   }
   
@@ -169,14 +209,8 @@ body {
   .navbar__items--right {
     margin-left: 0;
   }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --navbar-padding-horizontal: 1rem;
-  }
   
-  .navbar__inner {
-    padding: 0 var(--navbar-padding-horizontal);
+  .navbar__items {
+    font-size: 1rem;
   }
 }
