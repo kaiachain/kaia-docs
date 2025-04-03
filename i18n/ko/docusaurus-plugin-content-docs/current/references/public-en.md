@@ -45,7 +45,6 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | Full    |
-| [BlockJoy](https://blockjoy.com/)      | `http://freely-inspired-ram.n0des.xyz`                     | kaia,klay,eth,net | Archive |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
@@ -56,10 +55,10 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | Service Provider                       | Endpoints                                                | Namespaces        | Type    |
 | -------------------------------------- | -------------------------------------------------------- | ----------------- | ------- |
 | [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`                        | kaia,klay,eth,net | Full    |
-|                                        | `wss://archive-en.node.kaia.io/ws`                       | KAIA,KLAY,ETH,NET | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | 전체      |
+|                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
+| [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
-| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
+| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | 전체      |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
@@ -67,17 +66,17 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 | Service Provider                       | Endpoints                                                    | Namespaces        | Type    |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en-kairos.node.kaia.io/`                    | KAIA,KLAY,ETH,NET | Archive |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | KAIA,KLAY,ETH,NET | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 전체      |
 
 **WebSocket**
 
 | Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
 | -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | 전체      |
-|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | KAIA,KLAY,ETH,NET | Archive |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | KAIA,KLAY,ETH,NET | 전체      |
+|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | KAIA,KLAY,ETH,NET | 전체      |
 
 ## RPC Service Providers
@@ -289,21 +288,6 @@ GetBlock provides fast, reliable API access to full RPC nodes for over 50 major 
 - [Website](https://getblock.io/)
 - [Docs](https://getblock.io/docs/getblock-explorer/get-started/)
 
-### BlockJoy
-
-BlockJoy provides dedicated unmetered blockchain nodes on any bare metal infrastructure. Its provides Node infrastructure for various services like Nodes, Staking, APIs, Indexers, Blockchain developers etc.
-
-#### Features
-
-- Run nodes at max performance on bare metal servers.
-- Cut operating costs by up to 80%.
-- Enjoy platform's streamlined UI and cloud-like experience built exclusively for Web3 Infrastructure.
-
-#### References
-
-- [Website](https://blockjoy.com/)
-- [Blog](https://blockjoy.com/blog)
-
 ### QuickNode
 
 Quicknode offers blockchain infrastructure powering secure, decentralized innovation. They provide all the tools and resources builders need to create incredible products — all backed by unparalleled, globally-balanced infrastructure, guaranteed reliability and security, a user-friendly interface, and end-to-end customer support.
@@ -326,7 +310,7 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 
 Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
 
-#### 특징
+#### Features
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
@@ -334,7 +318,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 - AI-driven load balancer
 - Insightful analytics.
 
-#### 참조
+#### References
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)

@@ -14,18 +14,19 @@
 **Phát triển hợp đồng thông minh**
 
 - [Kaia Plugin for Remix](https://ide.kaia.io) - Kaia Plugin for Remix, a browser-based compiler and IDE.
-- [Truffle](https://github.com/trufflesuite/truffle) - An open-source tool for developing smart contracts in Solidity.
 - [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - A development environment for smart contracts and dApps.
 - [Foundry](https://book.getfoundry.sh/) - Foundry is a smart contract development toolchain.
 - [Thirdweb](https://portal.thirdweb.com/) - Thirdweb is a complete web3 development framework that provides services to build, manage, and analyze web3 applications.
 
 **Kaia SDKs**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) : A JavaScript library that implements the Kaia JSON-RPC APIs.
-- [caver-java](../../references/sdk/caver-java/caver-java.md) : A Java library that implements the Kaia JSON-RPC APIs.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
 
 **Kaia Toolkits**
 
 - [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
 - [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
-- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.

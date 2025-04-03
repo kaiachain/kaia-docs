@@ -33,8 +33,8 @@ contract KaiaGreeter is Mortal {
 
 - 请访问 [Kaia Plugin for Remix](https://ide.kaia.io) 并创建 "KaiaGreeter "合同。 上文提供了完整的源代码。
 - 准备用于部署合同的账户。
-  - 如果您还没有账户，请在 [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy) 上创建一个账户。
-  - 从水龙头获取一些测试 KAIA - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+  - 如果您还没有账户，请使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建一个账户。
+  - 从水龙头获取一些测试 KAIA - [Faucet](https://faucet.kaia.io)
 - 部署带有初始参数（问候语）的合同。
 - 部署完成后，可以在集成开发环境中调用 `greet`。
 

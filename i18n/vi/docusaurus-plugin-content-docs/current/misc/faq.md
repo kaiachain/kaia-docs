@@ -89,7 +89,7 @@ Kairos testnet:
 
 Kaia Node is Ethereum-compatible, so you can use popular Ethereum SDKs like ethers.js, web3.js, web3py, web3j, or viem. However, Kaia Node also includes extended features with Kaia-specific account and transaction types.
 
-To take advantage of these features, you can use the Kaia SDKs, which include extensions such as ethers-ext, web3js-ext, web3j-ext, and web3py-ext. These are plugin-type SDKs that extend Ethereum SDKs. If you prefer standalone SDKs, you can consider the Caver SDKs, such as caver-js and caver-java, which are designed for projects where Ethereum compatibility is not required.
+To take advantage of these features, you can use the Kaia SDKs, which include extensions such as ethers-ext, web3js-ext, web3j-ext, and web3py-ext. These are plugin-type SDKs that extend Ethereum SDKs.
 
 ### kaia-sdk (Plug-in SDKs)
 
@@ -98,13 +98,6 @@ These SDKs support JavaScript, Java, and Python, so you can choose based on the 
 - ethers-ext, web3js-ext for javascript
 - web3j-ext for java
 - web3py-ext for python
-
-### caver (Standalone SDKs)
-
-These SDKs support JavaScript and Java, and are ideal for projects where Ethereum compatibility is not necessary:
-
-- caver-js for javascript
-- caver-java for java
 
 ## Must I install and run an EN (Endpoint Node) to use Kaia? <a id="must-i-install-and-run-en"></a>
 
@@ -145,4 +138,3 @@ You can find complete working examples of fee delegation using several different
 - web3js-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3js-ext/fee-delegated-transaction/value-transfer/)
 - web3j-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3j-ext/fee-delegated-transaction/value-transfer/)
 - web3py-ext: [fee delegated value transfer example](https://docs.kaia.io/references/sdk/web3py-ext/fee-delegated-transaction/value-transfer/)
-- Caver-js: [fee-delegation-example](https://docs.kaia.io/build/tutorials/fee-delegation-example/)

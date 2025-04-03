@@ -45,7 +45,6 @@
 |                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | 檔案 |
 | [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | 全部 |
-| [BlockJoy](https://blockjoy.com/)      | `http://freely-inspired-ram.n0des.xyz`                     | kaia,klay,eth,net | 檔案 |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
@@ -53,13 +52,13 @@
 
 **WebSocket**
 
-| 服務提供商                                | 終點                                                                                                                         | 命名空間              | 類型 |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
-| [Kaia基金會](https://www.kaia.io)       | wss://public-en.node.kaia.io/ws                            | kaia,klay,eth,net | 全部 |
-|                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 檔案 |
-| [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
-| [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
-| [dRPC](https://drpc.org/)            | `wss://klaytn.drpc.org`                                                                                                    | kaia,klay,eth,net | 全部 |
+| 服務提供商                                | 終點                                                                                                                         | 命名空間              | 類型   |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---- |
+| [Kaia基金會](https://www.kaia.io)       | wss://public-en.node.kaia.io/ws                            | kaia,klay,eth,net | 全部   |
+|                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 檔案   |
+| [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部   |
+| [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部   |
+| [dRPC](https://drpc.org/)            | `wss://klaytn.drpc.org`                                                                                                    | kaia,klay,eth,net | Full |
 
 ### Testnet（Kairos）公共 JSON-RPC 端點
 
@@ -289,21 +288,6 @@ GetBlock 為包括 Kaia 在內的 50 多個主要區塊鏈網絡的完整 RPC �
 - [Website](https://getblock.io/)
 - [文件](https://getblock.io/docs/getblock-explorer/get-started/)
 
-### BlockJoy
-
-BlockJoy 可在任何裸金屬基礎設施上提供專用的非計量區塊鏈節點。 它為節點、定樁、API、索引器、區塊鏈開發人員等各種服務提供節點基礎設施。
-
-#### 特點
-
-- 在裸機服務器上以最高性能運行節點。
-- 削減高達 80% 的運營成本。
-- 享受平臺專為 Web3 基礎架構打造的精簡用戶界面和雲體驗。
-
-#### 參考資料
-
-- [Website](https://blockjoy.com/)
-- [博客](https://blockjoy.com/blog)
-
 ### QuickNode
 
 Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動力。 他們提供構建者創建令人難以置信的產品所需的所有工具和資源，所有這些都有無與倫比的全球平衡基礎設施、有保障的可靠性和安全性、用戶友好的界面以及端到端的客戶支持作為後盾。
@@ -326,7 +310,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 
 為 Kaia、Ethereum、Polygon、Arbitrum 等提供去中心化 RPC 節點。 您值得信賴的 Web3 基礎設施合作伙伴。
 
-#### Features
+#### 特點
 
 - 一般支持的公共節點無申請限制。
 - 高性能節點還可選擇增長計劃和企業計劃。
@@ -334,7 +318,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - 人工智能驅動的負載平衡器
 - 富有洞察力的分析。
 
-#### References
+#### 參考資料
 
 - [網站](https://drpc.org/)
 - [文檔](https://drpc.org/docs)

@@ -24,8 +24,6 @@ window.ethereum.request({ method："eth_sign", params：["0xbC7d1aBe33E6EC19cA87
 支持 KIP-97 签名的有：
 
 - Kaia 钱包 [`klay_sign`](https://docs.kaiawallet.io/api_reference/caver_methods#caverklaysign) 方法
-- caver-js [`keyring.signMessage`](../sdk/caver-js/api/caver-wallet/keyring) 和 [`utils.recover`](../sdk/caver-js/api/caver.utils) 方法
-- caver-java [`AbstractKeyring.signMessage​`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/wallet/keyring/AbstractKeyring.html) and [`Utils.recover`](https://javadoc.io/doc/com.klaytn.caver/core/latest/com/klaytn/caver/utils/Utils.html) methods
 - 在 Kaia 节点 v1.0.0 之前，[`eth_sign`](../json-rpc/eth/sign)、[`kaia_sign`](../json-rpc/kaia/sign)、[`personal_sign`](../json-rpc/personal/sign) [`personal_ecRecover`](../json-rpc/personal/ec-recover) RPCs
 - 在所有版本的 Kaia 节点中，[`kaia_recoverFromMessage`](../json-rpc/kaia/recover-from-message) RPC
 

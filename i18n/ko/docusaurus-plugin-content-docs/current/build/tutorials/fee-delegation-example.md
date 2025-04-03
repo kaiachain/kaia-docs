@@ -30,7 +30,7 @@ Let's skim through how fee delegation works.
 
 트랜잭션에 서명하려면 주어진 개인 키로 트랜잭션에 서명하는 [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx)을 사용하세요.
 
-```
+```javascript
 const senderAddr = "SENDER_ADDRESS";
 const senderPrivateKey = "SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
@@ -64,24 +64,15 @@ console.log("senderTxHashRLP", senderTxHashRLP);
 
 수수료 납부자가 발신자를 대신하여 카이아에 트랜잭션을 제출할 때, `senderTxHashRLP` 유형은 `FeeDelegatedValueTransfer` 유형의 트랜잭션이어야 한다는 점에 유의하세요.
 
-```
-const feePayerAddress = "FEEPAYER_ADDRESS";
-const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
+```javascript
+const feePayerAddress = "수수료납부자_주소";
+const feePayerPrivateKey = "수수료납부자_비밀키"
 
 const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
 console.log("sentTx", sentTx);
 
 const rc = await sentTx.wait();
 console.log("receipt", rc);
-
-.on('transactionHash', function(hash){
-    ...
-})
-.on('receipt', function(receipt){
-    ...
-})
-.on('error', console.error); // 가스 부족 오류인 경우, 두번째 파라미터는 영수증입니다.
-
 ```
 
 ## 3. 수수료 위임을 위한 간단한 서버 및 클라이언트 <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
@@ -92,7 +83,7 @@ console.log("receipt", rc);
 
 npm init -y\`를 사용하여 Node.js 프로젝트를 설정하고, [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)를 설치합니다.
 
-```
+```bash
 mkdir feedelegation_server
 cd feedelegation_server
 npm init -y
@@ -248,7 +239,7 @@ console.log("수수료 대리인 서비스 시작 ...");
 
 아래 명령을 실행하여 수수료 납부자 서버를 시작합니다:
 
-```
+```bash
 node feepayer_server.js
 
 // 출력
@@ -261,7 +252,7 @@ node feepayer_server.js
 
 수수료 위임 트랜잭션을 전송하기 위해 `sender_client.js`를 실행해 보겠습니다.
 
-```
+```bash
 $ node sender_client.js
 
 // 출력
@@ -286,7 +277,7 @@ senderTxHashRLP 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddcc
 
 서버의 콘솔에서 아래 출력을 확인할 수 있습니다. Kaia에서 거래 영수증을 인쇄합니다.
 
-```
+```bash
 $ node feepayer_server.js
 
 수수료 대리인 서비스가 시작되었습니다 ...
