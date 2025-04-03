@@ -17,9 +17,4 @@
 端点节点安装二进制文件包含以下接口和实用程序。
 
 - JSON-RPC API：JSON-RPC 服务器运行于节点内部，并为区块链应用程序开发提供 [API](../../references/json-rpc/klay/account-created) 。 它还有多个节点管理 API。
-- 命令行界面：提供账户管理和节点配置功能。 此外，还提供了一个附加到节点上的交互式 JavaScript 控制台。 JavaScript 控制台实现了大部分 [caver-js API](../../references/sdk/caver-js/caver-js.md)。
-
-
-
-
-
+- 命令行界面：提供账户管理和节点配置功能。 此外，还提供了一个附加到节点上的交互式 JavaScript 控制台。 JavaScript 控制台实现了大部分 [RPC API](../../references/json-rpc/references.md)。
