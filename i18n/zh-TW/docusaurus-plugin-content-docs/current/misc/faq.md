@@ -89,7 +89,7 @@ Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等�
 
 Kaia Node 與以太坊兼容，因此您可以使用流行的以太坊 SDK，如 ethers.js、web3.js、web3py、web3j 或 viem。 不過，Kaia Node 還包括 Kaia 特有賬戶和交易類型的擴展功能。
 
-要利用這些功能，可以使用 Kaia SDK，其中包括 ethers-ext、web3js-ext、web3j-ext 和 web3py-ext 等擴展。 這些插件式 SDK 擴展了以太坊 SDK。 如果你喜歡獨立的 SDK，可以考慮 Caver SDK，如 caver-js 和 caver-java，它們是為不需要以太坊兼容性的項目設計的。
+要利用這些功能，可以使用 Kaia SDK，其中包括 ethers-ext、web3js-ext、web3j-ext 和 web3py-ext 等擴展。 這些插件式 SDK 擴展了以太坊 SDK。
 
 ### kaia-sdk （插件 SDK）
 
@@ -98,13 +98,6 @@ Kaia Node 與以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 - 用於 javascript 的 ethers-ext、web3js-ext
 - 用於 Java 的 web3j-ext
 - 用於 python 的 web3py-ext
-
-### caver（獨立 SDK）
-
-這些 SDK 支持 JavaScript 和 Java，非常適合無需兼容以太坊的項目：
-
-- 用於 JavaScript 的 caver-js
-- 用於 Java 的 Caver-java
 
 ## 我必須安裝和運行 EN（端點節點）才能使用 Kaia 嗎？ <a id="must-i-install-and-run-en"></a>
 
@@ -145,4 +138,3 @@ Kaia 的網絡瀏覽器擴展錢包 [Kaia Wallet](https://chromewebstore.google.
 - web3js-ext：[收費委託值轉移示例](https://docs.kaia.io/references/sdk/web3js-ext/fee-delegated-transaction/value-transfer/)
 - web3j-ext：[收費委託值轉移示例](https://docs.kaia.io/references/sdk/web3j-ext/fee-delegated-transaction/value-transfer/)
 - web3py-ext：[收費委託價值轉移示例](https://docs.kaia.io/references/sdk/web3py-ext/fee-delegated-transaction/value-transfer/)
-- Caver-js: [fee-delegation-example](https://docs.kaia.io/build/tutorials/fee-delegation-example/)
