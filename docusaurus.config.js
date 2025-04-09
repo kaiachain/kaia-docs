@@ -264,24 +264,24 @@ const config = {
             label: 'Build',
             items: [
               {
-                to: "build/get-started/hardhat",
-                label: 'Deploy Your First Smart Contract',
+                to: "build/get-started",
+                label: 'Get Started',
               },
               {
-                to: "build/get-started/getting-kaia",
-                label: 'Get Testnet KAIA',
+                to: "build/transactions",
+                label: 'Transactions',
               },
               {
-                to: "build/tutorials/fee-delegation-example",
-                label: 'Build Fee Delegation Example',
+                to: "build/smart-contracts",
+                label: 'Smart Contracts',
               },
               {
-                to: "build/smart-contracts/verify/block-explorers",
-                label: 'Verify Smart Contracts',
+                to: "build/tutorials",
+                label: 'Tutorials',
               },
               {
-                to: "build/tutorials/connecting-metamask",
-                label: 'Connect MetaMask to Kaia',
+                to: "build/tools",
+                label: 'Tools',
               },
             ],
           },
@@ -293,20 +293,24 @@ const config = {
             label: 'Nodes',
             items: [
               {
-                to: "nodes/endpoint-node/install-endpoint-nodes",
-                label: 'Install Endpoint Nodes',
-              },
-              {
-                to: "nodes/downloads",
-                label: 'Download Node Packages',
-              },
-              {
                 to: "misc/operation",
                 label: 'Node Quick Reference',
               },
               {
-                to: "misc/operation/chaindata-snapshot",
-                label: 'Use Chaindata Snapshots',
+                to: "nodes/endpoint-node",
+                label: 'Endpoint Node',
+              },
+              {
+                to: "nodes/core-cell",
+                label: 'Core Cell',
+              },
+              {
+                to: "nodes/service-chain",
+                label: 'Service Chain',
+              },
+              {
+                to: "nodes/downloads",
+                label: 'Node Downloads',
               },
             ],
           },
@@ -326,12 +330,8 @@ const config = {
                 label: 'RPC API References',
               },
               {
-                to: "references/sdk/web3js-ext/getting-started",
-                label: 'Web3.js Extension',
-              },
-              {
-                to: "references/sdk/ethers-ext/getting-started",
-                label: 'Ethers.js Extension',
+                to: "references/sdk",
+                label: 'Kaia SDK',
               },
               {
                 to: "references/contract-addresses",
@@ -373,6 +373,20 @@ const config = {
             position: 'left',
             sidebarid: 'miniDappSidebar',
             label: 'Mini dApps',
+            items: [
+              {
+                to: "minidapps/unity/quick-start",
+                label: 'LINE Mini DApp with Unity',
+              },
+              {
+                to: "minidapps/cocos-creator",
+                label: 'LINE Mini DApp with Cocos',
+              },
+              {
+                to: "minidapps/survey-minidapp/intro",
+                label: 'Survey Mini DApp',
+              },
+            ],
           },
 /*          {
             type: 'docsVersionDropdown',
