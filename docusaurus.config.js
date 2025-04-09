@@ -120,7 +120,16 @@ const config = {
     ],
   ],
 
-  scripts: [{src: 'https://umami.lkw1615.synology.me/script.js', async: true, 'data-website-id': 'ae21f682-27e8-4670-bf7f-8eec7a2097cf'}],
+  scripts: [
+    {
+      src: 'https://umami.lkw1615.synology.me/script.js',
+      async: true, 'data-website-id': 'ae21f682-27e8-4670-bf7f-8eec7a2097cf'
+    },
+    {
+      src: '/js/formbricks-loader.js',
+      async: true,
+    },
+  ],
 
   plugins: [
     [
