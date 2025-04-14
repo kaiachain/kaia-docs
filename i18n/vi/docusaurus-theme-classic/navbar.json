@@ -47,41 +47,9 @@
     "message": "Token Economy",
     "description": "Navbar item with label Token Economy"
   },
-  "item.label.Deploy Your First Smart Contract": {
-    "message": "Deploy Your First Smart Contract",
-    "description": "Navbar item with label Deploy Your First Smart Contract"
-  },
-  "item.label.Get Testnet KAIA": {
-    "message": "Get Testnet KAIA",
-    "description": "Navbar item with label Get Testnet KAIA"
-  },
-  "item.label.Build Fee Delegation Example": {
-    "message": "Build Fee Delegation Example",
-    "description": "Navbar item with label Build Fee Delegation Example"
-  },
-  "item.label.Verify Smart Contracts": {
-    "message": "Verify Smart Contracts",
-    "description": "Navbar item with label Verify Smart Contracts"
-  },
-  "item.label.Connect MetaMask to Kaia": {
-    "message": "Connect MetaMask to Kaia",
-    "description": "Navbar item with label Connect MetaMask to Kaia"
-  },
-  "item.label.Install Endpoint Nodes": {
-    "message": "Install Endpoint Nodes",
-    "description": "Navbar item with label Install Endpoint Nodes"
-  },
-  "item.label.Download Node Packages": {
-    "message": "Download Node Packages",
-    "description": "Navbar item with label Download Node Packages"
-  },
   "item.label.Node Quick Reference": {
     "message": "Node Quick Reference",
     "description": "Navbar item with label Node Quick Reference"
-  },
-  "item.label.Use Chaindata Snapshots": {
-    "message": "Use Chaindata Snapshots",
-    "description": "Navbar item with label Use Chaindata Snapshots"
   },
   "item.label.Public RPC Endpoints": {
     "message": "Public RPC Endpoints",
@@ -91,16 +59,60 @@
     "message": "RPC API References",
     "description": "Navbar item with label RPC API References"
   },
-  "item.label.Web3.js Extension": {
-    "message": "Web3.js Extension",
-    "description": "Navbar item with label Web3.js Extension"
-  },
-  "item.label.Ethers.js Extension": {
-    "message": "Ethers.js Extension",
-    "description": "Navbar item with label Ethers.js Extension"
-  },
   "item.label.Contract Addresses": {
     "message": "Contract Addresses",
     "description": "Navbar item with label Contract Addresses"
+  },
+  "item.label.Get Started": {
+    "message": "Get Started",
+    "description": "Navbar item with label Get Started"
+  },
+  "item.label.Transactions": {
+    "message": "Transactions",
+    "description": "Navbar item with label Transactions"
+  },
+  "item.label.Smart Contracts": {
+    "message": "Smart Contracts",
+    "description": "Navbar item with label Smart Contracts"
+  },
+  "item.label.Tutorials": {
+    "message": "Tutorials",
+    "description": "Navbar item with label Tutorials"
+  },
+  "item.label.Tools": {
+    "message": "Tools",
+    "description": "Navbar item with label Tools"
+  },
+  "item.label.Endpoint Node": {
+    "message": "Endpoint Node",
+    "description": "Navbar item with label Endpoint Node"
+  },
+  "item.label.Core Cell": {
+    "message": "Core Cell",
+    "description": "Navbar item with label Core Cell"
+  },
+  "item.label.Service Chain": {
+    "message": "Service Chain",
+    "description": "Navbar item with label Service Chain"
+  },
+  "item.label.Node Downloads": {
+    "message": "Node Downloads",
+    "description": "Navbar item with label Node Downloads"
+  },
+  "item.label.Kaia SDK": {
+    "message": "Kaia SDK",
+    "description": "Navbar item with label Kaia SDK"
+  },
+  "item.label.LINE Mini DApp with Unity": {
+    "message": "LINE Mini DApp with Unity",
+    "description": "Navbar item with label LINE Mini DApp with Unity"
+  },
+  "item.label.LINE Mini DApp with Cocos": {
+    "message": "LINE Mini DApp with Cocos",
+    "description": "Navbar item with label LINE Mini DApp with Cocos"
+  },
+  "item.label.Survey Mini DApp": {
+    "message": "Survey Mini DApp",
+    "description": "Navbar item with label Survey Mini DApp"
   }
 }
