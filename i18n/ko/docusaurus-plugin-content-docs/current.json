@@ -3,14 +3,6 @@
     "message": "최신",
     "description": "The label for version current"
   },
-  "sidebar.learnSidebar.category.Transactions": {
-    "message": "트랜잭션",
-    "description": "The label for category Transactions in sidebar learnSidebar"
-  },
-  "sidebar.learnSidebar.category.Computation": {
-    "message": "계산",
-    "description": "The label for category Computation in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Get Started": {
     "message": "시작하기",
     "description": "The label for category Get Started in sidebar buildSidebar"
@@ -298,5 +290,25 @@
   "sidebar.buildSidebar.category.Transactions": {
     "message": "거래",
     "description": "The label for category Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Management": {
+    "message": "토큰 관리",
+    "description": "The label for category Token Management in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Team Finance": {
+    "message": "팀 재무",
+    "description": "The label for category Team Finance in sidebar buildSidebar"
+  },
+  "sidebar.miniDappSidebar.category.LINE Mini DApp with Unity": {
+    "message": "유니티와 함께하는 LINE 미니 디앱",
+    "description": "The label for category LINE Mini DApp with Unity in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.LINE Mini DApp with Cocos": {
+    "message": "Cocos와 함께하는 LINE 미니 디앱",
+    "description": "The label for category LINE Mini DApp with Cocos in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Survey Mini DApp": {
+    "message": "설문조사 미니 디앱",
+    "description": "The label for category Survey Mini DApp in sidebar miniDappSidebar"
   }
 }
