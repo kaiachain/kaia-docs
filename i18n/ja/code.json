@@ -632,5 +632,53 @@
   "theme.feedback.helpful": {
     "message": "このページは役に立ちましたか？",
     "description": "The text asking if the page is helpful"
+  },
+  "homepage.favorites.explorers.title": {
+    "message": "Block Explorers",
+    "description": "Title for Block Explorers section"
+  },
+  "homepage.favorites.explorers.description": {
+    "message": "Search for real-time and historical information about Kaia.",
+    "description": "Description for Block Explorers section"
+  },
+  "homepage.newDocs.badge.new": {
+    "message": "NEW",
+    "description": "Badge text for new documents"
+  },
+  "homepage.newDocs.badge.update": {
+    "message": "UPDATE",
+    "description": "Badge text for updated documents"
+  },
+  "homepage.newDocs.surveyMinidapp.title": {
+    "message": "Building a Survey DApp on Kaia",
+    "description": "Title for Survey Mini DApp doc"
+  },
+  "homepage.newDocs.unityMinidapp.title": {
+    "message": "Creating a LINE Mini DApp with Unity",
+    "description": "Title for Unity Mini DApp doc"
+  },
+  "homepage.newDocs.cocosMinidapp.title": {
+    "message": "Guide to LINE Mini DApp Creation Using Cocos Creator",
+    "description": "Title for Cocos Mini DApp doc"
+  },
+  "homepage.newDocs.surveyMinidapp.description": {
+    "message": "Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.",
+    "description": "Description for Upgradeable Smart Contracts doc"
+  },
+  "homepage.newDocs.unityMinidapp.description": {
+    "message": "Develop a fully integrated LINE mini dApp with Unity that seamlessly combines Web3 connectivity, intuitive UI design, and LIFF conversion.",
+    "description": "Description for DApp Security doc"
+  },
+  "homepage.newDocs.cocosMinidapp.description": {
+    "message": "Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF.",
+    "description": "Description for API Updates doc"
+  },
+  "homepage.newDocs.title": {
+    "message": "What's New",
+    "description": "Title for the What's New section"
+  },
+  "homepage.newDocs.subtitle": {
+    "message": "Explore our latest updates and additions to the docs.",
+    "description": "Subtitle for the What's New section"
   }
 }
