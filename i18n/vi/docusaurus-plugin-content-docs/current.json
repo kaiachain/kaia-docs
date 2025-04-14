@@ -3,14 +3,6 @@
     "message": "Hiện tại",
     "description": "The label for version current"
   },
-  "sidebar.learnSidebar.category.Transactions": {
-    "message": "Giao dịch",
-    "description": "The label for category Transactions in sidebar learnSidebar"
-  },
-  "sidebar.learnSidebar.category.Computation": {
-    "message": "Tính toán",
-    "description": "The label for category Computation in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Get Started": {
     "message": "Tổng quan",
     "description": "The label for category Get Started in sidebar buildSidebar"
@@ -298,5 +290,25 @@
   "sidebar.buildSidebar.category.Transactions": {
     "message": "Transactions",
     "description": "The label for category Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Management": {
+    "message": "Token Management",
+    "description": "The label for category Token Management in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Team Finance": {
+    "message": "Team Finance",
+    "description": "The label for category Team Finance in sidebar buildSidebar"
+  },
+  "sidebar.miniDappSidebar.category.LINE Mini DApp with Unity": {
+    "message": "LINE Mini DApp with Unity",
+    "description": "The label for category LINE Mini DApp with Unity in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.LINE Mini DApp with Cocos": {
+    "message": "LINE Mini DApp with Cocos",
+    "description": "The label for category LINE Mini DApp with Cocos in sidebar miniDappSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Survey Mini DApp": {
+    "message": "Survey Mini DApp",
+    "description": "The label for category Survey Mini DApp in sidebar miniDappSidebar"
   }
 }
