@@ -632,5 +632,53 @@
   "theme.feedback.helpful": {
     "message": "이 페이지가 도움이 되었나요?",
     "description": "The text asking if the page is helpful"
+  },
+  "homepage.favorites.explorers.title": {
+    "message": "블록 탐색기",
+    "description": "Title for Block Explorers section"
+  },
+  "homepage.favorites.explorers.description": {
+    "message": "카이아에 대한 실시간 및 과거 정보를 검색하세요.",
+    "description": "Description for Block Explorers section"
+  },
+  "homepage.newDocs.badge.new": {
+    "message": "신규",
+    "description": "Badge text for new documents"
+  },
+  "homepage.newDocs.badge.update": {
+    "message": "업데이트",
+    "description": "Badge text for updated documents"
+  },
+  "homepage.newDocs.surveyMinidapp.title": {
+    "message": "Kaia에서 설문조사 DApp 구축",
+    "description": "Title for Survey Mini DApp doc"
+  },
+  "homepage.newDocs.unityMinidapp.title": {
+    "message": "유니티로 LINE 미니 디앱 제작하기",
+    "description": "Title for Unity Mini DApp doc"
+  },
+  "homepage.newDocs.cocosMinidapp.title": {
+    "message": "코코스 크리에이터를 활용한 LINE 미니 디앱 제작 가이드",
+    "description": "Title for Cocos Mini DApp doc"
+  },
+  "homepage.newDocs.surveyMinidapp.description": {
+    "message": "익명성을 위한 Semaphore와 소셜 기능을 위한 LINE을 사용하여 Kaia에서 프라이버시 중심의 탈중앙화 설문조사 애플리케이션을 구축하세요.",
+    "description": "Description for Upgradeable Smart Contracts doc"
+  },
+  "homepage.newDocs.unityMinidapp.description": {
+    "message": "웹3.0 연결성, 직관적인 UI 디자인, LIFF 변환을 원활하게 결합하는 Unity로 완전히 통합된 LINE 미니 dApp을 개발하세요.",
+    "description": "Description for DApp Security doc"
+  },
+  "homepage.newDocs.cocosMinidapp.description": {
+    "message": "코코스 크리에이터, Web3, LIFF를 통해 LINE 미니 디앱을 만들고, 통합하고, 배포하세요.",
+    "description": "Description for API Updates doc"
+  },
+  "homepage.newDocs.title": {
+    "message": "새로운 기능",
+    "description": "Title for the What's New section"
+  },
+  "homepage.newDocs.subtitle": {
+    "message": "최신 업데이트 및 문서에 추가된 내용을 살펴보세요.",
+    "description": "Subtitle for the What's New section"
   }
 }
