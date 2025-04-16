@@ -512,35 +512,35 @@
     "description": "Machine translation disclaimer for non-English documentation pages"
   },
   "JSON-RPC API Reference": {
-    "message": "JSON-RPC API Reference"
+    "message": "JSON-RPC API 레퍼런스"
   },
   "Discover and Engage with Kaia's JSON-RPC APIs": {
-    "message": "Discover and Engage with Kaia's JSON-RPC APIs"
+    "message": "Kaia의 JSON-RPC API 알아보기 및 활용하기"
   },
   "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform.": {
-    "message": "Unlock Kaia's full potential with our interactive API documentation. Test API calls directly in the docs, explore detailed request and response examples, and generate code snippets in curl, Python, Node.js, and Java. Whether developing new applications or integrating with existing systems, our comprehensive API reference provides the tools for efficient development on the Kaia platform."
+    "message": "대화형 API 문서를 통해 Kaia의 잠재력을 최대한 활용하세요. 문서에서 직접 API 호출을 테스트하고, 자세한 요청 및 응답 예제를 살펴보고, curl, Python, Node.js, Java로 코드 스니펫을 생성해 보세요. 새로운 애플리케이션을 개발하든 기존 시스템과 통합하든, 포괄적인 API 레퍼런스는 Kaia 플랫폼에서 효율적으로 개발할 수 있는 도구를 제공합니다."
   },
   "Get started with Kaia's JSON RPC APIs": {
-    "message": "Get started with Kaia's JSON RPC APIs"
+    "message": "Kaia의 JSON RPC API로 시작하기"
   },
   "homepage.favorites.gettingStarted.title": {
-    "message": "Getting Started",
+    "message": "시작하기",
     "description": "Title for Getting Started guide"
   },
   "homepage.favorites.gettingStarted.description": {
-    "message": "Deploy your first smart contract using Hardhat.",
+    "message": "Hardhat으로 첫 스마트 컨트랙트 배포하기.",
     "description": "Description for Getting Started guide"
   },
   "homepage.favorites.metamask.title": {
-    "message": "MetaMask Guide",
+    "message": "MetaMask 가이드",
     "description": "Title for MetaMask guide"
   },
   "homepage.favorites.metamask.description": {
-    "message": "Connect MetaMask to Kaia.",
+    "message": "MetaMask를 Kaia에 연결하기.",
     "description": "Description for MetaMask guide"
   },
   "homepage.favorites.snapshot.title": {
-    "message": "Node Snapshot Guide",
+    "message": "노드 스냅샷 가이드",
     "description": "Title for Node Snapshot guide"
   },
   "homepage.favorites.snapshot.description": {
