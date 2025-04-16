@@ -24,43 +24,43 @@
     "description": "Navbar item with label References"
   },
   "item.label.Mini dApps": {
-    "message": "Mini dApps",
+    "message": "미니 디앱",
     "description": "Navbar item with label Mini dApps"
   },
   "item.label.Why Kaia": {
-    "message": "Why Kaia",
+    "message": "왜 카이아인가?",
     "description": "Navbar item with label Why Kaia"
   },
   "item.label.Accounts": {
-    "message": "Accounts",
+    "message": "계정",
     "description": "Navbar item with label Accounts"
   },
   "item.label.Consensus Mechanism": {
-    "message": "Consensus Mechanism",
+    "message": "합의 메커니즘",
     "description": "Navbar item with label Consensus Mechanism"
   },
   "item.label.Kaia Native Token": {
-    "message": "Kaia Native Token",
+    "message": "카이아 네이티브 토큰",
     "description": "Navbar item with label Kaia Native Token"
   },
   "item.label.Token Economy": {
-    "message": "Token Economy",
+    "message": "토큰 이코노미",
     "description": "Navbar item with label Token Economy"
   },
   "item.label.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "노드 퀵 레퍼런스",
     "description": "Navbar item with label Node Quick Reference"
   },
   "item.label.Public RPC Endpoints": {
-    "message": "Public RPC Endpoints",
+    "message": "공개 RPC 엔드포인트",
     "description": "Navbar item with label Public RPC Endpoints"
   },
   "item.label.RPC API References": {
-    "message": "RPC API References",
+    "message": "RPC API 레퍼런스",
     "description": "Navbar item with label RPC API References"
   },
   "item.label.Contract Addresses": {
-    "message": "Contract Addresses",
+    "message": "컨트랙트 주소",
     "description": "Navbar item with label Contract Addresses"
   },
   "item.label.Get Started": {
@@ -68,7 +68,7 @@
     "description": "Navbar item with label Get Started"
   },
   "item.label.Transactions": {
-    "message": "거래",
+    "message": "트랜잭션",
     "description": "Navbar item with label Transactions"
   },
   "item.label.Smart Contracts": {
@@ -104,11 +104,11 @@
     "description": "Navbar item with label Kaia SDK"
   },
   "item.label.LINE Mini DApp with Unity": {
-    "message": "유니티와 함께하는 LINE 미니 디앱",
+    "message": "Unity로 만드는 LINE 미니 디앱",
     "description": "Navbar item with label LINE Mini DApp with Unity"
   },
   "item.label.LINE Mini DApp with Cocos": {
-    "message": "Cocos와 함께하는 LINE 미니 디앱",
+    "message": "Cocos로 만드는 LINE 미니 디앱",
     "description": "Navbar item with label LINE Mini DApp with Cocos"
   },
   "item.label.Survey Mini DApp": {
