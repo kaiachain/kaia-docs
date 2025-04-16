@@ -16,10 +16,10 @@ Crowdin is a web service for collaborative translation. To contribute to localiz
 
 1. Go to [Kaia-Docs project at Crowdin](https://crowdin.com/project/kaia-docs).
 2. Create an account there.
-3. Select the language you want to contribute. Can not find your language? Send a request to the project owner to initiate a new language translation.
+3. Select the language you want to contribute. Cannot find your language? Send a request to the project owner to initiate a new language translation.
 4. Join the translator team. Wait until one of the managers approves your request.
 5. Choose the file you want to contribute.
-6. You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Kaia Terminologies.
+6. You can submit your translation for a string, vote for a translation, or leave a comment. When you submit a translation, please make sure your word choice conforms to the Kaia Terminology.
 
 ![](/img/misc/crowdin-editor.png)
 
