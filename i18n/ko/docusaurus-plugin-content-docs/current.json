@@ -252,19 +252,19 @@
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
   },
   "sidebar.buildSidebar.category.Hardware Wallets": {
-    "message": "Hardware Wallets",
+    "message": "하드웨어 지갑",
     "description": "The label for category Hardware Wallets in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.Build Mini dApps on LINE with Unity": {
-    "message": "Build Mini dApps on LINE with Unity",
+    "message": "Unity로 만드는 LINE 미니 디앱",
     "description": "The label for category Build Mini dApps on LINE with Unity in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Node Quick Reference": {
-    "message": "Node Quick Reference",
+    "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
+    "message": "Kaia로 전환",
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.learnSidebar.category.Core Concepts": {
