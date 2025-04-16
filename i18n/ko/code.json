@@ -264,7 +264,7 @@
     "description": "The ARIA label for close button of mobile sidebar"
   },
   "theme.blog.post.readingTime.plurals": {
-    "message": "약 {readingTime}분",
+    "message": "{readingTime}분 읽기 분량",
     "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
   },
   "theme.docs.sidebar.navAriaLabel": {
@@ -544,89 +544,89 @@
     "description": "Title for Node Snapshot guide"
   },
   "homepage.favorites.snapshot.description": {
-    "message": "Use Chaindata Snapshots.",
+    "message": "체인데이터 스냅샷 사용하기.",
     "description": "Description for Node Snapshot guide"
   },
   "homepage.favorites.rpc.title": {
-    "message": "Public JSON RPC Endpoints",
+    "message": "공개 JSON RPC 엔드포인트",
     "description": "Title for RPC Endpoints"
   },
   "homepage.favorites.rpc.description": {
-    "message": "Build and test your products without running your own node.",
+    "message": "자체 노드를 실행하지 않고도 제품을 빌드하고 테스트할 수 있습니다.",
     "description": "Description for RPC Endpoints"
   },
   "homepage.favorites.wallets.title": {
-    "message": "Wallets",
+    "message": "지갑",
     "description": "Title for Wallets section"
   },
   "homepage.favorites.wallets.description": {
-    "message": "Integrate and secure digital assets seamlessly.",
+    "message": "디지털 자산을 원활하게 통합하고 보호하세요.",
     "description": "Description for Wallets section"
   },
   "homepage.favorites.indexers.title": {
-    "message": "Indexers",
+    "message": "인덱서",
     "description": "Title for Indexers section"
   },
   "homepage.favorites.indexers.description": {
-    "message": "Query and index blockchain data for efficient dApp performance.",
+    "message": "효율적인 디앱 성능을 위해 블록체인 데이터를 쿼리하고 인덱싱합니다.",
     "description": "Description for Indexers section"
   },
   "homepage.favorites.guides.title": {
-    "message": "Popular Guides",
+    "message": "인기 가이드",
     "description": "Title for the Popular Guides section"
   },
   "homepage.favorites.guides.viewMore": {
-    "message": "View More Guides",
+    "message": "가이드 더 보기",
     "description": "Link text to view more guides"
   },
   "homepage.favorites.resources.title": {
-    "message": "Popular Resources",
+    "message": "인기 리소스",
     "description": "Title for the Popular Resources section"
   },
   "homepage.favorites.resources.viewMore": {
-    "message": "View More Resources",
+    "message": "더 많은 리소스 보기",
     "description": "Link text to view more resources"
   },
   "DApp Developers": {
-    "message": "DApp Developers"
+    "message": "디앱 개발자"
   },
   "API References": {
-    "message": "API References"
+    "message": "API 레퍼런스"
   },
   "homepage.sdk.ethersjs.name": {
-    "message": "Ethers.js Extension",
+    "message": "Ethers.js 익스텐션",
     "description": "Name of the Ethers.js Extension SDK"
   },
   "homepage.sdk.web3js.name": {
-    "message": "Web3.js Extension",
+    "message": "Web3.js 익스텐션",
     "description": "Name of the Web3.js Extension SDK"
   },
   "homepage.sdk.web3j.name": {
-    "message": "Web3j Extension",
+    "message": "Web3j 익스텐션",
     "description": "Name of the Web3j Extension SDK"
   },
   "homepage.sdk.web3py.name": {
-    "message": "Web3.py Extension",
+    "message": "Web3.py 익스텐션",
     "description": "Name of the Web3.py Extension SDK"
   },
   "homepage.sdk.section.title": {
-    "message": "SDK Documentation",
+    "message": "SDK 문서",
     "description": "Title of the SDK documentation section"
   },
   "homepage.sdk.section.heading": {
-    "message": "Build freely with tools tailored for your language.",
+    "message": "개발 언어별 도구로 자유롭게 빌드하세요.",
     "description": "Main heading of the SDK section"
   },
   "homepage.sdk.section.description": {
-    "message": "Seamlessly integrate with Kaia Network using our enhanced SDKs for JavaScript, Java, Python and more. Built on trusted foundations like Ethers, Web3.js, Web3j, and Web3.py, our libraries give you the power to submit transactions, read smart contracts, and develop complex applications with extended functionality - all in your preferred programming language.",
+    "message": "자바스크립트, 자바, 파이썬 등을 위한 향상된 SDK를 사용하여 Kaia 네트워크와 원활하게 통합하세요. Ethers, Web3.js, Web3j, Web3.py와 같은 신뢰할 수 있는 프레임워크 위에 구축된 라이브러리로 트랜잭션을 제출하고, 스마트 컨트랙트를 읽고, 확장된 기능을 갖춘 복잡한 애플리케이션을 원하는 프로그래밍 언어로 개발하세요.",
     "description": "Description of Kaia Network's SDK offerings"
   },
   "homepage.sdk.section.viewMore": {
-    "message": "View More SDKs",
+    "message": "더 많은 SDK 보기",
     "description": "Link text to view additional SDKs"
   },
   "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
+    "message": "이 작성자는 아직 글을 작성하지 않았습니다.",
     "description": "The text for authors with 0 blog post"
   },
   "theme.feedback.helpful": {
