@@ -163,6 +163,7 @@ const sidebars = {
           label: 'Verify Smart Contracts',
           items: [
             'build/smart-contracts/verify/block-explorers',
+            'build/smart-contracts/verify/foundry',
             'build/smart-contracts/verify/hardhat',
             'build/smart-contracts/verify/sourcify',
           ],
