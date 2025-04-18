@@ -17,7 +17,7 @@ This guide expects that you have an idea of developing smart contracts with Foun
 ## Deploy and verify a contract:
 
 ```bash 
-/* deploy */
+## deploy
 
 forge create --rpc-url $KAIROS_RPC_URL --private-key $PRIVATE_KEY src/Counter.sol:Counter --broadcast 
 ```
@@ -25,7 +25,7 @@ forge create --rpc-url $KAIROS_RPC_URL --private-key $PRIVATE_KEY src/Counter.so
 ![](/img/build/smart-contracts/verify/sourcify-deploy.png)
 
 ```bash
-//* verify an already deployed contract as seen above *//
+## verify an already deployed contract as seen above
 
 forge verify-contract 0x2a31C3f597d8FD0Fbc5Ff02439ce6c6aEFb680a2 src/Counter.sol:Counter --chain-id 1001 --verifier sourcify  --verifier-url https://sourcify.dev/server/ 
 ```

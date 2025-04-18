@@ -83,7 +83,7 @@ To enable the **Kaia plugin**, add it to your agent’s configuration:
 }
 ```
 
-Also, run the command below to add the plugin as a dependency in `package.json`:
+Also, run the command below to add the plugin in your `package.json`:
 
 ```bash
 npx elizaos plugins install @elizaos-plugins/plugin-kaia
