@@ -1,34 +1,34 @@
-# Quick Start
+# クイックスタート
 
-## Prerequisites
+## 前提条件
 
-Before we dive in, make sure you have:
+その前に、あなたが持っていることを確認してください：
 
-- [Unity Hub](https://unity.com/download) installed on your computer - this is where we'll build our dApp interface
-- Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
-- A LINE Developer account - you can easily create one using your email
+- コンピュータにインストールされた[Unity Hub](https://unity.com/download) - ここにdAppのインターフェースを構築します。
+- 基本的なC#とJavaScriptの知識 - あまり派手なものはなく、基礎的なものです。
+- LINE Developerアカウント - メールで簡単に作成できます。
 - [Kaia Faucet】のカイアを試す(https://faucet.kaia.io/)
-- Mini Dapp SDK Client ID receiveed from Dapp Portal team.
-- Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
+- Dapp Portalチームから受け取ったMini Dapp SDKクライアントID。
+- Web3の概念にある程度精通している - ウォレットとトークンを理解していれば問題ない。
 
-## Setting Up Your Unity Environment
+## Unity環境のセットアップ
 
-Let's set up your development environment. We'll start with the Unity setup.
+開発環境を整えよう。 まずはUnityのセットアップから。
 
-### Step 1: Install and Verify Unity Version
+### ステップ1：Unityバージョンのインストールと確認
 
-To begin, let's make sure we're all using the same Unity version to avoid any compatibility issues:
+はじめに、互換性の問題を避けるために、Unityのバージョンが同じであることを確認しましょう：
 
-- Install Unity Hub if you haven't already.
-- Install Unity Editor version 2022.3.50f1 specifically.
+- まだの場合はUnity Hubをインストールしてください。
+- Unity Editorバージョン2022.3.50f1をインストールします。
 
-### Step 2: Create Your New Unity Project
+### ステップ 2: 新しいUnityプロジェクトの作成
 
-1. Open Unity Hub and head to the Projects tab.
-2. Click the inviting "New project" button in the top-right corner.
-3. Under "All templates", select the **3D (Built-in Render Pipeline)** template.
-4. Give your project a meaningful name (e.g., mini-dApp-example).
-5. Choose a convenient location for your project files.
-6. Click **Create project**.
+1. Unity Hubを開き、Projectsタブに向かいます。
+2. 右上の「新規プロジェクト」ボタンをクリックします。
+3. All templates "で、\*\*3D (Built-in Render Pipeline)\*\*テンプレートを選択します。
+4. プロジェクトに意味のある名前をつける（例：mini-dApp-example）。
+5. プロジェクトファイルを保存するのに便利な場所を選んでください。
+6. プロジェクトの作成\*\*をクリックします。
 
 ![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
