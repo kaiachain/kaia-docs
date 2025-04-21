@@ -1,16 +1,16 @@
-# API Reference
+# API 參考資料
 
-The survey (destat) platform's API system handles critical backend operations for survey management, group privacy, and payment processing. These APIs serve as the bridge between the frontend application and blockchain interactions, ensuring secure and private survey participation. The system is built around two main functionalities: group management using the Semaphore Protocol for privacy-preserving survey participation, and payment processing through the dApp Portal for handling KAIA token transactions.
+調查問卷 (destat) 平台的 API 系統處理調查問卷管理、群組隱私和付款處理的重要後端作業。 這些 API 可作為前端應用程式與區塊鏈互動之間的橋梁，確保調查問卷參與的安全性與隱私性。 該系統主要圍繞兩個功能而建立：使用 Semaphore 協定進行群組管理，以保護調查參與者的隱私；以及透過 dApp Portal 進行付款處理，以處理 KAIA 代幣交易。
 
-These endpoints are designed to maintain user privacy while ensuring verifiable participation and secure payment handling in the decentralized survey ecosystem.
+這些端點旨在維護使用者隱私，同時確保分散式調查問卷生態系統中可驗證的參與和安全的付款處理。
 
-**Group Management**
+**集團管理**
 
-These endpoints manage survey group membership and verification using the Semaphore Protocol for privacy.
+這些端點使用 Semaphore 通訊協定管理調查群組成員資格和驗證隱私。
 
 _GET /api/group/members_
 
-Retrieves the list of group members and the group identifier for a specific survey.
+擷取特定調查問卷的群組成員清單和群組識別碼。
 
 ```typescript
 //.. api/group/members
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest) {
 
 _POST /api/group/join_
 
-Handles requests to join a survey group, verifying identity and adding members.
+處理加入調查群組的請求、驗證身分和新增成員。
 
 ```typescript
 // Request Interface
@@ -76,13 +76,13 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-**Payment Processing API**
+\*\* 付款處理 API\*\*
 
-Handles payment transactions through the dApp Portal integration.
+透過 dApp Portal 整合處理付款交易。
 
 _POST/api/store_
 
-Processes payment requests for survey creation or item purchases.
+處理建立調查問卷或購買物品的付款請求。
 
 ```typescript
 interface buyReq {
@@ -137,9 +137,9 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-**Usage Examples**
+\*\* 使用範例\*\*
 
-**Group Management**
+**集團管理**
 
 ```typescript
 // Fetching group
@@ -203,7 +203,7 @@ export async function POST(req: NextRequest) {
   };
 ```
 
-**Payment Processing**
+**付款處理**
 
 ```typescript
 // Creating a payment
@@ -240,11 +240,11 @@ export async function POST(req: NextRequest) {
   };
 ```
 
-## Conclusion
+## 總結
 
-Hurray 🥳, you have successfully built a privacy-preserving survey Mini dApp with Solidity, Next.js, Semaphore, Mini Dapp SDK powered by the Kaia blockchain. This mini dApp demonstrates the power of combining blockchain with zero-knowledge proofs for real-world use cases.
+萬歲🥳，您已成功使用 Solidity、Next.js、Semaphore、Mini Dapp SDK 建置了一個由 Kaia 區塊鏈驅動的隱私保護調查 Mini dApp。 這個迷你 dApp 展示了結合區塊鏈與零知識證明的威力，適用於真實世界的使用個案。
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+如需更多有關開發 LINE mini dApp 的詳細資訊，請探索這些全面的資源：
 
 - [Kaia Docs](https://docs.kaia.io/)
 - [LINE Developers](https://developers.line.biz/en/docs/liff/)
