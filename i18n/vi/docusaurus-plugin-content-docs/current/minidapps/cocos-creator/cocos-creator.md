@@ -1,9 +1,9 @@
-# Build Mini dApps on LINE with Cocos Creator
+# Xây dựng Mini dApps trên LINE với Cocos Creator
 
-## Introduction <a id="introduction"></a>
+## Giới thiệu <a id="introduction"></a>
 
-Cocos Creator is a lightweight, open-source, and cross-platform 2D and 3D engine for building real-time interactive content. It serves as a complete game development solution, offering an efficient cross-platform engine and intuitive UI tools to accelerate development. Cocos Creator is widely used in fields such as gaming, the Metaverse, XR, and Web3 applications.
+Cocos Creator là một công cụ 2D và 3D nhẹ, mã nguồn mở và đa nền tảng dùng để xây dựng nội dung tương tác thời gian thực. Đây là giải pháp phát triển trò chơi hoàn chỉnh, cung cấp công cụ đa nền tảng hiệu quả và các công cụ UI trực quan để đẩy nhanh quá trình phát triển. Cocos Creator được sử dụng rộng rãi trong các lĩnh vực như trò chơi, Metaverse, XR và các ứng dụng Web3.
 
-In this guide, you'll set up a Cocos Creator project, integrate Web3 components to connect wallets, mint tokens, and check balances using the Mini Dapp SDK, and finally convert and deploy your project as a LINE Mini dApp.
+Trong hướng dẫn này, bạn sẽ thiết lập dự án Cocos Creator, tích hợp các thành phần Web3 để kết nối ví, tạo token và kiểm tra số dư bằng Mini Dapp SDK và cuối cùng là chuyển đổi và triển khai dự án của bạn dưới dạng LINE Mini dApp.
 
 ![](/img/minidapps/cocos-creator/cocos-infographics.png)
