@@ -20,13 +20,13 @@
 
 **Kaia SDKs**
 
-- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
-- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
-- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
-- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : Phần mở rộng Kaia của thư viện ethers.js.
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : Phần mở rộng Kaia của thư viện web3.js.
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : Phần mở rộng Kaia của thư viện web3j.
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : Phần mở rộng Kaia của thư viện web3.py.
 
 **Kaia Toolkits**
 
 - [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
 - [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
-- [Kaia Contracts Wizard](https://wizard.kaia.io) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - Trình tạo tương tác để khởi tạo hợp đồng thông minh của bạn và tìm hiểu về Kaia Contracts.
