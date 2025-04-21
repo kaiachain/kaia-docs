@@ -28,7 +28,7 @@ $ kscn attach --datadir ~/data
 ![](/img/nodes/sc-vt-add-klay.png)
 
 `subbridge.parentOperator` 和 `subbridge.childOperator` 必須有足夠的 KAIA 來發送事務。 請注意，"subbridge.parentOperator "是 Kairos 網絡上的賬戶，而 "subbridge.childOperator "是 ServiceChain 網絡上的賬戶。
-Create a test account using [Kaia Toolkit](https://toolkit.kaia.io/account/) and get test KAIA from [the faucet](https://faucet.kaia.io/). 然後向`parentOperator`發送一些 KAIA。 childOperator "必須從 "homi "生成的測試賬戶獲取 KAIA（[請參閱《EN 設置和 SCN 連接指南》](en-scn-connection.md)）。
+使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立測試帳號，並從 [the faucet](https://faucet.kaia.io/) 取得測試 KAIA。 然後向`parentOperator`發送一些 KAIA。 childOperator "必須從 "homi "生成的測試賬戶獲取 KAIA（[請參閱《EN 設置和 SCN 連接指南》](en-scn-connection.md)）。
 
 ```
 $ kscn account import ~/homi-output/keys_test/testkey1
@@ -82,7 +82,7 @@ $ cd erc20
 - 用`homi`生成的`testkey1`替換`child.key`。
 - 將 `child.operator` 設置為我們在上一步中查看的 `subbridge.childOperator` 地址。
 - 將 "父節點 "部分（Kairos 網絡上的 EN 節點）中的 "url "替換為 EN 節點 IP 和 "kend.conf "中 "RPC_PORT "的正確端口號。
-- Replace `parent.key` with the private key of the test account created using [Kaia Toolkit](https://toolkit.kaia.io/account/) in the previous step.
+- 將 `parent.key` 改為上一步中使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立的測試帳號的私密金鑰。
 - 將 `parent.operator` 設置為上一步的 \`subbridge.parentOperator'。
 
 ```
