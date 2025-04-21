@@ -1,60 +1,60 @@
-# Token Vesting
+# トークンの権利確定
 
-## Introduction
+## はじめに
 
-Token vesting is a mechanism that enables founders to automate token distribution to team members, advisors, investors, and venture capitalists (VCs). By setting predefined vesting schedules, recipients gradually gain access to their allocated tokens over time, ensuring long-term alignment and commitment.
+トークンの権利確定は、創業者がチームメンバー、アドバイザー、投資家、ベンチャーキャピタル（VC）へのトークン分配を自動化できる仕組みだ。 事前に定義された権利確定スケジュールを設定することで、受給者は時間の経過とともに割り当てられたトークンを徐々に利用できるようになり、長期的な連携とコミットメントが確保される。
 
-By utilizing Team Finance’s token vesting service, projects can implement secure, transparent, and automated token distributions. Features like customizable vesting schedules, cliffs, and automated releases help prevent premature sell-offs, protecting the token’s value while building trust among stakeholders.
+チーム・ファイナンスのトークン権利確定サービスを利用することで、プロジェクトは安全、透明、自動化されたトークン配布を実施することができます。 カスタマイズ可能な権利確定スケジュール、クリフ、自動リリースなどの機能は、早すぎる売り抜けを防ぎ、トークンの価値を保護すると同時に、ステークホルダー間の信頼を築くのに役立つ。
 
-## Getting Started
+## はじめに
 
-In this tutorial, you will learn how to vest tokens for a certain period using various vesting schedules with Team Finance. Let's get started!
+このチュートリアルでは、Team Financeの様々な権利確定スケジュールを使用して、一定期間トークンを権利確定する方法を学びます。 始めよう！
 
-1. Navigate to Team Finance [Team Vesting](https://app.team.finance/vesting) tab and click on **Create vesting**.
+1. Team Finance [Team Vesting](https://app.team.finance/vesting)タブに移動し、**Create vesting** をクリックする。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. ウォレットを選択\*\*し、**続行**をクリックして、ウォレットをチームファイナンスに接続します。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. ブロックチェーン・ネットワークで**Kaia**を選択し、**Continue**をクリックする。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-3.png)
 
-4. Enter the **Token address** for the token you are vesting in the input field, verify and click **Continue**.
+4. 入力フィールドにベスティングするトークンの**トークン・アドレス**を入力し、確認して**Continue**をクリックします。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
 
-> In our case for educational purpose, we are using **Eddie** token made on Kaia chain.
+> 私たちの教育目的のケースでは、カイアチェーンで作られた**Eddie**トークンを使用しています。
 
-5. Add the vesting details. You can either add your vesting details manually or upload file (CSV or Excel). For this guide, we will use the **Create new vesting plan** method and click **Add Address**
+5. 権利確定詳細を追加する。 手動で権利確定情報を追加するか、ファイル（CSVまたはExcel）をアップロードすることができます。 このガイドでは、**新しい権利確定プランを作成する**方法を使用し、**アドレスを追加する**をクリックします。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-5a.png)
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-5b.png)
 
-6. Add the vesting schedule and details as seen in the example image below and click **Add Address**.
+6. 下の画像の例のように、権利確定スケジュールと詳細を追加し、**Add Address**をクリックします。
 
-> Make sure to tailor the vesting schedule to your need / use case.
+> 権利確定スケジュールは、あなたのニーズ／ユースケースに合わせて調整してください。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-6a.png)
 
-Click **Add Address** to manually add more vesting schedules and then click **Continue**
+Add Address\*\*をクリックして手動で権利確定スケジュールを追加し、**Continue**をクリックします。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-6b.png)
 
-7. Now, verify the details of your token vesting and click **Confirm transaction** to finalize the process. Go to your wallet and sign the transaction to complete the process.
+7. ここで、トークンの権利確定に関する詳細を確認し、**Confirm transaction**をクリックして処理を確定します。 ウォレットに移動し、取引に署名して手続きを完了する。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-7.png)
 
-8. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+8. 確認後、取引状況を表示するページに移動します。 お取引が確認されるまで、ページからの移動はご遠慮ください。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-8a.png)
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-8b.png)
 
-9. Congratulations! You have successfully vested tokens using Team Finance. You can view the details of your token vesting and track its progress on the dashboard.
+9. おめでとう！ チームファイナンスを使用してトークンの権利確定に成功しました。 ダッシュボードでは、トークンの権利確定に関する詳細や進捗状況を確認することができます。
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-9.png)
 
