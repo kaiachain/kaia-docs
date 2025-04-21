@@ -1,34 +1,34 @@
-# Quick Start
+# Bắt đầu nhanh
 
-## Prerequisites
+## Điều kiện tiên quyết
 
-Before we dive in, make sure you have:
+Trước khi bắt đầu, hãy đảm bảo bạn có:
 
-- [Unity Hub](https://unity.com/download) installed on your computer - this is where we'll build our dApp interface
-- Basic C# and JavaScript knowledge - nothing too fancy, just the fundamentals
-- A LINE Developer account - you can easily create one using your email
-- Test Kaia from [Kaia Faucet](https://faucet.kaia.io/)
-- Mini Dapp SDK Client ID receiveed from Dapp Portal team.
-- Some familiarity with Web3 concepts - if you understand wallets and tokens, you're good to go.
+- [Unity Hub](https://unity.com/download) được cài đặt trên máy tính của bạn - đây là nơi chúng ta sẽ xây dựng giao diện dApp của mình
+- Kiến thức cơ bản về C# và JavaScript - không có gì quá cầu kỳ, chỉ là những kiến thức cơ bản
+- Tài khoản LINE Developer - bạn có thể dễ dàng tạo một tài khoản bằng email của mình
+- Kiểm tra Kaia từ [Vòi nước Kaia](https://faucet.kaia.io/)
+- Nhận được ID máy khách Mini Dapp SDK từ nhóm Dapp Portal.
+- Bạn cần quen thuộc với các khái niệm về Web3 - nếu hiểu về ví và mã thông báo thì bạn đã sẵn sàng.
 
-## Setting Up Your Unity Environment
+## Thiết lập môi trường Unity của bạn
 
-Let's set up your development environment. We'll start with the Unity setup.
+Hãy thiết lập môi trường phát triển của bạn. Chúng ta sẽ bắt đầu bằng cách thiết lập Unity.
 
-### Step 1: Install and Verify Unity Version
+### Bước 1: Cài đặt và xác minh phiên bản Unity
 
-To begin, let's make sure we're all using the same Unity version to avoid any compatibility issues:
+Để bắt đầu, hãy đảm bảo rằng tất cả chúng ta đều sử dụng cùng một phiên bản Unity để tránh mọi vấn đề về khả năng tương thích:
 
-- Install Unity Hub if you haven't already.
-- Install Unity Editor version 2022.3.50f1 specifically.
+- Cài đặt Unity Hub nếu bạn chưa cài đặt.
+- Cài đặt Unity Editor phiên bản 2022.3.50f1 cụ thể.
 
-### Step 2: Create Your New Unity Project
+### Bước 2: Tạo dự án Unity mới của bạn
 
-1. Open Unity Hub and head to the Projects tab.
-2. Click the inviting "New project" button in the top-right corner.
-3. Under "All templates", select the **3D (Built-in Render Pipeline)** template.
-4. Give your project a meaningful name (e.g., mini-dApp-example).
-5. Choose a convenient location for your project files.
-6. Click **Create project**.
+1. Mở Unity Hub và đi tới tab Dự án.
+2. Nhấp vào nút "Dự án mới" hấp dẫn ở góc trên bên phải.
+3. Trong phần "Tất cả mẫu", hãy chọn mẫu **3D (Đường ống kết xuất tích hợp)**.
+4. Đặt tên có ý nghĩa cho dự án của bạn (ví dụ: mini-dApp-example).
+5. Chọn vị trí thuận tiện cho các tập tin dự án của bạn.
+6. Nhấp vào **Tạo dự án**.
 
 ![](/img/minidapps/unity-minidapp/create-unity-mini-dApp.png)
