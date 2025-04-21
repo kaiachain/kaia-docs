@@ -1,16 +1,16 @@
-# API Reference
+# Tài liệu tham khảo API
 
-The survey (destat) platform's API system handles critical backend operations for survey management, group privacy, and payment processing. These APIs serve as the bridge between the frontend application and blockchain interactions, ensuring secure and private survey participation. The system is built around two main functionalities: group management using the Semaphore Protocol for privacy-preserving survey participation, and payment processing through the dApp Portal for handling KAIA token transactions.
+Hệ thống API của nền tảng khảo sát (destat) xử lý các hoạt động quan trọng ở phía sau để quản lý khảo sát, bảo mật nhóm và xử lý thanh toán. Các API này đóng vai trò là cầu nối giữa ứng dụng giao diện người dùng và tương tác blockchain, đảm bảo việc tham gia khảo sát an toàn và riêng tư. Hệ thống được xây dựng xung quanh hai chức năng chính: quản lý nhóm bằng Giao thức Semaphore để bảo vệ quyền riêng tư khi tham gia khảo sát và xử lý thanh toán thông qua Cổng thông tin dApp để xử lý các giao dịch mã thông báo KAIA.
 
-These endpoints are designed to maintain user privacy while ensuring verifiable participation and secure payment handling in the decentralized survey ecosystem.
+Các điểm cuối này được thiết kế để duy trì quyền riêng tư của người dùng đồng thời đảm bảo sự tham gia có thể xác minh và xử lý thanh toán an toàn trong hệ sinh thái khảo sát phi tập trung.
 
-**Group Management**
+**Quản lý nhóm**
 
-These endpoints manage survey group membership and verification using the Semaphore Protocol for privacy.
+Các điểm cuối này quản lý quyền thành viên và xác minh nhóm khảo sát bằng Giao thức Semaphore để đảm bảo quyền riêng tư.
 
-_GET /api/group/members_
+_LẤY /api/group/members_
 
-Retrieves the list of group members and the group identifier for a specific survey.
+Truy xuất danh sách thành viên nhóm và mã định danh nhóm cho một khảo sát cụ thể.
 
 ```typescript
 //.. api/group/members
@@ -36,9 +36,9 @@ export async function GET(req: NextRequest) {
 }
 ```
 
-_POST /api/group/join_
+_POST /api/nhóm/tham gia_
 
-Handles requests to join a survey group, verifying identity and adding members.
+Xử lý các yêu cầu tham gia nhóm khảo sát, xác minh danh tính và thêm thành viên.
 
 ```typescript
 // Request Interface
@@ -76,13 +76,13 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-**Payment Processing API**
+**API xử lý thanh toán**
 
-Handles payment transactions through the dApp Portal integration.
+Xử lý các giao dịch thanh toán thông qua tích hợp Cổng thông tin dApp.
 
-_POST/api/store_
+_POST/api/cửa hàng_
 
-Processes payment requests for survey creation or item purchases.
+Xử lý các yêu cầu thanh toán để tạo khảo sát hoặc mua sản phẩm.
 
 ```typescript
 interface buyReq {
@@ -137,9 +137,9 @@ export async function POST(req: NextRequest) {
 }
 ```
 
-**Usage Examples**
+**Ví dụ sử dụng**
 
-**Group Management**
+**Quản lý nhóm**
 
 ```typescript
 // Fetching group
@@ -203,7 +203,7 @@ export async function POST(req: NextRequest) {
   };
 ```
 
-**Payment Processing**
+**Xử lý thanh toán**
 
 ```typescript
 // Creating a payment
@@ -240,13 +240,13 @@ export async function POST(req: NextRequest) {
   };
 ```
 
-## Conclusion
+## Phần kết luận
 
-Hurray 🥳, you have successfully built a privacy-preserving survey Mini dApp with Solidity, Next.js, Semaphore, Mini Dapp SDK powered by the Kaia blockchain. This mini dApp demonstrates the power of combining blockchain with zero-knowledge proofs for real-world use cases.
+Hoan hô 🥳, bạn đã xây dựng thành công một ứng dụng khảo sát Mini dApp bảo vệ quyền riêng tư với Solidity, Next.js, Semaphore, Mini Dapp SDK được hỗ trợ bởi blockchain Kaia. Ứng dụng phi tập trung nhỏ này chứng minh sức mạnh của việc kết hợp blockchain với bằng chứng không kiến thức cho các trường hợp sử dụng thực tế.
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+Để biết thông tin chi tiết hơn về việc phát triển LINE mini dApps, hãy khám phá các tài nguyên toàn diện sau:
 
-- [Kaia Docs](https://docs.kaia.io/)
-- [LINE Developers](https://developers.line.biz/en/docs/liff/)
-- [Hardhat Documentation](https://hardhat.org/docs)
-- [Semaphore Documentation](https://docs.semaphore.pse.dev/)
+- [Tài liệu Kaia](https://docs.kaia.io/)
+- [Các nhà phát triển LINE](https://developers.line.biz/en/docs/liff/)
+- [Tài liệu Hardhat](https://hardhat.org/docs)
+- [Tài liệu về Semaphore](https://docs.semaphore.pse.dev/)
