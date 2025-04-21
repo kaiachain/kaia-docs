@@ -634,11 +634,11 @@
     "description": "The text asking if the page is helpful"
   },
   "homepage.favorites.explorers.title": {
-    "message": "Block Explorers",
+    "message": "ブロック探検隊",
     "description": "Title for Block Explorers section"
   },
   "homepage.favorites.explorers.description": {
-    "message": "Search for real-time and historical information about Kaia.",
+    "message": "カイアに関するリアルタイムおよび過去の情報を検索。",
     "description": "Description for Block Explorers section"
   },
   "homepage.newDocs.badge.new": {
@@ -646,39 +646,39 @@
     "description": "Badge text for new documents"
   },
   "homepage.newDocs.badge.update": {
-    "message": "UPDATE",
+    "message": "アップデイト",
     "description": "Badge text for updated documents"
   },
   "homepage.newDocs.surveyMinidapp.title": {
-    "message": "Building a Survey DApp on Kaia",
+    "message": "KaiaでアンケートDAppを作る",
     "description": "Title for Survey Mini DApp doc"
   },
   "homepage.newDocs.unityMinidapp.title": {
-    "message": "Creating a LINE Mini DApp with Unity",
+    "message": "UnityでLINEミニDAppを作る",
     "description": "Title for Unity Mini DApp doc"
   },
   "homepage.newDocs.cocosMinidapp.title": {
-    "message": "Guide to LINE Mini DApp Creation Using Cocos Creator",
+    "message": "Cocos Creatorを使ったLINEミニDApp作成ガイド",
     "description": "Title for Cocos Mini DApp doc"
   },
   "homepage.newDocs.surveyMinidapp.description": {
-    "message": "Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.",
+    "message": "Kaia上で、匿名性のためのSemaphoreとソーシャル機能のためのLINEを使って、プライバシーに焦点を当てた分散型アンケートアプリケーションを構築する。",
     "description": "Description for Upgradeable Smart Contracts doc"
   },
   "homepage.newDocs.unityMinidapp.description": {
-    "message": "Develop a fully integrated LINE mini dApp with Unity that seamlessly combines Web3 connectivity, intuitive UI design, and LIFF conversion.",
+    "message": "Web3連携、直感的なUIデザイン、LIFF変換をシームレスに統合したLINE mini dAppをUnityで開発。",
     "description": "Description for DApp Security doc"
   },
   "homepage.newDocs.cocosMinidapp.description": {
-    "message": "Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF.",
+    "message": "Cocos Creator、Web3、LIFFを使ってLINE mini dAppsを作成、統合、デプロイ。",
     "description": "Description for API Updates doc"
   },
   "homepage.newDocs.title": {
-    "message": "What's New",
+    "message": "新着情報",
     "description": "Title for the What's New section"
   },
   "homepage.newDocs.subtitle": {
-    "message": "Explore our latest updates and additions to the docs.",
+    "message": "最新のアップデートとドキュメントへの追加をご覧ください。",
     "description": "Subtitle for the What's New section"
   }
 }
