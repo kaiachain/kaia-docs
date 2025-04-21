@@ -1,40 +1,40 @@
-# Quick Start
+# クイックスタート
 
-## Prerequisites <a id="prerequisites"></a>
+## 前提条件<a id="prerequisites"></a>
 
-Before we dive in, make sure you have:
+その前に、あなたが持っていることを確認してください：
 
-- [Cocos Dashboard](https://www.cocos.com/en/creator-download) installed on your computer
-- Basic TypeScript knowledge
-- A [Cocos Developer Account](https://auth.cocos.com/#/sign_up/register?language=en)
-- A LINE Developer Account (easily created with your email)
-- Test KAIA tokens from the [Kaia Faucet](https://faucet.kaia.io/)
-- Mini Dapp SDK Client ID (provided by the DApp Portal team)
-- Basic Web3 familiarity(a general understanding of wallets and tokens is sufficient)
+- [ココス・ダッシュボード](https://www.cocos.com/en/creator-download) をコンピュータにインストールする。
+- TypeScriptの基礎知識
+- A [ココス開発者アカウント](https://auth.cocos.com/#/sign_up/register?language=en)
+- LINEデベロッパーアカウント（メールアドレスで簡単に作成できます。）
+- カイア蛇口](https://faucet.kaia.io/)からKAIAトークンをテストする。
+- ミニDapp SDKクライアントID（DAppポータルチームより提供）
+- 基本的なWeb3の知識（ウォレットとトークンの一般的な理解で十分です。）
 
-## Setting Up Development Environment for Cocos Creator <a id="setting-up-dev-environment"></a>
+## Cocos Creatorの開発環境のセットアップ<a id="setting-up-dev-environment"></a>
 
-Before we begin, let's ensure your development environment is properly set up. We'll start by installing and verifying the Cocos Dashboard.
+始める前に、開発環境が適切にセットアップされていることを確認しよう。 まずはCocos Dashboardのインストールと検証から始めよう。
 
-### Step 1: Install and Verify Cocos Dashboard <a id="install-and-verify"></a>
+### ステップ1：Cocos Dashboardのインストールと確認<a id="install-and-verify"></a>
 
-To avoid compatibility issues, ensure you're using the correct version of Cocos Creator:
+互換性の問題を避けるために、正しいバージョンのCocos Creatorを使用していることを確認してください：
 
-- Install Cocos Dashboard if you haven’t already.
+- Cocos Dashboardをインストールする。
 
 ![](/img/minidapps/cocos-creator/cocos-dashboard-download-r.png)
 
-- Install Cocos Creator Editor (this guide uses version 3.8.4).
+- Cocos Creator Editorをインストールする（このガイドではバージョン3.8.4を使用）。
 
 ![](/img/minidapps/cocos-creator/cocos-creator-download-r.png)
 
-### Step 2: Create a New Cocos Creator Project <a id="create-new-cocos-project"></a>
+### ステップ2：新しいCocos Creatorプロジェクトを作成する<a id="create-new-cocos-project"></a>
 
-1. Open **Cocos Dashboard** and navigate to the Projects tab.
-2. Click **New Project** in the top-right corner.
-3. Under **Templates**, select **Empty (3D)**.
-4. Enter a project name (e.g., _cocos-mini-dapp-example_).
-5. Choose a preferred location for your project files.
-6. Click **Create and Open** to finalize setup.
+1. Cocos Dashboard\*\*を開き、Projectsタブに移動します。
+2. 右上の**新規プロジェクト**をクリックします。
+3. Templates\*\*で、\*\*Empty (3D)\*\*を選択します。
+4. プロジェクト名を入力する（例：_cocos-mini-dapp-example_）。
+5. プロジェクトファイルの保存場所を選択してください。
+6. Create and Open\*\*をクリックしてセットアップを完了します。
 
 ![](/img/minidapps/cocos-creator/cocos-create-project-r.png)
