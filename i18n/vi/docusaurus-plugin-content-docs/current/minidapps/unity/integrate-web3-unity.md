@@ -1,22 +1,22 @@
-# Web3 Integration
+# Tích hợp Web3
 
-In this section, we will build up pieces to integrate web3 into our Unity project.
+Trong phần này, chúng ta sẽ xây dựng các phần để tích hợp web3 vào dự án Unity của mình.
 
-## Creating and deploying KIP7 smart contract
+## Tạo và triển khai hợp đồng thông minh KIP7
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+Đầu tiên, chúng ta sẽ sử dụng Kaia Contract Wizard để tạo hợp đồng thông minh.
 
-### Step 1: Using Kaia Contract Wizard
+### Bước 1: Sử dụng Kaia Contract Wizard
 
-1. Navigate to Kaia Contract Wizard.
-2. Select KIP7 (Kaia's token standard, similar to ERC20).
-3. Configure your token:
-  - Name: ExampleTestToken (or something else!)
-  - Symbol: ET (your token's ticker)
-  - Premint: 100 (initial token supply)
-  - Features: Check ✅ Mintable
+1. Điều hướng đến Kaia Contract Wizard.
+2. Chọn KIP7 (tiêu chuẩn mã thông báo của Kaia, tương tự như ERC20).
+3. Cấu hình mã thông báo của bạn:
+  - Tên: ExampleTestToken (hoặc tên khác!)
+  - Biểu tượng: ET (mã token của bạn)
+  - Đúc trước: 100 (nguồn cung cấp token ban đầu)
+  - Tính năng: Kiểm tra ✅ Có thể đúc
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+Trong hướng dẫn này, chúng tôi sẽ điều chỉnh hàm mint để không chỉ có trình sửa đổi onlyOwner. Để thực hiện điều này, chúng ta phải xóa lệnh import ownable.sol và lệnh kế thừa Ownable. Mã đã chỉnh sửa bây giờ sẽ trông như thế này:
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -43,35 +43,35 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+Chúng tôi đã xóa trình sửa đổi onlyOwner để cho phép bất kỳ ai gọi hàm mint ngoài người triển khai hoặc chủ sở hữu hợp đồng ban đầu.
 :::
 
-### Step 2: Deploying via Remix IDE
+### Bước 2: Triển khai thông qua Remix IDE
 
-1. Copy and Paste the code above in a newly created file `ET.sol` on Remix IDE.
-2. In Remix IDE:
-  - Click the **Compile contract** button.
-  - Activate the **Kaia plugin** in the plugin manager.
-  - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-  - Find your contract (ExampleTokens) in the **Contract** dropdown.
-  - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-  - Review the deployment details.
-  - Click Confirm to deploy to Kaia Kairos Testnet.
+1. Sao chép và dán mã ở trên vào tệp `ET.sol` mới tạo trên Remix IDE.
+2. Trong Remix IDE:
+  - Nhấp vào nút **Biên dịch hợp đồng**.
+  - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
+  - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm** - **Ví Kaia**.
+  - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
+  - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
+3. Khi Ví Kaia của bạn hiện lên:
+  - Xem lại thông tin chi tiết triển khai.
+  - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
 
 :::important
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+Sao chép và lưu địa chỉ hợp đồng đã triển khai. Bạn sẽ cần đến nó sau trong phần hướng dẫn.
 :::
 
-## Building the Unity-Web3 Bridge
+## Xây dựng cầu nối Unity-Web3
 
-Now we'll create the vital connection between Unity and Web3 functionality. This is where we bring blockchain capabilities into your Unity application!
+Bây giờ chúng ta sẽ tạo kết nối quan trọng giữa Unity và chức năng Web3. Đây là nơi chúng tôi mang khả năng blockchain vào ứng dụng Unity của bạn!
 
-### Part 1: Creating the Plugin Bridge (kaiaPlugin.jslib)
+### Phần 1: Tạo cầu nối plugin (kaiaPlugin.jslib)
 
-First, we'll build our JavaScript bridge that lets Unity talk to Web3:
+Đầu tiên, chúng ta sẽ xây dựng cầu nối JavaScript cho phép Unity giao tiếp với Web3:
 
-1. Create your plugin directory:
+1. Tạo thư mục plugin của bạn:
 
 ```
 Assets/
@@ -80,20 +80,20 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
+2. Tại sao lại là .jslib? Hãy coi nó như một trình biên dịch giữa C# của Unity và JavaScript của trình duyệt - rất cần thiết cho các tương tác trên Web3!
 
-3. The plugin will handle three core functions:
-  - ConnectWallet() - Handles Kaia Wallet connections
-  - GetTokenBalance() - Checks token balances
-  - MintTokens() - Manages token minting
+3. Plugin này sẽ xử lý ba chức năng cốt lõi:
+  - ConnectWallet() - Xử lý kết nối Kaia Wallet
+  - GetTokenBalance() - Kiểm tra số dư token
+  - MintTokens() - Quản lý việc đúc token
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](convert-unity-liff.md#appendix-a):
+Mở tệp này trong VS Code và dán mã nguồn `KaiaPlugin.jslib` vào [Phụ lục A](convert-unity-liff.md#appendix-a):
 
-### Part 2: Creating the C# Manager (Web3Manager.cs)
+### Phần 2: Tạo Trình quản lý C# (Web3Manager.cs)
 
-Next, we'll create our C# script to manage all Web3 operations:
+Tiếp theo, chúng ta sẽ tạo tập lệnh C# để quản lý tất cả các hoạt động Web3:
 
-1. Create your scripts directory:
+1. Tạo thư mục tập lệnh của bạn:
 
 ```js
 Assets/
@@ -104,36 +104,36 @@ Assets/
 
 :::info
 
-**What does Web3Manager do?**
+**Web3Manager có chức năng gì?**
 
-- Acts as the main conductor for all Web3 operations.
-- Manages communication with our JavaScript plugin.
-- Updates UI elements based on blockchain events.
-- Handles all wallet and token operations.
-- Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
+- Hoạt động như một đơn vị chỉ huy chính cho mọi hoạt động của Web3.
+- Quản lý giao tiếp bằng plugin JavaScript của chúng tôi.
+- Cập nhật các thành phần UI dựa trên các sự kiện blockchain.
+- Xử lý mọi hoạt động liên quan đến ví và mã thông báo.
+- Kết nối các nút `Connect Wallet` và `Mint` với các chức năng tương ứng của chúng
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](convert-unity-liff.md#appendix-b)
+2. Mở tệp này trong VS Code và dán mã nguồn `Web3Manager.cs` vào [Phụ lục B](convert-unity-liff.md#appendix-b)
 
-### Part 3: Setting Up the Web3Manager GameObject
+### Phần 3: Thiết lập Web3Manager GameObject
 
-Finally, let's bring it all together in Unity:
+Cuối cùng, chúng ta hãy kết hợp tất cả lại trong Unity:
 
-1. Create the Manager Object:
-  - Right-click in the Hierarchy window (root level).
-  - Select "Create Empty Object".
-  - Name it "Web3Manager".
-2. Attach Your Script:
-  - Select the Web3Manager GameObject.
-  - In Inspector, click Add Component.
-  - Search for and select "Web3Manager".
-3. Connect UI Elements:
-  - With Web3Manager selected, look in the Inspector.
-  - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
-    - StatusText
-    - AddressText
-    - TokenBalanceText
-    - Connect, Disconnect, Mint buttons
-    - Input fields
+1. Tạo đối tượng quản lý:
+  - Nhấp chuột phải vào cửa sổ Phân cấp (cấp gốc).
+  - Chọn "Tạo đối tượng rỗng".
+  - Đặt tên là "Web3Manager".
+2. Đính kèm tập lệnh của bạn:
+  - Chọn GameObject Web3Manager.
+  - Trong Inspector, nhấp vào Thêm thành phần.
+  - Tìm kiếm và chọn "Web3Manager".
+3. Kết nối các thành phần UI:
+  - Khi đã chọn Web3Manager, hãy nhìn vào Inspector.
+  - Kéo và thả các thành phần UI của bạn từ Phân cấp vào các trường tương ứng:
+    - Trạng tháiVăn bản
+    - Địa chỉVăn bản
+    - TokenBalanceVăn bản
+    - Kết nối, Ngắt kết nối, Nút Mint
+    - Các trường nhập liệu
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
