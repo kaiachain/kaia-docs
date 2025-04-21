@@ -1,9 +1,9 @@
-# caver-java
+# hang-java
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network.
+`caver-java` là một thư viện Java và Android nhẹ, có tính mô-đun cao, tiện lợi để tương tác với các máy khách \(node\) trên mạng kaia.
 
-:::info[Archival Notice]
+:::info[Archival Để ý]
 
-The caver-java SDK documentation is no longer available here. Refer to [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) for legacy `caver-java` information. For current Kaia development, please use [web3j-ext](../web3j-ext/getting-started.md).
+Tài liệu SDK caver-java không còn khả dụng ở đây nữa. Tham khảo [Tài liệu lưu trữ](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) để biết thông tin về `caver-java` cũ. Đối với sự phát triển Kaia hiện tại, vui lòng sử dụng [web3j-ext](../web3j-ext/getting-started.md).
 
 :::
