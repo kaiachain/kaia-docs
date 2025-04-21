@@ -67,7 +67,7 @@ A list of recently generated blocks. To update the information, please click the
 - Time: Duration of time since the block was generated. You can check the exact date and time by hovering this.
 - Total TXs: The total number of transactions included in the block.
 - Block Proposer: Randomly but deterministically selected Consensus Node that proposed the block. By clicking the address, you can easily go to the details page.
-- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. Hover the block reward section on the block detail page to see detailed information. More details about the block reward distribution system can be found in the [Kaia Token Economy](../../../learn/token-economics/token-economics.md).
+- Reward: Aggregation of newly minted KAIA \(9.6 KAIA\) and transaction fees used in the block. The list displays only the sum of Kaia Governance Council Reward, Proof of Contribution, and Kaia Ecosystem Fund. Hover the block reward section on the block detail page to see detailed information. Bạn có thể tìm hiểu thêm thông tin chi tiết về hệ thống phân phối phần thưởng khối trong [Kaia Token Economy](../../../learn/token-economics/token-economics.md).
 - Size: The size of blocks measured in Byte. The more transactions are included, the larger the block size.
 
 ### Transactions <a id="transactions"></a>
@@ -80,7 +80,7 @@ A list of recently executed transactions. To update the information, please clic
 - Block \#: Number of the block which contains this transaction. Clicking on the number takes you to the details page of the block.
 - Time: Duration of time since the transaction was executed. You can check the exact date and time by hovering this.
 - From -&gt; To: The addresses of sender and receiver. By clicking the address, you can easily go to the details page. If the file icon displays next to an address, it means that the address is a contract.
-- TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. For more information, please visit [Transactions](../../transactions/transactions.md).
+- TX Type: Type of the transaction. You can apply a filter to get the transactions of a specific type. Để biết thêm thông tin, vui lòng truy cập [Giao dịch](../../transactions/transactions.md).
 - Amount: The amount of value transferred through the transaction.
 - TX Fee: The actual cost used to process transaction.
 
