@@ -1,50 +1,50 @@
-# UI Creation
+# UIクリエーション
 
-In this section, we will build our dApp's user interface! We'll create a structured UI system with three main panels for status updates, actions, and minting functionality.
+このセクションでは、dAppのユーザー・インターフェースを構築する！ 私たちは、ステータス更新、アクション、造幣機能のための3つのメインパネルを備えた構造化されたUIシステムを作成します。
 
-## Setting Up the Main Canvas
+## メイン・キャンバスの設定
 
-First, let's create our base canvas:
+まず、ベースとなるキャンバスを作りましょう：
 
-1. In the Hierarchy window, right-click on "Sample Scene".
-2. Navigate to GameObject → UI → Canvas.
+1. 階層ウィンドウで、"Sample Scene "を右クリックします。
+2. GameObject → UI → Canvasに移動します。
 
-## Creating the Web3UI Container
+## Web3UIコンテナの作成
 
-1. Right-click on your new Canvas.
-2. Select "Create Empty".
-3. Rename it to "Web3UI".
+1. 新しいキャンバスを右クリックします。
+2. Create Empty」を選択する。
+3. 名前を "Web3UI "に変更する。
 
-## Setting Up Main Panels
+## メインパネルの設定
 
-Inside Web3UI, create three panel objects:
+Web3UIの中に、3つのパネルオブジェクトを作成します：
 
-1. Right-click on Web3UI and select "Create Empty".
-2. Create and rename these panels:
-   - StatusPanel - Your dApp's information display
-   - ButtonPanel - For user interactions
-   - MintPanel - For token minting features
+1. Web3UIを右クリックし、"Create Empty "を選択する。
+2. これらのパネルを作成し、名前を変更する：
+   - StatusPanel - dAppの情報表示
+   - ButtonPanel - ユーザーとのインタラクション用
+   - MintPanel - トークン造幣機能用
 
-## Creating Panel Components
+## パネル・コンポーネントの作成
 
-### StatusPanel Components
+### StatusPanel コンポーネント
 
-This panel shows all your important Web3 information:
+このパネルには、Web3の重要な情報がすべて表示されます：
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. Make sure to fill the “Text Input” field in the Inspector pane e.g. "Status..."
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、StatusTextにリネームする。 インスペクタペインの "テキスト入力 "フィールド（例："Status..."）に必ず入力してください。
 
 :::note
-**TextMeshPro (TMP) Setup**
+**テキストメッシュプロ(TMP)のセットアップ**について
 
-When you first create a TextMeshPro element (UI - Text - TextMeshPro), Unity automatically prompts you to import TMP Essentials. If you accidentally skip this prompt, you can manually import it through Window > TextMeshPro > Import TMP Essentials.
+TextMeshProエレメントを初めて作成するとき（UI - Text - TextMeshPro）、Unityは自動的にTMP Essentialsをインポートするよう促します。 誤ってこのプロンプトをスキップしてしまった場合は、Window > TextMeshPro > Import TMP Essentialsから手動でインポートすることができます。
 
-Why we need this: TextMeshPro requires core resources (shaders, default fonts, and materials) to properly display text in your game. Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
+これが必要な理由TextMeshProは、ゲーム内でテキストを適切に表示するために、コアリソース（シェーダー、デフォルトフォント、マテリアル）を必要とします。 これらの必需品がないと、テキストコンポーネントが正しくレンダリングされず、プロジェクトでシェーダーやマテリアルのエラーが発生します。 これは、テキストを正しく動作させるために必要な1回限りのセットアップである。
 :::
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the text object e.g "Address Text..."
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the text object e.g "0.0000 ET"
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、AddressTextにリネームする。 テキスト・オブジェクトを必ず入力してください（例："Address Text..."）。
+- StatusPanel を右クリックし、UI → Text - TextMeshPro をクリックし、TokenBalanceText にリネームする。 テキストオブジェクトを必ず入力してください。例："0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -55,13 +55,13 @@ Why we need this: TextMeshPro requires core resources (shaders, default fonts, a
     └── Default: "0.0000 ET"
 ```
 
-### ButtonPanel Components
+### ボタンパネル・コンポーネント
 
-Your main interaction buttons:
+あなたの主な対話ボタン
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
+- ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、ConnectWalletButtonに名前を変更します。 インスペクタペインの "テキスト入力 "フィールドに "Connect Wallet "と入力してください。
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to DisconnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with “Disconnect Wallet".
+- ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、名前をDisconnectWalletButtonに変更します。 インスペクタペインの "テキスト入力 "フィールドに "Disconnect Wallet "と入力してください。
 
 ```code
 ButtonPanel
@@ -71,12 +71,12 @@ ButtonPanel
 │   └── Text: "Disconnect Wallet"
 ```
 
-### MintPanel Components
+### MintPanelコンポーネント
 
-The token minting interface:
+トークンの造幣インターフェース：
 
-- Right click on MintPanel, click on UI → Input Field → TextMeshPro and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
-- Right click on MintPanel, click on UI → Button → TextMeshPro and then rename to MintButton. Make sure to fill the text object with "Mint"
+- MintPanelを右クリックし、UI → Input Field → TextMeshProをクリックし、MintAmountInputにリネームする。 プレースホルダー・オブジェクトを必ず "Enter Amount…" で埋めてください。
+- MintPanelを右クリックし、UI → Button → TextMeshProをクリックし、MintButtonにリネームする。 テキスト・オブジェクトは必ず "Mint "で埋めてください。
 
 ```code
 MintPanel
@@ -86,7 +86,7 @@ MintPanel
     └── Text: "Mint"
 ```
 
-After creating all components, your hierarchy should look like this:
+すべてのコンポーネントを作成した後、階層は次のようになります：
 
 ```code
 Canvas
@@ -99,5 +99,5 @@ Canvas
 ![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
-For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
+上の画像のようにコンポーネントをうまく配置するには、各コンポーネントをクリックしたときに右側にあるアイコンを使って手動で配置する必要がある。
 :::
