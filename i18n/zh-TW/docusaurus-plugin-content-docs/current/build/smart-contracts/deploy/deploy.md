@@ -1,6 +1,6 @@
 # 部署智能合約
 
-在 Kaia 上部署智能合約有多種方法。 本文檔提供了使用各種工具部署合同樣本的分步指南。 我們假定您的 Kaia 賬戶有足夠的 KAIA 支付交易費。 To create an account, you can use [Kaia Toolkit](https://toolkit.kaia.io/account/)."
+在 Kaia 上部署智能合約有多種方法。 本文檔提供了使用各種工具部署合同樣本的分步指南。 我們假定您的 Kaia 賬戶有足夠的 KAIA 支付交易費。 若要建立帳號，您可以使用 [Kaia Toolkit](https://toolkit.kaia.io/account/)。"
 
 ## Remix 在線集成開發環境<a id="remix-ide"></a>
 
