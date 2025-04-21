@@ -1,16 +1,16 @@
 ---
-sidebar_label: Using Foundry
+sidebar_label: 使用代工廠
 ---
 
-# How to Verify Smart Contracts Using Foundry
+# 如何使用 Foundry 驗證智慧型契約
 
-This guide walks you through the steps to automatically verify your smart contract’s source code on Kaiascan directly from your CLI using Foundry. At the moment, Kaiascan only supports the verification of flattened contract files when using Foundry.
+本指南將教您如何使用 Foundry 直接從 CLI 在 Kaiascan 上自動驗證智慧契約的原始碼。 目前，Kaiascan 僅支援在使用 Foundry 時驗證扁平化的合約檔案。
 
-> Ensure that your contract is flattened before proceeding with the verification process.
+> 在進行驗證程序之前，請確保您的合約已壓平。
 
 ## 快速開始
 
-本指南希望您對使用 Foundry 開發智能合約有所瞭解。 請參閱  [Deploy smart contract using Foundry](../deploy/foundry.md) 開始使用。   We are going to be deploying and verifying this sample NFT contract below:
+本指南希望您對使用 Foundry 開發智能合約有所瞭解。 請參閱  [Deploy smart contract using Foundry](../deploy/foundry.md) 開始使用。   我們將在下面部署並驗證這個 NFT 合約範例：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -79,9 +79,9 @@ contract NFT is ERC721, Ownable {
 }
 ```
 
-To verify a contract using Foundry verify, see the steps below:
+若要使用 Foundry verify 驗證合約，請參閱下列步驟：
 
-## Flatten the contract
+## 使合約扁平化
 
 ```bash
 ## flatten
@@ -89,7 +89,7 @@ To verify a contract using Foundry verify, see the steps below:
 forge flatten src/NFT.sol > FlattenedNFT.sol
 ```
 
-## Deploy the contract
+## 部署合約
 
 ```bash
 ## deploy
@@ -99,7 +99,7 @@ forge create --rpc-url $KAIROS_RPC_URL private-key $PRIVATE_KEY src/NFT.sol:NFT 
 
 ![](/img/build/smart-contracts/verify/foundry-verify-deploy.png)
 
-## Verify the contract
+## 驗證合約
 
 ```bash
 ## verify an already deployed contract as seen above *//
@@ -109,13 +109,13 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ![](/img/build/smart-contracts/verify/foundry-verify-bash.png)
 
-You can look up the verified contract [here](https://kairos.kaiascan.io/address/0x06f09d3f77341b2f9bdc1e6fc2928761ba05f934?tabId=contract&page=1)
+您可以在 這裡 查詢已驗證的合約。
 
 ![](/img/build/smart-contracts/verify/foundry-verify-ks-page.png)
 
-## Useful links
+## 有用連結
 
-- [Configuration for Foundry Verify on Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+- [在 Kaiascan 上設定 Foundry Verify](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
