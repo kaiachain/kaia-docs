@@ -6,7 +6,7 @@
 
 Remix Online IDEは、EVM互換のスマートコントラクトを開発、デプロイ、デバッグ、テストするための強力なツールセットです。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。 Kaiaプラグインを使って、Remix IDEからKaia上でスマートコントラクトの記述、コンパイル、デプロイ、実行ができます。
 
-#### [Kaia Contracts Wizard](https://wizard.kaia.io) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
+#### [カイア契約ウィザード](https://wizard.kaia.io)<a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
 Kaiaコントラクトウィザードは、スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。 これはOpenZeppelin Wizardに基づいています。
 
