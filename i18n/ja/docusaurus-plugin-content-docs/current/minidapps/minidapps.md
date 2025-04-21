@@ -1,4 +1,4 @@
-# LINE Mini DApp with Unity
+# LINEミニDApp with Unity
 
 ## はじめに
 
