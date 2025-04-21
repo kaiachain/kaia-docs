@@ -1,49 +1,49 @@
-# Multisender
+# マルチセンダー
 
-Easily send tokens to multiple wallet addresses in one go with Team Finance’s token multisender feature.
+チームファイナンスのトークンマルチセンダー機能を使えば、複数のウォレットアドレスに一度に簡単にトークンを送信できます。
 
-This tool streamlines the tedious process of manually sending tokens one by one, making it ideal for Token Generation Events (TGE), airdrops, marketing campaigns, salary distributions, and service payments all in varying amounts to different accounts, effortlessly.
+このツールは、トークンを1つずつ手作業で送信する面倒なプロセスを合理化し、トークン生成イベント（TGE）、エアドロップ、マーケティングキャンペーン、給与分配、サービス支払いなど、さまざまなアカウントへのさまざまな金額のトークン送信に最適です。
 
-## Getting Started
+## はじめに
 
-In this tutorial, you will learn how to send tokens to multiple wallets with Team Finance. Let's get started!
+このチュートリアルでは、Team Financeを使って複数のウォレットにトークンを送信する方法を学びます。 始めよう！
 
-1. Navigate to Team Finance [Multisender](https://app.team.finance/token-multisender) tab and click on **Send tokens**.
+1. Team Finance [Multisender](https://app.team.finance/token-multisender) タブに移動し、**Send tokens** をクリックします。
 
 ![](/img/build/tools/token-management/multisender/ms-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. ウォレットを選択\*\*し、**続行**をクリックして、ウォレットをチームファイナンスに接続します。
 
 ![](/img/build/tools/token-management/multisender/ms-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. ブロックチェーン・ネットワークで**Kaia**を選択し、**Continue**をクリックする。
 
 ![](/img/build/tools/token-management/multisender/ms-step-3.png)
 
-4. Enter the token address for the token you are sending and click **Continue**.
+4. 送信するトークンのアドレスを入力し、**Continue**をクリックします。
 
-> You can either send KAIA or fungible tokens. In this guide, we will send fungible tokens.
+> KAIAまたはカンジブルトークンを送ることができる。 このガイドでは、カビ可能なトークンを送ります。
 
 ![](/img/build/tools/token-management/multisender/ms-step-4.png)
 
-5. Add **recipient details (wallet addresses and amounts)**. You can choose to add recipient details either manually or upload a CSV file. For this guide, we will use the upload a CSV file option.
+5. 受取人の詳細（ウォレットのアドレスと金額）\*\*\*を追加します。 受信者の詳細を手動で追加するか、CSVファイルをアップロードするかを選択できます。 このガイドでは、CSVファイルをアップロードするオプションを使用します。
 
 ![](/img/build/tools/token-management/multisender/ms-step-5a.png)
 
 ![](/img/build/tools/token-management/multisender/ms-step-5b.png)
 
-6. Give authorisation to send your tokens by clicking **Give permission**.
+6. 許可を与える\*\*をクリックして、トークンの送信を許可してください。
 
 ![](/img/build/tools/token-management/multisender/ms-step-6.png)
 
-7. Now, verify the details of sending tokens to multiple wallets and click **Confirm transaction** to finalize the process. Go to your wallet and sign the transaction to complete the process.
+7. ここで、複数のウォレットへのトークン送信の詳細を確認し、**Confirm transaction**をクリックしてプロセスを確定します。 ウォレットに移動し、取引に署名して手続きを完了する。
 
 ![](/img/build/tools/token-management/multisender/ms-step-7.png)
 
 :::note
-This is a paid service, so ensure you have the required service fee available in KAIA, the native token
+これは有料サービスですので、ネイティブトークンであるKAIAに必要なサービス料金をご用意ください。
 :::
 
-7. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+7. 確認後、取引状況を表示するページに移動します。 お取引が確認されるまで、ページからの移動はご遠慮ください。
 
-8. Congratulations! You have successfully sent tokens to multiple wallets using Team Finance. You can view the details on your dashboard.
+8. おめでとう！ Team Finance を使用して複数のウォレットにトークンを送信しました。 詳細はダッシュボードで確認できる。
