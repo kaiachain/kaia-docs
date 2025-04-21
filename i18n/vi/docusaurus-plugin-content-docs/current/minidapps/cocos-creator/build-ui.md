@@ -1,76 +1,76 @@
-# UI Creation
+# Tạo giao diện người dùng
 
-In this section, we'll build the user interface (UI) for our dApp, including wallet connection, balance updates, and minting functionality.
+Trong phần này, chúng tôi sẽ xây dựng giao diện người dùng (UI) cho dApp của mình, bao gồm kết nối ví, cập nhật số dư và chức năng đúc tiền.
 
-## Setting Up the Main Scene <a id="setting-up-main-scene"></a>
+## Thiết lập cảnh chính <a id="setting-up-main-scene"></a>
 
-### Step 1: Create a Scenes Folder <a id="create-scene-folder"></a>
+### Bước 1: Tạo một thư mục Scenes <a id="create-scene-folder"></a>
 
-- Navigate to your project's **assets** folder.
-- Right-click and select **Create Folder**.
-- Name it **scenes**. (Insert Image)
-- Inside the scenes folder, right-click and select **Create → Scene**.
+- Điều hướng đến thư mục **tài sản** của dự án.
+- Nhấp chuột phải và chọn **Tạo thư mục**.
+- Đặt tên là **cảnh**. (Chèn hình ảnh)
+- Bên trong thư mục cảnh, nhấp chuột phải và chọn **Tạo → Cảnh**.
 
 ![](/img/minidapps/cocos-creator/cp-create-scene-r.png)
 
-- Save the scene file when prompted.
-- Double-click the newly created scene to set it as the **default scene**.
+- Lưu tệp cảnh khi được nhắc.
+- Nhấp đúp vào cảnh mới tạo để đặt cảnh đó làm **cảnh mặc định**.
 
-### Step 2: Creating the Base Canvas <a id="creating-base-canvas"></a>
+### Bước 2: Tạo Canvas cơ sở <a id="creating-base-canvas"></a>
 
-- In the Hierarchy window, right-click on **Scene**.
-- Navigate to **Create → UI Component → Canvas**.
-- Rename it to **Canvas**
+- Trong cửa sổ Hierarchy, nhấp chuột phải vào **Scene**.
+- Điều hướng đến **Tạo → Thành phần UI → Canvas**.
+- Đổi tên thành **Canvas**
 
 ![](/img/minidapps/cocos-creator/cp-create-canvas-r.png)
 
-### Step 3: Creating the Web3UI Container <a id="create-web3ui-container"></a>
+### Bước 3: Tạo Web3UI Container <a id="create-web3ui-container"></a>
 
-- Right-click on the newly created **Canvas**.
-- Select **Create → Empty Node**.
-- Rename it to **Web3UI**.
+- Nhấp chuột phải vào **Canvas** mới tạo.
+- Chọn **Tạo → Nút trống**.
+- Đổi tên thành **Web3UI**.
 
 ![](/img/minidapps/cocos-creator/cp-create-web3-ui-r.png)
 
-### Step 4: Setting Up Main UI Objects <a id="setting-up-main-ui-objects"></a>
+### Bước 4: Thiết lập các đối tượng UI chính <a id="setting-up-main-ui-objects"></a>
 
-Inside Web3UI, create the following components:
+Bên trong Web3UI, tạo các thành phần sau:
 
-**1. Connect Wallet Button**
+**1. Nút kết nối ví**
 
-- Right-click **Web3UI → Create → UI Component → Button**.
+- Nhấp chuột phải vào **Web3UI → Tạo → Thành phần UI → Nút**.
 
 ![](/img/minidapps/cocos-creator/cp-connect-button-r.png)
 
-- Rename it to **ConnectWallet**.
-- In the **Inspector Pane**, set the button label text to **Connect Wallet**.
+- Đổi tên thành **ConnectWallet**.
+- Trong **Ngăn thanh tra**, hãy đặt văn bản nhãn nút thành **Kết nối ví**.
 
 ![](/img/minidapps/cocos-creator/cp-connect-label-r.png)
 
-**2. Mint Button**
+**2. Nút Mint**
 
-- Right-click **Web3UI → Create → UI Component → Button**.
-- Rename it to **MintButton**.
-- Set the button label text to **Mint Button**.
+- Nhấp chuột phải vào **Web3UI → Tạo → Thành phần UI → Nút**.
+- Đổi tên thành **MintButton**.
+- Đặt văn bản nhãn nút thành **Nút Mint**.
 
-**3. Address Label**
+**3. Nhãn địa chỉ**
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
+- Nhấp chuột phải vào **Web3UI → Tạo → Đối tượng 2D → Nhãn**.
 
 ![](/img/minidapps/cocos-creator/cp-address-label-r.png)
 
-- Rename it to **AddressLabel**.
-- Set the label text to **Connected Address:**.
+- Đổi tên thành **AddressLabel**.
+- Đặt nhãn văn bản thành **Địa chỉ đã kết nối:**.
 
 ![](/img/minidapps/cocos-creator/cp-connected-address-r.png)
 
-**4. Balance Label**
+**4. Nhãn cân bằng**
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
-- Rename it to **BalanceLabel**.
-- Set the label text to **0.000ET**.
+- Nhấp chuột phải vào **Web3UI → Tạo → Đối tượng 2D → Nhãn**.
+- Đổi tên thành **BalanceLabel**.
+- Đặt nhãn văn bản thành **0.000ET**.
 
-After adding all components, your Hierarchy should look like this:
+Sau khi thêm tất cả các thành phần, Hệ thống phân cấp của bạn sẽ trông như thế này:
 
 ```bash
 Canvas
@@ -84,5 +84,5 @@ Canvas
 ![](/img/minidapps/cocos-creator/cp-ui-view-r.png)
 
 :::note
-To properly arrange your components, use the alignment tools at top of the Scene. Click on each component and adjust its position as needed
+Để sắp xếp các thành phần một cách hợp lý, hãy sử dụng các công cụ căn chỉnh ở đầu Scene. Nhấp vào từng thành phần và điều chỉnh vị trí của nó khi cần thiết
 :::
