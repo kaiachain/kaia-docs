@@ -71,7 +71,7 @@ With the upcoming launch of Kaia, a governance vote will be proposed on the Fins
 
 ### Where can I find the historical price information for KLAY and FNSA? I can't seem to find it on CoinMarketCap or CoinGecko anymore. <a id="where-can-i-find-the-historical-price-information-for-klay-and-fnsa-i-cant-seem-to-find-it-on-coinmarketcap-or-coingecko-anymore-"></a>
 
-Due to the merger of KLAY and FNSA and their transition to the new token KAIA, historical price information for KLAY and FNSA is no longer available on cryptocurrency tracking websites. However, we have preserved this data for transparency and reference purposes. You can download CSV files containing the historical price data for both KLAY and FNSA from [Kaia native coin - KAIA](../../learn/token-economics/kaia-native-token.md#historical-pricing).
+Due to the merger of KLAY and FNSA and their transition to the new token KAIA, historical price information for KLAY and FNSA is no longer available on cryptocurrency tracking websites. However, we have preserved this data for transparency and reference purposes. Bạn có thể tải xuống các tệp CSV chứa dữ liệu giá lịch sử cho cả KLAY và FNSA từ [Kaia native coin - KAIA](../../learn/token-economics/kaia-native-token.md#historical-pricing).
 
 ## DApp builders
 
