@@ -1,89 +1,89 @@
-# Mini Dapp SDK Integration
+# Tích hợp Mini Dapp SDK
 
-In this section, we will ensure the Mini Dapp SDK is loaded in our game. To do that, Cocos Creator’s build-templates directory allows customization of how the game is built for the web platform, making it essential for preloading the SDK before the game starts.
+Trong phần này, chúng tôi sẽ đảm bảo Mini Dapp SDK được tải trong trò chơi của chúng tôi. Để thực hiện được điều đó, thư mục build-templates của Cocos Creator cho phép tùy chỉnh cách xây dựng trò chơi cho nền tảng web, khiến việc tải trước SDK trước khi trò chơi bắt đầu trở nên cần thiết.
 
-By creating a custom template in **build-templates/web-desktop**, we can automatically include the SDK in every build, streamlining development and deployment.
+Bằng cách tạo mẫu tùy chỉnh trong **build-templates/web-desktop**, chúng ta có thể tự động đưa SDK vào mọi bản dựng, hợp lý hóa quá trình phát triển và triển khai.
 
-## Step 1: Create the build-templates Directory <a id="create-build-template-directory"></a>
+## Bước 1: Tạo thư mục build-templates <a id="create-build-template-directory"></a>
 
-Open your project in VS Code and run the following command in the terminal:
+Mở dự án của bạn trong VS Code và chạy lệnh sau trong terminal:
 
 ```bash
 mkdir -p build-templates/web-desktop
 ```
 
-## Step 2: Perform an Initial Build in Cocos Creator <a id="perform-initial-build"></a>
+## Bước 2: Thực hiện bản dựng ban đầu trong Cocos Creator <a id="perform-initial-build"></a>
 
-1. Go to **Menu → Project → Build**.
+1. Vào **Menu → Dự án → Xây dựng**.
 
 ![](/img/minidapps/cocos-creator/cp-build-r.png)
 
-2. Set **Platform** to **Web Desktop**.
+2. Đặt **Nền tảng** thành **Web Desktop**.
 
-3. Click **Build**.
+3. Nhấp vào **Xây dựng**.
 
 ![](/img/minidapps/cocos-creator/cp-build-details-r.png)
 
-## Step 3: Copy the index.html file from the Build Directory <a id="copy-index-html-from-build-dir"></a>
+## Bước 3: Sao chép tệp index.html từ Thư mục bản dựng <a id="copy-index-html-from-build-dir"></a>
 
-Once the build is complete, copy the index.html file into the build-templates directory:
+Sau khi quá trình xây dựng hoàn tất, hãy sao chép tệp index.html vào thư mục build-templates:
 
 ```bash
 cp build/web-desktop/index.html build-templates/web-desktop/
 ```
 
-## Step 4: Modify index.html to Include the Mini Dapp SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
+## Bước 4: Sửa đổi index.html để Bao gồm Mini Dapp SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
 
-Edit `build-templates/web-desktop/index.html` and add the following Mini Dapp SDK script tag inside the `<head> </head>` section:
+Chỉnh sửa `build-templates/web-desktop/index.html` và thêm thẻ tập lệnh Mini Dapp SDK sau vào phần `<head> </head>`:
 
 ```bash
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
 ```
 
-## Step 5: Verify the Build Setup <a id="verify-build-setup"></a>
+## Bước 5: Xác minh Thiết lập Bản dựng <a id="verify-build-setup"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated `build/web-desktop/index.html`.
-- Confirm that the **Mini Dapp SDK script** is correctly included.
+- Xây dựng lại dự án của bạn trong Cocos Creator.
+- Kiểm tra `build/web-desktop/index.html` đã tạo.
+- Xác nhận rằng **script Mini Dapp SDK** đã được bao gồm chính xác.
 
-## Step 6: Build & Preview the Project <a id="build-preview-project"></a>
+## Bước 6: Xây dựng & Xem trước Dự án <a id="build-preview-project"></a>
 
-After completing the setup, click _Play on Device_ at the top of the Cocos Creator Editor. Your game should open in a new browser tab.
+Sau khi hoàn tất thiết lập, hãy nhấp vào _Phát trên thiết bị_ ở đầu Trình chỉnh sửa Cocos Creator. Trò chơi của bạn sẽ mở trong một tab trình duyệt mới.
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
 ![](/img/minidapps/cocos-creator/cp-localhost-build-r.png)
 
-# Route Web build to Localhost:3000 <a id="route-web-build"></a>
+# Định tuyến Web build đến Localhost:3000 <a id="route-web-build"></a>
 
-For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 7457) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+Vì mục đích bảo mật và phát triển, Mini Dapp SDK hiện đang hoạt động trên localhost:3000. Hiện tại, bản dựng Unity WebGL mặc định sử dụng các cổng ngẫu nhiên (như 7457) và để ứng dụng của chúng tôi hoạt động hiệu quả, chúng tôi cần cấu hình bản dựng Unity WebGL để mở trên localhost:3000.
 
-To do so, follow the steps below:
+Để thực hiện, hãy làm theo các bước dưới đây:
 
-1. Copy and paste the code below in your project terminal
+1. Sao chép và dán mã bên dưới vào terminal dự án của bạn
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. Điều hướng đến thư mục xây dựng
 
 ```bash
 cd build/web-desktop
 ```
 
-3. Start server on port 3000
+3. Khởi động máy chủ trên cổng 3000
 
 ```bash
 http-server -p 3000
 ```
 
-# Testing and running application <a id="route-web-build"></a>
+# Kiểm tra và chạy ứng dụng <a id="route-web-build"></a>
 
-Now that we have our project running, let’s test and interact with it.
+Bây giờ dự án của chúng ta đã chạy, hãy thử nghiệm và tương tác với nó.
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, mint a fixed amount to the connected address.
+- Nhấp vào nút Kết nối ví để kết nối với Ví Dapp Portal.
+- Sau khi kết nối, đúc một số tiền cố định vào địa chỉ được kết nối.
 
 ![](/img/minidapps/cocos-creator/cocos-demo.gif)
