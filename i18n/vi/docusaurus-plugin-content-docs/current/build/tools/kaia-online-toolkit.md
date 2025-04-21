@@ -1,30 +1,30 @@
-# Kaia Toolkit
+# Bộ công cụ Kaia
 
-## What is the Kaia Toolkit?
+## Bộ công cụ Kaia là gì?
 
-[**Kaia Toolkit**](https://toolkit.kaia.io) provides developer-friendly code samples and interactive web tools to simplify integration with the Kaia blockchain. It serves as both a learning resource and practical utility suite for building decentralized applications.
+[**Kaia Toolkit**](https://toolkit.kaia.io) cung cấp các mẫu mã thân thiện với nhà phát triển và các công cụ web tương tác để đơn giản hóa việc tích hợp với blockchain Kaia. Nó vừa đóng vai trò là nguồn tài nguyên học tập vừa là bộ tiện ích thực tế để xây dựng các ứng dụng phi tập trung.
 
-![Kaia Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+![Bộ công cụ Kaia](/img/build/tools/klaytn-online-toolkit.png)
 
-## Key Features
+## Các tính năng chính
 
-- **Multi-SDK Support**: Compatible with modern Ethereum-equivalent SDKs
-  - `Ethers-ext` (Extended ethers.js implementation)
-  - `Web3js-ext` (Enhanced web3.js library)
-  - `Viem` (TypeScript interface for EVM chains)
-- **Live Sandbox Environment**: Test blockchain interactions directly through the web interface without local setup
-- **Comprehensive Tools**:
-  - Wallet integration (KaiaWallet, MetaMask, RainbowKit, OKX)
-  - Account management (Basic/Mnemonic/Keystore)
-  - Token operations (KIP-7, KIP-17, KIP-37)
-  - Blockchain utilities (RLP encoder, unit converter, signature verification)
+- **Hỗ trợ nhiều SDK**: Tương thích với các SDK tương đương Ethereum hiện đại
+  - `Ethers-ext` (Triển khai ethers.js mở rộng)
+  - `Web3js-ext` (Thư viện web3.js nâng cao)
+  - `Viem` (Giao diện TypeScript cho chuỗi EVM)
+- **Môi trường Sandbox trực tiếp**: Kiểm tra tương tác blockchain trực tiếp thông qua giao diện web mà không cần thiết lập cục bộ
+- **Công cụ toàn diện**:
+  - Tích hợp ví (KaiaWallet, MetaMask, RainbowKit, OKX)
+  - Quản lý tài khoản (Cơ bản/Mnemonic/Keystore)
+  - Hoạt động mã thông báo (KIP-7, KIP-17, KIP-37)
+  - Tiện ích chuỗi khối (bộ mã hóa RLP, bộ chuyển đổi đơn vị, xác minh chữ ký)
 
-## Developer Resources
+## Tài nguyên dành cho nhà phát triển
 
-Here are the links for the Kaia Toolkit and related resources:
+Sau đây là các liên kết tới Kaia Toolkit và các tài nguyên liên quan:
 
-- [GitHub Repository](https://github.com/kaiachain/kaia-online-toolkit)
+- [Kho lưu trữ GitHub](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)
-- [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
-- [Web3js-ext Documentation](../../references/sdk/web3js-ext/getting-started.md)
-- [Viem Documentation](../../references/sdk/viem/viem.md)
+- [Tài liệu Ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
+- [Tài liệu Web3js-ext](../../references/sdk/web3js-ext/getting-started.md)
+- [Tài liệu Viem](../../references/sdk/viem/viem.md)
