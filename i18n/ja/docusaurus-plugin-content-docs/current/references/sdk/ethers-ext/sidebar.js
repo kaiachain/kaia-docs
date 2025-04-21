@@ -51,7 +51,7 @@ export const sidebar = {
             },
             {
               type: 'カテゴリー',
-              label: 'Keystore',
+              label: 'キーストア',
               items: [
                 'リファレンス/sdk/ethers-ext/v5/アカウント管理/キーストア/キーストアV3',
                 'リファレンス/sdk/ethers-ext/v5/アカウント管理/キーストア/キーストアV4-シングル',
@@ -147,7 +147,7 @@ export const sidebar = {
             },
             {
               type: 'カテゴリー',
-              label: 'Keystore',
+              label: 'キーストア',
               items: [
                 'リファレンス/sdk/ethers-ext/v6/アカウント管理/キーストア/キーストアV3',
                 'リファレンス/sdk/ethers-ext/v6/アカウント管理/キーストア/キーストアV4-シングル',
