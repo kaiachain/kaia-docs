@@ -17,4 +17,4 @@
 端點節點安裝二進制文件包含以下接口和實用程序。
 
 - JSON-RPC API：JSON-RPC 服務器運行於節點內部，併為區塊鏈應用程序開發提供 [API](../../references/json-rpc/klay/account-created) 。 它還有多個節點管理 API。
-- 命令行界面：提供賬戶管理和節點配置功能。 此外，還提供了一個附加到節點上的交互式 JavaScript 控制檯。 JavaScript console implements most of the [RPC APIs](../../references/json-rpc/references.md).
+- 命令行界面：提供賬戶管理和節點配置功能。 此外，還提供了一個附加到節點上的交互式 JavaScript 控制檯。 JavaScript 控制台實作了大部分 [RPC API](../../references/json-rpc/references.md)。
