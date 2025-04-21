@@ -1,21 +1,21 @@
-# WebGL Build Settings
+# Cài đặt xây dựng WebGL
 
-In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
+Trong phần này, chúng ta sẽ cấu hình dApp cho web! Thao tác này sẽ cấu hình Unity để tương thích với Web3 và tạo mẫu tùy chỉnh để tích hợp Kaia.
 
-## Step 1: Switch to WebGL Platform
+## Bước 1: Chuyển sang nền tảng WebGL
 
-1. Navigate to File → Build Settings.
-2. Select WebGL and click "Switch Platform".
+1. Điều hướng đến Tệp → Cài đặt bản dựng.
+2. Chọn WebGL và nhấp vào "Chuyển nền tảng".
 
 :::note
-This might take a few minutes if it's your first time switching.
+Quá trình này có thể mất vài phút nếu đây là lần đầu tiên bạn chuyển đổi.
 :::
 
 ![](/img/minidapps/unity-minidapp/ui-webgl-switch.png)
 
-## Step 2: Creating a Custom WebGL Template
+## Bước 2: Tạo mẫu WebGL tùy chỉnh
 
-We need a custom template to integrate Web3 capabilities. Here's our folder structure:
+Chúng tôi cần một mẫu tùy chỉnh để tích hợp các khả năng của Web3. Đây là cấu trúc thư mục của chúng tôi:
 
 ```code
 Assets/
@@ -28,18 +28,18 @@ Assets/
 
 :::info
 
-**Why Custom Template?**
+**Tại sao lại là mẫu tùy chỉnh?**
 
-The default Unity template doesn't include Web3 support. Our custom template will:
+Mẫu Unity mặc định không hỗ trợ Web3. Mẫu tùy chỉnh của chúng tôi sẽ:
 
-- Load necessary Web3 libraries.
-- Enable Kaia Wallet integration.
-- Handle blockchain interactions properly.
+- Tải các thư viện Web3 cần thiết.
+- Bật tích hợp Ví Kaia.
+- Xử lý tương tác blockchain đúng cách.
  :::
 
-## Step 3: Setting Up index.html
+## Bước 3: Thiết lập index.html
 
-Copy and paste the code below in your `index.html` file:
+Sao chép và dán mã bên dưới vào tệp `index.html` của bạn:
 
 ```html
 <!DOCTYPE html>
@@ -225,13 +225,13 @@ Copy and paste the code below in your `index.html` file:
 </html>
 ```
 
-## Step 4: Setting Up Mini Dapp SDK
+## Bước 4: Thiết lập Mini Dapp SDK
 
-1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. Save the content to your `scripts/dapp-portal-sdk.js`. Using a local Mini Dapp SDK file improves load times and reliability.
+1. Truy cập: https://static.kaiawallet.io/js/dapp-portal-sdk.js
+2. Lưu nội dung vào `scripts/dapp-portal-sdk.js` của bạn. Sử dụng tệp Mini Dapp SDK cục bộ giúp cải thiện thời gian tải và độ tin cậy.
 
 :::note
-Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` in the `script` tag in your `index.html`.
+Ngoài ra, bạn có thể trực tiếp thêm liên kết đến Mini Dapp SDK dưới dạng `src` trong thẻ `script` ở `index.html`.
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
@@ -240,25 +240,25 @@ Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` i
 
 :::
 
-## Step 5: Configure Unity to Use Custom Template
+## Bước 5: Cấu hình Unity để sử dụng mẫu tùy chỉnh
 
-- Open Build Settings.
-- Navigate to Player Settings.
-- Under "Resolution and Presentation":
- - Find "WebGL Template".
- - Select "KaiaTemplate".
-- Under "Publish Settings" select **disabled** in the Compression Format field.
+- Mở Cài đặt bản dựng.
+- Điều hướng đến Cài đặt trình phát.
+- Trong mục "Giải quyết và Trình bày":
+ - Tìm "Mẫu WebGL".
+ - Chọn "KaiaTemplate".
+- Trong "Cài đặt xuất bản", chọn **tắt** trong trường Định dạng nén.
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
-## Step 6: Building Your dApp
+## Bước 6: Xây dựng dApp của bạn
 
-Now Let's bring it all together:
+Bây giờ chúng ta hãy tổng hợp lại:
 
-1. Open Build Settings (File → Build Settings).
-2. Click "Build And Run".
-3. Save the build project as prompted on Unity; e.g "minidapp".
-4. Important Build Files:
+1. Mở Cài đặt bản dựng (Tệp → Cài đặt bản dựng).
+2. Nhấp vào "Xây dựng và chạy".
+3. Lưu dự án xây dựng theo yêu cầu trên Unity; ví dụ: "minidapp".
+4. Các tệp xây dựng quan trọng:
 
 ```bash
 minidapp/
@@ -268,38 +268,38 @@ minidapp/
 └── minidapp.wasm
 ```
 
-## Step 7: Post-Build Configuration
+## Bước 7: Cấu hình sau khi xây dựng
 
-After building your project,
+Sau khi xây dựng dự án của bạn,
 
-1. Open your build folder.
-2. Note all generated file names.
-3. Update your index.html to match these names.
-4. Save changes and rebuild.
-5. You should now see a tab opened in your browser.
+1. Mở thư mục xây dựng của bạn.
+2. Lưu ý tất cả tên tệp đã tạo.
+3. Cập nhật index.html của bạn để khớp với những tên này.
+4. Lưu thay đổi và xây dựng lại.
+5. Bây giờ bạn sẽ thấy một tab được mở trong trình duyệt của mình.
 
 ![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
-## Step 8: Route WebGL build to Localhost:3000
+## Bước 8: Định tuyến bản dựng WebGL tới Localhost:3000
 
-For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+Vì mục đích bảo mật và phát triển, Mini Dapp SDK hiện đang hoạt động trên localhost:3000. Hiện tại, bản dựng Unity WebGL mặc định sử dụng các cổng ngẫu nhiên (như 61445) và để ứng dụng của chúng tôi hoạt động hiệu quả, chúng tôi cần cấu hình bản dựng Unity WebGL để mở trên localhost:3000.
 
-To do so, follow the steps below:
+Để thực hiện, hãy làm theo các bước dưới đây:
 
-1. Copy and Paste the code below in your project terminal
+1. Sao chép và dán mã bên dưới vào terminal dự án của bạn
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. Điều hướng đến thư mục xây dựng
 
 ```bash
 cd path/to/minidapp
 ```
 
-3. Start server on port 3000
+3. Khởi động máy chủ trên cổng 3000
 
 ```bash
 http-server -p 3000
@@ -307,11 +307,11 @@ http-server -p 3000
 
 ![](/img/minidapps/unity-minidapp/lh_3000.png)
 
-## Testing and running application
+## Kiểm tra và chạy ứng dụng
 
-Now that we have our project running, let’s test and interact with it.
+Bây giờ dự án của chúng ta đã chạy, hãy thử nghiệm và tương tác với nó.
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, fill in details (amount) to mint to the connected address.
+- Nhấp vào nút Kết nối ví để kết nối với Ví Dapp Portal.
+- Sau khi kết nối, hãy điền thông tin chi tiết (số tiền) để đúc vào địa chỉ đã kết nối.
 
 ![](/img/minidapps/unity-minidapp/minidapp-demo.gif)
