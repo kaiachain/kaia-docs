@@ -1,4 +1,4 @@
-# Convert to LINE LIFF
+# LINE LIFFに変換
 
 さて、ここからがエキサイティングなところです。Unity WebGLビルドをLINEからアクセスできるミニdAppに変身させるのです！
 
@@ -34,7 +34,7 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+LIFF IDを保存してください - 次のステップで必要になります！
 :::
 
 ## ステップ2：WebGLテンプレートを修正する<a id="modify-webgl-template"></a>
