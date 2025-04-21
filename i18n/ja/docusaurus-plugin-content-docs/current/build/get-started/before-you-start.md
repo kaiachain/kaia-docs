@@ -20,13 +20,13 @@
 
 **カイアSDK**
 
-- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
-- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
-- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
-- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) ：ethers.jsライブラリのKaia拡張。
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) ：web3.jsライブラリのKaia拡張。
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) ：web3jライブラリのKaia拡張。
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) ：web3.pyライブラリのKaia拡張。
 
 **カイア・ツールキット**
 
 - [Kaiascope](https://kaiascope.com/) - ブロックとトランザクションのエクスプローラ。
 - [Kaia Wallet](https://www.kaiawallet.io/) - カイアネットワークのブラウザ拡張ウォレット。
-- [Kaia Contracts Wizard](https://wizard.kaia.io) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。
