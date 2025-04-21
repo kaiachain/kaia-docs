@@ -1,9 +1,9 @@
-# caver-java
+# ケイバー・ジャバ
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network.
+caver-java\`は、kaiaネットワーク上のクライアント୧⃛(๑⃙⃘⁼̴̀꒳⁼̴́๑⃙⃘)୨୧⃛(๑⃙⃘⁼̴́꒳⁼̴̀๑⃙⃘)
 
-:::info[Archival Notice]
+:::info[Archival お知らせ］
 
-The caver-java SDK documentation is no longer available here. Refer to [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) for legacy `caver-java` information. For current Kaia development, please use [web3j-ext](../web3j-ext/getting-started.md).
+caver-java SDKのドキュメントは、もはやここでは入手できません。 レガシーな `caver-java` の情報は [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) を参照してください。 現在のカイア開発については、[web3j-ext](../web3j-ext/getting-started.md) を使用してください。
 
 :::
