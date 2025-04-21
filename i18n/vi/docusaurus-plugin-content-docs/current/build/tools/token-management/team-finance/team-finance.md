@@ -1,16 +1,16 @@
-# Team Finance
+# Tài chính nhóm
 
-## Introduction <a id="introduction"></a>
+## Giới thiệu <a id="introduction"></a>
 
-[Team Finance](https://www.team.finance/about) is an all-in-one token management tool designed to help blockchain projects manage their tokens effectively and securely. It enables projects to lock liquidity, team tokens, and NFTs, while also offering advanced solutions such as token vesting, staking pools, and a token multisender service. As part of the TrustSwap ecosystem, Team Finance focuses on simplifying token management for project founders and investors alike.
+[Team Finance](https://www.team.finance/about) là một công cụ quản lý token toàn diện được thiết kế để giúp các dự án blockchain quản lý token của họ một cách hiệu quả và an toàn. Nó cho phép các dự án khóa thanh khoản, mã thông báo nhóm và NFT, đồng thời cung cấp các giải pháp tiên tiến như phân bổ mã thông báo, nhóm đặt cược và dịch vụ gửi nhiều mã thông báo. Là một phần của hệ sinh thái TrustSwap, Team Finance tập trung vào việc đơn giản hóa việc quản lý mã thông báo cho cả người sáng lập dự án và nhà đầu tư.
 
-## Usage <a id="usage"></a>
+## Sử dụng <a id="usage"></a>
 
-Team Finance supports **Kaia Mainnet**. To get started using Team Finance token management features on Kaia, refer to the following guides:
+Team Finance hỗ trợ **Kaia Mainnet**. Để bắt đầu sử dụng các tính năng quản lý mã thông báo của Team Finance trên Kaia, hãy tham khảo các hướng dẫn sau:
 
-- [Liquidity Locks](./liquidity-locks.md)
-- [Team Token Locks](./team-token-locks.md)
-- [Token Vesting](./token-vesting.md)
-- [Token Creation](./token-creation.md)
-- [NFT Locks](./nft-locks.md)
-- [Multisender](./multisender.md)
+- [Khóa thanh khoản](./liquidity-locks.md)
+- [Khóa mã thông báo nhóm](./team-token-locks.md)
+- [Phân phối Token](./token-vesting.md)
+- [Tạo Token](./token-creation.md)
+- [Khóa NFT](./nft-locks.md)
+- [Nhiều người gửi](./multisender.md)
