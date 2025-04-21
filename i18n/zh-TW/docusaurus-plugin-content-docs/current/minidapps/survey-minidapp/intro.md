@@ -1,46 +1,46 @@
-# Introduction
+# 簡介
 
-The Survey Mini dApp is a privacy-focused decentralized application (dApp) that allows users to create and participate in surveys while maintaining anonymity and transparency. By leveraging cutting-edge tools like Semaphore for zero-knowledge proof integration, and LINE's developer ecosystem, this guide walks you through every step to build and deploy a survey mini dApp on the Kaia blockchain.
+Survey Mini dApp 是專注於隱私權的分散式應用程式 (dApp)，可讓使用者建立並參與調查，同時保持匿名性與透明度。 本指南利用 Semaphore 等尖端工具進行零知識證明整合，並利用 LINE 的開發者生態系統，教導您在 Kaia 区块鏈上建立和部署調查迷你 dApp 的每個步驟。
 
-This comprehensive guide covers:
+本綜合指南涵蓋
 
-- What the application does and its objectives.
-- The tools and prerequisites needed.
-- Setting up a smart contract development environment.
-- Frontend integration and deployment.
+- 應用程式的作用及其目標。
+- 所需的工具和先決條件。
+- 設定智慧型契約開發環境。
+- 前端整合與部署。
 
-To get started quickly, you'll find the entire code for this tutorial on [Github](https://github.com/kjeom/ExampleMiniDapp). This way, you can explore the application's inner workings as you follow along.
+若要快速上手，您可以在 [Github](https://github.com/kjeom/ExampleMiniDapp) 上找到本教學的全部程式碼。 如此一來，您就可以一邊跟著操作，一邊探索應用程式的內部運作。
 
-## Prerequisite <a id="prerequisite"></a>
+## 先決條件<a id="prerequisite"></a>
 
-To build this application, ensure you have the following:
+若要建立此應用程式，請確保您擁有下列內容：
 
-1. Technical Knowledge
-    - Solid understanding of [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
-    - Proficiency in [JavaScript](https://www.w3schools.com/js/default.asp) and [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
-    - Familiarity with smart contract development tools like Hardhat.
-2. Accounts and Tools
-    - [LINE Developer Account](https://developers.line.biz/en/).
-    - [Semaphore Protocol setup](https://docs.semaphore.pse.dev/getting-started).
-    - Mini Dapp SDK Client ID received from Dapp Portal team.
-3. Dependencies Installed
-    - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+1. 技術知識
+    - 紮實了解 [Solidity](https://www.tutorialspoint.com/solidity/index.htm)。
+    - 精通 [JavaScript](https://www.w3schools.com/js/default.asp) 和 [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP)。
+    - 熟悉智慧型契約開發工具，例如 Hardhat。
+2. 帳戶和工具
+    - [LINE Developer Account](https://developers.line.biz/en/)。
+    - [Semaphore Protocol setup](https://docs.semaphore.pse.dev/getting-started)。
+    - 從 Dapp Portal 團隊收到的 Mini Dapp SDK 客戶 ID。
+3. 已安裝的相依性
+    - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 
-## Project Setup and Installation <a id="project-setup-installation"></a>
+## 專案設定與安裝<a id="project-setup-installation"></a>
 
-To start the project setup and installation quickly, clone this project on Github using the following command.
+若要快速開始專案設定與安裝，請使用下列指令在 Github 上複製此專案。
 
 ```bash
 # clone project
 git clone https://github.com/kjeom/ExampleMiniDapp
 ```
 
-Next, change the directory into the cloned folder and install the project locally using npm with the following command:
+接下來，變更目錄至複製的資料夾，並使用 npm 在本機使用下列指令安裝專案：
 
 ```bash
 cd ExampleMiniDapp
 npm install
 ```
 
-Next, let’s understand the inner workings of the smart contract for our survey application. The next section explains how it works.
+接下來，讓我們了解調查應用程式智慧型契約的內部運作。 下一節將解釋其運作方式。
 
