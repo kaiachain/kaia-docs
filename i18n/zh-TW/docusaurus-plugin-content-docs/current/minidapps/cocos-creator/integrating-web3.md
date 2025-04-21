@@ -1,22 +1,22 @@
-# Web3 Integration
+# Web3 整合
 
-In this section, we'll integrate Web3 functionality into our Cocos Creator project by creating a token contract, writing scripts to interact with it, and leveraging the Mini Dapp SDK for wallet connections, token minting, and balance retrieval. By the end, your dApp will seamlessly interact with the blockchain, enabling smooth Web3 interactions within your game.
+在本節中，我們將透過建立代幣合約、撰寫與其互動的腳本，以及利用 Mini Dapp SDK 進行錢包連線、代幣鑄造和餘額擷取，將 Web3 功能整合到我們的 Cocos Creator 專案中。 到最後，您的 dApp 將與區塊鏈進行無縫互動，在您的遊戲中實現流暢的 Web3 互動。
 
-## Creating and deploying KIP7 smart contract <a id="creating-and-deploying-smart-contract"></a>
+## 建立與部署 KIP7 智慧型契約<a id="creating-and-deploying-smart-contract"></a>
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+首先，我們會使用 Kaia Contract Wizard 來產生我們的智慧型契約。
 
-### Step 1: Using Kaia Contract Wizard <a id="using-kaia-contract-wizard"></a>
+### 步驟 1：使用 Kaia 契約精靈<a id="using-kaia-contract-wizard"></a>
 
-- Navigate to Kaia Contract Wizard.
-- Select KIP7 (Kaia's token standard, similar to ERC20).
-- Configure your token:
-  - Name: ExampleTestToken (or something else!)
-  - Symbol: ET (your token's ticker)
-  - Premint: 100 (initial token supply)
-  - Features: Check ✅ Mintable
+- 導覽至 Kaia Contract Wizard。
+- 選擇 KIP7 (Kaia 的代幣標準，類似 ERC20)。
+- 配置您的令牌：
+  - 名稱：ExampleTestToken (或其他名稱!)
+  - 代號：ET (您的代幣代號)
+  - Premint：100 (初始代幣供應)
+  - 功能：檢查 ✅ 可鑄造
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+在本指南中，我們將調整 mint 函式，使其沒有 onlyOwner 修改器。 要做到這一點，我們必須移除 ownable.sol 的匯入，以及 Ownable 的繼承。 調整後的程式碼應該是這樣的：
 
 ```
 // SPDX-License-Identifier: MIT
@@ -43,51 +43,51 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+我們移除了 onlyOwner 修改器，允許除原始部署者或契約擁有者之外的任何人呼叫 mint 函式。
 :::
 
-### Step 2: Deploying via Remix IDE <a id="deploying-via-remix-ide"></a>
+### 步驟 2：透過 Remix IDE 部署<a id="deploying-via-remix-ide"></a>
 
-1. Copy and paste the code above in a newly created file ET.sol on Remix IDE.
-2. In Remix IDE:
-  - Click the **Compile contract** button.
-  - Activate the **Kaia plugin** in the plugin manager.
-  - Under Environment in the Kaia Plugin tab, choose **Injected Provider - Kaia Wallet**.
-  - Find your contract (ExampleTokens) in the **Contract** dropdown.
-  - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-  - Review the deployment details.
-  - Click Confirm to deploy to Kaia Kairos Testnet.
+1. 複製並貼上上述程式碼到 Remix IDE 新建立的檔案 ET.sol。
+2. 在 Remix IDE 中：
+  - 按一下 \*\* 編譯合約\*\* 按鈕。
+  - 在外掛程式管理員中啟動 **Kaia 外掛程式**。
+  - 在 Kaia 外掛索引標籤的「環境」下，選擇 **注入提供者 - Kaia Wallet**。
+  - 在 **Contract** 下拉式選單中找到您的合約 (ExampleTokens)。
+  - 按一下 \*\* 部署\*\* 以啟動您的令牌！
+3. 當您的 Kaia Wallet 彈出時：
+  - 檢視部署詳細資訊。
+  - 按一下「確認」以部署到 Kaia Kairos Testnet。
 
 :::note
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+複製並儲存已部署的合約位址。 您在稍後的教學中會用到它。
 :::
 
-## Creating Script Files <a id="creating-script-file"></a>
+## 建立指令碼檔案<a id="creating-script-file"></a>
 
-To integrate Web3 functionality, we need to create script files for handling blockchain interactions and UI management.
+為了整合 Web3 功能，我們需要建立腳本檔來處理區塊鏈互動和 UI 管理。
 
-**1. Create a Scripts Folder**
+**1. 建立腳本資料夾**
 
-- Navigate to your project's _assets_ folder.
-- Right-click and select **Create → Folder**
+- 導覽到專案的 _assets_ 資料夾。
+- 按一下滑鼠右鍵，然後選取 \*\* 建立 → 資料夾\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-create-script-r.png)
 
-- Name it **scripts**.
+- 將其命名為 **腳本**。
 
-**2. Create Web3 Script Files**
+**2. 建立 Web3 Script 檔案**
 
-Inside the scripts folder, create two TypeScript files:
+在 scripts 資料夾內，建立兩個 TypeScript 檔案：
 
 ![](/img/minidapps/cocos-creator/cp-create-typescript-r.png)
 
-- **Web3Manager.ts** - Handles blockchain interactions.
-- **UIManager.ts** - Manages UI elements and user interactions.
+- **Web3Manager.ts** - 處理區塊鏈互動。
+- **UIManager.ts** - 管理 UI 元素和使用者互動。
 
 ![](/img/minidapps/cocos-creator/cp-all-scripts-r.png)
 
-Your project structure should now look like this:
+現在您的專案結構應該是這樣的：
 
 ```bash
 assets/
@@ -96,18 +96,18 @@ assets/
     UIManager.ts
 ```
 
-### Web3Manager.ts - Handling Blockchain Interactions <a id="web3manager"></a>
+### Web3Manager.ts - 處理區塊鏈互動<a id="web3manager"></a>
 
-The Web3Manager script is responsible for all blockchain-related functionality.
+Web3Manager 指令碼負責所有區塊鏈相關功能。
 
-**Key Features**
+\*\* 主要特色\*\*
 
-- SDK Initialization - Sets up the Mini Dapp SDK.
-- Wallet Connection - Allows users to connect their wallets.
-- Token Minting - Enables token minting functionality.
-- Balance Retrieval - Fetches the user's token balance.
+- SDK 初始化 - 設定 Mini Dapp SDK。
+- 錢包連線 - 允許使用者連接他們的錢包。
+- 代幣鑄造 - 啟用代幣鑄造功能。
+- 餘額擷取 - 擷取使用者的代幣餘額。
 
-Code Implementation:
+代碼實施：
 
 ```typescript
 import { _decorator, Component, Node, director, EventTarget, sys } from 'cc'
@@ -247,24 +247,24 @@ export class Web3Manager extends Component {
 }
 ```
 
-**Key Functions**
+\*\* 主要功能\*\*
 
-- initializeSDK() - Initializes the Mini Dapp SDK.
-- connectWallet() - Handles wallet connection.
-- mintToken(amount) - Mints tokens.
-- getBalance() - Retrieves token balance.
+- initializeSDK() - 初始化 Mini Dapp SDK。
+- connectWallet() - 處理錢包連線。
+- mintToken(amount) - 鑄造代幣。
+- getBalance() - 擷取代幣餘額。
 
-Before running your script, ensure you:
+執行腳本之前，請確保您
 
-- Replace **YOUR_CLIENT_ID** in Web3Manager.ts.
-- Update **CONTRACT_ADDRESS** if needed.
-- Update **CHAIN_ID** for the correct network.
+- 取代 Web3Manager.ts 中的 **YOUR_CLIENT_ID**。
+- 如有需要，請更新 **CONTRACT_ADDRESS**。
+- 更新 **CHAIN_ID** 為正確的網路。
 
-### UIManager.ts - Handling UI Interactions <a id="ui-manager"></a>
+### UIManager.ts - 處理 UI 互動<a id="ui-manager"></a>
 
-The UIManager script manages all UI components and user interactions.
+UIManager 指令碼管理所有 UI 元件和使用者互動。
 
-**Code Implementation:**
+\*\* 代碼實施：\*\*
 
 ```typescript
 import { _decorator, Component, Node, Label, Button } from 'cc'
@@ -357,27 +357,27 @@ export class UIManager extends Component {
 }
 ```
 
-## Attaching Scripts to Nodes & Connecting UI Elements <a id="attaching-scripts-to-nodes"></a>
+## 將指令碼附加到節點和連接 UI 元件<a id="attaching-scripts-to-nodes"></a>
 
-**1. Attach Scripts to the Web3UI Node**
+**1. 將腳本附加到 Web3UI 節點**
 
-- Select the **Web3UI** node.
-- In the **Inspector**, click **Add Component**.
-- Search for and select **Web3Manager**.
+- 選取 **Web3UI** 節點。
+- 在 **Inspector** 中，按一下 **Add Component**。
+- 搜尋並選擇 **Web3Manager**。
 
 ![](/img/minidapps/cocos-creator/cp-add-web3manager-r.png)
 
-- Repeat the steps above to add UIManager.
+- 重複上述步驟新增 UIManager。
 
 ![](/img/minidapps/cocos-creator/cp-add-uimanager-r.png)
 
-**2. Connect UI Elements**
+**2. 連接 UI 元件**
 
-- With Web3UI selected, go to the Inspector.
-- Drag and drop the corresponding UI elements from the Hierarchy into their respective fields:
-  - AddressLabel
-  - BalanceLabel
-  - Connect Wallet Button
-  - Mint Button
+- 選取 Web3UI 後，前往 Inspector。
+- 將對應的 UI 元素從 Hierarchy 拖放到各自的欄位中：
+  - 地址標籤
+  - 結餘標籤
+  - 連接錢包按鈕
+  - 薄荷鈕扣
 
 ![](/img/minidapps/cocos-creator/cp-attach-node-ui-r.png)
