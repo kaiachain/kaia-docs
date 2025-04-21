@@ -1,18 +1,18 @@
-# Getting Started with Semaphore
+# 開始使用 Semaphore
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) enables users to participate anonymously in decentralized applications using zero-knowledge proofs. For this dApp, Semaphore ensures users can submit survey responses without revealing their identities.
+[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) 可讓使用者使用零知識證明匿名參與分散式應用程式。 對於此 dApp，Semaphore 可確保使用者在不洩露身份的情況下提交調查問卷回覆。
 
-**Semaphore Features**:
+**Semaphore 功能**：
 
-- _Anonymity_: Users can submit answers without exposing their personal details.
-- _Verification_: Responses are validated without linking them to individuals.
-- _Anti-Spam_: Prevents duplicate submissions.
+- _匿名_：使用者可以在不暴露個人詳細資料的情況下提交答案。
+- _驗證_：回覆經過驗證，不會與個人聯繫。
+- _Anti-Spam_：防止重複提交。
 
-## Setting Up Smart Contract Development Environment <a id="set-up-smart-contract-env"></a>
+## 設定智慧契約開發環境<a id="set-up-smart-contract-env"></a>
 
-To make use of hardhat, we need to set up our development environment and install Hardhat. Let's do this in the following steps:
+要使用 Hardhat，我們需要設定開發環境並安裝 Hardhat。 讓我們按以下步驟來做：
 
-Navigate to your project's root folder, and then run the following commands to create a new Hardhat project.
+導覽到專案的根目錄，然後執行下列指令來建立新的 Hardhat 專案。
 
 ```bash
 mkdir contract
@@ -20,25 +20,25 @@ cd contract
 npm install --save-dev hardhat
 ```
 
-Bootstrap a sample project by running the command below:
+執行以下指令，啟動一個範例專案：
 
 ```bash
 npx hardhat init 
 ```
 
-For this guide, you'll be selecting a typescript project.
+在本指南中，您將選擇一個排印稿專案。
 
 :::note
-While initializing the project, you will get a prompt to install the hardhat-toolbox plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+在初始化專案時，您會收到安裝 hardhat-toolbox 外掛程式的提示。 這個外掛綁定了所有常用的套件和 Hardhat 外掛，建議開始使用 Hardhat 開發。
 :::
 
-Next, install `@semaphore-protocol/contracts` for Semaphore Solidity contracts, `OpenZeppelin contracts` and `hardhat-deploy` with the following command:
+接下來，使用以下命令為Semaphore Solidity合約、`OpenZeppelin合約`和`hardhat-deploy`安裝`@semaphore-protocol/contracts`：
 
 ```bash
 npm install --save-dev @semaphore-protocol/contracts @openzeppelin/contracts hardhat-deploy
 ```
 
-You then want to modify your `hardhat.config.ts` with the following configurations:
+然後，您要使用下列設定修改您的 `hardhat.config.ts`：
 
 ```javascript
 import { HardhatUserConfig } from "hardhat/config";
@@ -94,4 +94,4 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-Now that we have our development environment all set, let's get into writing our survey smart contract.
+現在我們的開發環 境已經齊備，讓我們開始撰寫調查智慧型契約。
