@@ -64,55 +64,55 @@
     "description": "Navbar item with label Contract Addresses"
   },
   "item.label.Get Started": {
-    "message": "Get Started",
+    "message": "Bắt đầu",
     "description": "Navbar item with label Get Started"
   },
   "item.label.Transactions": {
-    "message": "Transactions",
+    "message": "Giao dịch",
     "description": "Navbar item with label Transactions"
   },
   "item.label.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "Hợp đồng thông minh",
     "description": "Navbar item with label Smart Contracts"
   },
   "item.label.Tutorials": {
-    "message": "Tutorials",
+    "message": "Hướng dẫn",
     "description": "Navbar item with label Tutorials"
   },
   "item.label.Tools": {
-    "message": "Tools",
+    "message": "Công cụ",
     "description": "Navbar item with label Tools"
   },
   "item.label.Endpoint Node": {
-    "message": "Endpoint Node",
+    "message": "Nút điểm cuối",
     "description": "Navbar item with label Endpoint Node"
   },
   "item.label.Core Cell": {
-    "message": "Core Cell",
+    "message": "Tế bào lõi",
     "description": "Navbar item with label Core Cell"
   },
   "item.label.Service Chain": {
-    "message": "Service Chain",
+    "message": "Chuỗi dịch vụ",
     "description": "Navbar item with label Service Chain"
   },
   "item.label.Node Downloads": {
-    "message": "Node Downloads",
+    "message": "Tải xuống nút",
     "description": "Navbar item with label Node Downloads"
   },
   "item.label.Kaia SDK": {
-    "message": "Kaia SDK",
+    "message": "Bộ công cụ phát triển Kaia",
     "description": "Navbar item with label Kaia SDK"
   },
   "item.label.LINE Mini DApp with Unity": {
-    "message": "LINE Mini DApp with Unity",
+    "message": "LINE Mini DApp với Unity",
     "description": "Navbar item with label LINE Mini DApp with Unity"
   },
   "item.label.LINE Mini DApp with Cocos": {
-    "message": "LINE Mini DApp with Cocos",
+    "message": "LINE Mini DApp với Cocos",
     "description": "Navbar item with label LINE Mini DApp with Cocos"
   },
   "item.label.Survey Mini DApp": {
-    "message": "Survey Mini DApp",
+    "message": "Khảo sát Mini DApp",
     "description": "Navbar item with label Survey Mini DApp"
   }
 }
