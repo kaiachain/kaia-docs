@@ -1,45 +1,45 @@
-# Token Creation
+# トークン作成
 
-## Introduction
+## はじめに
 
-Easily create your own tokens with Team Finance's token creation tool designed for founders who need a fast, secure, and trusted way to generate tokens without any coding experience.
+チームファイナンスのトークン作成ツールを使って、独自のトークンを簡単に作成することができます。このツールは、コーディングの経験がなくても、迅速、安全、かつ信頼できる方法でトークンを作成する必要がある創業者のために設計されています。
 
-With Team Finance, projects and founders can save time and money on audits and development while customizing token functions to fit their needs.
+チーム・ファイナンスを使えば、プロジェクトや創設者は監査や開発にかかる時間とコストを節約しながら、トークンの機能をニーズに合わせてカスタマイズすることができる。
 
-## Getting Started
+## はじめに
 
-In this tutorial, you will learn how to easily create tokens with Team Finance. Let's get started!
+このチュートリアルでは、Team Finance でトークンを簡単に作成する方法を学びます。 始めよう！
 
-1. Navigate to Team Finance [Token creation](https://app.team.finance/token-creation) tab and click on **Create token**.
+1. Team Finance [Token creation](https://app.team.finance/token-creation) タブに移動し、**Create token** をクリックします。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. ウォレットを選択\*\*し、**続行**をクリックして、ウォレットをチームファイナンスに接続します。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. ブロックチェーン・ネットワークで**Kaia**を選択し、**Continue**をクリックする。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-3.png)
 
-4. Enter the **token info** for the token you want to create and click **"Continue"**.
+4. 作成したいトークンの**トークン情報**を入力し、\*\*"Continue "\*\*をクリックします。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-4.png)
 
-5. Add features such as **mint**, **burn** etc. depending on your need
+5. 必要に応じて、**ミント**、**バーン**などの機能を追加する。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-5.png)
 
-6. Now, verify the details of your token creation and click **Confirm transaction** to finalize the process. Go to your wallet and sign the transaction to complete the process.
+6. トークン作成の詳細を確認し、**Confirm transaction**をクリックして処理を確定します。 ウォレットに移動し、取引に署名して手続きを完了する。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-6.png)
 
-7. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+7. 確認後、取引状況を表示するページに移動します。 お取引が確認されるまで、ページからの移動はご遠慮ください。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7a.png)
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7b.png)
 
-8. Congratulations! You have successfully created tokens using Team Finance. You can view the details of the tokens created and perform some actions on the dashboard.
+8. おめでとう！ Team Finance を使用してトークンを作成しました。 ダッシュボードでは、作成されたトークンの詳細を表示したり、いくつかのアクションを実行したりできます。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-8.png)
