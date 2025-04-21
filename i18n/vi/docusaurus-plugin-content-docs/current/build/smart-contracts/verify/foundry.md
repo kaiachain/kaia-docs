@@ -1,16 +1,16 @@
 ---
-sidebar_label: Using Foundry
+sidebar_label: Sử dụng Foundry
 ---
 
-# How to Verify Smart Contracts Using Foundry
+# Cách xác minh hợp đồng thông minh bằng Foundry
 
-This guide walks you through the steps to automatically verify your smart contract’s source code on Kaiascan directly from your CLI using Foundry. At the moment, Kaiascan only supports the verification of flattened contract files when using Foundry.
+Hướng dẫn này sẽ hướng dẫn bạn các bước để tự động xác minh mã nguồn hợp đồng thông minh của bạn trên Kaiascan trực tiếp từ CLI bằng Foundry. Hiện tại, Kaiascan chỉ hỗ trợ xác minh các tệp hợp đồng đã được làm phẳng khi sử dụng Foundry.
 
-> Ensure that your contract is flattened before proceeding with the verification process.
+> Đảm bảo hợp đồng của bạn đã được hoàn thiện trước khi tiến hành quá trình xác minh.
 
-## Getting started
+## Bắt đầu
 
-This guide expects that you have an idea of developing smart contracts with Foundry. See [Deploy smart contract using Foundry](../deploy/foundry.md) to get started.   We are going to be deploying and verifying this sample NFT contract below:
+Hướng dẫn này kỳ vọng rằng bạn có ý tưởng phát triển hợp đồng thông minh với Foundry. Xem [Triển khai hợp đồng thông minh bằng Foundry](../deploy/foundry.md) để bắt đầu.   Chúng tôi sẽ triển khai và xác minh mẫu hợp đồng NFT bên dưới:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -79,9 +79,9 @@ contract NFT is ERC721, Ownable {
 }
 ```
 
-To verify a contract using Foundry verify, see the steps below:
+Để xác minh hợp đồng bằng Foundry verify, hãy xem các bước dưới đây:
 
-## Flatten the contract
+## Làm phẳng hợp đồng
 
 ```bash
 ## flatten
@@ -89,7 +89,7 @@ To verify a contract using Foundry verify, see the steps below:
 forge flatten src/NFT.sol > FlattenedNFT.sol
 ```
 
-## Deploy the contract
+## Triển khai hợp đồng
 
 ```bash
 ## deploy
@@ -99,7 +99,7 @@ forge create --rpc-url $KAIROS_RPC_URL private-key $PRIVATE_KEY src/NFT.sol:NFT 
 
 ![](/img/build/smart-contracts/verify/foundry-verify-deploy.png)
 
-## Verify the contract
+## Xác minh hợp đồng
 
 ```bash
 ## verify an already deployed contract as seen above *//
@@ -109,13 +109,13 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ![](/img/build/smart-contracts/verify/foundry-verify-bash.png)
 
-You can look up the verified contract [here](https://kairos.kaiascan.io/address/0x06f09d3f77341b2f9bdc1e6fc2928761ba05f934?tabId=contract&page=1)
+Bạn có thể tra cứu hợp đồng đã xác minh [tại đây](https://kairos.kaiascan.io/address/0x06f09d3f77341b2f9bdc1e6fc2928761ba05f934?tabId=contract&page=1)
 
 ![](/img/build/smart-contracts/verify/foundry-verify-ks-page.png)
 
-## Useful links
+## Liên kết hữu ích
 
-- [Configuration for Foundry Verify on Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+- [Cấu hình cho Foundry Verify trên Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
