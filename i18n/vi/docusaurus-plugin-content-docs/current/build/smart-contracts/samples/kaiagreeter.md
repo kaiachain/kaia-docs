@@ -33,8 +33,8 @@ contract KaiaGreeter is Mortal {
 
 - Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. The complete source code was given in the above.
 - Prepare your account which will be used to deploy the contract.
-  - If you do not have an account yet, create one using [Kaia Toolkit](https://toolkit.kaia.io/account/).
-  - Get some test KAIA from the faucet - [Faucet](https://faucet.kaia.io)
+  - Nếu bạn chưa có tài khoản, hãy tạo một tài khoản bằng [Kaia Toolkit](https://toolkit.kaia.io/account/).
+  - Lấy một số KAIA thử nghiệm từ vòi - [Vòi](https://faucet.kaia.io)
 - Deploy the contract with initial parameter, a greeting message.
 - After deploying, you can invoke `greet` from the IDE.
 
