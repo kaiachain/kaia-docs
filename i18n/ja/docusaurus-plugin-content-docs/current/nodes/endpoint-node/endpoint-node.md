@@ -17,4 +17,4 @@
 Endpoint Node インストール・バイナリには、以下のインターフェースとユーティリティが付属しています。
 
 - JSON-RPC API：JSON-RPCサーバーはノード内部で動作し、ブロックチェーンアプリケーション開発のための[API](../../references/json-rpc/klay/account-created)を公開する。 ノード管理APIもいくつかある。
-- コマンドラインインターフェース：アカウント管理とノード設定機能を提供します。 インタラクティブなJavaScriptコンソールも提供され、ノードに添付される。 JavaScript console implements most of the [RPC APIs](../../references/json-rpc/references.md).
+- コマンドラインインターフェース：アカウント管理とノード設定機能を提供します。 インタラクティブなJavaScriptコンソールも提供され、ノードに添付される。 JavaScriptコンソールは、ほとんどの[RPC API](../../references/json-rpc/references.md)を実装している。
