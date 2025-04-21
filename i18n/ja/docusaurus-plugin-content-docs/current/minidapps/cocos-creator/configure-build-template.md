@@ -1,89 +1,89 @@
-# Mini Dapp SDK Integration
+# ミニDapp SDKの統合
 
-In this section, we will ensure the Mini Dapp SDK is loaded in our game. To do that, Cocos Creator’s build-templates directory allows customization of how the game is built for the web platform, making it essential for preloading the SDK before the game starts.
+このセクションでは、Mini Dapp SDKがゲームにロードされていることを確認します。 そのために、Cocos Creatorのbuild-templatesディレクトリでは、ゲームがどのようにウェブ・プラットフォーム用にビルドされるかをカスタマイズすることができ、ゲーム開始前にSDKをプリロードするのに欠かせない。
 
-By creating a custom template in **build-templates/web-desktop**, we can automatically include the SDK in every build, streamlining development and deployment.
+build-templates/web-desktop\*\*にカスタムテンプレートを作成することで、すべてのビルドにSDKを自動的に含めることができ、開発とデプロイが効率化されます。
 
-## Step 1: Create the build-templates Directory <a id="create-build-template-directory"></a>
+## ステップ1：build-templatesディレクトリの作成<a id="create-build-template-directory"></a>
 
-Open your project in VS Code and run the following command in the terminal:
+プロジェクトをVS Codeで開き、ターミナルで以下のコマンドを実行する：
 
 ```bash
 mkdir -p build-templates/web-desktop
 ```
 
-## Step 2: Perform an Initial Build in Cocos Creator <a id="perform-initial-build"></a>
+## ステップ2：Cocos Creatorで初期ビルドを行う<a id="perform-initial-build"></a>
 
-1. Go to **Menu → Project → Build**.
+1. Menu → Project → Build\*\*.
 
 ![](/img/minidapps/cocos-creator/cp-build-r.png)
 
-2. Set **Platform** to **Web Desktop**.
+2. プラットフォーム**を**Webデスクトップ\*\*に設定します。
 
-3. Click **Build**.
+3. ビルド\*\*をクリックする。
 
 ![](/img/minidapps/cocos-creator/cp-build-details-r.png)
 
-## Step 3: Copy the index.html file from the Build Directory <a id="copy-index-html-from-build-dir"></a>
+## ステップ3：ビルド・ディレクトリからindex.htmlファイルをコピーする<a id="copy-index-html-from-build-dir"></a>
 
-Once the build is complete, copy the index.html file into the build-templates directory:
+ビルドが完了したら、index.htmlファイルをbuild-templatesディレクトリにコピーする：
 
 ```bash
 cp build/web-desktop/index.html build-templates/web-desktop/
 ```
 
-## Step 4: Modify index.html to Include the Mini Dapp SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
+## ステップ4： ミニダップSDKを含めるためにindex.htmlを修正する<a id="modify-index-html-to-include-dapp-portal-sdk"></a>
 
-Edit `build-templates/web-desktop/index.html` and add the following Mini Dapp SDK script tag inside the `<head> </head>` section:
+build-templates/web-desktop/index.html`を編集し、<head> </head>`セクション内に以下のMini Dapp SDK scriptタグを追加する：
 
 ```bash
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
 ```
 
-## Step 5: Verify the Build Setup <a id="verify-build-setup"></a>
+## ステップ 5: ビルド・セットアップの確認<a id="verify-build-setup"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated `build/web-desktop/index.html`.
-- Confirm that the **Mini Dapp SDK script** is correctly included.
+- Cocos Creatorでプロジェクトを再構築する。
+- 生成された `build/web-desktop/index.html` を確認する。
+- Mini Dapp SDKスクリプト\*\*が正しくインクルードされていることを確認してください。
 
-## Step 6: Build & Preview the Project <a id="build-preview-project"></a>
+## ステップ6：プロジェクトのビルドとプレビュー<a id="build-preview-project"></a>
 
-After completing the setup, click _Play on Device_ at the top of the Cocos Creator Editor. Your game should open in a new browser tab.
+設定が完了したら、Cocos Creator Editorの上部にある_Play on Device_をクリックします。 新しいブラウザのタブでゲームが開くはずです。
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
 ![](/img/minidapps/cocos-creator/cp-localhost-build-r.png)
 
-# Route Web build to Localhost:3000 <a id="route-web-build"></a>
+# WebビルドをLocalhost:3000にルートする<a id="route-web-build"></a>
 
-For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 7457) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+セキュリティと開発目的のため、Mini Dapp SDKは現在localhost:3000で動作しています。 現時点では、デフォルトのUnity WebGLビルドはランダムなポート（7457など）を使用しており、アプリを効率的に動作させるには、Unity WebGLビルドをlocalhost:3000で開くように設定する必要があります。
 
-To do so, follow the steps below:
+そのためには、以下の手順に従ってください：
 
-1. Copy and paste the code below in your project terminal
+1. 以下のコードをコピーして、プロジェクトのターミナルに貼り付けます。
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. ビルド・フォルダーに移動する
 
 ```bash
 cd build/web-desktop
 ```
 
-3. Start server on port 3000
+3. ポート3000でサーバーを起動
 
 ```bash
 http-server -p 3000
 ```
 
-# Testing and running application <a id="route-web-build"></a>
+# アプリケーションのテストと実行<a id="route-web-build"></a>
 
-Now that we have our project running, let’s test and interact with it.
+さて、プロジェクトを走らせたので、テストして操作してみよう。
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, mint a fixed amount to the connected address.
+- Connect Wallet ボタンをクリックして Dapp Portal Wallet に接続します。
+- 一旦接続されると、接続されたアドレスに一定額を送金する。
 
 ![](/img/minidapps/cocos-creator/cocos-demo.gif)
