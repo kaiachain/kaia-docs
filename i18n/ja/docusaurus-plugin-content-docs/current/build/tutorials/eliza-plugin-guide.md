@@ -1,19 +1,19 @@
-# Kaia Eliza Plugin
+# カイア・イライザ プラグイン
 
-## Overview
+## 概要
 
-The **Kaia Eliza Plugin** is a vital extension for integrating with **ElizaOS**, enabling seamless interaction with the **Kaia Mainnet** and **Kairos Testnet**. This plugin provides a robust suite of functionalities, including **KAIA token transfers, wallet balance queries, and retrieval of fungible and non-fungible tokens (FTs/NFTs)**. Designed for developers, it simplifies wallet management and enhances application capabilities within the **ElizaOS framework** for the Kaia ecosystem.
+Kaia Eliza Plugin**は、**ElizaOS**との統合に不可欠な拡張機能で、**Kaia Mainnet**および**Kairos Testnet\*\*とのシームレスなインタラクションを可能にします。 このプラグインは、**KAIAトークンの転送、ウォレット残高のクエリー、菌類・非菌類トークン(FTs/NFTs)**の取得を含む、堅牢な機能スイートを提供します。 開発者向けに設計され、ウォレット管理を簡素化し、カイア・エコシステムの**ElizaOSフレームワーク**内のアプリケーション機能を強化します。
 
-**Key Features**
+**主な特徴**
 
-- **Token Transfers**: Effortlessly send KAIA tokens between wallets.
-- **Wallet Queries**: Retrieve wallet balances and real-time KAIA price data.
-- **Network Management**: Interact seamlessly with the Kaia blockchain.
-- **Block & Transaction Information**: Access detailed insights into transactions and blocks on the network.
+- **トークンの転送**：KAIAトークンをウォレット間で簡単に送信できます。
+- \*\*ウォレットクエリーウォレットの残高とリアルタイムのKAIA価格データを取得します。
+- **ネットワーク管理**：Kaiaブロックチェーンとシームレスに相互作用する。
+- **ブロックと取引情報**：ネットワーク上の取引とブロックに関する詳細な情報にアクセスできます。
 
-## Getting Started
+## はじめに
 
-### 1. Setup ElizaOS
+### 1. ElizaOSのセットアップ
 
 ```sh
 git clone https://github.com/elizaOS/eliza
@@ -23,13 +23,13 @@ pnpm install
 cp .env.example .env
 ```
 
-### 2. Configuring Environment Variables
+### 2. 環境変数の設定
 
-To integrate the Kaia plugin, developers must configure environment variables and secrets. The plugin can access these settings through **agent.json.secret** or directly at runtime.
+カイア・プラグインを統合するには、開発者は環境変数とシークレットを設定しなければならない。 プラグインは、**agent.json.secret**を通じて、または実行時に直接、これらの設定にアクセスできる。
 
-Now, configure the `.env` file and `kaiaagent.character.json` values.
+次に、`.env` ファイルと `kaiaagent.character.json` の値を設定する。
 
-**.env file:**
+\*\*.envファイル
 
 ```sh
 GROK_API_KEY= # GROK API Key
@@ -37,7 +37,7 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 ```
 
 :::note
-To use any **LLM provider**, configure the relevant API keys in `.env`. Based on the key provided, update the **modelProvider** setting in the character file.
+任意の**LLMプロバイダー**を使用するには、`.env`で関連するAPIキーを設定する。 提供されたキーに基づいて、キャラクタ・ファイルの**modelProvider**設定を更新する。
 :::
 
 **kaiaagent.character.json:**
@@ -59,23 +59,23 @@ To use any **LLM provider**, configure the relevant API keys in `.env`. Based on
 }
 ```
 
-Provide values for:
+の値を提供する：
 
-- **KAIA_EVM_PRIVATE_KEY**: Required for on-chain transactions.
-- **KAIA_KAIASCAN_API_KEY**: Obtainable from [KaiaScan](https://kaiascan.io).
-- **KAIA_FAUCET_AMOUNT**: Specifies the token amount to distribute upon request.
+- **kaia_evm_private_key**：オンチェーン・トランザクションに必要。
+- **kaia_kaiascan_api_key**：KaiaScan](https://kaiascan.io)から取得可能。
+- **kaia_faucet_amount**：リクエスト時に配布するトークンの量を指定します。
 
-**Configuration Example**
+\*\*構成例
 
-Download the required character.json file:
+必要なcharacter.jsonファイルをダウンロードする：
 
 ```sh
 wget https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/kaiaagent.character.json -O ./characters/kaiaagent.character.json
 ```
 
-## Plugin Registration
+## プラグイン登録
 
-To enable the **Kaia plugin**, add it to your agent’s configuration:
+Kaiaプラグイン\*\*を有効にするには、エージェントの設定に追加します：
 
 ```json
 {
@@ -84,7 +84,7 @@ To enable the **Kaia plugin**, add it to your agent’s configuration:
 }
 ```
 
-Also, run the command below to add the plugin in your `package.json`:
+また、以下のコマンドを実行して、`package.json`にプラグインを追加してください：
 
 ```bash
 npx elizaos plugins install @elizaos-plugins/plugin-kaia
@@ -98,115 +98,115 @@ npx elizaos plugins install @elizaos-plugins/plugin-kaia
 }
 ```
 
-## Build & Start Eliza
+## ビルド＆スタート・エリザ
 
 ```sh
 pnpm build
 pnpm start --character="./characters/kaiaagent.character.json"
 ```
 
-## Running the Eliza Client UI
+## ElizaクライアントUIの実行
 
-Open another terminal and execute:
+別のターミナルを開いて実行する：
 
 ```sh
 pnpm run start:client
 ```
 
-Once the UI is ready, it should be available at **http://localhost:5173**.
+UIの準備が整えば、\*\*http://localhost:5173\*\*で公開されるはずだ。
 
 :::note
-Ensure that the account associated with the configured private key is funded to perform on-chain transactions on either the **Kaia Testnet** or **Mainnet**. Test tokens can be requested from the [Kaia Faucet](https://faucet.kaia.io).
+設定された秘密鍵に関連付けられているアカウントが、**Kaia Testnet** または **Mainnet** のいずれかでオンチェーン取引を実行するために資金を供給されていることを確認します。 テストトークンは[Kaia Faucet](https://faucet.kaia.io)からリクエストできる。
 :::
 
-## Demo
+## デモ
 
-[Watch the Kaia Eliza Plugin Demo](https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/KaiaElizaPluginDemo.mp4)
+[カイア・イライザ・プラグインのデモを見る](https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/KaiaElizaPluginDemo.mp4)
 
-## Usage Examples
+## 使用例
 
-### Fetch KAIA Price and Market Data
+### KAIAの価格と市場データを取得する
 
-**Command:**
+\*\*コマンド
 
 ```sh
 User: "Give me KAIA information"
 ```
 
-**Response:**
+**回答：**\*。
 
 ```sh
 Assistant: "KAIA Token info: USD: 0.14, Total Supply: 5,936,109,217, Volume: 63,994,146"
 ```
 
-### Request KAIA Test Tokens
+### KAIAテスト・トークンのリクエスト
 
-**Command:**
+\*\*コマンド
 
 ```sh
 User: "Give me some test tokens to 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d"
 ```
 
-**Response:**
+**回答：**\*。
 
 ```sh
 Assistant: "I'll send a few KAIA testnet tokens..."
 ```
 
-### Send KAIA Tokens
+### KAIAトークンを送る
 
-**Command:**
+\*\*コマンド
 
 ```sh
 User: "Send 1 KAIA to 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d on Kairos"
 ```
 
-**Response:**
+**回答：**\*。
 
 ```sh
 Assistant: "I'll send 1 KAIA token now..."
 ```
 
-### Query Account Information
+### アカウント情報の照会
 
-**Command:**
+\*\*コマンド
 
 ```sh
 User: "What's my account overview of 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d on Kairos?"
 ```
 
-**Response:**
+**回答：**\*。
 
 ```sh
 Assistant: "Your account overview details: Account Type: EOA, Balance: 10, Total Transactions: 12"
 ```
 
-### Check Latest Block Information
+### 最新ブロック情報
 
-**Command:**
+\*\*コマンド
 
 ```sh
 User: "What is the latest block number of Kaia?"
 ```
 
-**Response:**
+**回答：**\*。
 
 ```sh
 Assistant: "The latest block number for Kaia is 176629207"
 ```
 
-## Get Involved
+## 参加する
 
-We welcome contributions from the developer community. To explore more about the Kaia blockchain, visit:
+開発者コミュニティからの貢献を歓迎する。 カイア・ブロックチェーンの詳細については、こちらをご覧ください：
 
-- [Kaia Documentation](https://docs.kaia.io/)
-- [Kaia Developer Portal](https://www.kaia.io/developers)
-- [KaiaScan Explorer](https://kaiascan.io)
-- [KaiaScan API Docs](https://docs.kaiascan.io/)
-- [Kaia Github Repository](https://github.com/kaiachain)
+- [カイア・ドキュメンテーション](https://docs.kaia.io/)
+- [カイア開発者ポータル](https://www.kaia.io/developers)
+- [カイアスキャンエクスプローラー](https://kaiascan.io)
+- [カイアスキャンAPIドキュメント](https://docs.kaiascan.io/)
+- [カイアGithubリポジトリ](https://github.com/kaiachain)
 
-## Conclusion
+## 結論
 
-The **Kaia Eliza Plugin** seamlessly integrates with the **ElizaOS AI agent framework**, enabling intelligent and efficient interaction with the **Kaia Mainnet** and **Kairos Testnet**. With its powerful wallet, transaction, and token management features, it empowers developers to build smarter, more responsive decentralized applications while simplifying blockchain interactions.
+Kaia Eliza Plugin**は、**ElizaOS AIエージェントフレームワーク**とシームレスに統合され、**Kaia Mainnet**および**Kairos Testnet\*\*とのインテリジェントで効率的なインタラクションを可能にします。 強力なウォレット、トランザクション、トークン管理機能により、開発者はブロックチェーンでのやり取りを簡素化しながら、よりスマートで応答性の高い分散型アプリケーションを構築することができます。
 
-Ready to enhance your AI-driven blockchain experience? Integrate the Kaia plugin with **ElizaOS** today and unlock new possibilities!
+AI主導のブロックチェーン体験を強化する準備はできていますか？ 今すぐKaiaプラグインを**ElizaOS**と統合し、新たな可能性を引き出してください！
