@@ -1,30 +1,30 @@
-# Kaia Toolkit
+# カイア・ツールキット
 
-## What is the Kaia Toolkit?
+## カイア・ツールキットとは何ですか？
 
-[**Kaia Toolkit**](https://toolkit.kaia.io) provides developer-friendly code samples and interactive web tools to simplify integration with the Kaia blockchain. It serves as both a learning resource and practical utility suite for building decentralized applications.
+[カイア・ツールキット\*\*](https://toolkit.kaia.io)は、カイア・ブロックチェーンとの統合を簡素化するために、開発者向けのコードサンプルとインタラクティブなウェブツールを提供します。 分散型アプリケーションを構築するための学習リソースであり、実用的なユーティリティ・スイートでもある。
 
-![Kaia Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+カイア・ツールキット](/img/build/tools/klaytn-online-toolkit.png)
 
-## Key Features
+## 主な特徴
 
-- **Multi-SDK Support**: Compatible with modern Ethereum-equivalent SDKs
-  - `Ethers-ext` (Extended ethers.js implementation)
-  - `Web3js-ext` (Enhanced web3.js library)
-  - `Viem` (TypeScript interface for EVM chains)
-- **Live Sandbox Environment**: Test blockchain interactions directly through the web interface without local setup
-- **Comprehensive Tools**:
-  - Wallet integration (KaiaWallet, MetaMask, RainbowKit, OKX)
-  - Account management (Basic/Mnemonic/Keystore)
-  - Token operations (KIP-7, KIP-17, KIP-37)
-  - Blockchain utilities (RLP encoder, unit converter, signature verification)
+- **マルチSDKサポート**：最新のイーサリアム同等SDKとの互換性
+  - Ethers-ext\` (ethers.js の拡張実装)
+  - Web3js-ext\` (拡張 web3.js ライブラリ)
+  - Viem\` (EVM チェーンの TypeScript インターフェース)
+- **ライブ・サンドボックス環境**：ローカルでセットアップすることなく、ウェブ・インターフェイスを通じてブロックチェーンのインタラクションを直接テストできます。
+- **総合ツール**：
+  - ウォレットの統合（KaiaWallet、MetaMask、RainbowKit、OKX）
+  - アカウント管理（ベーシック／ニーモニック／キーストア）
+  - トークン操作（KIP-7、KIP-17、KIP-37）
+  - ブロックチェーンユーティリティ（RLPエンコーダー、単位変換、署名検証）
 
-## Developer Resources
+## 開発者向けリソース
 
-Here are the links for the Kaia Toolkit and related resources:
+以下は、カイア・ツールキットと関連リソースのリンクです：
 
-- [GitHub Repository](https://github.com/kaiachain/kaia-online-toolkit)
+- [GitHubリポジトリ](https://github.com/kaiachain/kaia-online-toolkit)
 - [ツールキットページ](https://toolkit.kaia.io)
 - [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
-- [Web3js-ext Documentation](../../references/sdk/web3js-ext/getting-started.md)
-- [Viem Documentation](../../references/sdk/viem/viem.md)
+- [Web3js-ext ドキュメント](../../references/sdk/web3js-ext/getting-started.md)
+- [ヴィエム・ドキュメント](../../references/sdk/viem/viem.md)
