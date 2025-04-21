@@ -1,18 +1,18 @@
-# Integrating a Next.js frontend application with smart contract
+# Next.jsフロントエンドアプリケーションとスマートコントラクトの統合
 
-In the previous steps, you successfully built and deployed the smart contract to a localhost. Now, it's time to interact with it from the frontend. The frontend uses Next.js, integrates Semaphore for privacy features and the Mini Dapp SDK for authentication.
+これまでのステップで、スマート・コントラクトを構築し、ローカル・ホストにデプロイすることに成功した。 さて、次はフロントエンドから操作する番だ。 フロントエンドはNext.jsを使用し、プライバシー機能のためにSemaphoreを統合し、認証のためにMini Dapp SDKを統合しています。
 
-## Setup & Installation <a id="setup-installation"></a>
+## セットアップとインストール<a id="setup-installation"></a>
 
-Having already cloned the project repo inclusive of Next.js frontend, the next thing you want to do is to create a .env file in the root directory by using the command below:
+Next.jsフロントエンドを含むプロジェクトリポジトリをクローンしたので、次はルートディレクトリに.envファイルを作成します：
 
 ```bash
 touch .env
 ```
 
-> Note: Ensure you are in the root directory before running the command above.
+> 注：上記のコマンドを実行する前に、ルート・ディレクトリにいることを確認してください。
 
-Inside the .env file you just created, add the following:
+先ほど作成した.envファイルの中に、以下を追加する：
 
 ```bash
 SURVEY_FACTORY_V1_CONTRACT_ADDRESS=[factory address]
@@ -21,18 +21,18 @@ NODE_URL=http://localhost:8545
 ```
 
 :::note
-Make sure to Replace `SURVEY_FACTORY_V1_CONTRACT_ADDRESS`  and `NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS` with the contract address you deployed to localhost earlier in this tutorial.
+SURVEY_FACTORY_V1_CONTRACT_ADDRESS`と`NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS\`を、このチュートリアルで先ほどlocalhostにデプロイした契約アドレスに置き換えてください。
 :::
 
-Now lets take a look at the core functionalities of the app:
+では、アプリのコア機能を見てみよう：
 
-## Survey Management <a id="survey-management"></a>
+## 調査管理<a id="survey-management"></a>
 
-### 1. Creating Survey <a id="creating-survey"></a>
+### 1. アンケートの作成<a id="creating-survey"></a>
 
-**Interface Definition:**
+**インターフェース定義：**\*」。
 
-The SurveyInfo interface standardizes how survey data is handled across the application, ensuring consistency in data types and structure.
+SurveyInfo インターフェイスは、アプリケーション全体でアンケートデータを処理する方法を標準化し、データ型と構造の一貫性を確保します。
 
 ```typescript
 // types/index.ts
@@ -48,9 +48,9 @@ export interface SurveyInfo {
 }
 ```
 
-**Implementation and Usage**
+**導入と使用**について
 
-**A. Data Fetching**: This layer manages the communication between the smart contracts and the application, converting raw blockchain data into the SurveyInfo format.
+**A. データのフェッチ**：このレイヤーはスマートコントラクトとアプリケーション間の通信を管理し、生のブロックチェーンデータを SurveyInfo フォーマットに変換します。
 
 ```typescript
 // backend/survey.tsx
@@ -83,7 +83,7 @@ const daysLeft = (duration: bigint) => {
 };
 ```
 
-**B. Display components**: This React component handles the visual representation of survey data, including status indicators, progress tracking, and other interactive elements.
+**B. 表示コンポーネント**：この React コンポーネントは、ステータスインジケータ、進捗追跡、その他のインタラクティブ要素など、アンケートデータの視覚的な表現を処理します。
 
 ```typescript
 // components/SurveyCard.tsx
@@ -151,7 +151,7 @@ export default function SurveyCard({
 }
 ```
 
-**C. Survey Listing**: Handles the organization and display of survey collections, featuring sections like _Hot Topics_ and _Ending Soon_ to improve user navigation.
+**C. アンケートリスト**：ユーザーのナビゲーションを向上させるために、_ホットトピック_ や _まもなく終了_ などのセクションを備えています。
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -192,9 +192,9 @@ export default async function SurveysPage() {
 }
 ```
 
-### 2. Answering Survey <a id="answering-survey"></a>
+### 2. アンケートへの回答<a id="answering-survey"></a>
 
-**A. Interface Definition**: The Answer interface provides a standardized format for survey responses, including both the answer data and privacy-related proof information.
+**A. インターフェースの定義**：回答インターフェースは、回答データとプライバシー関連の証明情報の両方を含む、アンケートの回答のための標準化されたフォーマットを提供します。
 
 ```typescript
 // types/index.ts
@@ -208,7 +208,7 @@ interface Answer {
 }
 ```
 
-**B. Submission Function:** This function manages the interaction with the smart contract, including transaction creation and confirmation.
+**B. サブミッション機能:** この機能は、トランザクションの作成と確認を含む、スマートコントラクトとのやり取りを管理する。
 
 ```typescript
 // browser/survey.tsx
@@ -234,7 +234,7 @@ export const submitAnswer = async (
 };
 ```
 
-**C. Display components**: The frontend component manages form data collection, validates user input, interacts with Web3 providers, and handles the submission process while providing appropriate user feedback.
+**C. 表示コンポーネント**：フロントエンドコンポーネントは、フォームデータの収集を管理し、ユーザー入力を検証し、Web3プロバイダーと対話し、適切なユーザーフィードバックを提供しながら送信プロセスを処理します。
 
 ```typescript
 // Component for submitting answers
@@ -308,13 +308,13 @@ export default function SubmitAnswerForm({
 }
 ```
 
-## Authentication and Social Features Integration <a id="authentication-social-feature-integration"></a>
+## 認証とソーシャル機能の統合<a id="authentication-social-feature-integration"></a>
 
-### LINE LIFF Authentication <a id="line-liff-authentication"></a>
+### LINE LIFF 認証<a id="line-liff-authentication"></a>
 
-Provides secure user authentication and access to LINE user profiles while ensuring the application runs properly in the LINE environment.
+LINE環境でアプリケーションが正常に動作することを保証しながら、セキュアなユーザー認証とLINEユーザープロファイルへのアクセスを提供します。
 
-**LIFF Initialization**
+\*\*LIFFの初期化
 
 ```typescript
 // context/LiffProvider.tsx
@@ -348,7 +348,7 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Login Implementation**
+\*\*ログインの実装
 
 ```typescript
 // components/buttons/LineLoginBtn.tsx
@@ -375,11 +375,11 @@ export default function LineLoginBtn() {
 }
 ```
 
-### Web3 Integration <a id="web3-integration"></a>
+### Web3の統合<a id="web3-integration"></a>
 
-Handles wallet connection, account management, and blockchain interactions while maintaining state across the application.
+アプリケーション全体の状態を維持しながら、ウォレット接続、アカウント管理、ブロックチェーンとのやり取りを処理する。
 
-**Web3 Provider Setup**
+**Web3プロバイダーのセットアップ**について
 
 ```typescript
 // context/Web3Provider.tsx
@@ -418,7 +418,7 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Wallet Connection**
+\*\*お財布コネクション
 
 ```typescript
 const connectWallet = async () => {
@@ -460,13 +460,13 @@ const connectWallet = async () => {
 };
 ```
 
-### Extended Social Features <a id="extended-social-features"></a>
+### ソーシャル機能の拡張<a id="extended-social-features"></a>
 
-#### Friend Invitation System <a id="friend-invitation-system"></a>
+#### 友人招待制度<a id="friend-invitation-system"></a>
 
-The platform incorporates LINE's social features to enable users to invite friends through a seamless sharing experience. This is implemented through the LIFF ShareTargetPicker, which provides a native LINE interface for friend selection.
+このプラットフォームにはLINEのソーシャル機能が組み込まれており、ユーザーはシームレスな共有体験を通じて友人を招待することができる。 これはLIFF ShareTargetPickerで実装されており、LINEネイティブのインターフェースで友だちを選択できる。
 
-**Provider Interface**
+\*\*プロバイダー・インターフェース
 
 ```typescript
 interface LiffContextType {
@@ -481,7 +481,7 @@ interface LiffContextType {
 }
 ```
 
-**Friend Invitation Implementation**
+\*\*友達招待実施中
 
 ```typescript
 const inviteFriends = async () => {
@@ -518,9 +518,9 @@ const inviteFriends = async () => {
 };
 ```
 
-#### Referral System <a id="referral-system"></a>
+#### 紹介システム<a id="referral-system"></a>
 
-The referral system tracks user invitations through encoded UIDs in the URL parameters.
+紹介システムは、URLパラメータにエンコードされたUIDを通してユーザーの招待を追跡する。
 
 ```typescript
 // Referral check in LiffProvider
@@ -538,9 +538,9 @@ useEffect(() => {
 }, []);
 ```
 
-#### Share Message Template <a id="share-message-template"></a>
+#### シェアメッセージテンプレート<a id="share-message-template"></a>
 
-Customizable LINE Flex Message for invitations, supporting multiple languages.
+カスタマイズ可能な招待状用LINEフレックスメッセージ、多言語に対応。
 
 ```typescript
 const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
@@ -594,7 +594,7 @@ const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
 };
 ```
 
-**Combined Provider Setup**
+**複合プロバイダー・セットアップ**について
 
 ```typescript
 export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -629,11 +629,11 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-#### Friend Invitation Component <a id="friend-invitation-component"></a>
+#### 友人招待コンポーネント<a id="friend-invitation-component"></a>
 
-The platform implements a dedicated component for friend invitations, making it easily accessible within the survey interface.
+このプラットフォームは、友人招待のための専用コンポーネントを実装しており、アンケートのインターフェイス内で簡単にアクセスできるようになっている。
 
-**Component Implementation**
+\*\*コンポーネントの実装
 
 ```typescript
 // components/Friends.tsx
@@ -663,7 +663,7 @@ export default function Friends() {
 }
 ```
 
-**Integration with Survey Page**
+\*\*アンケートページとの統合
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -704,18 +704,18 @@ export default async function SurveysPage({
 }
 ```
 
-## Privacy & Security: Semaphore Protocol Implementation <a id="privacy-security"></a>
+## プライバシーとセキュリティセマフォ・プロトコルの実装<a id="privacy-security"></a>
 
-In decentralized survey systems, protecting user privacy while ensuring response authenticity is crucial. The Semaphore Protocol is implemented to solve several critical challenges:
+分散型調査システムでは、回答の信頼性を確保しながらユーザーのプライバシーを保護することが極めて重要である。 セマフォ・プロトコルは、いくつかの重要な課題を解決するために実装されている：
 
-1. **Anonymous Participation**: Users need to prove they're eligible to participate in surveys without revealing their identity.
-2. **Double-Submission Prevention**: The system must prevent multiple submissions while maintaining anonymity.
-3. **Response Privacy**: Survey answers should be confidential and untraceable to individual users.
-4. **Verifiable Authenticity**: Despite anonymity, responses must be verifiably from authorized participants.
+1. **匿名参加**：ユーザーは、身元を明かすことなくアンケートに参加する資格があることを証明する必要があります。
+2. **二重投稿の防止**：匿名性を維持しつつ、二重投稿を防止するシステムであること。
+3. **回答のプライバシー**：アンケートの回答は秘密であり、個々のユーザーが追跡できないようにする必要があります。
+4. **検証可能な真正性**：匿名であるにもかかわらず、回答は承認された参加者からのものでなければならない。
 
-The Semaphore Protocol addresses these challenges by using zero-knowledge proofs, allowing users to prove their membership in a group and submit responses without revealing their identity. This ensures both privacy and data integrity in the survey process.
+セマフォ・プロトコルは、ゼロ知識証明を使用することで、これらの課題に対処している。これにより、ユーザーは自分の身元を明かすことなく、グループ内のメンバーシップを証明し、応答を送信することができる。 これにより、調査プロセスにおけるプライバシーとデータの完全性の両方が保証される。
 
-**1. Identity Creation**: Generates a deterministic identity using multiple factors to ensure uniqueness and security while maintaining privacy.
+**1. アイデンティティの作成**：複数の要素を使用して決定論的な ID を生成し、プライバシーを維持しながら一意性と安全性を確保する。
 
 ```typescript
 //.. browser/survey.tsx
@@ -747,9 +747,9 @@ export const createIdentity = async (
 };
 ```
 
-**2. Group Management**: Handles group membership operations and verification without revealing individual identities.
+**2. グループ管理**：個人の身元を明らかにすることなく、グループメンバーシップの操作と検証を行います。
 
-**Join Group Implementation**
+**グループ実施**に参加
 
 ```typescript
 //..backend/survey.tsx
@@ -776,9 +776,9 @@ export const joinGroup = async (
 };
 ```
 
-## Component Structure <a id="component-structure"></a>
+## コンポーネントの構造<a id="component-structure"></a>
 
-In this section, we will do a breakdown of the components structure. Your components folder should look like this:
+このセクションでは、コンポーネントの構造について説明する。 コンポーネント・フォルダーはこのようになっているはずだ：
 
 ```bash
 buttons/
