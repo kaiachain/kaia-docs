@@ -1,16 +1,16 @@
 ---
-sidebar_label: Using Foundry
+sidebar_label: ファウンドリーの利用
 ---
 
-# How to Verify Smart Contracts Using Foundry
+# Foundryを使用してスマートコントラクトを検証する方法
 
-This guide walks you through the steps to automatically verify your smart contract’s source code on Kaiascan directly from your CLI using Foundry. At the moment, Kaiascan only supports the verification of flattened contract files when using Foundry.
+このガイドでは、Foundryを使用してCLIから直接Kaiascan上でスマートコントラクトのソースコードを自動的に検証する手順を説明します。 現時点では、KaiascanはFoundryを使用する場合にのみ、フラット化されたコントラクトファイルの検証をサポートしています。
 
-> Ensure that your contract is flattened before proceeding with the verification process.
+> 検証作業を進める前に、契約書が平らになっていることを確認してください。
 
-## Getting started
+## スタート
 
-This guide expects that you have an idea of developing smart contracts with Foundry. See [Deploy smart contract using Foundry](../deploy/foundry.md) to get started.   We are going to be deploying and verifying this sample NFT contract below:
+このガイドでは、Foundryを使用したスマートコントラクトの開発について理解していることを想定しています。 Foundryを使用したスマートコントラクトのデプロイ](../deploy/foundry.md)をご覧ください。   以下に、このサンプルNFT契約の展開と検証を行う：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -79,9 +79,9 @@ contract NFT is ERC721, Ownable {
 }
 ```
 
-To verify a contract using Foundry verify, see the steps below:
+Foundry verifyを使用して契約を検証するには、以下の手順を参照してください：
 
-## Flatten the contract
+## 契約を平らにする
 
 ```bash
 ## flatten
@@ -89,7 +89,7 @@ To verify a contract using Foundry verify, see the steps below:
 forge flatten src/NFT.sol > FlattenedNFT.sol
 ```
 
-## Deploy the contract
+## 契約の展開
 
 ```bash
 ## deploy
@@ -99,7 +99,7 @@ forge create --rpc-url $KAIROS_RPC_URL private-key $PRIVATE_KEY src/NFT.sol:NFT 
 
 ![](/img/build/smart-contracts/verify/foundry-verify-deploy.png)
 
-## Verify the contract
+## 契約の確認
 
 ```bash
 ## verify an already deployed contract as seen above *//
@@ -109,13 +109,13 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ![](/img/build/smart-contracts/verify/foundry-verify-bash.png)
 
-You can look up the verified contract [here](https://kairos.kaiascan.io/address/0x06f09d3f77341b2f9bdc1e6fc2928761ba05f934?tabId=contract&page=1)
+確認された契約書はこちらで調べることができる。
 
 ![](/img/build/smart-contracts/verify/foundry-verify-ks-page.png)
 
-## Useful links
+## お役立ちリンク
 
-- [Configuration for Foundry Verify on Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+- [KaiascanにおけるFoundry Verifyの設定](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
