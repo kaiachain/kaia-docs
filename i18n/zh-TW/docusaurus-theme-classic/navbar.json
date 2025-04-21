@@ -64,39 +64,39 @@
     "description": "Navbar item with label Contract Addresses"
   },
   "item.label.Get Started": {
-    "message": "Get Started",
+    "message": "開始使用",
     "description": "Navbar item with label Get Started"
   },
   "item.label.Transactions": {
-    "message": "Transactions",
+    "message": "交易",
     "description": "Navbar item with label Transactions"
   },
   "item.label.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "智慧型契約",
     "description": "Navbar item with label Smart Contracts"
   },
   "item.label.Tutorials": {
-    "message": "Tutorials",
+    "message": "教學",
     "description": "Navbar item with label Tutorials"
   },
   "item.label.Tools": {
-    "message": "Tools",
+    "message": "工具",
     "description": "Navbar item with label Tools"
   },
   "item.label.Endpoint Node": {
-    "message": "Endpoint Node",
+    "message": "端點節點",
     "description": "Navbar item with label Endpoint Node"
   },
   "item.label.Core Cell": {
-    "message": "Core Cell",
+    "message": "核心細胞",
     "description": "Navbar item with label Core Cell"
   },
   "item.label.Service Chain": {
-    "message": "Service Chain",
+    "message": "服務鏈",
     "description": "Navbar item with label Service Chain"
   },
   "item.label.Node Downloads": {
-    "message": "Node Downloads",
+    "message": "節點下載",
     "description": "Navbar item with label Node Downloads"
   },
   "item.label.Kaia SDK": {
@@ -104,15 +104,15 @@
     "description": "Navbar item with label Kaia SDK"
   },
   "item.label.LINE Mini DApp with Unity": {
-    "message": "LINE Mini DApp with Unity",
+    "message": "使用 Unity 的 LINE Mini DApp",
     "description": "Navbar item with label LINE Mini DApp with Unity"
   },
   "item.label.LINE Mini DApp with Cocos": {
-    "message": "LINE Mini DApp with Cocos",
+    "message": "使用 Cocos 的 LINE Mini DApp",
     "description": "Navbar item with label LINE Mini DApp with Cocos"
   },
   "item.label.Survey Mini DApp": {
-    "message": "Survey Mini DApp",
+    "message": "調查迷你 DApp",
     "description": "Navbar item with label Survey Mini DApp"
   }
 }
