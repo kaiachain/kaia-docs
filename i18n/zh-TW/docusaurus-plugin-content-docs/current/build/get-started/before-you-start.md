@@ -20,13 +20,13 @@
 
 **Kaia SDK**
 
-- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) : A Kaia extension of the ethers.js library.
-- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) : A Kaia extension of the web3.js library.
-- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) : A Kaia extension of the web3j library.
-- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) : A Kaia extension of the web3.py library.
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) ：ethers.js 函式庫的 Kaia 延伸。
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) ：web3.js 函式庫的 Kaia 延伸。
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) ：web3j 函式庫的 Kaia 延伸。
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) ：web3.py 函式庫的 Kaia 延伸。
 
 **Kaia工具包**
 
 - [Kaiascope](https://kaiascope.com/) - 區塊和事務瀏覽器。
 - [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 網絡的瀏覽器擴展錢包。
-- [Kaia Contracts Wizard](https://wizard.kaia.io) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - 一個互動式產生器，用來啟動您的智慧型契約，並學習 Kaia Contracts。
