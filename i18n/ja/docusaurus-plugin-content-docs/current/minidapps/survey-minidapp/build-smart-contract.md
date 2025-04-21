@@ -1,16 +1,16 @@
-# Building a survey smart contract using Hardhat
+# Hardhatを使用した調査スマート・コントラクトの構築
 
-In this section, you will build a smart contract that leverages Semaphore to ensure privacy and accuracy in survey management.
+このセクションでは、Semaphoreを活用して、プライバシーと調査管理の正確性を確保するスマートコントラクトを構築します。
 
-Select the contracts folder in the Explorer pane and update the folder as seen with all the contracts in this [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
+エクスプローラーペインでcontractsフォルダを選択し、この[repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts)内のすべてのcontractsで見たようにフォルダを更新します。
 
-Now that you have your contracts created, let’s break down the major dependent contracts.
+契約書を作成したところで、依存する主な契約書を分解してみよう。
 
-## Breakdown SurveyV1 Contract <a id="breakdown-surveyV1-contract"></a>
+## 内訳調査V1 契約<a id="breakdown-surveyV1-contract"></a>
 
-Here is a breakdown of its SurveyV1 key elements
+SurveyV1の主要な要素の内訳は以下の通りである。
 
-### Import dependent contracts <a id="import-dependent-contracts"></a>
+### 輸入依存契約<a id="import-dependent-contracts"></a>
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -21,7 +21,7 @@ import "./ISurvey.sol";
 import "./semaphore/interfaces/ISemaphore.sol";
 ```
 
-### Add State Variables, Structs, Events, and Modifier <a id="state-variables"></a>
+### ステート変数、構造体、イベント、モディファイアの追加<a id="state-variables"></a>
 
 ```solidity
 event AnswerSubmitted(address indexed respondent, uint8[] answers);
@@ -66,19 +66,19 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we:
+上のコードでは
 
-- Defined key contract components:
-  - admin state variable: **owner** with withdrawal rights and **manager** with special management permissions.
-  - survey metadata variables: information about basic surveys like **title**, **description**, **reward** etc.
-  - data storage arrays: stores survey **questions** and **options**, submitted **answers** and participant **addresses**.
-  - survey status variable: Tracks survey completion status, records creation timestamp, sets survey expiration time (**finished**, **timestamp**, **lockedUntil**)
-  - privacy infra with semaphore: Interface for Semaphore protocol and unique identifier for privacy group.
-- Created **Question** and **Answer** struct to store survey questions and answers respectively.
-- Created events **AnswerSubmitted** which is emitted when a survey answer is submitted
-- Created an access control modifier: **onlyMgr()**
+- 契約の主要な構成要素を定義：
+  - admin 状態変数：引き出し権限を持つ**owner**と、特別な管理権限を持つ**manager**である。
+  - アンケートのメタデータ変数： **タイトル**、**説明**、**報酬** などの基本的なアンケートに関する情報。
+  - データストレージアレイ：アンケートの**質問**と**選択肢**、提出された**回答**、および参加者の**アドレス**を格納します。
+  - アンケートステータス変数：アンケートの完了ステータスを追跡、作成タイムスタンプを記録、アンケートの有効期限を設定 (**finished**、**timestamp**、**lockedUntil**)
+  - セマフォによるプライバシー・インフラストラクチャ：セマフォプロトコルのインターフェイスとプライバシーグループの一意な識別子。
+- アンケートの質問と回答をそれぞれ格納する **Question** 構造体と **Answer** 構造体を作成しました。
+- アンケートの回答が送信されたときに発行されるイベント **AnswerSubmitted** を作成しました。
+- アクセス制御モディファイアを作成しました：\*\*onlyMgr()\*\*を作成した。
 
-### Implement the Constructor <a id="implement-constructor"></a>
+### コンストラクタの実装<a id="implement-constructor"></a>
 
 ```solidity
 //…
@@ -120,11 +120,11 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we implemented the constructor, stored questions/options on-chain, set up administrative control and timeframes, established privacy features through Semaphore protocol, and configured the reward system by burning a portion of the deposited amount and calculating per-response rewards from the remainder.
+上記のコードでは、コンストラクタを実装し、質問/選択肢をオンチェーンに保存し、管理コントロールと時間枠を設定し、セマフォ・プロトコルを介してプライバシー機能を確立し、入金額の一部を燃やし、残額から回答ごとの報酬を計算する報酬システムを設定した。
 
-Next, you will proceed to implement the main functions, starting with a function to submit survey answers.
+次に、アンケートの回答を送信する機能から始めて、主な機能を実装していきます。
 
-### Create SubmitAnswer Function <a id="create-submitanswer-function"></a>
+### SubmitAnswer関数の作成<a id="create-submitanswer-function"></a>
 
 ```solidity
 //…
@@ -160,16 +160,16 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we:
+上のコード・スニペットでは、次のようにしている：
 
-- Validated response requirements (length matches questions, survey isn't full/expired, no duplicate submissions)
-- Converted answers to uint256 and created a zero-knowledge proof using Semaphore protocol for privacy
-- Verified each answer is within valid option ranges for questions
-- Stored the validated answer in the contract storage
-- Transferred reward payment to respondent (msg.sender)
-- Updated survey participation records (increment surveyNumber and add respondent address)
+- 有効な回答要件（質問の長さが一致している、アンケートが満杯/期限切れでない、重複投稿がない）
+- 答えをuint256に変換し、プライバシーのためにセマフォ・プロトコルを使ってゼロ知識証明を作成した。
+- 各回答が設問の有効な選択肢の範囲内であることを確認
+- 検証済みの回答を契約ストレージに保存
+- 謝礼金を回答者に送金（msg.sender）
+- アンケート参加記録の更新 (SurveyNumber のインクリメントと回答者の住所の追加)
 
-### Others: state changing functions, view function and receive function <a id="other-state-changing-functions"></a>
+### その他：状態変化機能、ビュー機能、レシーブ機能<a id="other-state-changing-functions"></a>
 
 ```solidity
 //…
@@ -222,77 +222,77 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we implemented a comprehensive survey contract with the following functions:
+上のコード・スニペットでは、以下の機能を持つ包括的な調査契約を実装している：
 
-**View Functions:**
+\*\*機能を見る
 
-- _getQuestions()_: Returns array of survey questions and options
-- _getAnswers()_: Returns array of submitted survey answers
-- _remainingSurveys()_: Returns count of responses still needed
-- _surveyInfo()_: Returns all survey metadata (title, description, owner, numbers, timestamps, status)
+- _getQuestions()_：アンケートの質問とオプションの配列を返す
+- _getAnswers()_：送信されたアンケートの回答の配列を返します。
+- _remainingSurveys()_：まだ必要な回答の数を返します
+- _surveyInfo()_：すべての調査のメタデータ（タイトル、説明、所有者、番号、タイムスタンプ、ステータス）を返します。
 
-**State-Modifying Functions:**
+**状態変更関数：**\*」。
 
-- _finish()_: Marks survey complete after lock period
-- _withdraw()_: Enables owner to withdraw remaining balance
-- _joinGroup()_: Adds member to privacy group (manager only)
+- _finish()_：ロック期間終了後、調査が完了したことを示す
+- _withdraw()_：オーナーが残金を引き出せるようにする
+- _joinGroup()_：プライバシー・グループにメンバーを追加する (管理者のみ)
 
-**Utility Functions:**
+**ユーティリティ機能：**\*
 
-- _uint8ArrayToUint256()_: Converts uint8 array to uint256 for privacy proofs
-- _receive()_: Fallback function for receiving ETH payments.
+- _uint8ArrayToUint256()_：プライバシー証明のために uint8 配列を uint256 に変換する。
+- _receive()_：ETH支払いを受け取るためのフォールバック関数。
 
-## Breakdown of SurveyFactoryV1 Contract <a id="breakdown-surveyFactoryV1-contract"></a>
+## SurveyFactoryV1 契約の内訳<a id="breakdown-surveyFactoryV1-contract"></a>
 
-The SurveyFactory contract serves as a factory pattern implementation for deploying new survey contracts.
+SurveyFactory コントラクトは、新しい調査コントラクトをデプロイするためのファクトリーパターンの実装として機能します。
 
-Here's are its core features:
+その主な特徴は以下の通りだ：
 
-- _initialize()_: Sets up factory with Semaphore and manager addresses
-- _createSurvey()_: Deploys new survey contract with validated parameters
-- _getSurveys()_: Returns addresses of all deployed surveys
-- _getSurveyCount()_: Returns total number of surveys created
-- _setBurnRate()_: Allows the owner to modify burn rate.
+- _initialize()_：セマフォとマネージャーのアドレスでファクトリーをセットアップする。
+- _createSurvey()_：有効なパラメータを持つ新しい調査契約を展開します。
+- _getSurveys()_：配置されているすべてのアンケートのアドレスを返します。
+- _getSurveyCount()_：作成されたアンケートの総数を返します。
+- _setBurnRate()_：オーナーが燃焼速度を変更できるようにします。
 
-## Breakdown of ISemaphore.sol Contract <a id="breakdown-isemaphore-contract"></a>
+## ISemaphore.sol契約の内訳<a id="breakdown-isemaphore-contract"></a>
 
-In the ISemaphore interface, we have the following:
+ISemaphoreインターフェイスでは、次のようになっている：
 
-**Core Structures:**
+\*\*コア構造
 
-- Group: Holds group parameters including merkle tree duration and mappings
-- SemaphoreProof: Contains proof parameters (depth, root, nullifier, message, etc.)
+- グループ：メルクルツリーの期間とマッピングを含むグループパラメータを保持する。
+- SemaphoreProof：証明パラメータ（深さ、ルート、ヌリファイア、メッセージなど）を含む。
 
-**Key Functions:**
+\*\*主な機能
 
-1. **Group Management**
-  - _createGroup()_: Creates new groups with optional admin and duration
-  - _updateGroupAdmin()_: Changes group administrator
-  - _acceptGroupAdmin()_: Accepts admin role for group
-2. **Member Management**
-  - _addMember()_: Adds single member to group
-  - _addMembers()_: Adds multiple members at once
-  - _updateMember()_: Updates member's identity commitment
-  - _removeMember()_: Removes member from group
-3. **Proof Validation**
-  - validateProof(): Validates zero-knowledge proof and prevents double signaling
-  - verifyProof(): Verifies proof validity without state changes
-4. **Configuration**
-  - _groupCounter()_: Returns total groups created
-  - _updateGroupMerkleTreeDuration()_: Updates merkle tree duration
-5. **Events**:
-  - _GroupMerkleTreeDurationUpdated_: Logs changes to merkle tree duration
-  - _ProofValidated_: Logs validated proof details
-6. **Error Handling**:
-  - Custom errors for invalid proofs, duplicate nullifiers, empty groups, etc.
+1. \*\*グループ経営
+  - _createGroup()_：新しいグループを作成します。
+  - _updateGroupAdmin()_：グループ管理者を変更する
+  - _acceptGroupAdmin()_：グループの管理者ロールを受け入れる
+2. \*\*会員管理
+  - _addMember()_：単一のメンバーをグループに追加する
+  - _addMembers()_：複数のメンバーを一度に追加する
+  - _updateMember()_：メンバーのIDコミットメントを更新する
+  - _removeMember()_：グループからメンバーを削除する
+3. \*\*プルーフ・バリデーション
+  - validateProof()：ゼロ知識証明を検証し、二重シグナリングを防ぐ
+  - verifyProof()：状態を変更せずに証明の有効性を検証する
+4. \*\*コンフィギュレーション
+  - _groupCounter()_：作成されたグループの総数を返す
+  - _updateGroupMerkleTreeDuration()_：メルクルツリーの期間を更新
+5. \*\*イベント
+  - _GroupMerkleTreeDurationUpdated_：merkleツリーの期間の変更をログに記録
+  - _ProofValidated_：有効な証明の詳細をログに記録
+6. **エラー処理**：
+  - 無効な証明、重複したヌリファイアー、空のグループなどに対するカスタム・エラー。
 
-This interface provides the foundation for privacy-preserving group management and zero-knowledge proof verification in the survey system.
+このインターフェイスは、調査システムにおいてプライバシーを保持したグループ管理とゼロ知識証明検証の基盤を提供する。
 
-## Deploying the smart contract  <a id="deploying-contract"></a>
+## スマートコントラクトの導入 <a id="deploying-contract"></a>
 
-In this section we are going to deploy our contracts to a localhost network using [hardhat-deploy](https://github.com/wighawag/hardhat-deploy); a hardhat plugin for replicable deployment and testing.
+このセクションでは、[hardhat-deploy](https://github.com/wighawag/hardhat-deploy) を使って、コントラクトをlocalhostネットワークにデプロイします。hardhatプラグインは、複製可能なデプロイとテストを可能にします。
 
-Next is to create a new folder called **deploy** in the contract folder and click the New File button to create a new file named **deploy.ts**. Then copy and paste the following code inside the file.
+次に、contractフォルダの中に**deploy**という新しいフォルダを作成し、New Fileボタンをクリックして**deploy.ts**という新しいファイルを作成します。 次に、以下のコードをコピーしてファイル内に貼り付ける。
 
 ```solidity
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -335,20 +335,20 @@ deploySurveyFactory.tags = [
 ];
 ```
 
-You can deploy to localhost network following these steps:
+以下の手順に従って、localhostネットワークにデプロイすることができます：
 
-1. Start a [local node](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)
+1. ローカルノード](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)を開始する。
 
 ```
 npx hardhat node
 ```
 
-2. Open a new terminal and deploy the contract in the localhost network
+2. 新しいターミナルを開き、localhostネットワークに契約を展開する。
 
 ```
 npx hardhat deploy --network localhost
 ```
 
-Save the `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` deployed address, as you will need them for frontend integration.
+SURVEY_FACTORY_V1_CONTRACT_ADDRESS\`のデプロイ済みアドレスを保存します。
 
 
