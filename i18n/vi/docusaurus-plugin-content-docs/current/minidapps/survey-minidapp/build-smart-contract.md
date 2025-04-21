@@ -1,16 +1,16 @@
-# Building a survey smart contract using Hardhat
+# Xây dựng hợp đồng thông minh khảo sát bằng Hardhat
 
-In this section, you will build a smart contract that leverages Semaphore to ensure privacy and accuracy in survey management.
+Trong phần này, bạn sẽ xây dựng hợp đồng thông minh tận dụng Semaphore để đảm bảo quyền riêng tư và tính chính xác trong quản lý khảo sát.
 
-Select the contracts folder in the Explorer pane and update the folder as seen with all the contracts in this [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
+Chọn thư mục hợp đồng trong ngăn Explorer và cập nhật thư mục như được thấy với tất cả các hợp đồng trong [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
 
-Now that you have your contracts created, let’s break down the major dependent contracts.
+Bây giờ bạn đã tạo xong hợp đồng, chúng ta hãy phân tích các hợp đồng phụ thuộc chính.
 
-## Breakdown SurveyV1 Contract <a id="breakdown-surveyV1-contract"></a>
+## Khảo sát phân tíchV1 Hợp đồng <a id="breakdown-surveyV1-contract"></a>
 
-Here is a breakdown of its SurveyV1 key elements
+Sau đây là phân tích các yếu tố chính của SurveyV1
 
-### Import dependent contracts <a id="import-dependent-contracts"></a>
+### Hợp đồng phụ thuộc nhập khẩu <a id="import-dependent-contracts"></a>
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -21,7 +21,7 @@ import "./ISurvey.sol";
 import "./semaphore/interfaces/ISemaphore.sol";
 ```
 
-### Add State Variables, Structs, Events, and Modifier <a id="state-variables"></a>
+### Thêm Biến trạng thái, Cấu trúc, Sự kiện và Trình sửa đổi <a id="state-variables"></a>
 
 ```solidity
 event AnswerSubmitted(address indexed respondent, uint8[] answers);
@@ -66,19 +66,19 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we:
+Trong đoạn mã trên, chúng tôi:
 
-- Defined key contract components:
-  - admin state variable: **owner** with withdrawal rights and **manager** with special management permissions.
-  - survey metadata variables: information about basic surveys like **title**, **description**, **reward** etc.
-  - data storage arrays: stores survey **questions** and **options**, submitted **answers** and participant **addresses**.
-  - survey status variable: Tracks survey completion status, records creation timestamp, sets survey expiration time (**finished**, **timestamp**, **lockedUntil**)
-  - privacy infra with semaphore: Interface for Semaphore protocol and unique identifier for privacy group.
-- Created **Question** and **Answer** struct to store survey questions and answers respectively.
-- Created events **AnswerSubmitted** which is emitted when a survey answer is submitted
-- Created an access control modifier: **onlyMgr()**
+- Xác định các thành phần chính của hợp đồng:
+  - biến trạng thái quản trị: **chủ sở hữu** có quyền rút tiền và **người quản lý** có quyền quản lý đặc biệt.
+  - biến siêu dữ liệu khảo sát: thông tin về các cuộc khảo sát cơ bản như **tiêu đề**, **mô tả**, **phần thưởng**, v.v.
+  - Mảng lưu trữ dữ liệu: lưu trữ **câu hỏi** và **tùy chọn** khảo sát, **câu trả lời** đã gửi và **địa chỉ** của người tham gia.
+  - biến trạng thái khảo sát: Theo dõi trạng thái hoàn thành khảo sát, ghi lại dấu thời gian tạo, đặt thời gian hết hạn khảo sát (**hoàn thành**, **dấu thời gian**, **lockedUntil**)
+  - cơ sở hạ tầng riêng tư với semaphore: Giao diện cho giao thức Semaphore và mã định danh duy nhất cho nhóm riêng tư.
+- Tạo cấu trúc **Câu hỏi** và **Câu trả lời** để lưu trữ các câu hỏi và câu trả lời khảo sát tương ứng.
+- Sự kiện đã tạo **AnswerSubmitted** được phát ra khi câu trả lời khảo sát được gửi
+- Đã tạo một trình sửa đổi kiểm soát truy cập: **onlyMgr()**
 
-### Implement the Constructor <a id="implement-constructor"></a>
+### Triển khai Constructor <a id="implement-constructor"></a>
 
 ```solidity
 //…
@@ -120,11 +120,11 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we implemented the constructor, stored questions/options on-chain, set up administrative control and timeframes, established privacy features through Semaphore protocol, and configured the reward system by burning a portion of the deposited amount and calculating per-response rewards from the remainder.
+Trong đoạn mã trên, chúng tôi đã triển khai trình xây dựng, lưu trữ các câu hỏi/tùy chọn trên chuỗi, thiết lập kiểm soát quản trị và khung thời gian, thiết lập các tính năng bảo mật thông qua giao thức Semaphore và cấu hình hệ thống phần thưởng bằng cách đốt một phần số tiền đã gửi và tính phần thưởng cho mỗi phản hồi từ phần còn lại.
 
-Next, you will proceed to implement the main functions, starting with a function to submit survey answers.
+Tiếp theo, bạn sẽ tiến hành triển khai các chức năng chính, bắt đầu bằng chức năng gửi câu trả lời khảo sát.
 
-### Create SubmitAnswer Function <a id="create-submitanswer-function"></a>
+### Tạo hàm SubmitAnswer <a id="create-submitanswer-function"></a>
 
 ```solidity
 //…
@@ -160,16 +160,16 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we:
+Trong đoạn mã trên, chúng tôi:
 
-- Validated response requirements (length matches questions, survey isn't full/expired, no duplicate submissions)
-- Converted answers to uint256 and created a zero-knowledge proof using Semaphore protocol for privacy
-- Verified each answer is within valid option ranges for questions
-- Stored the validated answer in the contract storage
-- Transferred reward payment to respondent (msg.sender)
-- Updated survey participation records (increment surveyNumber and add respondent address)
+- Yêu cầu phản hồi đã được xác thực (độ dài phù hợp với câu hỏi, khảo sát chưa đầy đủ/hết hạn, không có nội dung gửi trùng lặp)
+- Chuyển đổi câu trả lời thành uint256 và tạo ra bằng chứng không kiến thức bằng giao thức Semaphore để bảo mật
+- Đã xác minh mỗi câu trả lời nằm trong phạm vi tùy chọn hợp lệ cho các câu hỏi
+- Đã lưu trữ câu trả lời đã xác thực trong kho lưu trữ hợp đồng
+- Đã chuyển tiền thưởng cho người trả lời (người gửi tin nhắn)
+- Cập nhật hồ sơ tham gia khảo sát (tăng surveyNumber và thêm địa chỉ người trả lời)
 
-### Others: state changing functions, view function and receive function <a id="other-state-changing-functions"></a>
+### Những cái khác: hàm thay đổi trạng thái, hàm xem và hàm nhận <a id="other-state-changing-functions"></a>
 
 ```solidity
 //…
@@ -222,77 +222,77 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we implemented a comprehensive survey contract with the following functions:
+Trong đoạn mã trên, chúng tôi đã triển khai một hợp đồng khảo sát toàn diện với các chức năng sau:
 
-**View Functions:**
+**Xem chức năng:**
 
-- _getQuestions()_: Returns array of survey questions and options
-- _getAnswers()_: Returns array of submitted survey answers
-- _remainingSurveys()_: Returns count of responses still needed
-- _surveyInfo()_: Returns all survey metadata (title, description, owner, numbers, timestamps, status)
+- _getQuestions()_: Trả về mảng các câu hỏi khảo sát và các tùy chọn
+- _getAnswers()_: Trả về mảng các câu trả lời khảo sát đã gửi
+- _remainingSurveys()_: Trả về số lượng phản hồi vẫn cần thiết
+- _surveyInfo()_: Trả về tất cả siêu dữ liệu khảo sát (tiêu đề, mô tả, chủ sở hữu, số, dấu thời gian, trạng thái)
 
-**State-Modifying Functions:**
+**Các hàm sửa đổi trạng thái:**
 
-- _finish()_: Marks survey complete after lock period
-- _withdraw()_: Enables owner to withdraw remaining balance
-- _joinGroup()_: Adds member to privacy group (manager only)
+- _finish()_: Khảo sát đánh dấu hoàn tất sau thời gian khóa
+- _withdraw()_: Cho phép chủ sở hữu rút số dư còn lại
+- _joinGroup()_: Thêm thành viên vào nhóm riêng tư (chỉ dành cho người quản lý)
 
-**Utility Functions:**
+**Chức năng tiện ích:**
 
-- _uint8ArrayToUint256()_: Converts uint8 array to uint256 for privacy proofs
-- _receive()_: Fallback function for receiving ETH payments.
+- _uint8ArrayToUint256()_: Chuyển đổi mảng uint8 thành uint256 để chứng minh quyền riêng tư
+- _receive()_: Hàm dự phòng để nhận thanh toán ETH.
 
-## Breakdown of SurveyFactoryV1 Contract <a id="breakdown-surveyFactoryV1-contract"></a>
+## Phân tích hợp đồng SurveyFactoryV1 <a id="breakdown-surveyFactoryV1-contract"></a>
 
-The SurveyFactory contract serves as a factory pattern implementation for deploying new survey contracts.
+Hợp đồng SurveyFactory đóng vai trò là phương pháp triển khai mẫu nhà máy để triển khai các hợp đồng khảo sát mới.
 
-Here's are its core features:
+Sau đây là những tính năng cốt lõi của nó:
 
-- _initialize()_: Sets up factory with Semaphore and manager addresses
-- _createSurvey()_: Deploys new survey contract with validated parameters
-- _getSurveys()_: Returns addresses of all deployed surveys
-- _getSurveyCount()_: Returns total number of surveys created
-- _setBurnRate()_: Allows the owner to modify burn rate.
+- _initialize()_: Thiết lập nhà máy với địa chỉ Semaphore và quản lý
+- _createSurvey()_: Triển khai hợp đồng khảo sát mới với các tham số đã được xác thực
+- _getSurveys()_: Trả về địa chỉ của tất cả các cuộc khảo sát đã triển khai
+- _getSurveyCount()_: Trả về tổng số khảo sát đã tạo
+- _setBurnRate()_: Cho phép chủ sở hữu thay đổi tốc độ ghi.
 
-## Breakdown of ISemaphore.sol Contract <a id="breakdown-isemaphore-contract"></a>
+## Phân tích hợp đồng ISemaphore.sol <a id="breakdown-isemaphore-contract"></a>
 
-In the ISemaphore interface, we have the following:
+Trong giao diện ISemaphore, chúng ta có những nội dung sau:
 
-**Core Structures:**
+**Cấu trúc cốt lõi:**
 
-- Group: Holds group parameters including merkle tree duration and mappings
-- SemaphoreProof: Contains proof parameters (depth, root, nullifier, message, etc.)
+- Nhóm: Giữ các tham số nhóm bao gồm thời lượng cây Merkle và ánh xạ
+- SemaphoreProof: Chứa các tham số chứng minh (độ sâu, gốc, vô hiệu hóa, thông điệp, v.v.)
 
-**Key Functions:**
+**Chức năng chính:**
 
-1. **Group Management**
-  - _createGroup()_: Creates new groups with optional admin and duration
-  - _updateGroupAdmin()_: Changes group administrator
-  - _acceptGroupAdmin()_: Accepts admin role for group
-2. **Member Management**
-  - _addMember()_: Adds single member to group
-  - _addMembers()_: Adds multiple members at once
-  - _updateMember()_: Updates member's identity commitment
-  - _removeMember()_: Removes member from group
-3. **Proof Validation**
-  - validateProof(): Validates zero-knowledge proof and prevents double signaling
-  - verifyProof(): Verifies proof validity without state changes
-4. **Configuration**
-  - _groupCounter()_: Returns total groups created
-  - _updateGroupMerkleTreeDuration()_: Updates merkle tree duration
-5. **Events**:
-  - _GroupMerkleTreeDurationUpdated_: Logs changes to merkle tree duration
-  - _ProofValidated_: Logs validated proof details
-6. **Error Handling**:
-  - Custom errors for invalid proofs, duplicate nullifiers, empty groups, etc.
+1. **Quản lý nhóm**
+  - _createGroup()_: Tạo nhóm mới với tùy chọn quản trị viên và thời hạn
+  - _updateGroupAdmin()_: Thay đổi quản trị viên nhóm
+  - _acceptGroupAdmin()_: Chấp nhận vai trò quản trị viên cho nhóm
+2. **Quản lý thành viên**
+  - _addMember()_: Thêm một thành viên vào nhóm
+  - _addMembers()_: Thêm nhiều thành viên cùng một lúc
+  - _updateMember()_: Cập nhật cam kết danh tính của thành viên
+  - _removeMember()_: Xóa thành viên khỏi nhóm
+3. **Xác thực bằng chứng**
+  - validateProof(): Xác thực bằng chứng không kiến thức và ngăn chặn tín hiệu kép
+  - verifyProof(): Xác minh tính hợp lệ của bằng chứng mà không thay đổi trạng thái
+4. **Cấu hình**
+  - _groupCounter()_: Trả về tổng số nhóm đã tạo
+  - _updateGroupMerkleTreeDuration()_: Cập nhật thời lượng của cây Merkle
+5. **Sự kiện**:
+  - _GroupMerkleTreeDurationUpdated_: Ghi lại những thay đổi về thời lượng của cây Merkle
+  - _ProofValidated_: Ghi lại chi tiết bằng chứng đã xác thực
+6. **Xử lý lỗi**:
+  - Lỗi tùy chỉnh cho các bản in thử không hợp lệ, các phần tử hủy trùng lặp, nhóm trống, v.v.
 
-This interface provides the foundation for privacy-preserving group management and zero-knowledge proof verification in the survey system.
+Giao diện này cung cấp nền tảng cho việc quản lý nhóm đảm bảo quyền riêng tư và xác minh không tiết lộ thông tin trong hệ thống khảo sát.
 
-## Deploying the smart contract  <a id="deploying-contract"></a>
+## Triển khai hợp đồng thông minh  <a id="deploying-contract"></a>
 
-In this section we are going to deploy our contracts to a localhost network using [hardhat-deploy](https://github.com/wighawag/hardhat-deploy); a hardhat plugin for replicable deployment and testing.
+Trong phần này, chúng ta sẽ triển khai hợp đồng của mình lên mạng cục bộ bằng cách sử dụng [hardhat-deploy](https://github.com/wighawag/hardhat-deploy); một plugin hardhat để triển khai và thử nghiệm có thể sao chép.
 
-Next is to create a new folder called **deploy** in the contract folder and click the New File button to create a new file named **deploy.ts**. Then copy and paste the following code inside the file.
+Tiếp theo là tạo một thư mục mới có tên là **deploy** trong thư mục hợp đồng và nhấp vào nút Tệp mới để tạo một tệp mới có tên là **deploy.ts**. Sau đó sao chép và dán đoạn mã sau vào trong tệp.
 
 ```solidity
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -335,20 +335,20 @@ deploySurveyFactory.tags = [
 ];
 ```
 
-You can deploy to localhost network following these steps:
+Bạn có thể triển khai vào mạng cục bộ bằng cách làm theo các bước sau:
 
-1. Start a [local node](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)
+1. Bắt đầu một [nút cục bộ](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)
 
 ```
 npx hardhat node
 ```
 
-2. Open a new terminal and deploy the contract in the localhost network
+2. Mở một thiết bị đầu cuối mới và triển khai hợp đồng trong mạng cục bộ
 
 ```
 npx hardhat deploy --network localhost
 ```
 
-Save the `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` deployed address, as you will need them for frontend integration.
+Lưu địa chỉ đã triển khai `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` vì bạn sẽ cần chúng để tích hợp giao diện người dùng.
 
 
