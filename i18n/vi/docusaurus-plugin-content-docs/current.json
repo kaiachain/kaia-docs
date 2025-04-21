@@ -268,47 +268,47 @@
     "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.learnSidebar.category.Core Concepts": {
-    "message": "Core Concepts",
+    "message": "Các khái niệm cốt lõi",
     "description": "The label for category Core Concepts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Smart Contracts": {
-    "message": "Smart Contracts",
+    "message": "Hợp đồng thông minh",
     "description": "The label for category Smart Contracts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Advanced Topics": {
-    "message": "Advanced Topics",
+    "message": "Chủ đề nâng cao",
     "description": "The label for category Advanced Topics in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Transaction Execution": {
-    "message": "Transaction Execution",
+    "message": "Thực hiện giao dịch",
     "description": "The label for category Transaction Execution in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Token Economics": {
-    "message": "Token Economics",
+    "message": "Kinh tế Token",
     "description": "The label for category Token Economics in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Transactions": {
-    "message": "Transactions",
+    "message": "Giao dịch",
     "description": "The label for category Transactions in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Token Management": {
-    "message": "Token Management",
+    "message": "Quản lý mã thông báo",
     "description": "The label for category Token Management in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Team Finance": {
-    "message": "Team Finance",
+    "message": "Tài chính nhóm",
     "description": "The label for category Team Finance in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.LINE Mini DApp with Unity": {
-    "message": "LINE Mini DApp with Unity",
+    "message": "LINE Mini DApp với Unity",
     "description": "The label for category LINE Mini DApp with Unity in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.LINE Mini DApp with Cocos": {
-    "message": "LINE Mini DApp with Cocos",
+    "message": "LINE Mini DApp với Cocos",
     "description": "The label for category LINE Mini DApp with Cocos in sidebar miniDappSidebar"
   },
   "sidebar.miniDappSidebar.category.Survey Mini DApp": {
-    "message": "Survey Mini DApp",
+    "message": "Khảo sát Mini DApp",
     "description": "The label for category Survey Mini DApp in sidebar miniDappSidebar"
   }
 }
