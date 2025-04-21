@@ -1,18 +1,18 @@
-# Integrating a Next.js frontend application with smart contract
+# 整合 Next.js 前端應用程式與智慧契約
 
-In the previous steps, you successfully built and deployed the smart contract to a localhost. Now, it's time to interact with it from the frontend. The frontend uses Next.js, integrates Semaphore for privacy features and the Mini Dapp SDK for authentication.
+在之前的步驟中，您已成功建立智慧型契約並將其部署到 localhost。 現在，是時候從前端與它互動了。 前端使用 Next.js，整合了用於隱私功能的 Semaphore 和用於驗證的 Mini Dapp SDK。
 
-## Setup & Installation <a id="setup-installation"></a>
+## 設定與安裝<a id="setup-installation"></a>
 
-Having already cloned the project repo inclusive of Next.js frontend, the next thing you want to do is to create a .env file in the root directory by using the command below:
+在克隆了包含 Next.js 前端的專案 repo 之後，接下來您要做的就是使用以下指令在根目錄中建立 .env 檔案：
 
 ```bash
 touch .env
 ```
 
-> Note: Ensure you are in the root directory before running the command above.
+> 注意：執行上述指令前，請確保您在根目錄。
 
-Inside the .env file you just created, add the following:
+在您剛剛建立的 .env 檔案中，加入下列內容：
 
 ```bash
 SURVEY_FACTORY_V1_CONTRACT_ADDRESS=[factory address]
@@ -21,18 +21,18 @@ NODE_URL=http://localhost:8545
 ```
 
 :::note
-Make sure to Replace `SURVEY_FACTORY_V1_CONTRACT_ADDRESS`  and `NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS` with the contract address you deployed to localhost earlier in this tutorial.
+確保將 `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` 和 `NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS` 替換為您在本教程較早前部署到 localhost 的合約位址。
 :::
 
-Now lets take a look at the core functionalities of the app:
+現在讓我們看看應用程式的核心功能：
 
-## Survey Management <a id="survey-management"></a>
+## 調查管理<a id="survey-management"></a>
 
-### 1. Creating Survey <a id="creating-survey"></a>
+### 1. 建立調查<a id="creating-survey"></a>
 
-**Interface Definition:**
+**介面定義：**
 
-The SurveyInfo interface standardizes how survey data is handled across the application, ensuring consistency in data types and structure.
+SurveyInfo 介面將應用程式中處理調查問卷資料的方式標準化，確保資料類型和結構的一致性。
 
 ```typescript
 // types/index.ts
@@ -48,9 +48,9 @@ export interface SurveyInfo {
 }
 ```
 
-**Implementation and Usage**
+**實施與使用**
 
-**A. Data Fetching**: This layer manages the communication between the smart contracts and the application, converting raw blockchain data into the SurveyInfo format.
+**A. 資料擷取**：此層管理智慧型契約與應用程式之間的通訊，將原始區塊鏈資料轉換為 SurveyInfo 格式。
 
 ```typescript
 // backend/survey.tsx
@@ -83,7 +83,7 @@ const daysLeft = (duration: bigint) => {
 };
 ```
 
-**B. Display components**: This React component handles the visual representation of survey data, including status indicators, progress tracking, and other interactive elements.
+**B. 顯示元件**：此 React 元件處理調查資料的視覺呈現，包括狀態指標、進度追蹤及其他互動元素。
 
 ```typescript
 // components/SurveyCard.tsx
@@ -151,7 +151,7 @@ export default function SurveyCard({
 }
 ```
 
-**C. Survey Listing**: Handles the organization and display of survey collections, featuring sections like _Hot Topics_ and _Ending Soon_ to improve user navigation.
+**C. 調查問卷列表**：處理調查問卷集的組織和顯示，具有 \* 熱門主題\* 和 \* 即將結束\* 等區段，可改善使用者導覽。
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -192,9 +192,9 @@ export default async function SurveysPage() {
 }
 ```
 
-### 2. Answering Survey <a id="answering-survey"></a>
+### 2. 回答問卷<a id="answering-survey"></a>
 
-**A. Interface Definition**: The Answer interface provides a standardized format for survey responses, including both the answer data and privacy-related proof information.
+**A. 介面定義**：答案介面提供調查問卷回覆的標準格式，包括答案資料和隱私權相關證明資訊。
 
 ```typescript
 // types/index.ts
@@ -208,7 +208,7 @@ interface Answer {
 }
 ```
 
-**B. Submission Function:** This function manages the interaction with the smart contract, including transaction creation and confirmation.
+**B. 提交功能：** 此功能管理與智慧型契約的互動，包括交易建立與確認。
 
 ```typescript
 // browser/survey.tsx
@@ -234,7 +234,7 @@ export const submitAnswer = async (
 };
 ```
 
-**C. Display components**: The frontend component manages form data collection, validates user input, interacts with Web3 providers, and handles the submission process while providing appropriate user feedback.
+**C. 顯示元件**：前端元件管理表單資料收集、驗證使用者輸入、與 Web3 提供者互動，並處理提交程序，同時提供適當的使用者回饋。
 
 ```typescript
 // Component for submitting answers
@@ -308,13 +308,13 @@ export default function SubmitAnswerForm({
 }
 ```
 
-## Authentication and Social Features Integration <a id="authentication-social-feature-integration"></a>
+## 驗證與社交功能整合<a id="authentication-social-feature-integration"></a>
 
-### LINE LIFF Authentication <a id="line-liff-authentication"></a>
+### LINE LIFF 驗證<a id="line-liff-authentication"></a>
 
-Provides secure user authentication and access to LINE user profiles while ensuring the application runs properly in the LINE environment.
+提供安全的使用者驗證和存取 LINE 使用者設定檔，同時確保應用程式在 LINE 環境中正常執行。
 
-**LIFF Initialization**
+**LIFF 初始化**
 
 ```typescript
 // context/LiffProvider.tsx
@@ -348,7 +348,7 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Login Implementation**
+**登入實施**
 
 ```typescript
 // components/buttons/LineLoginBtn.tsx
@@ -375,11 +375,11 @@ export default function LineLoginBtn() {
 }
 ```
 
-### Web3 Integration <a id="web3-integration"></a>
+### Web3 整合<a id="web3-integration"></a>
 
-Handles wallet connection, account management, and blockchain interactions while maintaining state across the application.
+處理錢包連線、帳戶管理和區塊鏈互動，同時維持整個應用程式的狀態。
 
-**Web3 Provider Setup**
+**Web3 供應商設定**
 
 ```typescript
 // context/Web3Provider.tsx
@@ -418,7 +418,7 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Wallet Connection**
+**錢包連線**
 
 ```typescript
 const connectWallet = async () => {
@@ -460,13 +460,13 @@ const connectWallet = async () => {
 };
 ```
 
-### Extended Social Features <a id="extended-social-features"></a>
+### 延伸的社交功能<a id="extended-social-features"></a>
 
-#### Friend Invitation System <a id="friend-invitation-system"></a>
+#### 朋友邀請系統<a id="friend-invitation-system"></a>
 
-The platform incorporates LINE's social features to enable users to invite friends through a seamless sharing experience. This is implemented through the LIFF ShareTargetPicker, which provides a native LINE interface for friend selection.
+該平台結合了 LINE 的社交功能，讓使用者透過無縫的分享體驗邀請朋友。 這是透過 LIFF ShareTargetPicker 來實作的，它提供了原生的 LINE 介面來選擇朋友。
 
-**Provider Interface**
+\*\* 提供者介面\*\*
 
 ```typescript
 interface LiffContextType {
@@ -481,7 +481,7 @@ interface LiffContextType {
 }
 ```
 
-**Friend Invitation Implementation**
+\*\* 好友邀請實施\*\*
 
 ```typescript
 const inviteFriends = async () => {
@@ -518,9 +518,9 @@ const inviteFriends = async () => {
 };
 ```
 
-#### Referral System <a id="referral-system"></a>
+#### 轉介系統<a id="referral-system"></a>
 
-The referral system tracks user invitations through encoded UIDs in the URL parameters.
+轉介系統會透過 URL 參數中的編碼 UID 來追蹤使用者的邀請。
 
 ```typescript
 // Referral check in LiffProvider
@@ -538,9 +538,9 @@ useEffect(() => {
 }, []);
 ```
 
-#### Share Message Template <a id="share-message-template"></a>
+#### 分享訊息範本<a id="share-message-template"></a>
 
-Customizable LINE Flex Message for invitations, supporting multiple languages.
+可自訂邀請函的 LINE Flex Message，支援多國語言。
 
 ```typescript
 const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
@@ -594,7 +594,7 @@ const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
 };
 ```
 
-**Combined Provider Setup**
+\*\* 組合提供商設定\*\*
 
 ```typescript
 export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -629,11 +629,11 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-#### Friend Invitation Component <a id="friend-invitation-component"></a>
+#### 朋友邀請元件<a id="friend-invitation-component"></a>
 
-The platform implements a dedicated component for friend invitations, making it easily accessible within the survey interface.
+本平台實作了朋友邀請的專屬元件，使其可在調查問卷介面中輕鬆存取。
 
-**Component Implementation**
+**元件實施**
 
 ```typescript
 // components/Friends.tsx
@@ -663,7 +663,7 @@ export default function Friends() {
 }
 ```
 
-**Integration with Survey Page**
+**與調查頁面整合**\*
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -704,18 +704,18 @@ export default async function SurveysPage({
 }
 ```
 
-## Privacy & Security: Semaphore Protocol Implementation <a id="privacy-security"></a>
+## 隱私與安全：Semaphore 通訊協定實作<a id="privacy-security"></a>
 
-In decentralized survey systems, protecting user privacy while ensuring response authenticity is crucial. The Semaphore Protocol is implemented to solve several critical challenges:
+在分散式調查系統中，保護使用者隱私同時確保回覆的真實性至關重要。 Semaphore 通訊協定的實施是為了解決幾個重要的挑戰：
 
-1. **Anonymous Participation**: Users need to prove they're eligible to participate in surveys without revealing their identity.
-2. **Double-Submission Prevention**: The system must prevent multiple submissions while maintaining anonymity.
-3. **Response Privacy**: Survey answers should be confidential and untraceable to individual users.
-4. **Verifiable Authenticity**: Despite anonymity, responses must be verifiably from authorized participants.
+1. **匿名參與**：使用者需要證明自己有資格參與調查問卷，而不透露身份。
+2. \*\* 防止雙重提交\*\*：系統必須防止多重提交，同時維持匿名性。
+3. \*\* 回覆隱私權\*\*：調查問卷的答案應該是保密的，個人使用者無法追蹤。
+4. \*\* 可驗證的真實性\*\*：儘管是匿名，但回覆必須可驗證是來自授權的參與者。
 
-The Semaphore Protocol addresses these challenges by using zero-knowledge proofs, allowing users to prove their membership in a group and submit responses without revealing their identity. This ensures both privacy and data integrity in the survey process.
+Semaphore 通訊協定使用零知識證明來解決這些挑戰，允許使用者證明他們在群組中的成員身份，並在不透露身份的情況下提交回應。 這可確保調查過程中的隱私和資料完整性。
 
-**1. Identity Creation**: Generates a deterministic identity using multiple factors to ensure uniqueness and security while maintaining privacy.
+**1. 身分建立**：使用多重因素產生確定的身分，以確保唯一性和安全性，同時維護隱私。
 
 ```typescript
 //.. browser/survey.tsx
@@ -747,9 +747,9 @@ export const createIdentity = async (
 };
 ```
 
-**2. Group Management**: Handles group membership operations and verification without revealing individual identities.
+**2. 群組管理**：處理群組成員操作及驗證，而不會透露個人身分。
 
-**Join Group Implementation**
+**加入群組實施**
 
 ```typescript
 //..backend/survey.tsx
@@ -776,9 +776,9 @@ export const joinGroup = async (
 };
 ```
 
-## Component Structure <a id="component-structure"></a>
+## 元件結構<a id="component-structure"></a>
 
-In this section, we will do a breakdown of the components structure. Your components folder should look like this:
+在本節中，我們將分解元件結構。 您的元件資料夾應該是這樣的：
 
 ```bash
 buttons/
