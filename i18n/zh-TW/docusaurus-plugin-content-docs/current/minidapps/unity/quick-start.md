@@ -1,4 +1,4 @@
-# Quick Start
+# 快速啟動
 
 ## 前提條件
 
@@ -8,7 +8,7 @@
 - 基本的 C# 和 JavaScript 知識 - 不用太花哨，只需基本知識
 - LINE Developer 賬戶--您可以使用電子郵件輕鬆創建一個賬戶
 - 測試 Kaia，來自 [Kaia 水龍頭](https://faucet.kaia.io/)
-- Mini Dapp SDK Client ID receiveed from Dapp Portal team.
+- 從 Dapp Portal 團隊收到的 Mini Dapp SDK 客戶 ID。
 - 熟悉一些 Web3 概念--如果你瞭解錢包和代幣，就可以使用了。
 
 ## 設置 Unity 環境
