@@ -7,18 +7,18 @@
   - 2.1 Transaction signing by the sender
   - 2.2 Transaction signing by the fee payer
 - [3. Simple server and client for fee delegation](#3-simple-server-and-client-for-fee-delegation)
-  - 3.1 Environment setup
-  - 3.2 Sender's client
+  - 3.1 Thiết lập môi trường
+  - 3.2 Khách hàng của người gửi
   - 3.2 Fee payer's server
 - [4. Run example](#4-run-example)
   - 4.1 Run `feepayer_server.js`
   - 4.2 Run `sender_client.js`
   - 4.3 Check `feepayer_server.js`
-  - 4.4 View on Kaiascan
+  - 4.4 Xem trên Kaiascan
 
 ## 1. Introduction <a href="#1-introduction" id="1-introduction"></a>
 
-This tutorial guides you through creating a simple server-client example using the Kaia SDK (ethers-ext) to demonstrate how fee-delegated value transfer transactions work on Kaia. The tutorial and example code are tested on the Kairos testnet.
+Hướng dẫn này sẽ hướng dẫn bạn cách tạo một ví dụ máy chủ-máy khách đơn giản bằng cách sử dụng Kaia SDK (ethers-ext) để chứng minh cách các giao dịch chuyển giá trị được ủy quyền theo phí hoạt động trên Kaia. Mã hướng dẫn và ví dụ được thử nghiệm trên mạng thử nghiệm Kairos.
 
 ## 2. How fee delegation works <a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -28,14 +28,14 @@ Let's skim through how fee delegation works.
 
 `Sender` always should sign the transaction before sending a transaction.
 
-To sign a transaction, use [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) which signs a transaction with given private key.
+Để ký một giao dịch, hãy sử dụng [signTransaction](../../references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx.mdx) để ký một giao dịch bằng khóa riêng được cung cấp.
 
 ```javascript
 const senderAddress = "SENDER_ADDRESS";
 const senderPrivateKey ="SENDER_PRIVATE_KEY";
 const recieverAddr = "RECEIVER_ADDRESS";
 
-// Create a new transaction
+// Tạo giao dịch mới
 let tx = {
   type: TxType.FeeDelegatedValueTransfer,
   to: recieverAddr,
@@ -43,7 +43,7 @@ let tx = {
   from: senderAddress,
 };
   
-// Sign the transaction
+// Ký giao dịch
 
 tx = await senderWallet.populateTransaction(tx);
 console.log(tx);
@@ -52,27 +52,27 @@ const senderTxHashRLP = await senderWallet.signTransaction(tx);
 console.log("senderTxHashRLP", senderTxHashRLP);
 ```
 
-If there are no errors, then `senderTxHashRLP` will have a signed transaction which is signed by the `senderPrivateKey`.
+Nếu không có lỗi, thì `senderTxHashRLP` sẽ có giao dịch đã ký được ký bởi `senderPrivateKey`.
 
-Now, you need to send the `senderTxHashRLP` to the fee payer. There are various ways to implement this. In this tutorial, we will provide you a simple server-client code as an example of sending a `senderTxHashRLP` to the fee payer.
+Bây giờ, bạn cần gửi `senderTxHashRLP` cho người trả phí. Có nhiều cách khác nhau để thực hiện điều này. Trong hướng dẫn này, chúng tôi sẽ cung cấp cho bạn một mã máy chủ-máy khách đơn giản làm ví dụ về việc gửi `senderTxHashRLP` đến người trả phí.
 
 ### 2.2 Transaction signing by the fee payer <a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-When `fee payer` receives the `senderTxHashRLP`, `fee payer` signs the `senderTxHashRLP` again with their private key and sends the transaction to Kaia. The below code snippet illustrates the process.
+Khi `người trả phí` nhận được `senderTxHashRLP`, `người trả phí` sẽ ký lại `senderTxHashRLP` bằng khóa riêng của họ và gửi giao dịch đến Kaia. The below code snippet illustrates the process.
 
-[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) method signs the transaction with the given fee payer private key before sending the transaction. Before running the code, kindly replace "FEEPAYER_ADDRESS" and "PRIVATE_KEY" with the actual values.
+Phương thức [ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) sẽ ký giao dịch bằng khóa riêng của người trả phí được cung cấp trước khi gửi giao dịch. Trước khi chạy mã, vui lòng thay thế "FEEPAYER_ADDRESS" và "PRIVATE_KEY" bằng các giá trị thực tế.
 
-Note that when the fee payer submits the transaction to Kaia on behalf of the sender, the `senderTxHashRLP` type must be a `FeeDelegatedValueTransfer` type of transaction.
+Lưu ý rằng khi người trả phí gửi giao dịch đến Kaia thay mặt cho người gửi, thì loại giao dịch `senderTxHashRLP` phải là loại giao dịch `FeeDelegatedValueTransfer`.
 
 ```javascript
 const feePayerAddress = "FEEPAYER_ADDRESS";
 const feePayerPrivateKey = "FEEPAYER_PRIVATE_KEY"
 
 const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
-console.log("sentTx", sentTx);
+console.log("tx đã gửi", sentTx);
 
 const rc = await sentTx.wait();
-console.log("receipt", rc);
+console.log("biên lai", rc);
 ```
 
 ## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
