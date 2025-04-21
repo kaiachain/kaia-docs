@@ -1,4 +1,4 @@
-# Convert to LINE LIFF
+# 轉換為 LINE LIFF
 
 現在是激動人心的部分--將你的 Unity WebGL 構建轉化為可通過 LINE 訪問的迷你 dApp！
 
@@ -34,7 +34,7 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+保存您的 LIFF ID - 下一步您會用到它！
 :::
 
 ## 第 2 步：修改 WebGL 模板<a id="modify-webgl-template"></a>
