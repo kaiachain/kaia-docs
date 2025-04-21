@@ -1,21 +1,21 @@
-# WebGL Build Settings
+# WebGLビルド設定
 
-In this section, we will configure our dApp for the web! This will configure Unity for Web3 compatibility and create a custom template for Kaia integration.
+このセクションでは、ウェブ用にdAppを設定する！ これは、Web3互換性のためにUnityを設定し、Kaia統合のためのカスタムテンプレートを作成します。
 
-## Step 1: Switch to WebGL Platform
+## ステップ1：WebGLプラットフォームに切り替える
 
-1. Navigate to File → Build Settings.
-2. Select WebGL and click "Switch Platform".
+1. File → Build Settingsに移動する。
+2. WebGLを選択し、"Switch Platform "をクリックします。
 
 :::note
-This might take a few minutes if it's your first time switching.
+初めて切り替える場合は、数分かかるかもしれない。
 :::
 
 ![](/img/minidapps/unity-minidapp/ui-webgl-switch.png)
 
-## Step 2: Creating a Custom WebGL Template
+## ステップ2：カスタムWebGLテンプレートの作成
 
-We need a custom template to integrate Web3 capabilities. Here's our folder structure:
+Web3の機能を統合するためのカスタムテンプレートが必要です。 これが我々のフォルダ構造だ：
 
 ```code
 Assets/
@@ -28,18 +28,18 @@ Assets/
 
 :::info
 
-**Why Custom Template?**
+\*\*なぜカスタム・テンプレートなのか？
 
-The default Unity template doesn't include Web3 support. Our custom template will:
+デフォルトのUnityテンプレートにはWeb3のサポートが含まれていません。 私たちのカスタムテンプレートは
 
-- Load necessary Web3 libraries.
-- Enable Kaia Wallet integration.
-- Handle blockchain interactions properly.
+- 必要なWeb3ライブラリをロードします。
+- カイアウォレットの統合を有効にする。
+- ブロックチェーンのやり取りを適切に処理する。
  :::
 
-## Step 3: Setting Up index.html
+## ステップ3：index.htmlの設定
 
-Copy and paste the code below in your `index.html` file:
+以下のコードをコピーして `index.html` ファイルに貼り付けます：
 
 ```html
 <!DOCTYPE html>
@@ -225,13 +225,13 @@ Copy and paste the code below in your `index.html` file:
 </html>
 ```
 
-## Step 4: Setting Up Mini Dapp SDK
+## ステップ4：Mini Dapp SDKのセットアップ
 
-1. Visit: https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. Save the content to your `scripts/dapp-portal-sdk.js`. Using a local Mini Dapp SDK file improves load times and reliability.
+1. 訪問：https://static.kaiawallet.io/js/dapp-portal-sdk.js
+2. 内容を `scripts/dapp-portal-sdk.js` に保存する。 ローカルのMini Dapp SDKファイルを使用することで、ロード時間と信頼性が向上します。
 
 :::note
-Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` in the `script` tag in your `index.html`.
+あるいは、ミニダップSDKへのリンクを `index.html` の `script` タグの `src` として直接追加することもできます。
 
 ```js
 // <script src="scripts/dapp_portal_sdk.js"></script>
@@ -240,25 +240,25 @@ Alternatively, you can directly add the link to the Mini Dapp SDK as the `src` i
 
 :::
 
-## Step 5: Configure Unity to Use Custom Template
+## ステップ5：カスタムテンプレートを使用するようにUnityを設定する
 
-- Open Build Settings.
-- Navigate to Player Settings.
-- Under "Resolution and Presentation":
- - Find "WebGL Template".
- - Select "KaiaTemplate".
-- Under "Publish Settings" select **disabled** in the Compression Format field.
+- ビルド設定を開きます。
+- プレーヤー設定に移動します。
+- 決議と発表」の下：
+ - WebGL Template "を探す。
+ - KaiaTemplate」を選択する。
+- Publish Settings "の "Compression Format "フィールドで "**disabled**"を選択します。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
 
-## Step 6: Building Your dApp
+## ステップ6：dAppの構築
 
-Now Let's bring it all together:
+さあ、すべてをまとめよう：
 
-1. Open Build Settings (File → Build Settings).
-2. Click "Build And Run".
-3. Save the build project as prompted on Unity; e.g "minidapp".
-4. Important Build Files:
+1. ビルド設定を開く（File → Build Settings）。
+2. Build And Run "をクリックする。
+3. ビルドプロジェクトをUnity上でプロンプトに従って保存します。
+4. 重要なビルドファイル：
 
 ```bash
 minidapp/
@@ -268,38 +268,38 @@ minidapp/
 └── minidapp.wasm
 ```
 
-## Step 7: Post-Build Configuration
+## ステップ 7: ビルド後の設定
 
-After building your project,
+プロジェクトを構築した後
 
-1. Open your build folder.
-2. Note all generated file names.
-3. Update your index.html to match these names.
-4. Save changes and rebuild.
-5. You should now see a tab opened in your browser.
+1. ビルドフォルダを開く。
+2. 生成されたすべてのファイル名に注意。
+3. これらの名前に合わせてindex.htmlを更新する。
+4. 変更を保存して再構築する。
+5. ブラウザにタブが開くはずです。
 
 ![](/img/minidapps/unity-minidapp/ui-build-app.png)
 
-## Step 8: Route WebGL build to Localhost:3000
+## ステップ8：WebGLビルドをLocalhost:3000にルーティングする
 
-For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 61445) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+セキュリティと開発目的のため、Mini Dapp SDKは現在localhost:3000で動作しています。 現時点では、デフォルトのUnity WebGLビルドはランダムなポート（61445など）を使用しており、アプリを効率的に動作させるには、Unity WebGLビルドをlocalhost:3000で開くように設定する必要があります。
 
-To do so, follow the steps below:
+そのためには、以下の手順に従ってください：
 
-1. Copy and Paste the code below in your project terminal
+1. 以下のコードをコピーして、プロジェクトターミナルに貼り付けます。
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. ビルド・フォルダーに移動する
 
 ```bash
 cd path/to/minidapp
 ```
 
-3. Start server on port 3000
+3. ポート3000でサーバーを起動
 
 ```bash
 http-server -p 3000
@@ -307,11 +307,11 @@ http-server -p 3000
 
 ![](/img/minidapps/unity-minidapp/lh_3000.png)
 
-## Testing and running application
+## アプリケーションのテストと実行
 
-Now that we have our project running, let’s test and interact with it.
+さて、プロジェクトを走らせたので、テストして操作してみよう。
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, fill in details (amount) to mint to the connected address.
+- Connect Wallet ボタンをクリックして Dapp Portal Wallet に接続します。
+- 接続が完了したら、接続されたアドレスに送金するための詳細（金額）を記入する。
 
 ![](/img/minidapps/unity-minidapp/minidapp-demo.gif)
