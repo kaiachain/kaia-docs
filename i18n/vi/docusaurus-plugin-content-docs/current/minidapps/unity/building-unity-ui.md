@@ -1,50 +1,50 @@
-# UI Creation
+# Tạo giao diện người dùng
 
-In this section, we will build our dApp's user interface! We'll create a structured UI system with three main panels for status updates, actions, and minting functionality.
+Trong phần này, chúng ta sẽ xây dựng giao diện người dùng cho dApp! Chúng tôi sẽ tạo một hệ thống giao diện người dùng có cấu trúc với ba bảng điều khiển chính để cập nhật trạng thái, hành động và chức năng đúc tiền.
 
-## Setting Up the Main Canvas
+## Thiết lập Canvas chính
 
-First, let's create our base canvas:
+Đầu tiên, chúng ta hãy tạo khung nền cơ sở:
 
-1. In the Hierarchy window, right-click on "Sample Scene".
-2. Navigate to GameObject → UI → Canvas.
+1. Trong cửa sổ Hierarchy, nhấp chuột phải vào "Sample Scene".
+2. Điều hướng đến GameObject → UI → Canvas.
 
-## Creating the Web3UI Container
+## Tạo Container Web3UI
 
-1. Right-click on your new Canvas.
-2. Select "Create Empty".
-3. Rename it to "Web3UI".
+1. Nhấp chuột phải vào Canvas mới của bạn.
+2. Chọn "Tạo rỗng".
+3. Đổi tên thành "Web3UI".
 
-## Setting Up Main Panels
+## Thiết lập bảng điều khiển chính
 
-Inside Web3UI, create three panel objects:
+Bên trong Web3UI, tạo ba đối tượng bảng điều khiển:
 
-1. Right-click on Web3UI and select "Create Empty".
-2. Create and rename these panels:
-   - StatusPanel - Your dApp's information display
-   - ButtonPanel - For user interactions
-   - MintPanel - For token minting features
+1. Nhấp chuột phải vào Web3UI và chọn "Create Empty".
+2. Tạo và đổi tên các bảng điều khiển này:
+   - StatusPanel - Hiển thị thông tin dApp của bạn
+   - ButtonPanel - Dành cho tương tác của người dùng
+   - MintPanel - Dành cho các tính năng đúc mã thông báo
 
-## Creating Panel Components
+## Tạo thành phần bảng điều khiển
 
-### StatusPanel Components
+### Thành phần StatusPanel
 
-This panel shows all your important Web3 information:
+Bảng điều khiển này hiển thị tất cả thông tin quan trọng về Web3 của bạn:
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to StatusText. Make sure to fill the “Text Input” field in the Inspector pane e.g. "Status..."
+- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành StatusText. Đảm bảo điền vào trường “Nhập văn bản” trong ngăn Thanh tra, ví dụ: “Trạng thái…”
 
 :::note
-**TextMeshPro (TMP) Setup**
+**Cài đặt TextMeshPro (TMP)**
 
-When you first create a TextMeshPro element (UI - Text - TextMeshPro), Unity automatically prompts you to import TMP Essentials. If you accidentally skip this prompt, you can manually import it through Window > TextMeshPro > Import TMP Essentials.
+Khi bạn lần đầu tạo phần tử TextMeshPro (UI - Text - TextMeshPro), Unity sẽ tự động nhắc bạn nhập TMP Essentials. Nếu bạn vô tình bỏ qua lời nhắc này, bạn có thể nhập thủ công thông qua Window > TextMeshPro > Import TMP Essentials.
 
-Why we need this: TextMeshPro requires core resources (shaders, default fonts, and materials) to properly display text in your game. Without these essentials, your text components won't render correctly and you'll see shader/material errors in your project. This is a one-time setup that's necessary for text to work properly.
+Tại sao chúng ta cần điều này: TextMeshPro yêu cầu các tài nguyên cốt lõi (shader, phông chữ mặc định và vật liệu) để hiển thị văn bản chính xác trong trò chơi của bạn. Nếu thiếu những yếu tố cần thiết này, các thành phần văn bản của bạn sẽ không hiển thị chính xác và bạn sẽ thấy lỗi đổ bóng/vật liệu trong dự án của mình. Đây là thiết lập một lần cần thiết để văn bản hoạt động bình thường.
 :::
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the text object e.g "Address Text..."
-- Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the text object e.g "0.0000 ET"
+- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành AddressText. Hãy chắc chắn điền vào đối tượng văn bản, ví dụ "Văn bản địa chỉ..."
+- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành TokenBalanceText. Hãy đảm bảo điền vào đối tượng văn bản ví dụ "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -55,13 +55,13 @@ Why we need this: TextMeshPro requires core resources (shaders, default fonts, a
     └── Default: "0.0000 ET"
 ```
 
-### ButtonPanel Components
+### Thành phần ButtonPanel
 
-Your main interaction buttons:
+Các nút tương tác chính của bạn:
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to ConnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with "Connect Wallet".
+- Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành ConnectWalletButton. Đảm bảo điền "Kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
 
-- Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to DisconnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with “Disconnect Wallet".
+- Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành DisconnectWalletButton. Đảm bảo điền "Ngắt kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
 
 ```code
 ButtonPanel
@@ -71,12 +71,12 @@ ButtonPanel
 │   └── Text: "Disconnect Wallet"
 ```
 
-### MintPanel Components
+### Thành phần MintPanel
 
-The token minting interface:
+Giao diện đúc mã thông báo:
 
-- Right click on MintPanel, click on UI → Input Field → TextMeshPro and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
-- Right click on MintPanel, click on UI → Button → TextMeshPro and then rename to MintButton. Make sure to fill the text object with "Mint"
+- Nhấp chuột phải vào MintPanel, nhấp vào UI → Input Field → TextMeshPro rồi đổi tên thành MintAmountInput. Đảm bảo điền vào đối tượng giữ chỗ bằng "Nhập số tiền…"
+- Nhấp chuột phải vào MintPanel, nhấp vào UI → Button → TextMeshPro rồi đổi tên thành MintButton. Hãy chắc chắn điền vào đối tượng văn bản bằng "Mint"
 
 ```code
 MintPanel
@@ -86,7 +86,7 @@ MintPanel
     └── Text: "Mint"
 ```
 
-After creating all components, your hierarchy should look like this:
+Sau khi tạo tất cả các thành phần, hệ thống phân cấp của bạn sẽ trông như thế này:
 
 ```code
 Canvas
@@ -99,5 +99,5 @@ Canvas
 ![](/img/minidapps/unity-minidapp/unity-ui-canvas.png)
 
 :::note
-For your component to be well arranged as seen in the image above, you have to manually arrange them with the icon on the right-hand side when you click on each component.
+Để sắp xếp các thành phần theo đúng thứ tự như hình trên, bạn phải sắp xếp chúng theo cách thủ công bằng biểu tượng ở phía bên phải khi bạn nhấp vào từng thành phần.
 :::
