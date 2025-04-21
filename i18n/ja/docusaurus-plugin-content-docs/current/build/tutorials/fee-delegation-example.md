@@ -72,7 +72,7 @@ const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
 console.log("sentTx", sentTx);
 
 const rc = await sentTx.wait();
-console.log("receipt", rc);
+console.log("receipt", rc)；
 ```
 
 ## ３． Fee Delegationのためのシンプルなサーバーとクライアント]()
