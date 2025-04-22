@@ -1,6 +1,13 @@
 ## ✨ Proposed Changes
 
-<!-- Describe your changes to communicate to the maintainers why we should accept this pull request. If it fixes a bug or resolves a feature request, be sure to link to that issue.-->
+<!--
+**REQUIRED:** Describe your changes clearly.
+- What problem does this solve or what goal does it achieve?
+- What are the key changes made?
+- What is the rationale behind these changes?
+
+**If you are a maintainer/regular contributor submitting without a prior issue, provide detailed context here.**
+-->
 
 -
 -
@@ -27,14 +34,19 @@
 <!-- Put an x in the boxes that apply. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to reach out. We're here to help! This is simply a reminder of what we are going to look for before merging your code. -->
 
 - [ ] I have read the [CONTRIBUTING GUIDELINES](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md).
-- [ ] I have added necessary documentation (if appropriate).
-- [ ] Any dependent changes have been merged and published in downstream modules.
+- [ ] **If following Standard Workflow:** I have linked the approved issue below.
+- [ ] **If submitting without a prior issue (Maintainer/Regular):** I have provided detailed context in the "Proposed Changes" section above.
+- [ ] My changes render correctly (if applicable, run `npm run build` locally).
+- [ ] I have added necessary documentation updates (if appropriate).
+- [ ] Any dependent changes have been merged and published.
 
 ## 📌 Related issues
-
-<!-- Please leave the issue numbers or links related to this PR here something like `Fixes #1234` or `Related to #1234`. -->
-
+<!--
+- **Required** if you checked "Content Contribution / Other Change (Standard Workflow)". Link the approved issue (e.g., `Fixes #123` or `Related to #1234`).
+- **Optional** (but encouraged for large changes) if submitted by a Maintainer/Regular Contributor without a prior issue.
+- Leave blank or write "N/A" for Minor Fixes.
+-->
 
 ## 💡 Further comments
 
-<!-- If this is a relatively large content contribution, kick off the discussion by explaining why you would suggest the content contribution, etc... -->
+<!-- Add any other context, screenshots, or information here. -->
