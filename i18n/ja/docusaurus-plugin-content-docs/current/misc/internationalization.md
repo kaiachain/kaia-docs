@@ -4,6 +4,9 @@ KaiaDocsに関する製造業者、販売業者、サービス提供業者は次
 
 - [英語](https://docs.kaia.io/)
 - [한국어](https://docs.kaia.io/ko/)
+- [日本語](https://docs.kaia.io/ja/)
+- [简体中文](https://docs.kaia.io/zh-CN/)
+- [繁體中文](https://docs.kaia.io/zh-TW/)
 - [Tiếng Việt](https://docs.kaia.io/vi/)
 
 ## 参加する <a href="#get-involved" id="get-involved"></a>
