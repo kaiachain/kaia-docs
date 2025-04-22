@@ -4,6 +4,9 @@ KlaytnDocs는 다음 언어를 지원합니다:
 
 - [English](https://docs.kaia.io/)
 - [한국어](https://docs.kaia.io/ko/)
+- [日本語](https://docs.kaia.io/ja/)
+- [简体中文](https://docs.kaia.io/zh-CN/)
+- [繁體中文](https://docs.kaia.io/zh-TW/)
 - [Tiếng Việt](https://docs.kaia.io/vi/)
 
 ## 참여하기! <a href="#get-involved" id="get-involved"></a>
