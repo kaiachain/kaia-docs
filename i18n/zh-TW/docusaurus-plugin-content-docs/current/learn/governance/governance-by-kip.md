@@ -15,7 +15,7 @@ CnStakingV3 將兼容現有的核心合約，如 AddressBook 和 StakingTracker�
 
 **日期：2024-04-22**
 
-KIP-160 建議加強國庫基金再平衡機制，解決 KIP-103 的侷限性。 主要動機是允許基金餘額的增加和減少，並使再平衡塊編號可編輯。 這次更新涉及重新平衡流程的通用化，使燒錢和鑄幣都成為可能，並確保重新平衡區塊的數量能與區塊鏈硬分叉時間表的變化保持一致。 Find the rebalance detail in the [contracts addresses](../../references/contract-addresses) page.
+KIP-160 建議加強國庫基金再平衡機制，解決 KIP-103 的侷限性。 主要動機是允許基金餘額的增加和減少，並使再平衡塊編號可編輯。 這次更新涉及重新平衡流程的通用化，使燒錢和鑄幣都成為可能，並確保重新平衡區塊的數量能與區塊鏈硬分叉時間表的變化保持一致。 在 [合約地址](../../references/contract-addresses.md) 頁面找到重新平衡的詳細資訊。
 
 ## KIP-149：系統合同的統一部署和管理<a id="KIP-149"></a>
 
