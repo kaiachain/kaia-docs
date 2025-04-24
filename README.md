@@ -8,14 +8,13 @@ We welcome contributions to help us improve and expand the Kaia documentation. T
 
 ### Contributing to Documentation
 
-If you find issues in the docs or have suggestions for improvements, please open an issue or submit a pull request. See our [Contributing Guide](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md) for more details on the contribution workflow.
+Whether fixing a typo, suggesting an improvement, or adding new content, your help is valuable.
 
-Before submitting PRs, make sure to:
+* **Minor fixes** (typos, broken links) can be submitted directly via Pull Request by anyone.
+* For **other changes**, the standard process involves submitting an Issue first.
+* Internal maintainers and recognized regular contributors may have an expedited workflow for all types of changes.
 
-- Create an issue with an appropriate [label](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md#usage-of-labels).
-- Provide a clear and detailed description of the changes.
-- Reference any related issues or pull requests.
-- Ensure your changes render correctly and pass all tests.
+Please see our detailed **[Contributing Guide](https://github.com/kaiachain/kaia-docs/blob/main/CONTRIBUTING.md)** for the full workflows, issue labeling, and guidelines applicable to all contributors.
 
 ### Contributing Translations
 
@@ -23,20 +22,19 @@ Kaia docs is available in the following languages:
 
 - English
 - 한국어
+- 日本語
+- 简体中文
+- 繁體中文
 - Tiếng Việt
 
-If you are fluent in a language other than English and want to contribute translations or improve the localized documentation, see the [Internationalization](https://docs.kaia.io/misc/internationalization/) page for details on how to contribute translations via Crowdin.
+If you are fluent in another language and want to contribute translations or improve existing ones:
 
-Some key points:
+1. **Use Crowdin:** All translation contributions are managed via the **[Kaia-Docs Crowdin project](https://crowdin.com/project/kaia-docs)**.
+2. **Read the Guide:** Please refer to the detailed **[Internationalization](https://docs.kaia.io/misc/internationalization/)** page on our documentation site for step-by-step instructions on how to join, translate, and understand the process (including Machine Translation usage and review).
+3. Use GitHub issues with the `content-translation` label *only* for requesting new languages or reporting major, systemic translation problems. Do not use issues for suggesting individual string changes.
 
-- Create an issue with the `content-translation` label.
-- Join the translator team on the [Kaia-Docs Crowdin project](https://crowdin.com/project/kaia-docs).
-- Select the language you want to contribute to.
-- Choose the files to translate or vote on translations.
-- Ensure your word choices conform to the Kaia Terminologies.
-- Be respectful and follow the translation Code of Conduct.
-
-Translation suggestions will be reviewed by the maintainers and made available on the localized doc sites when approved and merged.
+> [!IMPORTANT]
+> Do not submit Pull Requests directly modifying translation files in the `i18n` directory.
 
 ## Developing Kaia Docs
 

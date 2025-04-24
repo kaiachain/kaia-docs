@@ -2,11 +2,28 @@
 
 Thank you for your interest in contributing to Kaia Docs! As an open-source project, Kaia Docs is always open to the developer community and we warmly welcome your contributions. Please follow the guidelines below to ensure a smooth and enjoyable collaboration experience.
 
-## 📚 How to Contribute to Kaia Docs
+**Contribution Paths:**
+
+* **New / Occasional Contributors:** Please follow the **Standard Workflow** (Submit Issue -> Wait for Approval -> Submit PR).
+* **Minor Fixes (Typos, Broken Links):** Anyone can submit a PR directly for these small corrections.
+* **Internal Maintainers & Recognized Regular Contributors:** You *may* submit PRs directly for most changes without a prior issue, but please read the specific guidelines below.
+* **Translations:** Everyone uses [the Crowdin workflow](#-content-translation).
+
+<details>
+
+<summary>Contribution Workflow Diagram</summary>
+
+![Image](https://github.com/user-attachments/assets/7410add6-8e1d-4fff-a952-35064563b2df)
+
+</details>
+
+## 📚 How to Contribute to Kaia Docs (Standard Workflow for New / Occasional Contributors)
+
+This is the default process for proposing content changes, suggestions, or reporting issues beyond minor typos.
 
 1. **Read this [Contributing Document](./CONTRIBUTING.md).**
-2. **Sign the [Contributor License Agreement (CLA)](https://github.com/kaiachain/kaia-docs/blob/main/.github/CLA.md).**
-3. **Submit an issue with proper [labelling](#️-usage-of-labels).**
+2. **Sign the [Contributor License Agreement (CLA)](https://github.com/kaiachain/kaia-docs/blob/main/.github/CLA.md)** (required for your first PR).
+3. **Submit an issue** describing your proposed change or the problem you found, using the proper [label](#️-usage-of-labels). Ensure it's not a duplicate.
 4. **Wait for Contribution Approval:** Our moderators will review your issue and update the label to `contribution welcome` if it's ready to be worked on. Please avoid duplicate efforts by checking the issue status before starting your contribution.
 5. **Start Contributing:** Once your issue is approved, you can begin working on the changes. Update the issue to inform other contributors that you're actively working on it.
 6. **Make a Pull Request (PR):** Ensure your proposed changes are accurate, well-documented, and linked to the corresponding issue. Submit a PR against the `main` branch and wait for code review and approval.
@@ -14,46 +31,63 @@ Thank you for your interest in contributing to Kaia Docs! As an open-source proj
 8. **PR Merge and Branch Deletion:** Once approved, the project moderator will merge your PR into the main branch. You can then safely delete your working branch.
 9. **Content Update:** The Kaia Docs website ([https://docs.kaia.io/](https://docs.kaia.io/)) will be updated with your merged contribution.
 
+## 🚀 How to Contribute to Kaia Docs (Expedited Workflow for Internal Maintainers & Recognized Regular Contributors)
+
+To facilitate faster contributions from our core team and trusted community members, internal maintainers and recognized regular contributors **may** submit Pull Requests directly for **Issues and Typos** and **Content Contributions** without creating an issue first.
+
+**Guidelines for Expedited Workflow:**
+
+* **Responsibility:** This privilege comes with the responsibility to ensure clarity, avoid conflicts, and maintain high-quality contributions.
+* **Clear PR Descriptions:** Since there's no preceding issue, your PR description **must** provide comprehensive context:
+  * Clearly explain the **problem** or **goal**.
+  * Detail the **changes** made.
+  * Explain the **rationale** behind the change.
+* **Check for Conflicts:** Before starting significant work, quickly check open PRs and recent commits to minimize the chance of duplicating effort or creating conflicts.
+* **Consider Creating Issues Anyway:** For **large, complex, or potentially controversial changes**, we still **strongly encourage** creating an issue first (even if you start work immediately). This aids visibility, tracking, and allows for asynchronous discussion if needed.
+* **Translations Exception:** This expedited workflow **does not apply** to Content Translations, which must follow the Crowdin process (see below).
+
+> [!NOTE]
+> The process for recognizing "Regular Contributors" is managed internally by the project maintainers.
+
 ## 🧩 Types of Contribution
 
-There are various ways to contribute and participate. Please read the guidelines below regarding the process for each type of contribution.
+### 🐞 Issues and Typos (Minor Fixes)
 
-- [Issues and Typos](#-issues-and-typos)
-- [Content Contribution](#-content-contribution)
-- [Content Translation](#-content-translation)
+If you spot minor issues in Kaia Docs:
 
-### 🐞 Issues and Typos
-
-If you spot issues or typos in Kaia Docs, please ensure the following before submitting an issue:
-
-- The issue is **not a duplicate**.
-- The issue has **not been covered** in the latest release of Kaia Docs.
-- The issue addresses **minor typos or errors** in the existing content.
+* **For minor typos, broken link fixes, or trivial formatting corrections ONLY:**
+  * You **do not** need to create an issue first.
+  * You can **submit a Pull Request directly**.
+  * In your PR description, clearly state it's a minor fix and check the corresponding box in the PR template.
+* **For inaccuracies, unclear sentences, or anything requiring more than a trivial fix:**
+  * Please ensure the issue is **not a duplicate** and **not already addressed**.
+  * [Submit an issue](https://github.com/kaiachain/kaia-docs/issues) using the `issues-and-typos` label. Wait for feedback or approval before submitting a PR if the fix isn't obvious.
 
 **Please do not use the issue tracker for personal support requests.** Use [dev@kaia.io](mailto:dev@kaia.io) for personal support.
 
-After confirming your report meets the above criteria, [submit the issue](https://github.com/kaiachain/kaia-docs/issues). Please use the `issues-and-typos` label to categorize your issue.
+### 📄 Content Contribution (Major Changes)
 
-### 📄 Content Contribution
+This includes adding/removing paragraphs or sections, adding new pages, significant rewrites, or adding/removing diagrams.
 
-For major content changes in Kaia Docs, please follow these steps:
-
-- Ensure the issue is **not a duplicate**.
-- Confirm the issue has **not been addressed** in the latest release.
-- The issue involves **major content changes** (e.g., adding/removing paragraphs or chapters, adding/removing graphical explanations).
+* Ensure the topic is **not a duplicate** and **not already addressed**.
+* **You MUST submit an issue first.** Use the `content-contribution` label.
+* **Wait for the issue to be approved** (typically marked with `open/contribution welcome`) before starting work and submitting a PR. This allows for discussion and ensures alignment with project goals.
 
 **Avoid using the issue tracker for personal support requests.** Instead, contact [dev@kaia.io](mailto:dev@kaia.io).
 
-Once verified, [submit the issue](https://github.com/kaiachain/kaia-docs/issues) with the `content-contribution` label.
-
 ### 🌐 Content Translation
 
-If you are fluent in a language other than English and want to contribute translations or improve the localized documentation, [submit an issue](https://github.com/kaiachain/kaia-docs/issues). Please use [labels](#️-usage-of-labels) to specify your issue as `content-translation`.
+Translation contributions don't involve submitting issues or PRs in the GitHub repository. Instead, they are managed through [Crowdin](https://crowdin.com/project/kaia-docs), a collaborative translation platform.
 
-You need to use the [Crowdin](https://crowdin.com/project/kaia-docs) platform to contribute translations. For more information, see the [Internationalization](https://docs.kaia.io/misc/internationalization/) page.
+* **Detailed Guide:** For comprehensive instructions on how to contribute translations, including using Crowdin, understanding Machine Translation usage, and the review process, please refer to our dedicated **[Internationalization](https://docs.kaia.io/misc/internationalization/)** page.
+* **When to use GitHub Issues (`content-translation` label):** Use GitHub issues with the `content-translation` label *only* for:
+  * Requesting a new language to be added to Crowdin.
+  * Reporting widespread, systemic issues within an existing translation.
+  * Discussing overall translation strategy or major terminology decisions.
+  * *Do not* create issues for suggesting corrections to individual words or sentences – please make those suggestions directly in Crowdin.
 
-> [!IMPORTANT]  
-> For content translation, avoid using a pull request to submit changes by modifying the files under the [i18n](https://github.com/kaiachain/kaia-docs/tree/main/i18n) directory directly. </br> </br> Unlike other types of contribution, the translations are managed by Crowdin localization management platform. If a translation is submitted and has been approved in Crowdin, an automated PR will be made to Kaia docs repo. Once the PR is approved and merged by the project moderators, the localized Kaia docs will be updated with the suggested changes (merged content).
+> **[!IMPORTANT]**
+> **Do not submit Pull Requests directly modifying files within the `/i18n/` directory.** Translation updates are managed automatically via an integration between Crowdin and GitHub. Approved translations in Crowdin trigger an automated PR (named "New Crowdin updates") which is then merged by project moderators.
 
 ## 🏷️ Usage of Labels
 
@@ -61,9 +95,9 @@ Proper labeling helps us manage contributions efficiently. Here are the labels u
 
 ### Initial Issue Categories
 
-- **`issues-and-typos`**: Minor content typos and inaccuracies.
-- **`content-contribution`**: Major content contributions.
-- **`content-translation`**: Content translations.
+- **`issues-and-typos`**: Minor content typos and inaccuracies in the source (English) documentation.
+- **`content-contribution`**: Major content contributions or changes to the source (English) documentation.
+- **`content-translation`**: Used for *tracking* requests for new languages, reporting systemic translation issues, or discussing translation strategy (See [Content Translation](#-content-translation) section). Actual translation happens on Crowdin.
 
 ### Status of Open Issues
 

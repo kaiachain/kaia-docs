@@ -13,7 +13,7 @@ Additionally, from the FORK_BLOCK onwards, staking information for block N will 
 ## KIP-160: An Update On Treasury Fund Rebalancing <a id="KIP-160"></a>
 **Date: 2024-04-22**
 
-KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule. Find the rebalance detail in the [contracts addresses](../../references/contract-addresses) page.
+KIP-160 proposes enhancements to the Treasury Fund Rebalancing mechanism, addressing the limitations of KIP-103. The primary motivation is to allow both increases and decreases in fund balances and make the rebalance block number editable. This update involves generalizing the rebalancing process, enabling both the burning and minting of funds, and ensuring the rebalance block number can be aligned with changes in the blockchain's hard fork schedule. Find the rebalance detail in the [contracts addresses](../../references/contract-addresses.md) page.
 
 ## KIP-149: Unified Deployment and Management of System Contracts <a id="KIP-149"></a>
 **Date: 2023-09-20**
