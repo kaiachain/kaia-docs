@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Ensures full Git history is fetched for correct timestamp calculation
       - name: Get AWS credentials
