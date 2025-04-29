@@ -1,21 +1,21 @@
 ---
 id: hardhat
-title: Using Hardhat
+title: 使用硬頭盔
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-# How to Verify Smart Contracts Using Hardhat
+# 如何使用 Hardhat 驗證智慧型契約
 
-This guide allows you to automatically verify your smart contracts' source code on Kaiascope straight from your CLI using the Hardhat Verify Plugin.
+本指南允許您使用 Hardhat Verify Plugin 直接從 CLI 在 Kaiascope 上自動驗證智慧契約的原始程式碼。
 
-To verify your contract on Kaia, you need to add the following configuration to your `hardhat.config.js`:
+若要在 Kaia 上驗證您的合約，您需要新增下列設定到您的「hardhat.config.js」：
 
 ## Kaiascan
 
 <Tabs>
-  <TabItem value="kaia-mainnet" label="Mainnet">
+  <TabItem value="kaia-mainnet" label="主網路">
     ```js
     module.exports = {
       etherscan: {
@@ -37,7 +37,7 @@ To verify your contract on Kaia, you need to add the following configuration to 
     ```
   </TabItem>
 
-  <TabItem value="kairos-testnet" label="Kairos">
+  <TabItem value="kairos-testnet" label="啟動">
     ```js
     module.exports = {
       etherscan: {
@@ -120,19 +120,19 @@ To verify your contract on Kaia, you need to add the following configuration to 
   </TabItem>
 </Tabs>
 
-To verify the contract, you will run the verify command and pass in the address of the deployed contract, network and parameters if any.
+若要驗證合約，您必須執行 verify 指令，並傳入已部署合約的位址、網路和參數（若有）。
 
 ```bash
 npx hardhat verify –network <network> <deployed_address> <parameters>
 
-// example
+## example
 
 npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification.
+在您的終端機，您應該會看到您的合約原始碼已成功提交驗證。
 
-If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1) and [Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode) respectively.
+如果驗證成功，您應該會看到成功驗證的合約，並且會有連結到 [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1) 和 [Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode) 上的合約代碼。
 
 **Kaiascan**
 
@@ -144,8 +144,8 @@ If the verification was successful, you should see Successfully verified contra
 ![](/img/build/smart-contracts/verify/kaiascope-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascope-verify.png)
 
-## Useful links
+## 有用連結
 
-* [Configuration for Hardhat Verify Plugin on Kaiascan](https://docs.kaiascan.io/hardhat-verify)
-* [Configuration for Hardhat Verify Plugin on Kaiascope](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-* [Verifying contracts using Hardhat on Kaiascan](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+* [Kaiascan 上 Hardhat Verify 外掛程式的設定](https://docs.kaiascan.io/hardhat-verify)
+* [Kaiascope 上 Hardhat Verify 外掛程式的設定](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
+* [在 Kaiascan 上使用 Hardhat 驗證合約](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)

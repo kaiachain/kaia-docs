@@ -1,30 +1,30 @@
-# Convert to LINE LIFF
+# LINE LIFFに変換
 
-In this section, we’ll walk through the steps to convert, integrate, and deploy your build as a LINE LIFF (LINE Front-end Framework) app, making it seamlessly accessible within the LINE ecosystem.
+このセクションでは、作成したアプリをLINE LIFF（LINE Front-end Framework）アプリとして変換、統合、デプロイし、LINEエコシステム内でシームレスにアクセスできるようにする手順を説明します。
 
-Let’s get started!
+始めよう！
 
-## Step 1: Create Your LIFF App <a id="create-liff-app"></a>
+## ステップ1：LIFFアプリの作成<a id="create-liff-app"></a>
 
-First, let's set up your app in the LINE ecosystem:
+まず、LINEエコシステムにアプリをセットアップしよう：
 
-1. LINE Developers Console Setup:
+1. LINE Developers コンソールのセットアップ：
 
-  - Visit LINE Developers Console.
-  - Create a Provider (skip if you already have one).
+  - LINEデベロッパーズコンソールをご覧ください。
+  - プロバイダを作成します（すでにプロバイダをお持ちの場合はスキップしてください）。
 
   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - Create a new LINE Login channel.
+  - 新しいLINEログインチャンネルを作成する。
 
   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - Navigate to the LIFF tab
-  - Click "Add LIFF app"
+  - LIFFタブに移動する
+  - LIFFアプリを追加」をクリック
 
   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
-2. Configure LIFF Settings:
+2. LIFFの設定を行う：
 
 ```code
 Size: Choose one of:
@@ -36,12 +36,12 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+LIFF IDを保存してください - 次のステップで必要になります！
 :::
 
-## Step 2: Modify Build Template <a id="modify-build-template"></a>
+## ステップ 2: ビルド・テンプレートの修正<a id="modify-build-template"></a>
 
-Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
+build-templates/web-desktop/index.htmlのテンプレートにLIFF SDKを追加します：
 
 ```html
 <!DOCTYPE html>
@@ -112,9 +112,9 @@ Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
 </html>
 ```
 
-> Make sure to change your LIFF-ID in the code snippet above.
+> 上記のコード・スニペットでLIFF-IDを変更してください。
 
-## Step 3: Implementing LIFF in Web3Manager <a id="implementing-liff-in-web3manager"></a>
+## ステップ3：Web3ManagerにLIFFを実装する<a id="implementing-liff-in-web3manager"></a>
 
 ```typescript
 // Web3Manager.ts
@@ -164,18 +164,18 @@ export class Web3Manager extends Component {
 }
 ```
 
-## Step: 4: Build and Test Process <a id="build-and-test-process"></a>
+## ステップ: 4: ビルドとテストのプロセス<a id="build-and-test-process"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated build/web-desktop/index.html.
-- Confirm that the LIFF SDK script is correctly included.
+- Cocos Creatorでプロジェクトを再構築する。
+- 生成されたbuild/web-desktop/index.htmlを確認してください。
+- LIFF SDKスクリプトが正しくインクルードされていることを確認してください。
 
-## Step 5: Deploy Your Web-Desktop Build <a id="deploy-web-desktop-build"></a>
+## ステップ5：Webデスクトップ構築のデプロイ<a id="deploy-web-desktop-build"></a>
 
-- Build your Cocos creator project for WebGL
-- Upload all build files to a web server; e.g Netlify
+- WebGL用のCocosクリエーター・プロジェクトを構築する
+- すべてのビルドファイルをNetlifyなどのウェブサーバーにアップロードする。
 
-Your deployment folder structure should look like this:
+デプロイメントのフォルダ構造は次のようになるはずです：
 
 ```bash
 build/
@@ -187,22 +187,22 @@ build/
     ...other files
 ```
 
-## Step 6: Final Configuration & Testing <a id="final-configuration-and-testing"></a>
+## ステップ6：最終設定とテスト<a id="final-configuration-and-testing"></a>
 
-1. Update your LIFF endpoint:
-  - Return to LINE Developers Console
-  - Locate your LIFF app
-  - Click "Edit"
-  - Update URL to your deployed site.
+1. LIFFエンドポイントを更新する：
+  - LINEデベロッパーズコンソールに戻る
+  - LIFFアプリを探す
+  - 編集」をクリックする
+  - 配備したサイトのURLを更新する。
 
-Now your mini dApp should be readily available.
+これでミニdAppがすぐに利用できるようになるはずだ。
 
-## Conclusion <a id="conclusion"></a>
+## 結論<a id="conclusion"></a>
 
-Congratulations! You’ve successfully built and deployed your first LINE Mini dApp using Cocos Creator! By following this guide, you’ve integrated Web3 functionalities, including wallet connection, balance retrieval, and token minting – bringing blockchain-powered interactions into the LINE ecosystem.
+おめでとう！ Cocos Creatorを使ったLINE Mini dAppのビルドとデプロイが完了しました！ このガイドに従うことで、ウォレット接続、残高照会、トークン鋳造などのWeb3機能を統合し、ブロックチェーンを活用したインタラクションをLINEのエコシステムに取り込むことができます。
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+LINE mini dAppsの開発に関するより詳細な情報については、以下の包括的なリソースをご覧ください：
 
-- [Kaia Documentation](https://docs.kaia.io/)
+- [カイア・ドキュメンテーション](https://docs.kaia.io/)
 - [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
-- [Cocos Creator Documentation](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)
+- [ココス・クリエイター・ドキュメント](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)

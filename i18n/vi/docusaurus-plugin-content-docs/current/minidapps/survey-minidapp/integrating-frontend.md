@@ -1,18 +1,18 @@
-# Integrating a Next.js frontend application with smart contract
+# Tích hợp ứng dụng frontend Next.js với hợp đồng thông minh
 
-In the previous steps, you successfully built and deployed the smart contract to a localhost. Now, it's time to interact with it from the frontend. The frontend uses Next.js, integrates Semaphore for privacy features and the Mini Dapp SDK for authentication.
+Ở các bước trước, bạn đã xây dựng và triển khai thành công hợp đồng thông minh tới máy chủ cục bộ. Bây giờ đã đến lúc tương tác với nó từ giao diện. Phần giao diện sử dụng Next.js, tích hợp Semaphore để có tính năng bảo mật và Mini Dapp SDK để xác thực.
 
-## Setup & Installation <a id="setup-installation"></a>
+## Thiết lập & Cài đặt <a id="setup-installation"></a>
 
-Having already cloned the project repo inclusive of Next.js frontend, the next thing you want to do is to create a .env file in the root directory by using the command below:
+Sau khi đã sao chép kho lưu trữ dự án bao gồm cả giao diện Next.js, việc tiếp theo bạn muốn làm là tạo tệp .env trong thư mục gốc bằng cách sử dụng lệnh bên dưới:
 
 ```bash
 touch .env
 ```
 
-> Note: Ensure you are in the root directory before running the command above.
+> Lưu ý: Đảm bảo bạn đang ở thư mục gốc trước khi chạy lệnh trên.
 
-Inside the .env file you just created, add the following:
+Bên trong tệp .env bạn vừa tạo, hãy thêm nội dung sau:
 
 ```bash
 SURVEY_FACTORY_V1_CONTRACT_ADDRESS=[factory address]
@@ -21,18 +21,18 @@ NODE_URL=http://localhost:8545
 ```
 
 :::note
-Make sure to Replace `SURVEY_FACTORY_V1_CONTRACT_ADDRESS`  and `NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS` with the contract address you deployed to localhost earlier in this tutorial.
+Đảm bảo thay thế `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` và `NEXT_PUBLIC_SURVEY_FACTORY_V1_CONTRACT_ADDRESS` bằng địa chỉ hợp đồng mà bạn đã triển khai tới máy chủ cục bộ trước đó trong hướng dẫn này.
 :::
 
-Now lets take a look at the core functionalities of the app:
+Bây giờ chúng ta hãy xem xét các chức năng cốt lõi của ứng dụng:
 
-## Survey Management <a id="survey-management"></a>
+## Quản lý khảo sát <a id="survey-management"></a>
 
-### 1. Creating Survey <a id="creating-survey"></a>
+### 1. Tạo Khảo sát <a id="creating-survey"></a>
 
-**Interface Definition:**
+**Định nghĩa giao diện:**
 
-The SurveyInfo interface standardizes how survey data is handled across the application, ensuring consistency in data types and structure.
+Giao diện SurveyInfo chuẩn hóa cách xử lý dữ liệu khảo sát trên toàn bộ ứng dụng, đảm bảo tính nhất quán về kiểu dữ liệu và cấu trúc.
 
 ```typescript
 // types/index.ts
@@ -48,9 +48,9 @@ export interface SurveyInfo {
 }
 ```
 
-**Implementation and Usage**
+**Triển khai và sử dụng**
 
-**A. Data Fetching**: This layer manages the communication between the smart contracts and the application, converting raw blockchain data into the SurveyInfo format.
+**MỘT. Lấy dữ liệu**: Lớp này quản lý việc giao tiếp giữa các hợp đồng thông minh và ứng dụng, chuyển đổi dữ liệu blockchain thô sang định dạng SurveyInfo.
 
 ```typescript
 // backend/survey.tsx
@@ -83,7 +83,7 @@ const daysLeft = (duration: bigint) => {
 };
 ```
 
-**B. Display components**: This React component handles the visual representation of survey data, including status indicators, progress tracking, and other interactive elements.
+**B. Hiển thị các thành phần**: Thành phần React này xử lý việc thể hiện trực quan dữ liệu khảo sát, bao gồm các chỉ báo trạng thái, theo dõi tiến trình và các thành phần tương tác khác.
 
 ```typescript
 // components/SurveyCard.tsx
@@ -151,7 +151,7 @@ export default function SurveyCard({
 }
 ```
 
-**C. Survey Listing**: Handles the organization and display of survey collections, featuring sections like _Hot Topics_ and _Ending Soon_ to improve user navigation.
+**C. Danh sách khảo sát**: Xử lý việc tổ chức và hiển thị các bộ sưu tập khảo sát, có các mục như _Chủ đề nóng_ và _Sắp kết thúc_ để cải thiện khả năng điều hướng của người dùng.
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -192,9 +192,9 @@ export default async function SurveysPage() {
 }
 ```
 
-### 2. Answering Survey <a id="answering-survey"></a>
+### 2. Trả lời khảo sát <a id="answering-survey"></a>
 
-**A. Interface Definition**: The Answer interface provides a standardized format for survey responses, including both the answer data and privacy-related proof information.
+**MỘT. Định nghĩa giao diện**: Giao diện Trả lời cung cấp định dạng chuẩn cho các phản hồi khảo sát, bao gồm cả dữ liệu câu trả lời và thông tin bằng chứng liên quan đến quyền riêng tư.
 
 ```typescript
 // types/index.ts
@@ -208,7 +208,7 @@ interface Answer {
 }
 ```
 
-**B. Submission Function:** This function manages the interaction with the smart contract, including transaction creation and confirmation.
+**B. Chức năng gửi:** Chức năng này quản lý tương tác với hợp đồng thông minh, bao gồm tạo và xác nhận giao dịch.
 
 ```typescript
 // browser/survey.tsx
@@ -234,7 +234,7 @@ export const submitAnswer = async (
 };
 ```
 
-**C. Display components**: The frontend component manages form data collection, validates user input, interacts with Web3 providers, and handles the submission process while providing appropriate user feedback.
+**C. Hiển thị các thành phần**: Thành phần giao diện quản lý việc thu thập dữ liệu biểu mẫu, xác thực thông tin đầu vào của người dùng, tương tác với các nhà cung cấp Web3 và xử lý quy trình gửi dữ liệu trong khi cung cấp phản hồi phù hợp cho người dùng.
 
 ```typescript
 // Component for submitting answers
@@ -308,13 +308,13 @@ export default function SubmitAnswerForm({
 }
 ```
 
-## Authentication and Social Features Integration <a id="authentication-social-feature-integration"></a>
+## Xác thực và Tích hợp Tính năng Xã hội <a id="authentication-social-feature-integration"></a>
 
-### LINE LIFF Authentication <a id="line-liff-authentication"></a>
+### Xác thực LINE LIFF <a id="line-liff-authentication"></a>
 
-Provides secure user authentication and access to LINE user profiles while ensuring the application runs properly in the LINE environment.
+Cung cấp xác thực người dùng an toàn và quyền truy cập vào hồ sơ người dùng LINE đồng thời đảm bảo ứng dụng chạy đúng trong môi trường LINE.
 
-**LIFF Initialization**
+**Khởi tạo LIFF**
 
 ```typescript
 // context/LiffProvider.tsx
@@ -348,7 +348,7 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Login Implementation**
+**Triển khai đăng nhập**
 
 ```typescript
 // components/buttons/LineLoginBtn.tsx
@@ -375,11 +375,11 @@ export default function LineLoginBtn() {
 }
 ```
 
-### Web3 Integration <a id="web3-integration"></a>
+### Tích hợp Web3 <a id="web3-integration"></a>
 
-Handles wallet connection, account management, and blockchain interactions while maintaining state across the application.
+Xử lý kết nối ví, quản lý tài khoản và tương tác blockchain trong khi vẫn duy trì trạng thái trên toàn bộ ứng dụng.
 
-**Web3 Provider Setup**
+**Cài đặt nhà cung cấp Web3**
 
 ```typescript
 // context/Web3Provider.tsx
@@ -418,7 +418,7 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-**Wallet Connection**
+**Kết nối ví**
 
 ```typescript
 const connectWallet = async () => {
@@ -460,13 +460,13 @@ const connectWallet = async () => {
 };
 ```
 
-### Extended Social Features <a id="extended-social-features"></a>
+### Tính năng xã hội mở rộng <a id="extended-social-features"></a>
 
-#### Friend Invitation System <a id="friend-invitation-system"></a>
+#### Hệ thống mời bạn bè <a id="friend-invitation-system"></a>
 
-The platform incorporates LINE's social features to enable users to invite friends through a seamless sharing experience. This is implemented through the LIFF ShareTargetPicker, which provides a native LINE interface for friend selection.
+Nền tảng này kết hợp các tính năng xã hội của LINE để cho phép người dùng mời bạn bè thông qua trải nghiệm chia sẻ liền mạch. Tính năng này được triển khai thông qua LIFF ShareTargetPicker, cung cấp giao diện LINE gốc để chọn bạn bè.
 
-**Provider Interface**
+**Giao diện nhà cung cấp**
 
 ```typescript
 interface LiffContextType {
@@ -481,7 +481,7 @@ interface LiffContextType {
 }
 ```
 
-**Friend Invitation Implementation**
+**Triển khai lời mời kết bạn**
 
 ```typescript
 const inviteFriends = async () => {
@@ -518,9 +518,9 @@ const inviteFriends = async () => {
 };
 ```
 
-#### Referral System <a id="referral-system"></a>
+#### Hệ thống giới thiệu <a id="referral-system"></a>
 
-The referral system tracks user invitations through encoded UIDs in the URL parameters.
+Hệ thống giới thiệu theo dõi lời mời của người dùng thông qua UID được mã hóa trong các tham số URL.
 
 ```typescript
 // Referral check in LiffProvider
@@ -538,9 +538,9 @@ useEffect(() => {
 }, []);
 ```
 
-#### Share Message Template <a id="share-message-template"></a>
+#### Chia sẻ mẫu tin nhắn <a id="share-message-template"></a>
 
-Customizable LINE Flex Message for invitations, supporting multiple languages.
+Tin nhắn LINE Flex có thể tùy chỉnh cho lời mời, hỗ trợ nhiều ngôn ngữ.
 
 ```typescript
 const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
@@ -594,7 +594,7 @@ const getFlexMessage = (locale: string, encodedUID: string): LiffMessage => {
 };
 ```
 
-**Combined Provider Setup**
+**Thiết lập nhà cung cấp kết hợp**
 
 ```typescript
 export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -629,11 +629,11 @@ export const LiffProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ```
 
-#### Friend Invitation Component <a id="friend-invitation-component"></a>
+#### Thành phần lời mời kết bạn <a id="friend-invitation-component"></a>
 
-The platform implements a dedicated component for friend invitations, making it easily accessible within the survey interface.
+Nền tảng này triển khai một thành phần chuyên dụng cho lời mời kết bạn, giúp bạn dễ dàng truy cập vào thành phần này trong giao diện khảo sát.
 
-**Component Implementation**
+**Triển khai thành phần**
 
 ```typescript
 // components/Friends.tsx
@@ -663,7 +663,7 @@ export default function Friends() {
 }
 ```
 
-**Integration with Survey Page**
+**Tích hợp với Trang khảo sát**
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
@@ -704,18 +704,18 @@ export default async function SurveysPage({
 }
 ```
 
-## Privacy & Security: Semaphore Protocol Implementation <a id="privacy-security"></a>
+## Quyền riêng tư & Bảo mật: Triển khai Giao thức Semaphore <a id="privacy-security"></a>
 
-In decentralized survey systems, protecting user privacy while ensuring response authenticity is crucial. The Semaphore Protocol is implemented to solve several critical challenges:
+Trong các hệ thống khảo sát phi tập trung, việc bảo vệ quyền riêng tư của người dùng đồng thời đảm bảo tính xác thực của phản hồi là rất quan trọng. Giao thức Semaphore được triển khai để giải quyết một số thách thức quan trọng:
 
-1. **Anonymous Participation**: Users need to prove they're eligible to participate in surveys without revealing their identity.
-2. **Double-Submission Prevention**: The system must prevent multiple submissions while maintaining anonymity.
-3. **Response Privacy**: Survey answers should be confidential and untraceable to individual users.
-4. **Verifiable Authenticity**: Despite anonymity, responses must be verifiably from authorized participants.
+1. **Tham gia ẩn danh**: Người dùng cần chứng minh rằng họ đủ điều kiện để tham gia khảo sát mà không cần tiết lộ danh tính.
+2. **Ngăn chặn nộp bài trùng**: Hệ thống phải ngăn chặn việc nộp bài trùng nhiều lần trong khi vẫn đảm bảo tính ẩn danh.
+3. **Quyền riêng tư của phản hồi**: Câu trả lời khảo sát phải được bảo mật và không thể theo dõi người dùng.
+4. **Tính xác thực có thể xác minh**: Mặc dù ẩn danh, phản hồi phải có thể xác minh được từ những người tham gia được ủy quyền.
 
-The Semaphore Protocol addresses these challenges by using zero-knowledge proofs, allowing users to prove their membership in a group and submit responses without revealing their identity. This ensures both privacy and data integrity in the survey process.
+Giao thức Semaphore giải quyết những thách thức này bằng cách sử dụng bằng chứng không kiến thức, cho phép người dùng chứng minh tư cách thành viên của họ trong một nhóm và gửi phản hồi mà không tiết lộ danh tính. Điều này đảm bảo tính riêng tư và tính toàn vẹn của dữ liệu trong quá trình khảo sát.
 
-**1. Identity Creation**: Generates a deterministic identity using multiple factors to ensure uniqueness and security while maintaining privacy.
+**1. Tạo danh tính**: Tạo danh tính xác định bằng nhiều yếu tố để đảm bảo tính duy nhất và bảo mật trong khi vẫn duy trì quyền riêng tư.
 
 ```typescript
 //.. browser/survey.tsx
@@ -747,9 +747,9 @@ export const createIdentity = async (
 };
 ```
 
-**2. Group Management**: Handles group membership operations and verification without revealing individual identities.
+**2. Quản lý nhóm**: Xử lý các hoạt động xác minh và quản lý thành viên nhóm mà không tiết lộ danh tính cá nhân.
 
-**Join Group Implementation**
+**Tham gia triển khai nhóm**
 
 ```typescript
 //..backend/survey.tsx
@@ -776,9 +776,9 @@ export const joinGroup = async (
 };
 ```
 
-## Component Structure <a id="component-structure"></a>
+## Cấu trúc thành phần <a id="component-structure"></a>
 
-In this section, we will do a breakdown of the components structure. Your components folder should look like this:
+Trong phần này, chúng ta sẽ phân tích cấu trúc thành phần. Thư mục thành phần của bạn sẽ trông như thế này:
 
 ```bash
 buttons/

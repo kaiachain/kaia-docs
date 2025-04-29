@@ -1,30 +1,30 @@
-# Convert to LINE LIFF
+# Chuyển đổi sang LINE LIFF
 
-In this section, we’ll walk through the steps to convert, integrate, and deploy your build as a LINE LIFF (LINE Front-end Framework) app, making it seamlessly accessible within the LINE ecosystem.
+Trong phần này, chúng tôi sẽ hướng dẫn bạn các bước để chuyển đổi, tích hợp và triển khai bản dựng của bạn dưới dạng ứng dụng LINE LIFF (LINE Front-end Framework), giúp ứng dụng này có thể truy cập liền mạch trong hệ sinh thái LINE.
 
-Let’s get started!
+Chúng ta hãy bắt đầu nhé!
 
-## Step 1: Create Your LIFF App <a id="create-liff-app"></a>
+## Bước 1: Tạo ứng dụng LIFF của bạn <a id="create-liff-app"></a>
 
-First, let's set up your app in the LINE ecosystem:
+Đầu tiên, hãy thiết lập ứng dụng của bạn trong hệ sinh thái LINE:
 
-1. LINE Developers Console Setup:
+1. Thiết lập bảng điều khiển LINE Developers:
 
-  - Visit LINE Developers Console.
-  - Create a Provider (skip if you already have one).
+  - Truy cập Bảng điều khiển dành cho nhà phát triển LINE.
+  - Tạo Nhà cung cấp (bỏ qua nếu bạn đã có).
 
   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - Create a new LINE Login channel.
+  - Tạo kênh Đăng nhập LINE mới.
 
   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - Navigate to the LIFF tab
-  - Click "Add LIFF app"
+  - Điều hướng đến tab LIFF
+  - Nhấp vào "Thêm ứng dụng LIFF"
 
   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
-2. Configure LIFF Settings:
+2. Cấu hình cài đặt LIFF:
 
 ```code
 Size: Choose one of:
@@ -36,12 +36,12 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+Lưu LIFF ID của bạn - bạn sẽ cần nó ở bước tiếp theo!
 :::
 
-## Step 2: Modify Build Template <a id="modify-build-template"></a>
+## Bước 2: Sửa đổi mẫu bản dựng <a id="modify-build-template"></a>
 
-Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
+Thêm LIFF SDK vào mẫu của bạn tại build-templates/web-desktop/index.html:
 
 ```html
 <!DOCTYPE html>
@@ -112,9 +112,9 @@ Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
 </html>
 ```
 
-> Make sure to change your LIFF-ID in the code snippet above.
+> Hãy nhớ thay đổi LIFF-ID của bạn trong đoạn mã ở trên.
 
-## Step 3: Implementing LIFF in Web3Manager <a id="implementing-liff-in-web3manager"></a>
+## Bước 3: Triển khai LIFF trong Web3Manager <a id="implementing-liff-in-web3manager"></a>
 
 ```typescript
 // Web3Manager.ts
@@ -164,18 +164,18 @@ export class Web3Manager extends Component {
 }
 ```
 
-## Step: 4: Build and Test Process <a id="build-and-test-process"></a>
+## Bước 4: Xây dựng và kiểm tra quy trình <a id="build-and-test-process"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated build/web-desktop/index.html.
-- Confirm that the LIFF SDK script is correctly included.
+- Xây dựng lại dự án của bạn trong Cocos Creator.
+- Kiểm tra file build/web-desktop/index.html đã tạo.
+- Xác nhận rằng tập lệnh LIFF SDK đã được đưa vào đúng cách.
 
-## Step 5: Deploy Your Web-Desktop Build <a id="deploy-web-desktop-build"></a>
+## Bước 5: Triển khai bản dựng Web-Desktop của bạn <a id="deploy-web-desktop-build"></a>
 
-- Build your Cocos creator project for WebGL
-- Upload all build files to a web server; e.g Netlify
+- Xây dựng dự án sáng tạo Cocos của bạn cho WebGL
+- Tải tất cả các tệp xây dựng lên máy chủ web; ví dụ: Netlify
 
-Your deployment folder structure should look like this:
+Cấu trúc thư mục triển khai của bạn sẽ trông như thế này:
 
 ```bash
 build/
@@ -187,22 +187,22 @@ build/
     ...other files
 ```
 
-## Step 6: Final Configuration & Testing <a id="final-configuration-and-testing"></a>
+## Bước 6: Cấu hình và thử nghiệm cuối cùng <a id="final-configuration-and-testing"></a>
 
-1. Update your LIFF endpoint:
-  - Return to LINE Developers Console
-  - Locate your LIFF app
-  - Click "Edit"
-  - Update URL to your deployed site.
+1. Cập nhật điểm cuối LIFF của bạn:
+  - Quay lại Bảng điều khiển dành cho nhà phát triển LINE
+  - Xác định vị trí ứng dụng LIFF của bạn
+  - Nhấp vào "Chỉnh sửa"
+  - Cập nhật URL tới trang web đã triển khai của bạn.
 
-Now your mini dApp should be readily available.
+Bây giờ dApp mini của bạn đã có thể sử dụng được.
 
-## Conclusion <a id="conclusion"></a>
+## Kết luận <a id="conclusion"></a>
 
-Congratulations! You’ve successfully built and deployed your first LINE Mini dApp using Cocos Creator! By following this guide, you’ve integrated Web3 functionalities, including wallet connection, balance retrieval, and token minting – bringing blockchain-powered interactions into the LINE ecosystem.
+Chúc mừng! Bạn đã xây dựng và triển khai thành công dApp LINE Mini đầu tiên của mình bằng Cocos Creator! Bằng cách làm theo hướng dẫn này, bạn đã tích hợp các chức năng Web3, bao gồm kết nối ví, truy xuất số dư và đúc mã thông báo – đưa các tương tác dựa trên blockchain vào hệ sinh thái LINE.
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+Để biết thông tin chi tiết hơn về việc phát triển LINE mini dApps, hãy khám phá các tài nguyên toàn diện sau:
 
-- [Kaia Documentation](https://docs.kaia.io/)
-- [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
-- [Cocos Creator Documentation](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)
+- [Tài liệu Kaia](https://docs.kaia.io/)
+- [Tài liệu dành cho nhà phát triển LINE](https://developers.line.biz/en/docs/line-mini-app/)
+- [Tài liệu Cocos Creator](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)

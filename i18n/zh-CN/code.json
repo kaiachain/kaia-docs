@@ -632,5 +632,53 @@
   "theme.feedback.helpful": {
     "message": "本页对您有帮助吗？",
     "description": "The text asking if the page is helpful"
+  },
+  "homepage.favorites.explorers.title": {
+    "message": "积木探险家",
+    "description": "Title for Block Explorers section"
+  },
+  "homepage.favorites.explorers.description": {
+    "message": "搜索有关 Kaia 的实时和历史信息。",
+    "description": "Description for Block Explorers section"
+  },
+  "homepage.newDocs.badge.new": {
+    "message": "新",
+    "description": "Badge text for new documents"
+  },
+  "homepage.newDocs.badge.update": {
+    "message": "更新",
+    "description": "Badge text for updated documents"
+  },
+  "homepage.newDocs.surveyMinidapp.title": {
+    "message": "在 Kaia 上构建调查 DApp",
+    "description": "Title for Survey Mini DApp doc"
+  },
+  "homepage.newDocs.unityMinidapp.title": {
+    "message": "使用 Unity 创建 LINE 微型应用程序",
+    "description": "Title for Unity Mini DApp doc"
+  },
+  "homepage.newDocs.cocosMinidapp.title": {
+    "message": "使用 Cocos Creator 创建 LINE 微型应用程序指南",
+    "description": "Title for Cocos Mini DApp doc"
+  },
+  "homepage.newDocs.surveyMinidapp.description": {
+    "message": "使用 Semaphore 实现匿名性，使用 LINE 实现社交功能，在 Kaia 上构建一个注重隐私的分散式调查应用程序。",
+    "description": "Description for Upgradeable Smart Contracts doc"
+  },
+  "homepage.newDocs.unityMinidapp.description": {
+    "message": "使用 Unity 开发完全集成的 LINE mini dApp，将 Web3 连接、直观的 UI 设计和 LIFF 转换无缝结合在一起。",
+    "description": "Description for DApp Security doc"
+  },
+  "homepage.newDocs.cocosMinidapp.description": {
+    "message": "使用 Cocos Creator、Web3 和 LIFF 创建、集成和部署 LINE mini dApp。",
+    "description": "Description for API Updates doc"
+  },
+  "homepage.newDocs.title": {
+    "message": "最新消息",
+    "description": "Title for the What's New section"
+  },
+  "homepage.newDocs.subtitle": {
+    "message": "了解我们对文档的最新更新和补充。",
+    "description": "Subtitle for the What's New section"
   }
 }

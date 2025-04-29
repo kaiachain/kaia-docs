@@ -1,46 +1,46 @@
-# Introduction
+# はじめに
 
-The Survey Mini dApp is a privacy-focused decentralized application (dApp) that allows users to create and participate in surveys while maintaining anonymity and transparency. By leveraging cutting-edge tools like Semaphore for zero-knowledge proof integration, and LINE's developer ecosystem, this guide walks you through every step to build and deploy a survey mini dApp on the Kaia blockchain.
+Survey Mini dAppはプライバシーに焦点を当てた分散型アプリケーション（dApp）で、ユーザーは匿名性と透明性を保ちながらアンケートを作成し、参加することができる。 ゼロ知識証明統合のためのSemaphoreのような最先端のツールとLINEの開発者エコシステムを活用することで、このガイドはKaiaブロックチェーン上でアンケートミニdAppを構築し、デプロイするためのすべてのステップを説明します。
 
-This comprehensive guide covers:
+この包括的なガイドブックには、以下の内容が記載されている：
 
-- What the application does and its objectives.
-- The tools and prerequisites needed.
-- Setting up a smart contract development environment.
-- Frontend integration and deployment.
+- アプリケーションが行うこととその目的。
+- 必要なツールと前提条件
+- スマート・コントラクト開発環境の構築
+- フロントエンドの統合と展開
 
-To get started quickly, you'll find the entire code for this tutorial on [Github](https://github.com/kjeom/ExampleMiniDapp). This way, you can explore the application's inner workings as you follow along.
+すぐに始められるように、このチュートリアルのコード全体は[Github](https://github.com/kjeom/ExampleMiniDapp)にあります。 こうすることで、アプリケーションの内部構造を調べながら進むことができる。
 
-## Prerequisite <a id="prerequisite"></a>
+## 前提条件<a id="prerequisite"></a>
 
-To build this application, ensure you have the following:
+このアプリケーションをビルドするには、以下のものを用意してください：
 
-1. Technical Knowledge
-    - Solid understanding of [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
-    - Proficiency in [JavaScript](https://www.w3schools.com/js/default.asp) and [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
-    - Familiarity with smart contract development tools like Hardhat.
-2. Accounts and Tools
-    - [LINE Developer Account](https://developers.line.biz/en/).
-    - [Semaphore Protocol setup](https://docs.semaphore.pse.dev/getting-started).
-    - Mini Dapp SDK Client ID received from Dapp Portal team.
-3. Dependencies Installed
-    - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+1. 技術的知識
+    - Solidity](https://www.tutorialspoint.com/solidity/index.htm)を理解していること。
+    - JavaScript】(https://www.w3schools.com/js/default.asp)、【React/Next.js】(https://www.w3schools.com/REACT/DEFAULT.ASP)に精通していること。
+    - Hardhatのようなスマートコントラクト開発ツールに精通していること。
+2. アカウントとツール
+    - [LINEデベロッパーアカウント](https://developers.line.biz/en/)。
+    - [セマフォ・プロトコルのセットアップ](https://docs.semaphore.pse.dev/getting-started)。
+    - Dapp PortalチームからMini Dapp SDKクライアントIDを受け取りました。
+3. インストールされている依存関係
+    - [Node.jsとnpm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 
-## Project Setup and Installation <a id="project-setup-installation"></a>
+## プロジェクトのセットアップとインストール<a id="project-setup-installation"></a>
 
-To start the project setup and installation quickly, clone this project on Github using the following command.
+プロジェクトのセットアップとインストールを素早く始めるには、以下のコマンドを使ってGithub上のこのプロジェクトをクローンする。
 
 ```bash
 # clone project
 git clone https://github.com/kjeom/ExampleMiniDapp
 ```
 
-Next, change the directory into the cloned folder and install the project locally using npm with the following command:
+次に、クローンしたフォルダにディレクトリを変更し、以下のコマンドでnpmを使ってプロジェクトをローカルにインストールする：
 
 ```bash
 cd ExampleMiniDapp
 npm install
 ```
 
-Next, let’s understand the inner workings of the smart contract for our survey application. The next section explains how it works.
+次に、調査アプリケーションのスマート・コントラクトの内部構造を理解しよう。 次のセクションでは、その仕組みについて説明する。
 

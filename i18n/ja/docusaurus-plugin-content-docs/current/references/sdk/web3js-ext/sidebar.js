@@ -47,7 +47,7 @@ export const sidebar = {
                 },
                 {
                     type: 'カテゴリー',
-                    label: 'Keystore',
+                    label: 'キーストア',
                     items: [
                         '参考文献/sdk/web3js-ext/アカウント管理/キーストア/キーストアV3',
                         '参考文献/sdk/web3js-ext/アカウント管理/キーストア/キーストアV4-シングル',

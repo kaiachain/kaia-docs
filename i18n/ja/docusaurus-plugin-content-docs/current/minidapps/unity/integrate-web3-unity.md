@@ -1,22 +1,22 @@
-# Web3 Integration
+# Web3の統合
 
-In this section, we will build up pieces to integrate web3 into our Unity project.
+このセクションでは、Unityプロジェクトにweb3を統合するためのパーツを作成します。
 
-## Creating and deploying KIP7 smart contract
+## KIP7スマートコントラクトの作成とデプロイ
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+まず、Kaiaコントラクト・ウィザードを使ってスマート・コントラクトを生成する。
 
-### Step 1: Using Kaia Contract Wizard
+### ステップ1：カイア契約ウィザードの使用
 
-1. Navigate to Kaia Contract Wizard.
-2. Select KIP7 (Kaia's token standard, similar to ERC20).
-3. Configure your token:
-  - Name: ExampleTestToken (or something else!)
-  - Symbol: ET (your token's ticker)
-  - Premint: 100 (initial token supply)
-  - Features: Check ✅ Mintable
+1. カイア契約ウィザードに移動します。
+2. KIP7（ERC20に似たカイアのトークン規格）を選択する。
+3. トークンを設定します：
+  - 名前ExampleTestToken (または他の何か!)
+  - シンボルET（あなたのトークンのティッカー）
+  - プレミント100（初期トークン供給）
+  - 特徴チェック ✅ 造幣可能
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+このガイドでは、onlyOwner修飾子を持たないようにmint関数を調整します。 そのためには、ownable.solのインポートとOwnableの継承を削除しなければならない。 手を加えたコードは次のようになるはずだ：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -43,35 +43,35 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+onlyOwner修飾子を削除し、オリジナルのデプロイメント者やコントラクトの所有者以外の誰でもミント関数を呼び出せるようにした。
 :::
 
-### Step 2: Deploying via Remix IDE
+### ステップ2：Remix IDEを使ったデプロイ
 
-1. Copy and Paste the code above in a newly created file `ET.sol` on Remix IDE.
-2. In Remix IDE:
-  - Click the **Compile contract** button.
-  - Activate the **Kaia plugin** in the plugin manager.
-  - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-  - Find your contract (ExampleTokens) in the **Contract** dropdown.
-  - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-  - Review the deployment details.
-  - Click Confirm to deploy to Kaia Kairos Testnet.
+1. 上記のコードをRemix IDE上で新規作成したファイル`ET.sol`にコピー＆ペーストする。
+2. リミックスIDEで：
+  - 契約書をコンパイルする\*\*ボタンをクリックする。
+  - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
+  - Kaia PluginタブのEnvironmentで、**Injected Provider** - **Kaia Wallet**を選択します。
+  - Contract\*\*ドロップダウンで契約（ExampleTokens）を検索します。
+  - Deploy\*\*をクリックしてトークンを起動します！
+3. カイアウォレットがポップアップしたら：
+  - 配備の詳細を確認する。
+  - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
 
 :::important
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+展開された契約アドレスをコピーして保存する。 チュートリアルの後半で必要になる。
 :::
 
-## Building the Unity-Web3 Bridge
+## Unity-Web3ブリッジの構築
 
-Now we'll create the vital connection between Unity and Web3 functionality. This is where we bring blockchain capabilities into your Unity application!
+それでは、UnityとWeb3の機能の重要な接続を作成します。 そこで、Unityアプリケーションにブロックチェーン機能を導入します！
 
-### Part 1: Creating the Plugin Bridge (kaiaPlugin.jslib)
+### その1：プラグインブリッジ（kaiaPlugin.jslib）の作成
 
-First, we'll build our JavaScript bridge that lets Unity talk to Web3:
+まず、UnityとWeb3をつなぐJavaScriptのブリッジを作ります：
 
-1. Create your plugin directory:
+1. プラグインディレクトリを作成します：
 
 ```
 Assets/
@@ -80,20 +80,20 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
+2. なぜ.jslibなのか？ UnityのC#とブラウザのJavaScriptをつなぐトランスレーターのようなものだ！
 
-3. The plugin will handle three core functions:
-  - ConnectWallet() - Handles Kaia Wallet connections
-  - GetTokenBalance() - Checks token balances
-  - MintTokens() - Manages token minting
+3. プラグインは3つのコア機能を処理する：
+  - ConnectWallet() - カイアウォレット接続を処理する
+  - GetTokenBalance() - トークンの残高をチェックする
+  - MintTokens() - トークンの鋳造を管理する
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](convert-unity-liff.md#appendix-a):
+このファイルをVS Codeで開き、[Appendix A](convert-unity-liff.md#appendix-a)にある`KaiaPlugin.jslib`のソースコードを貼り付ける：
 
-### Part 2: Creating the C# Manager (Web3Manager.cs)
+### パート2：C#マネージャー（Web3Manager.cs）の作成
 
-Next, we'll create our C# script to manage all Web3 operations:
+次に、Web3のすべての操作を管理するC#スクリプトを作成します：
 
-1. Create your scripts directory:
+1. scriptsディレクトリを作成します：
 
 ```js
 Assets/
@@ -104,36 +104,36 @@ Assets/
 
 :::info
 
-**What does Web3Manager do?**
+\*\*Web3Managerは何をするのか？
 
-- Acts as the main conductor for all Web3 operations.
-- Manages communication with our JavaScript plugin.
-- Updates UI elements based on blockchain events.
-- Handles all wallet and token operations.
-- Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
+- Web3の全業務のメインコンダクターとして活動。
+- JavaScriptプラグインとの通信を管理します。
+- ブロックチェーンのイベントに基づいてUI要素を更新する。
+- すべてのウォレットとトークンの操作を処理します。
+- ウォレットに接続`と`ミント\`ボタンをそれぞれの機能で接続する。
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](convert-unity-liff.md#appendix-b)
+2. このファイルを VS Code で開き、`Web3Manager.cs` のソースコードを [Appendix B](convert-unity-liff.md#appendix-b) に貼り付ける。
 
-### Part 3: Setting Up the Web3Manager GameObject
+### Part 3: Web3Manager GameObjectの設定
 
-Finally, let's bring it all together in Unity:
+最後に、Unityですべてをまとめよう：
 
-1. Create the Manager Object:
-  - Right-click in the Hierarchy window (root level).
-  - Select "Create Empty Object".
-  - Name it "Web3Manager".
-2. Attach Your Script:
-  - Select the Web3Manager GameObject.
-  - In Inspector, click Add Component.
-  - Search for and select "Web3Manager".
-3. Connect UI Elements:
-  - With Web3Manager selected, look in the Inspector.
-  - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
-    - StatusText
-    - AddressText
-    - TokenBalanceText
-    - Connect, Disconnect, Mint buttons
-    - Input fields
+1. Manager オブジェクトを作成します：
+  - 階層ウィンドウ（ルートレベル）で右クリックします。
+  - 空のオブジェクトを作成」を選択する。
+  - 名前を "Web3Manager "とする。
+2. 台本を添付してください：
+  - Web3Manager GameObjectを選択する。
+  - Inspector]で、[Add Component]をクリックします。
+  - Web3Manager "を検索して選択します。
+3. UI要素を接続する：
+  - Web3Managerを選択した状態で、インスペクタを見ます。
+  - UI要素を階層から対応するフィールドにドラッグ＆ドロップします：
+    - ステータステキスト
+    - アドレステキスト
+    - トークン・バランス・テキスト
+    - 接続、切断、ミントボタン
+    - 入力フィールド
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)

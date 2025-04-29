@@ -84,7 +84,7 @@ Kaia 플러그인\*\*을 사용 설정하려면 상담원의 구성에 추가하
 }
 ```
 
-또한 아래 명령을 실행하여 플러그인을 `package.json`에 종속성으로 추가합니다:
+또한 아래 명령을 실행하여 `package.json`에 플러그인을 추가합니다:
 
 ```bash
 npx elizaos plugins install @elizaos-plugins/plugin-kaia

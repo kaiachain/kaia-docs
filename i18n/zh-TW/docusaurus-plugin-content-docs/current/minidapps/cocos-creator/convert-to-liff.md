@@ -1,30 +1,30 @@
-# Convert to LINE LIFF
+# 轉換為 LINE LIFF
 
-In this section, we’ll walk through the steps to convert, integrate, and deploy your build as a LINE LIFF (LINE Front-end Framework) app, making it seamlessly accessible within the LINE ecosystem.
+在本節中，我們將介紹如何將您建立的應用程式轉換、整合並部署為 LINE LIFF (LINE Front-end Framework) 應用程式，使其能在 LINE 生態系統中無縫存取。
 
-Let’s get started!
+讓我們開始吧！
 
-## Step 1: Create Your LIFF App <a id="create-liff-app"></a>
+## 步驟 1：建立您的 LIFF 應用程式<a id="create-liff-app"></a>
 
-First, let's set up your app in the LINE ecosystem:
+首先，讓我們在 LINE 生態系統中設定您的應用程式：
 
-1. LINE Developers Console Setup:
+1. LINE 開發者控制台設定：
 
-  - Visit LINE Developers Console.
-  - Create a Provider (skip if you already have one).
+  - 造訪 LINE 開發人員控制台。
+  - 建立一個提供者（如果您已經有一個，請跳過）。
 
   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - Create a new LINE Login channel.
+  - 建立新的 LINE 登入頻道。
 
   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - Navigate to the LIFF tab
-  - Click "Add LIFF app"
+  - 導覽到 LIFF 索引標籤
+  - 按一下「新增 LIFF 應用程式
 
   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
-2. Configure LIFF Settings:
+2. 設定 LIFF 設定：
 
 ```code
 Size: Choose one of:
@@ -36,12 +36,12 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+保存您的 LIFF ID - 下一步您會用到它！
 :::
 
-## Step 2: Modify Build Template <a id="modify-build-template"></a>
+## 步驟 2：修改建立範本<a id="modify-build-template"></a>
 
-Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
+在 build-templates/web-desktop/index.html 的範本中加入 LIFF SDK：
 
 ```html
 <!DOCTYPE html>
@@ -112,9 +112,9 @@ Add the LIFF SDK to your template at build-templates/web-desktop/index.html:
 </html>
 ```
 
-> Make sure to change your LIFF-ID in the code snippet above.
+> 請務必在上面的程式碼片段中變更您的 LIFF-ID。
 
-## Step 3: Implementing LIFF in Web3Manager <a id="implementing-liff-in-web3manager"></a>
+## 步驟 3：在 Web3Manager 中實作 LIFF<a id="implementing-liff-in-web3manager"></a>
 
 ```typescript
 // Web3Manager.ts
@@ -164,18 +164,18 @@ export class Web3Manager extends Component {
 }
 ```
 
-## Step: 4: Build and Test Process <a id="build-and-test-process"></a>
+## 步驟：4：建立與測試流程<a id="build-and-test-process"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated build/web-desktop/index.html.
-- Confirm that the LIFF SDK script is correctly included.
+- 在 Cocos Creator 中重建專案。
+- 檢查產生的 build/web-desktop/index.html。
+- 確認已正確包含 LIFF SDK 指令碼。
 
-## Step 5: Deploy Your Web-Desktop Build <a id="deploy-web-desktop-build"></a>
+## 步驟 5：部署您的 Web 桌面建置<a id="deploy-web-desktop-build"></a>
 
-- Build your Cocos creator project for WebGL
-- Upload all build files to a web server; e.g Netlify
+- 為 WebGL 建立您的 Cocos Creator 專案
+- 將所有建立檔案上傳至網路伺服器；例如 Netlify
 
-Your deployment folder structure should look like this:
+您的部署資料夾結構應該是這樣的：
 
 ```bash
 build/
@@ -187,22 +187,22 @@ build/
     ...other files
 ```
 
-## Step 6: Final Configuration & Testing <a id="final-configuration-and-testing"></a>
+## 步驟 6：最終組態與測試<a id="final-configuration-and-testing"></a>
 
-1. Update your LIFF endpoint:
-  - Return to LINE Developers Console
-  - Locate your LIFF app
-  - Click "Edit"
-  - Update URL to your deployed site.
+1. 更新您的 LIFF 端點：
+  - 返回 LINE 開發人員控制台
+  - 找到您的 LIFF 應用程式
+  - 按一下「編輯」。
+  - 更新 URL 到您部署的網站。
 
-Now your mini dApp should be readily available.
+現在您的迷你 dApp 應該可以隨時使用。
 
-## Conclusion <a id="conclusion"></a>
+## 總結<a id="conclusion"></a>
 
-Congratulations! You’ve successfully built and deployed your first LINE Mini dApp using Cocos Creator! By following this guide, you’ve integrated Web3 functionalities, including wallet connection, balance retrieval, and token minting – bringing blockchain-powered interactions into the LINE ecosystem.
+恭喜你 您已成功使用 Cocos Creator 建立並部署您的第一個 LINE Mini dApp！ 透過遵循本指南，您已整合 Web3 功能，包括錢包連線、餘額檢索和代幣鑄造 - 將區塊鏈驅動的互動帶入 LINE 生態系統。
 
-For more detailed information on developing LINE mini dApps, explore these comprehensive resources:
+如需更多有關開發 LINE mini dApp 的詳細資訊，請探索這些全面的資源：
 
 - [Kaia Documentation](https://docs.kaia.io/)
-- [LINE Developers Documentation](https://developers.line.biz/en/docs/line-mini-app/)
+- [LINE 開發人員文件](https://developers.line.biz/en/docs/line-mini-app/)
 - [Cocos Creator Documentation](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)

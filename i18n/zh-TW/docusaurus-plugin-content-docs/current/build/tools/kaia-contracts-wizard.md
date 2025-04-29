@@ -55,7 +55,7 @@ Kaia 合同嚮導由以下部分組成：
 要跟上本教程，先決條件如下：
 
 - 確保安裝了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
-- 克隆 [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) 代碼。
+- 克隆 [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 程式碼。
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
 - RPC 端點：您可以從支持的[端點提供程序](../../references/public-en.md)中獲取。
 - 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
@@ -70,7 +70,7 @@ Kaia 合同嚮導由以下部分組成：
 
 在將 KIP7 合同修改為空投合同之前，您需要對其進行定製。 為此，請按照以下步驟操作：
 
-1. 導航至 [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)。
+1. 導覽到 [wizard.kaia.io](https://wizard.kaia.io)。
 2. 在**合同**選項卡上選擇**KIP7**
 3. 下一步是在**設置**選項卡中填寫名稱（KIP7 代幣空投）和符號（KTA）。 鑄幣前區域為空
 4. 隨後，在**功能**選項卡上，勾選**可薄荷**功能框，它就會自動選擇**訪問控制**選項卡上的可擁有功能。
@@ -147,7 +147,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 
 在將 KIP17 合同修改為空投合同之前，您需要對其進行定製。 為此，請按照以下步驟操作：
 
-1. 導航至 [wizard.klaytn.foundation](https://wizard.klaytn.foundation/)。
+1. 導覽到 [wizard.kaia.io](https://wizard.kaia.io/)。
 2. 在**合同**選項卡上選擇**KIP17**
 3. 下一步是在**設置**選項卡中填寫名稱（KIP7 NFT Airdrop）和符號（KNA）。  基礎 URI 字段應為空。
 4. 隨後，在**特性**選項卡上，勾選**可編輯**、**自動遞增索引**和**可數**特性框。 您會發現**訪問控制**選項卡中的 "可擁有 "功能已被自動選中。
@@ -245,7 +245,7 @@ contract KIP17NftAirdrop is KIP17, KIP17Enumerable, Ownable {
 
 由於 KIP37 支持批量鑄幣，我們將只對合同進行定製並按原樣使用。 要定製我們的 KIP37Contract，請按以下步驟操作：
 
-1. 導航至 [wizard.klaytn.foundation.](https://wizard.klaytn.foundation/)
+1. 導覽到 [wizard.kaia.io](https://wizard.kaia.io)
 2. 在**合同**選項卡上選擇**KIP37**
 3. 下一步是在**設置**選項卡中填寫名稱（KIP7 NFT Airdrop）和符號（KNA）。  基礎 URI 字段應為空。
 4. 隨後，在**特性**選項卡上，勾選**可編輯**、**自動遞增索引**和**可數**特性框。 您會發現**訪問控制**選項卡中的 "可擁有 "功能已被自動選中。

@@ -1,89 +1,89 @@
-# Mini Dapp SDK Integration
+# Mini Dapp SDK 整合
 
-In this section, we will ensure the Mini Dapp SDK is loaded in our game. To do that, Cocos Creator’s build-templates directory allows customization of how the game is built for the web platform, making it essential for preloading the SDK before the game starts.
+在本節中，我們將確保在遊戲中載入 Mini Dapp SDK。 要做到這一點，Cocos Creator 的 build-templates 目錄允許自訂網頁平台的遊戲建置方式，使其成為遊戲開始前預先載入 SDK 的必要工具。
 
-By creating a custom template in **build-templates/web-desktop**, we can automatically include the SDK in every build, streamlining development and deployment.
+透過在 **build-templates/web-desktop** 中建立自訂範本，我們可以在每次建立時自動包含 SDK，簡化開發與部署。
 
-## Step 1: Create the build-templates Directory <a id="create-build-template-directory"></a>
+## 步驟 1：建立 build-templates 目錄<a id="create-build-template-directory"></a>
 
-Open your project in VS Code and run the following command in the terminal:
+在 VS Code 中開啟您的專案，並在終端執行下列指令：
 
 ```bash
 mkdir -p build-templates/web-desktop
 ```
 
-## Step 2: Perform an Initial Build in Cocos Creator <a id="perform-initial-build"></a>
+## 步驟 2：在 Cocos Creator 中執行初始建置<a id="perform-initial-build"></a>
 
-1. Go to **Menu → Project → Build**.
+1. 移至 **功能表 → 專案 → 建立**。
 
 ![](/img/minidapps/cocos-creator/cp-build-r.png)
 
-2. Set **Platform** to **Web Desktop**.
+2. 將 **Platform** 設為 **Web Desktop**。
 
-3. Click **Build**.
+3. 按一下 \*\* 建立\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-build-details-r.png)
 
-## Step 3: Copy the index.html file from the Build Directory <a id="copy-index-html-from-build-dir"></a>
+## 步驟 3：從建立目錄複製 index.html 檔案<a id="copy-index-html-from-build-dir"></a>
 
-Once the build is complete, copy the index.html file into the build-templates directory:
+建立完成後，將 index.html 檔案複製到 build-templates 目錄：
 
 ```bash
 cp build/web-desktop/index.html build-templates/web-desktop/
 ```
 
-## Step 4: Modify index.html to Include the Mini Dapp SDK <a id="modify-index-html-to-include-dapp-portal-sdk"></a>
+## 步驟 4：修改 index.html 以包含 Mini Dapp SDK<a id="modify-index-html-to-include-dapp-portal-sdk"></a>
 
-Edit `build-templates/web-desktop/index.html` and add the following Mini Dapp SDK script tag inside the `<head> </head>` section:
+編輯 `build-templates/web-desktop/index.html` 並在 `<head> </head>` 區段內加入下列 Mini Dapp SDK 程式碼標籤：
 
 ```bash
 <script src="https://static.kaiawallet.io/js/dapp-portal-sdk.js"></script>
 ```
 
-## Step 5: Verify the Build Setup <a id="verify-build-setup"></a>
+## 步驟 5：驗證建立設定<a id="verify-build-setup"></a>
 
-- Rebuild your project in Cocos Creator.
-- Check the generated `build/web-desktop/index.html`.
-- Confirm that the **Mini Dapp SDK script** is correctly included.
+- 在 Cocos Creator 中重建專案。
+- 檢查產生的 `build/web-desktop/index.html`。
+- 確認 **Mini Dapp SDK script** 已正確包含。
 
-## Step 6: Build & Preview the Project <a id="build-preview-project"></a>
+## 步驟 6：建立與預覽專案<a id="build-preview-project"></a>
 
-After completing the setup, click _Play on Device_ at the top of the Cocos Creator Editor. Your game should open in a new browser tab.
+完成設定後，按一下 Cocos Creator 編輯器上方的 _Play on Device_。 您的遊戲應該會在新的瀏覽器標籤中開啟。
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
 ![](/img/minidapps/cocos-creator/cp-localhost-build-r.png)
 
-# Route Web build to Localhost:3000 <a id="route-web-build"></a>
+# 將 Web 建立路由至 Localhost:3000<a id="route-web-build"></a>
 
-For security and development purposes, the Mini Dapp SDK currently works on localhost:3000. At the moment, the default Unity WebGL builds use random ports (like 7457) and for our app to work efficiently we need to configure our Unity WebGL build to open on localhost:3000.
+為了安全和開發目的，Mini Dapp SDK 目前在 localhost:3000 上運作。 目前，預設的 Unity WebGL 建置使用隨機連接埠 (如 7457)，為了讓我們的應用程式能有效運作，我們需要設定我們的 Unity WebGL 建置開啟於 localhost:3000。
 
-To do so, follow the steps below:
+若要執行，請遵循下列步驟：
 
-1. Copy and paste the code below in your project terminal
+1. 複製並貼上以下程式碼到您的專案終端
 
 ```bash
 # Install http-server globally
 npm install -g http-server
 ```
 
-2. Navigate to build folder
+2. 導覽至建立資料夾
 
 ```bash
 cd build/web-desktop
 ```
 
-3. Start server on port 3000
+3. 在連接埠 3000 上啟動伺服器
 
 ```bash
 http-server -p 3000
 ```
 
-# Testing and running application <a id="route-web-build"></a>
+# 測試和執行應用程式<a id="route-web-build"></a>
 
-Now that we have our project running, let’s test and interact with it.
+現在我們的專案已經開始執行，讓我們來測試並與它互動。
 
-- Click on the Connect Wallet button to connect to Dapp Portal Wallet.
-- Once connected, mint a fixed amount to the connected address.
+- 按一下 Connect Wallet 按鈕，連線至 Dapp Portal Wallet。
+- 連線後，將固定金額匯入已連線的位址。
 
 ![](/img/minidapps/cocos-creator/cocos-demo.gif)

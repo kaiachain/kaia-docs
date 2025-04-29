@@ -1,4 +1,4 @@
-# Convert to LINE LIFF
+# Chuyển đổi sang LINE LIFF
 
 Now for the exciting part - turning your Unity WebGL build into a mini dApp that can be accessed through LINE!
 
@@ -34,7 +34,7 @@ Permissions: Enable as needed
 ```
 
 :::note
-Save your LIFF ID - you'll need it in the next step!
+Lưu LIFF ID của bạn - bạn sẽ cần nó ở bước tiếp theo!
 :::
 
 ## Step 2: Modify Your WebGL Template <a id="modify-webgl-template"></a>

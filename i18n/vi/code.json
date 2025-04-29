@@ -632,5 +632,53 @@
   "theme.feedback.helpful": {
     "message": "Is this page helpful?",
     "description": "The text asking if the page is helpful"
+  },
+  "homepage.favorites.explorers.title": {
+    "message": "Trình khám phá khối",
+    "description": "Title for Block Explorers section"
+  },
+  "homepage.favorites.explorers.description": {
+    "message": "Tìm kiếm thông tin lịch sử và thời gian thực về Kaia.",
+    "description": "Description for Block Explorers section"
+  },
+  "homepage.newDocs.badge.new": {
+    "message": "MỚI",
+    "description": "Badge text for new documents"
+  },
+  "homepage.newDocs.badge.update": {
+    "message": "CẬP NHẬT",
+    "description": "Badge text for updated documents"
+  },
+  "homepage.newDocs.surveyMinidapp.title": {
+    "message": "Xây dựng DApp khảo sát trên Kaia",
+    "description": "Title for Survey Mini DApp doc"
+  },
+  "homepage.newDocs.unityMinidapp.title": {
+    "message": "Tạo DApp Mini LINE bằng Unity",
+    "description": "Title for Unity Mini DApp doc"
+  },
+  "homepage.newDocs.cocosMinidapp.title": {
+    "message": "Hướng dẫn tạo DApp Mini LINE bằng Cocos Creator",
+    "description": "Title for Cocos Mini DApp doc"
+  },
+  "homepage.newDocs.surveyMinidapp.description": {
+    "message": "Xây dựng ứng dụng khảo sát phi tập trung, tập trung vào quyền riêng tư trên Kaia bằng cách sử dụng Semaphore để ẩn danh và LINE cho các tính năng xã hội.",
+    "description": "Description for Upgradeable Smart Contracts doc"
+  },
+  "homepage.newDocs.unityMinidapp.description": {
+    "message": "Phát triển một dApp mini LINE tích hợp đầy đủ với Unity, kết hợp liền mạch khả năng kết nối Web3, thiết kế UI trực quan và chuyển đổi LIFF.",
+    "description": "Description for DApp Security doc"
+  },
+  "homepage.newDocs.cocosMinidapp.description": {
+    "message": "Tạo, tích hợp và triển khai dApp mini LINE với Cocos Creator, Web3 và LIFF.",
+    "description": "Description for API Updates doc"
+  },
+  "homepage.newDocs.title": {
+    "message": "Có gì mới",
+    "description": "Title for the What's New section"
+  },
+  "homepage.newDocs.subtitle": {
+    "message": "Khám phá những cập nhật và bổ sung mới nhất của chúng tôi vào tài liệu.",
+    "description": "Subtitle for the What's New section"
   }
 }

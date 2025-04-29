@@ -14,18 +14,19 @@
 **スマートコントラクト開発**
 
 - [Kaia Plugin for Remix](https://ide.kaia.io) - ブラウザベースのコンパイラとIDEであるRemix用のKaiaプラグイン。
-- [Truffle](https://github.com/trufflesuite/truffle) - Solidityでスマートコントラクトを開発するためのオープンソースツール。
 - [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - スマートコントラクトとdAppsの開発環境。
 - [Foundry](https://book.getfoundry.sh/) - Foundryはスマートコントラクト開発ツールチェーンである。
 - [Thirdweb](https://portal.thirdweb.com/) - Thirdwebは、Web3アプリケーションを構築、管理、分析するサービスを提供する完全なWeb3開発フレームワークです。
 
 **カイアSDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) ：Kaia JSON-RPC APIを実装するJavaScriptライブラリ。
-- [caver-java](../../references/sdk/caver-java/caver-java.md) ：Kaia JSON-RPC APIを実装したJavaライブラリ。
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) ：ethers.jsライブラリのKaia拡張。
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) ：web3.jsライブラリのKaia拡張。
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) ：web3jライブラリのKaia拡張。
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) ：web3.pyライブラリのKaia拡張。
 
 **カイア・ツールキット**
 
 - [Kaiascope](https://kaiascope.com/) - ブロックとトランザクションのエクスプローラ。
 - [Kaia Wallet](https://www.kaiawallet.io/) - カイアネットワークのブラウザ拡張ウォレット。
-- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。

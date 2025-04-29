@@ -1,18 +1,18 @@
-# Getting Started with Semaphore
+# セマフォ入門
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) enables users to participate anonymously in decentralized applications using zero-knowledge proofs. For this dApp, Semaphore ensures users can submit survey responses without revealing their identities.
+[セマフォ](https://github.com/semaphore-protocol/semaphore/tree/main)は、ユーザーがゼロ知識証明を使って分散型アプリケーションに匿名で参加することを可能にする。 このdAppでは、セマフォはユーザーが身元を明かすことなくアンケートの回答を提出できるようにしている。
 
-**Semaphore Features**:
+**セマフォの特徴**：
 
-- _Anonymity_: Users can submit answers without exposing their personal details.
-- _Verification_: Responses are validated without linking them to individuals.
-- _Anti-Spam_: Prevents duplicate submissions.
+- _匿名性_：ユーザーは個人情報を明かすことなく回答を提出できます。
+- _検証_：回答は個人を特定することなく検証されます。
+- \*アンチスパム重複投稿を防ぎます。
 
-## Setting Up Smart Contract Development Environment <a id="set-up-smart-contract-env"></a>
+## スマートコントラクト開発環境の構築<a id="set-up-smart-contract-env"></a>
 
-To make use of hardhat, we need to set up our development environment and install Hardhat. Let's do this in the following steps:
+ハードハットを利用するには、開発環境を整え、ハードハットをインストールする必要がある。 次のステップでやってみよう：
 
-Navigate to your project's root folder, and then run the following commands to create a new Hardhat project.
+プロジェクトのルート・フォルダーに移動し、以下のコマンドを実行して新しいHardhatプロジェクトを作成します。
 
 ```bash
 mkdir contract
@@ -20,25 +20,25 @@ cd contract
 npm install --save-dev hardhat
 ```
 
-Bootstrap a sample project by running the command below:
+以下のコマンドを実行して、サンプル・プロジェクトをブートストラップする：
 
 ```bash
 npx hardhat init 
 ```
 
-For this guide, you'll be selecting a typescript project.
+このガイドでは、タイプスクリプトのプロジェクトを選択します。
 
 :::note
-While initializing the project, you will get a prompt to install the hardhat-toolbox plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+プロジェクトの初期化中に、hardhat-toolboxプラグインをインストールするプロンプトが表示されます。 このプラグインは、Hardhatでの開発を開始するために推奨される、一般的に使用されるパッケージとHardhatプラグインをすべてバンドルしています。
 :::
 
-Next, install `@semaphore-protocol/contracts` for Semaphore Solidity contracts, `OpenZeppelin contracts` and `hardhat-deploy` with the following command:
+次に、Semaphore Solidityコントラクト、OpenZeppelinコントラクト、および `hardhat-deploy` 用の `@semaphore-protocol/contracts` を以下のコマンドでインストールする：
 
 ```bash
 npm install --save-dev @semaphore-protocol/contracts @openzeppelin/contracts hardhat-deploy
 ```
 
-You then want to modify your `hardhat.config.ts` with the following configurations:
+次に、`hardhat.config.ts`を以下の設定で変更する：
 
 ```javascript
 import { HardhatUserConfig } from "hardhat/config";
@@ -94,4 +94,4 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-Now that we have our development environment all set, let's get into writing our survey smart contract.
+開発環境が整ったので、スマート・コントラクトの作成に取りかかろう。

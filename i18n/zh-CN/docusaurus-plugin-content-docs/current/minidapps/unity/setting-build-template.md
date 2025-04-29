@@ -228,7 +228,7 @@ Assets/
 ## 步骤 4：设置 Mini Dapp SDK
 
 1. 访问：https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. 将内容保存到 `scripts/dapp_portal_sdk.js` 中。 使用本地 Mini Dapp SDK 文件可提高加载时间和可靠性。
+2. 将内容保存到您的 `scripts/dapp-portal-sdk.js` 中。 使用本地 Mini Dapp SDK 文件可提高加载时间和可靠性。
 
 :::note
 或者，您也可以直接将 Mini Dapp SDK 的链接作为 `src` 添加到您的 `index.html` 中的 `script` 标签中。

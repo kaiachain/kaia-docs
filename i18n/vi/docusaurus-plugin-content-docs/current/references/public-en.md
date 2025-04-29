@@ -45,7 +45,6 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | Full    |
-| [BlockJoy](https://blockjoy.com/)      | `http://freely-inspired-ram.n0des.xyz`                     | kaia,klay,eth,net | Archive |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
@@ -59,7 +58,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
-| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
+| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | Đầy     |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
@@ -70,15 +69,15 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | Full    |
 |                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | Archive |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | Đầy     |
 
 **WebSocket**
 
 | Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
 | -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | Full    |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | Đầy     |
 |                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
+| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Đầy     |
 
 ## RPC Service Providers
 
@@ -100,31 +99,31 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - [Subscription](https://www.klaytnapi.com/en/landing/pricings)
 - [Website](https://www.klaytnapi.com/en/landing/main)
 
-### Chainstack
+### Chuỗi xếp chồng
 
-[Chainstack](https://chainstack.com/) the leading Web3 infrastructure provider, offering free and paid endpoints for Kaia. The free Developer plan starts with 3 million requests per month and 25 requests per second (RPS). You can easily scale with the paid plans.
+[Chainstack](https://chainstack.com/) là nhà cung cấp cơ sở hạ tầng Web3 hàng đầu, cung cấp các điểm cuối miễn phí và trả phí cho Kaia. Gói Nhà phát triển miễn phí bắt đầu với 3 triệu yêu cầu mỗi tháng và 25 yêu cầu mỗi giây (RPS). Bạn có thể dễ dàng mở rộng quy mô với các gói trả phí.
 
-To get started with a free Developer plan endpoint, simply sign up with email or any social account, like GitHub or X (Twitter).
+Để bắt đầu sử dụng gói Developer miễn phí, bạn chỉ cần đăng ký bằng email hoặc bất kỳ tài khoản mạng xã hội nào, như GitHub hoặc X (Twitter).
 
 #### Features
 
-- Free Developer plan supported
-- Scaling to paid plans supported
-- Pay-as-you-go supported
-- 25+ bockchains supported
+- Gói nhà phát triển miễn phí được hỗ trợ
+- Hỗ trợ mở rộng sang các gói trả phí
+- Hỗ trợ trả tiền khi sử dụng
+- Hỗ trợ 25+ bockchain
 - Uptime 99.9%+
-- Load-Balancing
-- Infinite scalability
-- Sign up with social account
-- Top up with crypto, including Kaia tokens
-- Support through Telegram, email, rich documentation and more
-- Customer stories with our dedicated Web3 copywriters
+- Cân bằng tải
+- Khả năng mở rộng vô hạn
+- Đăng ký bằng tài khoản mạng xã hội
+- Nạp tiền bằng tiền điện tử, bao gồm cả token Kaia
+- Hỗ trợ qua Telegram, email, tài liệu phong phú và nhiều hơn nữa
+- Câu chuyện của khách hàng với các copywriter Web3 tận tâm của chúng tôi
 
 #### References
 
-- [Docs](https://chainstack.com/build-better-with-kaia/)
-- [Subscription](https://chainstack.com/pricing/)
-- [Website](https://chainstack.com/)
+- [Tài liệu](https://chainstack.com/build-better-with-kaia/)
+- [Đăng ký](https://chainstack.com/pricing/)
+- [Trang web](https://chainstack.com/)
 
 ### All That Node
 
@@ -139,7 +138,7 @@ All That Node aims to become trusty gateway to Web3 infrastructure allowing buil
 - Archival Data Available
 - Websocket API Available
 - Trace/Debug API Available
-- Uptime 99.9%+
+- Thời gian hoạt động 99,9%+
 - Load-Balancing implemented
 - Infinite Scalability
 - 24/7 Support with the Discord Community
@@ -289,21 +288,6 @@ GetBlock provides fast, reliable API access to full RPC nodes for over 50 major 
 - [Website](https://getblock.io/)
 - [Docs](https://getblock.io/docs/getblock-explorer/get-started/)
 
-### BlockJoy
-
-BlockJoy provides dedicated unmetered blockchain nodes on any bare metal infrastructure. Its provides Node infrastructure for various services like Nodes, Staking, APIs, Indexers, Blockchain developers etc.
-
-#### Features
-
-- Run nodes at max performance on bare metal servers.
-- Cut operating costs by up to 80%.
-- Enjoy platform's streamlined UI and cloud-like experience built exclusively for Web3 Infrastructure.
-
-#### References
-
-- [Website](https://blockjoy.com/)
-- [Blog](https://blockjoy.com/blog)
-
 ### QuickNode
 
 Quicknode offers blockchain infrastructure powering secure, decentralized innovation. They provide all the tools and resources builders need to create incredible products — all backed by unparalleled, globally-balanced infrastructure, guaranteed reliability and security, a user-friendly interface, and end-to-end customer support.
@@ -330,7 +314,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
-- 90+ blockchains across 100+ networks
+- Hơn 90 blockchain trên hơn 100 mạng lưới
 - AI-driven load balancer
 - Insightful analytics.
 

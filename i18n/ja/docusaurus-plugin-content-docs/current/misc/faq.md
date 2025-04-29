@@ -89,7 +89,7 @@ Kairos testnet:
 
 Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js、web3py、web3j、viemのような一般的なイーサリアムSDKを使用できます。 しかし、Kaia Nodeには、Kaia固有のアカウントとトランザクションタイプによる拡張機能も含まれている。
 
-これらの機能を利用するには、ethers-ext、web3js-ext、web3j-ext、web3py-extなどの拡張機能を含むカイアSDKを使用することができます。 これらはイーサリアムSDKを拡張するプラグインタイプのSDKである。 スタンドアロンSDKがお好みであれば、イーサリアムとの互換性を必要としないプロジェクト向けに設計されたcaver-jsやcaver-javaなどのCaver SDKをご検討ください。
+これらの機能を利用するには、ethers-ext、web3js-ext、web3j-ext、web3py-extなどの拡張機能を含むカイアSDKを使用することができます。 これらはイーサリアムSDKを拡張するプラグインタイプのSDKである。
 
 ### kaia-sdk（プラグインSDK）
 
@@ -98,13 +98,6 @@ Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js�
 - ethers-ext、javascript用web3js-ext
 - Java 用 web3j-ext
 - パイソン用web3py-ext
-
-### ケイバー（スタンドアロンSDK）
-
-これらのSDKはJavaScriptとJavaをサポートしており、イーサリアムとの互換性が必要ないプロジェクトに最適です：
-
-- JavaScript用caver-js
-- caver-java（Java用
 
 ## Kaiaを使用するには、EN（エンドポイントノード）をインストールして実行する必要がありますか？ <a id="must-i-install-and-run-en"></a>
 
@@ -145,4 +138,3 @@ Kaiaでは、[アカウントアドレスをキーペアから切り離すこと
 - web3js-ext：[料金委譲値転送の例](https://docs.kaia.io/references/sdk/web3js-ext/fee-delegated-transaction/value-transfer/)
 - web3j-ext：[料金委譲値転送の例](https://docs.kaia.io/references/sdk/web3j-ext/fee-delegated-transaction/value-transfer/)
 - web3py-ext：[料金委任による価値移転の例](https://docs.kaia.io/references/sdk/web3py-ext/fee-delegated-transaction/value-transfer/)
-- Caver-js: [料金委譲の例](https://docs.kaia.io/build/tutorials/fee-delegation-example/)

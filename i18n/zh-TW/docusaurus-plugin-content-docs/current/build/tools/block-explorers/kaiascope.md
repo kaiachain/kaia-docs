@@ -67,7 +67,7 @@ Kaiascope 是 Kaia 網絡的區塊資源管理器。 Kaiascope 通過監控網�
 - 時間：區塊生成後的持續時間。 您可以通過鼠標懸停來查看確切的日期和時間。
 - TX 總數：區塊中包含的交易總數。
 - 區塊提議者：隨機但確定地選擇提出區塊的共識節點。 點擊地址，即可輕鬆進入詳情頁面。
-- 獎勵：新鑄幣的 KAIA （9.6 KAIA/）和區塊中使用的交易費的總和。 列表僅顯示 Kaia 治理委員會獎勵、貢獻證明和 Kaia 生態系統基金的總和。 將鼠標懸停在區塊詳情頁面上的區塊獎勵部分，即可查看詳細信息。 More details about the block reward distribution system can be found in the [Kaia Token Economy](../../../learn/token-economics/token-economics.md).
+- 獎勵：新鑄幣的 KAIA （9.6 KAIA/）和區塊中使用的交易費的總和。 列表僅顯示 Kaia 治理委員會獎勵、貢獻證明和 Kaia 生態系統基金的總和。 將鼠標懸停在區塊詳情頁面上的區塊獎勵部分，即可查看詳細信息。 更多關於區塊獎勵分配系統的詳細資訊，請參閱 [Kaia Token Economy](../../../learn/token-economics/token-economics.md)。
 - 大小：數據塊的大小，以字節為單位。 包含的交易越多，區塊大小就越大。
 
 ### 交易<a id="transactions"></a>
@@ -80,7 +80,7 @@ Kaiascope 是 Kaia 網絡的區塊資源管理器。 Kaiascope 通過監控網�
 - Block \#: 包含此交易的區塊編號。 點擊號碼後，您將進入該區塊的詳細信息頁面。
 - 時間：交易執行後的持續時間。 您可以通過鼠標懸停來查看確切的日期和時間。
 - 發件人 -&gt; 收件人：發件人和收件人的地址。 點擊地址，即可輕鬆進入詳情頁面。 如果文件圖標顯示在地址旁邊，則表示該地址是一份合同。
-- TX 類型：交易類型。 您可以使用過濾器來獲取特定類型的交易。 For more information, please visit [Transactions](../../transactions/transactions.md).
+- TX 類型：交易類型。 您可以使用過濾器來獲取特定類型的交易。 如需詳細資訊，請造訪 [交易](../../transactions/transactions.md)。
 - 金額：通過交易轉移的價值量。
 - TX 費用：處理交易的實際費用。
 

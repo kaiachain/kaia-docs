@@ -1,76 +1,76 @@
-# UI Creation
+# UI 創建
 
-In this section, we'll build the user interface (UI) for our dApp, including wallet connection, balance updates, and minting functionality.
+在本節中，我們將為 dApp 建立使用者介面 (UI)，包括錢包連線、餘額更新和鑄幣功能。
 
-## Setting Up the Main Scene <a id="setting-up-main-scene"></a>
+## 設定主場景<a id="setting-up-main-scene"></a>
 
-### Step 1: Create a Scenes Folder <a id="create-scene-folder"></a>
+### 步驟 1：建立場景資料夾<a id="create-scene-folder"></a>
 
-- Navigate to your project's **assets** folder.
-- Right-click and select **Create Folder**.
-- Name it **scenes**. (Insert Image)
-- Inside the scenes folder, right-click and select **Create → Scene**.
+- 導覽到專案的 **assets** 資料夾。
+- 按一下滑鼠右鍵，然後選取 **Create Folder**。
+- 命名為 **場景**。 (插入圖片)
+- 在場景資料夾內，按滑鼠右鍵並選擇 \*\* 建立 → 場景\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-create-scene-r.png)
 
-- Save the scene file when prompted.
-- Double-click the newly created scene to set it as the **default scene**.
+- 出現提示時儲存場景檔案。
+- 按兩下新建立的場景，將其設定為 \*\* 預設場景。
 
-### Step 2: Creating the Base Canvas <a id="creating-base-canvas"></a>
+### 步驟 2：建立基本畫布<a id="creating-base-canvas"></a>
 
-- In the Hierarchy window, right-click on **Scene**.
-- Navigate to **Create → UI Component → Canvas**.
-- Rename it to **Canvas**
+- 在 Hierarchy 視窗中，用滑鼠右鍵按一下 **Scene**。
+- 導覽到 **Create → UI Component → Canvas**。
+- 將它重新命名為 **Canvas**
 
 ![](/img/minidapps/cocos-creator/cp-create-canvas-r.png)
 
-### Step 3: Creating the Web3UI Container <a id="create-web3ui-container"></a>
+### 步驟 3：建立 Web3UI 容器<a id="create-web3ui-container"></a>
 
-- Right-click on the newly created **Canvas**.
-- Select **Create → Empty Node**.
-- Rename it to **Web3UI**.
+- 在新建立的 **Canvas** 上按一下滑鼠右鍵。
+- 選擇 **建立 → 空節點**。
+- 將它重新命名為 **Web3UI**。
 
 ![](/img/minidapps/cocos-creator/cp-create-web3-ui-r.png)
 
-### Step 4: Setting Up Main UI Objects <a id="setting-up-main-ui-objects"></a>
+### 步驟 4：設定主要 UI 物件<a id="setting-up-main-ui-objects"></a>
 
-Inside Web3UI, create the following components:
+在 Web3UI 內，建立下列元件：
 
-**1. Connect Wallet Button**
+**1. 連接錢包按鈕**
 
-- Right-click **Web3UI → Create → UI Component → Button**.
+- 右鍵按一下 **Web3UI → 建立 → UI Component → 按鈕**。
 
 ![](/img/minidapps/cocos-creator/cp-connect-button-r.png)
 
-- Rename it to **ConnectWallet**.
-- In the **Inspector Pane**, set the button label text to **Connect Wallet**.
+- 將它重新命名為 **ConnectWallet**。
+- 在 \*\* 檢查窗格\*\*，將按鈕標籤文字設定為 \*\* 連接錢包\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-connect-label-r.png)
 
-**2. Mint Button**
+**2. 薄荷鈕扣**
 
-- Right-click **Web3UI → Create → UI Component → Button**.
-- Rename it to **MintButton**.
-- Set the button label text to **Mint Button**.
+- 右鍵按一下 **Web3UI → 建立 → UI Component → 按鈕**。
+- 將它重新命名為 **MintButton**。
+- 將按鈕標籤文字設定為 **Mint Button**。
 
-**3. Address Label**
+**3. 地址標籤**
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
+- 按一下 **Web3UI → 建立 → 2D 物件 → 標籤**。
 
 ![](/img/minidapps/cocos-creator/cp-address-label-r.png)
 
-- Rename it to **AddressLabel**.
-- Set the label text to **Connected Address:**.
+- 將它重新命名為 **AddressLabel**。
+- 將標籤文字設定為 **連線位址：**。
 
 ![](/img/minidapps/cocos-creator/cp-connected-address-r.png)
 
-**4. Balance Label**
+**4. 平衡標籤**
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
-- Rename it to **BalanceLabel**.
-- Set the label text to **0.000ET**.
+- 按一下 **Web3UI → 建立 → 2D 物件 → 標籤**。
+- 將它重新命名為 **BalanceLabel**。
+- 將標籤文字設定為 **0.000ET**。
 
-After adding all components, your Hierarchy should look like this:
+新增所有元件後，您的 Hierarchy 應該是這樣的：
 
 ```bash
 Canvas
@@ -84,5 +84,5 @@ Canvas
 ![](/img/minidapps/cocos-creator/cp-ui-view-r.png)
 
 :::note
-To properly arrange your components, use the alignment tools at top of the Scene. Click on each component and adjust its position as needed
+若要正確排列元件，請使用 Scene 頂端的對齊工具。 按一下每個元件，並視需要調整其位置
 :::

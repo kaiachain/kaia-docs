@@ -1,16 +1,16 @@
-# Building a survey smart contract using Hardhat
+# 使用 Hardhat 建立調查智慧型契約
 
-In this section, you will build a smart contract that leverages Semaphore to ensure privacy and accuracy in survey management.
+在本節中，您將建構一個利用 Semaphore 的智慧型契約，以確保調查管理的隱私性和準確性。
 
-Select the contracts folder in the Explorer pane and update the folder as seen with all the contracts in this [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
+在資源總管窗格中選擇 contracts 資料夾，並更新資料夾，如圖所示，此 [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts) 中的所有合約。
 
-Now that you have your contracts created, let’s break down the major dependent contracts.
+現在您已建立合約，讓我們來分解主要的依賴合約。
 
-## Breakdown SurveyV1 Contract <a id="breakdown-surveyV1-contract"></a>
+## 細分調查V1 合約<a id="breakdown-surveyV1-contract"></a>
 
-Here is a breakdown of its SurveyV1 key elements
+以下是其 SurveyV1 主要元素的細分
 
-### Import dependent contracts <a id="import-dependent-contracts"></a>
+### 依賴進口的合約<a id="import-dependent-contracts"></a>
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -21,7 +21,7 @@ import "./ISurvey.sol";
 import "./semaphore/interfaces/ISemaphore.sol";
 ```
 
-### Add State Variables, Structs, Events, and Modifier <a id="state-variables"></a>
+### 新增狀態變數、結構、事件和修改器<a id="state-variables"></a>
 
 ```solidity
 event AnswerSubmitted(address indexed respondent, uint8[] answers);
@@ -66,19 +66,19 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we:
+在上面的程式碼中，我們
 
-- Defined key contract components:
-  - admin state variable: **owner** with withdrawal rights and **manager** with special management permissions.
-  - survey metadata variables: information about basic surveys like **title**, **description**, **reward** etc.
-  - data storage arrays: stores survey **questions** and **options**, submitted **answers** and participant **addresses**.
-  - survey status variable: Tracks survey completion status, records creation timestamp, sets survey expiration time (**finished**, **timestamp**, **lockedUntil**)
-  - privacy infra with semaphore: Interface for Semaphore protocol and unique identifier for privacy group.
-- Created **Question** and **Answer** struct to store survey questions and answers respectively.
-- Created events **AnswerSubmitted** which is emitted when a survey answer is submitted
-- Created an access control modifier: **onlyMgr()**
+- 定義了合同的主要組成部分：
+  - admin 狀態變數：**owner** 具有提款權限，而 **manager** 則具有特殊管理權限。
+  - 調查問卷元資料變數：基本調查問卷的相關資訊，例如 **標題**、**描述**、**獎勵**等。
+  - 資料儲存陣列：儲存調查的 \*\* 問題\*\* 和 \*\* 選項\*\*、提交的 \*\* 答案\*\* 和參與者 \*\* 位址\*\*。
+  - 調查問卷狀態變數：追蹤調查問卷完成狀態、記錄建立時間戳記、設定調查問卷到期時間 (**finished**, **timestamp**, **lockedUntil**)
+  - 隱私權資訊與 Semaphore：Semaphore 通訊協定的介面以及隱私群組的唯一識別碼。
+- 建立 **Question** 和 **Answer** 結構，分別儲存調查問卷問題和答案。
+- 建立事件 **AnswerSubmitted**，在提交調查問卷答案時發送
+- 建立存取控制修改器：**onlyMgr()**
 
-### Implement the Constructor <a id="implement-constructor"></a>
+### 實作構成器<a id="implement-constructor"></a>
 
 ```solidity
 //…
@@ -120,11 +120,11 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code above, we implemented the constructor, stored questions/options on-chain, set up administrative control and timeframes, established privacy features through Semaphore protocol, and configured the reward system by burning a portion of the deposited amount and calculating per-response rewards from the remainder.
+在上述程式碼中，我們實作了構建器、在鏈上儲存問題/選項、設定管理控制和時間範圍、透過 Semaphore 通訊協定建立隱私功能，並透過燒掉部分存入金額和從剩餘金額中計算按回應獎勵來設定獎勵系統。
 
-Next, you will proceed to implement the main functions, starting with a function to submit survey answers.
+接下來，您將着手實作主要功能，首先是提交調查問卷答案的功能。
 
-### Create SubmitAnswer Function <a id="create-submitanswer-function"></a>
+### 建立 SubmitAnswer 函式<a id="create-submitanswer-function"></a>
 
 ```solidity
 //…
@@ -160,16 +160,16 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we:
+在上面的程式碼片段中，我們：
 
-- Validated response requirements (length matches questions, survey isn't full/expired, no duplicate submissions)
-- Converted answers to uint256 and created a zero-knowledge proof using Semaphore protocol for privacy
-- Verified each answer is within valid option ranges for questions
-- Stored the validated answer in the contract storage
-- Transferred reward payment to respondent (msg.sender)
-- Updated survey participation records (increment surveyNumber and add respondent address)
+- 已驗證的回覆要求 (長度符合問題、調查問卷未滿/過期、無重複提交)
+- 將答案轉換為 uint256，並使用 Semaphore 通訊協定建立零知識的隱私證明
+- 確認每個答案都在問題的有效選項範圍內
+- 將已驗證的答案儲存在合約儲存空間中
+- 已將獎金轉帳給答辯人 (msg.sender)
+- 更新調查問卷參與記錄 (增加 surveyNumber 並新增受訪者地址)
 
-### Others: state changing functions, view function and receive function <a id="other-state-changing-functions"></a>
+### 其他：狀態變更功能、檢視功能和接收功能<a id="other-state-changing-functions"></a>
 
 ```solidity
 //…
@@ -222,77 +222,77 @@ contract SurveyV1 is ISurvey {
 }
 ```
 
-In the code snippet above, we implemented a comprehensive survey contract with the following functions:
+在上面的程式碼片段中，我們以下列功能實作了全面的調查問卷合約：
 
-**View Functions:**
+**檢視功能：**
 
-- _getQuestions()_: Returns array of survey questions and options
-- _getAnswers()_: Returns array of submitted survey answers
-- _remainingSurveys()_: Returns count of responses still needed
-- _surveyInfo()_: Returns all survey metadata (title, description, owner, numbers, timestamps, status)
+- _getQuestions()_：傳回調查問卷問題與選項的陣列
+- _getAnswers()_：傳回已提交調查問卷答案的陣列
+- _remainingSurveys()_：回傳仍需回應的計數
+- _surveyInfo()_：傳回所有調查元資料 (標題、描述、所有者、編號、時間戳記、狀態)
 
-**State-Modifying Functions:**
+**狀態修改功能：**
 
-- _finish()_: Marks survey complete after lock period
-- _withdraw()_: Enables owner to withdraw remaining balance
-- _joinGroup()_: Adds member to privacy group (manager only)
+- _finish()_：在鎖定期間後標記調查完成
+- _withdraw()_：允許所有者提取餘額
+- _加入群組()_：將成員加入隱私群組（僅限管理員）
 
-**Utility Functions:**
+**實用功能：**
 
-- _uint8ArrayToUint256()_: Converts uint8 array to uint256 for privacy proofs
-- _receive()_: Fallback function for receiving ETH payments.
+- _uint8ArrayToUint256()_：將 uint8 陣列轉換為 uint256，用於隱私證明
+- _receive()_：接收 ETH 付款的後備函數。
 
-## Breakdown of SurveyFactoryV1 Contract <a id="breakdown-surveyFactoryV1-contract"></a>
+## SurveyFactoryV1 合約明細<a id="breakdown-surveyFactoryV1-contract"></a>
 
-The SurveyFactory contract serves as a factory pattern implementation for deploying new survey contracts.
+SurveyFactory 契約是部署新調查問卷契約的工廠模式實作。
 
-Here's are its core features:
+以下是其核心功能：
 
-- _initialize()_: Sets up factory with Semaphore and manager addresses
-- _createSurvey()_: Deploys new survey contract with validated parameters
-- _getSurveys()_: Returns addresses of all deployed surveys
-- _getSurveyCount()_: Returns total number of surveys created
-- _setBurnRate()_: Allows the owner to modify burn rate.
+- _初始化()_：使用 Semaphore 和管理器位址設定工廠
+- _createSurvey()_：使用已驗證的參數部署新的調查合約
+- _getSurveys()_：傳回所有已部署調查的位址
+- _getSurveyCount()_：回傳建立的調查問卷總數
+- _setBurnRate()_：允許擁有者修改燃燒率。
 
-## Breakdown of ISemaphore.sol Contract <a id="breakdown-isemaphore-contract"></a>
+## ISemaphore.sol 合約明細<a id="breakdown-isemaphore-contract"></a>
 
-In the ISemaphore interface, we have the following:
+在 ISemaphore 介面中，我們有以下內容：
 
-**Core Structures:**
+**核心結構：**
 
-- Group: Holds group parameters including merkle tree duration and mappings
-- SemaphoreProof: Contains proof parameters (depth, root, nullifier, message, etc.)
+- 群組：持有群組參數，包括 merkle 樹的持續時間和對應
+- SemaphoreProof：包含證明參數（深度、根、無效器、訊息等）
 
-**Key Functions:**
+\*\* 主要功能：\*\*
 
-1. **Group Management**
-  - _createGroup()_: Creates new groups with optional admin and duration
-  - _updateGroupAdmin()_: Changes group administrator
-  - _acceptGroupAdmin()_: Accepts admin role for group
-2. **Member Management**
-  - _addMember()_: Adds single member to group
-  - _addMembers()_: Adds multiple members at once
-  - _updateMember()_: Updates member's identity commitment
-  - _removeMember()_: Removes member from group
-3. **Proof Validation**
-  - validateProof(): Validates zero-knowledge proof and prevents double signaling
-  - verifyProof(): Verifies proof validity without state changes
-4. **Configuration**
-  - _groupCounter()_: Returns total groups created
-  - _updateGroupMerkleTreeDuration()_: Updates merkle tree duration
-5. **Events**:
-  - _GroupMerkleTreeDurationUpdated_: Logs changes to merkle tree duration
-  - _ProofValidated_: Logs validated proof details
-6. **Error Handling**:
-  - Custom errors for invalid proofs, duplicate nullifiers, empty groups, etc.
+1. **集團管理**
+  - _createGroup()_：創建新群組，可選擇管理員和持續時間
+  - _updateGroupAdmin()_：變更群組管理員
+  - _acceptGroupAdmin()_：接受群組的管理角色
+2. **會員管理**
+  - _addMember()_：將單一成員加入群組
+  - _addMembers()_：一次加入多個成員
+  - _updateMember()_：更新成員的身份承諾
+  - _removeMember()_：從群組移除成員
+3. **證明驗證**
+  - validateProof()：驗證零知識證明並防止雙重訊號
+  - verifyProof()：在不改變狀態的情況下驗證證明的有效性
+4. \*\* 設定\*\*
+  - _groupCounter()_：回傳建立的群組總數
+  - _updateGroupMerkleTreeDuration()_：更新 merkle 樹的持續時間
+5. **活動**：
+  - _GroupMerkleTreeDurationUpdated_：記錄 Merkle 樹持續時間的變更
+  - _ProofValidated_：記錄已驗證的證明細節
+6. \*\* 錯誤處理\*\*：
+  - 針對無效證明、重複無效、空群組等自訂錯誤。
 
-This interface provides the foundation for privacy-preserving group management and zero-knowledge proof verification in the survey system.
+此介面為調查系統中的隱私保護群組管理和零知識證明驗證提供了基礎。
 
-## Deploying the smart contract  <a id="deploying-contract"></a>
+## 部署智慧型契約 <a id="deploying-contract"></a>
 
-In this section we are going to deploy our contracts to a localhost network using [hardhat-deploy](https://github.com/wighawag/hardhat-deploy); a hardhat plugin for replicable deployment and testing.
+在本節中，我們要使用 [hardhat-deploy](https://github.com/wighawag/hardhat-deploy) 將我們的合約部署到 localhost 網路上；這是一個可複製部署和測試的 hardhat 外掛。
 
-Next is to create a new folder called **deploy** in the contract folder and click the New File button to create a new file named **deploy.ts**. Then copy and paste the following code inside the file.
+接下來是在 contract 資料夾中建立一個名為 **deploy** 的新資料夾，然後按一下 New File 按鈕，建立一個名為 **deploy.ts** 的新檔案。 然後將以下程式碼複製並貼在檔案內。
 
 ```solidity
 import { HardhatRuntimeEnvironment } from "hardhat/types";
@@ -335,20 +335,20 @@ deploySurveyFactory.tags = [
 ];
 ```
 
-You can deploy to localhost network following these steps:
+您可以按照以下步驟部署到 localhost 網路：
 
-1. Start a [local node](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)
+1. 啟動 [本機節點](https://hardhat.org/hardhat-runner/docs/getting-started#connecting-a-wallet-or-dapp-to-hardhat-network)
 
 ```
 npx hardhat node
 ```
 
-2. Open a new terminal and deploy the contract in the localhost network
+2. 開啟新終端，並在 localhost 網路中部署合約
 
 ```
 npx hardhat deploy --network localhost
 ```
 
-Save the `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` deployed address, as you will need them for frontend integration.
+儲存 `SURVEY_FACTORY_V1_CONTRACT_ADDRESS` 部署的位址，因為前端整合時會需要它們。
 
 

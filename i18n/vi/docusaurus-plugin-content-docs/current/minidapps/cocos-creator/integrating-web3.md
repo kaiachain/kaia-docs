@@ -1,22 +1,22 @@
-# Web3 Integration
+# Tích hợp Web3
 
-In this section, we'll integrate Web3 functionality into our Cocos Creator project by creating a token contract, writing scripts to interact with it, and leveraging the Mini Dapp SDK for wallet connections, token minting, and balance retrieval. By the end, your dApp will seamlessly interact with the blockchain, enabling smooth Web3 interactions within your game.
+Trong phần này, chúng tôi sẽ tích hợp chức năng Web3 vào dự án Cocos Creator bằng cách tạo hợp đồng mã thông báo, viết tập lệnh để tương tác với hợp đồng và tận dụng Mini Dapp SDK để kết nối ví, đúc mã thông báo và truy xuất số dư. Cuối cùng, dApp của bạn sẽ tương tác liền mạch với blockchain, cho phép tương tác Web3 diễn ra suôn sẻ trong trò chơi của bạn.
 
-## Creating and deploying KIP7 smart contract <a id="creating-and-deploying-smart-contract"></a>
+## Tạo và triển khai hợp đồng thông minh KIP7 <a id="creating-and-deploying-smart-contract"></a>
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+Đầu tiên, chúng ta sẽ sử dụng Kaia Contract Wizard để tạo hợp đồng thông minh.
 
-### Step 1: Using Kaia Contract Wizard <a id="using-kaia-contract-wizard"></a>
+### Bước 1: Sử dụng Kaia Contract Wizard <a id="using-kaia-contract-wizard"></a>
 
-- Navigate to Kaia Contract Wizard.
-- Select KIP7 (Kaia's token standard, similar to ERC20).
-- Configure your token:
-  - Name: ExampleTestToken (or something else!)
-  - Symbol: ET (your token's ticker)
-  - Premint: 100 (initial token supply)
-  - Features: Check ✅ Mintable
+- Điều hướng đến Kaia Contract Wizard.
+- Chọn KIP7 (tiêu chuẩn mã thông báo của Kaia, tương tự như ERC20).
+- Cấu hình mã thông báo của bạn:
+  - Tên: ExampleTestToken (hoặc tên khác!)
+  - Biểu tượng: ET (mã token của bạn)
+  - Đúc trước: 100 (nguồn cung cấp token ban đầu)
+  - Tính năng: Kiểm tra ✅ Có thể đúc
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+Trong hướng dẫn này, chúng tôi sẽ điều chỉnh hàm mint để không chỉ có trình sửa đổi onlyOwner. Để thực hiện điều này, chúng ta phải xóa lệnh import ownable.sol và lệnh kế thừa Ownable. Mã đã chỉnh sửa bây giờ sẽ trông như thế này:
 
 ```
 // SPDX-License-Identifier: MIT
@@ -43,51 +43,51 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+Chúng tôi đã xóa trình sửa đổi onlyOwner để cho phép bất kỳ ai gọi hàm mint ngoài người triển khai hoặc chủ sở hữu hợp đồng ban đầu.
 :::
 
-### Step 2: Deploying via Remix IDE <a id="deploying-via-remix-ide"></a>
+### Bước 2: Triển khai thông qua Remix IDE <a id="deploying-via-remix-ide"></a>
 
-1. Copy and paste the code above in a newly created file ET.sol on Remix IDE.
-2. In Remix IDE:
-  - Click the **Compile contract** button.
-  - Activate the **Kaia plugin** in the plugin manager.
-  - Under Environment in the Kaia Plugin tab, choose **Injected Provider - Kaia Wallet**.
-  - Find your contract (ExampleTokens) in the **Contract** dropdown.
-  - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-  - Review the deployment details.
-  - Click Confirm to deploy to Kaia Kairos Testnet.
+1. Sao chép và dán mã ở trên vào tệp ET.sol mới tạo trên Remix IDE.
+2. Trong Remix IDE:
+  - Nhấp vào nút **Biên dịch hợp đồng**.
+  - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
+  - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm - Ví Kaia**.
+  - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
+  - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
+3. Khi Ví Kaia của bạn hiện lên:
+  - Xem lại thông tin chi tiết triển khai.
+  - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
 
 :::note
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+Sao chép và lưu địa chỉ hợp đồng đã triển khai. Bạn sẽ cần đến nó sau trong phần hướng dẫn.
 :::
 
-## Creating Script Files <a id="creating-script-file"></a>
+## Tạo tập tin Script <a id="creating-script-file"></a>
 
-To integrate Web3 functionality, we need to create script files for handling blockchain interactions and UI management.
+Để tích hợp chức năng Web3, chúng ta cần tạo các tệp tập lệnh để xử lý tương tác blockchain và quản lý UI.
 
-**1. Create a Scripts Folder**
+**1. Tạo một thư mục Scripts**
 
-- Navigate to your project's _assets_ folder.
-- Right-click and select **Create → Folder**
+- Điều hướng đến thư mục _assets_ của dự án.
+- Nhấp chuột phải và chọn **Tạo → Thư mục**
 
 ![](/img/minidapps/cocos-creator/cp-create-script-r.png)
 
-- Name it **scripts**.
+- Đặt tên là **script**.
 
-**2. Create Web3 Script Files**
+**2. Tạo tập tin Web3 Script**
 
-Inside the scripts folder, create two TypeScript files:
+Bên trong thư mục scripts, tạo hai tệp TypeScript:
 
 ![](/img/minidapps/cocos-creator/cp-create-typescript-r.png)
 
-- **Web3Manager.ts** - Handles blockchain interactions.
-- **UIManager.ts** - Manages UI elements and user interactions.
+- **Web3Manager.ts** - Xử lý các tương tác blockchain.
+- **UIManager.ts** - Quản lý các thành phần UI và tương tác của người dùng.
 
 ![](/img/minidapps/cocos-creator/cp-all-scripts-r.png)
 
-Your project structure should now look like this:
+Cấu trúc dự án của bạn bây giờ sẽ trông như thế này:
 
 ```bash
 assets/
@@ -96,18 +96,18 @@ assets/
     UIManager.ts
 ```
 
-### Web3Manager.ts - Handling Blockchain Interactions <a id="web3manager"></a>
+### Web3Manager.ts - Xử lý tương tác Blockchain <a id="web3manager"></a>
 
-The Web3Manager script is responsible for all blockchain-related functionality.
+Tập lệnh Web3Manager chịu trách nhiệm cho mọi chức năng liên quan đến blockchain.
 
-**Key Features**
+**Đặc điểm chính**
 
-- SDK Initialization - Sets up the Mini Dapp SDK.
-- Wallet Connection - Allows users to connect their wallets.
-- Token Minting - Enables token minting functionality.
-- Balance Retrieval - Fetches the user's token balance.
+- Khởi tạo SDK - Thiết lập Mini Dapp SDK.
+- Kết nối ví - Cho phép người dùng kết nối ví của họ.
+- Đúc mã thông báo - Cho phép chức năng đúc mã thông báo.
+- Truy xuất số dư - Truy xuất số dư mã thông báo của người dùng.
 
-Code Implementation:
+Triển khai mã:
 
 ```typescript
 import { _decorator, Component, Node, director, EventTarget, sys } from 'cc'
@@ -247,24 +247,24 @@ export class Web3Manager extends Component {
 }
 ```
 
-**Key Functions**
+**Chức năng chính**
 
-- initializeSDK() - Initializes the Mini Dapp SDK.
-- connectWallet() - Handles wallet connection.
-- mintToken(amount) - Mints tokens.
-- getBalance() - Retrieves token balance.
+- initialSDK() - Khởi tạo Mini Dapp SDK.
+- connectWallet() - Xử lý kết nối ví.
+- mintToken(số lượng) - Đúc token.
+- getBalance() - Lấy số dư mã thông báo.
 
-Before running your script, ensure you:
+Trước khi chạy tập lệnh, hãy đảm bảo bạn:
 
-- Replace **YOUR_CLIENT_ID** in Web3Manager.ts.
-- Update **CONTRACT_ADDRESS** if needed.
-- Update **CHAIN_ID** for the correct network.
+- Thay thế **YOUR_CLIENT_ID** trong Web3Manager.ts.
+- Cập nhật **ĐỊA CHỈ HỢP ĐỒNG** nếu cần.
+- Cập nhật **CHAIN_ID** cho mạng chính xác.
 
-### UIManager.ts - Handling UI Interactions <a id="ui-manager"></a>
+### UIManager.ts - Xử lý tương tác UI <a id="ui-manager"></a>
 
-The UIManager script manages all UI components and user interactions.
+Tập lệnh UIManager quản lý tất cả các thành phần UI và tương tác của người dùng.
 
-**Code Implementation:**
+**Triển khai mã:**
 
 ```typescript
 import { _decorator, Component, Node, Label, Button } from 'cc'
@@ -357,27 +357,27 @@ export class UIManager extends Component {
 }
 ```
 
-## Attaching Scripts to Nodes & Connecting UI Elements <a id="attaching-scripts-to-nodes"></a>
+## Đính kèm tập lệnh vào các nút và kết nối các thành phần UI <a id="attaching-scripts-to-nodes"></a>
 
-**1. Attach Scripts to the Web3UI Node**
+**1. Đính kèm tập lệnh vào nút Web3UI**
 
-- Select the **Web3UI** node.
-- In the **Inspector**, click **Add Component**.
-- Search for and select **Web3Manager**.
+- Chọn nút **Web3UI**.
+- Trong **Thanh tra**, nhấp vào **Thêm thành phần**.
+- Tìm kiếm và chọn **Web3Manager**.
 
 ![](/img/minidapps/cocos-creator/cp-add-web3manager-r.png)
 
-- Repeat the steps above to add UIManager.
+- Lặp lại các bước trên để thêm UIManager.
 
 ![](/img/minidapps/cocos-creator/cp-add-uimanager-r.png)
 
-**2. Connect UI Elements**
+**2. Kết nối các thành phần UI**
 
-- With Web3UI selected, go to the Inspector.
-- Drag and drop the corresponding UI elements from the Hierarchy into their respective fields:
-  - AddressLabel
-  - BalanceLabel
-  - Connect Wallet Button
-  - Mint Button
+- Khi đã chọn Web3UI, hãy chuyển đến Thanh tra.
+- Kéo và thả các thành phần UI tương ứng từ Phân cấp vào các trường tương ứng của chúng:
+  - Địa chỉNhãn
+  - Nhãn cân bằng
+  - Nút kết nối ví
+  - Nút bạc hà
 
 ![](/img/minidapps/cocos-creator/cp-attach-node-ui-r.png)

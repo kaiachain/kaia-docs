@@ -1,19 +1,30 @@
-# Kaia Online Toolkit
+# Bộ công cụ Kaia
 
-## What is the Kaia Online Toolkit? <a id="what-is-the-kaia-online-toolkit"></a>
+## Bộ công cụ Kaia là gì?
 
-- `Kaia Online Toolkit` provides code examples to help you to utilize the `Kaia SDK(caver-js)` easily. Also it provides a [demo page](https://toolkit.klaytn.foundation) for developers to use simple online tools.
-- `Kaia SDK(caver-js)` is a JavaScript API library that allows developers to interact with a Kaia node using an HTTP or Websocket connection.
-- You can just try out Kaia's features without having to code.
+[**Kaia Toolkit**](https://toolkit.kaia.io) cung cấp các mẫu mã thân thiện với nhà phát triển và các công cụ web tương tác để đơn giản hóa việc tích hợp với blockchain Kaia. Nó vừa đóng vai trò là nguồn tài nguyên học tập vừa là bộ tiện ích thực tế để xây dựng các ứng dụng phi tập trung.
 
-> To help more people use the `Kaia Online Toolkit`, We have prepared the ["Using Kaia Online Toolkit"](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278) series.
+![Bộ công cụ Kaia](/img/build/tools/klaytn-online-toolkit.png)
 
-## Links <a id="links"></a>
+## Các tính năng chính
 
-Here are the links for `Kaia Online Toolkit`. Feel free to use it :)
+- **Hỗ trợ nhiều SDK**: Tương thích với các SDK tương đương Ethereum hiện đại
+  - `Ethers-ext` (Triển khai ethers.js mở rộng)
+  - `Web3js-ext` (Thư viện web3.js nâng cao)
+  - `Viem` (Giao diện TypeScript cho chuỗi EVM)
+- **Môi trường Sandbox trực tiếp**: Kiểm tra tương tác blockchain trực tiếp thông qua giao diện web mà không cần thiết lập cục bộ
+- **Công cụ toàn diện**:
+  - Tích hợp ví (KaiaWallet, MetaMask, RainbowKit, OKX)
+  - Quản lý tài khoản (Cơ bản/Mnemonic/Keystore)
+  - Hoạt động mã thông báo (KIP-7, KIP-17, KIP-37)
+  - Tiện ích chuỗi khối (bộ mã hóa RLP, bộ chuyển đổi đơn vị, xác minh chữ ký)
 
-- [Github Repository](https://github.com/kaiachain/kaia-online-toolkit)
+## Tài nguyên dành cho nhà phát triển
+
+Sau đây là các liên kết tới Kaia Toolkit và các tài nguyên liên quan:
+
+- [Kho lưu trữ GitHub](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)
-- [Kaia SDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
-
-![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+- [Tài liệu Ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
+- [Tài liệu Web3js-ext](../../references/sdk/web3js-ext/getting-started.md)
+- [Tài liệu Viem](../../references/sdk/viem/viem.md)

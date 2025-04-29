@@ -1,76 +1,76 @@
-# UI Creation
+# UIクリエーション
 
-In this section, we'll build the user interface (UI) for our dApp, including wallet connection, balance updates, and minting functionality.
+このセクションでは、ウォレット接続、残高更新、ミンティング機能など、dAppのユーザーインターフェース（UI）を構築します。
 
-## Setting Up the Main Scene <a id="setting-up-main-scene"></a>
+## メインシーンの設定<a id="setting-up-main-scene"></a>
 
-### Step 1: Create a Scenes Folder <a id="create-scene-folder"></a>
+### ステップ1：シーンフォルダの作成<a id="create-scene-folder"></a>
 
-- Navigate to your project's **assets** folder.
-- Right-click and select **Create Folder**.
-- Name it **scenes**. (Insert Image)
-- Inside the scenes folder, right-click and select **Create → Scene**.
+- プロジェクトの**assets**フォルダに移動します。
+- 右クリックし、**フォルダの作成**を選択します。
+- シーン\*\*を挙げてください。 (画像を挿入)
+- scenesフォルダ内で右クリックし、**Create → Scene**を選択します。
 
 ![](/img/minidapps/cocos-creator/cp-create-scene-r.png)
 
-- Save the scene file when prompted.
-- Double-click the newly created scene to set it as the **default scene**.
+- プロンプトが表示されたら、シーンファイルを保存してください。
+- 新しく作成したシーンをダブルクリックして、**デフォルトシーン**に設定してください。
 
-### Step 2: Creating the Base Canvas <a id="creating-base-canvas"></a>
+### ステップ2：ベースキャンバスの作成<a id="creating-base-canvas"></a>
 
-- In the Hierarchy window, right-click on **Scene**.
-- Navigate to **Create → UI Component → Canvas**.
-- Rename it to **Canvas**
+- 階層ウィンドウで**シーン**を右クリックします。
+- Create → UI Component → Canvas\*\* に移動します。
+- 名前を**Canvas**に変更する。
 
 ![](/img/minidapps/cocos-creator/cp-create-canvas-r.png)
 
-### Step 3: Creating the Web3UI Container <a id="create-web3ui-container"></a>
+### ステップ3：Web3UIコンテナの作成<a id="create-web3ui-container"></a>
 
-- Right-click on the newly created **Canvas**.
-- Select **Create → Empty Node**.
-- Rename it to **Web3UI**.
+- 新しく作成した**キャンバス**を右クリックします。
+- Create → Empty Node\*\*を選択します。
+- 名前を**Web3UI**に変更してください。
 
 ![](/img/minidapps/cocos-creator/cp-create-web3-ui-r.png)
 
-### Step 4: Setting Up Main UI Objects <a id="setting-up-main-ui-objects"></a>
+### ステップ4：メインUIオブジェクトのセットアップ<a id="setting-up-main-ui-objects"></a>
 
-Inside Web3UI, create the following components:
+Web3UIの中に、以下のコンポーネントを作成します：
 
-**1. Connect Wallet Button**
+\*\*1. コネクトウォレットボタン
 
-- Right-click **Web3UI → Create → UI Component → Button**.
+- Web3UI → Create → UI Component → Button\*\* を右クリックします。
 
 ![](/img/minidapps/cocos-creator/cp-connect-button-r.png)
 
-- Rename it to **ConnectWallet**.
-- In the **Inspector Pane**, set the button label text to **Connect Wallet**.
+- 名前を**ConnectWallet**に変更してください。
+- Inspector Pane**で、ボタンのラベルテキストを**Connect Wallet\*\*に設定します。
 
 ![](/img/minidapps/cocos-creator/cp-connect-label-r.png)
 
-**2. Mint Button**
+\*\*2. ミント・ボタン
 
-- Right-click **Web3UI → Create → UI Component → Button**.
-- Rename it to **MintButton**.
-- Set the button label text to **Mint Button**.
+- Web3UI → Create → UI Component → Button\*\* を右クリックします。
+- 名前を**MintButton**に変更する。
+- ボタンのラベルテキストを**ミントボタン**に設定します。
 
-**3. Address Label**
+\*\*3. 住所ラベル
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
+- 右クリック **Web3UI → Create → 2D Object → Label**.
 
 ![](/img/minidapps/cocos-creator/cp-address-label-r.png)
 
-- Rename it to **AddressLabel**.
-- Set the label text to **Connected Address:**.
+- これを **AddressLabel** にリネームする。
+- ラベルテキストを\*\*Connected Address:\*\*に設定する。
 
 ![](/img/minidapps/cocos-creator/cp-connected-address-r.png)
 
-**4. Balance Label**
+\*\*4. バランス・レーベル
 
-- Right-click **Web3UI → Create → 2D Object → Label**.
-- Rename it to **BalanceLabel**.
-- Set the label text to **0.000ET**.
+- 右クリック **Web3UI → Create → 2D Object → Label**.
+- これを **BalanceLabel** にリネームする。
+- ラベルテキストを**0.000ET**に設定する。
 
-After adding all components, your Hierarchy should look like this:
+すべてのコンポーネントを追加すると、階層は次のようになります：
 
 ```bash
 Canvas
@@ -84,5 +84,5 @@ Canvas
 ![](/img/minidapps/cocos-creator/cp-ui-view-r.png)
 
 :::note
-To properly arrange your components, use the alignment tools at top of the Scene. Click on each component and adjust its position as needed
+コンポーネントを適切に配置するには、シーン上部のアライメントツールを使用します。 各コンポーネントをクリックし、必要に応じて位置を調整する。
 :::

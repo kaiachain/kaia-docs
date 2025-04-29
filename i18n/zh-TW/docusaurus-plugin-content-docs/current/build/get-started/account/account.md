@@ -60,7 +60,7 @@ $ ken account new --datadir "~/kend_home"
 
 ## JavaScript 控制檯<a id="javascript-console"></a>
 
-要連接 JavaScript 控制檯，EN 必須處於運行狀態。 For more information, see [Launching an EN](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en). 啟動 EN 並連接到控制檯，如下所示。
+要連接 JavaScript 控制檯，EN 必須處於運行狀態。 如需詳細資訊，請參閱 [啟動 EN](../../../nodes/endpoint-node/install-endpoint-nodes.md#startup-the-en)。 啟動 EN 並連接到控制檯，如下所示。
 
 ### 使用方法<a id="usage"></a>
 

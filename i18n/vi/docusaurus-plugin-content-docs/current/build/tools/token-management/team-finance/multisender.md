@@ -1,49 +1,49 @@
-# Multisender
+# Nhiều người gửi
 
-Easily send tokens to multiple wallet addresses in one go with Team Finance’s token multisender feature.
+Dễ dàng gửi mã thông báo đến nhiều địa chỉ ví cùng một lúc với tính năng gửi nhiều mã thông báo của Team Finance.
 
-This tool streamlines the tedious process of manually sending tokens one by one, making it ideal for Token Generation Events (TGE), airdrops, marketing campaigns, salary distributions, and service payments all in varying amounts to different accounts, effortlessly.
+Công cụ này hợp lý hóa quy trình tẻ nhạt là gửi thủ công từng token một, khiến nó trở nên lý tưởng cho các Sự kiện tạo token (TGE), airdrop, chiến dịch tiếp thị, phân phối lương và thanh toán dịch vụ với nhiều số tiền khác nhau vào nhiều tài khoản khác nhau một cách dễ dàng.
 
-## Getting Started
+## Bắt đầu
 
-In this tutorial, you will learn how to send tokens to multiple wallets with Team Finance. Let's get started!
+Trong hướng dẫn này, bạn sẽ học cách gửi token tới nhiều ví bằng Team Finance. Chúng ta hãy bắt đầu nhé!
 
-1. Navigate to Team Finance [Multisender](https://app.team.finance/token-multisender) tab and click on **Send tokens**.
+1. Điều hướng đến tab [Nhiều người gửi] của Team Finance (https://app.team.finance/token-multisender) và nhấp vào **Gửi mã thông báo**.
 
 ![](/img/build/tools/token-management/multisender/ms-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. Kết nối ví của bạn với Team Finance bằng cách nhấp vào **Chọn ví** và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/multisender/ms-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. Chọn **Kaia** trong mạng lưới blockchain và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/multisender/ms-step-3.png)
 
-4. Enter the token address for the token you are sending and click **Continue**.
+4. Nhập địa chỉ mã thông báo cho mã thông báo bạn đang gửi và nhấp vào **Tiếp tục**.
 
-> You can either send KAIA or fungible tokens. In this guide, we will send fungible tokens.
+> Bạn có thể gửi KAIA hoặc mã thông báo có thể thay thế. Trong hướng dẫn này, chúng tôi sẽ gửi các mã thông báo có thể thay thế.
 
 ![](/img/build/tools/token-management/multisender/ms-step-4.png)
 
-5. Add **recipient details (wallet addresses and amounts)**. You can choose to add recipient details either manually or upload a CSV file. For this guide, we will use the upload a CSV file option.
+5. Thêm **thông tin người nhận (địa chỉ ví và số tiền)**. Bạn có thể chọn thêm thông tin người nhận theo cách thủ công hoặc tải lên tệp CSV. Trong hướng dẫn này, chúng tôi sẽ sử dụng tùy chọn tải lên tệp CSV.
 
 ![](/img/build/tools/token-management/multisender/ms-step-5a.png)
 
 ![](/img/build/tools/token-management/multisender/ms-step-5b.png)
 
-6. Give authorisation to send your tokens by clicking **Give permission**.
+6. Cấp quyền gửi mã thông báo của bạn bằng cách nhấp vào **Cấp quyền**.
 
 ![](/img/build/tools/token-management/multisender/ms-step-6.png)
 
-7. Now, verify the details of sending tokens to multiple wallets and click **Confirm transaction** to finalize the process. Go to your wallet and sign the transaction to complete the process.
+7. Bây giờ, hãy xác minh thông tin chi tiết về việc gửi mã thông báo tới nhiều ví và nhấp vào **Xác nhận giao dịch** để hoàn tất quy trình. Vào ví của bạn và ký giao dịch để hoàn tất quy trình.
 
 ![](/img/build/tools/token-management/multisender/ms-step-7.png)
 
 :::note
-This is a paid service, so ensure you have the required service fee available in KAIA, the native token
+Đây là dịch vụ trả phí, vì vậy hãy đảm bảo bạn có phí dịch vụ bắt buộc có sẵn trong KAIA, mã thông báo gốc
 :::
 
-7. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+7. Sau khi xác nhận, bạn sẽ được chuyển hướng đến trang hiển thị trạng thái của giao dịch. Vui lòng không thoát khỏi trang cho đến khi giao dịch được xác nhận.
 
-8. Congratulations! You have successfully sent tokens to multiple wallets using Team Finance. You can view the details on your dashboard.
+8. Chúc mừng! Bạn đã gửi thành công token tới nhiều ví bằng Team Finance. Bạn có thể xem thông tin chi tiết trên bảng điều khiển của mình.

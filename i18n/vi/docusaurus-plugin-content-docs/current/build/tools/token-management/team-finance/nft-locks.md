@@ -1,47 +1,47 @@
-# NFT Locks
+# Khóa NFT
 
-Team Finance’s NFT lock feature allows creators to securely lock their personal or team-allocated NFTs for a set duration by transferring them to a time-locked smart contract vault.
+Tính năng khóa NFT của Team Finance cho phép người sáng tạo khóa an toàn NFT cá nhân hoặc NFT do nhóm phân bổ trong một khoảng thời gian nhất định bằng cách chuyển chúng vào kho hợp đồng thông minh có khóa theo thời gian.
 
-By using Team Finance NFT locks, projects can demonstrate commitment, build credibility, and reduce the risk of scams ultimately fostering trust within the community and among investors.
+Bằng cách sử dụng khóa NFT của Team Finance, các dự án có thể chứng minh cam kết, xây dựng uy tín và giảm nguy cơ lừa đảo, từ đó tạo dựng lòng tin trong cộng đồng và giữa các nhà đầu tư.
 
-## Getting Started
+## Bắt đầu
 
-In this tutorial, you will learn how to lock NFTs with Team Finance. Let's get started!
+Trong hướng dẫn này, bạn sẽ học cách khóa NFT bằng Team Finance. Chúng ta hãy bắt đầu nhé!
 
-1. Navigate to Team Finance [NFT locks](https://app.team.finance/nft-locks) tab and click on **Create NFT lock**.
+1. Điều hướng đến tab [Khóa NFT] của Team Finance (https://app.team.finance/nft-locks) và nhấp vào **Tạo khóa NFT**.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. Kết nối ví của bạn với Team Finance bằng cách nhấp vào **Chọn ví** và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. Chọn **Kaia** trong mạng lưới blockchain và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-3.png)
 
-4. Enter the **NFT info(contract address and tokenid)** for the NFT you are locking and click **Continue**.
+4. Nhập **thông tin NFT (địa chỉ hợp đồng và tokenid)** cho NFT mà bạn đang khóa và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-4.png)
 
-5. Set the time period you would like to lock your NFT for.
+5. Đặt khoảng thời gian bạn muốn khóa NFT của mình.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-5.png)
 
-6. Give authorisation to lock your NFT tokens by clicking **Give permission**.
+6. Cấp quyền khóa mã thông báo NFT của bạn bằng cách nhấp vào **Cấp quyền**.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-6.png)
 
-> This prompts you to sign an authorisation transaction.
+> Thao tác này sẽ nhắc bạn ký giao dịch ủy quyền.
 
-7. Verify your NFT lock details and then proceed to click **Confirm transaction**. Your wallet will be prompted to sign the transaction to complete the process.
+7. Xác minh thông tin khóa NFT của bạn và sau đó nhấp vào **Xác nhận giao dịch**. Ví của bạn sẽ được nhắc ký giao dịch để hoàn tất quy trình.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-7.png)
 
-8. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+8. Sau khi xác nhận, bạn sẽ được chuyển hướng đến trang hiển thị trạng thái của giao dịch. Vui lòng không thoát khỏi trang cho đến khi giao dịch được xác nhận.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-8.png)
 
-9. Congratulations! You have successfully created a NFT lock using Team Finance. You can view the details of your lock and track its progress on the dashboard.
+9. Chúc mừng! Bạn đã tạo khóa NFT thành công bằng Team Finance. Bạn có thể xem thông tin chi tiết về khóa và theo dõi tiến trình của khóa trên bảng điều khiển.
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-9.png)

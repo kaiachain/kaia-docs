@@ -1,27 +1,9 @@
-# caver-java (1.5.0 またはそれ以降)
+# ケイバー・ジャバ
 
-![](/img/references/kaiaXcaver-java.png)
+caver-java\`は、kaiaネットワーク上のクライアント୧⃛(๑⃙⃘⁼̴̀꒳⁼̴́๑⃙⃘)୨୧⃛(๑⃙⃘⁼̴́꒳⁼̴̀๑⃙⃘)
 
-`caver-java`は、kaiaネットワーク上のクライアント(ノード)と対話するための、軽 量でモジュール性の高い便利なJavaおよびAndroidライブラリです：このライブラリは、Javaアプリケーションが[kaia](https://kaia.io)ネットワークと簡単に通信できるようにするインターフェースです。
+:::info[Archival お知らせ］
 
-:::info[SDK Recommendation]
-
-We recommend using [web3j-ext](../web3j-ext/getting-started.md) SDK instead of `caver-java` because it provides the latest features and improved developer experience and an benefit both new and existing developers in the Kaia ecosystem.
+caver-java SDKのドキュメントは、もはやここでは入手できません。 レガシーな `caver-java` の情報は [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) を参照してください。 現在のカイア開発については、[web3j-ext](../web3j-ext/getting-started.md) を使用してください。
 
 :::
-
-## 特徴<a id="features"></a>
-
-- HTTPおよびIPCによるKaiaのJSON-RPCクライアントAPIの完全な実装
-- kaiaトランザクション、アカウント、およびアカウント・キー・タイプのサポート
-- ネイティブのJavaコードからスマート・コントラクトをデプロイして実行するためのJavaスマート・コントラクト・ラッパーの自動生成
-- 新しいウォレットの作成とkaiaウォレットの管理
-- コマンドラインツール
-- アンドロイド対応
-
-## リンク<a id="links"></a>
-
-- caver-java [GitHub リポジトリ](https://github.com/kaiachain/caver-java)
-- caver-java [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core)
-- caver-java on [Maven central](https://search.maven.org/artifact/com.klaytn.caver/core)
-

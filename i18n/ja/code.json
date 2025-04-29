@@ -632,5 +632,53 @@
   "theme.feedback.helpful": {
     "message": "このページは役に立ちましたか？",
     "description": "The text asking if the page is helpful"
+  },
+  "homepage.favorites.explorers.title": {
+    "message": "ブロック探検隊",
+    "description": "Title for Block Explorers section"
+  },
+  "homepage.favorites.explorers.description": {
+    "message": "カイアに関するリアルタイムおよび過去の情報を検索。",
+    "description": "Description for Block Explorers section"
+  },
+  "homepage.newDocs.badge.new": {
+    "message": "NEW",
+    "description": "Badge text for new documents"
+  },
+  "homepage.newDocs.badge.update": {
+    "message": "アップデイト",
+    "description": "Badge text for updated documents"
+  },
+  "homepage.newDocs.surveyMinidapp.title": {
+    "message": "KaiaでアンケートDAppを作る",
+    "description": "Title for Survey Mini DApp doc"
+  },
+  "homepage.newDocs.unityMinidapp.title": {
+    "message": "UnityでLINEミニDAppを作る",
+    "description": "Title for Unity Mini DApp doc"
+  },
+  "homepage.newDocs.cocosMinidapp.title": {
+    "message": "Cocos Creatorを使ったLINEミニDApp作成ガイド",
+    "description": "Title for Cocos Mini DApp doc"
+  },
+  "homepage.newDocs.surveyMinidapp.description": {
+    "message": "Kaia上で、匿名性のためのSemaphoreとソーシャル機能のためのLINEを使って、プライバシーに焦点を当てた分散型アンケートアプリケーションを構築する。",
+    "description": "Description for Upgradeable Smart Contracts doc"
+  },
+  "homepage.newDocs.unityMinidapp.description": {
+    "message": "Web3連携、直感的なUIデザイン、LIFF変換をシームレスに統合したLINE mini dAppをUnityで開発。",
+    "description": "Description for DApp Security doc"
+  },
+  "homepage.newDocs.cocosMinidapp.description": {
+    "message": "Cocos Creator、Web3、LIFFを使ってLINE mini dAppsを作成、統合、デプロイ。",
+    "description": "Description for API Updates doc"
+  },
+  "homepage.newDocs.title": {
+    "message": "新着情報",
+    "description": "Title for the What's New section"
+  },
+  "homepage.newDocs.subtitle": {
+    "message": "最新のアップデートとドキュメントへの追加をご覧ください。",
+    "description": "Subtitle for the What's New section"
   }
 }

@@ -12,7 +12,7 @@
 
 - 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
 - [Metamask](.../.../.../build/tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../public-en.md).
+- RPC 端點：您可以從其中一個支援的 [Endpoint Providers](../../public-en.md) 取得。
 - 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為您的賬戶注入足夠的 KAIA。
 - [NodeJS和NPM](https://nodejs.org/en/)
 - [TS-node](https://www.npmjs.com/package/ts-node)：用於運行 TypeScript 腳本。

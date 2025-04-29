@@ -1,21 +1,21 @@
 ---
 id: hardhat
-title: Using Hardhat
+title: Sử dụng Hardhat
 ---
 
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
-# How to Verify Smart Contracts Using Hardhat
+# Cách xác minh hợp đồng thông minh bằng Hardhat
 
-This guide allows you to automatically verify your smart contracts' source code on Kaiascope straight from your CLI using the Hardhat Verify Plugin.
+Hướng dẫn này cho phép bạn tự động xác minh mã nguồn hợp đồng thông minh của mình trên Kaiascope trực tiếp từ CLI bằng cách sử dụng Plugin Hardhat Verify.
 
-To verify your contract on Kaia, you need to add the following configuration to your `hardhat.config.js`:
+Để xác minh hợp đồng của bạn trên Kaia, bạn cần thêm cấu hình sau vào `hardhat.config.js`:
 
 ## Kaiascan
 
 <Tabs>
-  <TabItem value="kaia-mainnet" label="Mainnet">
+  <TabItem value="kaia-mainnet" label="Mạng chính">
     ```js
     module.exports = {
       etherscan: {
@@ -37,7 +37,7 @@ To verify your contract on Kaia, you need to add the following configuration to 
     ```
   </TabItem>
 
-  <TabItem value="kairos-testnet" label="Kairos">
+  <TabItem value="kairos-mạng thử nghiệm" label="Thời đại">
     ```js
     module.exports = {
       etherscan: {
@@ -120,19 +120,19 @@ To verify your contract on Kaia, you need to add the following configuration to 
   </TabItem>
 </Tabs>
 
-To verify the contract, you will run the verify command and pass in the address of the deployed contract, network and parameters if any.
+Để xác minh hợp đồng, bạn sẽ chạy lệnh verify và truyền vào địa chỉ của hợp đồng đã triển khai, mạng và các tham số nếu có.
 
 ```bash
 npx hardhat verify –network <network> <deployed_address> <parameters>
 
-// example
+## example
 
 npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
 ```
 
-In your terminal you should see the source code for your contract was successfully submitted for verification.
+Trong thiết bị đầu cuối, bạn sẽ thấy mã nguồn hợp đồng của mình đã được gửi thành công để xác minh.
 
-If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1) and [Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode) respectively.
+Nếu xác minh thành công, bạn sẽ thấy hợp đồng đã được xác minh thành công và sẽ có liên kết đến mã hợp đồng trên [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1) và [Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode) tương ứng.
 
 **Kaiascan**
 
@@ -144,8 +144,8 @@ If the verification was successful, you should see Successfully verified contra
 ![](/img/build/smart-contracts/verify/kaiascope-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascope-verify.png)
 
-## Useful links
+## Liên kết hữu ích
 
-* [Configuration for Hardhat Verify Plugin on Kaiascan](https://docs.kaiascan.io/hardhat-verify)
-* [Configuration for Hardhat Verify Plugin on Kaiascope](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-* [Verifying contracts using Hardhat on Kaiascan](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+* [Cấu hình cho Hardhat Verify Plugin trên Kaiascan](https://docs.kaiascan.io/hardhat-verify)
+* [Cấu hình cho Hardhat Verify Plugin trên Kaiascope](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
+* [Xác minh hợp đồng bằng Hardhat trên Kaiascan](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)

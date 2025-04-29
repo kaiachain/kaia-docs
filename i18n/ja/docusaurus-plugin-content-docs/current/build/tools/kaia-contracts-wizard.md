@@ -55,7 +55,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 このチュートリアルに沿って進むために、前提条件を以下に示します：
 
 - 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
-- [klaytn-foundry-starterkit](https://github.com/ayo-klaytn/klaytn-foundry-starterkit) コードをクローンします。
+- kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit)のコードをクローンする。
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
 - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
@@ -70,7 +70,7 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 エアドロップ契約に変更する前に、KIP7契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください： そのためには、以下の手順に従ってください：
 
-1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+1. wizard.kaia.io](https://wizard.kaia.io) に移動します。
 2. **契約**タブで**KIP7**を選択する。
 3. 次に、**SETTINGS**タブに名前(KIP7 Token Airdrop)とシンボル(KTA)を入力します。 プレミントの欄は空のまま プレミントの欄は空のまま
 4. その後、**FEATURES**タブで**Mintable**機能にチェックを入れると、自動的に**ACCESS CONTROL**タブでOwnable機能が選択されます。
@@ -147,7 +147,7 @@ KIP7エアドロップ契約コードの準備ができたので、次のステ�
 
 エアドロップ契約に変更する前に、KIP17契約をカスタマイズする必要があります。 そのためには、以下の手順に従ってください： そのためには、以下の手順に従ってください：
 
-1. [wizard.klaytn.foundation](https://wizard.klaytn.foundation/) に移動します。
+1. wizard.kaia.io](https://wizard.kaia.io/) に移動します。
 2. **契約**タブで**KIP17**を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
 4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。
@@ -245,7 +245,7 @@ KIP17のエアドロップ契約コードの準備ができたので、次のス
 
 KIP37は一括鋳造に対応しているため、契約書だけをカスタマイズしてそのまま使用する。 KIP37は一括鋳造に対応しているため、契約書だけをカスタマイズしてそのまま使用する。 KIP37Contractをカスタマイズするには、以下の手順に従ってください：
 
-1. [wizard.klaytn.foundation.]に移動する(https://wizard.klaytn.foundation/)
+1. [wizard.kaia.io]に移動する(https://wizard.kaia.io)
 2. 契約**タブで**KIP37\*\*を選択する。
 3. 次に、**SETTINGS**タブに名前（KIP7 NFT Airdrop）と記号（KNA）を記入する。  Base URIフィールドは空のままにしておく。
 4. 続いて、**FEATURES** タブで、**Mintable**、**Auto-increment Ids**、**Enumerable** の各機能にチェックを入れます。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。 **ACCESS CONTROL**タブのOwnable機能が自動的に選択されていることがわかります。

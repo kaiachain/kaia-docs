@@ -6,7 +6,7 @@
 
 Remix Online IDE 是一個功能強大的工具集，用於開發、部署、調試和測試與 EVM 兼容的智能合約。 您可以使用 Kaia Plugin 在 Remix IDE 上編寫、編譯、部署和執行智能合約。
 
-#### [凱亞契約精靈](https://wizard.klaytn.foundation/)<a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
+#### [Kaia 契約精靈](https://wizard.kaia.io)<a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
 Kaia Contracts Wizard 是一個交互式生成器，用於引導智能合約並瞭解 Kaia Contracts。 它基於 OpenZeppelin 嚮導。
 

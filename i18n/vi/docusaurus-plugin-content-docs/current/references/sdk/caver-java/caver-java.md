@@ -1,27 +1,9 @@
-# caver-java (1.5.0 or later)
+# hang-java
 
-![](/img/references/kaiaXcaver-java.png)
+`caver-java` là một thư viện Java và Android nhẹ, có tính mô-đun cao, tiện lợi để tương tác với các máy khách \(node\) trên mạng kaia.
 
-`caver-java` is a lightweight, high modular, convenient Java and Android library to interact with clients \(nodes\) on the kaia network: This library is an interface which allows Java applications to easily communicate with [kaia](https://kaia.io) network.
+:::info[Archival Để ý]
 
-:::info[SDK Recommendation]
-
-We recommend using [web3j-ext](../web3j-ext/getting-started.md) SDK instead of `caver-java` because it provides the latest features and improved developer experience and an benefit both new and existing developers in the Kaia ecosystem.
+Tài liệu SDK caver-java không còn khả dụng ở đây nữa. Tham khảo [Tài liệu lưu trữ](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) để biết thông tin về `caver-java` cũ. Đối với sự phát triển Kaia hiện tại, vui lòng sử dụng [web3j-ext](../web3j-ext/getting-started.md).
 
 :::
-
-## Features <a id="features"></a>
-
-- Complete implementation of Kaia’s JSON-RPC client API over HTTP and IPC
-- Support of kaia transaction, account, and account key types
-- Auto-generation of Java smart contract wrapper to deploy and execute a smart contract from native Java code
-- Creation of a new wallet and managing kaia wallets
-- Command line tools
-- Android compatible
-
-## Links <a id="links"></a>
-
-- caver-java [GitHub repository](https://github.com/kaiachain/caver-java)
-- caver-java [Javadoc](https://javadoc.io/doc/com.klaytn.caver/core)
-- caver-java on [Maven central](https://search.maven.org/artifact/com.klaytn.caver/core)
-

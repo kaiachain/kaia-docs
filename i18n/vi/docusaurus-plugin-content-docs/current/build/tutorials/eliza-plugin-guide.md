@@ -1,19 +1,19 @@
-# Kaia Eliza Plugin
+# Tiện ích Kaia Eliza
 
-## Overview
+## Tổng quan
 
-The **Kaia Eliza Plugin** is a vital extension for integrating with **ElizaOS**, enabling seamless interaction with the **Kaia Mainnet** and **Kairos Testnet**. This plugin provides a robust suite of functionalities, including **KAIA token transfers, wallet balance queries, and retrieval of fungible and non-fungible tokens (FTs/NFTs)**. Designed for developers, it simplifies wallet management and enhances application capabilities within the **ElizaOS framework** for the Kaia ecosystem.
+**Kaia Eliza Plugin** là tiện ích mở rộng quan trọng để tích hợp với **ElizaOS**, cho phép tương tác liền mạch với **Kaia Mainnet** và **Kairos Testnet**. Plugin này cung cấp một bộ chức năng mạnh mẽ, bao gồm **chuyển mã thông báo KAIA, truy vấn số dư ví và truy xuất mã thông báo có thể thay thế và không thể thay thế (FT/NFT)**. Được thiết kế dành cho các nhà phát triển, giải pháp này đơn giản hóa việc quản lý ví và nâng cao khả năng ứng dụng trong **khung ElizaOS** cho hệ sinh thái Kaia.
 
-**Key Features**
+**Đặc điểm chính**
 
-- **Token Transfers**: Effortlessly send KAIA tokens between wallets.
-- **Wallet Queries**: Retrieve wallet balances and real-time KAIA price data.
-- **Network Management**: Interact seamlessly with the Kaia blockchain.
-- **Block & Transaction Information**: Access detailed insights into transactions and blocks on the network.
+- **Chuyển mã thông báo**: Gửi mã thông báo KAIA giữa các ví một cách dễ dàng.
+- **Truy vấn ví**: Truy xuất số dư ví và dữ liệu giá KAIA theo thời gian thực.
+- **Quản lý mạng**: Tương tác liền mạch với blockchain Kaia.
+- **Thông tin về khối và giao dịch**: Truy cập thông tin chi tiết về các giao dịch và khối trên mạng.
 
-## Getting Started
+## Bắt đầu
 
-### 1. Setup ElizaOS
+### 1. Thiết lập ElizaOS
 
 ```sh
 git clone https://github.com/elizaOS/eliza
@@ -23,13 +23,13 @@ pnpm install
 cp .env.example .env
 ```
 
-### 2. Configuring Environment Variables
+### 2. Cấu hình biến môi trường
 
-To integrate the Kaia plugin, developers must configure environment variables and secrets. The plugin can access these settings through **agent.json.secret** or directly at runtime.
+Để tích hợp plugin Kaia, các nhà phát triển phải cấu hình các biến môi trường và bí mật. Plugin có thể truy cập các thiết lập này thông qua **agent.json.secret** hoặc trực tiếp khi chạy.
 
-Now, configure the `.env` file and `kaiaagent.character.json` values.
+Bây giờ, hãy cấu hình tệp `.env` và các giá trị `kaiaegent.character.json`.
 
-**.env file:**
+**.tệp env:**
 
 ```sh
 GROK_API_KEY= # GROK API Key
@@ -37,10 +37,10 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 ```
 
 :::note
-To use any **LLM provider**, configure the relevant API keys in `.env`. Based on the key provided, update the **modelProvider** setting in the character file.
+Để sử dụng bất kỳ nhà cung cấp LLM nào, hãy cấu hình khóa API có liên quan trong `.env`. Dựa trên khóa được cung cấp, hãy cập nhật cài đặt **modelProvider** trong tệp ký tự.
 :::
 
-**kaiaagent.character.json:**
+**kaiagent.character.json:**
 
 ```json
 {
@@ -59,23 +59,23 @@ To use any **LLM provider**, configure the relevant API keys in `.env`. Based on
 }
 ```
 
-Provide values for:
+Cung cấp giá trị cho:
 
-- **KAIA_EVM_PRIVATE_KEY**: Required for on-chain transactions.
-- **KAIA_KAIASCAN_API_KEY**: Obtainable from [KaiaScan](https://kaiascan.io).
-- **KAIA_FAUCET_AMOUNT**: Specifies the token amount to distribute upon request.
+- **KAIA_EVM_PRIVATE_KEY**: Cần thiết cho các giao dịch trên chuỗi.
+- **KAIA_KAIASCAN_API_KEY**: Có thể lấy từ [KaiaScan](https://kaiascan.io).
+- **KAIA_FAUCET_AMOUNT**: Chỉ định số lượng mã thông báo sẽ phân phối theo yêu cầu.
 
-**Configuration Example**
+**Ví dụ về cấu hình**
 
-Download the required character.json file:
+Tải xuống tệp character.json cần thiết:
 
 ```sh
 wget https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/kaiaagent.character.json -O ./characters/kaiaagent.character.json
 ```
 
-## Plugin Registration
+## Đăng ký Plugin
 
-To enable the **Kaia plugin**, add it to your agent’s configuration:
+Để kích hoạt **Plugin Kaia**, hãy thêm nó vào cấu hình của tác nhân:
 
 ```json
 {
@@ -84,7 +84,7 @@ To enable the **Kaia plugin**, add it to your agent’s configuration:
 }
 ```
 
-Also, run the command below to add the plugin as a dependency in `package.json`:
+Ngoài ra, hãy chạy lệnh bên dưới để thêm plugin vào `package.json` của bạn:
 
 ```bash
 npx elizaos plugins install @elizaos-plugins/plugin-kaia
@@ -98,115 +98,115 @@ npx elizaos plugins install @elizaos-plugins/plugin-kaia
 }
 ```
 
-## Build & Start Eliza
+## Xây dựng & Khởi động Eliza
 
 ```sh
 pnpm build
 pnpm start --character="./characters/kaiaagent.character.json"
 ```
 
-## Running the Eliza Client UI
+## Chạy Giao diện người dùng của Eliza Client
 
-Open another terminal and execute:
+Mở một terminal khác và thực hiện:
 
 ```sh
 pnpm run start:client
 ```
 
-Once the UI is ready, it should be available at **http://localhost:5173**.
+Khi giao diện người dùng đã sẵn sàng, bạn có thể truy cập vào **http://localhost:5173**.
 
 :::note
-Ensure that the account associated with the configured private key is funded to perform on-chain transactions on either the **Kaia Testnet** or **Mainnet**. Test tokens can be requested from the [Kaia Faucet](https://faucet.kaia.io).
+Đảm bảo rằng tài khoản được liên kết với khóa riêng được cấu hình có đủ tiền để thực hiện các giao dịch trên chuỗi trên **Kaia Testnet** hoặc **Mainnet**. Có thể yêu cầu mã thông báo thử nghiệm từ [Kaia Faucet](https://faucet.kaia.io).
 :::
 
-## Demo
+## Thử nghiệm
 
-[Watch the Kaia Eliza Plugin Demo](https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/KaiaElizaPluginDemo.mp4)
+[Xem bản demo plugin Kaia Eliza](https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/KaiaElizaPluginDemo.mp4)
 
-## Usage Examples
+## Ví dụ sử dụng
 
-### Fetch KAIA Price and Market Data
+### Lấy dữ liệu giá và thị trường KAIA
 
-**Command:**
+**Yêu cầu:**
 
 ```sh
 User: "Give me KAIA information"
 ```
 
-**Response:**
+**Phản ứng:**
 
 ```sh
 Assistant: "KAIA Token info: USD: 0.14, Total Supply: 5,936,109,217, Volume: 63,994,146"
 ```
 
-### Request KAIA Test Tokens
+### Yêu cầu mã thông báo kiểm tra KAIA
 
-**Command:**
+**Yêu cầu:**
 
 ```sh
 User: "Give me some test tokens to 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d"
 ```
 
-**Response:**
+**Phản ứng:**
 
 ```sh
 Assistant: "I'll send a few KAIA testnet tokens..."
 ```
 
-### Send KAIA Tokens
+### Gửi Token KAIA
 
-**Command:**
+**Yêu cầu:**
 
 ```sh
 User: "Send 1 KAIA to 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d on Kairos"
 ```
 
-**Response:**
+**Phản ứng:**
 
 ```sh
 Assistant: "I'll send 1 KAIA token now..."
 ```
 
-### Query Account Information
+### Truy vấn thông tin tài khoản
 
-**Command:**
+**Yêu cầu:**
 
 ```sh
 User: "What's my account overview of 0xcfcb1dc1efbbccbb6a9afc78c12315d64e8c383d on Kairos?"
 ```
 
-**Response:**
+**Phản ứng:**
 
 ```sh
 Assistant: "Your account overview details: Account Type: EOA, Balance: 10, Total Transactions: 12"
 ```
 
-### Check Latest Block Information
+### Kiểm tra thông tin khối mới nhất
 
-**Command:**
+**Yêu cầu:**
 
 ```sh
 User: "What is the latest block number of Kaia?"
 ```
 
-**Response:**
+**Phản ứng:**
 
 ```sh
 Assistant: "The latest block number for Kaia is 176629207"
 ```
 
-## Get Involved
+## Tham gia
 
-We welcome contributions from the developer community. To explore more about the Kaia blockchain, visit:
+Chúng tôi hoan nghênh những đóng góp từ cộng đồng nhà phát triển. Để tìm hiểu thêm về blockchain Kaia, hãy truy cập:
 
-- [Kaia Documentation](https://docs.kaia.io/)
-- [Kaia Developer Portal](https://www.kaia.io/developers)
-- [KaiaScan Explorer](https://kaiascan.io)
-- [KaiaScan API Docs](https://docs.kaiascan.io/)
-- [Kaia Github Repository](https://github.com/kaiachain)
+- [Tài liệu Kaia](https://docs.kaia.io/)
+- [Cổng thông tin dành cho nhà phát triển Kaia](https://www.kaia.io/developers)
+- [Trình khám phá KaiaScan](https://kaiascan.io)
+- [Tài liệu API của KaiaScan](https://docs.kaiascan.io/)
+- [Kho lưu trữ Github của Kaia](https://github.com/kaiachain)
 
-## Conclusion
+## Phần kết luận
 
-The **Kaia Eliza Plugin** seamlessly integrates with the **ElizaOS AI agent framework**, enabling intelligent and efficient interaction with the **Kaia Mainnet** and **Kairos Testnet**. With its powerful wallet, transaction, and token management features, it empowers developers to build smarter, more responsive decentralized applications while simplifying blockchain interactions.
+**Plugin Kaia Eliza** tích hợp liền mạch với **khung tác nhân AI ElizaOS**, cho phép tương tác thông minh và hiệu quả với **Kaia Mainnet** và **Kairos Testnet**. Với các tính năng quản lý ví, giao dịch và mã thông báo mạnh mẽ, nó giúp các nhà phát triển xây dựng các ứng dụng phi tập trung thông minh hơn, phản hồi nhanh hơn đồng thời đơn giản hóa các tương tác blockchain.
 
-Ready to enhance your AI-driven blockchain experience? Integrate the Kaia plugin with **ElizaOS** today and unlock new possibilities!
+Bạn đã sẵn sàng nâng cao trải nghiệm blockchain dựa trên AI chưa? Tích hợp plugin Kaia với **ElizaOS** ngay hôm nay và mở khóa những khả năng mới!

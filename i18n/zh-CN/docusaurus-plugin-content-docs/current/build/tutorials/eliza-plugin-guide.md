@@ -84,7 +84,7 @@ wget https://eco-klaytn-safe-asset.s3.ap-northeast-2.amazonaws.com/elizaagent/ka
 }
 ```
 
-此外，运行以下命令将插件添加为 `package.json` 中的依赖项：
+此外，运行以下命令将插件添加到您的 `package.json` 中：
 
 ```bash
 npx elizaos plugins install @elizaos-plugins/plugin-kaia

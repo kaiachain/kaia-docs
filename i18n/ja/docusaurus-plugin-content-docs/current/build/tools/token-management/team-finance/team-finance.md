@@ -1,16 +1,16 @@
-# Team Finance
+# チーム・ファイナンス
 
-## Introduction <a id="introduction"></a>
+## はじめに<a id="introduction"></a>
 
-[Team Finance](https://www.team.finance/about) is an all-in-one token management tool designed to help blockchain projects manage their tokens effectively and securely. It enables projects to lock liquidity, team tokens, and NFTs, while also offering advanced solutions such as token vesting, staking pools, and a token multisender service. As part of the TrustSwap ecosystem, Team Finance focuses on simplifying token management for project founders and investors alike.
+[Team Finance](https://www.team.finance/about)は、ブロックチェーン・プロジェクトがトークンを効果的かつ安全に管理できるように設計されたオールインワンのトークン管理ツールです。 プロジェクトは流動性、チーム・トークン、NFTをロックすることができ、トークン・ベスティング、ステーキング・プール、トークン・マルチセンダー・サービスなどの高度なソリューションも提供しています。 TrustSwapのエコシステムの一部として、Team Financeはプロジェクト創設者と投資家のためにトークン管理を簡素化することに重点を置いている。
 
-## Usage <a id="usage"></a>
+## 使用方法<a id="usage"></a>
 
-Team Finance supports **Kaia Mainnet**. To get started using Team Finance token management features on Kaia, refer to the following guides:
+チームファイナンスは**カイア・メインネット**をサポートしています。 チーム・ファイナンスのトークン管理機能をカイアで使い始めるには、以下のガイドを参照してください：
 
-- [Liquidity Locks](./liquidity-locks.md)
-- [Team Token Locks](./team-token-locks.md)
-- [Token Vesting](./token-vesting.md)
-- [Token Creation](./token-creation.md)
-- [NFT Locks](./nft-locks.md)
-- [Multisender](./multisender.md)
+- [流動性ロック](./liquidity-locks.md)
+- [チーム・トークン・ロック](./team-token-locks.md)
+- [トークンの権利確定](./token-vesting.md)
+- [トークン作成](./token-creation.md)
+- [NFTロック](./nft-locks.md)
+- [マルチセンダー](./multisender.md)

@@ -45,7 +45,6 @@
 |                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | 档案 |
 | [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | 全部 |
-| [BlockJoy](https://blockjoy.com/)      | `http://freely-inspired-ram.n0des.xyz`                     | kaia,klay,eth,net | 档案 |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
@@ -288,21 +287,6 @@ GetBlock 为包括 Kaia 在内的 50 多个主要区块链网络的完整 RPC �
 
 - [Website](https://getblock.io/)
 - [文件](https://getblock.io/docs/getblock-explorer/get-started/)
-
-### BlockJoy
-
-BlockJoy 可在任何裸金属基础设施上提供专用的非计量区块链节点。 它为节点、定桩、API、索引器、区块链开发人员等各种服务提供节点基础设施。
-
-#### 特点
-
-- 在裸机服务器上以最高性能运行节点。
-- 削减高达 80% 的运营成本。
-- 享受平台专为 Web3 基础架构打造的精简用户界面和云体验。
-
-#### 参考资料
-
-- [Website](https://blockjoy.com/)
-- [博客](https://blockjoy.com/blog)
 
 ### QuickNode
 

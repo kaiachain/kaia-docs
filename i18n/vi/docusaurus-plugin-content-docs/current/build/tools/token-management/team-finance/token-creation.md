@@ -1,45 +1,45 @@
-# Token Creation
+# Tạo mã thông báo
 
-## Introduction
+## Giới thiệu
 
-Easily create your own tokens with Team Finance's token creation tool designed for founders who need a fast, secure, and trusted way to generate tokens without any coding experience.
+Dễ dàng tạo token của riêng bạn bằng công cụ tạo token của Team Finance được thiết kế dành cho những người sáng lập cần một cách nhanh chóng, an toàn và đáng tin cậy để tạo token mà không cần bất kỳ kinh nghiệm lập trình nào.
 
-With Team Finance, projects and founders can save time and money on audits and development while customizing token functions to fit their needs.
+Với Team Finance, các dự án và người sáng lập có thể tiết kiệm thời gian và tiền bạc cho việc kiểm toán và phát triển, đồng thời tùy chỉnh các chức năng mã thông báo để phù hợp với nhu cầu của họ.
 
-## Getting Started
+## Bắt đầu
 
-In this tutorial, you will learn how to easily create tokens with Team Finance. Let's get started!
+Trong hướng dẫn này, bạn sẽ học cách dễ dàng tạo token bằng Team Finance. Chúng ta hãy bắt đầu nhé!
 
-1. Navigate to Team Finance [Token creation](https://app.team.finance/token-creation) tab and click on **Create token**.
+1. Điều hướng đến tab [Tạo mã thông báo] (https://app.team.finance/token-creation) của Team Finance và nhấp vào **Tạo mã thông báo**.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-1.png)
 
-2. Connect your wallet to Team Finance by clicking on **Select Wallet** and click **Continue**.
+2. Kết nối ví của bạn với Team Finance bằng cách nhấp vào **Chọn ví** và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-2.png)
 
-3. Select **Kaia** under the blockchain networks and click on **Continue**.
+3. Chọn **Kaia** trong mạng lưới blockchain và nhấp vào **Tiếp tục**.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-3.png)
 
-4. Enter the **token info** for the token you want to create and click **"Continue"**.
+4. Nhập **thông tin mã thông báo** cho mã thông báo bạn muốn tạo và nhấp vào **"Tiếp tục"**.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-4.png)
 
-5. Add features such as **mint**, **burn** etc. depending on your need
+5. Thêm các tính năng như **mint**, **burn** v.v. tùy theo nhu cầu của bạn
 
 ![](/img/build/tools/token-management/token-creation/tc-step-5.png)
 
-6. Now, verify the details of your token creation and click **Confirm transaction** to finalize the process. Go to your wallet and sign the transaction to complete the process.
+6. Bây giờ, hãy xác minh thông tin chi tiết về việc tạo mã thông báo và nhấp vào **Xác nhận giao dịch** để hoàn tất quy trình. Vào ví của bạn và ký giao dịch để hoàn tất quy trình.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-6.png)
 
-7. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+7. Sau khi xác nhận, bạn sẽ được chuyển hướng đến trang hiển thị trạng thái của giao dịch. Vui lòng không thoát khỏi trang cho đến khi giao dịch được xác nhận.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7a.png)
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7b.png)
 
-8. Congratulations! You have successfully created tokens using Team Finance. You can view the details of the tokens created and perform some actions on the dashboard.
+8. Chúc mừng! Bạn đã tạo token thành công bằng Team Finance. Bạn có thể xem thông tin chi tiết về các mã thông báo đã tạo và thực hiện một số hành động trên bảng điều khiển.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-8.png)

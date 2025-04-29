@@ -1,22 +1,22 @@
-# Web3 Integration
+# Web3 整合
 
-In this section, we will build up pieces to integrate web3 into our Unity project.
+在本節中，我們會建立一些元件，將 web3 整合到我們的 Unity 專案中。
 
-## Creating and deploying KIP7 smart contract
+## 建立與部署 KIP7 智慧型契約
 
-First, we'll use Kaia Contract Wizard to generate our smart contract.
+首先，我們會使用 Kaia Contract Wizard 來產生我們的智慧型契約。
 
-### Step 1: Using Kaia Contract Wizard
+### 步驟 1：使用 Kaia 契約精靈
 
-1. Navigate to Kaia Contract Wizard.
-2. Select KIP7 (Kaia's token standard, similar to ERC20).
-3. Configure your token:
-  - Name: ExampleTestToken (or something else!)
-  - Symbol: ET (your token's ticker)
-  - Premint: 100 (initial token supply)
-  - Features: Check ✅ Mintable
+1. 導覽至 Kaia Contract Wizard。
+2. 選擇 KIP7 (Kaia 的代幣標準，類似 ERC20)。
+3. 配置您的令牌：
+  - 名稱：ExampleTestToken (或其他名稱!)
+  - 代號：ET (您的代幣代號)
+  - Premint：100 (初始代幣供應)
+  - 功能：檢查 ✅ 可鑄造
 
-For this guide, we will tweak the mint function not to have onlyOwner modifier. To do this, we have to remove the ownable.sol import, and Ownable inheritance. The tweaked code should now look like this:
+在本指南中，我們將調整 mint 函式，使其沒有 onlyOwner 修改器。 要做到這一點，我們必須移除 ownable.sol 的匯入，以及 Ownable 的繼承。 調整後的程式碼應該是這樣的：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -43,35 +43,35 @@ contract ExampleTokens is KIP7 {
 ```
 
 :::info
-We removed the onlyOwner modifier to allow anyone to call the mint function other than the original deployer or owner of the contract.
+我們移除了 onlyOwner 修改器，允許除原始部署者或契約擁有者之外的任何人呼叫 mint 函式。
 :::
 
-### Step 2: Deploying via Remix IDE
+### 步驟 2：透過 Remix IDE 部署
 
-1. Copy and Paste the code above in a newly created file `ET.sol` on Remix IDE.
-2. In Remix IDE:
-  - Click the **Compile contract** button.
-  - Activate the **Kaia plugin** in the plugin manager.
-  - Under Environment in the Kaia Plugin tab, choose **Injected Provider** - **Kaia Wallet**.
-  - Find your contract (ExampleTokens) in the **Contract** dropdown.
-  - Click **Deploy** to launch your token!
-3. When your Kaia Wallet pops up:
-  - Review the deployment details.
-  - Click Confirm to deploy to Kaia Kairos Testnet.
+1. 複製並貼上上述程式碼到 Remix IDE 新建立的檔案 `ET.sol` 中。
+2. 在 Remix IDE 中：
+  - 按一下 \*\* 編譯合約\*\* 按鈕。
+  - 在外掛程式管理員中啟動 **Kaia 外掛程式**。
+  - 在 Kaia 外掛索引標籤的「環境」下，選擇 \*\* 注入提供者\*\* - **Kaia Wallet**。
+  - 在 **Contract** 下拉式選單中找到您的合約 (ExampleTokens)。
+  - 按一下 \*\* 部署\*\* 以啟動您的令牌！
+3. 當您的 Kaia Wallet 彈出時：
+  - 檢視部署詳細資訊。
+  - 按一下「確認」以部署到 Kaia Kairos Testnet。
 
 :::important
-Copy and save the deployed contract address. You'll need it later in the tutorial.
+複製並儲存已部署的合約位址。 您在稍後的教學中會用到它。
 :::
 
-## Building the Unity-Web3 Bridge
+## 建立 Unity-Web3 橋接
 
-Now we'll create the vital connection between Unity and Web3 functionality. This is where we bring blockchain capabilities into your Unity application!
+現在我們要建立 Unity 與 Web3 功能之間的重要連結。 這是我們將區塊鏈功能帶入您的 Unity 應用程式的地方！
 
-### Part 1: Creating the Plugin Bridge (kaiaPlugin.jslib)
+### 第 1 部分：建立外掛橋接器 (kaiaPlugin.jslib)
 
-First, we'll build our JavaScript bridge that lets Unity talk to Web3:
+首先，我們要建立 JavaScript 橋接，讓 Unity 能與 Web3 對話：
 
-1. Create your plugin directory:
+1. 建立您的外掛程式目錄：
 
 ```
 Assets/
@@ -80,20 +80,20 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. Why a .jslib? Think of it as a translator between Unity's C# and the browser's JavaScript - essential for Web3 interactions!
+2. 為什麼要使用 .jslib？ 將其視為 Unity 的 C# 與瀏覽器的 JavaScript 之間的轉譯器 - Web3 互動的必要元件！
 
-3. The plugin will handle three core functions:
-  - ConnectWallet() - Handles Kaia Wallet connections
-  - GetTokenBalance() - Checks token balances
-  - MintTokens() - Manages token minting
+3. 外掛程式將處理三個核心功能：
+  - ConnectWallet() - 處理 Kaia Wallet 連線
+  - GetTokenBalance() - 檢查令牌餘額
+  - MintTokens() - 管理代幣鑄造
 
-Open this file in VS Code and paste the `KaiaPlugin.jslib` source code in [Appendix A](convert-unity-liff.md#appendix-a):
+在 VS Code 中開啟此檔案，並貼上 [Appendix A](convert-unity-liff.md#appendix-a) 中的「KaiaPlugin.jslib」原始碼：
 
-### Part 2: Creating the C# Manager (Web3Manager.cs)
+### 第 2 部分：建立 C# 管理員 (Web3Manager.cs)
 
-Next, we'll create our C# script to manage all Web3 operations:
+接下來，我們將建立 C# 腳本來管理所有 Web3 作業：
 
-1. Create your scripts directory:
+1. 建立您的 scripts 目錄：
 
 ```js
 Assets/
@@ -104,36 +104,36 @@ Assets/
 
 :::info
 
-**What does Web3Manager do?**
+\*\*Web3Manager 有哪些功能？
 
-- Acts as the main conductor for all Web3 operations.
-- Manages communication with our JavaScript plugin.
-- Updates UI elements based on blockchain events.
-- Handles all wallet and token operations.
-- Connects the `Connect Wallet` and `Mint` buttons with their respective functions 
+- 擔任所有 Web3 作業的主要指揮官。
+- 管理與我們 JavaScript 外掛程式的通訊。
+- 根據區塊鏈事件更新 UI 元素。
+- 處理所有錢包及代幣操作。
+- 連接「連接錢包」和「Mint」按鈕與其各自的功能
   :::
 
-2. Open this file in VS Code and paste the `Web3Manager.cs` source code in [Appendix B](convert-unity-liff.md#appendix-b)
+2. 在 VS Code 中開啟此檔案，並貼上 [Appendix B](convert-unity-liff.md#appendix-b) 中的「Web3Manager.cs」原始碼。
 
-### Part 3: Setting Up the Web3Manager GameObject
+### 第 3 部分：設定 Web3Manager 遊戲物件
 
-Finally, let's bring it all together in Unity:
+最後，讓我們在 Unity 中將這一切整合在一起：
 
-1. Create the Manager Object:
-  - Right-click in the Hierarchy window (root level).
-  - Select "Create Empty Object".
-  - Name it "Web3Manager".
-2. Attach Your Script:
-  - Select the Web3Manager GameObject.
-  - In Inspector, click Add Component.
-  - Search for and select "Web3Manager".
-3. Connect UI Elements:
-  - With Web3Manager selected, look in the Inspector.
-  - Drag and drop your UI elements from the Hierarchy to the corresponding fields:
-    - StatusText
-    - AddressText
-    - TokenBalanceText
-    - Connect, Disconnect, Mint buttons
-    - Input fields
+1. 建立管理員物件：
+  - 在 Hierarchy 視窗（根層級）中按一下滑鼠右鍵。
+  - 選擇「建立空物件」。
+  - 將其命名為「Web3Manager」。
+2. 附上您的劇本：
+  - 選取 Web3Manager GameObject。
+  - 在 Inspector 中，按一下 Add Component。
+  - 搜尋並選擇「Web3Manager」。
+3. 連接 UI 元件：
+  - 選取 Web3Manager 後，查看 Inspector。
+  - 將您的 UI 元件從 Hierarchy 拖放到對應的欄位：
+    - 狀態文字
+    - 地址文字
+    - 代號平衡文字
+    - 連接、斷開、薄荷按鈕
+    - 輸入欄位
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)

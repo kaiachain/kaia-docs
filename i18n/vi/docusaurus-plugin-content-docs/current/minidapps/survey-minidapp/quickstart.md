@@ -1,18 +1,18 @@
-# Getting Started with Semaphore
+# Bắt đầu với Semaphore
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) enables users to participate anonymously in decentralized applications using zero-knowledge proofs. For this dApp, Semaphore ensures users can submit survey responses without revealing their identities.
+[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) cho phép người dùng tham gia ẩn danh vào các ứng dụng phi tập trung bằng cách sử dụng bằng chứng không kiến thức. Đối với dApp này, Semaphore đảm bảo người dùng có thể gửi phản hồi khảo sát mà không tiết lộ danh tính của họ.
 
-**Semaphore Features**:
+**Tính năng của Semaphore**:
 
-- _Anonymity_: Users can submit answers without exposing their personal details.
-- _Verification_: Responses are validated without linking them to individuals.
-- _Anti-Spam_: Prevents duplicate submissions.
+- _Ẩn danh_: Người dùng có thể gửi câu trả lời mà không cần tiết lộ thông tin cá nhân.
+- _Xác minh_: Phản hồi được xác thực mà không liên kết chúng với cá nhân nào.
+- _Chống thư rác_: Ngăn chặn việc gửi bài trùng lặp.
 
-## Setting Up Smart Contract Development Environment <a id="set-up-smart-contract-env"></a>
+## Thiết lập môi trường phát triển hợp đồng thông minh <a id="set-up-smart-contract-env"></a>
 
-To make use of hardhat, we need to set up our development environment and install Hardhat. Let's do this in the following steps:
+Để sử dụng hardhat, chúng ta cần thiết lập môi trường phát triển và cài đặt Hardhat. Chúng ta hãy thực hiện theo các bước sau:
 
-Navigate to your project's root folder, and then run the following commands to create a new Hardhat project.
+Điều hướng đến thư mục gốc của dự án, sau đó chạy các lệnh sau để tạo một dự án Hardhat mới.
 
 ```bash
 mkdir contract
@@ -20,25 +20,25 @@ cd contract
 npm install --save-dev hardhat
 ```
 
-Bootstrap a sample project by running the command below:
+Khởi động một dự án mẫu bằng cách chạy lệnh bên dưới:
 
 ```bash
 npx hardhat init 
 ```
 
-For this guide, you'll be selecting a typescript project.
+Trong hướng dẫn này, bạn sẽ chọn một dự án TypeScript.
 
 :::note
-While initializing the project, you will get a prompt to install the hardhat-toolbox plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+Khi khởi tạo dự án, bạn sẽ nhận được lời nhắc cài đặt plugin hardhat-toolbox. Plugin này bao gồm tất cả các gói thường dùng và các plugin Hardhat được khuyến nghị để bắt đầu phát triển với Hardhat.
 :::
 
-Next, install `@semaphore-protocol/contracts` for Semaphore Solidity contracts, `OpenZeppelin contracts` and `hardhat-deploy` with the following command:
+Tiếp theo, cài đặt `@semaphore-protocol/contracts` cho các hợp đồng Semaphore Solidity, `OpenZeppelin contract` và `hardhat-deploy` bằng lệnh sau:
 
 ```bash
 npm install --save-dev @semaphore-protocol/contracts @openzeppelin/contracts hardhat-deploy
 ```
 
-You then want to modify your `hardhat.config.ts` with the following configurations:
+Sau đó, bạn muốn sửa đổi `hardhat.config.ts` của mình bằng các cấu hình sau:
 
 ```javascript
 import { HardhatUserConfig } from "hardhat/config";
@@ -94,4 +94,4 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-Now that we have our development environment all set, let's get into writing our survey smart contract.
+Bây giờ chúng ta đã thiết lập xong môi trường phát triển, hãy bắt đầu viết hợp đồng thông minh cho khảo sát.

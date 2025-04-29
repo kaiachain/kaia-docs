@@ -14,18 +14,19 @@
 **智能合約開發**
 
 - [Kaia Plugin for Remix](https://ide.kaia.io) - 基於瀏覽器的編譯器和集成開發環境 Kaia Plugin for Remix。
-- [Truffle](https://github.com/trufflesuite/truffle) - 用於在 Solidity 中開發智能合約的開源工具。
 - [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started) - 智能合約和 dApp 的開發環境。
 - [Foundry](https://book.getfoundry.sh/) - Foundry 是一個智能合約開發工具鏈。
 - [Thirdweb](https://portal.thirdweb.com/) - Thirdweb 是一個完整的 web3 開發框架，提供構建、管理和分析 web3 應用程序的服務。
 
 **Kaia SDK**
 
-- [caver-js](../../references/sdk/caver-js/caver-js.md) ：實現 Kaia JSON-RPC API 的 JavaScript 庫。
-- [caver-java](../../references/sdk/caver-java/caver-java.md)：實現 Kaia JSON-RPC API 的 Java 庫。
+- [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) ：ethers.js 函式庫的 Kaia 延伸。
+- [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) ：web3.js 函式庫的 Kaia 延伸。
+- [web3j-ext](../../references/sdk/web3j-ext/getting-started.md) ：web3j 函式庫的 Kaia 延伸。
+- [web3py-ext](../../references/sdk/web3py-ext/getting-started.md) ：web3.py 函式庫的 Kaia 延伸。
 
 **Kaia工具包**
 
 - [Kaiascope](https://kaiascope.com/) - 區塊和事務瀏覽器。
 - [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 網絡的瀏覽器擴展錢包。
-- [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) - 用於引導智能合約和了解 Kaia Contracts 的交互式生成器。
+- [Kaia Contracts Wizard](https://wizard.kaia.io) - 一個互動式產生器，用來啟動您的智慧型契約，並學習 Kaia Contracts。

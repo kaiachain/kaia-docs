@@ -33,8 +33,8 @@ contract KaiaGreeter is Mortal {
 
 - Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. 전체 소스 코드는 위에 나와 있습니다.
 - 컨트랙트 배포에 사용할 계정을 준비합니다.
-  - If you do not have an account yet, create one at [https://toolkit.kaia.io/account/accountKeyLegacy](https://toolkit.kaia.io/account/accountKeyLegacy).
-  - Get some test KAIA from the faucet - [https://kairos.wallet.kaia.io/faucet](https://kairos.wallet.kaia.io/faucet)
+  - 아직 계정이 없는 경우 [카이아 툴킷](https://toolkit.kaia.io/account/)을 사용하여 계정을 만드세요.
+  - 수도꼭지에서 KAIA 테스트 받기 - [수도꼭지](https://faucet.kaia.io)
 - 초기 파라미터인 인사말 메시지와 함께 컨트랙트를 배포합니다.
 - 배포 후, IDE에서 `greet`를 호출할 수 있습니다.
 

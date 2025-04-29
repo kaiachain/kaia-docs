@@ -6,7 +6,7 @@ This page contains the list of development tools that is available to help smart
 
 Remix Online IDE is a powerful toolset for developing, deploying, debugging, and testing EVM-compatible smart contracts. You can write, compile, deploy and execute smart contracts on Kaia from Remix IDE, using Kaia Plugin.
 
-#### [Kaia Contracts Wizard](https://wizard.klaytn.foundation/) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
+#### [Phù thủy hợp đồng Kaia](https://wizard.kaia.io) <a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
 Kaia Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Kaia Contracts. This is based on OpenZeppelin Wizard.
 

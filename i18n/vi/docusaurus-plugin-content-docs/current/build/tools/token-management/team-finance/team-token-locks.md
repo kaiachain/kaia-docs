@@ -1,57 +1,57 @@
-# Team Token Locks
+# Khóa mã thông báo nhóm
 
-## Introduction
+## Giới thiệu
 
-Team token locks are mechanisms that enable crypto projects to secure tokens allocated to the team in a decentralized, time-locked smart contract vault. This ensures that tokens reserved for the team or founders remain inaccessible for withdrawal or modification until the predetermined lock period expires. Such measures enhance trust, as they reduce the potential risk of fraudulent activity for the community and investors.
+Khóa mã thông báo nhóm là cơ chế cho phép các dự án tiền điện tử bảo mật các mã thông báo được phân bổ cho nhóm trong kho hợp đồng thông minh phi tập trung và có khóa theo thời gian. Điều này đảm bảo rằng các mã thông báo dành riêng cho nhóm hoặc người sáng lập sẽ không thể được rút hoặc sửa đổi cho đến khi thời hạn khóa được xác định trước hết hạn. Các biện pháp như vậy giúp tăng cường lòng tin vì chúng làm giảm nguy cơ gian lận tiềm ẩn cho cộng đồng và các nhà đầu tư.
 
-Third-party token-locking services play a pivotal role in modern token offerings by providing an additional layer of accountability. These services prevent projects from reneging on their commitments or engaging in malicious practices, such as prematurely liquidating their tokens, which could drastically devalue the token and harm stakeholders.
+Các dịch vụ khóa mã thông báo của bên thứ ba đóng vai trò quan trọng trong các dịch vụ cung cấp mã thông báo hiện đại bằng cách cung cấp thêm một lớp trách nhiệm giải trình. Các dịch vụ này ngăn chặn các dự án không thực hiện đúng cam kết hoặc tham gia vào các hoạt động có hại, chẳng hạn như thanh lý token trước thời hạn, điều này có thể làm giảm giá trị token đáng kể và gây hại cho các bên liên quan.
 
-By utilizing platforms like Team Finance for team token locks, crypto projects can transparently demonstrate their token vesting schedule, signal long-term commitment to the project, and bolster credibility, thereby minimizing scam risks and fostering investor confidence.
+Bằng cách sử dụng các nền tảng như Team Finance để khóa mã thông báo của nhóm, các dự án tiền điện tử có thể chứng minh một cách minh bạch lịch trình cấp mã thông báo, thể hiện cam kết lâu dài với dự án và tăng cường uy tín, do đó giảm thiểu rủi ro lừa đảo và thúc đẩy niềm tin của nhà đầu tư.
 
-## Getting Started
+## Bắt đầu
 
-In this tutorial, you will learn how to lock liquidity using Team Finance. Let's get started!
+Trong hướng dẫn này, bạn sẽ học cách khóa thanh khoản bằng Team Finance. Chúng ta hãy bắt đầu nhé!
 
-1. Navigate to Team Finance [Team token locks](https://team.finance/team-token-locks) and click on **"Create team token lock"**.
+1. Điều hướng đến Tài chính nhóm [Khóa mã thông báo nhóm](https://team.finance/team-token-locks) và nhấp vào **"Tạo khóa mã thông báo nhóm"**.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-1.jpeg)
 
-2. Connect your wallet to Team Finance by clicking on **"Select Wallet"** and click **"Continue"**.
+2. Kết nối ví của bạn với Team Finance bằng cách nhấp vào **"Chọn ví"** và nhấp vào **"Tiếp tục"**.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-2.jpeg)
 
-3. Select **Kaia** under the blockchain networks and click on **"Continue"**.
+3. Chọn **Kaia** trong mạng lưới blockchain và nhấp vào **"Tiếp tục"**.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-3.jpeg)
 
-4. Enter the **Token address** of your KAIA token in the input field, verify and click **"Continue"**.
+4. Nhập **Địa chỉ mã thông báo** của mã thông báo KAIA vào trường nhập, xác minh và nhấp vào **"Tiếp tục"**.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-4.jpeg)
 
-> In our case we are using **KTT** token made on Kaia chain.
+> Trong trường hợp này, chúng tôi đang sử dụng mã thông báo **KTT** được tạo trên chuỗi Kaia.
 
-5. Add the details of the team token lock, including the **Lock amount** and **Lock duration**. Click **"Continue"** to proceed.
+5. Thêm thông tin chi tiết về khóa mã thông báo của nhóm, bao gồm **Số tiền khóa** và **Thời gian khóa**. Nhấp vào **"Tiếp tục"** để tiếp tục.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-5.jpeg)
 
-> In this case, we have locked **1000KTT** tokens until **January 1, 2026**.
+> Trong trường hợp này, chúng tôi đã khóa **1000KTT** token cho đến **ngày 1 tháng 1 năm 2026**.
 
-6. Click on **"Give Permission"** and go to your wallet to sign the transaction.
+6. Nhấp vào **"Cấp quyền"** và vào ví của bạn để ký giao dịch.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-6.jpeg)
 
-7. You will receive a confirmation message once you have signed. Click **"Continue"** to proceed.
+7. Bạn sẽ nhận được tin nhắn xác nhận sau khi đã đăng ký. Nhấp vào **"Tiếp tục"** để tiếp tục.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-7.jpeg)
 
-8. Now, verify the details of your team token lock and click **"Confirm transaction"** to finalize the lock. Go to your wallet and sign the transaction to complete the process.
+8. Bây giờ, hãy xác minh thông tin chi tiết về khóa mã thông báo nhóm của bạn và nhấp vào **"Xác nhận giao dịch"** để hoàn tất việc khóa. Vào ví của bạn và ký giao dịch để hoàn tất quy trình.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-8.jpeg)
 
-9. Once confirmed, you will be re-directed to a page where it shows the status of the transaction. Please refrain from navigating away from the page until the transaction is confirmed.
+9. Sau khi xác nhận, bạn sẽ được chuyển hướng đến trang hiển thị trạng thái của giao dịch. Vui lòng không thoát khỏi trang cho đến khi giao dịch được xác nhận.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-9.jpeg)
 
-10. Congratulations! You have successfully created a team token lock using Team Finance. You can view the details of your lock and track its progress on the dashboard.
+10. Chúc mừng! Bạn đã tạo thành công khóa mã thông báo nhóm bằng Team Finance. Bạn có thể xem thông tin chi tiết về khóa và theo dõi tiến trình của khóa trên bảng điều khiển.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-10.jpeg)

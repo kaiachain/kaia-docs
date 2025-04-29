@@ -1,19 +1,30 @@
-# Kaia Online Toolkit
+# カイア・ツールキット
 
-## Kaia Online Toolkitとは何ですか？ <a id="what-is-the-kaia-online-toolkit"></a> <a id="what-is-the-kaia-online-toolkit"></a>
+## カイア・ツールキットとは何ですか？
 
-- `Kaia Online Toolkit`は、`Kaia SDK(caver-js)`を簡単に利用するためのコード例を提供します。 また、開発者が簡単なオンライン・ツールを使用するための[デモ・ページ](https://toolkit.klaytn.foundation)も提供している。
-- Kaia SDK(caver-js)\\`は、開発者がHTTPまたはWebsocket接続を使ってKaiaノードとやりとりできるJavaScript APIライブラリです。
-- コードを書かなくても、カイアの機能を試すことができる。
+[カイア・ツールキット\*\*](https://toolkit.kaia.io)は、カイア・ブロックチェーンとの統合を簡素化するために、開発者向けのコードサンプルとインタラクティブなウェブツールを提供します。 分散型アプリケーションを構築するための学習リソースであり、実用的なユーティリティ・スイートでもある。
 
-> より多くの方に「カイアオンラインツールキット」をご利用いただくために、[「カイアオンラインツールキットを使う」](https://medium.com/klaytn/using-klaytn-online-toolkit-1-multisig-60399a0b0278)シリーズをご用意しました。
+カイア・ツールキット](/img/build/tools/klaytn-online-toolkit.png)
 
-## リンク<a id="links"></a>
+## 主な特徴
 
-Kaia Online Toolkit\\`のリンク集です。 ご自由にお使いください :) ご自由にお使いください :)
+- **マルチSDKサポート**：最新のイーサリアム同等SDKとの互換性
+  - Ethers-ext\` (ethers.js の拡張実装)
+  - Web3js-ext\` (拡張 web3.js ライブラリ)
+  - Viem\` (EVM チェーンの TypeScript インターフェース)
+- **ライブ・サンドボックス環境**：ローカルでセットアップすることなく、ウェブ・インターフェイスを通じてブロックチェーンのインタラクションを直接テストできます。
+- **総合ツール**：
+  - ウォレットの統合（KaiaWallet、MetaMask、RainbowKit、OKX）
+  - アカウント管理（ベーシック／ニーモニック／キーストア）
+  - トークン操作（KIP-7、KIP-17、KIP-37）
+  - ブロックチェーンユーティリティ（RLPエンコーダー、単位変換、署名検証）
 
-- [Githubリポジトリ](https://github.com/kaiachain/kaia-online-toolkit)
+## 開発者向けリソース
+
+以下は、カイア・ツールキットと関連リソースのリンクです：
+
+- [GitHubリポジトリ](https://github.com/kaiachain/kaia-online-toolkit)
 - [ツールキットページ](https://toolkit.kaia.io)
-- [カイアSDK(caver-js)](../../references/sdk/caver-js/caver-js.md)
-
-![Kaia Online Toolkit](/img/build/tools/klaytn-online-toolkit.png)
+- [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
+- [Web3js-ext ドキュメント](../../references/sdk/web3js-ext/getting-started.md)
+- [ヴィエム・ドキュメント](../../references/sdk/viem/viem.md)
