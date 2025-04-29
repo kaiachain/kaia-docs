@@ -1,7 +1,7 @@
 # OKXカイア・エクスプローラー
 
 [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)は、チーム[OKX Explorer](https://www.okx.com/web3/explorer/eaas)によって構築され、50以上のチェーンを支える[OKX EaaS (Explorer-as-a-Service)](https://www.okx.com/web3/explorer/eaas)の一部です。 アドレス](https://www.okx.com/web3/explorer/kaia/address/0x417e2ab3dd563c8b0b6c50288c7c16c0ac1fad92)、[トランザクション](https://www.okx.com/web3/explorer/kaia/tx/0xb86a505b2d6cd1606543eb6a95201a4f062af315d325f432d04fb3b8184ee4ac)、[トークン](https://www.okx.com/web3/explorer/kaia/token-list)、[ブロック](https://www.okx.com/web3/explorer/kaia/block-list)の基本的な検索を含む、期待されるすべての重要なツールと機能を提供します。
-基本的な[アドレス](https://www.okx.com/web3/explorer/kaia/address/0x417e2ab3dd563c8b0b6c50288c7c16c0ac1fad92)、[トランザクション](https://www.okx.com/web3/explorer/kaia/tx/0xb86a505b2d6cd1606543eb6a95201a4f062af315d325f432d04fb3b8184ee4ac)、[トークン・リスト](https://www.okx.com/web3/explorer/kaia/token-list)、[ブロック](https://www.okx.com/web3/explorer/kaia/block-list)検索に加え、[トークン・リスト]()、[ブロック]()検索が可能です。
+基本の[アドレス](https://www.okx.com/web3/explorer/kaia/address/0x417e2ab3dd563c8b0b6c50288c7c16c0ac1fad92)、[トランザクション](https://www.okx.com/web3/explorer/kaia/tx/0xb86a505b2d6cd1606543eb6a95201a4f062af315d325f432d04fb3b8184ee4ac)、[トークン一覧](https://www.okx.com/web3/explorer/kaia/token-list)、[ブロック](https://www.okx.com/web3/explorer/kaia/block-list)検索に加え、
 
 OKXカイア・エクスプローラーもサポートしています：
 
