@@ -1,4 +1,4 @@
-name: "Branch Assistant"
+name: "Branch Assistant test"
 on:
   push:
   issue_comment:
