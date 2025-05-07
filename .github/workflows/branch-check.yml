@@ -1,8 +1,6 @@
-name: "CLA Assistant"
+name: "Branch Assistant"
 on:
   push:
-    branches:
-      - feat/branch-check
   issue_comment:
     types: [created]
   pull_request_target:
@@ -16,11 +14,11 @@ jobs:
         shell: bash
         run: |
           echo $GITHUB_BASE_REF
-          if [ "$GITHUB_BASE_REF" == "main" ]; then
-            echo "GITHUB_BASE_REF is 'main'"
+          if [ "$GITHUB_BASE_REF" == "feat/branch-check" ]; then
+            echo "GITHUB_BASE_REF is 'feat/branch-check'"
             exit 0
           else
-            echo "GITHUB_BASE_REF is not 'main'"
+            echo "GITHUB_BASE_REF is not 'feat/branch-check'"
             exit 1
           fi
           
