@@ -9,15 +9,12 @@ const commonSidebar = [
     link: { type: 'doc', id: 'misc/operation/operation' },
     items: [
       'misc/operation/configuration',
-      'misc/operation/node-log',
       'misc/operation/log-management',
       'misc/operation/kaia-command',
       'misc/operation/troubleshooting',
       'misc/operation/chaindata-snapshot',
       'misc/operation/upstream-en',
-      'misc/operation/monitoring-setup',
       'misc/operation/node-pruning',
-      'misc/operation/node-profiling',
       'misc/operation/aws-ami',
     ],
   },
@@ -403,6 +400,17 @@ const sidebars = {
         },
         'nodes/service-chain/upgrade-and-hard-fork',
       ],
+    },
+    {
+      type: 'category',
+      label: 'Debugging and Diagnostics',
+      link: { type: 'doc', id: 'misc/debugging/debugging'},
+      items: [
+        'misc/debugging/monitoring-setup',
+        'misc/debugging/node-profiling',
+        'misc/debugging/node-log',
+        'misc/debugging/analytics-tool',
+      ]
     },
     {
       type: 'category',
