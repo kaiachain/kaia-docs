@@ -9,16 +9,22 @@ on:
 jobs:
   CLAssistant:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
+      - name: Comment PR
+        if: ${{ github.base_ref != 'main' }}
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Pls create PR to branch `main`
       - name: "Branch check Assistant"
         shell: bash
         run: |
           echo $GITHUB_BASE_REF
-          if [ "$GITHUB_BASE_REF" == "feat/branch-check" ]; then
-            echo "GITHUB_BASE_REF is 'feat/branch-check'"
+          if [ "$GITHUB_BASE_REF" == "main" ]; then
             exit 0
           else
-            echo "GITHUB_BASE_REF is not 'feat/branch-check'"
             exit 1
           fi
           
