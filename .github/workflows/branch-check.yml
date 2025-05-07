@@ -1,0 +1,26 @@
+name: "CLA Assistant"
+on:
+  push:
+    branches:
+      - feat/branch-check
+  issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened, closed, synchronize]
+
+jobs:
+  CLAssistant:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Branch check Assistant"
+        shell: bash
+        run: |
+          echo $GITHUB_BASE_REF
+          if [ "$GITHUB_BASE_REF" == "main" ]; then
+            echo "GITHUB_BASE_REF is 'main'"
+            exit 0
+          else
+            echo "GITHUB_BASE_REF is not 'main'"
+            exit 1
+          fi
+          
