@@ -12,13 +12,22 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Comment PR
-        if: ${{ github.base_ref != 'main' }}
+      - name: Comment Failed
+        if: (github.event_name == 'pull_request_target' || github.event.pull_request == 'edited' ) && github.base_ref != 'main'
         uses: thollander/actions-comment-pull-request@v3
+        id: failed
         with:
           message: |
             Pls create PR to branch `main`
+      - name: Comment Success
+        if: (github.event_name == 'pull_request_target' || github.event.pull_request == 'edited' ) && github.base_ref == 'main'
+        uses: thollander/actions-comment-pull-request@v3
+        id: success
+        with:
+          message: |
+            Passed branch check
       - name: "Branch check Assistant"
+        if: github.event_name == 'pull_request_target' || github.event.pull_request == 'edited'
         shell: bash
         run: |
           echo $GITHUB_BASE_REF
