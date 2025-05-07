@@ -1,4 +1,4 @@
-name: "CLA Assistant"
+name: "Branch Assistant"
 on:
   push:
     branches:
