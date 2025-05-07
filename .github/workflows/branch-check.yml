@@ -1,8 +1,6 @@
 name: "Branch Assistant"
 on:
   push:
-    branches:
-      - feat/branch-check
   issue_comment:
     types: [created]
   pull_request_target:
@@ -11,16 +9,31 @@ on:
 jobs:
   CLAssistant:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
+      - name: Comment Failed
+        if: (github.event_name == 'pull_request_target' || github.event.pull_request == 'edited' ) && github.base_ref != 'main'
+        uses: thollander/actions-comment-pull-request@v3
+        id: failed
+        with:
+          message: |
+            Pls create PR to branch `main`
+      - name: Comment Success
+        if: (github.event_name == 'pull_request_target' || github.event.pull_request == 'edited' ) && github.base_ref == 'main'
+        uses: thollander/actions-comment-pull-request@v3
+        id: success
+        with:
+          message: |
+            Passed branch check
       - name: "Branch check Assistant"
+        if: github.event_name == 'pull_request_target' || github.event.pull_request == 'edited'
         shell: bash
         run: |
           echo $GITHUB_BASE_REF
           if [ "$GITHUB_BASE_REF" == "main" ]; then
-            echo "GITHUB_BASE_REF is 'main'"
             exit 0
           else
-            echo "GITHUB_BASE_REF is not 'main'"
             exit 1
           fi
           
