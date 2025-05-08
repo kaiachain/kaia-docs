@@ -1,5 +1,10 @@
 # Multisig Account Key
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/ethers-ext-v6/SignTransaction/AccountKeyWeightedMultiSig.tsx" route={RoutePath.EthersExt_SignTx_MultiSig} />
+
 **AccountKeyWeightedMultiSig** 是一种账户密钥类型，包含一个阈值和加权公钥（WeightedPublicKeys），后者包含一个由公钥及其权重组成的列表。
 
 要使与 **AccountKeyWeightedMultiSig** 关联的账户的交易有效，必须满足以下条件：

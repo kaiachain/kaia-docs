@@ -1,5 +1,13 @@
 # 多用戶賬戶密鑰
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor
+  module='/src/pages/web3js-ext/AccountKey/AccountUpdateWithMultiSig.tsx'
+  route={RoutePath.Web3jsExt_Account_MultiSig}
+/>
+
 **AccountKeyWeightedMultiSig** 是一種賬戶密鑰類型，包含一個閾值和加權公鑰（WeightedPublicKeys），後者包含一個由公鑰及其權重組成的列表。
 
 要使與 **AccountKeyWeightedMultiSig** 關聯的賬戶的交易有效，必須滿足以下條件：

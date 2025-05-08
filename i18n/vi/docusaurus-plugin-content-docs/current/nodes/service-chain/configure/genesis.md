@@ -8,7 +8,7 @@ The `genesis.json` file structure is described in the following table.
 
 | Field Name | Description                                                                                                                                                  |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| config     | The blockchain configuration. See the section [Config](#config).                                                              |
+| config     | The blokchain configuration. See the section [Config](#config).                                                              |
 | nonce      | (deprecated) This field is derived from the Ethereum, but not used in Kaia.                                               |
 | timestamp  | The unix time when a block is created.                                                                                                       |
 | extraData  | The data combined field for signer vanity and RLP-encoded istanbul extra data that contains validator list, proposer seal, and commit seals. |
