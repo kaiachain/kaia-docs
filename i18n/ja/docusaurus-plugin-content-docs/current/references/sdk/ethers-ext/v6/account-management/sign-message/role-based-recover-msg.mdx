@@ -1,5 +1,10 @@
 # 役割ベースのアカウント・キー
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/ethers-ext-v6/SignMessage/AccountKeyRoleBased.tsx" route={RoutePath.EthersExt_SignMsg_Role} />
+
 **AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
