@@ -5,8 +5,8 @@ import { useColorMode } from '@docusaurus/theme-common';
 import Translate from '@docusaurus/Translate';
 
 type FavoriteType = 'gettingStarted' | 'metamask' | 'snapshot' | 'rpc' | 'explorers' | 'wallets';
-type NewDocType = 'surveyMinidapp' | 'unityMinidapp' | 'cocosMinidapp';
-type BadgeType = 'NEW' | 'UPDATE';
+type NewDocType = 'codeSandbox' | 'surveyMinidapp' | 'cocosMinidapp';
+type BadgeType = 'NEW_CONTENT' | 'NEW_FEATURE' | 'UPDATE';
 
 interface Favorite {
   type: FavoriteType;
@@ -34,22 +34,22 @@ const rightFavorites: Favorite[] = [
 
 const newDocs: NewDoc[] = [
   { 
+    type: 'codeSandbox', 
+    link: '/references/sdk/ethers-ext/v6/account-management/account-key/legacy', 
+    date: '2025-05-08',
+    badgeType: 'NEW_FEATURE'
+  },
+  { 
     type: 'surveyMinidapp', 
     link: '/minidapps/survey-minidapp/intro', 
     date: '2025-03-06',
-    badgeType: 'NEW'
-  },
-  { 
-    type: 'unityMinidapp', 
-    link: '/minidapps', 
-    date: '2025-03-05',
-    badgeType: 'UPDATE'
+    badgeType: 'NEW_CONTENT'
   },
   { 
     type: 'cocosMinidapp', 
     link: '/minidapps/cocos-creator', 
     date: '2025-03-04',
-    badgeType: 'NEW'
+    badgeType: 'NEW_CONTENT'
   },
 ];
 
@@ -165,7 +165,7 @@ const NewDocItem = styled(Link)<{ themeMode: string }>`
 const NewDocBadge = styled.span<{ badgeType: BadgeType; themeMode: string }>`
   display: inline-block;
   background: ${({ badgeType }) => 
-    badgeType === 'NEW' ? 'var(--ifm-link-color)' : '#FF9800'};
+    badgeType === 'NEW_CONTENT' || badgeType === 'NEW_FEATURE' ? 'var(--ifm-link-color)' : '#FF9800'};
   color: ${({ themeMode }) => themeMode === 'dark' ? '#000000' : '#ffffff'};
   font-size: 0.75rem;
   font-weight: bold;
@@ -304,9 +304,13 @@ const NewDocContent = ({ doc }: { doc: NewDoc }) => {
   return (
     <NewDocItem to={doc.link} themeMode={colorMode}>
       <NewDocBadge badgeType={doc.badgeType} themeMode={colorMode}>
-        {doc.badgeType === 'NEW' ? (
-          <Translate id="homepage.newDocs.badge.new" description="Badge text for new documents">
-            NEW
+        {doc.badgeType === 'NEW_CONTENT' ? (
+          <Translate id="homepage.newDocs.badge.newContent" description="Badge text for new content">
+            NEW CONTENT
+          </Translate>
+        ) : doc.badgeType === 'NEW_FEATURE' ? (
+          <Translate id="homepage.newDocs.badge.newFeature" description="Badge text for new features">
+            NEW FEATURE
           </Translate>
         ) : (
           <Translate id="homepage.newDocs.badge.update" description="Badge text for updated documents">
@@ -322,14 +326,14 @@ const NewDocContent = ({ doc }: { doc: NewDoc }) => {
         })}
       </NewDocDate>
       <NewDocTitle themeMode={colorMode}>
+        {doc.type === 'codeSandbox' && (
+          <Translate id="homepage.newDocs.codeSandbox.title" description="Title for Live Code Editor feature">
+            Live Code Editor Now Available in SDK Docs!
+          </Translate>
+        )}
         {doc.type === 'surveyMinidapp' && (
           <Translate id="homepage.newDocs.surveyMinidapp.title" description="Title for Survey Mini DApp doc">
             Building a Survey DApp on Kaia
-          </Translate>
-        )}
-        {doc.type === 'unityMinidapp' && (
-          <Translate id="homepage.newDocs.unityMinidapp.title" description="Title for Unity Mini DApp doc">
-            Creating a LINE Mini DApp with Unity
           </Translate>
         )}
         {doc.type === 'cocosMinidapp' && (
@@ -339,18 +343,18 @@ const NewDocContent = ({ doc }: { doc: NewDoc }) => {
         )}
       </NewDocTitle>
       <NewDocDescription themeMode={colorMode}>
+        {doc.type === 'codeSandbox' && (
+          <Translate id="homepage.newDocs.codeSandbox.description" description="Description for Live Code Editor feature">
+            Try out code instantly in Kaia Docs! The SDK pages now feature a live CodeSandbox editor for Ethers-ext (v6) and Web3js-ext Account Management.
+          </Translate>
+        )}
         {doc.type === 'surveyMinidapp' && (
-          <Translate id="homepage.newDocs.surveyMinidapp.description" description="Description for Upgradeable Smart Contracts doc">
+          <Translate id="homepage.newDocs.surveyMinidapp.description" description="Description for Survey Mini DApp doc">
             Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.
           </Translate>
         )}
-        {doc.type === 'unityMinidapp' && (
-          <Translate id="homepage.newDocs.unityMinidapp.description" description="Description for DApp Security doc">
-            Develop a fully integrated LINE mini dApp with Unity that seamlessly combines Web3 connectivity, intuitive UI design, and LIFF conversion.
-          </Translate>
-        )}
         {doc.type === 'cocosMinidapp' && (
-          <Translate id="homepage.newDocs.cocosMinidapp.description" description="Description for API Updates doc">
+          <Translate id="homepage.newDocs.cocosMinidapp.description" description="Description for Cocos Mini DApp doc">
             Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF. 
           </Translate>
         )}
