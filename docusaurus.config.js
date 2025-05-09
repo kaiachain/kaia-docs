@@ -318,7 +318,7 @@ const config = {
                 label: 'Service Chain',
               },
               {
-                to: "misc/debugging",
+                to: "nodes/debugging",
                 label: 'Debugging and Diagnostics',
               },
               {

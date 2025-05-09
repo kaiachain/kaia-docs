@@ -404,12 +404,12 @@ const sidebars = {
     {
       type: 'category',
       label: 'Debugging and Diagnostics',
-      link: { type: 'doc', id: 'misc/debugging/debugging'},
+      link: { type: 'doc', id: 'nodes/debugging/debugging'},
       items: [
-        'misc/debugging/monitoring-setup',
-        'misc/debugging/node-profiling',
-        'misc/debugging/node-log',
-        'misc/debugging/analytics-tool',
+        'nodes/debugging/monitoring-setup',
+        'nodes/debugging/node-profiling',
+        'nodes/debugging/node-log',
+        'nodes/debugging/analytics-tool',
       ]
     },
     {
