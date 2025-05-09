@@ -203,7 +203,7 @@ For other operating systems, refer to the [official Grafana documentation](https
 
 :::note[Additional Kaia Dashboards]
 
-For a complete pre-configured dashboard and automated provisioning setup, refer to the [klaytn-deploy repository](https://github.com/klaytn/klaytn-deploy/tree/main/grafana). This repository contains JSON files for pre-built dashboards and configuration files for provisioning data sources.
+For a complete pre-configured dashboard and automated provisioning setup, refer to the [kaiaspray repository](https://github.com/kaiachain/kaiaspray/tree/main/roles/monitor-init/files/grafana/dashboards). This repository contains JSON files for pre-built dashboards and configuration files for provisioning data sources.
 
 :::
 
