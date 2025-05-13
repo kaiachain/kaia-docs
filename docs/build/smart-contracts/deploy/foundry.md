@@ -183,7 +183,7 @@ In this guide, we will use the two methods of contract deployment provided by fo
 
 ### Using Forge Create
 
-**Step 1**: To deploy your contract to the Kaia Kairos network uing forge create, run the command below:
+**Step 1**: To deploy your contract to the Kaia Kairos network using forge create, run the command below:
 
 ```bash
 # To load the variables in the .env file
@@ -211,7 +211,7 @@ For any deployment beyond basic testnet usage in a development environment, it i
 
 ### Using Forge Script
 
-To deploy your contract to the Kaia Kairos network uing forge script, run the command below:
+To deploy your contract to the Kaia Kairos network using forge script, run the command below:
 
 ```bash
 # To load the variables in the .env file
@@ -453,7 +453,7 @@ The `--gas-estimate-multiplier` flag sets the relative percentage by which to mu
 
 ## Conclusion
 
-Congratulations! if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/). However, below is a list of useful resources you might need while further building with Foundry on Kaia.
+Congratulations if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/). However, below is a list of useful resources you might need while further building with Foundry on Kaia.
 
 * [Foundry Docs](https://book.getfoundry.sh/)
 * [Cyfrin Foundry Fundamentals](https://updraft.cyfrin.io/courses/foundry)
