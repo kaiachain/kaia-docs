@@ -2,17 +2,21 @@
 
 由於 Kaia 的目標是保持 1 秒的區塊時間，因此必須對事務的執行時間進行管理。 以下是實現這一目標的三種方法：
 
-1. 限制交易的氣體限值
-2. 限制事務的執行時間
-3. 限制交易的計算成本
+### 1. 限制交易的瓦斯上限 (不在 Kaia 中)
 
 限制交易的氣體上限並不是一個可行的解決方案，因為氣體的概念代表了區塊鏈平臺中各種資源（如計算、存儲、網絡帶寬等）當前的交換價值。 它不適合作為衡量事務執行時間的指標。
 
-限制交易的執行時間也不可行，因為區塊鏈平臺上不同節點的執行時間可能不同。 例如，我們將事務的執行時間限制為 100 毫秒。 如果一個節點在 90 毫秒內執行了一個事務，而另一個節點在 110 毫秒內執行了該事務，則這兩個節點無法達成共識。 因此，這種解決方案並不合適。
+### 2. 限制交易的執行時間 (不在 Kaia 中)
 
-最後一種方法是限制交易的計算成本。 我們根據每個 EVM 操作碼的實際執行時間對其計算成本進行建模，並限制一個事務的計算成本總和。 通過這種方法，我們可以排除其他因素，只計算歸一化的執行時間單位，節點也能達成共識。
+限制交易的執行時間也不可行，因為區塊鏈平臺上不同節點的執行時間可能不同。 例如，考慮我們限制交易的執行時間為 100 ms 的情況。 如果一個節點在 90 毫秒內執行了一個事務，而另一個節點在 110 毫秒內執行了該事務，則這兩個節點無法達成共識。 因此，這種解決方案並不合適。
 
-因此，我們為 Kaia 選擇了第三種方案。 計算成本上限為 100,000,000 美元，但隨著 CPU 計算性能的提高，坎昆 EVM 硬分叉後上限已提高到 150,000,000 美元。 該限制值由平臺決定，因此開發人員應瞭解交易的計算成本。 To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
+### 3. 限制區塊的執行時間（在 Kaia 中有效）
+
+Kaia 有區塊執行時間的非驗證限制。 由於執行時間無法在驗證者之間達成一致，因此此限制不受區塊驗證所限。 但是，區塊提案者應強制執行區塊的時間限制。 提案者應該只包含交易，直到執行在 250 毫秒 (BlockGenerationTimeLimit) 內完成為止。 其中一項豁免是區塊的第一筆交易，以防止假設的長時間交易被永遠拒絕。 但第一個交易仍會受到計算成本的限制，因此它不能花費過多的時間。 另一項豁免是 [KIP-245 bundle](https://kips.kaia.io/KIPs/kip-245)。
+
+### 4. 限制交易的計算成本（在 Kaia 中有效）
+
+我們根據每個 EVM 操作碼的實際執行時間對其計算成本進行建模，並限制一個事務的計算成本總和。 通過這種方法，我們可以排除其他因素，只計算歸一化的執行時間單位，節點也能達成共識。 計算成本限制原為 100,000,000 (OpcodeComputationCostLimit)，但隨著 CPU 運算效能的提升，在 Cancun EVM hardfork 之後，限制已提升至 150,000,000 (OpcodeComputationCostLimitCancun)。 該限制值由平臺決定，因此開發人員應瞭解交易的計算成本。 To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
 
 :::note
 
