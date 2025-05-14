@@ -8,11 +8,11 @@ Since Kaia aims to maintain 1-second block time, the execution time of transacti
 
 ### 2. Limiting the execution time of a transaction (not in Kaia)
 
-Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100ms. If a node executes a transaction in 90ms and another node executes it in 110ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
+Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 ms. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
 
 ### 3. Limiting the execution time of a block (effective in Kaia)
 
-Kaia has a non-validated limit of block execution time. Because execution time cannot be agreed among validators, this limit is not subject to block validation. However, a block proposer shall enforce the time limit of block execution. The proposer should include transactions only until the execution finished within 250ms (BlockGenerationTimeLimit). One exemption is the first transaction of the block, to prevent a hypothetical long-running transaction to be stucked forever. But the first transaction will still be limited by computation cost so it cannot spend exceedingly long time. Another exemption is the [KIP-245 bundle](https://kips.kaia.io/KIPs/kip-245).
+Kaia has a non-validated limit of block execution time. Because execution time cannot be agreed among validators, this limit is not subject to block validation. However, a block proposer shall enforce the time limit of block execution. The proposer should include transactions only until the execution finished within 250 ms (BlockGenerationTimeLimit). One exemption is the first transaction of the block, to prevent a hypothetical long-running transaction to be rejected forever. But the first transaction will still be limited by computation cost so it cannot spend exceedingly long time. Another exemption is the [KIP-245 bundle](https://kips.kaia.io/KIPs/kip-245).
 
 ### 4. Limiting the computation cost of a transaction (effective in Kaia)
 

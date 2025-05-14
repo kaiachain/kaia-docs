@@ -38,7 +38,7 @@ This mechanism aims to introduce unpredictability in the block creation and comm
 Kaia Mainnet and Kairos Testnet currently have the following restrictions on the transaction execution:
 
 * You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
-* A block proposer shall not spend more than 250ms in block execution. Please refer to [computation cost](./computation-cost.md)
+* A block proposer shall not spend more than 250 ms in block execution. Please refer to [computation cost](./computation-cost.md)
 * A transaction cannot spend more than the computation cost limit. Please refer to [computation cost](./computation-cost.md)
 
 ### Restrictions on Smart Contract Deployment <a id="restriction-on-smart-contract-deployment"></a>
