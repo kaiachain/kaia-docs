@@ -563,14 +563,6 @@
     "message": "無縫整合數字資產並確保其安全。",
     "description": "Description for Wallets section"
   },
-  "homepage.favorites.indexers.title": {
-    "message": "索引",
-    "description": "Title for Indexers section"
-  },
-  "homepage.favorites.indexers.description": {
-    "message": "查詢和索引區塊鏈數據，提高 dApp 性能。",
-    "description": "Description for Indexers section"
-  },
   "homepage.favorites.guides.title": {
     "message": "熱門指南",
     "description": "Title for the Popular Guides section"
@@ -641,10 +633,6 @@
     "message": "搜尋關於 Kaia 的即時和歷史資訊。",
     "description": "Description for Block Explorers section"
   },
-  "homepage.newDocs.badge.new": {
-    "message": "全新",
-    "description": "Badge text for new documents"
-  },
   "homepage.newDocs.badge.update": {
     "message": "更新",
     "description": "Badge text for updated documents"
@@ -653,25 +641,17 @@
     "message": "在 Kaia 上建立調查 DApp",
     "description": "Title for Survey Mini DApp doc"
   },
-  "homepage.newDocs.unityMinidapp.title": {
-    "message": "使用 Unity 建立 LINE Mini DApp",
-    "description": "Title for Unity Mini DApp doc"
-  },
   "homepage.newDocs.cocosMinidapp.title": {
     "message": "使用 Cocos Creator 製作 LINE Mini DApp 指南",
     "description": "Title for Cocos Mini DApp doc"
   },
   "homepage.newDocs.surveyMinidapp.description": {
     "message": "在 Kaia 上建立一個以隱私為重點的分散式調查應用程式，使用 Semaphore 來實現匿名性，並使用 LINE 來實現社交功能。",
-    "description": "Description for Upgradeable Smart Contracts doc"
-  },
-  "homepage.newDocs.unityMinidapp.description": {
-    "message": "使用 Unity 開發完全整合的 LINE mini dApp，無縫結合 Web3 連線、直覺式 UI 設計和 LIFF 轉換。",
-    "description": "Description for DApp Security doc"
+    "description": "Description for Survey Mini DApp doc"
   },
   "homepage.newDocs.cocosMinidapp.description": {
     "message": "使用 Cocos Creator、Web3 和 LIFF 建立、整合和部署 LINE mini dApp。",
-    "description": "Description for API Updates doc"
+    "description": "Description for Cocos Mini DApp doc"
   },
   "homepage.newDocs.title": {
     "message": "最新消息",
@@ -680,5 +660,21 @@
   "homepage.newDocs.subtitle": {
     "message": "探索我們最新的更新和新增的文件。",
     "description": "Subtitle for the What's New section"
+  },
+  "homepage.newDocs.codeSandbox.title": {
+    "message": "SDK 文件中現有 Live Code Editor！",
+    "description": "Title for Live Code Editor feature"
+  },
+  "homepage.newDocs.codeSandbox.description": {
+    "message": "在 Kaia Docs 中立即試用程式碼！SDK 頁面現在提供 Ethers-ext (v6) 和 Web3js-ext 帳戶管理的即時 CodeSandbox 編輯器。",
+    "description": "Description for Live Code Editor feature"
+  },
+  "homepage.newDocs.badge.newContent": {
+    "message": "新內容",
+    "description": "Badge text for new content"
+  },
+  "homepage.newDocs.badge.newFeature": {
+    "message": "新功能",
+    "description": "Badge text for new features"
   }
 }
