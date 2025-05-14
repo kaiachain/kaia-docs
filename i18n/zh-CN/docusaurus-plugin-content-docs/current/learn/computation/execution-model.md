@@ -38,8 +38,8 @@ Kaia 采用了一种新机制，在区块提议者和委员会选择过程中引
 Kaia Mainnet 和 Kairos Testnet 目前对交易执行有以下限制：
 
 - 您可以设置交易的 gasPrice，但这意味着这是您能支付的最高价格。 实际天然气价格将由网络决定。 更多详细信息，请参阅[天然气价格概览](../transaction-fees/transaction-fees.md#gas-price-overview)
-- 执行成本大于计算成本限制的事务将被丢弃。 请参阅 [计算成本](./computation-cost.md)
-- 从上海硬分叉开始，根据初始代码的长度创建合约需要额外的 gas 费用，每 32 字节的初始代码收取 2 gas。
+- A block proposer shall not spend more than 250 ms in block execution. 请参阅 [计算成本](./computation-cost.md)
+- 交易支出不能超过计算成本限额。 请参阅 [计算成本](./computation-cost.md)
 
 ### 智能合约部署限制<a id="restriction-on-smart-contract-deployment"></a>
 
