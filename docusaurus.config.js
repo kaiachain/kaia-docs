@@ -314,6 +314,10 @@ const config = {
                 label: 'Service Chain',
               },
               {
+                to: "nodes/debugging",
+                label: 'Debugging and Diagnostics',
+              },
+              {
                 to: "nodes/downloads",
                 label: 'Node Downloads',
               },

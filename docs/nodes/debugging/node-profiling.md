@@ -8,7 +8,7 @@ Before you begin, ensure that:
 
 - **Node Setup:** Your Kaia node is correctly installed and running.  
     
-- **Access to Node Console:** You'll need to interact with the node either via [the node console](../../nodes/endpoint-node/ken-cli-commands.md#javascript-console).
+- **Access to Node Console:** You'll need to interact with the node either via [the node console](../endpoint-node/ken-cli-commands.md#javascript-console).
     
 - **Tools:** Go is installed on your system to use `go tool pprof` and `go tool trace`. You can verify by running:
 
