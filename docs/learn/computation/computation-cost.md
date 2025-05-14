@@ -1,18 +1,22 @@
 # Computation Cost
 
-Since Kaia aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that: 
+Since Kaia aims to maintain 1-second block time, the execution time of transactions has to be managed. Here are three approaches to achieve that:
 
-1. Limiting the gas limit of a transaction 
-2. Limiting the execution time of a transaction 
-3. Limiting the computation cost of a transaction
+### 1. Limiting the gas limit of a transaction (not in Kaia)
 
-Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
+  Limiting the gas limit of a transaction was not a feasible solution because the concept of the gas represents the current exchange value of the various resources in the blockchain platform such as computation, storage, network bandwidth, and so on. It is not suitable as a metric for the transaction execution time.
 
-Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 milli-second. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
+### 2. Limiting the execution time of a transaction (not in Kaia)
 
-The last approach is to limit the computation cost of a transaction. We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well.
+Limiting the execution time of a transaction was not feasible either because the execution time can vary between nodes on the blockchain platform. For example, consider the case in which we limit the execution time of a transaction to be 100 ms. If a node executes a transaction in 90 ms and another node executes it in 110 ms, the two nodes cannot reach a consensus. Hence, this solution is not appropriate.
 
-Therefore, we chose the third option for Kaia. The computation cost limit was 100,000,000, but as CPU computing performance has increased, the limit has been raised to 150,000,000 after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
+### 3. Limiting the execution time of a block (effective in Kaia)
+
+Kaia has a non-validated limit of block execution time. Because execution time cannot be agreed among validators, this limit is not subject to block validation. However, a block proposer shall enforce the time limit of block execution. The proposer should include transactions only until the execution finished within 250 ms (BlockGenerationTimeLimit). One exemption is the first transaction of the block, to prevent a hypothetical long-running transaction to be rejected forever. But the first transaction will still be limited by computation cost so it cannot spend exceedingly long time. Another exemption is the [KIP-245 bundle](https://kips.kaia.io/KIPs/kip-245).
+
+### 4. Limiting the computation cost of a transaction (effective in Kaia)
+
+We modelled the computation cost of each EVM opcode based on its actual execution time and limit the sum of computation cost of a transaction. With this approach, we eliminate other factors and only count the normalized execution time unit, and nodes can reach a consensus as well. The computation cost limit was 100,000,000 (OpcodeComputationCostLimit), but as CPU computing performance has increased, the limit has been raised to 150,000,000 (OpcodeComputationCostLimitCancun) after Cancun EVM hardfork. This limit value is determined by the platform, so the developers should be aware of the computation cost of a transaction. To calculate the computation cost of a transaction, Kaia provides [kaia_estimateComputationCost](../../../references/json-rpc/kaia/estimate-computation-cost). The usage is almost the same as [kaia_estimateGas](../../../references/json-rpc/kaia/estimate-gas).
 
 :::note
 
