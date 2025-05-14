@@ -52,8 +52,7 @@ forge init foundry_example
 **Step 2**: Navigate into your project folder.
 
 ```bash 
-cd foundry_example
-ls	 
+cd foundry_example 
 ```
 
 After initializing a foundry project, your current directory should include:
@@ -63,6 +62,43 @@ After initializing a foundry project, your current directory should include:
 * **foundry.toml**: the default project configuration file.
 * **lib**:  the default directory for project dependencies.
 * **script**: the default directory for solidity scripting files.
+
+## Configuring foundry.toml
+
+Now that we have our project set up, we have to create a `.env` file and add variables. Foundry automatically loads in a .env file present in your project directory.
+
+The .env file should follow this format:
+
+```bash
+KAIROS_RPC_URL=PASTE_RPC_URL
+```
+
+Next is to edit the `foundry.toml` file. You should already have one in the root of the project after scaffold.
+
+Add the following lines to the end of the file:
+
+```bash
+[rpc_endpoints]
+kairos = "${KAIROS_RPC_URL}"
+```
+This creates a [RPC alias](https://book.getfoundry.sh/cheatcodes/rpc.html) for Kaia Kairos Testnet. 
+
+## Importing Account
+
+For this guide we will import an already existing dev account on MetaMask so it can be accessed through the `--account` option in methods like `forge script`, `cast send` or any other that requires a private key. 
+
+Run the command below to import an exisitng wallet:
+
+```bash
+cast wallet import --interactive oxpampam-dev-i
+```
+
+```bash
+Enter private key:
+Enter password:
+```
+
+![](/img/build/get-started/cast-wallet-import.png)
 
 ## Sample smart contract
 
@@ -143,43 +179,67 @@ forge build
 
 To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
 
-**Step 1**: To deploy your contract to the Kaia Kairos network, run the command below: 
+In this guide, we will use the two methods of contract deployment provided by foundry: 
+
+### Using Forge Create
+
+**Step 1**: To deploy your contract to the Kaia Kairos network using forge create, run the command below:
 
 ```bash
-$ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
-```
+# To load the variables in the .env file
+source .env
 
-**Example**
+# To deploy our contract
+forge create --rpc-url $KAIROS_RPC_URL src/Counter.sol:Counter --broadcast --account oxpampam-dev-i 
+```
 
 ```bash
-forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+Enter keystore password: <KEYSTORE_PASSWORD>
 ```
 
-**WARNING: Replace the private key argument with your private key from MetaMask. Be very careful not to expose your private key.**
+:::note
+For any deployment beyond basic testnet usage in a development environment, it is highly recommended to use a [hardware wallet or a password-protected keystore](https://book.getfoundry.sh/guides/best-practices.html#private-key-management) for enhanced security.
+:::
 
-**Output**
+![](/img/build/get-started/forge-create-deploy.png)
 
-![](/img/build/get-started/foundry-create.png)
-
-**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x83c8b55f3fd90110f9b83cd20df2b2bed76cfeb42447725af2d60b2885f479d3?tabId=internalTx) to check if the counter contract deployed successfully.
+**Step 2**: Open Kaiascan to check if the counter contract deployed successfully.
 
 **Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
 
-![](/img/build/get-started/forge-scope.png)
+![](/img/build/get-started/kaiascan-deploy.png)
+
+### Using Forge Script
+
+To deploy your contract to the Kaia Kairos network using forge script, run the command below:
+
+```bash
+# To load the variables in the .env file
+source .env
+
+# To deploy our contract
+forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --broadcast -vvvv --account oxpampam-dev-i
+```
+
+![](/img/build/get-started/forge-script-deploy.png)
 
 ## Interacting with the contract 
 
-After successfully deploying your smart contract, you will want to call and execute functions right. Let's get to interact with the deployed contracts on Kaia Kairos Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+After successfully deploying your smart contract, the next step is typically to interact with it by calling and executing its functions. Let's get straight into interacting with the deployed contracts on Kaia Kairos Network using [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  
 
-**A. cast call**: To get the number stored in the contract, you will be calling the `number` function. Run the command below to see this in action.
+In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+
+**A. cast call**
+
+To get the number stored in the contract, you will be calling the `number` function. Run the command below to see this in action.
 
 ```bash
-cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
+cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url $KAIROS_RPC_URL
 ```
 **Example**
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+cast call 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
 ```
 
 **Output**
@@ -191,7 +251,7 @@ You should get this data in hexadecimal format:
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
-However to get your desired result, use cast to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 0:
+However to get your desired result, use `cast` to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 0:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
@@ -200,16 +260,18 @@ cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000
 
 ![](/img/build/get-started/cast-call-0.png)
 
-**B. cast send**: To sign and publish a transaction such as executing a `setNumber` function in the counter contract, run the command below:
+**B. cast send**
+
+To sign and publish a transaction such as executing a `setNumber` function in the counter contract, run the command below:
 
 ```bash
-cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
+cast send --rpc-url=$KAIROS_RPC_URL <CONTRACT-ADDRESS> "setNumber(uint256)" arg --account <ACCOUNT NAME>
 ```
 
 **Example**
 
 ```bash
-cast send --rpc-url=https://public-en-kairos.node.kaia.io 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=$KAIROS_RPC_URL 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "setNumber(uint256)"  10 --account oxpampam-dev-i
 ```
 
 **Output**
@@ -219,7 +281,7 @@ cast send --rpc-url=https://public-en-kairos.node.kaia.io 0x7E80F70EeA1aF481b80e
 **Crosscheck Number**
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+cast call 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
 ```
 
 **Output**
@@ -275,81 +337,125 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
 
 ### Illustration
-In this section, you will learn how to transfer oUSDC tokens from someone who holds oUSDC to an account created by Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
+In this section, you will learn how to transfer USDT tokens from someone who holds USDT to an account created by Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
 
-**Transferring oUSDC**
+**Transferring USDT**
 
-Go to Kaiascope and search for holders of oUSDC tokens (here). Let's pick a random account. In this example, we will be using `0x8e61241e0525bd45cfc43dd7ba0229b422545bca`. 
+Go to Kaiascan and search for holders of USDT tokens ([here](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. In this example, we will use `0xb3ff853a137bfe10f3d8965a29013455e1619303`. 
 
 Let's export our contracts and accounts as environment variables:
 
 ```bash
 export BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
-export oUSDC=0x754288077d0ff82af7a5317c7cb8c444d421d103
-export oUSDCHolder=0x8e61241e0525bd45cfc43dd7ba0229b422545bca
+export USDT=0xd077a400968890eacc75cdc901f0356c943e4fdb
+export USDTHolder=0xb3ff853a137bfe10f3d8965a29013455e1619303
 ```
 
-We can check Bob’s balance using cast call:
+Check Bob’s USDT balance using cast call:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+cast call $USDT "balanceOf(address)(uint256)" $BOB
 ```
 
 **Output**
 
-![](/img/build/get-started/oUsdcBob4.png)
+![](/img/build/get-started/call-usdt-bob.png)
 
-Similarly, we can also check our oUSDC holder’s balance using cast call:
+Similarly, we can also check USDTHolder's USDT balance using cast call:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+cast call $USDT "balanceOf(address)(uint256)" $USDTHolder
 ```
 
 **Output** 
 
-![](/img/build/get-started/oUsdcHolder4.png)
+![](/img/build/get-started/call-usdt-holder.png)
 
-Let's transfer some tokens from the lucky user to Alice using cast send:
+Let's transfer some tokens from the USDTHolder to Bob using cast send:
 
 ```bash
-cast rpc anvil_impersonateAccount $oUSDCHolder    
-cast send $oUSDC \
---unlocked \
---from $oUSDCHolder\
- "transfer(address,uint256)(bool)" \
- $BOB \
- 1000000
-```0000
+# impersonate USDTHolder
+cast rpc anvil_impersonateAccount $USDTHolder    
+
+# transfer USDT
+cast send $USDT --unlocked --from $USDTHolder "transfer(address,uint256)(bool)" $BOB 1000000
 ```
 
 **Output**
 
-![](/img/build/get-started/cast-send.png)
+![](/img/build/get-started/cast-send-usdt.png)
 
 Let's check that the transfer worked:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+cast call $USDT "balanceOf(address)(uint256)" $BOB
 ```
 
 **Output**
 
-![](/img/build/get-started/oUsdcBobAfter.png)
+![](/img/build/get-started/call-usdt-bob-after.png)
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+cast call $USDT "balanceOf(address)(uint256)" $USDTHolder
 ```
 
 **Output**
 
-![](/img/build/get-started/oUsdcHolderAfter.png)
+![](/img/build/get-started/call-usdtholder-after.png)
 
-For more in-depth guide on foundry, please refer to [Foundry Docs](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry).
+## Troubleshooting 
+
+### Gas Estimation Error
+
+You might run into this error when deploying with forge script:
+
+```bash
+# Transaction Failure
+❌  [Failed] Hash: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+Error: Transaction Failure: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+
+# Transaction Error Codes on Explorer
+Error: Contract creation code storage out of gas
+```
+
+![](/img/build/get-started/gas-estimation-err.png)
+
+This usually happens because of inaccurate gas estimation during deployment. Foundry's default gas estimation algorithm (with its default 130% multiplier) sometimes falls short on Kaia network, causing deployments to run out of gas before completion.  
+
+When the actual gas needed exceeds the estimated amount, the transaction runs out of gas during contract deployment, resulting in the *Contract creation code storage out of gas* error.
+
+**Quick Fix: Manually Set the Gas Multiplier**
+
+Run your script with an increased --gas-estimate-multiplier 200 or higher like so:
+
+```bash
+# command
+forge script script/YourContract.s.sol:YourScript \
+  --chain <chain-id> \
+  --rpc-url $RPC_URL \
+  --broadcast \
+  --gas-estimate-multiplier 200 \
+  --account your-account \
+  -vvvv
+```
+
+```bash
+# example 
+
+forge script --chain 1001 script/NFT.s.sol:NFTScript --rpc-url $KAIROS_RPC_URL --broadcast --gas-estimate-multiplier 200 -vvvv --account oxpampam-dev-i
+```
+
+:::note
+The `--gas-estimate-multiplier` flag sets the relative percentage by which to multiply all gas estimates. By setting it to 200, you're doubling the gas estimates, which gives your contract deployment enough headroom to complete successfully.
+:::
+
+![](/img/build/get-started/gas-estimation-fixed.png) 
+
+## Conclusion
+
+Congratulations if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/). However, below is a list of useful resources you might need while further building with Foundry on Kaia.
+
+* [Foundry Docs](https://book.getfoundry.sh/)
+* [Cyfrin Foundry Fundamentals](https://updraft.cyfrin.io/courses/foundry)
+* [Cyfrin Advanced Foundry](https://updraft.cyfrin.io/courses/advanced-foundry)
+
