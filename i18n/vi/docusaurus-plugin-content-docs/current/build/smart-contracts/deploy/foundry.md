@@ -53,8 +53,7 @@ forge init foundry_example
 **Bước 2**: Điều hướng đến thư mục dự án của bạn.
 
 ```bash
-cd foundry_example
-ls	 
+cd foundry_example 
 ```
 
 Sau khi khởi tạo một dự án foundry, thư mục hiện tại của bạn sẽ bao gồm:
@@ -65,9 +64,47 @@ Sau khi khởi tạo một dự án foundry, thư mục hiện tại của bạn
 - **lib**:  thư mục mặc định cho các phần phụ thuộc của dự án.
 - **script**: thư mục mặc định cho các tập tin tập lệnh solidity.
 
-## Hợp đồng thông minh mẫu
+## Cấu hình foundry.toml
 
-Trong phần này, chúng ta sẽ dùng hợp đồng đối ứng mẫu trong dự án foundry được khởi tạo. Tập tin `counter.sol` trong thư mục `src/` cần phải có dạng:
+Bây giờ chúng ta đã thiết lập xong dự án, chúng ta phải tạo tệp `.env` và thêm các biến. Foundry sẽ tự động tải tệp .env có trong thư mục dự án của bạn.
+
+Tệp .env phải tuân theo định dạng sau:
+
+```bash
+KAIROS_RPC_URL=DÁN_URL_RPC
+```
+
+Tiếp theo là chỉnh sửa tệp `foundry.toml`. Bạn phải có một cái ở gốc của dự án sau khi tạo giàn giáo.
+
+Thêm các dòng sau vào cuối tệp:
+
+```bash
+[rpc_endpoints]
+kairos = "${KAIROS_RPC_URL}"
+```
+
+Điều này tạo ra [RPC alias](https://book.getfoundry.sh/cheatcodes/rpc.html) cho Kaia Kairos Testnet.
+
+## Nhập tài khoản
+
+Trong hướng dẫn này, chúng ta sẽ nhập một tài khoản dev đã tồn tại trên MetaMask để có thể truy cập thông qua tùy chọn `--account` trong các phương pháp như `forge script`, `cast send` hoặc bất kỳ phương pháp nào khác yêu cầu khóa riêng.
+
+Chạy lệnh bên dưới để nhập ví hiện có:
+
+```bash
+cast ví nhập --interactive oxpampam-dev-i
+```
+
+```bash
+Nhập khóa riêng tư:
+Nhập mật khẩu:
+```
+
+![](/img/build/get-started/cast-wallet-import.png)
+
+## Sample smart contract
+
+In this section, we will be using the sample counter contract in the initialized foundry project. The `counter.sol` file in the `src/` folder should look like this:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -83,13 +120,13 @@ contract Counter {
 }
 ```
 
-**Hướng dẫn về mã**
+**Code Walkthrough**
 
-Đây là hợp đồng thông minh của bạn. **Dòng 1** cho thấy Foundry sử dụng phiên bản Solidity 0.8.13 hoặc cao hơn. Từ **dòng 4-12**, một hợp đồng thông minh `Counter` đã được tạo. Hợp đồng này chỉ chứa một số mới bằng cách sử dụng hàm **setNumber** và tăng số đó bằng cách gọi ra hàm **increment**.
+This is your smart contract. **Line 1** shows it uses the Solidity version 0.8.13 or greater. From **lines 4-12**, a smart contract `Counter` is created. This contract simply stores a new number using the **setNumber** function and increments it by calling the **increment** function.
 
-## Thử nghiệm hợp đồng thông minh
+## Testing smart contract
 
-Foundry cho phép chúng ta viết thử nghiệm bằng solidity thay vì javascript như trong các bộ khung phát triển hợp đồng thông mình khác. Trong dự án foundry đã khởi tạo, `test/Counter.t.sol` là ví dụ về một thử nghiệm viết bằng solidity. Mã sẽ có dạng:
+Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. In our initialized foundry project, the `test/Counter.t.sol` is an example of a test written in solidity. The code looks like this:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -113,248 +150,318 @@ contract CounterTest is Test {
 }
 ```
 
-Mã trên cho thấy bạn đã nhập thư viện tiêu chuẩn của forge và Counter.sol.
+The code above shows you imported forge standard library and Counter.sol.
 
-Các bài kiểm tra ở trên kiểm tra các điểm sau:
+The tests above check the following:
 
-- Số đó có tăng lên không?
-- Số đó có bằng với số đã đặt không?
+- Is the number increasing?
+- Is the number equal to the set number?
 
-Để kiểm tra xem thử nghiệm của bạn có chạy ổn hay không, hãy chạy lệnh sau:
+To check if your test works fine, run the following command:
 
 ```bash
 forge test
 ```
 
-**Kết quả đầu ra**
+**Output**
 
 ![](/img/build/get-started/forge-test.png)
 
-Để tìm hiểu thêm về việc viết thử nghiệm, thử nghiệm nâng cao và các tính năng khác, hãy tham khảo [Tài liệu của Foundry](https://book.getfoundry.sh/forge/tests).
+To learn more about writing tests, advanced testing, and other features, refer to [Foundry's documentation](https://book.getfoundry.sh/forge/tests).
 
-## Lập hợp đồng
+## Compiling your contracts
 
-Lập hợp đồng bằng lệnh sau:
+Compile your contract with this command:
 
 ```bash
 forge build 
 ```
 
-## Triển khai hợp đồng
+## Deploying your contracts
 
-Để triển khai một hợp đồng bằng foundry, bạn phải cung cấp một URL RPC và một khóa riêng tư của tài khoản triển khai hợp đồng đó. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
 
-**Bước 1**: Để triển khai hợp đồng của bạn trên mạng Baobab của Klaytn, hãy chạy lệnh dưới đây:
+Trong hướng dẫn này, chúng tôi sẽ sử dụng hai phương pháp triển khai hợp đồng do Foundry cung cấp:
 
-```bash
-$ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
-```
+### Sử dụng Forge Create
 
-**Ví dụ**
+**Bước 1**: Để triển khai hợp đồng của bạn tới mạng Kaia Kairos bằng forge create, hãy chạy lệnh bên dưới:
 
 ```bash
-forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+# Để tải các biến trong tệp .env
+source .env
+
+# Để triển khai hợp đồng của chúng tôi
+forge create --rpc-url $KAIROS_RPC_URL src/Counter.sol:Counter --broadcast --account oxpampam-dev-i 
 ```
-
-**CẢNH BÁO: Hãy thay thế đối số khóa riêng tư bằng khóa riêng tư của bạn từ MetaMask. Hãy cẩn thận và đừng để lộ khóa riêng tư của bạn.**
-
-**Kết quả đầu ra**
-
-![](/img/build/get-started/foundry-create.png)
-
-**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x83c8b55f3fd90110f9b83cd20df2b2bed76cfeb42447725af2d60b2885f479d3?tabId=internalTx) to check if the counter contract deployed successfully.
-
-**Bước 3**: Sao chép và dán hàm băm của giao dịch vào trường tìm kiếm và nhấn Enter. Bạn sẽ thấy hợp đồng vừa được triển khai.
-
-![](/img/build/get-started/forge-scope.png)
-
-## Tương tác với hợp đồng
-
-Sau triển khai thành công hợp đồng thông minh của bạn, bạn cần gọi và thực thi các hàm đúng cách. Hãy cùng tương tác với các hợp đồng đã triển khai trên mạng Kairos của Kaia bằng [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).  Trong phần này, bạn sẽ học cách sử dụng [cast call](https://book.getfoundry.sh/reference/cast/cast-call) để thực thi hàm `chỉ độc` và [cast send](https://book.getfoundry.sh/reference/cast/cast-send) để thực thi các hàm `viết`.
-
-**A. cast call**: Để nhận số được lưu trữ trong hợp đồng, bạn sẽ gọi hàm `number`. Chạy lệnh dưới đây để xem cách hoạt động.
 
 ```bash
-cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
+Nhập mật khẩu kho khóa: <KEYSTORE_PASSWORD>
 ```
 
-**Ví dụ**
+:::note
+Đối với bất kỳ triển khai nào ngoài việc sử dụng mạng thử nghiệm cơ bản trong môi trường phát triển, chúng tôi đặc biệt khuyến nghị sử dụng [ví phần cứng hoặc kho khóa được bảo vệ bằng mật khẩu](https://book.getfoundry.sh/guides/best-practices.html#private-key-management) để tăng cường bảo mật.
+:::
+
+![](/img/build/get-started/forge-create-deploy.png)
+
+**Bước 2**: Mở Kaiascan để kiểm tra xem hợp đồng đối ứng đã được triển khai thành công hay chưa.
+
+**Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
+
+![](/img/build/get-started/kaiascan-deploy.png)
+
+### Sử dụng Forge Script
+
+Để triển khai hợp đồng của bạn tới mạng Kaia Kairos bằng tập lệnh forge, hãy chạy lệnh bên dưới:
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+# Để tải các biến trong tệp .env
+source .env
+
+# Để triển khai hợp đồng của chúng tôi
+forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --broadcast -vvvv --account oxpampam-dev-i
 ```
 
-**Kết quả đầu ra**
+![](/img/build/get-started/forge-script-deploy.png)
+
+## Interacting with the contract
+
+Sau khi triển khai hợp đồng thông minh thành công, bước tiếp theo thường là tương tác với hợp đồng bằng cách gọi và thực thi các chức năng của hợp đồng. Chúng ta hãy bắt đầu tương tác trực tiếp với các hợp đồng đã triển khai trên Kaia Kairos Network bằng cách sử dụng [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html).
+
+In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+
+**A. gọi diễn viên**
+
+Để lấy số được lưu trong hợp đồng, bạn sẽ gọi hàm `number`. Run the command below to see this in action.
+
+```bash
+lệnh gọi YOUR_CONTRACT_ADDRESS "số()" --rpc-url $KAIROS_RPC_URL
+```
+
+**Example**
+
+```bash
+lệnh gọi 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
+```
+
+**Output**
 
 ![](/img/build/get-started/cast-call-number.png)
 
-Bạn sẽ nhận được dữ liệu này dưới định dạng thập lục phân:
+You should get this data in hexadecimal format:
 
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
 
-Tuy nhiên, để nhận được kết quả mong muốn, hãy dùng cast để chuyển đổi kết quả trên. Trong trường hợp này, dữ liệu là một số, vì thế bạn có thể đổi nó thành cơ số 10 để nhận được kết quả 0:
+Tuy nhiên, để có được kết quả mong muốn, hãy sử dụng `cast` để chuyển đổi kết quả trên. In this case, the data is a number, so you can convert it into base 10 to get the result 0:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
 ```
 
-**Kết quả đầu ra**
+**Output**
 
 ![](/img/build/get-started/cast-call-0.png)
 
-**B. cast send**: Để ký và xuất bản một giao dịch như thực thi hàm `setNumber` trong hợp đồng đối ứng, hãy chạy lệnh dưới đây:
+**B. đúc gửi**
+
+To sign and publish a transaction such as executing a `setNumber` function in the counter contract, run the command below:
 
 ```bash
-cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
+truyền gửi --rpc-url=$KAIROS_RPC_URL <CONTRACT-ADDRESS> "setNumber(uint256)" arg --account <ACCOUNT NAME>
 ```
 
-**Ví dụ**
+**Example**
 
 ```bash
-cast send --rpc-url=https://public-en-kairos.node.kaia.io 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "setNumber(uint256)"  10 --private-key=<private key>
+truyền gửi --rpc-url=$KAIROS_RPC_URL 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "setNumber(uint256)" 10 --account oxpampam-dev-i
 ```
 
-**Kết quả đầu ra**
+**Đầu ra**
 
 ![](/img/build/get-started/cast-send-setNum.png)
 
-**Kiểm tra chéo số**
+**Crosscheck Number**
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+lệnh gọi 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
 ```
 
-**Kết quả đầu ra**
+**Output**
 
 ![](/img/build/get-started/cast-call-10.png)
 
-Bạn sẽ nhận được dữ liệu này dưới định dạng thập lục phân:
+You should get this data in hexadecimal format:
 
 ```bash
 0x000000000000000000000000000000000000000000000000000000000000000a
 ```
 
-Tuy nhiên, để nhận được kết quả mong muốn, hãy dùng cast để chuyển đổi kết quả trên. Trong trường hợp này, dữ liệu là một số, vì thế bạn có thể đổi nó thành cơ số 10 để nhận được kết quả 10:
+However to get your desired result, use cast to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 10:
 
 ```bash
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
 ```
 
-**Kết quả đầu ra**
+**Output**
 
 ![](/img/build/get-started/cast-call-result-10.png)
 
-## Phân nhánh mạng chính thức bằng Cast và Anvil
+## Forking Mainnet with Cast and Anvil
 
-Foundry cho phép chúng ta mô phỏng mạng lưới chính thức thành mạng phát triển cục bộ ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Ngoài ra, bạn cũng có thể tương tác và thử nghiệm hợp đồng trên mạng thật bằng [Cast](https://book.getfoundry.sh/reference/cast/).
+Foundry allows us to fork the mainnet to a local development network ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Also, you can interact and test with contracts on a real network using [Cast](https://book.getfoundry.sh/reference/cast/).
 
-### Bắt đầu
+### Getting Started
 
-Khi đã thiết lập và khởi động dự án Foundry xong, bạn có thể mô phỏng mạng lưới chính thức (cypress) bằng cách chạy lệnh dưới đây:
+Now that you have your Foundry project up and running, you can fork the mainnet by running the command below:
 
 ```bash
 anvil --fork-url rpc-url
 ```
 
-**Ví dụ**
+**Example**
 
 ```bash
 anvil --fork-url https://archive-en.node.kaia.io
 ```
 
-**Kết quả đầu ra**
+**Output**
 
 ![](/img/build/get-started/anvil-localnode.png)
 
-Sau khi chạy thành công lệnh này, giao diện dòng lệnh của bạn sẽ có dạng như hình trên. Bạn sẽ có 10 tài khoản được tạo ra với các khóa riêng tư và công khai, kèm theo 10.000 token được nạp sẵn. Máy chủ RPC của chuỗi được mô phỏng sẽ nhận và xử lý khối tại `127.0.0.1:8545/`.
+After successfully running this command, your terminal looks like the above image. You'll have 10 accounts created with their public and private keys as well 10,000 prefunded tokens. The forked chain's RPC server is listening at `127.0.0.1:8545`.
 
-Để xác minh rằng bạn đã mô phỏng mạng lưới, bạn có thể truy vấn số khối gần nhất:
+To verify you have forked the network, you can query the latest block number:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-Bạn có thể chuyển đổi kết quả từ nhiệm vụ trên từ [hex sang decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). Bạn sẽ nhận được số khối mới nhất từ lần bạn phân nhánh mạng lưới. Để xác minh điều này, hãy kiểm tra chéo số khối trên [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
+You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
 
-### Hình minh họa
+### Illustration
 
-Trong phần này, bạn sẽ tìm hiểu cách để chuyển token oUSDC từ một người có oUSDC sang một tài khoản được tạo bởi Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
+Trong phần này, bạn sẽ tìm hiểu cách chuyển token USDT từ người nắm giữ USDT sang tài khoản do Anvil tạo (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)
 
-**Chuyển oUSDC**
+**Transferring USDT**
 
-Đi đến Kaiascope và tìm người nắm giữ token oUSDC (ở đây). Hãy chọn một tài khoản ngẫu nhiên. Trong ví dụ này, ta sẽ dùng `0x8e61241e0525bd45cfc43dd7ba0229b422545bca`.
+Truy cập Kaiascan và tìm kiếm người nắm giữ token USDT (tại đây). Let's pick a random account. Trong ví dụ này, chúng tôi sẽ sử dụng `0xb3ff853a137bfe10f3d8965a29013455e1619303`.
 
-Hãy cùng xuất hợp đồng và tài khoản thành các biến của môi trường:
-
-```bash
-export BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
-export oUSDC=0x754288077d0ff82af7a5317c7cb8c444d421d103
-export oUSDCHolder=0x8e61241e0525bd45cfc43dd7ba0229b422545bca
-```
-
-Chúng ta có thể kiểm tra số dư của Bob bằng cast call:
+Let's export our contracts and accounts as environment variables:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+xuất BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+xuất USDT=0xd077a400968890eacc75cdc901f0356c943e4fdb
+xuất USDTHolder=0xb3ff853a137bfe10f3d8965a29013455e1619303
 ```
 
-**Kết quả đầu ra**
-
-![](/img/build/get-started/oUsdcBob4.png)
-
-Tương tự, ta cũng có thể kiểm tra số dư của người nắm giữ oUSDC bằng cast call:
+Kiểm tra số dư USDT của Bob bằng lệnh gọi:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+lệnh gọi $USDT "balanceOf(address)(uint256)" $BOB
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-![](/img/build/get-started/oUsdcHolder4.png)
+![](/img/build/get-started/call-usdt-bob.png)
 
-Hãy cùng chuyển một ít token từ người dùng may mắn này sang cho Alice bằng cast send:
-
-````bash
-cast rpc anvil_impersonateAccount $oUSDCHolder    
-cast send $oUSDC \
---unlocked \
---from $oUSDCHolder\
- "transfer(address,uint256)(bool)" \
- $BOB \
- 1000000
-```0000
-````
-
-**Kết quả đầu ra**
-
-![](/img/build/get-started/cast-send.png)
-
-Hãy cùng kiểm tra xem việc chuyển tiền có thành công không:
+Tương tự như vậy, chúng ta cũng có thể kiểm tra số dư USDT của USDTHolder bằng cách sử dụng lệnh gọi:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+lệnh gọi $USDT "balanceOf(address)(uint256)" $USDTHolder
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-![](/img/build/get-started/oUsdcBobAfter.png)
+![](/img/build/get-started/call-usdt-holder.png)
+
+Hãy chuyển một số token từ USDTHolder sang Bob bằng lệnh cast send:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+# giả mạo USDTHolder
+truyền rpc anvil_impersonateAccount $USDTHolder    
+
+# chuyển USDT
+truyền gửi $USDT --unlocked --from $USDTHolder "chuyển(địa chỉ,uint256)(bool)" $BOB 1000000
 ```
 
-**Kết quả đầu ra**
+**Output**
 
-![](/img/build/get-started/oUsdcHolderAfter.png)
+![](/img/build/get-started/cast-send-usdt.png)
 
-Để được hướng dẫn sâu hơn về foundry, vui lòng tham khảo [Tài liệu Foundry](https://book.getfoundry.sh/). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry).
+Let's check that the transfer worked:
+
+```bash
+lệnh gọi $USDT "balanceOf(address)(uint256)" $BOB
+```
+
+**Output**
+
+![](/img/build/get-started/call-usdt-bob-after.png)
+
+```bash
+lệnh gọi $USDT "balanceOf(address)(uint256)" $USDTHolder
+```
+
+**Output**
+
+![](/img/build/get-started/call-usdtholder-after.png)
+
+## Xử lý sự cố
+
+### Lỗi ước tính khí
+
+Bạn có thể gặp phải lỗi này khi triển khai bằng tập lệnh forge:
+
+```bash
+# Giao dịch không thành công
+❌ [Thất bại] Băm: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+Lỗi: Giao dịch không thành công: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+
+# Mã lỗi giao dịch trên Explorer
+Lỗi: Lưu trữ mã tạo hợp đồng hết gas
+```
+
+![](/img/build/get-started/gas-estimation-err.png)
+
+Điều này thường xảy ra do ước tính khí không chính xác trong quá trình triển khai. Thuật toán ước tính gas mặc định của Foundry (với hệ số nhân mặc định là 130%) đôi khi không đáp ứng được mạng Kaia, khiến quá trình triển khai hết gas trước khi hoàn tất.
+
+Khi lượng gas thực tế cần thiết vượt quá lượng gas ước tính, giao dịch sẽ hết gas trong quá trình triển khai hợp đồng, dẫn đến lỗi _Mã tạo hợp đồng hết gas lưu trữ_.
+
+**Cách khắc phục nhanh: Cài đặt Hệ số khí thủ công**
+
+Chạy tập lệnh của bạn với --gas-estimate-multiplier tăng lên 200 hoặc cao hơn như sau:
+
+```bash
+# lệnh
+rèn tập lệnh script/YourContract.s.sol:YourScript \
+  --chain <chain-id> \
+  --rpc-url $RPC_URL \
+  --broadcast \
+  --gas-estimate-multiplier 200 \
+  --account your-account \
+  -vvvv
+```
+
+```bash
+# ví dụ 
+
+tập lệnh forge --chain 1001 tập lệnh/NFT.s.sol:NFTScript --rpc-url $KAIROS_RPC_URL --broadcast --gas-estimate-multiplier 200 -vvvv --account oxpampam-dev-i
+```
+
+:::note
+Cờ `--gas-estimate-multiplier` thiết lập tỷ lệ phần trăm tương đối để nhân tất cả các ước tính khí. Bằng cách đặt thành 200, bạn sẽ tăng gấp đôi ước tính về khí đốt, giúp triển khai hợp đồng của bạn có đủ không gian để hoàn thành thành công.
+:::
+
+![](/img/build/get-started/gas-estimation-fixed.png)
+
+## Phần kết luận
+
+Xin chúc mừng nếu bạn đã đọc hết hướng dẫn này. Nếu bạn có bất kỳ câu hỏi nào, hãy truy cập [Diễn đàn Kaia](https://devforum.kaia.io/). Tuy nhiên, dưới đây là danh sách các tài nguyên hữu ích mà bạn có thể cần khi tiếp tục xây dựng với Foundry trên Kaia.
+
+- [Tài liệu Foundry](https://book.getfoundry.sh/)
+- [Cơ bản về đúc Cyfrin](https://updraft.cyfrin.io/courses/foundry)
+- [Xưởng đúc tiên tiến Cyfrin](https://updraft.cyfrin.io/courses/advanced-foundry)
+
