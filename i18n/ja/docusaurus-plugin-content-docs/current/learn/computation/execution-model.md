@@ -38,8 +38,8 @@
 現在、Kaia MainnetおよびKairos Testnetでは、取引の実行に以下の制限があります：
 
 - 取引のgasPriceを設定することができますが、それはあなたが支払うことができる最大値であることを意味します。 実際のガス料金はネットワークによって決定される。 より詳細な情報は、[ガス料金の概要](../transaction-fees/transaction-fees.md#gas-price-overview) を参照。
-- 実行コストが計算コスト制限より大きいトランザクションは破棄される。 [計算コスト](./computation-cost.md)をご参照ください。
-- 上海ハードフォークの時点では、コントラクトの作成にはinitcodeの長さに応じて追加のガスコストが発生し、32バイトのinitcodeの塊ごとに2ガスが課金される。
+- A block proposer shall not spend more than 250 ms in block execution. [計算コスト](./computation-cost.md)をご参照ください。
+- トランザクションは計算コストの上限を超えて使用することはできない。 計算コスト](./computation-cost.md)をご参照ください。
 
 ### スマートコントラクト導入の制限<a id="restriction-on-smart-contract-deployment"></a>
 

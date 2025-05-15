@@ -563,14 +563,6 @@
     "message": "Integrate and secure digital assets seamlessly.",
     "description": "Description for Wallets section"
   },
-  "homepage.favorites.indexers.title": {
-    "message": "Indexers",
-    "description": "Title for Indexers section"
-  },
-  "homepage.favorites.indexers.description": {
-    "message": "Query and index blockchain data for efficient dApp performance.",
-    "description": "Description for Indexers section"
-  },
   "homepage.favorites.guides.title": {
     "message": "Popular Guides",
     "description": "Title for the Popular Guides section"
@@ -641,10 +633,6 @@
     "message": "Tìm kiếm thông tin lịch sử và thời gian thực về Kaia.",
     "description": "Description for Block Explorers section"
   },
-  "homepage.newDocs.badge.new": {
-    "message": "MỚI",
-    "description": "Badge text for new documents"
-  },
   "homepage.newDocs.badge.update": {
     "message": "CẬP NHẬT",
     "description": "Badge text for updated documents"
@@ -653,25 +641,17 @@
     "message": "Xây dựng DApp khảo sát trên Kaia",
     "description": "Title for Survey Mini DApp doc"
   },
-  "homepage.newDocs.unityMinidapp.title": {
-    "message": "Tạo DApp Mini LINE bằng Unity",
-    "description": "Title for Unity Mini DApp doc"
-  },
   "homepage.newDocs.cocosMinidapp.title": {
     "message": "Hướng dẫn tạo DApp Mini LINE bằng Cocos Creator",
     "description": "Title for Cocos Mini DApp doc"
   },
   "homepage.newDocs.surveyMinidapp.description": {
     "message": "Xây dựng ứng dụng khảo sát phi tập trung, tập trung vào quyền riêng tư trên Kaia bằng cách sử dụng Semaphore để ẩn danh và LINE cho các tính năng xã hội.",
-    "description": "Description for Upgradeable Smart Contracts doc"
-  },
-  "homepage.newDocs.unityMinidapp.description": {
-    "message": "Phát triển một dApp mini LINE tích hợp đầy đủ với Unity, kết hợp liền mạch khả năng kết nối Web3, thiết kế UI trực quan và chuyển đổi LIFF.",
-    "description": "Description for DApp Security doc"
+    "description": "Description for Survey Mini DApp doc"
   },
   "homepage.newDocs.cocosMinidapp.description": {
     "message": "Tạo, tích hợp và triển khai dApp mini LINE với Cocos Creator, Web3 và LIFF.",
-    "description": "Description for API Updates doc"
+    "description": "Description for Cocos Mini DApp doc"
   },
   "homepage.newDocs.title": {
     "message": "Có gì mới",
@@ -680,5 +660,21 @@
   "homepage.newDocs.subtitle": {
     "message": "Khám phá những cập nhật và bổ sung mới nhất của chúng tôi vào tài liệu.",
     "description": "Subtitle for the What's New section"
+  },
+  "homepage.newDocs.codeSandbox.title": {
+    "message": "Trình chỉnh sửa Live Code hiện có trong SDK Docs!",
+    "description": "Title for Live Code Editor feature"
+  },
+  "homepage.newDocs.codeSandbox.description": {
+    "message": "Hãy thử code ngay trong Kaia Docs! Các trang SDK hiện có trình soạn thảo CodeSandbox trực tiếp cho Ethers-ext (v6) và Web3js-ext Account Management.",
+    "description": "Description for Live Code Editor feature"
+  },
+  "homepage.newDocs.badge.newContent": {
+    "message": "NỘI DUNG MỚI",
+    "description": "Badge text for new content"
+  },
+  "homepage.newDocs.badge.newFeature": {
+    "message": "TÍNH NĂNG MỚI",
+    "description": "Badge text for new features"
   }
 }

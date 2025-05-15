@@ -53,8 +53,7 @@ forge init foundry_example
 **2단계**: 프로젝트 폴더로 이동합니다.
 
 ```bash
-cd foundry_example
-ls	 
+cd foundry_example 
 ```
 
 Foundry 프로젝트를 초기화한 후, 현재 디렉터리에 다음이 포함되어야 합니다:
@@ -65,9 +64,47 @@ Foundry 프로젝트를 초기화한 후, 현재 디렉터리에 다음이 포�
 - **lib**: 프로젝트 종속성을 위한 기본 디렉터리.
 - **script**: Solidity 스크립팅 파일의 기본 디렉터리.
 
-## 스마트 컨트랙트 샘플
+## foundry.toml 구성
 
-이 섹션에서는 초기화된 Foundry 프로젝트에서 샘플 카운터 컨트랙트를 사용하겠습니다. `src/` 폴더의 `counter.sol` 파일은 다음과 같은 모습이어야 합니다:
+이제 프로젝트가 설정되었으므로 '.env' 파일을 만들고 변수를 추가해야 합니다. Foundry는 프로젝트 디렉터리에 있는 .env 파일에 자동으로 로드됩니다.
+
+.env 파일은 이 형식을 따라야 합니다:
+
+```bash
+카이로스_RPC_URL=PAST_RPC_URL
+```
+
+다음은 `foundry.toml` 파일을 편집하는 것입니다. 프로젝트의 루트에는 스캐폴드 뒤에 이미 하나가 있어야 합니다.
+
+파일 끝에 다음 줄을 추가합니다:
+
+```bash
+[rpc_endpoints]
+카이로스 = "${KAIROS_RPC_URL}"
+```
+
+이렇게 하면 카이아 카이로스 테스트넷을 위한 [RPC 별칭](https://book.getfoundry.sh/cheatcodes/rpc.html)이 생성됩니다.
+
+## 계정 가져오기
+
+이 가이드에서는 메타마스크에 이미 존재하는 개발자 계정을 가져와서 `--계정` 옵션을 통해 `--문서 위조`, `--문서 전송` 또는 기타 개인 키가 필요한 메서드에서 액세스할 수 있도록 합니다.
+
+아래 명령을 실행하여 기존 지갑을 가져오세요:
+
+```bash
+캐스트 월렛 가져오기 -대화형 oxpampam-dev-i
+```
+
+```bash
+개인 키를 입력합니다:
+비밀번호를 입력합니다:
+```
+
+![](/img/build/get-started/cast-wallet-import.png)
+
+## Sample smart contract
+
+In this section, we will be using the sample counter contract in the initialized foundry project. The `counter.sol` file in the `src/` folder should look like this:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -83,13 +120,13 @@ contract Counter {
 }
 ```
 
-**코드 연습**
+**Code Walkthrough**
 
-이것이 여러분의 스마트 컨트랙트입니다. **1행**은 Solidity 버전 0.8.13 이상을 사용함을 보여줍니다. 4줄부터 12줄까지는 스마트 컨트랙트 `Counter`가 생성됩니다. 이 컨트랙트는 **setNumber** 함수를 사용하여 새로운 숫자를 저장하고 **increment** 함수를 호출하여 숫자를 증가시킵니다.
+This is your smart contract. **Line 1** shows it uses the Solidity version 0.8.13 or greater. From **lines 4-12**, a smart contract `Counter` is created. This contract simply stores a new number using the **setNumber** function and increments it by calling the **increment** function.
 
-## 스마트 컨트랙트 테스트
+## Testing smart contract
 
-Foundry를 사용하면 다른 스마트 컨트랙트 개발 프레임워크에서 JavaScript로 테스트를 작성하는 것과 달리 Solidity로 테스트를 작성할 수 있습니다. 초기화된 Foundry 프로젝트에서 `test/Counter.t.sol`은 Solidity로 작성된 테스트의 예시입니다. 코드는 다음과 같습니다:
+Foundry allows us to write tests in solidity as opposed to writing tests in javascript in other smart contract development frameworks. In our initialized foundry project, the `test/Counter.t.sol` is an example of a test written in solidity. The code looks like this:
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -113,248 +150,318 @@ contract CounterTest is Test {
 }
 ```
 
-위 코드는 위조 표준 라이브러리와 Counter.sol을 가져온 것을 보여줍니다.
+The code above shows you imported forge standard library and Counter.sol.
 
-위의 테스트는 다음을 확인합니다:
+The tests above check the following:
 
-- 숫자가 증가하고 있는가?
-- 숫자가 설정된 숫자와 같은가?
+- Is the number increasing?
+- Is the number equal to the set number?
 
-테스트가 정상적으로 작동하는지 확인하려면 다음 명령을 실행하세요:
+To check if your test works fine, run the following command:
 
 ```bash
 forge test
 ```
 
-**출력**
+**Output**
 
 ![](/img/build/get-started/forge-test.png)
 
-테스트 작성, 고급 테스트 및 기타 기능에 대해 자세히 알아보려면 [Foundry 문서](https://book.getfoundry.sh/forge/tests)를 참조하세요.
+To learn more about writing tests, advanced testing, and other features, refer to [Foundry's documentation](https://book.getfoundry.sh/forge/tests).
 
-## 스마트 컨트랙트 컴파일하기
+## Compiling your contracts
 
-이 명령으로 컨트랙트를 컴파일합니다:
+Compile your contract with this command:
 
 ```bash
 forge build 
 ```
 
-## 컨트랙트 배포하기
+## Deploying your contracts
 
-Foundry를 사용하여 컨트랙트를 배포하려면, 컨트랙트를 배포할 계정의 RPC URL과 개인키를 제공해야 합니다. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
 
-**1단계**: 컨트랙트를 Kaia Kairos 네트워크에 배포하려면, 아래 명령어를 실행합니다:
+이 가이드에서는 파운드리에서 제공하는 두 가지 계약 배포 방법을 사용합니다:
 
-```bash
-$ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/Counter.sol:Counter
-```
+### Forge Create 사용
 
-**예시**
+**1단계**: 위조 생성을 사용하여 카이아 카이로스 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 
 ```bash
-forge create --rpc-url https://public-en-kairos.node.kaia.io --private-key hhdhdhdhprivatekeyhdhdhdhud src/Counter.sol:Counter
+# .env 파일에 변수를 로드하려면
+source .env
+
+# 컨트랙트를 배포하려면
+forge create --rpc-url $KAIROS_RPC_URL src/Counter.sol:Counter --broadcast --account oxpampam-dev-i 
 ```
-
-**경고: 개인 키 인수를 MetaMask의 개인 키로 바꾸세요. 개인키가 노출되지 않도록 각별히 주의하세요.**
-
-**출력**
-
-![](/img/build/get-started/foundry-create.png)
-
-**Step 2**: Open [Kaiascope](https://kairos.kaiascope.com/tx/0x83c8b55f3fd90110f9b83cd20df2b2bed76cfeb42447725af2d60b2885f479d3?tabId=internalTx) to check if the counter contract deployed successfully.
-
-**3단계**: 검색 필드에 트랜잭션 해시를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
-
-![](/img/build/get-started/forge-scope.png)
-
-## 컨트랙트와 상호작용하기
-
-스마트 컨트랙트를 성공적으로 배포했다면, 이제 바로 함수를 호출하고 실행하고 싶을 것입니다. [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 배포된 컨트랙트와 카이아 Kairos 네트워크에서 상호작용해 보겠습니다.  이번 장에서는 `read-only` 함수를 실행하기 위한 [cast call](https://book.getfoundry.sh/reference/cast/cast-call)과 `write` 함수를 실행하기 위한 [cast send](https://book.getfoundry.sh/reference/cast/cast-send)를 사용하는 방법을 배워보겠습니다.
-
-**A. Cast 호출**: 컨트랙트에 저장된 번호를 가져오기 위해 `number` 함수를 호출하게 됩니다. 아래 명령어를 실행하여 실제로 작동하는지 확인해보세요.
 
 ```bash
-cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url RPC-API-ENDPOINT-HERE
+키스토어 비밀번호를 입력합니다: <KEYSTORE_PASSWORD>
 ```
 
-**예시**
+:::note
+개발 환경에서 기본적인 테스트넷 사용을 넘어서는 배포의 경우, 보안 강화를 위해 [하드웨어 지갑 또는 비밀번호로 보호되는 키 저장소](https://book.getfoundry.sh/guides/best-practices.html#private-key-management)를 사용하는 것이 좋습니다.
+:::
+
+![](/img/build/get-started/forge-create-deploy.png)
+
+**2단계**: 카이아스캔을 열어 카운터 컨트랙트가 성공적으로 배포되었는지 확인합니다.
+
+**Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
+
+![](/img/build/get-started/kaiascan-deploy.png)
+
+### 포지 스크립트 사용
+
+위조 스크립트를 사용하여 카이아 카이로스 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+# .env 파일에 변수를 로드하려면
+source .env
+
+# 컨트랙트를 배포하려면
+forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --broadcast -vvvv --account oxpampam-dev-i
 ```
 
-**출력**
+![](/img/build/get-started/forge-script-deploy.png)
+
+## Interacting with the contract
+
+스마트 컨트랙트를 성공적으로 배포한 다음 단계는 일반적으로 함수를 호출하고 실행하여 스마트 컨트랙트와 상호 작용하는 것입니다. 캐스트](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 카이아 카이로스 네트워크에 배포된 컨트랙트와 바로 상호작용해 보겠습니다.
+
+In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
+
+**A. 캐스트 콜**
+
+컨트랙트에 저장된 번호를 가져오려면 `number` 함수를 호출합니다. Run the command below to see this in action.
+
+```bash
+cast call YOUR_CONTRACT_ADDRESS "number()" --rpc-url $KAIROS_RPC_URL
+```
+
+**Example**
+
+```bash
+cast call 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
+```
+
+**Output**
 
 ![](/img/build/get-started/cast-call-number.png)
 
-이 데이터는 16진수 형식으로 가져와야 합니다:
+You should get this data in hexadecimal format:
 
 ```bash
 0x0000000000000000000000000000000000000000000000000000000000000000
 ```
 
-그러나 원하는 결과를 얻으려면 캐스팅을 사용하여 위의 결과를 변환합니다. 이 경우 데이터가 숫자이므로 기본 10으로 변환하여 결과 0을 얻을 수 있습니다:
+그러나 원하는 결과를 얻으려면 `cast`를 사용하여 위의 결과를 변환하세요. In this case, the data is a number, so you can convert it into base 10 to get the result 0:
 
 ```bash
 cast --to-base 0x0000000000000000000000000000000000000000000000000000000000000000 10
 ```
 
-**출력**
+**Output**
 
 ![](/img/build/get-started/cast-call-0.png)
 
-**B. cast send**: 카운터 컨트랙트에서 `setNumber` 함수를 실행하는 것과 같은 트랜잭션에 서명하고 게시하려면 아래 명령을 실행합니다:
+**B. 캐스트 보내기**
+
+To sign and publish a transaction such as executing a `setNumber` function in the counter contract, run the command below:
 
 ```bash
-cast send --rpc-url=<RPC-URL> <CONTRACT-ADDRESS> “setNumber(uint256)” arg --private-key=<PRIVATE-KEY>
+cast send --rpc-url=$KAIROS_RPC_URL <CONTRACT-ADDRESS> "setNumber(uint256)" arg --account <ACCOUNT NAME>
 ```
 
-**예제**
+**Example**
 
 ```bash
-cast send --rpc-url=https://public-en-kairos.node.kaia.io 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "setNumber(uint256)"  10 --private-key=<private key>
+cast send --rpc-url=$KAIROS_RPC_URL 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "setNumber(uint256)"  10 --account oxpampam-dev-i
 ```
 
 **출력**
 
 ![](/img/build/get-started/cast-send-setNum.png)
 
-**크로스체크 번호**
+**Crosscheck Number**
 
 ```bash
-cast call 0x7E80F70EeA1aF481b80e2F128490cC9F7322e164 "number()" --rpc-url https://public-en-kairos.node.kaia.io
+cast call 0xb00760a445f47F79ea898bCe7F88cD4930060Ca5 "number()" --rpc-url $KAIROS_RPC_URL
 ```
 
-**출력**
+**Output**
 
 ![](/img/build/get-started/cast-call-10.png)
 
-이 데이터는 16진수 형식으로 가져와야 합니다:
+You should get this data in hexadecimal format:
 
 ```bash
 0x000000000000000000000000000000000000000000000000000000000000000a
 ```
 
-그러나 원하는 결과를 얻으려면 캐스팅을 사용하여 위의 결과를 변환합니다. 이 경우 데이터가 숫자이므로 기본 10으로 변환하여 결과 10을 얻을 수 있습니다:
+However to get your desired result, use cast to convert the above result. In this case, the data is a number, so you can convert it into base 10 to get the result 10:
 
 ```bash
 cast --to-base 0x000000000000000000000000000000000000000000000000000000000000000a 10
 ```
 
-**출력**
+**Output**
 
 ![](/img/build/get-started/cast-call-result-10.png)
 
-## Cast와 Anvil을 이용한 메인넷 포크
+## Forking Mainnet with Cast and Anvil
 
-Foundry를 사용하면 메인넷을 로컬 개발 네트워크([Anvil](https://book.getfoundry.sh/reference/anvil/)로 포크할 수 있습니다.) 또한 [Cast](https://book.getfoundry.sh/reference/cast/)를 사용하여 실제 네트워크에서 컨트랙트와 상호 작용하고 테스트할 수 있습니다.
+Foundry allows us to fork the mainnet to a local development network ([Anvil](https://book.getfoundry.sh/reference/anvil/)). Also, you can interact and test with contracts on a real network using [Cast](https://book.getfoundry.sh/reference/cast/).
 
-### 시작하기
+### Getting Started
 
-이제 Foundry 프로젝트가 실행되었으므로 아래 명령을 실행하여 메인넷을 포크할 수 있습니다:
+Now that you have your Foundry project up and running, you can fork the mainnet by running the command below:
 
 ```bash
 anvil --fork-url rpc-url
 ```
 
-**예시**
+**Example**
 
 ```bash
 anvil --fork-url https://archive-en.node.kaia.io
 ```
 
-**출력**
+**Output**
 
 ![](/img/build/get-started/anvil-localnode.png)
 
-이 명령을 성공적으로 실행하면 터미널이 위 이미지와 같이 표시됩니다. 공개 키와 개인 키로 생성된 10개의 계정과 10,000개의 선지급 토큰이 있을 것입니다. 포크된 체인의 RPC 서버는 `127.0.0.1:8545`에서 수신 대기 중입니다.
+After successfully running this command, your terminal looks like the above image. You'll have 10 accounts created with their public and private keys as well 10,000 prefunded tokens. The forked chain's RPC server is listening at `127.0.0.1:8545`.
 
-네트워크를 포크했는지 확인하려면 최신 블록 번호를 조회하면 됩니다:
+To verify you have forked the network, you can query the latest block number:
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-위 작업의 결과는 [16진수를 10진수로 변환](https://www.rapidtables.com/convert/number/hex-to-decimal.html)을 사용하여 변환할 수 있습니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
+You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
 
-### 실사례
+### Illustration
 
-이 섹션에서는 oUSDC 토큰을 보유한 사람으로부터 Anvil이 생성한 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)으로 토큰을 전송하는 방법을 알아보겠습니다.
+이 섹션에서는 USDT를 보유한 사람으로부터 모루가 생성한 계정(0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)으로 USDT 토큰을 이체하는 방법을 알아보세요.
 
-**oUSDC 전송하기**
+**Transferring USDT**
 
-Klaytnscope로 이동하여 oUSDC 토큰 보유자를 검색합니다(여기). 임의의 계정을 선택하겠습니다. 이 예제에서는 `0x8e61241e0525bd45cfc43dd7ba0229b422545bca`를 사용하겠습니다.
+카이아스캔으로 이동하여 USDT 토큰 보유자를 검색합니다(여기). Let's pick a random account. 이 예제에서는 `0xb3ff853a137bfe10f3d8965a29013455e1619303`을 사용합니다.
 
-컨트랙트와 계정을 환경 변수로 내보내 보겠습니다:
+Let's export our contracts and accounts as environment variables:
 
 ```bash
 export BOB=0x70997970C51812dc3A010C7d01b50e0d17dc79C8
-export oUSDC=0x754288077d0ff82af7a5317c7cb8c444d421d103
-export oUSDCHolder=0x8e61241e0525bd45cfc43dd7ba0229b422545bca
+export USDT=0xd077a400968890eacc75cdc901f0356c943e4fdb
+export USDTHolder=0xb3ff853a137bfe10f3d8965a29013455e1619303
 ```
 
-캐스팅 호출을 사용하여 밥의 잔액을 확인할 수 있습니다:
+캐스트 통화로 밥의 USDT 잔액을 확인하세요:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+cast call $USDT "balanceOf(주소)(uint256)" $BOB
 ```
 
-**출력**
+**Output**
 
-![](/img/build/get-started/oUsdcBob4.png)
+![](/img/build/get-started/call-usdt-bob.png)
 
-마찬가지로 캐스트 콜을 사용하여 oUSDC 보유자의 잔액을 확인할 수도 있습니다:
+마찬가지로 캐스트 콜을 사용하여 USDTHolder의 USDT 잔액을 확인할 수도 있습니다:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+cast call $USDT "balanceOf(주소)(uint256)" $USDTHolder
 ```
 
-**출력**
+**Output**
 
-![](/img/build/get-started/oUsdcHolder4.png)
+![](/img/build/get-started/call-usdt-holder.png)
 
-캐스트 전송을 사용하여 행운의 사용자로부터 앨리스에게 토큰을 전송해 보겠습니다:
-
-````bash
-cast rpc anvil_impersonateAccount $oUSDCHolder    
-cast send $oUSDC \
---unlocked \
---from $oUSDCHolder\
- "transfer(address,uint256)(bool)" \
- $BOB \
- 1000000
-```0000
-````
-
-**출력**
-
-![](/img/build/get-started/cast-send.png)
-
-전송이 제대로 되었는지 확인해 보겠습니다:
+캐스트 전송을 사용하여 USDTHolder에서 Bob에게 토큰을 전송해 보겠습니다:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $BOB
+# impersonate USDTHolder
+cast rpc anvil_impersonateAccount $USDTHolder    
+
+# transfer USDT
+cast send $USDT --unlocked --from $USDTHolder "transfer(address,uint256)(bool)" $BOB 1000000
 ```
 
-**출력**
+**Output**
 
-![](/img/build/get-started/oUsdcBobAfter.png)
+![](/img/build/get-started/cast-send-usdt.png)
+
+Let's check that the transfer worked:
 
 ```bash
-cast call $oUSDC \
-  "balanceOf(address)(uint256)" \
-  $oUSDCHolder
+cast call $USDT "balanceOf(주소)(uint256)" $BOB
 ```
 
-**출력**
+**Output**
 
-![](/img/build/get-started/oUsdcHolderAfter.png)
+![](/img/build/get-started/call-usdt-bob-after.png)
 
-Foundry에 대한 더 자세한 가이드는 [Foundry 문서](https://book.getfoundry.sh/)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/foundry).
+```bash
+cast call $USDT "balanceOf(주소)(uint256)" $USDTHolder
+```
+
+**Output**
+
+![](/img/build/get-started/call-usdtholder-after.png)
+
+## 문제 해결
+
+### 가스 추정 오류
+
+포지 스크립트로 배포할 때 이 오류가 발생할 수 있습니다:
+
+```bash
+# 트랜잭션 실패
+❌ [실패] 해시: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+오류입니다: 트랜잭션 실패: 0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d126f78caf
+
+# 탐색기의 트랜잭션 오류 코드
+오류입니다: 컨트랙트 생성 코드 저장 공간이 부족합니다.
+```
+
+![](/img/build/get-started/gas-estimation-err.png)
+
+이는 일반적으로 배포 중 부정확한 가스 추정으로 인해 발생합니다. 파운드리의 기본 가스 추정 알고리즘(기본 130% 승수 사용)은 때때로 카이아 네트워크에서 부족하여 배포가 완료되기 전에 가스가 부족해지기도 합니다.
+
+실제 필요한 가스가 예상량을 초과하면 컨트랙트 배포 중에 트랜잭션에 가스가 부족하여 _컨트랙트 생성 코드 저장소 가스 부족_ 오류가 발생합니다.
+
+**빠른 수정: 가스 승수 수동 설정**
+
+가스 예상 승수를 200 이상으로 늘려서 스크립트를 다음과 같이 실행하세요:
+
+```bash
+# 명령
+forge script script/YourContract.s.sol:YourScript \
+  --chain <chain-id> \
+  --rpc-url $RPC_URL \
+  --broadcast \
+  --gas-estimate-multiplier 200 \
+  --account your-account \
+  -vvvv
+```
+
+```bash
+# 예시 
+
+forge 스크립트 --체인 1001 스크립트/NFT.s.sol:NFTScript --rpc-url $KAIROS_RPC_URL --broadcast --gas-estimate-multiplier 200 -vvvv --account oxpampam-dev-i
+```
+
+:::note
+'--가스 추정치-승수' 플래그는 모든 가스 추정치에 곱할 상대적인 비율을 설정합니다. 200으로 설정하면 가스 추정치를 두 배로 늘려 계약 배포를 성공적으로 완료할 수 있는 충분한 여유 공간을 확보할 수 있습니다.
+:::
+
+![](/img/build/get-started/gas-estimation-fixed.png)
+
+## 결론
+
+이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [카이아 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Foundry를 사용하여 빌드하는 데 필요한 유용한 리소스 목록입니다.
+
+- [파운드리 문서](https://book.getfoundry.sh/)
+- [사이프린 파운드리 기초](https://updraft.cyfrin.io/courses/foundry)
+- [사이프린 고급 파운드리](https://updraft.cyfrin.io/courses/advanced-foundry)
+

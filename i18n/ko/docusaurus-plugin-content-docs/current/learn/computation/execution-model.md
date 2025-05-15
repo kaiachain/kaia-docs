@@ -38,8 +38,8 @@ This mechanism aims to introduce unpredictability in the block creation and comm
 Kaia Mainnet and Kairos Testnet currently have the following restrictions on the transaction execution:
 
 - You can set gasPrice of the transaction, but it means it's the most you can pay. The actual gasPrice will be determined by network. For more detailed information, see [gas price overview](../transaction-fees/transaction-fees.md#gas-price-overview)
-- 계산 비용 한도보다 실행 비용이 큰 트랜잭션은 버려집니다. [계산 비용](./computation-cost.md)을 참조하세요.
-- As of the Shanghai hardfork, there is an additional gas cost for contract creation based on the length of the initcode, charged at 2 gas for every 32-byte chunk of initcode.
+- A block proposer shall not spend more than 250 ms in block execution. [계산 비용](./computation-cost.md)을 참조하세요.
+- 트랜잭션은 계산 비용 한도를 초과하여 사용할 수 없습니다. 계산 비용](./computation-cost.md)을 참조하세요.
 
 ### Restrictions on Smart Contract Deployment <a id="restriction-on-smart-contract-deployment"></a>
 

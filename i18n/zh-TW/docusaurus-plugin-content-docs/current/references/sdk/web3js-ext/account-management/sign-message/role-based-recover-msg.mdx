@@ -1,5 +1,13 @@
 # Role-based Account Key
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor
+  module='/src/pages/web3js-ext/SignMessage/AccountKeyRoleBased.tsx'
+  route={RoutePath.Web3jsExt_SignMsg_Role}
+/>
+
 **AccountKeyRoleBased** 表示基於角色的密鑰。 如果賬戶有一個** AccountKeyRoleBased**對象，且交易類型為**除賬戶更新外的**，那麼驗證過程將根據每個角色進行，如下所示：
 
 <CH.Spotlight>
