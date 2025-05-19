@@ -214,3 +214,9 @@ body {
     font-size: 1rem;
   }
 }
+
+/* Add these new text styles for the SEND API REQUEST button in RPC API Reference pages*/
+/* Dark theme - change text to black */
+[data-theme='dark'] .openapi-explorer__request-btn {
+  color: black;
+}
