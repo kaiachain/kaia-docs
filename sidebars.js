@@ -19,7 +19,6 @@ const commonSidebar = [
     ],
   },
   //  'misc/klaytn-history',
-  //'references/public-en',
   {
     type: 'category',
     label: 'Transition to Kaia',
