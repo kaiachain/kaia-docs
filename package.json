@@ -20,6 +20,7 @@
     "@code-hike/mdx": "0.9.0",
     "@crowdin/cli": "^3.16.0",
     "@docusaurus/core": "^3.6.3",
+    "@docusaurus/plugin-client-redirects": "^3.7.0",
     "@docusaurus/preset-classic": "^3.6.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",

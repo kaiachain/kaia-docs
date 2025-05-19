@@ -1,11 +1,9 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require('prism-react-renderer').themes.github
 const darkCodeTheme = require('prism-react-renderer').themes.dracula
 const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
+const redirects = require('./redirects');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -226,7 +224,13 @@ const config = {
           },
         }
       },
-    ]
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects
+      },
+    ],
   ],
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
   stylesheets: [
