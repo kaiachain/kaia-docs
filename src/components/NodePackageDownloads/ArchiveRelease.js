@@ -8,6 +8,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import {isAddArm} from "@site/src/components/NodePackageDownloads/index";
+import { compareVersions } from './utils/version';
 
 const ArchiveRelease = (props) => {
   const releaseData = props.releaseData
@@ -45,9 +46,10 @@ const ArchiveRelease = (props) => {
                   "v1.9.0": "Magma",
                   "v1.10.0": "Kore",
                   "v1.10.2": "KIP-103",
-                  "v1.11.0": "Shanghai",
-                  "v1.12.0": "Cancun",
+                  "v1.11.0": "ShanghaiEVM",
+                  "v1.12.0": "CancunEVM",
                   "v1.0.0": "Kaia",
+                  "v2.0.0": "PragueEVM",
                 }
                 return (
                   <>
@@ -96,6 +98,11 @@ const ArchiveRelease = (props) => {
                                       ? _config.binaryVersion[binaryPrefix]
                                       : ''
                                     let binaryFileformat = _config.binaryFileFormat
+                                    
+                                    if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
+                                      binaryFileformat = binaryFileformat.replace('el7', 'el9')
+                                    }
+                                    
                                     binaryFileformat = binaryFileformat.replace(
                                       '{BINARY_VERSION}',
                                       binaryVersionValue
