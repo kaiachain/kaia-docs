@@ -1,5 +1,6 @@
 import React from 'react'
 import {isAddArm} from "@site/src/components/NodePackageDownloads/index";
+import { compareVersions } from './utils/version';
 
 const CurrentRelease = (props) => {
   const releaseData = props.releaseData
@@ -29,6 +30,11 @@ const CurrentRelease = (props) => {
                         ? _config.binaryVersion[binaryPrefix]
                         : ''
                       let binaryFileformat = _config.binaryFileFormat
+                      
+                      if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
+                        binaryFileformat = binaryFileformat.replace('el7', 'el9')
+                      }
+                      
                       binaryFileformat = binaryFileformat.replace(
                         '{BINARY_VERSION}',
                         binaryVersionValue
