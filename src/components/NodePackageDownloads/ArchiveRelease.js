@@ -99,10 +99,9 @@ const ArchiveRelease = (props) => {
                                       : ''
                                     let binaryFileformat = _config.binaryFileFormat
                                     
-                                    if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
-                                      binaryFileformat = binaryFileformat.replace('el7', 'el9')
-                                    }
-                                    
+                                    let binaryBaseUrl = tabConfig.binaryBaseUrls[binaryPrefix]
+
+                                    // Replace all placeholders in binaryFileformat first
                                     binaryFileformat = binaryFileformat.replace(
                                       '{BINARY_VERSION}',
                                       binaryVersionValue
@@ -119,9 +118,6 @@ const ArchiveRelease = (props) => {
                                       '{BINARY_PREFIX}',
                                       binaryPrefixValue
                                     )
-
-                                    let binaryBaseUrl =
-                                      tabConfig.binaryBaseUrls[binaryPrefix]
 
                                     let baseUrl = _config.baseUrl
                                     baseUrl = baseUrl.replace(
@@ -140,6 +136,37 @@ const ArchiveRelease = (props) => {
                                       '{BINARY_PREFIX}',
                                       binaryPrefixValue
                                     )
+                                    
+                                    if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
+                                      const el7Format = binaryFileformat;
+                                      const el9Format = binaryFileformat.replace('el7', 'el9');
+                                      const el7Url = baseUrl;
+                                      const el9Url = baseUrl.replace('el7', 'el9');
+                                      
+                                      return (
+                                        <>
+                                          <div className="stable-release-table-row">
+                                            <a
+                                              href={el7Url}
+                                              className="stable-release-table-row-item-release"
+                                              target="_blank"
+                                            >
+                                              {el7Format}
+                                            </a>
+                                          </div>
+                                          <div className="stable-release-table-row">
+                                            <a
+                                              href={el9Url}
+                                              className="stable-release-table-row-item-release"
+                                              target="_blank"
+                                            >
+                                              {el9Format}
+                                            </a>
+                                          </div>
+                                        </>
+                                      )
+                                    }
+                                    
                                     if (tagName === "v1.0.0") {
                                       if (tabConfig.machineType !== "linux") {
                                         //console.log(tabConfig.machineType, _binaryName)
