@@ -33,6 +33,11 @@ const commonSidebar = [
   'misc/faq',
   'misc/internationalization',
   'misc/brand',
+  {
+    type: 'link',
+    label: 'Docs Updates',
+    href: '/misc/updates',
+  },
 ]
 
 const sidebars = {
