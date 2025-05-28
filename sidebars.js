@@ -188,7 +188,6 @@ const sidebars = {
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
-        'build/tutorials/eliza-plugin-guide',
         'build/tutorials/kaia-wallet-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
       ],
@@ -199,6 +198,18 @@ const sidebars = {
       label: 'Tools',
       items: [
         'build/tools/kaia-online-toolkit',
+             {
+          type: 'category',
+          label: 'Kaia Agent Kit',
+          link: { type: 'doc', id: 'build/tools/kaia-agentkit/kaia-agentkit' },
+          items: [
+            'build/tools/kaia-agentkit/vercel-ai-guide',
+            'build/tools/kaia-agentkit/eliza',
+            'build/tools/kaia-agentkit/langchain',
+            'build/tools/kaia-agentkit/mcp',
+
+          ],
+        },
         {
           type: 'category',
           label: 'Wallets',
