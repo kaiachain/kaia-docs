@@ -286,5 +286,29 @@
   "sidebar.miniDappSidebar.category.Survey Mini DApp": {
     "message": "Survey Mini DApp",
     "description": "The label for category Survey Mini DApp in sidebar miniDappSidebar"
+  },
+  "sidebar.learnSidebar.link.Docs Updates": {
+    "message": "Docs Updates",
+    "description": "The label for link Docs Updates in sidebar learnSidebar, linking to /misc/updates"
+  },
+  "sidebar.buildSidebar.link.Docs Updates": {
+    "message": "Docs Updates",
+    "description": "The label for link Docs Updates in sidebar buildSidebar, linking to /misc/updates"
+  },
+  "sidebar.nodeSidebar.category.Debugging and Diagnostics": {
+    "message": "Debugging and Diagnostics",
+    "description": "The label for category Debugging and Diagnostics in sidebar nodeSidebar"
+  },
+  "sidebar.nodeSidebar.link.Docs Updates": {
+    "message": "Docs Updates",
+    "description": "The label for link Docs Updates in sidebar nodeSidebar, linking to /misc/updates"
+  },
+  "sidebar.refSidebar.link.Docs Updates": {
+    "message": "Docs Updates",
+    "description": "The label for link Docs Updates in sidebar refSidebar, linking to /misc/updates"
+  },
+  "sidebar.miniDappSidebar.link.Docs Updates": {
+    "message": "Docs Updates",
+    "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
   }
 }

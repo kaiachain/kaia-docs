@@ -62,7 +62,7 @@
   },
   "theme.colorToggle.ariaLabel": {
     "message": "Switch between dark and light mode (currently {mode})",
-    "description": "The ARIA label for the navbar color mode toggle"
+    "description": "The ARIA label for the color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "dark mode",
@@ -676,5 +676,109 @@
   "homepage.newDocs.badge.newFeature": {
     "message": "NEW FEATURE",
     "description": "Badge text for new features"
+  },
+  "theme.common.backToTopButtonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
+  },
+  "updatesPage.toc.ariaLabel": {
+    "message": "Table of Contents",
+    "description": "ARIA label for the Table of Contents on the updates page"
+  },
+  "updatesPage.tocTitle": {
+    "message": "On this page",
+    "description": "The title for the table of contents on the updates page"
+  },
+  "homepage.newDocs.badge.milestone": {
+    "message": "MILESTONE",
+    "description": "Badge text for milestone updates"
+  },
+  "homepage.newDocs.noFeaturedUpdates": {
+    "message": "No featured updates to display at the moment.",
+    "description": "Text shown when no featured updates are available"
+  },
+  "homepage.newDocs.viewMore": {
+    "message": "View All Updates",
+    "description": "Link text to view more updates"
+  },
+  "updatesPage.title": {
+    "message": "Documentation Updates",
+    "description": "The title of the documentation updates page"
+  },
+  "updatesPage.description": {
+    "message": "This page tracks all significant changes, additions, and updates to the Kaia documentation.",
+    "description": "The introductory paragraph on the updates page"
+  },
+  "updatesPage.versioningToggle": {
+    "message": "About Our Versioning Scheme",
+    "description": "Button text to show/hide versioning information"
+  },
+  "updatesPage.versioningIntro": {
+    "message": "Each documentation change is versioned using Semantic Versioning (SemVer) principles:",
+    "description": "Introduction to versioning scheme"
+  },
+  "updatesPage.majorVersion": {
+    "message": "MAJOR version (X.y.z → (X+1).0.0):",
+    "description": "Major version label"
+  },
+  "updatesPage.majorVersionDesc": {
+    "message": "Fundamental overhauls, complete redesigns, or removal of critical sections that break existing navigation.",
+    "description": "Major version description"
+  },
+  "updatesPage.minorVersion": {
+    "message": "MINOR version (x.Y.z → x.(Y+1).0):",
+    "description": "Minor version label"
+  },
+  "updatesPage.minorVersionDesc": {
+    "message": "New site-wide features, language support, major content sections, significant restructuring, and milestone updates.",
+    "description": "Minor version description"
+  },
+  "updatesPage.patchVersion": {
+    "message": "PATCH version (x.y.Z → x.y.(Z+1)):",
+    "description": "Patch version label"
+  },
+  "updatesPage.patchVersionDesc": {
+    "message": "New individual pages, content updates, corrections, and minor UI improvements.",
+    "description": "Patch version description"
+  },
+  "updatesPage.jumpToYear": {
+    "message": "JUMP TO YEAR:",
+    "description": "Label for the jump to year links"
+  },
+  "updatesPage.noUpdates": {
+    "message": "No updates have been logged yet.",
+    "description": "Message shown when there are no documentation updates"
+  },
+  "updatesPage.item.docsVersionLabel": {
+    "message": "Docs Version:",
+    "description": "Label for the document version of an update item"
+  },
+  "updatesPage.item.relatedPagesLabel": {
+    "message": "Related Pages:",
+    "description": "Label for the related pages section of an update item"
+  },
+  "updatesPage.item.viewGitHubPRButton": {
+    "message": "View GitHub PR",
+    "description": "Button text to view GitHub PR for an update item"
+  },
+  "updatesPage.metaTitle": {
+    "message": "Documentation Updates",
+    "description": "The meta title for the documentation updates page"
+  },
+  "updatesPage.metaDescription": {
+    "message": "Stay up-to-date with the latest changes and additions to the Kaia documentation.",
+    "description": "The meta description for the documentation updates page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "system mode",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expand the dropdown",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Collapse the dropdown",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   }
 }

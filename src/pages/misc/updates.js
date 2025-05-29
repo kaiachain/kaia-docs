@@ -253,18 +253,9 @@ const DocUpdatesContent = ({ years, updatesByYear, sortedUpdates }) => {
 // Helper function to render update items
 const renderUpdates = (updates, colorMode) => {
   return updates.map((update, index) => {
-    const updateTitle = translate({
-      message: update.title,
-      description: `Title for doc update (Version: ${update.version}, Date: ${update.date})`
-    });
-    const updateSummary = translate({
-      message: update.summary,
-      description: `Summary for doc update: ${update.title}`
-    });
-    const updateDetails = update.details ? translate({
-      message: update.details,
-      description: `Details for doc update: ${update.title}`
-    }) : null;
+    const updateTitle = update.title;
+    const updateSummary = update.summary;
+    const updateDetails = update.details ? update.details : null;
 
     return (
       <article 
@@ -279,7 +270,7 @@ const renderUpdates = (updates, colorMode) => {
           {update.primaryDocLink ? (
             <Link to={update.primaryDocLink}>{updateTitle}</Link>
           ) : (
-            updateTitle
+            updateTitle // Display the title directly
           )}
         </h4>
         
@@ -316,10 +307,8 @@ const renderUpdates = (updates, colorMode) => {
             </strong>
             <ul style={{ listStyle: 'disc', paddingLeft: '20px', marginTop: '0.5rem' }}>
               {update.relatedPages.map((page, pageIndex) => {
-                const relatedPageTitle = translate({
-                  message: page.title,
-                  description: `Related page title for doc update: ${update.title} (Related page index: ${pageIndex})`
-                });
+                // page.title is also used directly from the localized JSON
+                const relatedPageTitle = page.title; 
                 return (
                   <li key={page.path} style={{ marginBottom: '0.25rem' }}>
                     <Link to={page.path}>{relatedPageTitle}</Link>
