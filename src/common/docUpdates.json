@@ -268,7 +268,7 @@
 	    "showInWhatsNew": true
     },
     {
-      "version": "1.5.10",
+      "version": "1.5.11",
       "date": "2024-11-05",
       "title": "Kaia SDK Guide for Utilities",
       "updateType": "NEW_CONTENT",
@@ -278,7 +278,7 @@
 	    "showInWhatsNew": true
     },
     {
-      "version": "1.5.9",
+      "version": "1.5.10",
       "date": "2024-11-05",
       "title": "Update Kaia SDK tutorials for keystore",
       "updateType": "UPDATE",
@@ -287,7 +287,7 @@
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/135"
     },
     {
-      "version": "1.5.8",
+      "version": "1.5.9",
       "date": "2024-10-31",
       "title": "Integrating with Pyth Network Oracles",
       "updateType": "NEW_CONTENT",
@@ -297,7 +297,7 @@
 	    "showInWhatsNew": true
     },
     {
-      "version": "1.5.7",
+      "version": "1.5.8",
       "date": "2024-10-29",
       "title": "Kaia Brand Guidelines and Asset Usage",
       "updateType": "NEW_CONTENT",
@@ -305,6 +305,15 @@
       "primaryDocLink": "/misc/brand",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/146",
 	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.7",
+      "date": "2024-10-29",
+      "title": "Migrating an Ethereum App to Kaia",
+      "updateType": "UPDATE",
+      "summary": "Learn the necessary code modifications to migrate an Ethereum application to the Kaia network.",
+      "primaryDocLink": "/build/tutorials/migrating-ethereum-app-to-kaia",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/142"
     },
     {
       "version": "1.5.6",
