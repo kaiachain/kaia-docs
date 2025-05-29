@@ -82,7 +82,7 @@ kaia-agentkit-langchain-example/
 
 ### Agent.ts 
 
-This is the main application file where we set up langChain ReAct Agent, Kaia Agent Kit, wallet, and the interactive prompt. 
+This is the main application file where we set up LangChain ReAct Agent, Kaia Agent Kit, wallet, and the interactive prompt. 
 
 ```typescript
 #!/usr/bin/env node
@@ -195,7 +195,7 @@ Lets take a look at the core workings of the code:
 
 ## Run the Agent
 
-Setup is complete! To run the agent, execute the following command in your terminal:
+Setup is complete. To run the agent, execute the following command in your terminal:
 
 ```bash
 pnpm tsx agent.ts
