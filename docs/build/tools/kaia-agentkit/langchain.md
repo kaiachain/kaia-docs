@@ -13,7 +13,7 @@ Kaia Agent Kit integrates with several popular AI frameworks, enabling you to bu
 
 ## Getting Started 
 
-In this guide, we’ll build an AI agent using Langchain and Kaia Agent Kit that can:
+In this guide, we’ll build an AI agent using LangChain and Kaia Agent Kit that can:
 
 - Send native tokens, fungible tokens (FTs), and NFTs.
 - Check balances of native tokens, FTs, and NFTs.
@@ -82,7 +82,7 @@ kaia-agentkit-langchain-example/
 
 ### Agent.ts 
 
-This is the main application file where we set up langchain ReAct Agent, Kaia Agent Kit, wallet, and the interactive prompt. 
+This is the main application file where we set up langChain ReAct Agent, Kaia Agent Kit, wallet, and the interactive prompt. 
 
 ```typescript
 #!/usr/bin/env node
