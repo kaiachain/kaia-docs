@@ -62,7 +62,7 @@
   },
   "theme.colorToggle.ariaLabel": {
     "message": "ダークモードとライトモードの切り替え（現在は {mode}）",
-    "description": "The ARIA label for the navbar color mode toggle"
+    "description": "The ARIA label for the color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "ダークモード",
@@ -637,22 +637,6 @@
     "message": "アップデイト",
     "description": "Badge text for updated documents"
   },
-  "homepage.newDocs.surveyMinidapp.title": {
-    "message": "KaiaでアンケートDAppを作る",
-    "description": "Title for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.title": {
-    "message": "Cocos Creatorを使ったLINEミニDApp作成ガイド",
-    "description": "Title for Cocos Mini DApp doc"
-  },
-  "homepage.newDocs.surveyMinidapp.description": {
-    "message": "Kaia上で、匿名性のためのSemaphoreとソーシャル機能のためのLINEを使って、プライバシーに焦点を当てた分散型アンケートアプリケーションを構築する。",
-    "description": "Description for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.description": {
-    "message": "Cocos Creator、Web3、LIFFを使ってLINE mini dAppsを作成、統合、デプロイ。",
-    "description": "Description for Cocos Mini DApp doc"
-  },
   "homepage.newDocs.title": {
     "message": "新着情報",
     "description": "Title for the What's New section"
@@ -661,14 +645,6 @@
     "message": "最新のアップデートとドキュメントへの追加をご覧ください。",
     "description": "Subtitle for the What's New section"
   },
-  "homepage.newDocs.codeSandbox.title": {
-    "message": "ライブ・コード・エディターがSDKドキュメントで利用可能に！",
-    "description": "Title for Live Code Editor feature"
-  },
-  "homepage.newDocs.codeSandbox.description": {
-    "message": "Kaia Docsですぐにコードを試すことができます！SDKページにEthers-ext (v6)とWeb3js-extアカウント管理用のライブCodeSandboxエディタが追加されました。",
-    "description": "Description for Live Code Editor feature"
-  },
   "homepage.newDocs.badge.newContent": {
     "message": "新コンテンツ",
     "description": "Badge text for new content"
@@ -676,5 +652,109 @@
   "homepage.newDocs.badge.newFeature": {
     "message": "新機能",
     "description": "Badge text for new features"
+  },
+  "theme.common.backToTopButtonAriaLabel": {
+    "message": "トップに戻る",
+    "description": "The ARIA label for the back to top button"
+  },
+  "updatesPage.toc.ariaLabel": {
+    "message": "目次",
+    "description": "ARIA label for the Table of Contents on the updates page"
+  },
+  "updatesPage.tocTitle": {
+    "message": "このページでは",
+    "description": "The title for the table of contents on the updates page"
+  },
+  "homepage.newDocs.badge.milestone": {
+    "message": "マイルストーン",
+    "description": "Badge text for milestone updates"
+  },
+  "homepage.newDocs.noFeaturedUpdates": {
+    "message": "現在、注目のアップデートは表示されていない。",
+    "description": "Text shown when no featured updates are available"
+  },
+  "homepage.newDocs.viewMore": {
+    "message": "すべての最新情報を見る",
+    "description": "Link text to view more updates"
+  },
+  "updatesPage.title": {
+    "message": "ドキュメントの更新",
+    "description": "The title of the documentation updates page"
+  },
+  "updatesPage.description": {
+    "message": "このページでは、カイアのドキュメントに関するすべての重要な変更、追加、更新を追跡します。",
+    "description": "The introductory paragraph on the updates page"
+  },
+  "updatesPage.versioningToggle": {
+    "message": "バージョン管理について",
+    "description": "Button text to show/hide versioning information"
+  },
+  "updatesPage.versioningIntro": {
+    "message": "各ドキュメントの変更は、セマンティックバージョン管理（SemVer）の原則に従ってバージョン管理されます：",
+    "description": "Introduction to versioning scheme"
+  },
+  "updatesPage.majorVersion": {
+    "message": "MAJORバージョン（X.y.z → (X+1).0.0）：",
+    "description": "Major version label"
+  },
+  "updatesPage.majorVersionDesc": {
+    "message": "根本的なオーバーホール、完全な再設計、または既存のナビゲーションを壊す重要なセクションの削除。",
+    "description": "Major version description"
+  },
+  "updatesPage.minorVersion": {
+    "message": "マイナーバージョン (x.Y.z → x.(Y+1).0)：",
+    "description": "Minor version label"
+  },
+  "updatesPage.minorVersionDesc": {
+    "message": "サイト全体の新機能、言語サポート、主要コンテンツセクション、大幅な再編成、マイルストーン更新。",
+    "description": "Minor version description"
+  },
+  "updatesPage.patchVersion": {
+    "message": "PATCHバージョン（x.y.Z → x.y.(Z+1)）：",
+    "description": "Patch version label"
+  },
+  "updatesPage.patchVersionDesc": {
+    "message": "新しい個別ページ、コンテンツの更新、修正、およびマイナーなUIの改善。",
+    "description": "Patch version description"
+  },
+  "updatesPage.jumpToYear": {
+    "message": "年へジャンプ：",
+    "description": "Label for the jump to year links"
+  },
+  "updatesPage.noUpdates": {
+    "message": "まだ更新は記録されていない。",
+    "description": "Message shown when there are no documentation updates"
+  },
+  "updatesPage.item.docsVersionLabel": {
+    "message": "ドキュメント・バージョン",
+    "description": "Label for the document version of an update item"
+  },
+  "updatesPage.item.relatedPagesLabel": {
+    "message": "関連ページ",
+    "description": "Label for the related pages section of an update item"
+  },
+  "updatesPage.item.viewGitHubPRButton": {
+    "message": "GitHub PRを見る",
+    "description": "Button text to view GitHub PR for an update item"
+  },
+  "updatesPage.metaTitle": {
+    "message": "ドキュメントの更新",
+    "description": "The meta title for the documentation updates page"
+  },
+  "updatesPage.metaDescription": {
+    "message": "カイアのドキュメントの最新の変更と追加をご確認ください。",
+    "description": "The meta description for the documentation updates page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "システムモード",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "ドロップダウンを展開する",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "ドロップダウンを折りたたむ",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   }
 }
