@@ -49,6 +49,8 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |[Pokt Network](https://pokt.network/)|`https://kaia-mainnet.rpc.grove.city/v1/803ceedf`|kaia,klay,eth,net|Full|
 |[GetBlock](https://getblock.io/)|`https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`|kaia,klay,eth,net|Full|
 |[dRPC](https://drpc.org/)|`https://klaytn.drpc.org`|kaia,klay,eth,net|Full|
+|[Nirvana Labs](https://nirvanalabs.io/)|`https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2`|kaia,klay,eth,net|Archive|
+
 
 **WebSocket** 
 
