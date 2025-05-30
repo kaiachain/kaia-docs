@@ -114,5 +114,9 @@
   "item.label.Survey Mini DApp": {
     "message": "Khảo sát Mini DApp",
     "description": "Navbar item with label Survey Mini DApp"
+  },
+  "item.label.Debugging and Diagnostics": {
+    "message": "Gỡ lỗi và chẩn đoán",
+    "description": "Navbar item with label Debugging and Diagnostics"
   }
 }
