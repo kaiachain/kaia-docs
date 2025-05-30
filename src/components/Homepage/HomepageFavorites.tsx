@@ -2,24 +2,35 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styled from 'styled-components';
 import { useColorMode } from '@docusaurus/theme-common';
-import Translate from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
+// Import shared utility and component from src/common
+import { formatDate } from '@site/src/common/dateUtils';
+import SharedUpdateTypeBadge from '@site/src/common/UpdateTypeBadge';
+
+// Import your JSON data
+import docUpdatesData from '@site/src/common/docUpdates.json';
+
+// --- Type Definitions ---
 type FavoriteType = 'gettingStarted' | 'metamask' | 'snapshot' | 'rpc' | 'explorers' | 'wallets';
-type NewDocType = 'codeSandbox' | 'surveyMinidapp' | 'cocosMinidapp';
-type BadgeType = 'NEW_CONTENT' | 'NEW_FEATURE' | 'UPDATE';
+type BadgeType = 'NEW_CONTENT' | 'NEW_FEATURE' | 'UPDATE' | 'MILESTONE';
 
 interface Favorite {
   type: FavoriteType;
   link: string;
 }
 
-interface NewDoc {
-  type: NewDocType;
-  link: string;
+interface HomepageUpdateItem {
+  version: string;
   date: string;
-  badgeType: BadgeType;
+  title: string;
+  updateType: BadgeType;
+  summary: string;
+  primaryDocLink?: string;
+  showInWhatsNew?: boolean;
 }
 
+// --- Static Data for Favorites ---
 const leftFavorites: Favorite[] = [
   { type: 'gettingStarted', link: '/build/get-started/hardhat' },
   { type: 'metamask', link: '/build/tutorials/connecting-metamask' },
@@ -32,27 +43,7 @@ const rightFavorites: Favorite[] = [
   { type: 'wallets', link: '/build/tools/wallets' },
 ];
 
-const newDocs: NewDoc[] = [
-  { 
-    type: 'codeSandbox', 
-    link: '/references/sdk/ethers-ext/v6/account-management/account-key/legacy', 
-    date: '2025-05-08',
-    badgeType: 'NEW_FEATURE'
-  },
-  { 
-    type: 'surveyMinidapp', 
-    link: '/minidapps/survey-minidapp/intro', 
-    date: '2025-03-06',
-    badgeType: 'NEW_CONTENT'
-  },
-  { 
-    type: 'cocosMinidapp', 
-    link: '/minidapps/cocos-creator', 
-    date: '2025-03-04',
-    badgeType: 'NEW_CONTENT'
-  },
-];
-
+// --- Styled Components  ---
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -136,7 +127,7 @@ const NewDocRow = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   
   @media (min-width: 768px) {
     flex-direction: row;
@@ -154,6 +145,8 @@ const NewDocItem = styled(Link)<{ themeMode: string }>`
   transition: border-color 0.3s, background-color 0.3s;
   cursor: pointer;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     border-color: var(--ifm-link-color);
@@ -162,20 +155,8 @@ const NewDocItem = styled(Link)<{ themeMode: string }>`
   }
 `;
 
-const NewDocBadge = styled.span<{ badgeType: BadgeType; themeMode: string }>`
-  display: inline-block;
-  background: ${({ badgeType }) => 
-    badgeType === 'NEW_CONTENT' || badgeType === 'NEW_FEATURE' ? 'var(--ifm-link-color)' : '#FF9800'};
-  color: ${({ themeMode }) => themeMode === 'dark' ? '#000000' : '#ffffff'};
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-`;
-
 const NewDocDate = styled.div<{ themeMode: string }>`
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin-bottom: 8px;
   color: ${({ themeMode }) => (themeMode === 'dark' ? '#9ca3af' : '#6b7280')};
 `;
@@ -192,10 +173,11 @@ const FavoriteTitle = styled.h4<{ themeMode: string }>`
 `;
 
 const NewDocTitle = styled.h4<{ themeMode: string }>`
-  font-size: 1.25rem;
-  margin: 8px 0 6px 0;
+  font-size: 1.15rem;
+  margin: 0 0 6px 0;
   color: inherit;
   transition: color 0.3s;
+  line-height: 1.3;
 
   ${NewDocItem}:hover & {
     color: var(--ifm-link-color);
@@ -209,25 +191,29 @@ const FavoriteDescription = styled.p<{ themeMode: string }>`
 `;
 
 const NewDocDescription = styled.p<{ themeMode: string }>`
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
   color: ${({ themeMode }) => (themeMode === 'dark' ? '#e5e7eb' : '#4b5563')};
+  flex-grow: 1;
 `;
 
 const ViewMoreLink = styled(Link)`
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 12px;
   font-weight: bold;
   transition: text-decoration 0.3s;
+  font-size: 0.9rem;
 
   &:hover {
     text-decoration: underline;
   }
 `;
 
+// --- React Components ---
+
 const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
   const { colorMode } = useColorMode();
-  
+  // This component remains unchanged
   return (
     <FavoriteItem to={favorite.link} themeMode={colorMode}>
       <FavoriteTitle themeMode={colorMode}>
@@ -298,66 +284,56 @@ const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
   );
 };
 
-const NewDocContent = ({ doc }: { doc: NewDoc }) => {
+const getTranslatedBadgeText = (updateType: BadgeType): string => {
+  switch (updateType) {
+    case 'NEW_CONTENT':
+      return translate({
+        id: 'homepage.newDocs.badge.newContent',
+        message: 'NEW CONTENT',
+        description: 'Badge text for new content',
+      });
+    case 'NEW_FEATURE':
+      return translate({
+        id: 'homepage.newDocs.badge.newFeature',
+        message: 'NEW FEATURE',
+        description: 'Badge text for new features',
+      });
+    case 'UPDATE':
+      return translate({
+        id: 'homepage.newDocs.badge.update',
+        message: 'UPDATE',
+        description: 'Badge text for updated documents',
+      });
+    case 'MILESTONE':
+       return translate({
+        id: 'homepage.newDocs.badge.milestone',
+        message: 'MILESTONE',
+        description: 'Badge text for milestone updates',
+      });
+    default:
+      return updateType;
+  }
+};
+
+const HomepageUpdateCard = ({ doc }: { doc: HomepageUpdateItem }) => {
   const { colorMode } = useColorMode();
-  
+  const itemLink = doc.primaryDocLink || '/misc/updates';
+
   return (
-    <NewDocItem to={doc.link} themeMode={colorMode}>
-      <NewDocBadge badgeType={doc.badgeType} themeMode={colorMode}>
-        {doc.badgeType === 'NEW_CONTENT' ? (
-          <Translate id="homepage.newDocs.badge.newContent" description="Badge text for new content">
-            NEW CONTENT
-          </Translate>
-        ) : doc.badgeType === 'NEW_FEATURE' ? (
-          <Translate id="homepage.newDocs.badge.newFeature" description="Badge text for new features">
-            NEW FEATURE
-          </Translate>
-        ) : (
-          <Translate id="homepage.newDocs.badge.update" description="Badge text for updated documents">
-            UPDATE
-          </Translate>
-        )}
-      </NewDocBadge>
+    <NewDocItem to={itemLink} themeMode={colorMode}>
+      <div style={{ marginBottom: '10px', alignSelf: 'flex-start' }}>
+        <SharedUpdateTypeBadge type={doc.updateType} themeMode={colorMode}>
+          {getTranslatedBadgeText(doc.updateType)}
+        </SharedUpdateTypeBadge>
+      </div>
       <NewDocDate themeMode={colorMode}>
-        {new Date(doc.date).toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'short', 
-          day: 'numeric' 
-        })}
+        {formatDate(doc.date, 'short')}
       </NewDocDate>
       <NewDocTitle themeMode={colorMode}>
-        {doc.type === 'codeSandbox' && (
-          <Translate id="homepage.newDocs.codeSandbox.title" description="Title for Live Code Editor feature">
-            Live Code Editor Now Available in SDK Docs!
-          </Translate>
-        )}
-        {doc.type === 'surveyMinidapp' && (
-          <Translate id="homepage.newDocs.surveyMinidapp.title" description="Title for Survey Mini DApp doc">
-            Building a Survey DApp on Kaia
-          </Translate>
-        )}
-        {doc.type === 'cocosMinidapp' && (
-          <Translate id="homepage.newDocs.cocosMinidapp.title" description="Title for Cocos Mini DApp doc">
-            Guide to LINE Mini DApp Creation Using Cocos Creator
-          </Translate>
-        )}
+        {doc.title}
       </NewDocTitle>
       <NewDocDescription themeMode={colorMode}>
-        {doc.type === 'codeSandbox' && (
-          <Translate id="homepage.newDocs.codeSandbox.description" description="Description for Live Code Editor feature">
-            Try out code instantly in Kaia Docs! The SDK pages now feature a live CodeSandbox editor for Ethers-ext (v6) and Web3js-ext Account Management.
-          </Translate>
-        )}
-        {doc.type === 'surveyMinidapp' && (
-          <Translate id="homepage.newDocs.surveyMinidapp.description" description="Description for Survey Mini DApp doc">
-            Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.
-          </Translate>
-        )}
-        {doc.type === 'cocosMinidapp' && (
-          <Translate id="homepage.newDocs.cocosMinidapp.description" description="Description for Cocos Mini DApp doc">
-            Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF. 
-          </Translate>
-        )}
+        {doc.summary}
       </NewDocDescription>
     </NewDocItem>
   );
@@ -366,9 +342,16 @@ const NewDocContent = ({ doc }: { doc: NewDoc }) => {
 const HomepageFavorites: React.FC = () => {
   const { colorMode } = useColorMode();
 
+  const allUpdates = (docUpdatesData.updates || []) as HomepageUpdateItem[];
+
+  // Filter updates for "What's New", sort them, and then take the top 3
+  const featuredUpdates = allUpdates
+    .filter(update => update.showInWhatsNew === true) // Filter by the new field
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Sort by date, most recent first
+    .slice(0, 3); // Take the latest 3 of the featured updates
+
   return (
     <Container>
-      {/* New "What's New" Section */}
       <div>
         <SectionTitle themeMode={colorMode}>
           <Translate id="homepage.newDocs.title" description="Title for the What's New section">
@@ -381,14 +364,27 @@ const HomepageFavorites: React.FC = () => {
           </Translate>
         </SectionSubtitle>
         
-        <NewDocRow>
-          {newDocs.map((doc) => (
-            <NewDocContent key={doc.link} doc={doc} />
-          ))}
-        </NewDocRow>
+        {featuredUpdates.length > 0 ? (
+          <NewDocRow>
+            {/* Render the filtered and sliced featuredUpdates */}
+            {featuredUpdates.map((doc, index) => (
+              <HomepageUpdateCard key={`${doc.version}-${doc.date}-${index}`} doc={doc} />
+            ))}
+          </NewDocRow>
+        ) : (
+          <p>
+            <Translate id="homepage.newDocs.noFeaturedUpdates" description="Text shown when no featured updates are available">
+              No featured updates to display at the moment.
+            </Translate>
+          </p>
+        )}
+        <ViewMoreLink to="/misc/updates">
+          <Translate id="homepage.newDocs.viewMore" description="Link text to view more updates">
+            View All Updates
+          </Translate> &rarr;
+        </ViewMoreLink>
       </div>
       
-      {/* Original Favorites Section */}
       <FavoritesContainer>
         <Column themeMode={colorMode}>
           <SectionTitle themeMode={colorMode}>

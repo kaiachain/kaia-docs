@@ -62,7 +62,7 @@
   },
   "theme.colorToggle.ariaLabel": {
     "message": "Switch between dark and light mode (currently {mode})",
-    "description": "The ARIA label for the navbar color mode toggle"
+    "description": "The ARIA label for the color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "dark mode",
@@ -637,22 +637,6 @@
     "message": "UPDATE",
     "description": "Badge text for updated documents"
   },
-  "homepage.newDocs.surveyMinidapp.title": {
-    "message": "Building a Survey DApp on Kaia",
-    "description": "Title for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.title": {
-    "message": "Guide to LINE Mini DApp Creation Using Cocos Creator",
-    "description": "Title for Cocos Mini DApp doc"
-  },
-  "homepage.newDocs.surveyMinidapp.description": {
-    "message": "Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.",
-    "description": "Description for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.description": {
-    "message": "Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF.",
-    "description": "Description for Cocos Mini DApp doc"
-  },
   "homepage.newDocs.title": {
     "message": "What's New",
     "description": "Title for the What's New section"
@@ -661,14 +645,6 @@
     "message": "Explore our latest updates and additions to the docs.",
     "description": "Subtitle for the What's New section"
   },
-  "homepage.newDocs.codeSandbox.title": {
-    "message": "Live Code Editor Now Available in SDK Docs!",
-    "description": "Title for Live Code Editor feature"
-  },
-  "homepage.newDocs.codeSandbox.description": {
-    "message": "Try out code instantly in Kaia Docs! The SDK pages now feature a live CodeSandbox editor for Ethers-ext (v6) and Web3js-ext Account Management.",
-    "description": "Description for Live Code Editor feature"
-  },
   "homepage.newDocs.badge.newContent": {
     "message": "NEW CONTENT",
     "description": "Badge text for new content"
@@ -676,5 +652,109 @@
   "homepage.newDocs.badge.newFeature": {
     "message": "NEW FEATURE",
     "description": "Badge text for new features"
+  },
+  "theme.common.backToTopButtonAriaLabel": {
+    "message": "Scroll back to top",
+    "description": "The ARIA label for the back to top button"
+  },
+  "updatesPage.toc.ariaLabel": {
+    "message": "Table of Contents",
+    "description": "ARIA label for the Table of Contents on the updates page"
+  },
+  "updatesPage.tocTitle": {
+    "message": "On this page",
+    "description": "The title for the table of contents on the updates page"
+  },
+  "homepage.newDocs.badge.milestone": {
+    "message": "MILESTONE",
+    "description": "Badge text for milestone updates"
+  },
+  "homepage.newDocs.noFeaturedUpdates": {
+    "message": "No featured updates to display at the moment.",
+    "description": "Text shown when no featured updates are available"
+  },
+  "homepage.newDocs.viewMore": {
+    "message": "View All Updates",
+    "description": "Link text to view more updates"
+  },
+  "updatesPage.title": {
+    "message": "Documentation Updates",
+    "description": "The title of the documentation updates page"
+  },
+  "updatesPage.description": {
+    "message": "This page tracks all significant changes, additions, and updates to the Kaia documentation.",
+    "description": "The introductory paragraph on the updates page"
+  },
+  "updatesPage.versioningToggle": {
+    "message": "About Our Versioning Scheme",
+    "description": "Button text to show/hide versioning information"
+  },
+  "updatesPage.versioningIntro": {
+    "message": "Each documentation change is versioned using Semantic Versioning (SemVer) principles:",
+    "description": "Introduction to versioning scheme"
+  },
+  "updatesPage.majorVersion": {
+    "message": "MAJOR version (X.y.z → (X+1).0.0):",
+    "description": "Major version label"
+  },
+  "updatesPage.majorVersionDesc": {
+    "message": "Fundamental overhauls, complete redesigns, or removal of critical sections that break existing navigation.",
+    "description": "Major version description"
+  },
+  "updatesPage.minorVersion": {
+    "message": "MINOR version (x.Y.z → x.(Y+1).0):",
+    "description": "Minor version label"
+  },
+  "updatesPage.minorVersionDesc": {
+    "message": "New site-wide features, language support, major content sections, significant restructuring, and milestone updates.",
+    "description": "Minor version description"
+  },
+  "updatesPage.patchVersion": {
+    "message": "PATCH version (x.y.Z → x.y.(Z+1)):",
+    "description": "Patch version label"
+  },
+  "updatesPage.patchVersionDesc": {
+    "message": "New individual pages, content updates, corrections, and minor UI improvements.",
+    "description": "Patch version description"
+  },
+  "updatesPage.jumpToYear": {
+    "message": "JUMP TO YEAR:",
+    "description": "Label for the jump to year links"
+  },
+  "updatesPage.noUpdates": {
+    "message": "No updates have been logged yet.",
+    "description": "Message shown when there are no documentation updates"
+  },
+  "updatesPage.item.docsVersionLabel": {
+    "message": "Docs Version:",
+    "description": "Label for the document version of an update item"
+  },
+  "updatesPage.item.relatedPagesLabel": {
+    "message": "Related Pages:",
+    "description": "Label for the related pages section of an update item"
+  },
+  "updatesPage.item.viewGitHubPRButton": {
+    "message": "View GitHub PR",
+    "description": "Button text to view GitHub PR for an update item"
+  },
+  "updatesPage.metaTitle": {
+    "message": "Documentation Updates",
+    "description": "The meta title for the documentation updates page"
+  },
+  "updatesPage.metaDescription": {
+    "message": "Stay up-to-date with the latest changes and additions to the Kaia documentation.",
+    "description": "The meta description for the documentation updates page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "system mode",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expand the dropdown",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Collapse the dropdown",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   }
 }

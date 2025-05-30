@@ -1,0 +1,632 @@
+{
+  "updates": [
+    {
+      "version": "1.13.3",
+      "date": "2025-05-19",
+      "title": "Implementing Client-Side Redirects for Broken Links",
+      "updateType": "NEW_FEATURE",
+      "summary": "Added client-side redirects to prevent 404 errors from old or moved documentation links.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/304"
+    },
+    {
+      "version": "1.13.2",
+      "date": "2025-05-13",
+      "title": "Deploy smart contract using Foundry",
+      "updateType": "UPDATE",
+      "summary": "Added the usage of `forge create` and `forge script` and troubleshooting section.",
+      "details": "",
+      "primaryDocLink": "/build/smart-contracts/deploy/foundry",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/301"
+    },
+    {
+      "version": "1.13.1",
+      "date": "2025-05-08",
+      "title": "Kaia Node Debugging and Diagnostics",
+      "updateType": "NEW_CONTENT",
+      "summary": "Debug and diagnose Kaia node issues using monitoring, profiling, log analysis, and analytics tools.",
+      "primaryDocLink": "/nodes/debugging/analytics-tool",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/295",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.13.0",
+      "date": "2025-05-08",
+      "title": "Live Code Editor Now Available in SDK Docs!",
+      "updateType": "NEW_FEATURE",
+      "summary": "Try out code instantly in Kaia Docs! The SDK pages now feature a live CodeSandbox editor for Ethers-ext (v6) and Web3js-ext Account Management.",
+      "primaryDocLink": "/references/sdk/ethers-ext/v6/account-management/account-key/legacy",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/299",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.12.3",
+      "date": "2025-04-18",
+      "title": "Verifying Smart Contracts Using Foundry",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to automatically verify your smart contracts on Kaiascan using Foundry's CLI.",
+      "primaryDocLink": "/build/smart-contracts/deploy/foundry",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/287"
+    },
+    {
+      "version": "1.12.2",
+      "date": "2025-04-14",
+      "title": "Integrating a New Survey System for Enhanced Feedback",
+      "updateType": "NEW_FEATURE",
+      "summary": "We've integrated a new survey system to gather deeper insights from your feedback.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/285"
+    },
+    {
+      "version": "1.12.1",
+      "date": "2025-04-14",
+      "title": "Improving Navigation with Navbar Dropdowns",
+      "updateType": "NEW_FEATURE",
+      "summary": "Explore our enhanced navbar with dropdowns for clearer access to key content..",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/283"
+    },
+    {
+      "version": "1.12.0",
+      "date": "2025-04-04",
+      "title": "Removed caver SDKs",
+      "updateType": "UPDATE",
+      "summary": "Remove caver SDK references except archival notices to reduce user’s confusion.",
+      "primaryDocLink": "/references/sdk/caver-js",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/281"
+    },
+    {
+      "version": "1.11.6",
+      "date": "2025-03-26",
+      "title": "Adding llms.txt for AI Bot Control",
+      "updateType": "NEW_FEATURE",
+      "summary": "Implement llms.txt in your project to manage AI bot access to Kaia Docs.",
+      "primaryDocLink": "https://docs.kaia.io/llms.txt",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/278",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.11.5",
+      "date": "2025-03-07",
+      "title": "Integrating the Kaia Eliza Plugin",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to seamlessly integrate the Kaia Eliza Plugin with ElizaOS for enhanced Kaia blockchain interactions.",
+      "primaryDocLink": "/build/tutorials/eliza-plugin-guide",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/265",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.11.4",
+      "date": "2025-03-06",
+      "title": "Building a Survey DApp on Kaia",
+      "updateType": "NEW_CONTENT",
+      "summary": "Build a privacy-focused, decentralized survey application on Kaia using Semaphore for anonymity and LINE for social features.",
+      "primaryDocLink": "/minidapps/survey-minidapp/intro",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/264",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.11.3",
+      "date": "2025-03-05",
+      "title": "Creating a LINE Mini DApp with Unity",
+      "updateType": "UPDATE",
+      "summary": "Develop a fully integrated LINE mini dApp with Unity that seamlessly combines Web3 connectivity, intuitive UI design, and LIFF conversion.",
+      "primaryDocLink": "/minidapps",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/262"
+    },
+    {
+      "version": "1.11.2",
+      "date": "2025-03-04",
+      "title": "Guide to LINE Mini DApp Creation Using Cocos Creator",
+      "updateType": "NEW_CONTENT",
+      "summary": "Create, integrate, and deploy LINE mini dApps with Cocos Creator, Web3, and LIFF.",
+      "primaryDocLink": "/minidapps/cocos-creator",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/244",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.11.1",
+      "date": "2025-02-17",
+      "title": "Streamlining Token Management with Team Finance",
+      "updateType": "NEW_CONTENT",
+      "summary": "Manage your tokens efficiently and securely on Kaia Mainnet using Team Finance's comprehensive tools.",
+      "primaryDocLink": "/build/tools/token-management/team-finance",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/227",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.11.0",
+      "date": "2025-02-11",
+      "title": "Japanese Language Support Arrives for Kaia Docs",
+      "updateType": "MILESTONE",
+      "summary": "Explore Kaia Docs now available in Japanese for a broader audience.",
+      "primaryDocLink": "/ja",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/224",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.10.0",
+      "date": "2025-01-23",
+      "title": "Traditional Chinese Support Arrives for Kaia Docs",
+      "updateType": "MILESTONE",
+      "summary": "Explore Kaia Docs now available in Traditional Chinese for a broader audience.",
+      "primaryDocLink": "/zh-TW",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/217",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.9.2",
+      "date": "2025-01-20",
+      "title": "Verifying Smart Contracts Using Hardhat",
+      "updateType": "UPDATE",
+      "summary": "Added smart contract verfication guide via KaiaScan.",
+      "primaryDocLink": "/build/smart-contracts/verify/hardhat",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/214"
+    },
+    {
+      "version": "1.9.1",
+      "date": "2025-01-16",
+      "title": "New Binary Rating System for Page Feedback",
+      "updateType": "NEW_FEATURE",
+      "summary": "Provide quick feedback on page helpfulness with our new binary rating system.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/211",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.9.0",
+      "date": "2025-01-16",
+      "title": "Restructuring the Learn Section for Enhanced Experience",
+      "updateType": "MILESTONE",
+      "summary": "Explore the reorganized and improved Learn section for a better user experience.",
+      "primaryDocLink": "/learn",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/209",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.8.3",
+      "date": "2025-01-15",
+      "title": "Node Monitoring Setup Guide",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn how to set up Prometheus and Grafana to monitor your Kaia node.",
+      "primaryDocLink": "/nodes/debugging/monitoring-setup",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/208",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.8.2",
+      "date": "2025-01-15",
+      "title": "Node Data Profiling Guide",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore various profiling techniques available for Kaia node operators.",
+      "primaryDocLink": "/nodes/debugging/node-profiling",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/207",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.8.1",
+      "date": "2025-01-07",
+      "title": "Simplifying Transfers with CSV Airdrop",
+      "updateType": "NEW_CONTENT",
+      "summary": "Batch multiple token transfers in Kaia Safe by simply uploading a CSV file.",
+      "primaryDocLink": "/build/tools/wallets/kaia-safe/csv-airdrop",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/202",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.8.0",
+      "date": "2025-01-06",
+      "title": "Simplified Chinese Support Arrives for Kaia Docs",
+      "updateType": "MILESTONE",
+      "summary": "Explore Kaia Docs now available in Simplified Chinese for a broader audience.",
+      "primaryDocLink": "/zh-CN",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/201",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.7.0",
+      "date": "2024-12-24",
+      "title": "Revamping the Homepage for Easier Navigation",
+      "updateType": "NEW_FEATURE",
+      "summary": "Explore our redesigned homepage featuring popular pages, SDK, and API documentation sections.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/194",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.6.3",
+      "date": "2024-12-16",
+      "title": "Verifying Smart Contracts Using Sourcify",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to verify your smart contracts on Kaia using Foundry and Sourcify's verification service.",
+      "primaryDocLink": "/build/smart-contracts/verify/sourcify",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/187",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.6.2",
+      "date": "2024-12-16",
+      "title": "Building Mini dApps on LINE with Unity",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to build mini dApps on LINE using Unity WebGL and Kaia for Web3 integration.",
+      "primaryDocLink": "/minidapps",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/185",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.6.1",
+      "date": "2024-12-09",
+      "title": "D'cent Biometric Wallet Guide",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore the D'cent Biometric Wallet to securely manage your crypto, including Kaia.",
+      "primaryDocLink": "/build/tools/wallets/hardware-wallets/dcent",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/183",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.6.0",
+      "date": "2024-12-05",
+      "title": "Enhancing Multilingual Docs with Machine Translation & Community Support",
+      "updateType": "NEW_FEATURE",
+      "summary": "We've implemented machine translation; help us improve non-English documentation quality via Crowdin.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/162",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.11",
+      "date": "2024-11-05",
+      "title": "Kaia SDK Guide for Utilities",
+      "updateType": "NEW_CONTENT",
+      "summary": "Find how to use various utility functions provided by Kaia SDKs.",
+      "primaryDocLink": "/references/sdk/ethers-ext/v6/utils/address",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/145",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.10",
+      "date": "2024-11-05",
+      "title": "Update Kaia SDK tutorials for keystore",
+      "updateType": "UPDATE",
+      "summary": "Updated keystore tutorials.",
+      "primaryDocLink": "/references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-multi",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/135"
+    },
+    {
+      "version": "1.5.9",
+      "date": "2024-10-31",
+      "title": "Integrating with Pyth Network Oracles",
+      "updateType": "NEW_CONTENT",
+      "summary": "Integrate Pyth Network's real-time price feeds into your Kaia smart contracts.",
+      "primaryDocLink": "/build/tools/oracles/pyth-network",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/143",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.8",
+      "date": "2024-10-29",
+      "title": "Kaia Brand Guidelines and Asset Usage",
+      "updateType": "NEW_CONTENT",
+      "summary": "Adhere to Kaia's brand guidelines for consistent logo and symbol usage across platforms.",
+      "primaryDocLink": "/misc/brand",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/146",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.7",
+      "date": "2024-10-29",
+      "title": "Migrating an Ethereum App to Kaia",
+      "updateType": "UPDATE",
+      "summary": "Learn the necessary code modifications to migrate an Ethereum application to the Kaia network.",
+      "primaryDocLink": "/build/tutorials/migrating-ethereum-app-to-kaia",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/142"
+    },
+    {
+      "version": "1.5.6",
+      "date": "2024-10-25",
+      "title": "Main FAQ overhauled",
+      "updateType": "UPDATE",
+      "summary": "Updated the main FAQ.",
+      "primaryDocLink": "/misc/faq",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/141"
+    },
+    {
+      "version": "1.5.5",
+      "date": "2024-10-21",
+      "title": "Querying Blockchain Data with The Graph",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to query Kaia blockchain data using The Graph's subgraphs for historical insights.",
+      "primaryDocLink": "/build/tools/indexers/thegraph",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/134",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.4",
+      "date": "2024-10-16",
+      "title": "Ethers-ext SDK tutorial for v6",
+      "updateType": "NEW_CONTENT",
+      "summary": "Added Ethers-ext SDK tutorial for v6.",
+      "primaryDocLink": "/references/sdk/ethers-ext/v6/account-management/account-key/legacy",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/130",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.3",
+      "date": "2024-10-11",
+      "title": "Cross-Chain Interoperability with Stargate and Wormhole",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore Stargate and Wormhole to enable seamless cross-chain swaps and messaging on Kaia.",
+      "primaryDocLink": "/build/tools/cross-chain/wormhole",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/127",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.2",
+      "date": "2024-10-02",
+      "title": "Launching Kaia Nodes with AWS AMIs",
+      "updateType": "NEW_CONTENT",
+      "summary": "Quickly launch fully operational Kaia endpoint nodes using pre-configured AWS AMIs.",
+      "primaryDocLink": "/misc/operation/aws-ami",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/115",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.5.1",
+      "date": "2024-09-24",
+      "title": "Integrating Web3Auth for dApp Authentication",
+      "updateType": "UPDATE",
+      "summary": "Integrate Web3Auth into your Kaia dApp to simplify user onboarding with social logins.",
+      "primaryDocLink": "/build/tools/wallets/wallet-libraries/web3Auth",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/112"
+    },
+    {
+      "version": "1.5.0",
+      "date": "2024-09-12",
+      "title": "Restructuring Block Synchronization Documentation",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore our reorganized documentation with enhanced content on block synchronization and storage optimization.",
+      "primaryDocLink": "/learn/storage",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/99",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.4.14",
+      "date": "2024-09-06",
+      "title": "Deploying Smart Contracts on a Private Network",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to deploy a Greeter contract on a private Kaia network using Kaia Hardhat Utils.",
+      "primaryDocLink": "/smart-contracts/deploy/private-network",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/96",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.4.13",
+      "date": "2024-09-03",
+      "title": "Kaia Safe API Kit Guide",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to securely propose and manage Safe transactions with the Kaia Safe API Kit.",
+      "primaryDocLink": "/build/tools/wallets/kaia-safe/kaia-safe-api-kit",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/94",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.4.12",
+      "date": "2024-08-27",
+      "title": "Understanding Kaiabridge Token Swaps",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn how Kaiabridge facilitates fixed-rate FNSA to KAIA token swaps between Finschia and Kaia networks.",
+      "primaryDocLink": "/misc/kaia-transition/kaiabridge",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/86",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.4.11",
+      "date": "2024-08-26",
+      "title": "Connecting MetaMask to Kaia",
+      "updateType": "UPDATE",
+      "summary": "Connect your MetaMask wallet to Kaia for seamless interaction with the Kaia network.",
+      "primaryDocLink": "/build/tutorials/connecting-metamask",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/84"
+    },
+    {
+      "version": "1.4.10",
+      "date": "2024-08-23",
+      "title": "Updated media in Kaia Safe documentation",
+      "updateType": "UPDATE",
+      "summary": "Updated the images in the Kaia Safe documentation to reflect the latest UI changes.",
+      "primaryDocLink": "/build/tools/wallets/kaia-safe",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/75"
+    },
+    {
+      "version": "1.4.9",
+      "date": "2024-07-31",
+      "title": "Understanding Signed Message Standards",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn about various signed message standards like KIP-97, EIP-191, and EIP-712 for off-chain authorizations.",
+      "primaryDocLink": "/references/signed-message",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/49",
+	    "showInWhatsNew": true
+    },    
+    {
+      "version": "1.4.8",
+      "date": "2024-07-31",
+      "title": "Rewritten Kaia Smart Contracts page",
+      "updateType": "UPDATE",
+      "summary": "Update Kaia Smart Contracts page based on Kaia white paper v1.2.",
+      "primaryDocLink": "learn/smart-contracts",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/70"
+    },
+    {
+      "version": "1.4.7",
+      "date": "2024-07-31",
+      "title": "Rewritten Execution Model page",
+      "updateType": "UPDATE",
+      "summary": "Update Execution Model page by adding the concept of KIP-114.",
+      "primaryDocLink": "/learn/computation/execution-model",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/69"
+    },
+    {
+      "version": "1.4.6",
+      "date": "2024-07-31",
+      "title": "Rewritten Why Kaia page",
+      "updateType": "UPDATE",
+      "summary": "Update Why Kaia page by reflecting up-to-date value proposition.",
+      "primaryDocLink": "/learn/why-kaia",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/65"
+    },
+    {
+      "version": "1.4.5",
+      "date": "2024-07-29",
+      "title": "Revamped Kaia Overview page",
+      "updateType": "UPDATE",
+      "summary": "Revamp overview page by combining the existing overview and DLT framework page.",
+      "primaryDocLink": "/learn",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/64"
+    },
+    {
+      "version": "1.4.4",
+      "date": "2024-07-23",
+      "title": "Updated Token Economics page",
+      "updateType": "UPDATE",
+      "summary": "Add the concept of treasury rebalancing from KIP-103, KIP-160 to Token Economics page.",
+      "primaryDocLink": "/learn/token-economics/token-economy",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/62"
+    },
+    {
+      "version": "1.4.3",
+      "date": "2024-07-23",
+      "title": "Finschia Archive",
+      "updateType": "NEW_CONTENT",
+      "summary": "Add Finschia Archive page that serves as a summary of Finschia doc.",
+      "primaryDocLink": "/misc/finschia",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/61",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.4.2",
+      "date": "2024-07-19",
+      "title": "Simplifying Kaia Docs URLs",
+      "updateType": "NEW_FEATURE",
+      "summary": "Access Kaia documentation directly at the root for a cleaner URL experience.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/51",
+	    "showInWhatsNew": true
+    },    
+    {
+      "version": "1.4.1",
+      "date": "2024-07-17",
+      "title": "Updated Governance page",
+      "updateType": "UPDATE",
+      "summary": "Consolidate the concept of public delegation to Governance page.",
+      "primaryDocLink": "/learn/governance",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/54"
+    },
+    {
+      "version": "1.4.0",
+      "date": "2024-07-17",
+      "title": "Vietnamese Language Support Arrives for Kaia Docs",
+      "updateType": "MILESTONE",
+      "summary": "Explore Kaia Docs now available in Vietnamese for a broader audience.",
+      "primaryDocLink": "/vi",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/53",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.3.3",
+      "date": "2024-07-15",
+      "title": "Evolution of Kaia's Core Governance",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore the key KIPs that have shaped Kaia's governance through hard forks and system upgrades.",
+      "primaryDocLink": "/learn/governance/governance-by-kip",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/45",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.3.2",
+      "date": "2024-07-15",
+      "title": "Understanding Debug Tracing in Kaia",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn how to use debug tracing to extract valuable information for transaction debugging and analysis.",
+      "primaryDocLink": "/learn/computation/debug-tracing",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/44",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.3.1",
+      "date": "2024-07-09",
+      "title": "Applying New Kaia Docs Graphic Assets",
+      "updateType": "UPDATE",
+      "summary": "We've updated the Kaia Docs with new graphic assets, including the favicon and logo.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/43"
+    },
+    {
+      "version": "1.3.0",
+      "date": "2024-07-09",
+      "title": "Reorganizing the References Section",
+      "updateType": "MILESTONE",
+      "summary": "Explore the reorganized Reference section for easier access to RPC endpoints and transaction error information.",
+      "primaryDocLink": "/references",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/39",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.2.2",
+      "date": "2024-07-01",
+      "title": "Updated Transaction Fees page",
+      "updateType": "UPDATE",
+      "summary": "The revised Transaction Fees page now encompasses all hardforks (KIP-71, KIP-162)",
+      "primaryDocLink": "/learn/transaction-fees",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/4"
+    },    
+    {
+      "version": "1.2.1",
+      "date": "2024-07-01",
+      "title": "Enhancing the Landing Page Layout",
+      "updateType": "NEW_FEATURE",
+      "summary": "Explore our updated landing page with a new grid and streamlined content for improved usability.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/30",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.2.0",
+      "date": "2024-06-26",
+      "title": "Korean Language Support Arrives for Kaia Docs",
+      "updateType": "MILESTONE",
+      "summary": "Explore Kaia Docs now available in Korean for a broader audience.",
+      "primaryDocLink": "/ko",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/27",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.1.2",
+      "date": "2024-06-26",
+      "title": "Building dApps with Scaffold-ETH 2",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to build and deploy dApps on Kaia using the Scaffold-ETH 2 toolkit.",
+      "primaryDocLink": "/build/tutorials/scaffold-eth",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/25",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.1.1",
+      "date": "2024-06-20",
+      "title": "Chain Transition FAQ",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore the Chain Transition FAQ to understand the transition from Finschia to Kaia.",
+      "primaryDocLink": "/misc/kaia-transition/faq-chain-transition",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/18",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.1.0",
+      "date": "2024-06-17",
+      "title": "New Node Package Download Page",
+      "updateType": "NEW_FEATURE",
+      "summary": "Our revamped download page now automatically updates with the latest Kaia binary releases.",
+      "primaryDocLink": "/nodes/download",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/17",
+	    "showInWhatsNew": true
+    },
+    {
+      "version": "1.0.0",
+      "date": "2024-05-27",
+      "title": "Initial Kaia Docs Release",
+      "updateType": "MILESTONE",
+      "summary": "First public release of the Kaia documentation, establishing the foundational structure and core content.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/1"
+    }
+  ]
+}

@@ -45,4 +45,5 @@ module.exports = [
   { from: '/learn/storage/chaindata-snapshot', to: '/misc/operation/chaindata-snapshot' },
   { from: '/build/smart-contracts/deploy/ken', to: '/build/smart-contracts/deploy/private-network' },
   { from: '/references/service-providers/public-en', to: '/references/public-en' },
+  { from: '/misc/finschia', to: 'misc/kaia-transition/finschia' },
 ];

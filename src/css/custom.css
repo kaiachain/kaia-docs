@@ -220,3 +220,54 @@ body {
 [data-theme='dark'] .openapi-explorer__request-btn {
   color: black;
 }
+
+/* Add customized floating TOC on Docs Updates page */
+/* Show the floating TOC on larger screens */
+@media (min-width: 1200px) {
+  .updates-smart-toc {
+    display: block !important;
+  }
+  
+  /* Keep original content width and center it */
+  .updates-page-content {
+    max-width: 960px; /* Back to original width */
+    margin: 0 auto; /* Center the content */
+    position: relative; /* Enable positioning context for TOC */
+  }
+  
+  /* Position TOC next to the main content area */
+  .updates-smart-toc {
+    position: fixed;
+    top: calc(var(--ifm-navbar-height) + 1rem);
+    left: calc(50% + 480px + 1rem); /* 50% + half of content width (480px) + gap */
+    width: 240px;
+    max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+    overflowY: auto;
+    backgroundColor: var(--ifm-background-surface-color);
+    border: 1px solid var(--ifm-color-emphasis-200);
+    borderRadius: var(--ifm-global-radius);
+    padding: 1rem;
+    fontSize: 0.875rem;
+    zIndex: 10;
+    boxShadow: var(--ifm-global-shadow-lw);
+  }
+}
+
+/* Ensure TOC doesn't show if there's not enough screen space */
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .updates-smart-toc {
+    left: calc(100vw - 260px); /* Fallback to screen edge if not enough space */
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide mobile jump-to-year when desktop TOC is visible */
+@media (min-width: 1200px) {
+  .jump-to-year-mobile {
+    display: none !important;
+  }
+}
