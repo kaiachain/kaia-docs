@@ -114,5 +114,9 @@
   "item.label.Survey Mini DApp": {
     "message": "調查迷你 DApp",
     "description": "Navbar item with label Survey Mini DApp"
+  },
+  "item.label.Debugging and Diagnostics": {
+    "message": "除錯與診斷",
+    "description": "Navbar item with label Debugging and Diagnostics"
   }
 }

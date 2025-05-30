@@ -114,5 +114,9 @@
   "item.label.Survey Mini DApp": {
     "message": "설문조사 미니 디앱",
     "description": "Navbar item with label Survey Mini DApp"
+  },
+  "item.label.Debugging and Diagnostics": {
+    "message": "디버깅 및 진단",
+    "description": "Navbar item with label Debugging and Diagnostics"
   }
 }
