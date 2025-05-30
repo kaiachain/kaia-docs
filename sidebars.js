@@ -21,14 +21,14 @@ const commonSidebar = [
   //  'misc/klaytn-history',
   {
     type: 'category',
-    label: 'Transition to Kaia',
+    label: 'Finschia to Kaia',
     link: { type: 'doc', id: 'misc/kaia-transition/kaia-transition' },
     items: [
       'misc/kaia-transition/faq-chain-transition',
       'misc/kaia-transition/kaiabridge',
+      'misc/kaia-transition/finschia',
     ],
   },
-  'misc/finschia',
   'misc/glossary',
   'misc/faq',
   'misc/internationalization',

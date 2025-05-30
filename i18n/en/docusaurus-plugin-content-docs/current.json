@@ -119,10 +119,6 @@
     "message": "Node Quick Reference",
     "description": "The label for category Node Quick Reference in sidebar learnSidebar"
   },
-  "sidebar.learnSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
-    "description": "The label for category Transition to Kaia in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Kaia Safe": {
     "message": "Kaia Safe",
     "description": "The label for category Kaia Safe in sidebar buildSidebar"
@@ -131,10 +127,6 @@
     "message": "Node Quick Reference",
     "description": "The label for category Node Quick Reference in sidebar buildSidebar"
   },
-  "sidebar.buildSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
-    "description": "The label for category Transition to Kaia in sidebar buildSidebar"
-  },
   "sidebar.buildSidebar.link.KaiaScan": {
     "message": "KaiaScan",
     "description": "The label for link KaiaScan in sidebar buildSidebar, linking to https://kaiascan.io/"
@@ -142,10 +134,6 @@
   "sidebar.nodeSidebar.category.Node Quick Reference": {
     "message": "Node Quick Reference",
     "description": "The label for category Node Quick Reference in sidebar nodeSidebar"
-  },
-  "sidebar.nodeSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
-    "description": "The label for category Transition to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext < v1.0.1": {
     "message": "ethers-ext < v1.0.1",
@@ -219,10 +207,6 @@
     "message": "Node Quick Reference",
     "description": "The label for category Node Quick Reference in sidebar refSidebar"
   },
-  "sidebar.refSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
-    "description": "The label for category Transition to Kaia in sidebar refSidebar"
-  },
   "sidebar.refSidebar.doc.Getting-Started": {
     "message": "Getting-Started",
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
@@ -238,10 +222,6 @@
   "sidebar.miniDappSidebar.category.Node Quick Reference": {
     "message": "Node Quick Reference",
     "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
-  },
-  "sidebar.miniDappSidebar.category.Transition to Kaia": {
-    "message": "Transition to Kaia",
-    "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.learnSidebar.category.Core Concepts": {
     "message": "Core Concepts",
@@ -310,5 +290,25 @@
   "sidebar.miniDappSidebar.link.Docs Updates": {
     "message": "Docs Updates",
     "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
+  },
+  "sidebar.learnSidebar.category.Finschia to Kaia": {
+    "message": "Finschia to Kaia",
+    "description": "The label for category Finschia to Kaia in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Finschia to Kaia": {
+    "message": "Finschia to Kaia",
+    "description": "The label for category Finschia to Kaia in sidebar buildSidebar"
+  },
+  "sidebar.nodeSidebar.category.Finschia to Kaia": {
+    "message": "Finschia to Kaia",
+    "description": "The label for category Finschia to Kaia in sidebar nodeSidebar"
+  },
+  "sidebar.refSidebar.category.Finschia to Kaia": {
+    "message": "Finschia to Kaia",
+    "description": "The label for category Finschia to Kaia in sidebar refSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Finschia to Kaia": {
+    "message": "Finschia to Kaia",
+    "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
   }
 }
