@@ -576,7 +576,7 @@ Kaia Wallet
 ![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
 - Paste the address of myERC20.sol contract in the Token Contract Address field under Custom Token tab.
-- Follow the prompts afterwards to add your token. Your Token List modal should like like this:
+- Follow the prompts afterwards to add your token. Your Token List modal should like this:
 
 ![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)
 
