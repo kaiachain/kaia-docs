@@ -39,16 +39,17 @@
 
 **HTTPS**
 
-| 服務提供商                                  | 終點                                                         | 命名空間              | 類型 |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | -- |
-| [凱亞基金會](https://www.kaia.io)           | `https://public-en.node.kaia.io`                           | kaia,klay,eth,net | 全部 |
-|                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | 檔案 |
-| [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | 全部 |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | 全部 |
-| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
-| [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | 全部 |
-| [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
-| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
+| 服務提供商                                   | 終點                                                                                          | 命名空間              | 類型 |
+| --------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------- | -- |
+| [凱亞基金會](https://www.kaia.io)            | `https://public-en.node.kaia.io`                                                            | kaia,klay,eth,net | 全部 |
+|                                         | `https://archive-en.node.kaia.io`                                                           | kaia,klay,eth,net | 檔案 |
+| [QuickNode](https://quicknode.com/)     | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | 全部 |
+| [BlockPI Network](https://blockpi.io/)  | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | 全部 |
+| [OnFinality](https://onfinality.io/)    | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | 全部 |
+| [Pokt Network](https://pokt.network/)   | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
+| [GetBlock](https://getblock.io/)        | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)               | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | 全部 |
+| [Nirvana Labs](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | 檔案 |
 
 **WebSocket**
 
