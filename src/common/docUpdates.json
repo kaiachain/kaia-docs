@@ -1,6 +1,15 @@
 {
   "updates": [
     {
+      "version": "1.14.0",
+      "date": "2025-05-29",
+      "title": "Empower AI Agents on Kaia Blockchain!",
+      "updateType": "NEW_CONTENT",
+      "summary": "Unlock seamless blockchain integration for your AI agents—enable secure, autonomous onchain actions and DeFi operations using Kaia Agent Kit with any AI framework.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/307",
+      "showInWhatsNew": true
+    },
+    {
       "version": "1.13.3",
       "date": "2025-05-19",
       "title": "Implementing Client-Side Redirects for Broken Links",
@@ -25,9 +34,7 @@
       "updateType": "NEW_CONTENT",
       "summary": "Debug and diagnose Kaia node issues using monitoring, profiling, log analysis, and analytics tools.",
       "primaryDocLink": "/nodes/debugging/analytics-tool",
-      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/295",
-	    "showInWhatsNew": true
-    },
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/295"    },
     {
       "version": "1.13.0",
       "date": "2025-05-08",
