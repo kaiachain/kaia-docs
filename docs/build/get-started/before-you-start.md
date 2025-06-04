@@ -27,6 +27,6 @@
 
 **Kaia Toolkits**
 
-* [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
+* [Kaiascan](https://kaiascan.io/) - A block and transaction explorer.
 * [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
 * [Kaia Contracts Wizard](https://wizard.kaia.io) - An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.

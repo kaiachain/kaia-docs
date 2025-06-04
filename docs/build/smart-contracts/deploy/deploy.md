@@ -1,6 +1,8 @@
 # Deploy Smart Contracts
 
-There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using various tools. We assume that you have a Kaia account with enough KAIA to pay the transaction fee. To create an account, you can use [Kaia Toolkit](https://toolkit.kaia.io/account/)."
+There are various ways of deploying a smart contract on Kaia. This document provides a step-by-step guide to deploy a sample contract using Remix IDE. 
+
+For this guide we will use [Kaia Toolkit](https://toolkit.kaia.io/account/) for account generation and the account generated will be used for signing transaction via the Remix Kaia Plugin.
 
 ## Remix Online IDE <a id="remix-ide"></a>
 
@@ -8,62 +10,91 @@ Open your internet browser and go to [Kaia Plugin for Remix](https://ide.kaia.io
 
 1. Add a new file.
 
-![](/img/build/smart-contracts/01_deployment_ide.png)
+![](/img/build/smart-contracts/d-remix-create.png)
 
-2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code consists of two contracts called Mortal and KaiaGreeter, and it allows you to run a simple "Hello World!".
+2. Copy and paste the following sample code (or any code you want to deploy) in the new file. The code  below is CoinFlip contract designed to enable two players to participate in a game where the winner takes the pool. 
 
-```
-pragma solidity 0.5.12;
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract Mortal {
-    /* Define variable owner of the type address */
-    address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
-    constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
-    function kill() public payable { if (msg.sender == owner) selfdestruct(owner); }
-}
-
-contract KaiaGreeter is Mortal {
-    /* Define variable greeting of the type string */
-    string greeting;
-    /* This runs when the contract is executed */
-    constructor (string memory _greeting) public {
-        greeting = _greeting;
+contract CoinFlip {
+    address public player1;
+    address public player2;
+    uint256 public pool;
+    uint256 public winner;
+    address public winnerAddress;
+    
+    event GameStarted(address indexed player1, address indexed player2, uint256 pool);
+    event GameFinished(address indexed winnerAddress, string winner, uint256 pool);
+    
+    function enter() public payable {
+        require(msg.value == 0.01 ether, "Must send 0.01 Kaia to enter");
+        if (player1 == address(0)) {
+            player1 = msg.sender;
+        } else {
+            require(player2 == address(0), "Both players have already entered");
+            player2 = msg.sender;
+            emit GameStarted(player1, player2, pool);
+        }
+        pool += msg.value;
+        winner = 0;
+        winnerAddress = address(0);
     }
-    /* Main function */
-    function greet() public view returns (string memory) {
-        return greeting;
+    
+    function flipCoin() public {
+        require(msg.sender == player1 || msg.sender == player2, "Sender is not a player");
+        uint256 result = uint256(keccak256(abi.encodePacked(block.timestamp, block.prevrandao, block.coinbase))) % 2;
+        winner = result == 0 ? 1 : 2;
+        winnerAddress = winner == 1 ? player1 : player2;
+        string memory winnerName = winner == 1 ? "player1" : "player2";
+        emit GameFinished(winnerAddress, winnerName, pool);
+        payable(winnerAddress).transfer(pool);
+        pool = 0;
+        player1 = address(0);
+        player2 = address(0);
     }
 }
 ```
 
-3. Select Compiler in the icon panel. Choose the desired EVM environment. For the Kaia networks, you can choose between Kairos (testnet) and Mainnet. Click `Compile` when the sample code is ready to be complied before actual deployment.
+3. Select Compiler in the icon panel. Click **Compile Coinflip.sol** button to compile the sample code before actual deployment.
 
-![](/img/build/smart-contracts/02_deployment_compile.png)
+![](/img/build/smart-contracts/d-remix-compile.png)
 
-4. Now we can deploy the contract. Click on the Kaia logo in the icon panel. Import an account by clicking the plus button next to `Account`. Make sure that the account has sufficient KAIA to pay for the transaction of deploying the smart contracts required.
+4. Choose the desired EVM environment In the Kaia plugin tab. For this guide, we will select Kairos (testnet).
 
-![](/img/build/smart-contracts/05_deployment_account.png)
+![](/img/build/smart-contracts/d-remix-env.png)
 
-5. Set Gas limit and Value to send. 
+Next is to import an account to sign our transactions. You can either export your private key from any Kaia compatible wallets or generate a dev account using Kaia Toolkit. For this guide we will generate a dev account using [Kaia Toolkit](https://toolkit.kaia.io/account)
 
-  - You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
-  - Set `Value` to 0 unless you want to send `KAIA` to the contract at the time of deployment.
+5. Import an account by clicking the plus button next to Account. 
 
-6. Enter "Hello World!" as an argument for constructor function and click on `Deploy` button.
+![](/img/build/smart-contracts/d-remix-import-account.png)
 
-![](/img/build/smart-contracts/03_deployment_hello.png)
+:::note
+Make sure that the account has sufficient KAIA to pay for the transaction of deploying the smart contracts. Get some test KAIA from the [faucet](https://faucet.kaia.io/) if you don’t already have test KAIA.
+:::
 
-7. If the contract is successfully deployed, you will see the corresponding transaction receipt and detailed result in the terminal. 
+6. Set Gas limit and Value to send. 
 
-8. You can interact with the contract by clicking on the function buttons. The functions are represented in different colors. `constant` or `pure` functions in Solidity have blue bottons (`greet` in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`kill` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons are for `non-payable` functions that change the contract state but do NOT accept a value.
+- You may need to set higher Gas limit if you are deploying a more complicated contract. In this example, you can leave it as it is.
+- Set `Value` to 0 unless you want to send `KAIA` to the contract at the time of deployment.
 
-![](/img/build/smart-contracts/06_deployment_functions.png)
 
-For more details, please refer to this [link](../ide-and-tools/ide-and-tools.md).
+7. Click on the **Deploy** button
 
-## VVISP <a id="vvisp"></a>
-vvisp is an easy-to-use CLI tool/framework for developing smart contracts, provided by HEACHI LABS. You can easily set environment, deploy and execute Kaia smart contracts with a single command. Refer to the following link for more details.
+If the contract is successfully deployed, you will see the corresponding transaction hash in the terminal and can verify on [Kaiascan](https://kairos.kaiascan.io)
 
-- https://henesis.gitbook.io/vvisp/deploying-smart-contracts
+![](/img/build/smart-contracts/d-remix-deploy-btn.png)
+
+![](/img/build/smart-contracts/d-remix-txhash.png)
+
+8. You can interact with the contract by clicking on the function buttons. 
+
+The functions are represented in different colors. `pure` or `view` functions in Solidity have blue bottons (`player1`, `player2`, `pool` et al. in the example) and do not create a new transaction, so they don't cost any gas. Red buttons (`enter` in the example) represent `payable` functions that change the state on the blockchain, consume gas and can accept value. Orange buttons (`flipCoin` in the example) are for `non-payable` functions that change the contract state but do NOT accept a value.
+
+![](/img/build/smart-contracts/d-remix-deployed.png)
+
+Congratulations if you made it to the end of this guide. If you have any questions, visit the [Kaia Forum](https://devforum.kaia.io/). However, below is a list of useful resources you might need while further building with Remix IDE on Kaia.
+
+* [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/)
