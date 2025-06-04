@@ -6,6 +6,7 @@
       "title": "Empower AI Agents on Kaia Blockchain!",
       "updateType": "NEW_CONTENT",
       "summary": "Unlock seamless blockchain integration for your AI agents—enable secure, autonomous onchain actions and DeFi operations using Kaia Agent Kit with any AI framework.",
+      "primaryDocLink": "/build/tools/kaia-agentkit",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/307",
       "showInWhatsNew": true
     },
