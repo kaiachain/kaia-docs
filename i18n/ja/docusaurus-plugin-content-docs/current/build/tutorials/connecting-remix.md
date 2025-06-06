@@ -14,18 +14,19 @@ Remixは、Solidityコントラクトを開発するためのブラウザベー�
 - カイア・ウォレットを使ってカイアとRemixをつなぐ
 - MetaMaskを使ってKaiaとRemixを接続
 - スマートコントラクトをデプロイする。
-- スマート・コントラクトを検証する。
 
 スマート・コントラクトをコンパイルする。 これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
 
 ## Remixでファイルを作成する<a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
-スマート・コントラクトのビルドを開始するには、**File explorer**タブの**contracts**フォルダーにある**New File**アイコンをクリックし、`KaiaGreeter.sol`という名前を付ける。
+スマート・コントラクトのビルドを開始するには、**File explorer**タブの**contracts**フォルダーにある**Create New File**アイコンをクリックし、名前を`KaiaGreeter.sol`とする。
 
-次に、新しく作成したKaiaGreeter.solファイルに、以下に示すスマート・コントラクトのコードをコピー＆ペーストする。
+![](/img/build/smart-contracts/kg-remix-file.png)
 
-```sol
-// SPDX-License-Identifier: UNLICENSED
+次に、新しく作成した`KaiaGreeter.sol`ファイルに、以下に示すスマート・コントラクトのコードをコピー＆ペーストする。
+
+```solidity
+// SPDX-License-Identifier：UNLICENSED
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 contract KaiaGreeter {
@@ -40,37 +41,35 @@ contract KaiaGreeter {
     function getTotalGreetings() public view returns (uint256) {
         console.log("We have %d total waves!", totalGreetings);
         return totalGreetings;
-    }
+    }.
 }
 ```
-
-![](/img/build/smart-contracts/remix-create-new-file.png)
 
 ## スマート・コントラクトのコンパイル<a href="#compile-smart-contract" id="compile-smart-contract"></a>
 
 コントラクトをコンパイルするには、以下のようにする：
 
 - **Solidity Compiler** タブに移動します。
-- コンパイラのバージョンを0.8.27に選択
-- 自動コンパイル」オプションをオンにする。
-- CompileKaiaGreeter.solボタンをクリックして`KaiaGreeter.sol`コントラクトをコンパイルする。
+- コンパイラのバージョンを0.8.30に選択
+- オートコンパイル\*\*オプションをオンにする。
+- KaiaGreeter.solをコンパイルする\*\*ボタンをクリックし、`KaiaGreeter.sol`コントラクトをコンパイルする。
 - コンパイルに成功すると、コンパイラ・タブのボタンに緑色のチェックマークが表示されます。
 
-![](/img/build/smart-contracts/remix-compile-contract.png)
+![](/img/build/smart-contracts/kg-remix-compile.png)
 
 ## Remix IDEでKaiaプラグインに接続する<a href="#connect-to-kaia-plugin" id="connect-to-kaia-plugin"></a>
 
 RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Plugin for Remix](https://ide.kaia.io/)を使うか、以下のステップに従ってください：
 
 - **Plugin manager**タブに移動します。
-- 検索フィールドにKlaytnを入れる
-- スマートコントラクトをデプロイする。 Klaytnプラグインを有効にします。 Klaytnタブが表示されたら、カイアと対話する準備はできている。
+- 検索フィールドにカイアを挿入
+- Kaiaプラグインを有効化する。 Kaiaタブが表示されたら、Kaiaと対話する準備はできている。
 
-![](/img/build/smart-contracts/remix-plugin-addon.png)
+![](/img/build/smart-contracts/kg-plugin-manager.png)
 
 ## デプロイ環境の構築 <a href="#setting-up-deployment-env" id="setting-up-deployment-env"></a>
 
-- Klaytnプラグインをクリックします。
+- Kaiaプラグインをクリックする。
 - 適切な[環境]を選択します。
 - Kairos、Mainnet、Injected Provider - Kaia Wallet、Injected Provider - MetaMaskを選択できます。
     - [カイロス］カイロス・ネットワークに接続
@@ -78,23 +77,23 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
     - [インジェクション・プロバイダー - カイア・ウォレット]：カイア・ウォレットに接続
     - [注入プロバイダ - MetaMask ]：メタマスクに接続する
 
-![](/img/build/smart-contracts/remix-deploy-env.png)
+![](/img/build/smart-contracts/kg-remix-env.png)
 
 ## インポートアカウント<a href="#import-account" id="import-account"></a>
 
 互換性のあるウォレットから秘密鍵またはKeystoreをエクスポートして、ここで使用することができます。
 
 - アカウントの横にあるプラスボタンをクリックします。
-- 次に秘密鍵またはキーストアを置く。
+- 次に秘密鍵またはキーストアを挿入する。
 - feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。 秘密鍵にしか対応していない。
 
-![](/img/build/smart-contracts/remix-import-acc.png)
+![](/img/build/smart-contracts/kg-import-account.png)
 
 ## カイアウォレットを使ってカイアとリミックスを接続する<a href="#connect-to-kaia-using-kaia-wallet" id="connect-to-kaia-using-kaia-wallet"></a>
 
 - Remix環境]メニューから[インジェクションプロバイダー - Kaia Wallet]を選択します。
 
-![](/img/build/smart-contracts/remix-kw-connect.png)
+![](/img/build/smart-contracts/kg-ip-kw.png)
 
 - カイアウォレットのポップアップが表示されたら、[接続]をクリックします。
 - ネットワークに正常に接続されると、接続されたネットワークのチェーンIDとアカウントが表示されます。
@@ -104,19 +103,19 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 - MetaMaskとの接続](./connecting-metamask.mdx)を参照して、KaiaとMetaMaskを接続してください。
 - Remix Environmentメニューの[Injected Provider - MetaMask]を選択する。
 
-![](/img/build/smart-contracts/remix-mm-connect.png)
+![](/img/build/smart-contracts/kg-ip-mm.png)
 
 - MetaMaskのポップアップが表示されたら、アカウントをクリックして選択します。
 - ネットワークに正常に接続されると、接続されたネットワークのチェーンIDとアカウントが表示されます。
 
 ## スマートコントラクトのデプロイ<a href="#deploying-contract" id="deploying-contract"></a>
 
-このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
+このセクションでは、Kaia Walletを使って`KaiaGreeter.sol`コントラクトをデプロイする。 このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
 
-- コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください： Remixへのすべての接続プロンプトを確認してください。
+- デプロイメント環境を[Injected Provider - Kaia Wallet]に設定します。 Remixへのすべての接続プロンプトを確認してください。
 - CONTRACTフィールドでデプロイしたいコントラクトを選択します。
 - Deployボタンをクリックします。 Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！ 取引を確認するだけです！
 
-![](/img/build/smart-contracts/remix-deploy-contract.png)
+![](/img/build/smart-contracts/kg-deployed.png)
 
 - デプロイされたコントラクトは[Kaiascan](https://kairos.kaiascan.io/)で見ることができ、Remix IDEでテストやデバッグもできます。

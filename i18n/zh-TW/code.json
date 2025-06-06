@@ -62,7 +62,7 @@
   },
   "theme.colorToggle.ariaLabel": {
     "message": "在暗模式和亮模式之間切換（當前為 {mode})",
-    "description": "The ARIA label for the navbar color mode toggle"
+    "description": "The ARIA label for the color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "暗模式",
@@ -637,22 +637,6 @@
     "message": "更新",
     "description": "Badge text for updated documents"
   },
-  "homepage.newDocs.surveyMinidapp.title": {
-    "message": "在 Kaia 上建立調查 DApp",
-    "description": "Title for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.title": {
-    "message": "使用 Cocos Creator 製作 LINE Mini DApp 指南",
-    "description": "Title for Cocos Mini DApp doc"
-  },
-  "homepage.newDocs.surveyMinidapp.description": {
-    "message": "在 Kaia 上建立一個以隱私為重點的分散式調查應用程式，使用 Semaphore 來實現匿名性，並使用 LINE 來實現社交功能。",
-    "description": "Description for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.description": {
-    "message": "使用 Cocos Creator、Web3 和 LIFF 建立、整合和部署 LINE mini dApp。",
-    "description": "Description for Cocos Mini DApp doc"
-  },
   "homepage.newDocs.title": {
     "message": "最新消息",
     "description": "Title for the What's New section"
@@ -661,14 +645,6 @@
     "message": "探索我們最新的更新和新增的文件。",
     "description": "Subtitle for the What's New section"
   },
-  "homepage.newDocs.codeSandbox.title": {
-    "message": "SDK 文件中現有 Live Code Editor！",
-    "description": "Title for Live Code Editor feature"
-  },
-  "homepage.newDocs.codeSandbox.description": {
-    "message": "在 Kaia Docs 中立即試用程式碼！SDK 頁面現在提供 Ethers-ext (v6) 和 Web3js-ext 帳戶管理的即時 CodeSandbox 編輯器。",
-    "description": "Description for Live Code Editor feature"
-  },
   "homepage.newDocs.badge.newContent": {
     "message": "新內容",
     "description": "Badge text for new content"
@@ -676,5 +652,109 @@
   "homepage.newDocs.badge.newFeature": {
     "message": "新功能",
     "description": "Badge text for new features"
+  },
+  "theme.common.backToTopButtonAriaLabel": {
+    "message": "捲回頂端",
+    "description": "The ARIA label for the back to top button"
+  },
+  "updatesPage.toc.ariaLabel": {
+    "message": "目錄",
+    "description": "ARIA label for the Table of Contents on the updates page"
+  },
+  "updatesPage.tocTitle": {
+    "message": "在此頁面上",
+    "description": "The title for the table of contents on the updates page"
+  },
+  "homepage.newDocs.badge.milestone": {
+    "message": "里程碑",
+    "description": "Badge text for milestone updates"
+  },
+  "homepage.newDocs.noFeaturedUpdates": {
+    "message": "目前尚未顯示任何特色更新。",
+    "description": "Text shown when no featured updates are available"
+  },
+  "homepage.newDocs.viewMore": {
+    "message": "檢視所有更新",
+    "description": "Link text to view more updates"
+  },
+  "updatesPage.title": {
+    "message": "文件更新",
+    "description": "The title of the documentation updates page"
+  },
+  "updatesPage.description": {
+    "message": "本頁追蹤 Kaia 文件的所有重大變更、新增和更新。",
+    "description": "The introductory paragraph on the updates page"
+  },
+  "updatesPage.versioningToggle": {
+    "message": "關於我們的版本控制方案",
+    "description": "Button text to show/hide versioning information"
+  },
+  "updatesPage.versioningIntro": {
+    "message": "每項文件變更都使用語意版本控制 (SemVer) 原則進行版本控制：",
+    "description": "Introduction to versioning scheme"
+  },
+  "updatesPage.majorVersion": {
+    "message": "主要版本 (X.y.z → (X+1).0.0)：",
+    "description": "Major version label"
+  },
+  "updatesPage.majorVersionDesc": {
+    "message": "根本性的大修、完整的重新設計，或移除破壞現有導覽的關鍵部分。",
+    "description": "Major version description"
+  },
+  "updatesPage.minorVersion": {
+    "message": "MINOR 版本 (x.Y.z → x.(Y+1).0)：",
+    "description": "Minor version label"
+  },
+  "updatesPage.minorVersionDesc": {
+    "message": "全站新增功能、語言支援、主要內容區段、重大架構重整，以及里程碑式的更新。",
+    "description": "Minor version description"
+  },
+  "updatesPage.patchVersion": {
+    "message": "PATCH 版本 (x.y.Z → x.y.(Z+1))：",
+    "description": "Patch version label"
+  },
+  "updatesPage.patchVersionDesc": {
+    "message": "新增個別頁面、內容更新、修正，以及輕微的 UI 改善。",
+    "description": "Patch version description"
+  },
+  "updatesPage.jumpToYear": {
+    "message": "跳至年份：",
+    "description": "Label for the jump to year links"
+  },
+  "updatesPage.noUpdates": {
+    "message": "尚未記錄任何更新。",
+    "description": "Message shown when there are no documentation updates"
+  },
+  "updatesPage.item.docsVersionLabel": {
+    "message": "文件版本：",
+    "description": "Label for the document version of an update item"
+  },
+  "updatesPage.item.relatedPagesLabel": {
+    "message": "相關頁面：",
+    "description": "Label for the related pages section of an update item"
+  },
+  "updatesPage.item.viewGitHubPRButton": {
+    "message": "檢視 GitHub PR",
+    "description": "Button text to view GitHub PR for an update item"
+  },
+  "updatesPage.metaTitle": {
+    "message": "文件更新",
+    "description": "The meta title for the documentation updates page"
+  },
+  "updatesPage.metaDescription": {
+    "message": "了解 Kaia 文件的最新變更和新增內容。",
+    "description": "The meta description for the documentation updates page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "系統模式",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "展開下拉式選單",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "折疊下拉式",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   }
 }

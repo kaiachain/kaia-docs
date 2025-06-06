@@ -62,7 +62,7 @@
   },
   "theme.colorToggle.ariaLabel": {
     "message": "Chuyển đổi chế độ sáng và tối (hiện tại {mode})",
-    "description": "The ARIA label for the navbar color mode toggle"
+    "description": "The ARIA label for the color mode toggle"
   },
   "theme.colorToggle.ariaLabel.mode.dark": {
     "message": "chế độ tối",
@@ -637,22 +637,6 @@
     "message": "CẬP NHẬT",
     "description": "Badge text for updated documents"
   },
-  "homepage.newDocs.surveyMinidapp.title": {
-    "message": "Xây dựng DApp khảo sát trên Kaia",
-    "description": "Title for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.title": {
-    "message": "Hướng dẫn tạo DApp Mini LINE bằng Cocos Creator",
-    "description": "Title for Cocos Mini DApp doc"
-  },
-  "homepage.newDocs.surveyMinidapp.description": {
-    "message": "Xây dựng ứng dụng khảo sát phi tập trung, tập trung vào quyền riêng tư trên Kaia bằng cách sử dụng Semaphore để ẩn danh và LINE cho các tính năng xã hội.",
-    "description": "Description for Survey Mini DApp doc"
-  },
-  "homepage.newDocs.cocosMinidapp.description": {
-    "message": "Tạo, tích hợp và triển khai dApp mini LINE với Cocos Creator, Web3 và LIFF.",
-    "description": "Description for Cocos Mini DApp doc"
-  },
   "homepage.newDocs.title": {
     "message": "Có gì mới",
     "description": "Title for the What's New section"
@@ -661,14 +645,6 @@
     "message": "Khám phá những cập nhật và bổ sung mới nhất của chúng tôi vào tài liệu.",
     "description": "Subtitle for the What's New section"
   },
-  "homepage.newDocs.codeSandbox.title": {
-    "message": "Trình chỉnh sửa Live Code hiện có trong SDK Docs!",
-    "description": "Title for Live Code Editor feature"
-  },
-  "homepage.newDocs.codeSandbox.description": {
-    "message": "Hãy thử code ngay trong Kaia Docs! Các trang SDK hiện có trình soạn thảo CodeSandbox trực tiếp cho Ethers-ext (v6) và Web3js-ext Account Management.",
-    "description": "Description for Live Code Editor feature"
-  },
   "homepage.newDocs.badge.newContent": {
     "message": "NỘI DUNG MỚI",
     "description": "Badge text for new content"
@@ -676,5 +652,109 @@
   "homepage.newDocs.badge.newFeature": {
     "message": "TÍNH NĂNG MỚI",
     "description": "Badge text for new features"
+  },
+  "theme.common.backToTopButtonAriaLabel": {
+    "message": "Cuộn trở lại đầu trang",
+    "description": "The ARIA label for the back to top button"
+  },
+  "updatesPage.toc.ariaLabel": {
+    "message": "Mục lục",
+    "description": "ARIA label for the Table of Contents on the updates page"
+  },
+  "updatesPage.tocTitle": {
+    "message": "Trên trang này",
+    "description": "The title for the table of contents on the updates page"
+  },
+  "homepage.newDocs.badge.milestone": {
+    "message": "CỘT MỐC",
+    "description": "Badge text for milestone updates"
+  },
+  "homepage.newDocs.noFeaturedUpdates": {
+    "message": "Hiện tại không có bản cập nhật nổi bật nào để hiển thị.",
+    "description": "Text shown when no featured updates are available"
+  },
+  "homepage.newDocs.viewMore": {
+    "message": "Xem tất cả các bản cập nhật",
+    "description": "Link text to view more updates"
+  },
+  "updatesPage.title": {
+    "message": "Cập nhật tài liệu",
+    "description": "The title of the documentation updates page"
+  },
+  "updatesPage.description": {
+    "message": "Trang này theo dõi mọi thay đổi, bổ sung và cập nhật quan trọng trong tài liệu Kaia.",
+    "description": "The introductory paragraph on the updates page"
+  },
+  "updatesPage.versioningToggle": {
+    "message": "Về Chương trình Phiên bản của Chúng tôi",
+    "description": "Button text to show/hide versioning information"
+  },
+  "updatesPage.versioningIntro": {
+    "message": "Mỗi thay đổi trong tài liệu đều được đánh số phiên bản bằng các nguyên tắc của Semantic Versioning (SemVer):",
+    "description": "Introduction to versioning scheme"
+  },
+  "updatesPage.majorVersion": {
+    "message": "Phiên bản CHÍNH (Xyz → (X+1).0.0):",
+    "description": "Major version label"
+  },
+  "updatesPage.majorVersionDesc": {
+    "message": "Đại tu cơ bản, thiết kế lại hoàn toàn hoặc loại bỏ các phần quan trọng làm gián đoạn hệ thống điều hướng hiện có.",
+    "description": "Major version description"
+  },
+  "updatesPage.minorVersion": {
+    "message": "Phiên bản NHỎ (xYz → x.(Y+1).0):",
+    "description": "Minor version label"
+  },
+  "updatesPage.minorVersionDesc": {
+    "message": "Các tính năng mới trên toàn trang web, hỗ trợ ngôn ngữ, các mục nội dung chính, tái cấu trúc đáng kể và cập nhật quan trọng.",
+    "description": "Minor version description"
+  },
+  "updatesPage.patchVersion": {
+    "message": "Phiên bản PATCH (xyZ → xy(Z+1)):",
+    "description": "Patch version label"
+  },
+  "updatesPage.patchVersionDesc": {
+    "message": "Các trang cá nhân mới, cập nhật nội dung, chỉnh sửa và cải tiến nhỏ về giao diện người dùng.",
+    "description": "Patch version description"
+  },
+  "updatesPage.jumpToYear": {
+    "message": "CHUYỂN ĐẾN NĂM:",
+    "description": "Label for the jump to year links"
+  },
+  "updatesPage.noUpdates": {
+    "message": "Chưa có bản cập nhật nào được ghi lại.",
+    "description": "Message shown when there are no documentation updates"
+  },
+  "updatesPage.item.docsVersionLabel": {
+    "message": "Phiên bản tài liệu:",
+    "description": "Label for the document version of an update item"
+  },
+  "updatesPage.item.relatedPagesLabel": {
+    "message": "Các trang liên quan:",
+    "description": "Label for the related pages section of an update item"
+  },
+  "updatesPage.item.viewGitHubPRButton": {
+    "message": "Xem GitHub PR",
+    "description": "Button text to view GitHub PR for an update item"
+  },
+  "updatesPage.metaTitle": {
+    "message": "Cập nhật tài liệu",
+    "description": "The meta title for the documentation updates page"
+  },
+  "updatesPage.metaDescription": {
+    "message": "Luôn cập nhật những thay đổi và bổ sung mới nhất vào tài liệu Kaia.",
+    "description": "The meta description for the documentation updates page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "chế độ hệ thống",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Mở rộng danh sách thả xuống",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Thu gọn danh sách thả xuống",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   }
 }

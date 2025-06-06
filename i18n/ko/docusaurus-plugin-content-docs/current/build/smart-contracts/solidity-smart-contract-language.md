@@ -21,9 +21,9 @@ Kairos 네트워크의 경우 블록 번호 '#86,513,895', 메인 네트워크�
 
 :::
 
-카이아 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) (브라우저 기반 IDE) 및 [Truffle](https://github.com/trufflesuite/truffle) (개발 프레임워크)과 같은 개발 도구를 활용할 수 있습니다. 카이아 팀은 이더리움의 개발 도구와 카이아의 개발 도구 간의 호환성을 유지하기 위해 노력할 것이지만, 필요한 경우 카이아 스마트 컨트랙트 개발자에게 해당 도구의 향상된 버전 또는 업데이트된 버전을 제공할 수 있습니다.
+카이아를 위한 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\) 및 [하드햇](https://hardhat.org/docs) \(개발 프레임워크\) 같은 개발 도구를 사용할 수 있습니다. 카이아 팀은 이더리움의 개발 도구와 카이아의 개발 도구 간의 호환성을 유지하기 위해 노력할 것이지만, 필요한 경우 카이아 스마트 컨트랙트 개발자에게 해당 도구의 향상된 버전 또는 업데이트된 버전을 제공할 수 있습니다.
 
-스마트 컨트랙트를 개발할 때는 Remix나 Truffle을 사용하는 것이 편리하지만, Solidity 컴파일러는 아래 웹 페이지에 설명된 지침에 따라 빌드하거나 설치하여 로컬에서 사용할 수 있습니다:
+스마트 컨트랙트를 개발할 때는 Remix나 하드햇을 활용하는 것이 편리하지만, 솔리디티 컴파일러는 아래 웹페이지에 설명된 지침에 따라 빌드하거나 설치하여 로컬에서 사용할 수 있습니다:
 
 - [Solidity 컴파일러 설치](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
@@ -106,8 +106,6 @@ solc --optimize --bin UserStorage.sol
 - [Remix를 사용하여 컨트랙트 컴파일하기](https://remix-ide.readthedocs.io/en/stable/compile.html)
 - [Remix로 트랜잭션 실행하기](https://remix-ide.readthedocs.io/en/stable/run.html)
 - [Remix 학습 튜토리얼](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [Truffle을 사용하여 컨트랙트 컴파일하기](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [Truffle을 이용한 컨트랙트 배포](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 참고: 이 섹션은 향후 업데이트될 예정입니다.
 
@@ -117,7 +115,7 @@ solc --optimize --bin UserStorage.sol
 
 - [Remix로 트랜잭션 디버깅하기](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 - [Remix로 트랜잭션 디버깅 튜토리얼](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [Truffle로 컨트랙트 디버깅하기](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [하드햇 네트워크를 사용한 디버깅](https://hardhat.org/tutorial/debugging-with-hardhat-network)
 
 참고: 이 섹션은 향후 업데이트될 예정입니다.
 
@@ -126,12 +124,12 @@ solc --optimize --bin UserStorage.sol
 스마트 콘트랙트에서 보안 문제와 코드 품질 문제를 제거하려면 Solidity 프로그래밍의 모범 사례를 연구하고 따르는 것이 중요합니다. 여기에서는 Solidity 모범 사례에 대한 참조를 보여드리겠습니다.
 
 - [스마트 컨트랙트 보안 모범 사례](https://github.com/ConsenSys/smart-contract-best-practices)
-
-참고: 이 섹션은 향후 업데이트될 예정입니다.
+- [안전한 스마트 컨트랙트 코드 작성을 위한 모범 사례](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 참조 <a id="references"></a>
 
 - [Solidity GitHub 페이지](https://github.com/ethereum/solidity)
 - [Solidity 문서](https://solidity.readthedocs.io/en/latest/index.html)
 - [Remix 문서](https://remix-ide.readthedocs.io/en/latest/)
-- [Truffle 문서](https://trufflesuite.com/docs/truffle/)
+- [하드햇 문서](https://hardhat.org/docs)
+- [파운드리 문서](https://book.getfoundry.sh/)

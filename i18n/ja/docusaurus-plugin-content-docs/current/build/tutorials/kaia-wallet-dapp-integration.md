@@ -35,7 +35,7 @@ UI ライブラリは、`ConnectWallet` コンポーネントのように、ユ�
 
 ### 1.1. Appkitの例
 
-![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
+Appkitヒーローバナー](/img/build/tutorials/appkit-reown.png)
 
 [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) では、以下の**機能を提供しています:**。
 

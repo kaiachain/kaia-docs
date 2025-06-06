@@ -4,25 +4,19 @@
 
 ## Writing KaiaGreeter <a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
-```
-pragma solidity 0.5.6;
-contract Mortal {
-    /* Define variable owner of the type address */
-    address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
-    constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
-    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
-}
+```solidity
+// SPDX-License-Identifier: MIT
 
-contract KaiaGreeter is Mortal {
-    /* Define variable greeting of the type string */
+pragma solidity ^0.8.0;
+
+contract KaiaGreeter {
+    /* Định nghĩa biến greeting có kiểu string */
     string greeting;
-    /* This runs once when the contract is created */
-    constructor (string memory _greeting) public {
+    /* Hàm này chạy một lần khi contract được tạo */
+    constructor (string memory _greeting) {
         greeting = _greeting;
     }
-    /* Main function */
+    /* Hàm chính */
     function greet() public view returns (string memory) {
         return greeting;
     }
@@ -31,16 +25,22 @@ contract KaiaGreeter is Mortal {
 
 ## Deploying KaiaGreeter using Remix Online IDE <a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. The complete source code was given in the above.
-- Prepare your account which will be used to deploy the contract.
-  - Nếu bạn chưa có tài khoản, hãy tạo một tài khoản bằng [Kaia Toolkit](https://toolkit.kaia.io/account/).
-  - Lấy một số KAIA thử nghiệm từ vòi - [Vòi](https://faucet.kaia.io)
+- Vui lòng truy cập [Kaia Plugin for Remix](https://ide.kaia.io) và tạo hợp đồng `KaiaGreeter.sol`.
+
+- Sao chép và dán mã ở trên vào tệp bạn vừa tạo: `KaiaGreeter.sol`.
+
+    ![](/img/build/smart-contracts/kg-v2-create.png)
+
+- Nhận một số KAIA thử nghiệm từ [vòi](https://faucet.kaia.io) nếu bạn chưa có KAIA thử nghiệm.
+
 - Deploy the contract with initial parameter, a greeting message.
+
 - After deploying, you can invoke `greet` from the IDE.
+
+    ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## References <a href="#references" id="references"></a>
 
 For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-- [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [Deploy Guide](../deploy/deploy.md)
+- [Trình phối lại trực tuyến IDE](../../smart-contracts/deploy/deploy.md)

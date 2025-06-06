@@ -27,6 +27,6 @@
 
 **カイア・ツールキット**
 
-- [Kaiascope](https://kaiascope.com/) - ブロックとトランザクションのエクスプローラ。
+- [Kaiascan](https://kaiascan.io/) - ブロックとトランザクションのエクスプローラ。
 - [Kaia Wallet](https://www.kaiawallet.io/) - カイアネットワークのブラウザ拡張ウォレット。
 - [Kaia Contracts Wizard](https://wizard.kaia.io) - スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。

@@ -812,8 +812,6 @@ export default function Home() {
 
 ![](/img/build/tutorials/bmc-cw.png)
 
-![](/img/build/tutorials/bmc-connect.png)
-
 コーヒーを送るフロントエンドのウェブサイト：
 
 ![](/img/build/tutorials/bmc-frontend.png)

@@ -23,9 +23,9 @@ It has been enabled from block number `#86,513,895` in case of Baobab network an
 
 :::
 
-Kaiaのスマートコントラクトを開発する際には、[Remix](https://remix.ethereum.org/) ㊨や[Truffle](https://github.com/trufflesuite/truffle) ㊨などの開発ツールを利用することができます。 KaiaチームはEthereumの開発ツールとKaiaの開発ツール間の互換性を維持するよう努めますが、必要に応じてKaiaスマートコントラクト開発者にこれらのツールの拡張版または更新版を提供することを選択する可能性があります。
+Kaia用のスマートコントラクトを開発する際には、[Remix](https://remix.ethereum.org/)㊦や[Hardhat](https://hardhat.org/docs)㊦などの開発ツールを利用することができます。 KaiaチームはEthereumの開発ツールとKaiaの開発ツール間の互換性を維持するよう努めますが、必要に応じてKaiaスマートコントラクト開発者にこれらのツールの拡張版または更新版を提供することを選択する可能性があります。
 
-スマートコントラクトの開発には、RemixやTruffleを利用するのが便利ですが、Solidityコンパイラは、以下のウェブページに記載されている手順に従ってビルドまたはインストールすることで、ローカルで使用することができます：
+スマートコントラクトの開発には、RemixやHardhatを利用するのが便利ですが、Solidityコンパイラは、以下のウェブページに記載されている手順に従ってビルドまたはインストールすることで、ローカルで使用することができます：
 
 - [Solidityコンパイラのインストール](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
@@ -108,8 +108,6 @@ solc --optimize --bin UserStorage.sol
 - [Remixを使った契約のコンパイル](https://remix-ide.readthedocs.io/en/stable/compile.html)
 - [リミックスによる取引の実行](https://remix-ide.readthedocs.io/en/stable/run.html)
 - [リミックス・ラーネス・チュートリアル](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [Truffle による契約のコンパイル](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [Truffleでコントラクトを展開する](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 注：このセクションは将来更新される予定です。
 
@@ -119,7 +117,7 @@ Solidity のコードをデバッグするのは、他のプログラミング�
 
 - [Remixによるトランザクションのデバッグ](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 - [Remixによるトランザクションのデバッグに関するチュートリアル](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [Truffleによる契約のデバッグ](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [ハードハット・ネットワークによるデバッグ](https://hardhat.org/tutorial/debugging-with-hardhat-network)
 
 注：このセクションは将来更新される予定です。
 
@@ -128,12 +126,12 @@ Solidity のコードをデバッグするのは、他のプログラミング�
 スマートコントラクトからセキュリティの懸念とコード品質の問題を取り除くには、Solidityプログラミングのベストプラクティスを学び、それに従うことが重要です。 ここでは、Solidityのベストプラクティスのリファレンスを示します。 ここでは、Solidityのベストプラクティスのリファレンスを示します。
 
 - [スマート・コントラクト・セキュリティのベスト・プラクティス](https://github.com/ConsenSys/smart-contract-best-practices)
-
-注：このセクションは将来更新される予定です。
+- [安全なスマート・コントラクト・コードを書くためのベスト・プラクティス](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 参考文献<a id="references"></a>
 
 - [Solidity GitHubページ](https://github.com/ethereum/solidity)
 - [Solidity ドキュメント](https://solidity.readthedocs.io/en/latest/index.html)
 - [リミックス・ドキュメント](https://remix-ide.readthedocs.io/en/latest/)
-- [トリュフ・ドキュメント](https://trufflesuite.com/docs/truffle/)
+- [ハードハット・ドキュメント](https://hardhat.org/docs)
+- [Foundry documentation](https://book.getfoundry.sh/)

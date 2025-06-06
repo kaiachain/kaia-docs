@@ -812,8 +812,6 @@ Connect Wallet Page:
 
 ![](/img/build/tutorials/bmc-cw.png)
 
-![](/img/build/tutorials/bmc-connect.png)
-
 Frontend website to send coffee:
 
 ![](/img/build/tutorials/bmc-frontend.png)

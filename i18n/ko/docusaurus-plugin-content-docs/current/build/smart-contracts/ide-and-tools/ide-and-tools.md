@@ -18,6 +18,6 @@ Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필�
 
 Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
 
-#### [Kaiascope](../../tools/block-explorers/kaiascope.md) <a href="#kaiascope" id="kaiascope"></a>
+#### [카이아스캔](https://kaiascan.io/) <a href="#kaiascan" id="kaiascan"></a>
 
-Klaytnscope는 카이아 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
+카이아스캔은 카이아 네트워크의 블록 탐색기입니다. 브라우저에서 트랜잭션을 탐색하고 검사할 수 있습니다.
