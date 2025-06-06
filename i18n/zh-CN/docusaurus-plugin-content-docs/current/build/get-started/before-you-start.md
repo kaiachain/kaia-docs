@@ -27,6 +27,6 @@
 
 **凯亚工具包**
 
-- [Kaiascope](https://kaiascope.com/) - 区块和事务浏览器。
+- [Kaiascan](https://kaiascan.io/) - 一个区块和交易浏览器。
 - [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 网络的浏览器扩展钱包。
 - [Kaia Contracts Wizard](https://wizard.kaia.io) - 用于引导智能合约和了解 Kaia Contracts 的交互式生成器。
