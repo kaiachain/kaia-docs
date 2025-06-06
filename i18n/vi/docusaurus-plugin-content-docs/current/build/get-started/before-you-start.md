@@ -27,6 +27,6 @@
 
 **Kaia Toolkits**
 
-- [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
+- [Kaiascan](https://kaiascan.io/) - Công cụ khám phá khối và giao dịch.
 - [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
 - [Kaia Contracts Wizard](https://wizard.kaia.io) - Trình tạo tương tác để khởi tạo hợp đồng thông minh của bạn và tìm hiểu về Kaia Contracts.
