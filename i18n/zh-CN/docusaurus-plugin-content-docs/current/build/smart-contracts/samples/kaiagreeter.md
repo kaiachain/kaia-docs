@@ -4,25 +4,19 @@
 
 ## 写作 KaiaGreeter<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
-```
-pragma solidity 0.5.6;
-contract Mortal {
-    /* Define variable owner of the type address */
-    address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
-    constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
-    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
-}
+```solidity
+// SPDX-License-Identifier：MIT
 
-contract KaiaGreeter is Mortal {
-    /* Define variable greeting of the type string */
+pragma solidity ^0.8.0;
+
+contract KaiaGreeter {
+    /* 定义字符串类型的变量greeting */
     string greeting;
-    /* This runs once when the contract is created */
-    constructor (string memory _greeting) public {
+    /* 创建合约时运行一次 */
+    constructor (string memory _greeting) {
         greeting = _greeting;
     }
-    /* Main function */
+    /* 主函数 */
     function greet() public view returns (string memory) {
         return greeting;
     }
@@ -31,16 +25,22 @@ contract KaiaGreeter is Mortal {
 
 ## 使用 Remix 在线集成开发环境部署 KaiaGreeter<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- 请访问 [Kaia Plugin for Remix](https://ide.kaia.io) 并创建 "KaiaGreeter "合同。 上文提供了完整的源代码。
-- 准备用于部署合同的账户。
-  - 如果您还没有账户，请使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建一个账户。
-  - 从水龙头获取一些测试 KAIA - [Faucet](https://faucet.kaia.io)
+- 请访问 [Kaia Plugin for Remix](https://ide.kaia.io) 并创建一个 `KaiaGreeter.sol` 合同。
+
+- 将上述代码复制并粘贴到新创建的文件中：KaiaGreeter.sol\`。
+
+    ![](/img/build/smart-contracts/kg-v2-create.png)
+
+- 如果您还没有测试 KAIA，请从 [水龙头](https://faucet.kaia.io) 获取一些测试 KAIA。
+
 - 部署带有初始参数（问候语）的合同。
+
 - 部署完成后，可以在集成开发环境中调用 `greet`。
+
+    ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 参考资料<a href="#references" id="references"></a>
 
 有关合同部署详情和 Remix Online IDE 使用指南，请参阅以下文件。
 
-- [Remix 在线集成开发环境](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [部署指南](../deploy/deploy.md)
+- [Remix Online IDE](../../smart-contracts/deploy/deploy.md)
