@@ -1,6 +1,7 @@
 # Getting-started
 
 ## Install
+
 Need to install [Python](https://www.python.org/downloads/) 3.7.2+ first
 
 Make example directory
@@ -22,6 +23,7 @@ Install
 ## Start
 
 ### Create file
+
 ```py fee-delegated-value-transfer.py
 from web3py_ext import extend
 from web3 import Web3
@@ -60,6 +62,7 @@ def web3_fee_delegated_value_transfer():
     print('tx hash: ', tx_hash, 'receipt: ', tx_receipt)
 web3_fee_delegated_value_transfer()
 ```
+
 ### Run
 
 ```
@@ -67,6 +70,7 @@ web3_fee_delegated_value_transfer()
 ```
 
 ### Output
+
 ```
 decoded transaction: {
   "type": 9,
@@ -95,3 +99,5 @@ decoded transaction: {
 }
 tx hash:  0x205430ddd219681f4e1657b46aafa104609210d686554dfae8653eb22295d953 receipt:  AttributeDict({'blockHash': HexBytes('0x584ad0ac61625084509403db672087fac9e3967f09d5d4a7f96087f821848c77'), 'blockNumber': 126525583, 'contractAddress': None, 'cumulativeGasUsed': 31000, 'effectiveGasPrice': 25000000000, 'from': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'gasUsed': 31000, 'logs': [], 'logsBloom': HexBytes('0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'), 'status': 1, 'to': '0xA2a8854b1802D8Cd5De631E690817c253d6a9153', 'transactionHash': HexBytes('0x205430ddd219681f4e1657b46aafa104609210d686554dfae8653eb22295d953'), 'transactionIndex': 0, 'type': 0})
 ```
+
+For more information, please refer to the [Web3py kaia extension GitHub repository](https://github.com/kaiachain/kaia-sdk/tree/main/web3py-ext).

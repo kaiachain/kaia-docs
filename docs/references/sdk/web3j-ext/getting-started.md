@@ -1,14 +1,17 @@
 # Web3j extension for kaia
 
 ## Requirements
+
 ### Setting Java
+
 - Use java version: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
+- Visit https://adoptopenjdk.net site
 - Download OpenJDK
 
 ## Install Web3j kaia extension
 
 To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_started.html) to your project:
+
 ```shell
 
 repositories { 
@@ -16,18 +19,22 @@ repositories {
 }
 
 dependencies {
-    implementation "foundation.klaytn:web3j-ext:v0.9.3"
-    implementation "foundation.klaytn:web3rpc-java:v0.9.0"
+    implementation "io.kaia:web3j-ext:v1.0.0"
+    implementation "io.kaia:web3rpc-java:v1.0.0"
     implementation "org.web3j:core:4.9.8"
 }
 ````
+
 ## Usage
-See [example](./web3j-ext/src/main/java/org/web3j/example).
+
+See [example](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
 
 ## Quickstart
+
 For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j.io/4.10.0/quickstart/) .
 
 ### Send Fee Delegated Transaction on Kairos Testnet
+
 If you want to know more about the concept of fee delegated transaction supported by kaia network, please refer to [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
 
 Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
@@ -120,3 +127,5 @@ public class quickstart {
         }
 }
 ````
+
+For more information, please refer to the [Web3j kaia extension GitHub repository](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext).

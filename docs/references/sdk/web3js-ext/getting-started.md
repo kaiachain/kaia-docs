@@ -1,10 +1,13 @@
 # Web3.js Extension for kaia
 
-Web3.js Extension for kaia offers:
+[Web3.js Extension for kaia](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext) offers:
 
 - Drop-in replacement to `new Web3(...)` that supports both Ethereum and kaia transaction types involving AccountKey and TxTypes. See [Modifications to the Web3 object](#modifications-to-the-web3-object) section for details
 
 ## Install
+
+> **_NOTE:_**
+> @kaiachain/web3js-ext@^1.2.0 recommends node 22 or later if you have issues with ES Module resolution.
 
 ### Node.js
 
@@ -34,9 +37,18 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
+## Usage
+
+See [example](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext/example) and [test](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext/test).
+
+## Modifications to the Web3 object
+
+See [DESIGN](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/DESIGN.md) for source code organization.
+
 ### Accounts
 
-- Following functions can handle kaia TxTypes. See [src/account/index.ts](./src/account/index.ts)
+- Following functions can handle Klaytn TxTypes. See [src/accounts/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/accounts/index.ts)
+
   ```js
   // account independent functions
   web3.eth.accounts.recoverTransaction(rlp)
@@ -50,7 +62,9 @@ const web3 = new web3_ext.Web3(window.klaytn);
   account.signTransaction(obj or rlp)
   account.signTransactionAsFeePayer(obj or rlp)
   ```
-- Following functions can handle the [KIP-3 kaia keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+
+- Following functions can handle the [KIP-3 Klaytn keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+
   ```js
   web3.eth.accounts.decrypt(keystore)
   web3.eth.accounts.decryptList(keystore)
@@ -58,26 +72,27 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### Eth RPC wrappers
 
-- Following functions calls different RPC, and handle kaia TxTypes. See [src/eth/index.ts](./src/eth/index.ts)
+- Following functions calls different RPC, and handle Klaytn TxTypes. See [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
   ```js
   // Try klay_protocolVersion, falls back to eth_protocolVersion
   web3.eth.getProtocolVersion()
 
-  // klay_sendTransaction if kaia TxType, otherwise eth_sendTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // klay_sendTransaction if Klaytn TxType, otherwise eth_sendTransaction
+  // Additional treatment for Kaikas compatibility
   web3.eth.sendTransaction(obj)
 
-  // klay_sendRawTransaction if kaia TxType, otherwise eth_sendRawTransaction
+  // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction if kaia TxType, otherwise eth_signTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // klay_signTransaction if Klaytn TxType, otherwise eth_signTransaction
+  // Additional treatment for Kaikas compatibility
   web3.eth.signTransaction(obj)
   ```
 
-### kaia RPCs
+### Klaytn RPCs
 
-- Following functions calls kaia RPCs. See [src/web3.ts](./src/web3.ts)
+- Following functions calls Klaytn RPCs. See [src/web3.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/web3.ts)
+
   ```js
   web3.klay.blockNumber() // klay_blockNumber
   web3.net.networkID() // net_networkID
