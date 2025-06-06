@@ -18,6 +18,6 @@ Thirdweb is a complete web3 development framework that provides everything you n
 
 Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
 
-#### [Kaiascope](../../tools/block-explorers/kaiascope.md) <a href="#kaiascope" id="kaiascope"></a>
+#### [Kaiascan](https://kaiascan.io/) <a href="#kaiascan" id="kaiascan"></a>
 
-Kaiascope is the block explorer for the Kaia Network. You can browse and inspect your transactions on the browser.
+Kaiascan là trình khám phá khối cho Mạng Kaia. You can browse and inspect your transactions on the browser.
