@@ -27,6 +27,6 @@
 
 **카이아 툴킷**
 
-- [Kaiascope](https://kaiascope.com/) - A block and transaction explorer.
+- [카이아스캔](https://kaiascan.io/) - 블록 및 트랜잭션 탐색기입니다.
 - [Kaia Wallet](https://www.kaiawallet.io/) - A browser extension wallet for the Kaia Network.
 - [카이아 컨트랙트 마법사](https://wizard.kaia.io) - 스마트 컨트랙트를 부트스트랩하고 카이아 컨트랙트에 대해 알아볼 수 있는 대화형 생성기입니다.
