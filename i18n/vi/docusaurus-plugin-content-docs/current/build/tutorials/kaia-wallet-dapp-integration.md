@@ -35,7 +35,7 @@ While most UI libraries have built-in support for Metamask, integrating Kaia Wal
 
 ### 1.1. Appkit example
 
-![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
+![Biểu ngữ Appkit Hero](/img/build/tutorials/appkit-reown.png)
 
 By [Reown](https://reown.com/), [Appkit](https://docs.reown.com/appkit/overview) offers the following **Features:**
 
