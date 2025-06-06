@@ -185,7 +185,7 @@ For other operating systems, refer to the [official Grafana documentation](https
      
 3. Add Prometheus as a Data Source.  
      
-   - Navigate to **Cofiguration** -> **Data Sources**.  
+   - Navigate to **Configuration** -> **Data Sources**.  
    - Click on **Add data source**.  
    - Select **Prometheus** as the type.  
    - Set the **URL** to `http://localhost:9090` (modify if Prometheus is on a different server).  
