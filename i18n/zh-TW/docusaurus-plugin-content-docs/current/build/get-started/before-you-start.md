@@ -27,6 +27,6 @@
 
 **Kaia工具包**
 
-- [Kaiascope](https://kaiascope.com/) - 區塊和事務瀏覽器。
+- [Kaiascan](https://kaiascan.io/) - 一個區塊與交易探索器。
 - [Kaia Wallet](https://www.kaiawallet.io/) - Kaia 網絡的瀏覽器擴展錢包。
 - [Kaia Contracts Wizard](https://wizard.kaia.io) - 一個互動式產生器，用來啟動您的智慧型契約，並學習 Kaia Contracts。
