@@ -18,6 +18,6 @@ Thirdweb 是一個完整的 Web3 開發框架，可為您提供將應用程序�
 
 Kaia 錢包是 Kaia 網絡的瀏覽器擴展錢包。 Kaia 錢包使您能夠存儲 KAIA 和基於 Kaia 的代幣並與之互動。 Kaia 錢包還能讓您即時簽署來自基於網絡的 Kaia dApps 的交易。
 
-#### [Kaiascope](../../tools/block-explorers/kaiascope.md)<a href="#kaiascope" id="kaiascope"></a>
+#### [Kaiascan](https://kaiascan.io/)<a href="#kaiascan" id="kaiascan"></a>
 
-Kaiascope 是 Kaia 網絡的區塊資源管理器。 您可以在瀏覽器上瀏覽和檢查您的交易。
+Kaiascan 是 Kaia Network 的區塊探索器。 您可以在瀏覽器上瀏覽和檢查您的交易。
