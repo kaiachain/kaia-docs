@@ -4,22 +4,16 @@
 
 ## Writing KaiaGreeter <a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
-```
-pragma solidity 0.5.6;
-contract Mortal {
-    /* Define variable owner of the type address */
-    address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
-    constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
-    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
-}
+```solidity
+// SPDX-License-Identifier: MIT
 
-contract KaiaGreeter is Mortal {
+pragma solidity ^0.8.0;
+
+contract KaiaGreeter  {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs once when the contract is created */
-    constructor (string memory _greeting) public {
+    constructor (string memory _greeting) {
         greeting = _greeting;
     }
     /* Main function */
@@ -31,16 +25,19 @@ contract KaiaGreeter is Mortal {
 
 ## Deploying KaiaGreeter using Remix Online IDE <a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-* Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter` contract. The complete source code was given in the above.
-* Prepare your account which will be used to deploy the contract.
-  * If you do not have an account yet, create one using [Kaia Toolkit](https://toolkit.kaia.io/account/).
-  * Get some test KAIA from the faucet - [Faucet](https://faucet.kaia.io)
+* Please visit [Kaia Plugin for Remix](https://ide.kaia.io) and create a `KaiaGreeter.sol` contract.
+* Copy and paste the code above in your newly created file: `KaiaGreeter.sol`. 
+
+    ![](/img/build/smart-contracts/kg-v2-create.png)
+
+* Get some test KAIA from the [faucet](https://faucet.kaia.io) if you don’t already have test KAIA.
 * Deploy the contract with initial parameter, a greeting message.
 * After deploying, you can invoke `greet` from the IDE.
+
+    ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## References <a href="#references" id="references"></a>
 
 For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-* [Remix Online IDE](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-* [Deploy Guide](../deploy/deploy.md)
+* [Remix Online IDE](../../smart-contracts/deploy/deploy.md)
