@@ -94,7 +94,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
     mv /var/kend /var/kend_old  # Old data
     mv /var/kend2 /var/kend     # New data
     ```
-- Option 2. Change the path in the node configuraion
+- Option 2. Change the path in the node configuration
   - Change `DATA_DIR` value in the `kend.conf` file.
 - Optionally delete old data and tar.gz file.
 - Finally, start the node.
