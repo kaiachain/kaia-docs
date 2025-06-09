@@ -71,7 +71,3 @@ kaia 提供的 Ethers.js 扩展：
 const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 </script>
 ```
-
-## Usage
-
-请参阅 [example](./example) 和 [test](./test) 。
