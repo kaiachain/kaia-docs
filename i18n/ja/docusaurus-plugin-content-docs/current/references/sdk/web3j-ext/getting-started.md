@@ -5,7 +5,7 @@
 ### Javaの設定
 
 - Javaバージョン: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
+- https://adoptopenjdk.net。
 - OpenJDKのダウンロード
 
 ## Web3j kaiaエクステンションをインストールする
@@ -19,15 +19,15 @@ repositories {
 }
 
 dependencies {
-    implementation "foundation.klaytn:web3j-ext:v0.9.3"
-    implementation "foundation.klaytn:web3rpc-java:v0.9.0"
-    implementation "org.web3j:core:4.9.8"
-}
+    implementation "io.kaia:web3j-ext:v1.0.0 "の実装
+    implementation "io.kaia:web3rpc-java:v1.0.0 "の実装
+    implementation "org.web3j:core:4.9.8 "の実装
+}.
 ```
 
 ## 使用方法
 
-例](./web3j-ext/src/main/java/org/web3j/example)を参照。
+例](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext/web3j-ext/src/main/java/org/web3j/example)を参照。
 
 ## クイックスタート
 
@@ -128,3 +128,5 @@ public class quickstart {
         }
 }
 ```
+
+詳しくは[Web3j kaia extension GitHubリポジトリ](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext)をご参照ください。
