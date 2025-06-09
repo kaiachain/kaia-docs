@@ -71,7 +71,3 @@ It is not recommended to use CDNs in production, But you can use below for quick
 const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 </script>
 ```
-
-## Usage
-
-See [example](./example) and [test](./test).
