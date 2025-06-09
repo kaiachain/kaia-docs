@@ -1,12 +1,12 @@
 # Ethers.js Extension for Kaia
 
-Ethers.js Extension for Kaia offers:
+[Tiện ích mở rộng Ethers.js dành cho Kaia](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext) cung cấp:
 
 - Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
   involving AccountKey and TxTypes.
 - Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
   Kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
+- Thay thế trực tiếp cho `ethers.Web3Provider` để hoạt động với cả MetaMask (`window.ethereum`) và Kaikas (`window.klaytn`)
 
 ## Note for ethers v6
 
@@ -14,6 +14,9 @@ Ethers.js Extension for Kaia offers:
 
 > **_NOTE:_**
 > If the import path has no version sub-path (`@kaiachain/ethers-ext`), ethers v5 will be used by default.
+
+> **_LƯU Ý:_**
+> @kaiachain/ethers-ext@^1.2.0 khuyến nghị sử dụng node 22 trở lên nếu bạn gặp sự cố khi giải quyết Mô-đun ES.
 
 - **Don't**: Mixing ethers v6 and ethers-ext for ethers v5
 
@@ -122,4 +125,4 @@ It is not recommended to use CDNs in production, But you can use below for quick
 
 ## Usage
 
-See [example](./example) and [test](./test).
+Xem [ví dụ](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/example) và [kiểm tra](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/test).
