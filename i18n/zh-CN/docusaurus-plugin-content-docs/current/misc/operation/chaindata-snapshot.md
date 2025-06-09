@@ -94,7 +94,7 @@
     mv /var/kend /var/kend_old # 旧数据
     mv /var/kend2 /var/kend # 新数据
     ```
-- 方案 2. 更改节点配置中的路径on
+- 方案 2. 更改节点配置中的路径
   - 更改 `kend.conf` 文件中的 `DATA_DIR` 值。
 - 可选择删除旧数据和 tar.gz 文件。
 - 最后，启动节点。
