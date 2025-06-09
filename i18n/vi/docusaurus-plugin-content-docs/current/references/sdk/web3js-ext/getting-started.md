@@ -1,10 +1,13 @@
 # Web3.js Extension for kaia
 
-Web3.js Extension for kaia offers:
+[Phần mở rộng Web3.js cho kaia](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext) cung cấp:
 
 - Drop-in replacement to `new Web3(...)` that supports both Ethereum and kaia transaction types involving AccountKey and TxTypes. See [Modifications to the Web3 object](#modifications-to-the-web3-object) section for details
 
 ## Install
+
+> **_LƯU Ý:_**
+> @kaiachain/web3js-ext@^1.2.0 khuyến nghị sử dụng node 22 trở lên nếu bạn gặp sự cố khi giải quyết Mô-đun ES.
 
 ### Node.js
 
@@ -34,9 +37,18 @@ const web3 = new web3_ext.Web3(window.klaytn);
 </script>
 ```
 
+## Cách sử dụng
+
+Xem [ví dụ](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext/example) và [kiểm tra](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext/test).
+
+## Sửa đổi đối tượng Web3
+
+Xem [THIẾT KẾ](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/DESIGN.md) để biết cách tổ chức mã nguồn.
+
 ### Accounts
 
-- Following functions can handle kaia TxTypes. See [src/account/index.ts](./src/account/index.ts)
+- Các hàm sau có thể xử lý Klaytn TxTypes. Xem [src/accounts/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/accounts/index.ts)
+
   ```js
   // account independent functions
   web3.eth.accounts.recoverTransaction(rlp)
@@ -50,7 +62,9 @@ const web3 = new web3_ext.Web3(window.klaytn);
   account.signTransaction(obj or rlp)
   account.signTransactionAsFeePayer(obj or rlp)
   ```
-- Following functions can handle the [KIP-3 kaia keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+
+- Các hàm sau có thể xử lý [KIP-3 Klaytn keystore format v4](https://kips.kaia.io/KIPs/kip-3)
+
   ```js
   web3.eth.accounts.decrypt(keystore)
   web3.eth.accounts.decryptList(keystore)
@@ -58,26 +72,27 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### Eth RPC wrappers
 
-- Following functions calls different RPC, and handle kaia TxTypes. See [src/eth/index.ts](./src/eth/index.ts)
+- Các hàm sau gọi các RPC khác nhau và xử lý Klaytn TxTypes. Xem [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
   ```js
-  // Try klay_protocolVersion, falls back to eth_protocolVersion
+  // Thử klay_protocolVersion, chuyển về eth_protocolVersion
   web3.eth.getProtocolVersion()
 
-  // klay_sendTransaction if kaia TxType, otherwise eth_sendTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // klay_sendTransaction nếu Klaytn TxType, nếu không thì eth_sendTransaction
+  // Xử lý bổ sung cho khả năng tương thích Kaikas
   web3.eth.sendTransaction(obj)
 
-  // klay_sendRawTransaction if kaia TxType, otherwise eth_sendRawTransaction
+  // klay_sendRawTransaction nếu Klaytn TxType, nếu không thì eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction if kaia TxType, otherwise eth_signTransaction
-  // Additional treatment for Kaia Wallet compatibility
+  // klay_signTransaction nếu Klaytn TxType, nếu không thì eth_signTransaction
+  // Xử lý bổ sung cho khả năng tương thích Kaikas
   web3.eth.signTransaction(obj)
   ```
 
-### kaia RPCs
+### Klaytn RPC
 
-- Following functions calls kaia RPCs. See [src/web3.ts](./src/web3.ts)
+- Các hàm sau đây gọi Klaytn RPC. Xem [src/web3.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/web3.ts)
+
   ```js
   web3.klay.blockNumber() // klay_blockNumber
   web3.net.networkID() // net_networkID
