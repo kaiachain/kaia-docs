@@ -5,7 +5,7 @@
 ### 設置 Java
 
 - 使用 java 版本： 11 `<=` v `<=` 18
-- 訪問 https://adoptopenjdk.net/ 網站
+- 請造訪 https://adoptopenjdk.net 網站
 - 下載 OpenJDK
 
 ## 安裝 Web3j kaia 擴展
@@ -19,15 +19,15 @@ repositories {
 }
 
 dependencies {
-    implementation "foundation.klaytn:web3j-ext:v0.9.3"
-    implementation "foundation.klaytn:web3rpc-java:v0.9.0"
+    implementation "io.kaia:web3j-ext:v1.0.0"
+    implementation "io.kaia:web3rpc-java:v1.0.0"
     implementation "org.web3j:core:4.9.8"
 }
 ```
 
 ## 用法
 
-請參見 [example]（./web3j-ext/src/main/java/org/web3j/example）。
+請參閱 [範例](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext/web3j-ext/src/main/java/org/web3j/example)。
 
 ## 快速入門
 
@@ -128,3 +128,5 @@ public class quickstart {
         }
 }
 ```
+
+如需詳細資訊，請參閱 [Web3j kaia extension GitHub 套件庫](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext)。
