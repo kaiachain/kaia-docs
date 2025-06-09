@@ -5,7 +5,7 @@
 ### Setting Java
 
 - Use java version: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
+- Truy cập trang web https://adoptopenjdk.net
 - Download OpenJDK
 
 ## Install Web3j kaia extension
@@ -14,20 +14,20 @@ To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_st
 
 ```shell
 
-repositories { 
+kho lưu trữ { 
     mavenCentral() 
 }
 
-dependencies {
-    implementation "foundation.klaytn:web3j-ext:v0.9.3"
-    implementation "foundation.klaytn:web3rpc-java:v0.9.0"
-    implementation "org.web3j:core:4.9.8"
+phụ thuộc {
+    triển khai "io.kaia:web3j-ext:v1.0.0"
+    triển khai "io.kaia:web3rpc-java:v1.0.0"
+    triển khai "org.web3j:core:4.9.8"
 }
 ```
 
 ## Usage
 
-See [example](./web3j-ext/src/main/java/org/web3j/example).
+Xem [ví dụ](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
 
 ## Quickstart
 
@@ -128,3 +128,5 @@ public class quickstart {
         }
 }
 ```
+
+Để biết thêm thông tin, vui lòng tham khảo [Kho lưu trữ GitHub của tiện ích mở rộng Web3j kaia](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext).
