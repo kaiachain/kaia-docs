@@ -1,6 +1,7 @@
 > **_NOTE:_**
 > This version is going to be temporary.
 > Please upgrade the version more than v1.0.1. You can use the ethers-ext with ethers v5 or v6, look at [view](/references/sdk/ethers-ext/getting-started/).
+
 # Ethers.js Extension for kaia
 
 Ethers.js Extension for kaia offers:
@@ -70,7 +71,3 @@ It is not recommended to use CDNs in production, But you can use below for quick
 const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 </script>
 ```
-
-## Usage
-
-See [example](./example) and [test](./test).
