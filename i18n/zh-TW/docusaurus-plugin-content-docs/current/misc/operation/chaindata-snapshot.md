@@ -94,7 +94,7 @@
     mv /var/kend /var/kend_old # 舊數據
     mv /var/kend2 /var/kend # 新數據
     ```
-- 方案 2. 更改節點配置中的路徑on
+- 方案 2. 變更節點設定中的路徑
   - 更改 `kend.conf` 文件中的 `DATA_DIR` 值。
 - 可選擇刪除舊數據和 tar.gz 文件。
 - 最後，啟動節點。
