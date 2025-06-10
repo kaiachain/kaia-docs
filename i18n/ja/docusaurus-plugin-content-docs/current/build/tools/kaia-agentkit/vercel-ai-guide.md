@@ -26,7 +26,7 @@
 
 強力なオンチェーンAIエージェントを構築するには、適切なツールが必要だ。 本ガイドは、AI機能のためのVercel AI SDKとブロックチェーン対話のためのKaia Agent Kitを活用しています。
 
-\*\*Vercel AI SDK - AIエンジン
+**Vercel AI SDK - AIエンジン**
 
 Vercel AI SDKは、React、Next.js、Vue、Svelte、Node.jsなどのフレームワークを使用して、AIを搭載したアプリケーションやエージェントを簡単に構築できるTypeScriptツールキットです。 このガイドでは、モデルプロバイダーとして[Google Generative AI](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai)を使用する。
 
@@ -107,7 +107,7 @@ export async function POST(req: Request) {
 }
 ```
 
-\*\*コード・ウォークスルー
+**コード・ウォークスルー**
 
 このコードは、VercelのAI SDKを介してGoogleのGemini AIモデルを使用してチャットボットのメッセージを処理するAPIルートハンドラ（POST /api/chat）を定義します。 こうなる：
 
@@ -149,7 +149,7 @@ export default function Chat() {
 }
 ```
 
-\*\*コード・チュートリアル
+**コード・チュートリアル**
 
 このReactコンポーネントは、Vercel AI SDKのuseChat()フックを使用してシンプルなチャットインターフェースを作成します。 これがその機能だ：
 
@@ -171,7 +171,7 @@ export default function Chat() {
 pnpm run dev
 ```
 
-ブラウザでhttp://localhost:3000。 入力フィールドが表示されるはずです。 メッセージを入力して試してみると、AIチャットボットがリアルタイムで応答するのがわかります！ AI SDKを使えば、Next.jsでAIチャットインターフェースを素早く簡単に構築できます。
+ブラウザで`http://localhost:3000`。 入力フィールドが表示されるはずです。 メッセージを入力して試してみると、AIチャットボットがリアルタイムで応答するのがわかります！ AI SDKを使えば、Next.jsでAIチャットインターフェースを素早く簡単に構築できます。
 
 さて、チャットボットをセットアップしたところで、Kaia Agent Kitを使って、ブロックチェーン取引などを実行するためのオンチェーンツールの機能を追加してみましょう。
 
@@ -240,11 +240,11 @@ export async function POST(req: Request) {
 }
 ```
 
-\*\*コード・チュートリアル
+**コード・チュートリアル**
 
 この更新された`route.ts`ファイルは、Kaia Agent Kit、Viem、Vercel AI SDKを使用して、ブロックチェーン機能をAIエージェントに統合しています。 以下はその内訳である：
 
-- \*\*ブロックチェーンツールとウォレットのセットアップ
+- **ブロックチェーンツールとウォレットのセットアップ**
  - オンチェーンツールとVercel AI SDKをブリッジするためのViem、Kaia Agent Kit、その他のツールをインポートします。
  - privateKeyToAccount を使って、環境変数 (WALLET_PRIVATE_KEY) からウォレットアカウントを作成します。
  - Viemのウォレットクライアントを初期化し、RPCプロバイダーを使ってKaiaブロックチェーンとやり取りします。
@@ -285,7 +285,7 @@ What is Kaia current info?
 Get me the current block number on Kairos
 ```
 
-\*\*出力
+**出力**
 
 ![](/img/build/tools/kaia-agent-kit/kaia-agent-vercel-ai.gif)
 
