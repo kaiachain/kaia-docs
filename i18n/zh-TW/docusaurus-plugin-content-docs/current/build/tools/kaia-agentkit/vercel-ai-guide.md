@@ -111,10 +111,10 @@ export async function POST(req: Request) {
 
 此程式碼定義了 API 路由處理程式 (POST /api/chat)，透過 Vercel 的 AI SDK，使用 Google 的 Gemini AI 模型處理聊天機訊息。 事情是這樣的
 
-- \*\* 擷取聊天記錄\*\*：處理程式會讀取傳入的要求，並擷取包含聊天記錄的訊息。
-- \*\* 產生 AI 回應\*\*：它會使用 Google 的 Gemini 1.5 Pro 模型呼叫 streamText()，並傳送聊天記錄以取得上下文。
+- **擷取聊天記錄**：處理程式會讀取傳入的要求，並擷取包含聊天記錄的訊息。
+- **產生 AI 回應**：它會使用 Google 的 Gemini 1.5 Pro 模型呼叫 streamText()，並傳送聊天記錄以取得上下文。
 - **串流回應**：函式使用 toDataStreamResponse() 傳回串流式回應，允許即時產生文字。
-- \*\* 限制執行時間\*\*:maxDuration 變數可確保回應不超過 30 秒。
+- **限制執行時間**:maxDuration 變數可確保回應不超過 30 秒。
 
 此設定可透過 Google 的 Gemini AI 與 Vercel AI SDK，在聊天機器人中實現由 AI 產生的即時回應。
 
@@ -153,13 +153,13 @@ export default function Chat() {
 
 這個 React 元件使用 Vercel AI SDK 的 useChat() 鉤子建立一個簡單的聊天介面。 它的功能如下：
 
-- \*\* 管理聊天狀態\*\*：useChat() 鉤子提供：
+- **管理聊天狀態**：useChat() 鉤子提供：
  - 訊息：聊天記錄 (包含 ID、角色和內容)。
  - 輸入：目前使用者的輸入。
  - handleInputChange：在使用者輸入時更新輸入欄位。
  - handleSubmit：表單提交時傳送訊息。
 - **顯示訊息**：這個元件會映射訊息，顯示文字是來自使用者還是 AI。
-- \*\* 處理使用者輸入\*\*：它包含一個輸入欄位，使用者可以在此輸入訊息，然後當他們按下 Enter 鍵時，訊息就會傳送出去。
+- **處理使用者輸入**：它包含一個輸入欄位，使用者可以在此輸入訊息，然後當他們按下 Enter 鍵時，訊息就會傳送出去。
 
 此設定可透過連線至先前建立的 API 路由 (/api/chat) 與 AI 聊天機器人進行即時互動。
 
@@ -171,7 +171,7 @@ export default function Chat() {
 pnpm run dev
 ```
 
-前往瀏覽器並開啟 http://localhost:3000。 您應該會看到一個輸入欄位。 輸入訊息進行測試，看看 AI 聊天機器人的即時回應！ AI SDK 可讓您快速輕鬆地使用 Next.js 建立 AI 聊天介面。
+前往瀏覽器並開啟 `http://localhost:3000`。 您應該會看到一個輸入欄位。 輸入訊息進行測試，看看 AI 聊天機器人的即時回應！ AI SDK 可讓您快速輕鬆地使用 Next.js 建立 AI 聊天介面。
 
 現在我們已經建立了聊天機器人，讓我們使用 Kaia Agent Kit 來增加使用上鏈工具的能力，以執行區塊鏈交易等。
 
@@ -244,7 +244,7 @@ export async function POST(req: Request) {
 
 此更新的 `route.ts` 檔案使用 Kaia Agent Kit、Viem 和 Vercel AI SDK 將區塊鏈功能整合到我們的 AI 代理中。 以下是發生的細節：
 
-- \*\* 設定區塊鏈工具和錢包\*\*
+- **設定區塊鏈工具和錢包**
  - 匯入 Viem、Kaia Agent Kit 及其他工具，用於橋接 onchain 工具與 Vercel AI SDK。
  - 使用 privateKeyToAccount 從環境變數 (WALLET_PRIVATE_KEY) 建立錢包帳號。
  - 初始化 Viem 的錢包用戶端，以便使用 RPC 提供者與 Kaia 區塊鏈互動。
