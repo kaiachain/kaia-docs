@@ -812,8 +812,6 @@ export default function Home() {
 
 ![](/img/build/tutorials/bmc-cw.png)
 
-![](/img/build/tutorials/bmc-connect.png)
-
 發送咖啡的前端網站
 
 ![](/img/build/tutorials/bmc-frontend.png)

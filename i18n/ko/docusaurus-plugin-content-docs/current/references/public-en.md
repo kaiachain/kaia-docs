@@ -39,26 +39,27 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 **HTTPS**
 
-| Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                           | kaia,klay,eth,net | Full    |
-|                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | Full    |
-| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`          | kaia,klay,eth,net | Full    |
-| [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
-| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
+| Service Provider                       | Endpoints                                                                                   | Namespaces        | Type    |
+| -------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en.node.kaia.io`                                                            | kaia,klay,eth,net | Full    |
+|                                        | `https://archive-en.node.kaia.io`                                                           | kaia,klay,eth,net | Archive |
+| [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | Full    |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | Full    |
+| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | Full    |
+| [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | Full    |
+| [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | Full    |
+| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | Full    |
+| [너바나 랩](https://nirvanalabs.io/)       | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | Archive |
 
 **WebSocket**
 
 | Service Provider                       | Endpoints                                                | Namespaces        | Type    |
 | -------------------------------------- | -------------------------------------------------------- | ----------------- | ------- |
 | [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`                        | kaia,klay,eth,net | Full    |
-|                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
+|                                        | `wss://archive-en.node.kaia.io/ws`                       | KAIA,KLAY,ETH,NET | Archive |
 | [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
-| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net | 전체      |
+| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | KAIA,KLAY,ETH,NET | 전체      |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
@@ -66,18 +67,18 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 | Service Provider                       | Endpoints                                                    | Namespaces        | Type    |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | KAIA,KLAY,ETH,NET | Full    |
-|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | Archive |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`                    | KAIA,KLAY,ETH,NET | Archive |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 전체      |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | KAIA,KLAY,ETH,NET | 전체      |
 
 **WebSocket**
 
-| Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | KAIA,KLAY,ETH,NET | 전체      |
-|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | KAIA,KLAY,ETH,NET | 전체      |
+| Service Provider                       | Endpoints                                                  | Namespaces        | Type |
+| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ---- |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | 전체   |
+|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | KAIA,KLAY,ETH,NET | 아카이브 |
+| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | KAIA,KLAY,ETH,NET | 전체   |
 
 ## RPC Service Providers
 

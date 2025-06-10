@@ -21,9 +21,9 @@ v1.8.0 協議升級 - 包括倫敦\*\*\*硬分叉產生的基本費用在內的�
 
 :::
 
-在為Kaia開發智能合約時，可以使用[Remix](https://remix.ethereum.org/) （一種基於瀏覽器的 IDE）和[Truffle](https://github.com/trufflesuite/truffle) （一種開發框架）等開發工具。 Kaia 團隊將努力保持以太坊開發工具與 Kaia 開發工具之間的兼容性，但在必要時可能會選擇向 Kaia 智能合約開發人員提供這些工具的增強版或更新版。
+在為 Kaia 開發智慧合約時，可以使用 [Remix](https://remix.ethereum.org/) （一個基於瀏覽器的 IDE）和 [Hardhat](https://hardhat.org/docs) （一個開發框架）等開發工具。 Kaia 團隊將努力保持以太坊開發工具與 Kaia 開發工具之間的兼容性，但在必要時可能會選擇向 Kaia 智能合約開發人員提供這些工具的增強版或更新版。
 
-使用 Remix 或 Truffle 開發智能合約非常方便，但 Solidity 編譯器也可在本地使用，只需按照下面網頁中的說明構建或安裝即可：
+利用 Remix 或 Hardhat 開發智慧契約是很方便的，但 Solidity 編譯器也可以在本機使用，只要按照以下網頁中描述的指示建立或安裝即可：
 
 - [安裝 Solidity 編譯器](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
@@ -106,8 +106,6 @@ solc --optimize --bin UserStorage.sol
 - [使用 Remix 編譯合同](https://remix-ide.readthedocs.io/en/stable/compile.html)
 - [Running transactions with Remix](https://remix-ide.readthedocs.io/en/stable/run.html)
 - [Remix Learneth 教程](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [用 Truffle 編譯合同](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [使用 Truffle 部署合同](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 注：本部分內容今後將進行更新。
 
@@ -117,7 +115,7 @@ solc --optimize --bin UserStorage.sol
 
 - [使用 Remix 調試交易](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 - [使用 Remix 調試事務的教程](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [使用 Truffle 調試合同](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [Debugging with Hardhat Network](https://hardhat.org/tutorial/debugging-with-hardhat-network)
 
 注：本部分內容今後將進行更新。
 
@@ -126,12 +124,12 @@ solc --optimize --bin UserStorage.sol
 要消除智能合約中的安全問題和代碼質量問題，必須學習並遵循 Solidity 編程的最佳實踐。 在此，我們展示了 Solidity 最佳實踐的參考資料。
 
 - [智能合約安全最佳實踐](https://github.com/ConsenSys/smart-contract-best-practices)
-
-注：本部分內容今後將進行更新。
+- [撰寫安全智慧契約程式碼的最佳實務](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 參考資料<a id="references"></a>
 
 - [Solidity GitHub 頁面](https://github.com/ethereum/solidity)
 - [Solidity文檔](https://solidity.readthedocs.io/en/latest/index.html)
 - [混音文檔](https://remix-ide.readthedocs.io/en/latest/)
-- [松露文檔](https://trufflesuite.com/docs/truffle/)
+- [Hardhat documentation](https://hardhat.org/docs)
+- [Foundry 文件](https://book.getfoundry.sh/)

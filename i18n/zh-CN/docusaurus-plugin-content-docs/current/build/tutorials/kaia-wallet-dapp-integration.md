@@ -35,7 +35,7 @@
 
 ### 1.1. Appkit 示例
 
-![Appkit Hero Banner](https://docs.reown.com/assets/images/appkit-18fbf6d4ddb8756740540b7adad92494.png)
+![Appkit英雄旗帜](/img/build/tutorials/appkit-reown.png)
 
 通过 [Reown](https://reown.com/)，[Appkit](https://docs.reown.com/appkit/overview) 提供以下**功能：**
 

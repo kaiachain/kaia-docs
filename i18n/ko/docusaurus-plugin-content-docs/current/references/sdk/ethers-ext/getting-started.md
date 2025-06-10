@@ -1,12 +1,12 @@
 # Ethers.js Extension for Kaia
 
-Ethers.js Extension for Kaia offers:
+[카이아용 Ethers.js 확장](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext)을 제공합니다:
 
 - Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
   involving AccountKey and TxTypes.
 - Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
   Kaia-specific RPCs.
-- Drop-in replacement to `ethers.Web3Provider` to work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
+- 메타마스크(`window.ethereum`)와 카이카스(`window.klaytn`) 모두에서 작동하도록 `ethers.Web3Provider`로 드롭인 대체.
 
 ## Note for ethers v6
 
@@ -14,6 +14,9 @@ Ethers.js Extension for Kaia offers:
 
 > **_NOTE:_**
 > If the import path has no version sub-path (`@kaiachain/ethers-ext`), ethers v5 will be used by default.
+
+> **참고:_**
+> @kaiachain/ethers-ext@^1.2.0 ES 모듈 해결에 문제가 있는 경우 노드 22 이상을 권장합니다.
 
 - **Don't**: Mixing ethers v6 and ethers-ext for ethers v5
 
@@ -122,4 +125,4 @@ It is not recommended to use CDNs in production, But you can use below for quick
 
 ## Usage
 
-See [example](./example) and [test](./test).
+예제](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/example) 및 [테스트](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/test)를 참조하세요.

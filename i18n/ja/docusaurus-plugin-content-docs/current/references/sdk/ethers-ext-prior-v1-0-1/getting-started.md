@@ -71,7 +71,3 @@ kaiaのEthers.js拡張機能：
 const provider = new ethers_ext.providers.Web3Provider(window.klaytn);
 </script>
 ```
-
-## 使用方法
-
-［example](./example)と[test](./test)を参照のこと。

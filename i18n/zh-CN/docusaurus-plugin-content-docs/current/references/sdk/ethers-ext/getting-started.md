@@ -1,12 +1,12 @@
 # 用于 Kaia 的 Ethers.js 扩展
 
-为 Kaia 提供 Ethers.js 扩展：
+[Ethers.js Extension for Kaia](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext) 提供：
 
 - 以太坊钱包的直接替代品，可处理以太坊和 Kaia 交易类型
   ，涉及 AccountKey 和 TxTypes。
 - 可直接替代 `ethers.providers.JsonRpcProvider` ，提供对以太坊 RPC 和
   Kaia 特定 RPC 的访问。
-- 可直接替换 `ethers.Web3Provider` 以与 MetaMask（`window.ethereum`）和 Kaia Wallet（`window.klaytn`）一起使用
+- 可直接替换 `ethers.Web3Provider` 以与 MetaMask（`window.ethereum`）和 Kaikas（`window.klaytn`）一起使用
 
 ## ethers v6 注意事项
 
@@ -14,6 +14,9 @@
 
 > **_NOTE:_**
 > 如果导入路径没有版本子路径（`@kaiachain/ethers-ext`），则默认使用 ethers v5。
+
+> **_NOTE:_**
+> @kaiachain/ethers-ext@^1.2.0 建议，如果您在 ES 模块解析方面遇到问题，请使用节点 22 或更高版本。
 
 - **不可以**：将 ethers v6 和 ethers-ext 混合用于 ethers v5
 
@@ -122,4 +125,4 @@
 
 ## 用途
 
-请参阅 [example](./example) 和 [test](./test) 。
+请参见 [example](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/example) 和 [test](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext/test) 。

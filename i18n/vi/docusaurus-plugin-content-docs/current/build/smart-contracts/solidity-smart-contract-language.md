@@ -21,9 +21,9 @@ It has been enabled from block number `#86,513,895` in case of Kairos network an
 
 :::
 
-Development tools such as [Remix](https://remix.ethereum.org/) \(a browser-based IDE\) and [Truffle](https://github.com/trufflesuite/truffle) \(a development framework\) can be utilized when developing smart contracts for Kaia. The Kaia team will attempt to maintain compatibility between Ethereum's development tools and Kaia's but may elect to provide the Kaia smart contract developers with enhanced or updated versions of those tools when necessary.
+Các công cụ phát triển như [Remix](https://remix.ethereum.org/) \(IDE dựa trên trình duyệt\) và [Hardhat](https://hardhat.org/docs) \(khung phát triển\) có thể được sử dụng khi phát triển hợp đồng thông minh cho Kaia. The Kaia team will attempt to maintain compatibility between Ethereum's development tools and Kaia's but may elect to provide the Kaia smart contract developers with enhanced or updated versions of those tools when necessary.
 
-It is convenient to utilize Remix or Truffle to develop smart contracts, but the Solidity compiler can be used locally, by building or installing it by following the instructions described in the web page below:
+Việc sử dụng Remix hoặc Hardhat để phát triển hợp đồng thông minh rất thuận tiện, nhưng trình biên dịch Solidity có thể được sử dụng cục bộ bằng cách xây dựng hoặc cài đặt theo hướng dẫn được mô tả trong trang web bên dưới:
 
 - [Installing the Solidity Compiler](https://docs.soliditylang.org/en/latest/installing-solidity.html)
 
@@ -106,8 +106,6 @@ Some resources for compiling, deploying, and executing smart contracts are liste
 - [Compiling contracts using Remix](https://remix-ide.readthedocs.io/en/stable/compile.html)
 - [Running transactions with Remix](https://remix-ide.readthedocs.io/en/stable/run.html)
 - [Remix Learneth Tutorials](https://remix-ide.readthedocs.io/en/latest/remix_tutorials_learneth.html)
-- [Compiling contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts)
-- [Deploying contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/running-migrations)
 
 NOTE: This section will be updated in the future.
 
@@ -117,7 +115,7 @@ It is more difficult to debug Solidity code than to debug code written in other 
 
 - [Debugging a transaction with Remix](https://remix-ide.readthedocs.io/en/latest/debugger.html)
 - [Tutorial on debugging transactions with Remix](https://remix-ide.readthedocs.io/en/latest/tutorial_debug.html)
-- [Debugging contracts with Truffle](https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-debugger/)
+- [Gỡ lỗi bằng Hardhat Network](https://hardhat.org/tutorial/debugging-with-hardhat-network)
 
 NOTE: This section will be updated in the future.
 
@@ -126,12 +124,12 @@ NOTE: This section will be updated in the future.
 To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
 
 - [Smart Contract Security Best Practices](https://github.com/ConsenSys/smart-contract-best-practices)
-
-NOTE: This section will be updated in the future.
+- [Thực hành tốt nhất để viết mã hợp đồng thông minh an toàn](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## References <a id="references"></a>
 
 - [Solidity GitHub page](https://github.com/ethereum/solidity)
 - [Solidity documentation](https://solidity.readthedocs.io/en/latest/index.html)
 - [Remix documentation](https://remix-ide.readthedocs.io/en/latest/)
-- [Truffle documentation](https://trufflesuite.com/docs/truffle/)
+- [Tài liệu Hardhat](https://hardhat.org/docs)
+- [Tài liệu Foundry](https://book.getfoundry.sh/)

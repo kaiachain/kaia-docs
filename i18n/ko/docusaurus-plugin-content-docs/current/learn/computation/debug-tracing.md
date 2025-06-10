@@ -1,6 +1,6 @@
 # Debug tracing
 
-Debug tracing is a feature that extracts additional information while executing a transaction in a VM. As the name suggests, it is mainly used for debbuging transaction failure or gas spending breakdown. Since VMs are deterministic, once a transaction is confirmed, the same trace will be produced no matter when it is traced. In other words, you can debug a confirmed transaction after the fact, making it a useful tool for dApp development.
+Debug tracing is a feature that extracts additional information while executing a transaction in a VM. 이름에서 알 수 있듯이 주로 트랜잭션 실패 또는 가스 지출 내역 디버깅에 사용됩니다. Since VMs are deterministic, once a transaction is confirmed, the same trace will be produced no matter when it is traced. In other words, you can debug a confirmed transaction after the fact, making it a useful tool for dApp development.
 
 There are various methods where you can retrieve debug traces
 

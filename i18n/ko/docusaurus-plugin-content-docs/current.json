@@ -119,10 +119,6 @@
     "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar learnSidebar"
   },
-  "sidebar.learnSidebar.category.Transition to Kaia": {
-    "message": "카이아로 전환",
-    "description": "The label for category Transition to Kaia in sidebar learnSidebar"
-  },
   "sidebar.buildSidebar.category.Kaia Safe": {
     "message": "카이아 세이프",
     "description": "The label for category Kaia Safe in sidebar buildSidebar"
@@ -131,10 +127,6 @@
     "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar buildSidebar"
   },
-  "sidebar.buildSidebar.category.Transition to Kaia": {
-    "message": "카이아로 전환",
-    "description": "The label for category Transition to Kaia in sidebar buildSidebar"
-  },
   "sidebar.buildSidebar.link.KaiaScan": {
     "message": "카이아스캔",
     "description": "The label for link KaiaScan in sidebar buildSidebar, linking to https://kaiascan.io/"
@@ -142,10 +134,6 @@
   "sidebar.nodeSidebar.category.Node Quick Reference": {
     "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar nodeSidebar"
-  },
-  "sidebar.nodeSidebar.category.Transition to Kaia": {
-    "message": "카이아로 전환",
-    "description": "The label for category Transition to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.ethers-ext < v1.0.1": {
     "message": "ethers-ext < v1.0.1",
@@ -219,10 +207,6 @@
     "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar refSidebar"
   },
-  "sidebar.refSidebar.category.Transition to Kaia": {
-    "message": "카이아로 전환",
-    "description": "The label for category Transition to Kaia in sidebar refSidebar"
-  },
   "sidebar.refSidebar.doc.Getting-Started": {
     "message": "시작하기",
     "description": "The label for the doc item Getting-Started in sidebar refSidebar, linking to the doc references/sdk/web3py-ext/getting-started"
@@ -238,10 +222,6 @@
   "sidebar.miniDappSidebar.category.Node Quick Reference": {
     "message": "노드 퀵 레퍼런스",
     "description": "The label for category Node Quick Reference in sidebar miniDappSidebar"
-  },
-  "sidebar.miniDappSidebar.category.Transition to Kaia": {
-    "message": "Kaia로 전환",
-    "description": "The label for category Transition to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.learnSidebar.category.Core Concepts": {
     "message": "핵심 개념",
@@ -286,5 +266,49 @@
   "sidebar.miniDappSidebar.category.Survey Mini DApp": {
     "message": "설문조사 미니 디앱",
     "description": "The label for category Survey Mini DApp in sidebar miniDappSidebar"
+  },
+  "sidebar.learnSidebar.link.Docs Updates": {
+    "message": "문서 업데이트",
+    "description": "The label for link Docs Updates in sidebar learnSidebar, linking to /misc/updates"
+  },
+  "sidebar.buildSidebar.link.Docs Updates": {
+    "message": "문서 업데이트",
+    "description": "The label for link Docs Updates in sidebar buildSidebar, linking to /misc/updates"
+  },
+  "sidebar.nodeSidebar.category.Debugging and Diagnostics": {
+    "message": "디버깅 및 진단",
+    "description": "The label for category Debugging and Diagnostics in sidebar nodeSidebar"
+  },
+  "sidebar.nodeSidebar.link.Docs Updates": {
+    "message": "문서 업데이트",
+    "description": "The label for link Docs Updates in sidebar nodeSidebar, linking to /misc/updates"
+  },
+  "sidebar.refSidebar.link.Docs Updates": {
+    "message": "문서 업데이트",
+    "description": "The label for link Docs Updates in sidebar refSidebar, linking to /misc/updates"
+  },
+  "sidebar.miniDappSidebar.link.Docs Updates": {
+    "message": "문서 업데이트",
+    "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
+  },
+  "sidebar.learnSidebar.category.Finschia to Kaia": {
+    "message": "핀스키아에서 카이아까지",
+    "description": "The label for category Finschia to Kaia in sidebar learnSidebar"
+  },
+  "sidebar.buildSidebar.category.Finschia to Kaia": {
+    "message": "핀스키아에서 카이아까지",
+    "description": "The label for category Finschia to Kaia in sidebar buildSidebar"
+  },
+  "sidebar.nodeSidebar.category.Finschia to Kaia": {
+    "message": "핀스키아에서 카이아까지",
+    "description": "The label for category Finschia to Kaia in sidebar nodeSidebar"
+  },
+  "sidebar.refSidebar.category.Finschia to Kaia": {
+    "message": "핀스키아에서 카이아까지",
+    "description": "The label for category Finschia to Kaia in sidebar refSidebar"
+  },
+  "sidebar.miniDappSidebar.category.Finschia to Kaia": {
+    "message": "핀스키아에서 카이아까지",
+    "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
   }
 }

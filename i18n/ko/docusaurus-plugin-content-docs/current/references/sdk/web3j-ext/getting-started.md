@@ -5,7 +5,7 @@
 ### Setting Java
 
 - Use java version: 11 `<=` v `<=` 18
-- Visit https://adoptopenjdk.net/ site
+- https://adoptopenjdk.net 사이트 방문
 - Download OpenJDK
 
 ## Install Web3j kaia extension
@@ -14,20 +14,20 @@ To add the [Gradle Library](https://docs.gradle.org/current/userguide/getting_st
 
 ```shell
 
-repositories { 
+리포지토리 { 
     mavenCentral() 
 }
 
-dependencies {
-    implementation "foundation.klaytn:web3j-ext:v0.9.3"
-    implementation "foundation.klaytn:web3rpc-java:v0.9.0"
-    implementation "org.web3j:core:4.9.8"
+의존성 {
+    구현 "io.kaia:web3j-ext:v1.0.0"
+    구현 "io.kaia:web3rpc-java:v1.0.0"
+    구현 "org.web3j:core:4.9.8"
 }
 ```
 
 ## Usage
 
-See [example](./web3j-ext/src/main/java/org/web3j/example).
+예제](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext/web3j-ext/src/main/java/org/web3j/example)를 참조하세요.
 
 ## Quickstart
 
@@ -128,3 +128,5 @@ public class quickstart {
         }
 }
 ```
+
+자세한 내용은 [Web3j kaia 확장 GitHub 리포지토리](https://github.com/kaiachain/kaia-sdk/tree/main/web3j-ext)를 참조하세요.

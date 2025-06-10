@@ -4,25 +4,19 @@
 
 ## 寫作 KaiaGreeter<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
-```
-pragma solidity 0.5.6;
-contract Mortal {
-    /* Define variable owner of the type address */
-    address payable owner;
-    /* This function is executed at initialization and sets the owner of the contract */
-    constructor () public { owner = msg.sender; }
-    /* Function to recover the funds on the contract */
-    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
-}
+```solidity
+// SPDX-License-Identifier：MIT
 
-contract KaiaGreeter is Mortal {
+pragma solidity ^0.8.0;
+
+contract KaiaGreeter {
     /* Define variable greeting of the type string */
     string greeting;
     /* This runs once when the contract is created */
-    constructor (string memory _greeting) public {
+    constructor (string memory _greeting) {
         greeting = _greeting;
     }
-    /* Main function */
+    /* 主功能 */
     function greet() public view returns (string memory) {
         return greeting;
     }
@@ -31,16 +25,22 @@ contract KaiaGreeter is Mortal {
 
 ## 使用 Remix 在線集成開發環境部署 KaiaGreeter<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
-- 請訪問 [Kaia Plugin for Remix](https://ide.kaia.io) 並創建 "KaiaGreeter "合同。 上文提供了完整的源代碼。
-- 準備用於部署合同的賬戶。
-  - 如果您還沒有帳號，請使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立一個帳號。
-  - 從龍頭取得一些測試 KAIA - [龍頭](https://faucet.kaia.io)
+- 請造訪 [Kaia Plugin for Remix](https://ide.kaia.io) 並建立一個 `KaiaGreeter.sol` 合約。
+
+- 複製並貼上上述程式碼到您新建立的檔案中：KaiaGreeter.sol\`。
+
+    ![](/img/build/smart-contracts/kg-v2-create.png)
+
+- 如果您還沒有測試 KAIA，請從 [水龍頭](https://faucet.kaia.io) 取得一些測試 KAIA。
+
 - 部署帶有初始參數（問候語）的合同。
+
 - 部署完成後，可以在集成開發環境中調用 `greet`。
+
+    ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 參考資料<a href="#references" id="references"></a>
 
 有關合同部署詳情和 Remix Online IDE 使用指南，請參閱以下文件。
 
-- [Remix 在線集成開發環境](../../smart-contracts/ide-and-tools/ide-and-tools.md#kaia-ide)
-- [部署指南](../deploy/deploy.md)
+- [Remix Online IDE](../../smart-contracts/deploy/deploy.md)
