@@ -137,6 +137,47 @@ const ArchiveRelease = (props) => {
                                       binaryPrefixValue
                                     )
                                     
+                                    if (tabConfig.machineType === 'darwin') {
+                                      // darwin supports only arm64
+                                      return (
+                                        <div className="stable-release-table-row">
+                                          <a
+                                            href={baseUrl.replace('x86_64','arm64').replace('amd64','arm64')}
+                                            className="stable-release-table-row-item-release"
+                                            target="_blank"
+                                          >
+                                            {binaryFileformat.replace('x86_64','arm64').replace('amd64','arm64')}
+                                          </a>
+                                        </div>
+                                      )
+                                    }
+                                    
+                                    if (tabConfig.machineType === 'linux') {
+                                      // linux supports amd64, arm64
+                                      return (
+                                        <>
+                                          <div className="stable-release-table-row">
+                                            <a
+                                              href={baseUrl}
+                                              className="stable-release-table-row-item-release"
+                                              target="_blank"
+                                            >
+                                              {binaryFileformat}
+                                            </a>
+                                          </div>
+                                          <div className="stable-release-table-row">
+                                            <a
+                                              href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                              className="stable-release-table-row-item-release"
+                                              target="_blank"
+                                            >
+                                              {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                            </a>
+                                          </div>
+                                        </>
+                                      )
+                                    }
+                                    
                                     if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
                                       const el7Format = binaryFileformat;
                                       const el9Format = binaryFileformat.replace('el7', 'el9');
@@ -145,45 +186,17 @@ const ArchiveRelease = (props) => {
                                       
                                       return (
                                         <>
-                                          {/* x86_64 el7 */}
                                           <div className="stable-release-table-row">
-                                            <a
-                                              href={el7Url}
-                                              className="stable-release-table-row-item-release"
-                                              target="_blank"
-                                            >
-                                              {el7Format}
-                                            </a>
+                                            <a href={el7Url} className="stable-release-table-row-item-release" target="_blank">{el7Format}</a>
                                           </div>
-                                          {/* aarch64 el7 */}
                                           <div className="stable-release-table-row">
-                                            <a
-                                              href={el7Url.replace('x86_64','aarch64').replace('amd64','arm64')}
-                                              className="stable-release-table-row-item-release"
-                                              target="_blank"
-                                            >
-                                              {el7Format.replace('x86_64','aarch64').replace('amd64','arm64')}
-                                            </a>
+                                            <a href={el7Url.replace('x86_64','aarch64').replace('amd64','arm64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('x86_64','aarch64').replace('amd64','arm64')}</a>
                                           </div>
-                                          {/* x86_64 el9 */}
                                           <div className="stable-release-table-row">
-                                            <a
-                                              href={el9Url}
-                                              className="stable-release-table-row-item-release"
-                                              target="_blank"
-                                            >
-                                              {el9Format}
-                                            </a>
+                                            <a href={el9Url} className="stable-release-table-row-item-release" target="_blank">{el9Format}</a>
                                           </div>
-                                          {/* aarch64 el9 */}
                                           <div className="stable-release-table-row">
-                                            <a
-                                              href={el9Url.replace('x86_64','aarch64').replace('amd64','arm64')}
-                                              className="stable-release-table-row-item-release"
-                                              target="_blank"
-                                            >
-                                              {el9Format.replace('x86_64','aarch64').replace('amd64','arm64')}
-                                            </a>
+                                            <a href={el9Url.replace('x86_64','aarch64').replace('amd64','arm64')} className="stable-release-table-row-item-release" target="_blank">{el9Format.replace('x86_64','aarch64').replace('amd64','arm64')}</a>
                                           </div>
                                         </>
                                       )
@@ -209,8 +222,33 @@ const ArchiveRelease = (props) => {
                                       }
                                     }
                                     if (baseUrl) {
-                                      return (
-                                        <>
+                                      const armUrl = baseUrl.replace('amd64','arm64').replace('x86_64','aarch64');
+                                      const armLabel = binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64');
+                                      if (binaryFileformat !== armLabel) {
+                                        return (
+                                          <>
+                                            <div className="stable-release-table-row">
+                                              <a
+                                                href={baseUrl}
+                                                className="stable-release-table-row-item-release"
+                                                target="_blank"
+                                              >
+                                                {binaryFileformat}
+                                              </a>
+                                            </div>
+                                            <div className="stable-release-table-row">
+                                              <a
+                                                href={armUrl}
+                                                className="stable-release-table-row-item-release"
+                                                target="_blank"
+                                              >
+                                                {armLabel}
+                                              </a>
+                                            </div>
+                                          </>
+                                        )
+                                      } else {
+                                        return (
                                           <div className="stable-release-table-row">
                                             <a
                                               href={baseUrl}
@@ -220,17 +258,8 @@ const ArchiveRelease = (props) => {
                                               {binaryFileformat}
                                             </a>
                                           </div>
-                                          <div className="stable-release-table-row">
-                                            <a
-                                              href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
-                                              className="stable-release-table-row-item-release"
-                                              target="_blank"
-                                            >
-                                              {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
-                                            </a>
-                                          </div>
-                                        </>
-                                      )
+                                        )
+                                      }
                                     }
                                   })
                                 ) : (
