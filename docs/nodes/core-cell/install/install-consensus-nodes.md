@@ -67,6 +67,10 @@ Alternatively, you can install `kcnd` from the Kaia Yum repo, run:
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
 ```
+or
+```bash
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/9-stream/kaia.repo && sudo yum install kcnd
+```
 
 ### Installed Location <a id="installed-location"></a>
 
