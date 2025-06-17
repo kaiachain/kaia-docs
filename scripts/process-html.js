@@ -1,4 +1,3 @@
-// scripts/process-html.js
 const fs = require('fs-extra');
 const path = require('path');
 const glob = require('glob');
@@ -15,7 +14,6 @@ const buildDirs = [
 
 const formatsToTry = ['avif', 'webp'];
 
-// Enhanced check for HTML file processing needs
 function needsHtmlProcessing(htmlFile) {
   try {
     const htmlContent = fs.readFileSync(htmlFile, 'utf-8');
@@ -114,14 +112,11 @@ async function processHtmlFiles() {
           return;
         }
 
-        // Path resolution - FIXED
         let imgPathInBuild;
         if (src.startsWith('/')) {
-          // Root-relative path - resolve from build root
           imgPathInBuild = path.join(buildRoot, src.substring(1));
           console.log(`  📁 Root-relative path: ${path.relative(process.cwd(), imgPathInBuild)}`);
         } else {
-          // Relative path - resolve from HTML file directory
           imgPathInBuild = path.resolve(path.dirname(htmlFile), src);
           console.log(`  📁 Relative path: ${path.relative(process.cwd(), imgPathInBuild)}`);
         }

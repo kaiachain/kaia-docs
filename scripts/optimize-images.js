@@ -133,7 +133,6 @@ function copyOptimizedToBuild(externalPath, originalBuiltImagePath, format) {
   
   // Copy to all language directories
   for (const buildDir of config.buildDirs) {
-    // Calculate the relative path from the original build dir
     const originalBuildDir = config.buildDirs.find(dir => 
       originalBuiltImagePath.startsWith(path.resolve(dir))
     ) || config.buildDirs[0];
