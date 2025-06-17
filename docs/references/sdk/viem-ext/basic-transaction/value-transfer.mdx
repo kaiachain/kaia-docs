@@ -1,0 +1,149 @@
+# Value Transfer
+
+**TxTypeValueTransfer** is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+<CH.Spotlight>
+<CH.Code>
+
+```js txTypeValueTransferTransaction.js
+import { createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+import { kairos } from "viem/chains";
+const senderWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount(
+    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+  ),
+});
+// Example usage
+(async () => {
+  const txRequest = await senderWallet.prepareTransactionRequest({
+    account: senderWallet.account,
+    to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    value: 0n,
+    type: TxType.ValueTransfer,
+  });
+  console.log("txRequest", txRequest);
+  const sentTx = await senderWallet.sendTransaction(txRequest);
+  console.log("value transfer tx", sentTx);
+  // account update
+})();
+
+```
+
+---
+
+```zsh output
+❯ js txTypeValueTransferTransaction.js
+txRequest {
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+  },
+  to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+  value: 0n,
+  type: 8,
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2376,
+  chainId: 1001,
+  gas: 21000n,
+  gasPrice: '0x66720b300',
+  gasLimit: 52500
+}
+value transfer tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+
+```
+
+</CH.Code>
+
+---
+
+Import **@kaiachain/viem-ext** packages to add kaia features on web3
+
+```js txTypeValueTransferTransaction.js focus=1
+
+```
+
+---
+
+Specify the **kairos** chain configuration to connect to the Kaia Kairos testnet.
+
+```js txTypeValueTransferTransaction.js focus=2
+
+```
+
+---
+
+Set up a wallet client using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js txTypeValueTransferTransaction.js focus=3:9
+
+```
+
+---
+
+Create a transaction request for a value transfer using **prepareTransactionRequest**, specifying the sender’s account, recipient address, value to transfer (0 KLAY in this example), and transaction type **(TxType.ValueTransfer)**.
+
+<CH.Code>
+```js txTypeValueTransferTransaction.js focus=12:18
+
+```
+---
+
+```zsh output
+txRequest {
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+  },
+  to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+  value: 0n,
+  type: 8,
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2376,
+  chainId: 1001,
+  gas: 21000n,
+  gasPrice: '0x66720b300',
+  gasLimit: 52500
+}
+```
+
+</CH.Code>
+
+---
+
+Sign and send the transaction to the Kaia blockchain using the wallet client’s **sendTransaction** method, and log the transaction hash.
+
+<CH.Code>
+```js txTypeValueTransferTransaction.js focus=19:20
+
+````
+
+---
+
+```zsh output
+❯ node txTypeValueTransferTransaction.js
+value transfer tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+````
+
+</CH.Code>
+
+</CH.Spotlight>

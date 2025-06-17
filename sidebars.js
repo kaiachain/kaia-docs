@@ -463,6 +463,7 @@ const sidebars = {
         require('./docs/references/sdk/ethers-ext-prior-v1-0-1/sidebar')
           .sidebar,
         require('./docs/references/sdk/web3js-ext/sidebar').sidebar,
+        require('./docs/references/sdk/viem-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3j-ext/sidebar').sidebar,
         require('./docs/references/sdk/web3py-ext/sidebar').sidebar,
         'references/sdk/viem/viem',

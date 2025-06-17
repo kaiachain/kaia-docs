@@ -1,0 +1,130 @@
+# Write
+
+You can make a **"transaction"** interacting with a Smart Contract when you need to update some state in the contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js smartContractWrite.js
+import {
+    createPublicClient,
+    http,
+    kairos,
+    privateKeyToAccount,
+    createWalletClient
+} from "@kaiachain/viem-ext";
+const publicClient = createPublicClient({
+    chain: kairos,
+    transport: http(),
+});
+const walletClient = createWalletClient({
+    chain: kairos,
+    transport: http(),
+    account: privateKeyToAccount(
+        // using legacy account only for this example
+        "0x71c5a2d04d744d76492640fb3e5cf2650efae106655f27baffc482c53f57dca2"
+    ),
+});
+// Example usage
+(async () => {
+    const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+    const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+    const txHash = await walletClient.writeContract({
+        address,
+        abi,
+        functionName: 'setNumber',
+        args: [Date.now()]
+    })
+    console.log('tx hash', txHash);
+    const result = await publicClient.readContract({
+        address,
+        abi,
+        functionName: 'number'
+    })
+    console.log('Current contract value', result);
+})();
+
+```
+
+---
+
+```zsh output
+❯ node smartContractWrite.js
+tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
+Current contract value 123n
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/ethers-ext** modules to add kaia features on web3.
+
+```js smartContractWrite.js focus=1:7
+
+```
+
+---
+
+Initializes a public client for read-only interactions with the Kaia blockchain.
+
+```js smartContractWrite.js focus=8:11
+
+```
+
+---
+
+Set up a wallet client using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js smartContractWrite.js focus=12:19
+
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js smartContractWrite.js focus=22
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js smartContractWrite.js focus=23
+
+```
+
+---
+
+The `writeContract` method is used to call the **setNumber** function on the contract, passing Date.now() (the current timestamp in milliseconds) as the argument. This creates and sends a transaction to update the contract’s **number** variable.
+
+<CH.Code>
+```js smartContractWrite.js focus=24:30
+
+```
+---
+```zsh output
+tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
+````
+
+</CH.Code>
+
+---
+
+Uses the public client to query the **number** function (a view function that doesn’t modify state) from the contract. This retrieves the current value of the number variable, which should reflect the timestamp set by the previous transaction (if successful).
+
+<CH.Code>
+```js smartContractWrite.js focus=31:36
+
+````
+---
+```zsh output
+❯ node smartContractWrite.js
+Current contract value 123n
+````
+
+</CH.Code>
+
+</CH.Spotlight>

@@ -1,0 +1,208 @@
+# Write (SmartContractExecution TxType)
+
+<CH.Spotlight>
+<CH.Code>
+
+```js writeTxType.js
+import {
+    http,
+    encodeFunctionData,
+    createWalletClient, createPublicClient, kairos,
+    TxType,
+    privateKeyToAccount
+} from "@kaiachain/viem-ext";
+
+const publicClient = createPublicClient({
+    chain: kairos,
+    transport: http(),
+});
+const senderWallet = createWalletClient({
+    chain: kairos,
+    transport: http(),
+    account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+    ),
+});
+// Example usage
+(async () => {
+    const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+    const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+    const data = encodeFunctionData({
+        abi,
+        args: [Date.now()],
+        functionName: "setNumber",
+    });
+    const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+    });
+    console.log("preparedTx", tx);
+
+    const sentTx = await senderWallet.sendTransaction(tx);
+    console.log("contract interaction tx", sentTx);
+
+    const result = await publicClient.readContract({
+        address: contractAddr,
+        abi,
+        functionName: 'number'
+    })
+    console.log('Current contract value', result);
+})();
+
+```
+
+---
+
+```zsh output
+❯ node writeTxType.js
+preparedTx {
+  type: 48,
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+  },
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  value: 0,
+  data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2399,
+  chainId: 1001,
+  gas: 27953n,
+  gasPrice: '0x66720b300',
+  gasLimit: 69882
+}
+contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+Current contract value 1750147159253n
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/ethers-ext** modules to add kaia features on web3.
+
+```js writeTxType.js focus=1:7
+
+```
+
+---
+
+Initializes a public client for read-only interactions with the Kaia blockchain.
+
+```js writeTxType.js focus=9:12
+
+```
+
+---
+
+Set up a wallet client using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js writeTxType.js focus=13:19
+
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js writeTxType.js focus=22
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js writeTxType.js focus=23
+
+```
+
+---
+
+Encode the function name and parameter with the **encodeFunctionData** function
+
+```js writeTxType.js focus=24:28
+
+```
+
+---
+
+Create a transaction request for a value transfer using **prepareTransactionRequest**, specifying the sender’s account, recipient address, value to transfer (0 KLAY in this example), and transaction type **(TxType.SmartContractExecution)**.
+
+<CH.Code>
+```js writeTxType.js focus=29:36
+
+```
+---
+```zsh output
+preparedTx {
+  type: 48,
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+  },
+  to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+  value: 0,
+  data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2399,
+  chainId: 1001,
+  gas: 27953n,
+  gasPrice: '0x66720b300',
+  gasLimit: 69882
+}
+````
+
+</CH.Code>
+
+---
+
+Send the transaction to the Kaia blockchain using the wallet client’s **sendTransaction** method, and log the transaction hash.
+
+<CH.Code>
+```js writeTxType.js focus=38:39
+
+```
+---
+```zsh output
+contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+````
+
+</CH.Code>
+
+---
+
+Uses the public client to query the **number** function (a view function that doesn’t modify state) from the contract. This retrieves the current value of the number variable, which should reflect the timestamp set by the previous transaction (if successful).
+
+<CH.Code>
+```js writeTxType.js focus=41:46
+
+````
+---
+```zsh output
+❯ node writeTxType.js
+Current contract value 1750147159253n
+````
+
+</CH.Code>
+
+</CH.Spotlight>
