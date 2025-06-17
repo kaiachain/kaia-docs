@@ -13,6 +13,10 @@
 /.github/styles/Google
 /.github/styles/proselint
 
+# image optimization
+.optimized-images/
+.image-optimization-cache.json
+
 # Misc
 .DS_Store
 .env
