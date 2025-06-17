@@ -4,7 +4,15 @@ const path = require('path');
 const glob = require('glob');
 const cheerio = require('cheerio');
 
-const buildDir = './build';
+const buildDirs = [
+  './build',        // English
+  './build/ko',     // Korean
+  './build/ja',     // Japanese
+  './build/zh-CN',  // Simplified Chinese
+  './build/zh-TW',  // Traditional Chinese
+  './build/vi'      // Vietnamese
+];
+
 const formatsToTry = ['avif', 'webp'];
 
 // Enhanced check for HTML file processing needs
@@ -28,16 +36,36 @@ function needsHtmlProcessing(htmlFile) {
   }
 }
 
+// Find which build directory contains this HTML file
+function getBuildRootForHtmlFile(htmlFile) {
+  const resolvedHtmlPath = path.resolve(htmlFile);
+  
+  for (const buildDir of buildDirs) {
+    const resolvedBuildDir = path.resolve(buildDir);
+    if (resolvedHtmlPath.startsWith(resolvedBuildDir)) {
+      return resolvedBuildDir;
+    }
+  }
+  
+  // Fallback to first build directory
+  return path.resolve(buildDirs[0]);
+}
+
 async function processHtmlFiles() {
   console.log('🚀 Starting post-build HTML processing...');
-  console.log('📁 Build directory:', path.resolve(buildDir));
   
-  const htmlFiles = glob.sync(`${buildDir}/**/*.html`);
-  console.log(`📄 Found ${htmlFiles.length} HTML files to check.`);
+  let allHtmlFiles = [];
+  for (const buildDir of buildDirs) {
+    const htmlFiles = glob.sync(`${buildDir}/**/*.html`);
+    console.log(`📄 Found ${htmlFiles.length} HTML files in ${buildDir}`);
+    allHtmlFiles = allHtmlFiles.concat(htmlFiles);
+  }
+  
+  console.log(`📄 Total: ${allHtmlFiles.length} HTML files to check across all languages.`);
 
   // Filter files that need processing
-  const filesToProcess = htmlFiles.filter(file => needsHtmlProcessing(file));
-  console.log(`📝 ${filesToProcess.length} files need processing (${htmlFiles.length - filesToProcess.length} already processed or no images).`);
+  const filesToProcess = allHtmlFiles.filter(file => needsHtmlProcessing(file));
+  console.log(`📝 ${filesToProcess.length} files need processing (${allHtmlFiles.length - filesToProcess.length} already processed or no images).`);
 
   if (filesToProcess.length === 0) {
     console.log('✅ All HTML files are already optimized or contain no processable images.');
@@ -50,7 +78,7 @@ async function processHtmlFiles() {
   let imagesSkipped = 0;
 
   for (const htmlFile of filesToProcess) {
-    console.log(`\n🔍 Processing: ${path.relative(buildDir, htmlFile)}`);
+    console.log(`\n🔍 Processing: ${path.relative(process.cwd(), htmlFile)}`);
     
     try {
       const htmlContent = await fs.readFile(htmlFile, 'utf-8');
@@ -61,6 +89,9 @@ async function processHtmlFiles() {
       console.log(`  Found ${images.length} img tags`);
       
       if (images.length === 0) continue;
+
+      // Get the build root for this HTML file
+      const buildRoot = getBuildRootForHtmlFile(htmlFile);
 
       images.each((index, imgNode) => {
         const $imgNode = $(imgNode);
@@ -83,14 +114,14 @@ async function processHtmlFiles() {
           return;
         }
 
-        // Path resolution
+        // Path resolution - FIXED
         let imgPathInBuild;
         if (src.startsWith('/')) {
-          // Root-relative path
-          imgPathInBuild = path.join(buildDir, src.substring(1));
+          // Root-relative path - resolve from build root
+          imgPathInBuild = path.join(buildRoot, src.substring(1));
           console.log(`  📁 Root-relative path: ${path.relative(process.cwd(), imgPathInBuild)}`);
         } else {
-          // Relative path
+          // Relative path - resolve from HTML file directory
           imgPathInBuild = path.resolve(path.dirname(htmlFile), src);
           console.log(`  📁 Relative path: ${path.relative(process.cwd(), imgPathInBuild)}`);
         }
@@ -157,7 +188,7 @@ async function processHtmlFiles() {
   }
 
   console.log(`\n📊 SUMMARY:`);
-  console.log(`- HTML files checked: ${htmlFiles.length}`);
+  console.log(`- HTML files checked: ${allHtmlFiles.length}`);
   console.log(`- HTML files processed: ${filesToProcess.length}`);
   console.log(`- HTML files modified: ${filesModified}`);
   console.log(`- Total images found: ${totalImagesFound}`);

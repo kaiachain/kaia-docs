@@ -1,4 +1,3 @@
-// scripts/optimize-images.js
 const sharp = require('sharp');
 const glob = require('glob');
 const fs = require('fs-extra');
@@ -15,7 +14,14 @@ let optimizationCache = {};
 
 const config = {
   sourceDir: './static/img',
-  buildDir: './build/assets/images',
+  buildDirs: [
+    './build/assets/images',        // English
+    './build/ko/assets/images',     // Korean
+    './build/ja/assets/images',     // Japanese
+    './build/zh-CN/assets/images',  // Simplified Chinese
+    './build/zh-TW/assets/images',  // Traditional Chinese
+    './build/vi/assets/images'      // Vietnamese
+  ],
   outputDir: OPTIMIZED_IMAGES_DIR,
   formats: {
     avif: {
@@ -99,10 +105,21 @@ function findSourceFile(builtImagePath) {
 
 // Generate external path for optimized images, preserving structure
 function getOptimizedImagePath(builtImagePath, format) {
-  const relativePath = path.relative(config.buildDir, builtImagePath);
-  const parsedPath = path.parse(relativePath);
+  // Find which build directory this image belongs to
+  let relativePath;
+  for (const buildDir of config.buildDirs) {
+    if (builtImagePath.startsWith(path.resolve(buildDir))) {
+      relativePath = path.relative(buildDir, builtImagePath);
+      break;
+    }
+  }
   
-  // For fallback optimization, keep the same extension
+  if (!relativePath) {
+    // Fallback to original logic
+    relativePath = path.relative(config.buildDirs[0], builtImagePath);
+  }
+  
+  const parsedPath = path.parse(relativePath);
   const newFilename = format === 'optimized' 
     ? `${parsedPath.name}${parsedPath.ext}` 
     : `${parsedPath.name}.${format}`;
@@ -110,20 +127,34 @@ function getOptimizedImagePath(builtImagePath, format) {
   return path.join(config.outputDir, parsedPath.dir, newFilename);
 }
 
-// Copy optimized image to build directory
-function copyOptimizedToBuild(externalPath, builtImagePath, format) {
-  const buildOutputPath = format === 'optimized' 
-    ? builtImagePath 
-    : builtImagePath.replace(/\.(jpe?g|png|gif)$/i, `.${format}`);
+// Copy optimized image to all build directories
+function copyOptimizedToBuild(externalPath, originalBuiltImagePath, format) {
+  let success = true;
+  
+  // Copy to all language directories
+  for (const buildDir of config.buildDirs) {
+    // Calculate the relative path from the original build dir
+    const originalBuildDir = config.buildDirs.find(dir => 
+      originalBuiltImagePath.startsWith(path.resolve(dir))
+    ) || config.buildDirs[0];
     
-  try {
-    fs.ensureDirSync(path.dirname(buildOutputPath));
-    fs.copyFileSync(externalPath, buildOutputPath);
-    return true;
-  } catch (error) {
-    console.warn(`⚠️  Failed to copy ${format} to build directory: ${error.message}`);
-    return false;
+    const relativePath = path.relative(originalBuildDir, originalBuiltImagePath);
+    const targetPath = path.join(buildDir, relativePath);
+    
+    const buildOutputPath = format === 'optimized' 
+      ? targetPath 
+      : targetPath.replace(/\.(jpe?g|png|gif)$/i, `.${format}`);
+    
+    try {
+      fs.ensureDirSync(path.dirname(buildOutputPath));
+      fs.copyFileSync(externalPath, buildOutputPath);
+    } catch (error) {
+      console.warn(`⚠️  Failed to copy ${format} to ${buildDir}: ${error.message}`);
+      success = false;
+    }
   }
+  
+  return success;
 }
 
 function needsProcessing(builtImagePath, sourceFile, format) {
@@ -183,7 +214,7 @@ async function optimizeImage(file) {
         // Copy existing optimized fallback to build directory
         const externalPath = getOptimizedImagePath(inputPath, 'optimized');
         if (copyOptimizedToBuild(externalPath, inputPath, 'optimized')) {
-          console.log(`📋 Copied cached optimized fallback to build directory`);
+          console.log(`📋 Copied cached optimized fallback to build directories`);
         }
       } else {
         // Create optimized version in external directory first
@@ -201,8 +232,8 @@ async function optimizeImage(file) {
           const newSize = (await fs.stat(externalOutputPath)).size;
 
           if (newSize < originalSize) {
-            // Copy optimized version to build directory
-            fs.copyFileSync(externalOutputPath, inputPath);
+            // Copy optimized version to all build directories
+            copyOptimizedToBuild(externalOutputPath, inputPath, 'optimized');
             const savings = ((originalSize - newSize) / originalSize * 100).toFixed(1);
             const duration = Date.now() - startTime;
             console.log(`✅ Optimized fallback ${path.basename(file)} (${savings}% smaller) in ${duration}ms`);
@@ -225,10 +256,10 @@ async function optimizeImage(file) {
       if (!needsProcessing(inputPath, sourceFile, format)) {
         console.log(`⏭️  Skipping ${path.basename(file)} to ${format.toUpperCase()} - source unchanged`);
         
-        // Copy existing optimized file to build directory
+        // Copy existing optimized file to all build directories
         const externalPath = getOptimizedImagePath(inputPath, format);
         if (copyOptimizedToBuild(externalPath, inputPath, format)) {
-          console.log(`📋 Copied cached ${format.toUpperCase()} to build directory`);
+          console.log(`📋 Copied cached ${format.toUpperCase()} to build directories`);
         }
         continue;
       }
@@ -249,9 +280,9 @@ async function optimizeImage(file) {
           const duration = Date.now() - startTime;
           console.log(`✅ Created ${format.toUpperCase()} (${savings}% smaller) in ${duration}ms`);
           
-          // Copy to build directory
+          // Copy to all build directories
           if (copyOptimizedToBuild(externalOutputPath, inputPath, format)) {
-            console.log(`📋 Copied ${format.toUpperCase()} to build directory`);
+            console.log(`📋 Copied ${format.toUpperCase()} to build directories`);
           }
           
           markAsProcessed(sourceFile, format);
@@ -276,20 +307,26 @@ async function runOptimization() {
   fs.ensureDirSync(OPTIMIZED_IMAGES_DIR);
   loadCache();
 
-  const files = glob.sync(`${config.buildDir}/**/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}`);
+  // Collect files from all language directories
+  let allFiles = [];
+  for (const buildDir of config.buildDirs) {
+    const files = glob.sync(`${buildDir}/**/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}`);
+    console.log(`📁 Found ${files.length} images in ${buildDir}`);
+    allFiles = allFiles.concat(files);
+  }
 
-  if (files.length === 0) {
-    console.log('No images found in the build directory to optimize.');
+  if (allFiles.length === 0) {
+    console.log('No images found in any build directory to optimize.');
     return;
   }
   
-  console.log(`📁 Found ${files.length} built images to process.`);
+  console.log(`📁 Total: ${allFiles.length} built images to process across all languages.`);
   console.log(`💾 Using external storage: ${path.relative(process.cwd(), OPTIMIZED_IMAGES_DIR)}`);
 
   const concurrencyLimit = os.cpus().length;
   const chunks = [];
-  for (let i = 0; i < files.length; i += concurrencyLimit) {
-      chunks.push(files.slice(i, i + concurrencyLimit));
+  for (let i = 0; i < allFiles.length; i += concurrencyLimit) {
+      chunks.push(allFiles.slice(i, i + concurrencyLimit));
   }
 
   let totalConversions = 0;
