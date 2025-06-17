@@ -16,11 +16,25 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensures full Git history is fetched for correct timestamp calculation
+          fetch-depth: 0
+
+      # Cache the external optimized images and JSON cache file
+      - name: Cache image optimization artifacts
+        id: image-optimization-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .optimized-images
+            .image-optimization-cache.json
+          # Key based on source images content to detect changes
+          key: ${{ runner.os }}-image-optimization-${{ hashFiles('static/img/**/*.{png,jpg,jpeg,gif,PNG,JPG,JPEG,GIF}') }}
+          restore-keys: |
+            ${{ runner.os }}-image-optimization-
+
       - name: Get AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN_PROD }}
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE_PROD }}
           role-session-name: SessionForKlaytnActions
           aws-region: ${{ secrets.AWS_REGION_PROD }}
 
@@ -28,10 +42,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+          cache: 'npm'
 
       - name: Installing dependencies
-        run: |
-          npm install
+        run: npm ci
+
       - name: Clone kaia-sdk
         run: |
           git clone -b dev https://github.com/kaiachain/kaia-sdk.git
@@ -43,8 +58,9 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8192
         run: |
           cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
-          cd web3rpc && bash -x web3rpc.sh && cd - && npm run build && exit 0
-      - name: Build static files
+          cd web3rpc && bash -x web3rpc.sh && cd - && exit 0
+
+      - name: Build static files with image optimization
         env:
           NODE_OPTIONS: --max-old-space-size=8192
         run: npm run build
