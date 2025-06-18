@@ -44,6 +44,7 @@ const sidebars = {
   learnSidebar: [
     'learn/learn',
     'learn/why-kaia',
+    'learn/kaia-vs-ethereum',
     {
       type: 'category',
       label: 'Core Concepts',
