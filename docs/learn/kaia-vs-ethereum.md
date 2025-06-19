@@ -20,8 +20,8 @@ This comprehensive comparison reveals the key differences and similarities betwe
 | **Block Time** | \~12 seconds. | 1-second block generation time. |
 | **Finality** | \~13-15 minutes (2 epochs) | Immediate finality ([PBFT-based consensus](https://docs.kaia.io/learn/consensus-mechanism/#consensus-mechanism-in-kaia-)). |
 | **Transaction Fees (Gas)** | Variable, EIP-1559 auction model | [EIP-1559 compatible dynamic fee model](https://github.com/kaiachain/kips/blob/main/KIPs/kip-162.md) with [fee delegation](https://docs.kaia.io/build/transactions/fee-delegation/) allowing applications to pay user fees. |
-| **Wallet Compatibility** | MetaMask, Ledger, Trust Wallet, etc. | Compatible with Ethereum wallets (e.g., MetaMask via RPC config). Kaia-specific wallets (e.g., [Kaia Wallet](https://docs.kaia.io/build/tools/wallets/kaia-wallet/)). |
-| **Token** | ETH | [KAIA](https://docs.kaia.io/learn/token-economics/kaia-native-token/) (new native token from KLAY & FNSA merger). |
+| **Wallet Compatibility** | MetaMask, Ledger, Trust Wallet, etc. | Compatible with Ethereum wallets (for example, MetaMask via RPC config). Kaia-specific wallets (for example, [Kaia Wallet](https://docs.kaia.io/build/tools/wallets/kaia-wallet/)). |
+| **Token** | ETH | [KAIA](https://docs.kaia.io/learn/token-economics/kaia-native-token/) |
 
 ## Developer Perspective
 
@@ -57,16 +57,16 @@ This comprehensive comparison reveals the key differences and similarities betwe
   * Transaction fees (gas) are designed to be low and stable, using an EIP-1559 compatible fee model. Gas price will be in `kei`.  
 * **RPC & SDKs:**  
   * While `eth_` namespace is supported, the `kaia_` namespace is necessary for new or Kaia-specific features and transaction types.  
-  * Legacy `klay_` (Klaytn) and `fnsa_` (Finschia) namespaces might exist for a transition period, but the plan should be to migrate to `kaia_`.  
-  * Kaia provides its own SDK extensions for popular Web3 libraries (e.g., [Ethers-ext](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/), [Web3js-ext](https://docs.kaia.io/references/sdk/web3js-ext/getting-started/), [Web3j-ext](https://docs.kaia.io/references/sdk/web3j-ext/getting-started/), [Web3py-ext](https://docs.kaia.io/references/sdk/web3py-ext/getting-started/)) that enable seamless migration from Ethereum while providing access to Kaia's enhanced features and performance benefits.  
+  * Legacy `klay_` namespace might exist and is equivalent to the `kaia_` namespace.  
+  * Kaia provides its own SDK extensions for popular Web3 libraries ([Ethers-ext](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/), [Web3js-ext](https://docs.kaia.io/references/sdk/web3js-ext/getting-started/), [Web3j-ext](https://docs.kaia.io/references/sdk/web3j-ext/getting-started/), [Web3py-ext](https://docs.kaia.io/references/sdk/web3py-ext/getting-started/), and [Viem-ext](https://docs.kaia.io/references/sdk/viem-ext/getting-started/)) that enable seamless migration from Ethereum while providing access to Kaia's enhanced features and performance benefits.  
 * **Native Features (Beyond Standard EVM):**  
-  * **Account Abstraction:** Kaia has advanced account features (e.g., multiple keys per account, role-based permissions), offering more flexibility than Ethereum's EOA model.  
-  * **Transaction Types:** Kaia will have its own native transaction types alongside Ethereum's (e.g., for account updates, fee delegation). For Ethereum transactions, use standard `eth_` RPCs for best compatibility.  
+  * **Account Abstraction:** Kaia has advanced account features (for example, multiple keys per account, role-based permissions), offering more flexibility than Ethereum's EOA model.  
+  * **Transaction Types:** Kaia will have its own native transaction types alongside Ethereum's (for example, for account updates, fee delegation). For Ethereum transactions, use standard `eth_` RPCs for best compatibility.  
   * **Fee Delegation:** This feature can significantly improve UX by allowing dApps to pay gas fees for users.  
 * **Consensus & Governance:**  
   * The consensus mechanism is an optimized version of Istanbul BFT (IBFT), different from Ethereum's Gasper, leading to faster block times and immediate finality.  
   * Governance involves an on-chain Governance Council (GC), differing from Ethereum's more fluid off-chain governance.  
-* **Token:** The native token is KAIA, resulting from the merger of KLAY and FNSA. Tokenomics and utility is specific to Kaia.  
+* **Token:** The native token is KAIA. Tokenomics and utility is specific to Kaia.  
 * **Node Architecture:** Kaia uses a **purpose-built, layered architecture** with [specialized node types](https://docs.kaia.io/learn/#network-architecture) (Core Cells for consensus, Endpoint Nodes for public access) designed to optimize performance and security, differing from Ethereum's unified client approach.  
 * **Mempool:** Transaction handling and public mempool visibility might differ due to Kaia's specific network architecture, with less emphasis on a global, public mempool like Ethereum's.  
 * **Precompiled Contracts:** While base EVM precompiles are supported, Kaia may feature additional Kaia-specific precompiled contracts.
