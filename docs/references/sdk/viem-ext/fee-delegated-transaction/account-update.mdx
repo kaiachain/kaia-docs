@@ -12,22 +12,17 @@ import { ethers } from "ethers";
 const senderWallet = createWalletClient({
   chain: kairos,
   transport: http(),
-  account: privateKeyToAccount(
-    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
-  ),
+  account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
 })
 const feePayerWallet = createWalletClient({
   chain: kairos,
   transport: http(),
-  account: privateKeyToAccount(
-    "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
-  ),
+  account: privateKeyToAccount("0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4")
 });
-(async () => {
-  const pub = ethers.SigningKey.computePublicKey(
-    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8",
-    true
-  );
+
+async function main() {
+  const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+
   const txRequest = await senderWallet.prepareTransactionRequest({
     account: senderWallet.account,
     to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
@@ -38,17 +33,20 @@ const feePayerWallet = createWalletClient({
       key: pub,
     },
   });
+
   const signedTx = await senderWallet.signTransaction(txRequest);
-  console.log('signedTx', signedTx)
-  const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
-    signedTx
-  );
+  console.log("signedTx", signedTx)
+
+  const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(signedTx);
+
   const res = await feePayerWallet.request({
     method: "kaia_sendRawTransaction",
     params: [feePayerSignedTx],
   });
   console.log("fee delegated acount update tx", res);
-})();
+};
+
+main();
 
 ```
 
@@ -75,7 +73,7 @@ Import the **ethers** and **@kaiachain/viem-ext** packages to add kaia features 
 
 Set up sender and fee payer wallets using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
 
-```js TxTypeFeeDelegatedAccountUpdate.js focus=4:17
+```js TxTypeFeeDelegatedAccountUpdate.js focus=4:13
 
 ```
 
@@ -83,7 +81,7 @@ Set up sender and fee payer wallets using **createWalletClient**, configured wit
 
 Uses the ethers library to **compute the compressed public key** from the **sender’s private key**. This public key will be used to update the sender’s account key on the Kaia blockchain.
 
-```js TxTypeFeeDelegatedAccountUpdate.js focus=19:22
+```js TxTypeFeeDelegatedAccountUpdate.js focus=16
 
 ```
 
@@ -91,7 +89,7 @@ Uses the ethers library to **compute the compressed public key** from the **send
 
 Create a transaction request for a value transfer using **prepareTransactionRequest**, specifying the sender’s account, recipient address, value to transfer (0 KLAY in this example), transaction type **(TxType.FeeDelegatedAccountUpdate)** and the **key** field specifies the new public key with type **AccountKeyType.Public**.
 
-```js TxTypeFeeDelegatedAccountUpdate.js focus=23:32
+```js TxTypeFeeDelegatedAccountUpdate.js focus=18:27
 
 ```
 
@@ -100,7 +98,7 @@ Create a transaction request for a value transfer using **prepareTransactionRequ
 Signing the transaction with the wallet client’s **signTransaction** method, and log the transaction hash.
 
 <CH.Code>
-```js TxTypeFeeDelegatedAccountUpdate.js focus=33:34
+```js TxTypeFeeDelegatedAccountUpdate.js focus=29:30
 
 ````
 
@@ -116,7 +114,7 @@ signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9
 
 The fee payer signs the already-signed transaction from the sender with function `signTransactionAsFeePayer`, agreeing to pay the transaction fees.
 
-```js TxTypeFeeDelegatedAccountUpdate.js focus=35:37
+```js TxTypeFeeDelegatedAccountUpdate.js focus=32
 
 ````
 
@@ -125,7 +123,7 @@ The fee payer signs the already-signed transaction from the sender with function
 Sends the fully signed, fee-delegated transaction (signed by both sender and fee payer) to the Kairos blockchain network using the `kaia_sendRawTransaction` method, returning the transaction hash or response from the network.
 
 <CH.Code>
-```js TxTypeFeeDelegatedAccountUpdate.js focus=38:42
+```js TxTypeFeeDelegatedAccountUpdate.js focus=34:38
 
 ````
 

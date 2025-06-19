@@ -7,19 +7,16 @@
 import { AccountKeyType, createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
 import { ethers } from "ethers";
 import { kairos } from "viem/chains";
+
 const senderWallet = createWalletClient({
   chain: kairos,
   transport: http(),
-  account: privateKeyToAccount(
-    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
-  ),
+  account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
 });
-// Example usage
-(async () => {
-  const pub = ethers.SigningKey.computePublicKey(
-    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8",
-    true
-  );
+
+async function main() {
+  const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+  
   const txRequest = await senderWallet.prepareTransactionRequest({
     account: senderWallet.account,
     to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
@@ -32,12 +29,15 @@ const senderWallet = createWalletClient({
   console.log("populated tx request", txRequest);
 
   const signedTx = await senderWallet.signTransaction(txRequest);
+
   const sentTx = await senderWallet.request({
     method: "kaia_sendRawTransaction",
     params: [signedTx],
   });
   console.log("account update tx", sentTx);
-})();
+};
+
+main();
 
 ```
 
@@ -97,7 +97,7 @@ Specify the **kairos** chain configuration to connect to the Kaia Kairos testnet
 
 Set up a wallet client using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
 
-```js TxTypeAccountUpdate.js focus=4:10
+```js TxTypeAccountUpdate.js focus=5:9
 
 ```
 
@@ -105,7 +105,7 @@ Set up a wallet client using **createWalletClient**, configured with the **Kairo
 
 Generate the **public key** from the **sender’s private key** using **ethers.SigningKey.computePublicKey**. The **true** parameter ensures the key is compressed.
 
-```js TxTypeAccountUpdate.js focus=13:16
+```js TxTypeAccountUpdate.js focus=12
 
 ```
 
@@ -114,7 +114,7 @@ Generate the **public key** from the **sender’s private key** using **ethers.S
 Create a transaction request for the account update using **prepareTransactionRequest**, specifying the transaction type, sender account, recipient address, and the new public key.
 
 <CH.Code>
-```js TxTypeAccountUpdate.js focus=17:26
+```js TxTypeAccountUpdate.js focus=14:23
 
 ```
 ---
@@ -154,7 +154,7 @@ populated tx request {
 
 Sign the prepared transaction using the wallet client’s **signTransaction** method.
 
-```js TxTypeAccountUpdate.js focus=28
+```js TxTypeAccountUpdate.js focus=25
 
 ````
 
@@ -163,7 +163,7 @@ Sign the prepared transaction using the wallet client’s **signTransaction** me
 Send the signed transaction to the Kaia blockchain using the **kaia_sendRawTransaction** method and log the transaction hash.
 
 <CH.Code>
-```js TxTypeAccountUpdate.js focus=29:33
+```js TxTypeAccountUpdate.js focus=27:31
 
 ````
 
