@@ -1,0 +1,168 @@
+# 帳戶更新
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+    import { kairos } from "viem/chains";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+      
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        type: TxType.AccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+      console.log("populated tx request", txRequest);
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+
+      const sentTx = await senderWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [signedTx],
+      });
+      console.log("account update tx", sentTx);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeAccountUpdate.js
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    account update tx 0x169287cafab3bfdf9ed513f0a872517f338a796725df16e7e758bb17149f4127
+
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **ethers** 和 **@kaiachain/viem-ext** 套件，以在 web3 上新增 kaia 功能
+
+  ```js TxTypeAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  指定**kairos**連線設定，以連線至 Kaia Kairos 測試網路。
+
+  ```js TxTypeAccountUpdate.js focus=3
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定一個錢包用戶端，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的**寄件者私密金鑰**。
+
+  ```js TxTypeAccountUpdate.js focus=5:9
+  ```
+
+  ---
+
+  使用 **ethers.SigningKey.computePublicKey**，從**寄件者的私密金鑰**產生**公開金鑰**。 **true** 參數可確保金鑰已壓縮。
+
+  ```js TxTypeAccountUpdate.js focus=12
+  ```
+
+  ---
+
+  使用 **prepareTransactionRequest** 建立帳戶更新的交易請求，指定交易類型、寄件者帳戶、收件者地址和新公開金鑰。
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=14:23
+    ```
+
+    ---
+
+    ```zsh output
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用錢包用戶端 **signTransaction** 方法簽署準備好的交易。
+
+  ```js TxTypeAccountUpdate.js focus=25
+  ```
+
+  ---
+
+  使用 **kaia_sendRawTransaction** 方法將已簽署的交易傳送至 Kaia 區塊鏈，並記錄交易的哈希值。
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=27:31
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeAccountUpdate.js
+    account update tx 0x61114ca36d5ce9973083feb13e9b366d2592bd7afaa1b4106b08e158ed4b6213
+    ```
+  </CH.Code>
+</CH.Spotlight>
