@@ -1,0 +1,119 @@
+# 价值转移
+
+**TxTypeValueTransfer** 在用户希望发送 KAIA 时使用。
+
+* 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
+
+# 收费代表团
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransfer.js
+    import { createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0n,
+        type: TxType.FeeDelegatedValueTransfer,
+      });
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx
+      );
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated value transfer tx", res);
+    })();
+
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedValueTransfer.js
+    signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+    fee delegated value transfer tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+    ```
+  </CH.Code>
+
+  ---
+
+  导入 **@kaiachain/viem-ext** 软件包，在 web3 上添加 kaia 功能
+
+  ```js TxTypeFeeDelegatedValueTransfer.js focus=1
+  ```
+
+  ---
+
+  使用 **createWalletClient**，配置**Kairos链**、**HTTP传输**和转换为账户的**发送方私钥**，建立发送方和付费方钱包。
+
+  ```js TxTypeFeeDelegatedValueTransfer.js focus=3:16
+  ```
+
+  ---
+
+  使用 **prepareTransactionRequest**创建转账交易请求，指定发送方账户、接收方地址、转账金额（本例中为 0 KLAY）和交易类型\*\*（TxType.FeeDelegatedValueTransfer）\*\*。
+
+  ```js TxTypeFeeDelegatedValueTransfer.js focus=18:23
+  ```
+
+  ---
+
+  使用钱包客户端的 **signTransaction** 方法签署交易，并记录交易哈希值。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransfer.js focus=24:25
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+    ```
+  </CH.Code>
+
+  ---
+
+  费用支付者使用函数 "signTransactionAsFeePayer "签署发件人已经签署的交易，同意支付交易费用。
+
+  ```js TxTypeFeeDelegatedValueTransfer.js focus=27:29
+  ```
+
+  ---
+
+  使用 "kaia_sendRawTransaction "方法向 Kairos 区块链网络发送完全签名的授权交易（由发送方和支付方签名），并返回交易哈希值或网络响应。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransfer.js focus=24:25
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated value transfer tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+    ```
+  </CH.Code>
+</CH.Spotlight>
