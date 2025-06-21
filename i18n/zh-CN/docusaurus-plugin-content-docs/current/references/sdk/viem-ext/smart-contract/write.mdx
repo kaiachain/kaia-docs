@@ -1,0 +1,122 @@
+# 写
+
+当您需要更新智能合约中的某些状态时，您可以与智能合约进行\*\*"事务 "\*\*交互。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js smartContractWrite.js
+    import {
+        createPublicClient,
+        http,
+        kairos,
+        privateKeyToAccount,
+        createWalletClient
+    } from "@kaiachain/viem-ext";
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    const walletClient = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            // using legacy account only for this example
+            "0x71c5a2d04d744d76492640fb3e5cf2650efae106655f27baffc482c53f57dca2"
+        ),
+    });
+    // Example usage
+    (async () => {
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const txHash = await walletClient.writeContract({
+            address,
+            abi,
+            functionName: 'setNumber',
+            args: [Date.now()]
+        })
+        console.log('tx hash', txHash);
+        const result = await publicClient.readContract({
+            address,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node smartContractWrite.js
+    tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  导入 **@kaiachain/ethers-ext** 模块，在 web3 上添加 kaia 功能。
+
+  ```js smartContractWrite.js focus=1:7
+  ```
+
+  ---
+
+  初始化公共客户端，用于与 Kaia 区块链进行只读交互。
+
+  ```js smartContractWrite.js focus=8:11
+  ```
+
+  ---
+
+  使用**createWalletClient**建立钱包客户端，配置**Kairos链**、**HTTP传输**和转换为账户的**发送者私钥**。
+
+  ```js smartContractWrite.js focus=12:19
+  ```
+
+  ---
+
+  设置从 solidity 代码生成的 **Abi**
+
+  ```js smartContractWrite.js focus=22
+  ```
+
+  ---
+
+  定义与之交互的\*\*合同地址
+
+  ```js smartContractWrite.js focus=23
+  ```
+
+  ---
+
+  写合约 "方法用于调用合约上的 **setNumber** 函数，参数为 Date.now()（当前时间戳，以毫秒为单位）。 这将创建并发送一个事务来更新合同的 **number** 变量。
+
+  <CH.Code>
+    ```js smartContractWrite.js focus=24:30
+    ```
+
+    ---
+
+    ```zsh output
+    tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
+    ```
+  </CH.Code>
+
+  ---
+
+  使用公共客户端从合约中查询 **number** 函数（一个不修改状态的视图函数）。 这将检索数字变量的当前值，该值应反映上一个事务（如果成功）所设置的时间戳。
+
+  <CH.Code>
+    ```js smartContractWrite.js focus=31:36
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node smartContractWrite.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>
