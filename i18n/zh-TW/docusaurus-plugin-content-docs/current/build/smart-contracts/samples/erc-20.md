@@ -431,7 +431,7 @@ MyERC20.sol "由一個接口 "IERC20"、一個庫 "SafeMath "和一個實現 "IE
 - IERC20 "接口定義了[ERC-20 規範](https://eips.ethereum.org/EIPS/eip-20) 中描述的強制接口。
 - SafeMath "庫定義了 Solidity 算術運算的包裝器，並增加了溢出檢查功能，可安全計算 Solidity 的 "uint256 "類型。
 - MyERC20 "實現了 "IERC20 "接口，還定義了三個可選方法，詳見[ERC-20 規範](https://eips.ethereum.org/EIPS/eip-20)。
- - 除 ERC20 外，還定義了 "構造器"，該構造器用於定義新的 ERC20 令牌名稱和符號，並鑄造預定數量的令牌。 `constructor` 在首次部署時被調用一次。
+  - 除 ERC20 外，還定義了 "構造器"，該構造器用於定義新的 ERC20 令牌名稱和符號，並鑄造預定數量的令牌。 `constructor` 在首次部署時被調用一次。
 
 ### 1.2 看看重要的方法<a id="1-2-take-a-look-at-important-methods"></a>
 
