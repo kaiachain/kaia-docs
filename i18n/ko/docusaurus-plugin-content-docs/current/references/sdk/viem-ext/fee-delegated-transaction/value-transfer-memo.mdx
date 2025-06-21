@@ -1,0 +1,117 @@
+# 메모를 통한 가치 전달
+
+**TxTypeValueTransferMemo**는 사용자가 특정 메시지와 함께 KAIA를 전송하고자 할 때 사용됩니다.
+
+# 수수료 위임
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js
+    import { createWalletClient, http, kairos, privateKeyToAccount, toHex, TxType } from "@kaiachain/viem-ext";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0n,
+        type: TxType.FeeDelegatedValueTransferMemo,
+        data: toHex('Hello Kaia')
+      });
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx
+      );
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated value transfer memo tx", res);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedValueTransferMemo.js
+    signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+    fee delegated value transfer memo tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 카이아 기능을 추가하기 위해 **@카이아체인/viem-ext** 패키지를 가져옵니다.
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=1
+  ```
+
+  ---
+
+  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 발신자 및 수수료 납부자 지갑을 설정합니다.
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=3:16
+  ```
+
+  ---
+
+  발신자 계정, 수신자 주소, 전송할 값(이 예시에서는 0 KLAY), 트랜잭션 유형 \*\*(TxType.FeeDelegatedValueTransfer)\*\*를 지정하여 **prepareTransactionRequest**를 사용해 값 전송을 위한 트랜잭션 요청을 생성합니다.
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=18:23
+  ```
+
+  ---
+
+  지갑 클라이언트의 **signTransaction** 메서드로 트랜잭션에 서명하고 트랜잭션 해시를 기록합니다.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=24:25
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+    ```
+  </CH.Code>
+
+  ---
+
+  수수료 납부자는 발신자가 이미 서명한 트랜잭션에 `signTransactionAsFeePayer` 함수를 사용하여 서명하고 트랜잭션 수수료를 지불하는 데 동의합니다.
+
+  ```js TxTypeFeeDelegatedValueTransferMemo.js focus=27:29
+  ```
+
+  ---
+
+  완전히 서명된 수수료 위임 트랜잭션(발신자와 수수료 납부자 모두 서명)을 `kaia_sendRawTransaction` 메서드를 사용하여 카이로스 블록체인 네트워크에 전송하고 네트워크에서 트랜잭션 해시 또는 응답을 반환합니다.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedValueTransferMemo.js focus=24:25
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated value transfer memo tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+    ```
+  </CH.Code>
+</CH.Spotlight>
