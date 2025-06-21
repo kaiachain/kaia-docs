@@ -29,7 +29,7 @@ Kaia Docs의 모든 번역은 협업 번역 플랫폼인 Crowdin을 통해 관�
 
 1. **[Crowdin의 Kaia Docs 프로젝트](https://crowdin.com/project/kaia-docs)로 이동합니다.**
 2. **Crowdin 계정을 생성합니다.**(또는 이미 계정이 있는 경우 로그인합니다).
-3. 프로젝트 페이지에서 **기여하고 싶은 언어**를 선택하세요. 사용 중인 언어가 목록에 없는 경우 GitHub에서 이슈 열기에서 `콘텐츠-번역` 레이블을 사용하여 새 언어를 요청할 수 있습니다.
+3. 프로젝트 페이지에서 **기여하고 싶은 언어**를 선택하세요. 사용 중인 언어가 목록에 없는 경우 [GitHub에서 이슈 열기](https://github.com/kaiachain/kaia-docs/issues/new?assignees=&labels=content-translation&template=feature_request.md&title=%5BLang%20Request%5D%3A%20Add%20\[Your%20Language])에서 `콘텐츠-번역` 레이블을 사용하여 새 언어를 요청할 수 있습니다.
 4. 선택한 언어의 **번역가 팀에 가입하세요**. 요청 시 프로젝트 관리자의 승인이 필요할 수 있습니다.
 5. 번역하거나 검토할 파일을 **선택**하세요.
 6. **번역 시작하기:** Crowdin 온라인 에디터를 사용하세요.
