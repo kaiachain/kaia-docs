@@ -109,7 +109,7 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ![](/img/build/smart-contracts/verify/foundry-verify-bash.png)
 
-您可以在 這裡 查詢已驗證的合約。
+您可以在 [這裡](https://kairos.kaiascan.io/address/0x06f09d3f77341b2f9bdc1e6fc2928761ba05f934?tabId=contract&page=1) 查詢已驗證的合約。
 
 ![](/img/build/smart-contracts/verify/foundry-verify-ks-page.png)
 
