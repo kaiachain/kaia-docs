@@ -9,8 +9,8 @@
 - [다운로드 페이지](../../downloads/downloads.md)에서 `kscn`, `homi` 바이너리용 패키지를 다운로드합니다.
 - Linux 또는 MacOS 서버 4대
 - 최소 하드웨어 요구사항
- - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
- - 자세한 설명은 [시스템 요구사항](../system-requirements.md)을 참조하세요.
+  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+  - 자세한 설명은 [시스템 요구사항](../system-requirements.md)을 참조하세요.
 
 ## 0단계: 모든 노드에 SCN 설치 <a id="install-scn"></a>
 
