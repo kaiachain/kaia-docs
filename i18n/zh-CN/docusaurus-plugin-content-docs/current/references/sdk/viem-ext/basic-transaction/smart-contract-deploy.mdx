@@ -1,0 +1,146 @@
+# 智能合约部署
+
+**TxTypeSmartContractDeploy** 向给定地址部署智能合约。 该交易类型将进行以下更改。
+
+这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或执行上述交易的组合。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractDeploy.js
+    import {
+      http,
+      createWalletClient, kairos,
+      TxType,
+      privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractDeploy,
+        account: senderWallet.account,
+        value: 0,
+        humanReadable: false,
+        codeFormat: 0,
+        data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      });
+      console.log('tx', tx);
+      
+      const sentTx = await senderWallet.sendTransaction(tx);
+      console.log("contract deploy tx", sentTx);
+
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractDeploy.js
+    tx {
+      type: 40,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      value: 0,
+      humanReadable: false,
+      codeFormat: 0,
+      data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2382,
+      chainId: 1001,
+      gas: 106737n,
+      gasPrice: '0x66720b300',
+      gasLimit: 266842
+    }
+    contract deploy tx 0xbae1cacead055c19fa326af76598f99f779ed30a4c33513a6688a490a0bde12c
+
+    ```
+  </CH.Code>
+
+  ---
+
+  导入 **@kaiachain/viem-ext** 软件包，在 web3 上添加 kaia 功能
+
+  ```js SmartContractDeploy.js focus=1:6
+  ```
+
+  ---
+
+  使用**createWalletClient**建立钱包客户端，配置**Kairos链**、**HTTP传输**和转换为账户的**发送者私钥**。
+
+  ```js SmartContractDeploy.js focus=9:15
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**为**部署智能合约**创建一个交易请求。 指定交易类型\*\*（TxType.SmartContractDeploy）\*\*
+
+  <CH.Code>
+    ```js SmartContractDeploy.js focus=18:26
+    ```
+
+    ---
+
+    ```zsh output
+    tx {
+      type: 40,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      value: 0,
+      humanReadable: false,
+      codeFormat: 0,
+      data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2382,
+      chainId: 1001,
+      gas: 106737n,
+      gasPrice: '0x66720b300',
+      gasLimit: 266842
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用钱包客户端的**sendTransaction**方法签署并向 Kaia 区块链发送传统交易，并记录交易哈希值。
+
+  <CH.Code>
+    ```js SmartContractDeploy.js focus=28:29
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractDeploy.js
+    contract deploy tx 0xbae1cacead055c19fa326af76598f99f779ed30a4c33513a6688a490a0bde12c
+    ```
+  </CH.Code>
+</CH.Spotlight>
