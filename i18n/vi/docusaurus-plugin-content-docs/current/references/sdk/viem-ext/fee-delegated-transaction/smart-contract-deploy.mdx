@@ -1,0 +1,119 @@
+# Triển khai hợp đồng thông minh
+
+**TxTypeSmartContractDeploy** triển khai hợp đồng thông minh đến địa chỉ đã cho. Những thay đổi sau đây sẽ được thực hiện theo loại giao dịch này.
+
+# Ủy quyền phí
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedSmartContractDeploy.js
+    import { http, createWalletClient, kairos, TxType, privateKeyToAccount } from "@kaiachain/viem-ext";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.FeeDelegatedSmartContractDeploy,
+        account: senderWallet.account,
+        value: 0,
+        humanReadable: false,
+        codeFormat: 0,
+        data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      });
+      const signedTx = await senderWallet.signTransaction(tx);
+      console.log('signedTx', signedTx)
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx
+      );
+      const sentFeePayerTx = await feePayerWallet.request({
+        method: "klay_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee payer contract deploy tx", sentFeePayerTx);
+
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedSmartContractDeploy.js
+    signedTx 0x29f9018882095985066720b3008304125a808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0ef78ab459d0c14e7a7c9ddf4594d89a335479788af2d844d0d5ea0216be562fba042b0794cd2a5bedf23361ede5aa494fe4f5f79eb66c768678b27f992a6daadab
+    fee payer contract deploy tx 0x8c07cbd99de8a0ff2b84bfb9c1a7e6729e93d03b86be7db091d7981e352f779f
+
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=1:2
+  ```
+
+  ---
+
+  Thiết lập ví người gửi và người trả phí bằng **createWalletClient**, được cấu hình với **chuỗi Kairos**, **phương thức vận chuyển HTTP** và **khóa riêng của người gửi** được chuyển đổi thành một tài khoản.
+
+  ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=3:16
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để chuyển giá trị bằng cách sử dụng **prepareTransactionRequest**, chỉ định tài khoản người gửi, địa chỉ người nhận, giá trị cần chuyển (0 KLAY trong ví dụ này), loại giao dịch **(TxType.FeeDelegatedSmartContractDeploy)**, **humanReadable: false** chỉ định rằng mã hợp đồng ở dạng bytecode (không phải mã nguồn mà con người có thể đọc được), **codeFormat: 0** biểu thị định dạng của mã hợp đồng (thường là bytecode EVM) và **data** chứa bytecode đã biên dịch của hợp đồng thông minh sẽ được triển khai.
+
+  ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=19:26
+  ```
+
+  ---
+
+  Ký giao dịch bằng phương thức **signTransaction** của máy khách ví và ghi lại mã băm giao dịch.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=27:28
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x29f9018882095985066720b3008304125a808094a2a8854b1802d8cd5de631e690817c253d6a9153b90116608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c634300081200338080f847f8458207f6a0ef78ab459d0c14e7a7c9ddf4594d89a335479788af2d844d0d5ea0216be562fba042b0794cd2a5bedf23361ede5aa494fe4f5f79eb66c768678b27f992a6daadab
+    ```
+  </CH.Code>
+
+  ---
+
+  Người trả phí ký vào giao dịch đã được người gửi ký bằng hàm `signTransactionAsFeePayer`, đồng ý trả phí giao dịch.
+
+  ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=29:31
+  ```
+
+  ---
+
+  Gửi giao dịch được ủy quyền phí và đã ký đầy đủ (được cả người gửi và người trả phí ký) đến mạng blockchain Kairos bằng phương thức `kaia_sendRawTransaction`, trả về mã băm giao dịch hoặc phản hồi từ mạng.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=32:36
+    ```
+
+    ---
+
+    ```zsh output
+    fee payer contract deploy tx 0x8c07cbd99de8a0ff2b84bfb9c1a7e6729e93d03b86be7db091d7981e352f779f
+
+    ```
+  </CH.Code>
+</CH.Spotlight>
