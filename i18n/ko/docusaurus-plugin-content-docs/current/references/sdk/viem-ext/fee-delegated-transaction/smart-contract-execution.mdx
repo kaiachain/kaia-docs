@@ -1,0 +1,256 @@
+# 스마트 컨트랙트 실행
+
+**TxTypeSmartContractExecution**은 주어진 데이터로 스마트 컨트랙트를 실행합니다. **TxTypeSmartContractExecution**은 "to"가 스마트 컨트랙트 계정인 경우에만 허용됩니다.
+
+# 수수료 위임
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js
+    import {
+      http, encodeFunctionData, createWalletClient, 
+      createPublicClient, kairos, TxType, privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+    });
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+      const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+
+      const data = encodeFunctionData({
+        abi,
+        args: [123n],
+        functionName: "setNumber",
+      });
+      // non fee payer
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      console.log("preparedTx", tx);
+
+      const signedTx = await senderWallet.signTransaction(tx);
+
+      const sentTx = await senderWallet.request({
+        method: "klay_sendRawTransaction",
+        params: [signedTx],
+      });
+      console.log("contract interaction tx", sentTx);
+
+      // fee payer
+      const tx2 = await senderWallet.prepareTransactionRequest({
+        type: TxType.FeeDelegatedSmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      const signedTx2 = await senderWallet.signTransaction(tx2);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx2
+      );
+
+      const sentFeePayerTx = await feePayerWallet.request({
+        method: "klay_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee payer contract execution tx", sentFeePayerTx);
+
+      const result = await publicClient.readContract({
+        address: contractAddr,
+        abi,
+        functionName: 'number'
+      })
+      console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js FeeDelegatedSmartContractExecution.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2396,
+      chainId: 1001,
+      gas: 25093n,
+      gasPrice: '0x66720b300',
+      gasLimit: 62732
+    }
+    contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d22128233e85c8592
+    fee payer contract execution tx 0x910b967d4bdaa439efab64fa8d7a092d075989a477ef723d66601e694f9c5698
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 카이아 기능을 추가하려면 **@kaiachain/viem-ext** 패키지를 가져옵니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=1:4
+  ```
+
+  ---
+
+  카이아 블록체인과의 읽기 전용 상호작용을 위해 퍼블릭 클라이언트를 초기화합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=6:9
+  ```
+
+  ---
+
+  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 발신자 및 수수료 납부자 지갑을 설정합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=10:23
+  ```
+
+  ---
+
+  실행하려는 **계약 주소**를 to 필드에 설정하고 **ABI**를 설정합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=26:27
+  ```
+
+  ---
+
+  함수 이름과 파라미터를 **encodeFunctionData** 함수로 인코딩합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=29:33
+  ```
+
+  ---
+
+  발신자 계정, 수신자 주소, 전송할 값(이 예시에서는 0 KLAY), 트랜잭션 유형 \*\*(TxType.FeeDelegatedSmartContractDeploy)\*\*을 지정하여 **prepareTransactionRequest**를 사용하여 **스마트 컨트랙트 실행**을 위한 트랜잭션 요청을 생성합니다.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=35:42
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2396,
+      chainId: 1001,
+      gas: 25093n,
+      gasPrice: '0x66720b300',
+      gasLimit: 62732
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  지갑 클라이언트의 **signTransaction** 메서드로 트랜잭션에 서명합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=44
+  ```
+
+  ---
+
+  발신자는 `klay_sendRawTransaction`을 사용하여 트랜잭션을 카이아 블록체인에 제출하고, 그 결과(일반적으로 트랜잭션 해시)가 기록됩니다. 발신자가 거래 수수료를 지불합니다.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=46:50
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d22128233e85c8592
+    ```
+  </CH.Code>
+
+  ---
+
+  컨트랙트에서 동일한 `setNumber` 함수를 호출하기 위해 수수료 위임 트랜잭션(`FeeDelegatedSmartContractExecution`)을 준비합니다. 설정은 비수수료 위임 거래와 비슷하지만 수수료 납부자가 거래에 서명하여 **수수료를 부담**합니다.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=53:59
+  ```
+
+  ---
+
+  송금인이 먼저 거래에 서명하고 수수료 납부자가 서명을 추가하면 거래가 카이아 블록체인에 제출됩니다.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=60:70
+    ```
+
+    ---
+
+    ```zsh output
+    fee payer contract execution tx 0x910b967d4bdaa439efab64fa8d7a092d075989a477ef723d66601e694f9c5698
+    ```
+  </CH.Code>
+
+  ---
+
+  퍼블릭 클라이언트를 사용하여 'number' 함수(상태를 수정하지 않는 보기 함수)를 호출하여 컨트랙트에서 숫자 변수 값을 읽습니다.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=72:77
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>
