@@ -35,7 +35,7 @@ Mẫu Unity mặc định không hỗ trợ Web3. Mẫu tùy chỉnh của chún
 - Tải các thư viện Web3 cần thiết.
 - Bật tích hợp Ví Kaia.
 - Xử lý tương tác blockchain đúng cách.
- :::
+  :::
 
 ## Bước 3: Thiết lập index.html
 
@@ -245,8 +245,8 @@ Ngoài ra, bạn có thể trực tiếp thêm liên kết đến Mini Dapp SDK 
 - Mở Cài đặt bản dựng.
 - Điều hướng đến Cài đặt trình phát.
 - Trong mục "Giải quyết và Trình bày":
- - Tìm "Mẫu WebGL".
- - Chọn "KaiaTemplate".
+  - Tìm "Mẫu WebGL".
+  - Chọn "KaiaTemplate".
 - Trong "Cài đặt xuất bản", chọn **tắt** trong trường Định dạng nén.
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)
