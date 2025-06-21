@@ -431,7 +431,7 @@ contract MyERC20 is IERC20 {
 - `IERC20` 인터페이스는 [ERC-20 규격](https://eips.ethereum.org/EIPS/eip-20)에서 설명하는 필수 인터페이스를 정의합니다.
 - `SafeMath` 라이브러리는 Solidity의 산술 연산에 대한 래퍼를 정의하며, `uint256` 타입의 Solidity를 안전하게 계산하기 위해 오버플로우 검사를 추가했습니다.
 - `MyERC20`은 `IERC20` 인터페이스를 구현하며, [ERC-20 사양](https://eips.ethereum.org/EIPS/eip-20)에 설명된 세 가지 선택적 메서드도 정의합니다.
- - ERC20 외에도 `constructor`가 정의되어 있으며, 이 생성자는 새로운 ERC20 토큰 이름과 심볼을 정의하고 미리 정의된 양의 토큰을 발행하는 데 사용됩니다. `constructor`는 처음 배포할 때 한 번 호출됩니다.
+  - ERC20 외에도 `constructor`가 정의되어 있으며, 이 생성자는 새로운 ERC20 토큰 이름과 심볼을 정의하고 미리 정의된 양의 토큰을 발행하는 데 사용됩니다. `constructor`는 처음 배포할 때 한 번 호출됩니다.
 
 ### 1.2 중요한 방법 살펴보기 <a id="1-2-take-a-look-at-important-methods"></a>
 
