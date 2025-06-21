@@ -347,7 +347,7 @@ You can convert the result from the task above using [hex to decimal](https://ww
 
 **Transferring USDT**
 
-到 Kaiascan 搜尋 USDT 代幣的持有者 (here)。 Let's pick a random account. 在本範例中，我們將使用 `0xb3ff853a137bfe10f3d8965a29013455e1619303`。
+到 Kaiascan 搜尋 USDT 代幣的持有者 ([here](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1))。 Let's pick a random account. 在本範例中，我們將使用 `0xb3ff853a137bfe10f3d8965a29013455e1619303`。
 
 Let's export our contracts and accounts as environment variables:
 
