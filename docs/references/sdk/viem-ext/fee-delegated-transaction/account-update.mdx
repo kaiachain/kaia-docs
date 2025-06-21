@@ -1,0 +1,138 @@
+# Account Update
+
+# Fee Delegation
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeFeeDelegatedAccountUpdate.js
+import { AccountKeyType, createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+import { ethers } from "ethers";
+
+const senderWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+})
+const feePayerWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount("0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4")
+});
+
+async function main() {
+  const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+
+  const txRequest = await senderWallet.prepareTransactionRequest({
+    account: senderWallet.account,
+    to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    value: 0,
+    type: TxType.FeeDelegatedAccountUpdate,
+    key: {
+      type: AccountKeyType.Public,
+      key: pub,
+    },
+  });
+
+  const signedTx = await senderWallet.signTransaction(txRequest);
+  console.log("signedTx", signedTx)
+
+  const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(signedTx);
+
+  const res = await feePayerWallet.request({
+    method: "kaia_sendRawTransaction",
+    params: [feePayerSignedTx],
+  });
+  console.log("fee delegated acount update tx", res);
+};
+
+main();
+
+```
+
+---
+
+```zsh output
+❯ js TxTypeFeeDelegatedAccountUpdate.js
+signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1   
+fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/viem-ext** packages to add kaia features on web3
+
+```js TxTypeFeeDelegatedAccountUpdate.js focus=1:2
+
+```
+
+---
+
+Set up sender and fee payer wallets using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js TxTypeFeeDelegatedAccountUpdate.js focus=4:13
+
+```
+
+---
+
+Uses the ethers library to **compute the compressed public key** from the **sender’s private key**. This public key will be used to update the sender’s account key on the Kaia blockchain.
+
+```js TxTypeFeeDelegatedAccountUpdate.js focus=16
+
+```
+
+---
+
+Create a transaction request for a value transfer using **prepareTransactionRequest**, specifying the sender’s account, recipient address, value to transfer (0 KLAY in this example), transaction type **(TxType.FeeDelegatedAccountUpdate)** and the **key** field specifies the new public key with type **AccountKeyType.Public**.
+
+```js TxTypeFeeDelegatedAccountUpdate.js focus=18:27
+
+```
+
+---
+
+Signing the transaction with the wallet client’s **signTransaction** method, and log the transaction hash.
+
+<CH.Code>
+```js TxTypeFeeDelegatedAccountUpdate.js focus=29:30
+
+````
+
+---
+
+```zsh output
+signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1
+````
+
+</CH.Code>
+
+---
+
+The fee payer signs the already-signed transaction from the sender with function `signTransactionAsFeePayer`, agreeing to pay the transaction fees.
+
+```js TxTypeFeeDelegatedAccountUpdate.js focus=32
+
+````
+
+---
+
+Sends the fully signed, fee-delegated transaction (signed by both sender and fee payer) to the Kairos blockchain network using the `kaia_sendRawTransaction` method, returning the transaction hash or response from the network.
+
+<CH.Code>
+```js TxTypeFeeDelegatedAccountUpdate.js focus=34:38
+
+````
+
+---
+
+```zsh output
+fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+````
+
+</CH.Code>
+</CH.Spotlight>

@@ -1,0 +1,129 @@
+# Value Transfer
+
+**TxTypeValueTransfer** is used when a user wants to send KAIA.
+
+- As kaia provides multiple transaction types to make each transaction type serve a single purpose, TxTypeValueTransfer is limited to send KAIA to an externally owned account (EOA).
+
+# Fee Delegation
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeFeeDelegatedValueTransfer.js
+import { createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+
+const senderWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount(
+    "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+  ),
+})
+const feePayerWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount(
+    "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+  ),
+});
+(async () => {
+  const txRequest = await senderWallet.prepareTransactionRequest({
+    account: senderWallet.account,
+    to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    value: 0n,
+    type: TxType.FeeDelegatedValueTransfer,
+  });
+  const signedTx = await senderWallet.signTransaction(txRequest);
+  console.log("signedTx", signedTx);
+
+  const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+    signedTx
+  );
+  const res = await feePayerWallet.request({
+    method: "kaia_sendRawTransaction",
+    params: [feePayerSignedTx],
+  });
+  console.log("fee delegated value transfer tx", res);
+})();
+
+
+```
+
+---
+
+```zsh output
+❯ js TxTypeFeeDelegatedValueTransfer.js
+signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+fee delegated value transfer tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+```
+
+</CH.Code>
+
+---
+
+Import **@kaiachain/viem-ext** packages to add kaia features on web3
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=1
+
+```
+
+---
+
+Set up sender and fee payer wallets using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=3:16
+
+```
+
+---
+
+Create a transaction request for a value transfer using **prepareTransactionRequest**, specifying the sender’s account, recipient address, value to transfer (0 KLAY in this example), and transaction type **(TxType.FeeDelegatedValueTransfer)**.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=18:23
+
+```
+
+---
+
+Signing the transaction with the wallet client’s **signTransaction** method, and log the transaction hash.
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=24:25
+
+````
+
+---
+
+```zsh output
+signedTx 0x09f88082095285066720b30082cd149470997970c51812dc3a010c7d01b50e0d17dc79c88094a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f5a0c67b0c0ccf4276ad4b97d9da0e66e02bd540647c23866af148f338ef27ac2087a074f32e734fd7c2fae46221b13815bdc201c17b77c5060348b9fb26d5502456d5
+````
+
+</CH.Code>
+
+---
+
+The fee payer signs the already-signed transaction from the sender with function `signTransactionAsFeePayer`, agreeing to pay the transaction fees.
+
+```js TxTypeFeeDelegatedValueTransfer.js focus=27:29
+
+````
+
+---
+
+Sends the fully signed, fee-delegated transaction (signed by both sender and fee payer) to the Kairos blockchain network using the `kaia_sendRawTransaction` method, returning the transaction hash or response from the network.
+
+<CH.Code>
+```js TxTypeFeeDelegatedValueTransfer.js focus=24:25
+
+````
+
+---
+
+```zsh output
+fee delegated value transfer tx 0xcdb3051c9dc60147fd0aef4838f1f3cd907aa42105dedd817c2fba31cb40981a
+
+````
+
+</CH.Code>
+</CH.Spotlight>

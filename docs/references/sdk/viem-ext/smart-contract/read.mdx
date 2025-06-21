@@ -1,0 +1,86 @@
+# Read
+
+You can call functions in Smart Contract via "Call" RPC API. What you can call here is limited to **view functions** that is not changing any states in the Contract.
+
+<CH.Spotlight>
+<CH.Code>
+
+```js SmartContractView.js
+import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+
+const publicClient = createPublicClient({
+    chain: kairos,
+    transport: http(),
+});
+// Example usage
+(async () => {
+    const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+    const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+    const result = await publicClient.readContract({
+        address,
+        abi,
+        functionName: 'number'
+    })
+    console.log('Current contract value', result);
+})();
+
+```
+
+---
+
+```zsh output
+❯ js SmartContractView.js
+Current contract value 123n
+```
+
+</CH.Code>
+
+---
+
+Import the **@kaiachain/ethers-ext** modules to add kaia features on web3.
+
+```js SmartContractView.js focus=1
+
+```
+
+---
+
+Initializes a public client for read-only interactions with the Kaia blockchain.
+
+```js SmartContractView.js focus=3:6
+
+```
+
+---
+
+Set the **Abi** generated from solidity code
+
+```js SmartContractView.js focus=9
+
+```
+
+---
+
+Define **contract address** to interact with
+
+```js SmartContractView.js focus=10
+
+```
+
+---
+
+The `readContract` method is called on the public client to query the **number** function (a view function that doesn’t modify state) from the contract at the specified address.
+
+<CH.Code>
+```js SmartContractView.js focus=11:16
+
+````
+---
+```zsh output
+❯ node SmartContractView.js
+Current contract value 123n
+````
+
+</CH.Code>
+
+</CH.Spotlight>

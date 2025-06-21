@@ -1,0 +1,179 @@
+# Account Update
+
+<CH.Spotlight>
+<CH.Code>
+
+```js TxTypeAccountUpdate.js
+import { AccountKeyType, createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+import { ethers } from "ethers";
+import { kairos } from "viem/chains";
+
+const senderWallet = createWalletClient({
+  chain: kairos,
+  transport: http(),
+  account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+});
+
+async function main() {
+  const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+  
+  const txRequest = await senderWallet.prepareTransactionRequest({
+    account: senderWallet.account,
+    to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    type: TxType.AccountUpdate,
+    key: {
+      type: AccountKeyType.Public,
+      key: pub,
+    },
+  });
+  console.log("populated tx request", txRequest);
+
+  const signedTx = await senderWallet.signTransaction(txRequest);
+
+  const sentTx = await senderWallet.request({
+    method: "kaia_sendRawTransaction",
+    params: [signedTx],
+  });
+  console.log("account update tx", sentTx);
+};
+
+main();
+
+```
+
+---
+
+```zsh output
+❯ js TxTypeAccountUpdate.js
+populated tx request {
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+  },
+  to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+  type: 32,
+  key: {
+    type: 2,
+    key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+  },
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2373,
+  chainId: 1001,
+  gas: 21000n,
+  gasPrice: '0x66720b300',
+  gasLimit: 52500
+}
+account update tx 0x169287cafab3bfdf9ed513f0a872517f338a796725df16e7e758bb17149f4127
+
+```
+
+</CH.Code>
+
+---
+
+Import the **ethers** and **@kaiachain/viem-ext** packages to add kaia features on web3
+
+```js TxTypeAccountUpdate.js focus=1:2
+
+```
+
+---
+
+Specify the **kairos** chain configuration to connect to the Kaia Kairos testnet.
+
+```js TxTypeAccountUpdate.js focus=3
+
+```
+
+---
+
+Set up a wallet client using **createWalletClient**, configured with the **Kairos chain**, an **HTTP transport**, and the **sender’s private key** converted to an account.
+
+```js TxTypeAccountUpdate.js focus=5:9
+
+```
+
+---
+
+Generate the **public key** from the **sender’s private key** using **ethers.SigningKey.computePublicKey**. The **true** parameter ensures the key is compressed.
+
+```js TxTypeAccountUpdate.js focus=12
+
+```
+
+---
+
+Create a transaction request for the account update using **prepareTransactionRequest**, specifying the transaction type, sender account, recipient address, and the new public key.
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=14:23
+
+```
+---
+
+```zsh output
+populated tx request {
+  account: {
+    address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+    nonceManager: undefined,
+    sign: [AsyncFunction: sign],
+    signAuthorization: [AsyncFunction: signAuthorization],
+    signMessage: [AsyncFunction: signMessage],
+    signTransaction: [AsyncFunction: signTransaction],
+    signTypedData: [AsyncFunction: signTypedData],
+    source: 'privateKey',
+    type: 'local',
+    publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+  },
+  to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+  type: 32,
+  key: {
+    type: 2,
+    key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+  },
+  from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+  nonce: 2373,
+  chainId: 1001,
+  gas: 21000n,
+  gasPrice: '0x66720b300',
+  gasLimit: 52500
+}
+```
+
+</CH.Code>
+
+---
+
+Sign the prepared transaction using the wallet client’s **signTransaction** method.
+
+```js TxTypeAccountUpdate.js focus=25
+
+````
+
+---
+
+Send the signed transaction to the Kaia blockchain using the **kaia_sendRawTransaction** method and log the transaction hash.
+
+<CH.Code>
+```js TxTypeAccountUpdate.js focus=27:31
+
+````
+
+---
+
+```zsh output
+❯ node TxTypeAccountUpdate.js
+account update tx 0x61114ca36d5ce9973083feb13e9b366d2592bd7afaa1b4106b08e158ed4b6213
+````
+
+</CH.Code>
+
+</CH.Spotlight>
