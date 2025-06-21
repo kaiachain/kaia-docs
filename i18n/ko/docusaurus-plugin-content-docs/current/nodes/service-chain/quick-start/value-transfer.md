@@ -9,7 +9,7 @@
 - 서비스체인을 설치하고, [Kairos에 연결하기](en-scn-connection.md)의 지침에 따라 서비스체인을 Kairos EN에 연결했다고 가정합니다.
 - 리파지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
 - `Node.js`(v14) 및 `npm`을 설치합니다([설치 방법](https://nodejs.org/en/download/package-manager/)).
- - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
+    - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
 
 ## ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
 
@@ -62,7 +62,7 @@ True
 ### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
 - SCN에 연결하고 컨트랙트 배포를 위한 노드 환경을 준비합니다.
- 리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+    리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
 
 ![](/img/nodes/sc-vt-deploy.png)
 
