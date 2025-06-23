@@ -68,6 +68,12 @@ $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
 ```
 
+或
+
+```bash
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/9-stream/kaia.repo && sudo yum install kpnd
+```
+
 ### 安装位置<a id="installed-location"></a>
 
 安装文件的位置如下
