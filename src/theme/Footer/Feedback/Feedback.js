@@ -107,11 +107,10 @@ const placeholders = {
 };
 
 export default function PushFeedback() {
-  const { i18n } = useDocusaurusContext();
+  const { i18n, siteConfig: { customFields } } = useDocusaurusContext();
   const language = i18n.currentLocale;
   const [isLoaded, setIsLoaded] = useState(false);
   const { colorMode } = useColorMode();
-  const projectId = '8ou0itrmqd';
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -125,7 +124,7 @@ export default function PushFeedback() {
   return (
     <div className={`${styles.feedbackWrapper} ${isLoaded ? styles.loaded : ''}`}>
       <FeedbackButton
-        project={projectId}
+        project={customFields.projectId}
         button-position="bottom-right"
         modal-position="bottom-right"
         button-style={colorMode === 'dark' ? "light" : "dark"}

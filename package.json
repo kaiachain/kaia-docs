@@ -29,6 +29,7 @@
     "clsx": "^1.2.1",
     "docusaurus-plugin-openapi-docs": "^4.0.1",
     "docusaurus-theme-openapi-docs": "^4.0.1",
+    "dotenv": "^16.5.0",
     "framer-motion": "^11.2.10",
     "prism-react-renderer": "^2.1.0",
     "pushfeedback-react": "^0.1.53",

@@ -4,6 +4,7 @@ const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
 const redirects = require('./redirects');
+import 'dotenv/config';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -116,8 +117,8 @@ const config = {
 
   scripts: [
     {
-      src: 'https://umami.lkw1615.synology.me/script.js',
-      async: true, 'data-website-id': 'ae21f682-27e8-4670-bf7f-8eec7a2097cf'
+      src: process.env.UMAMI_SRC,
+      async: true, 'data-website-id': process.env.UMAMI_WEBSITE_ID,
     },
     {
       src: '/js/formbricks-loader.js',
@@ -232,7 +233,9 @@ const config = {
       },
     ],
   ],
+
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
+
   stylesheets: [
     {
       href: "https://use.fontawesome.com/releases/v5.11.0/css/all.css",
@@ -245,8 +248,8 @@ const config = {
     ({
       algolia: {
         contextualSearch: true,
-        appId: '3JXBTKO6ZU',
-        apiKey: '3ae6c772dbecf845225e7ef3f4ac18be',
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
         indexName: 'klaytn',
       },
 /**     announcementBar: {
@@ -546,6 +549,13 @@ const config = {
         defaultMode: 'dark',
       }
     }),
+
+  customFields: {
+    apiBaseUrl: process.env.API_BASE_URL,
+    agentId: process.env.AGENT_ID,
+    projectId: process.env.FEEDBACK_PROJECT_ID,
+    contentSetId: process.env.RATING_CONTENT_SET_ID,
+  },
 }
 
 module.exports = config
