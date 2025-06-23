@@ -68,6 +68,12 @@ $ yum install kcnd-baobab-vX.X.X.el7.x86_64.rpm
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kcnd
 ```
 
+또는
+
+```bash
+sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/9-stream/kaia.repo && sudo yum install kcnd
+```
+
 ### 설치된 위치 <a id="installed-location"></a>
 
 설치된 파일은 다음과 같은 위치에 있습니다.
