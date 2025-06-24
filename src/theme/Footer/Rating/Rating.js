@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { FeelbackYesNo } from "@feelback/react";
 import { useLocation } from '@docusaurus/router';
 import Translate from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './Rating.module.css';
 import ThumbsUp from '@site/static/img/misc/button-thumbs-up.svg';
 import ThumbsDown from '@site/static/img/misc/button-thumbs-down.svg';
@@ -21,6 +22,7 @@ const CUSTOM_LIKE_DISLIKE = [
 ];
 
 export default function FeelbackRating() {
+  const { siteConfig: { customFields } } = useDocusaurusContext();
   const rootRef = useRef(null);
   const location = useLocation();
   const containerRef = useRef(null);
@@ -56,7 +58,7 @@ export default function FeelbackRating() {
                 </Translate>
               </span>
               <FeelbackYesNo
-                contentSetId="bff04c29-b7aa-4481-8507-4cce4d3f5de6"
+                contentSetId={customFields.contentSetId}
                 preset={CUSTOM_LIKE_DISLIKE}
                 className={styles.feelbackButtonsCustom}
               />
@@ -74,7 +76,6 @@ export default function FeelbackRating() {
         containerRef.current = null;
       }
     };
-  }, [location.pathname]);
-
+  }, [location.pathname, customFields.contentSetId]);
   return null;
 }
