@@ -176,7 +176,7 @@ b. Viewing your project directory. Your current directory should include:
 - **scripts/** – this folder contains code that deploys your contracts on the blockchain network
 - **test/** – this folder contains all unit tests that test your smart contract
 - **hardhat.config.ts** – this file contains configurations important for the work of Hardhat and
- the deployment of smart contracts.
+  the deployment of smart contracts.
 
 ## 2. Creating a Buy Me A Coffee Smart Contract <a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -831,24 +831,24 @@ The following are the steps to deploy your BMC dApp to Fleek:
 
 1. Make sure to confirm these configurations in your frontend code:
 
- a. Open package.json and add in the following scripts:
+  a. Open package.json and add in the following scripts:
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. Paste the code below in your next.config.js file in the root directory:
+  b. Paste the code below in your next.config.js file in the root directory:
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 For more information, visit this [guide](https://blog.fleek.co/posts/fleek-nextJS)
 

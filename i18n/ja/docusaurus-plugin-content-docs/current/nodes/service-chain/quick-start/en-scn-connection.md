@@ -9,14 +9,14 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
 
 - EN用LinuxまたはMacOSサーバー1台
 - テストに最低限必要なハードウェア
- - CPU：4コア（Intel Xeonまたは同等）、RAM：16GB、HDD：50GB
- - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
+   - CPU：4コア（Intel Xeonまたは同等）、RAM：16GB、HDD：50GB
+   - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
 - Download the Baobab EN executable. ダウンロード可能なバイナリの全リストは、[Download](../../downloads/downloads.md) を参照のこと。
 - 仮定と限界
- - ServiceChainネットワークがインストールされ、実行されている。 ネットワークのセットアップについては、「4ノードサービスチェーンのセットアップ」(4nodes-setup-guide.md)を参照してください。
- - カイロスEN。
- - 1対1の接続しかサポートされていないため、1つのENは1つのSCNにしか接続できません。
- - すべてのSCNがENに接続する必要はない。
+   - ServiceChainネットワークがインストールされ、実行されている。 ネットワークのセットアップについては、「4ノードサービスチェーンのセットアップ」(4nodes-setup-guide.md)を参照してください。
+   - カイロスEN。
+   - 1対1の接続しかサポートされていないため、1つのENは1つのSCNにしか接続できません。
+   - すべてのSCNがENに接続する必要はない。
 
 ## Step 0: Install Baobab EN <a id="install-baobab-en"></a>
 

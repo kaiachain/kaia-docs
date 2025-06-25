@@ -1,0 +1,257 @@
+# 撰写（费用委托）
+
+当您要执行智能合约时，您可以向 feepayer 发送\*\*"交易 "**，其中包括**支付请求\*\*。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js writeWithFeeDelegation.js
+    import {
+        http,
+        encodeFunctionData,
+        createWalletClient, createPublicClient, kairos,
+        TxType,
+        privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    const senderWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+        ),
+    })
+    const feePayerWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+        ),
+    });
+    // Example usage
+    (async () => {
+        const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+
+        const data = encodeFunctionData({
+            abi,
+            args: [123n],
+            functionName: "setNumber",
+        });
+        // non fee payer
+        const tx = await senderWallet.prepareTransactionRequest({
+            type: TxType.SmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        console.log("preparedTx", tx);
+
+        const signedTx = await senderWallet.signTransaction(tx);
+
+        const sentTx = await senderWallet.request({
+            method: "klay_sendRawTransaction",
+            params: [signedTx],
+        });
+        console.log("contract interaction tx", sentTx);
+
+        // fee payer
+        const tx2 = await senderWallet.prepareTransactionRequest({
+            type: TxType.FeeDelegatedSmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        const signedTx2 = await senderWallet.signTransaction(tx2);
+
+        const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+            signedTx2
+        );
+        const sentFeePayerTx = await feePayerWallet.request({
+            method: "klay_sendRawTransaction",
+            params: [feePayerSignedTx],
+        });
+        console.log("fee payer contract execution tx", sentFeePayerTx);
+
+        const result = await publicClient.readContract({
+            address: contractAddr,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js writeWithFeeDelegation.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2400,
+      chainId: 1001,
+      gas: 27893n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69732
+    }
+    contract interaction tx 0x67e3975188a4e7c221ac823450b51a4ac8064ddeb35523defd890b1559e0343d
+    fee payer contract execution tx 0xc63d64d49a95ecc9f0fa9a25e78a7df5192224d703f634a77a64123ed36ac97f
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  导入\*\*@kaiachain/viem-ext\*\*软件包，在 web3 上添加 kaia 功能
+
+  ```js writeWithFeeDelegation.js focus=1:7
+  ```
+
+  ---
+
+  初始化公共客户端，用于与 Kaia 区块链进行只读交互。
+
+  ```js writeWithFeeDelegation.js focus=9:12
+  ```
+
+  ---
+
+  使用 **createWalletClient**，配置**Kairos链**、**HTTP传输**和转换为账户的**发送方私钥**，建立发送方和付费方钱包。
+
+  ```js writeWithFeeDelegation.js focus=13:26
+  ```
+
+  ---
+
+  在至字段中设置要执行的**合同地址**，并设置**ABI**。
+
+  ```js writeWithFeeDelegation.js focus=29:30
+  ```
+
+  ---
+
+  使用 **encodeFunctionData** 函数对函数名和参数进行编码
+
+  ```js writeWithFeeDelegation.js focus=32:36
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**创建**写入智能合约**的交易请求，指定发送方账户、接收方地址、要转账的金额（本例中为 0 KLAY）和交易类型\*\*(TxType.SmartContractExecution)\*\*。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=38:45
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2400,
+      chainId: 1001,
+      gas: 27893n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69732
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用钱包客户端的 **signTransaction** 方法签署交易。
+
+  ```js writeWithFeeDelegation.js focus=47
+  ```
+
+  ---
+
+  发送者使用 "klay_sendRawTransaction "向 Kaia 区块链提交交易，并记录结果（通常是交易哈希值）。 汇款人支付交易费用。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=49:53
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x67e3975188a4e7c221ac823450b51a4ac8064ddeb35523defd890b1559e0343d
+    ```
+  </CH.Code>
+
+  ---
+
+  准备一个费用委托事务（"FeeDelegatedSmartContractExecution"），以调用合同上相同的 "setNumber "函数。 设置与非收费委托交易类似，但收费人在交易上签字，以\*\*支付费用。
+
+  ```js writeWithFeeDelegation.js focus=56:62
+  ```
+
+  ---
+
+  发送方首先签署交易，缴费方添加签名，然后将交易提交到 Kaia 区块链。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=63:72
+    ```
+
+    ---
+
+    ```zsh output
+    fee payer contract execution tx 0xc63d64d49a95ecc9f0fa9a25e78a7df5192224d703f634a77a64123ed36ac97f
+    ```
+  </CH.Code>
+
+  ---
+
+  通过调用 `number` 函数（一个不修改状态的视图函数），使用公共客户端从合约中读取数字变量的值。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=74:79
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

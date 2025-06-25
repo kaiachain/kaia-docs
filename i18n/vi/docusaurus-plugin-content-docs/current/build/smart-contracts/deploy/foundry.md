@@ -347,7 +347,7 @@ Trong phần này, bạn sẽ tìm hiểu cách chuyển token USDT từ ngườ
 
 **Transferring USDT**
 
-Truy cập Kaiascan và tìm kiếm người nắm giữ token USDT (tại đây). Let's pick a random account. Trong ví dụ này, chúng tôi sẽ sử dụng `0xb3ff853a137bfe10f3d8965a29013455e1619303`.
+Truy cập Kaiascan và tìm kiếm người nắm giữ token USDT ([tại đây](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. Trong ví dụ này, chúng tôi sẽ sử dụng `0xb3ff853a137bfe10f3d8965a29013455e1619303`.
 
 Let's export our contracts and accounts as environment variables:
 

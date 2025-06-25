@@ -1,0 +1,114 @@
+# 取消
+
+**TxTypeCancel** 取消交易池中具有相同 nonce 的交易的執行。 當已提交的交易看起來有一段時間沒有被處理時，此交易類型就很有用。
+
+# 費用委派
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js
+    import { createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        type: TxType.FeeDelegatedCancel,
+      });
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx
+      );
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated cancel tx", res);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxFeeDelegatedCancelType.js
+    signedTx 0x39f86b82095e85066720b3008302059494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0e203205f0f0728d964f8da4a8f891b63d2140c9a0144d33a9a682be1db90c212a05a3999602aeefda3cabbf0af3a935b85a9c5e94ffa3c00c8def218a121281343
+    fee delegated cancel tx 0x4580d6e7599fe0b2623f9942cb0b167449c764e49f40b7a63b15c8ff60053923
+
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **@kaiachain/viem-ext** 套件以在 web3 上新增 kaia 功能
+
+  ```js TxFeeDelegatedCancelType.js focus=1
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定寄件者和付費者的錢包，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的 \*\* 寄件者私密金鑰\*\*。
+
+  ```js TxFeeDelegatedCancelType.js focus=3:16
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**建立轉移價值的交易請求，指定寄件者的帳戶和交易類型\*\*(TxType.FeeDelegatedCancel)\*\*。
+
+  ```js TxFeeDelegatedCancelType.js focus=18:21
+  ```
+
+  ---
+
+  使用錢包用戶端 **signTransaction** 方法簽署交易，並記錄交易哈希值。
+
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js focus=22:23
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x39f86b82095e85066720b3008302059494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0e203205f0f0728d964f8da4a8f891b63d2140c9a0144d33a9a682be1db90c212a05a3999602aeefda3cabbf0af3a935b85a9c5e94ffa3c00c8def218a121281343
+    ```
+  </CH.Code>
+
+  ---
+
+  付費者使用函式 `signTransactionAsFeePayer` 簽署寄件者已簽署的交易，同意支付交易費用。
+
+  ```js TxFeeDelegatedCancelType.js focus=25:27
+  ```
+
+  ---
+
+  使用 `kaia_sendRawTransaction` 方法將完全簽署、費用委託的交易（由寄件者和付費者簽署）發送至 Kairos 區塊鏈網路，並傳回交易哈希值或網路的回應。
+
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js focus=28:32
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated cancel tx 0x4580d6e7599fe0b2623f9942cb0b167449c764e49f40b7a63b15c8ff60053923
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

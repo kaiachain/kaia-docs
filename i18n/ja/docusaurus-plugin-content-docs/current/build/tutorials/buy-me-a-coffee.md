@@ -176,7 +176,7 @@ b. プロジェクトディレクトリの表示 プロジェクトディレク�
 - **スクリプト/** - このフォルダには、あなたのコントラクトをブロックチェーン・ネットワーク上にデプロイするコードが含まれています。
 - **test/** - このフォルダには、スマートコントラクトをテストするすべてのユニットテストが含まれています。
 - **hardhat.config.ts** - このファイルには、Hardhatの作業に重要な設定が含まれており、
- 、スマート・コントラクトのデプロイが行われます。
+  、スマート・コントラクトのデプロイが行われます。
 
 ## 2. コーヒーを買うスマートコントラクトの作成<a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -831,24 +831,24 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 1. フロントエンドのコードでこれらの設定を確認してください：
 
- a. package.jsonを開き、以下のスクリプトを追加する：
+  a. package.jsonを開き、以下のスクリプトを追加する：
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
+  b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 詳しくはこちらの[ガイド](https://blog.fleek.co/posts/fleek-nextJS)をご覧ください。
 

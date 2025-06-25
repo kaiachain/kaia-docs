@@ -9,8 +9,8 @@
 - 從 [Download](../../downloads/downloads.md) 下載 `kscn`、`homi` 二進制軟件包。
 - 4 臺 Linux 或 MacOS 服務器
 - 最低硬件要求
- - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
- - 更多解釋請參閱 [系統要求](../system-requirements.md)。
+  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+  - 更多解釋請參閱 [系統要求](../system-requirements.md)。
 
 ## 步驟 0：在所有節點上安裝 SCN<a id="install-scn"></a>
 

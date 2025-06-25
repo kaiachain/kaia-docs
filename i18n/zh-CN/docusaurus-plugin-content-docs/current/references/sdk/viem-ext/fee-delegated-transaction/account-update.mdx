@@ -1,0 +1,127 @@
+# 账户更新
+
+# 收费代表团
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0,
+        type: TxType.FeeDelegatedAccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx)
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(signedTx);
+
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated acount update tx", res);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedAccountUpdate.js
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1   
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+
+  ---
+
+  导入**ethers**和\*\*@kaiachain/viem-ext\*\*软件包，在 web3 上添加 kaia 功能
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  使用 **createWalletClient**，配置**Kairos链**、**HTTP传输**和转换为账户的**发送方私钥**，建立发送方和付费方钱包。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=4:13
+  ```
+
+  ---
+
+  使用以太坊库从**发送者的私人密钥**计算压缩公钥\*\*。 该公钥将用于更新发送者在 Kaia 区块链上的账户密钥。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=16
+  ```
+
+  ---
+
+  使用 **prepareTransactionRequest**创建转账交易请求，指定发件人账户、收件人地址、转账金额（本例中为 0 KLAY）、交易类型\*\*(TxType.FeeDelegatedAccountUpdate)\*\*，**key** 字段指定类型为 **AccountKeyType.Public**的新公钥。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=18:27
+  ```
+
+  ---
+
+  使用钱包客户端的 **signTransaction** 方法签署交易，并记录交易哈希值。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=29:30
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1
+    ```
+  </CH.Code>
+
+  ---
+
+  费用支付者使用函数 "signTransactionAsFeePayer "签署发件人已经签署的交易，同意支付交易费用。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=32
+  ```
+
+  ---
+
+  使用 "kaia_sendRawTransaction "方法向 Kairos 区块链网络发送完全签名的授权交易（由发送方和支付方签名），并返回交易哈希值或网络响应。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=34:38
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

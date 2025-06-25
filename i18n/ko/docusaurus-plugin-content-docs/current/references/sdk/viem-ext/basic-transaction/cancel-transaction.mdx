@@ -1,0 +1,131 @@
+# 취소
+
+**TxTypeCancel**은 트랜잭션 풀에서 동일한 논스를 가진 트랜잭션의 실행을 취소합니다. 이 트랜잭션 유형은 제출된 트랜잭션이 일정 시간 동안 처리되지 않은 것처럼 보일 때 유용합니다.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxCancelType.js
+    import { createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { kairos } from "viem/chains";
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        type: TxType.Cancel,
+      });
+      console.log("txRequest", txRequest);
+      
+      const sentTx = await senderWallet.sendTransaction(txRequest);
+      console.log("Cancel tx", sentTx);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxCancelType.js
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      type: 56,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2385,
+      chainId: 1001,
+      gas: 53000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 132500
+    }
+    Cancel tx 0x1bc6db276a8bc2395fcbcd3efd96afba7cf4b5cbcfd18f6bdde541d04838d065
+
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 카이아 기능을 추가하기 위해 **@카이아체인/viem-ext** 패키지를 가져옵니다.
+
+  ```js TxCancelType.js focus=1
+  ```
+
+  ---
+
+  카이아 카이로스 테스트넷에 연결할 **카이로스** 체인 구성을 지정합니다.
+
+  ```js TxCancelType.js focus=2
+  ```
+
+  ---
+
+  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+
+  ```js TxCancelType.js focus=3:9
+  ```
+
+  ---
+
+  트랜잭션 유형과 발신자 계정을 지정하여 **prepareTransactionRequest**를 사용하여 **거래 취소**에 대한 트랜잭션 요청을 생성합니다.
+
+  <CH.Code>
+    ```js TxCancelType.js focus=12:17
+    ```
+
+    ---
+
+    ```zsh output
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      type: 56,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2385,
+      chainId: 1001,
+      gas: 53000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 132500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 취소 트랜잭션에 서명하고 카이아 블록체인으로 전송한 후 트랜잭션 해시를 기록합니다.
+
+  <CH.Code>
+    ```js TxCancelType.js focus=19:20
+    ```
+
+    ---
+
+    ```zsh output
+    value transfer legacy tx 0x8da12ab374d592715df3bbf6cc96f11a836175daf0dec7f26295d172d6206056
+    ```
+  </CH.Code>
+</CH.Spotlight>

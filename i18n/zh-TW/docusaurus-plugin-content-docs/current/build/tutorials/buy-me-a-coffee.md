@@ -176,7 +176,7 @@ b. 查看項目目錄 當前目錄應包括
 - **scripts/** - 此文件夾包含在區塊鏈網絡上部署合約的代碼
 - **test/** - 該文件夾包含測試智能合約的所有單元測試
 - **hardhat.config.ts** - 該文件包含對 Hardhat 工作非常重要的配置，
- 智能合約的部署。
+  智能合約的部署。
 
 ## 2. 創建 "請我喝咖啡 "智能合約<a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -831,24 +831,24 @@ Fleek 是一種基礎設施，使我們能夠在 IPFS 上構建現代網站和�
 
 1. 確保在前端代碼中確認這些配置：
 
- a. 打開 package.json，添加以下腳本：
+  a. 打開 package.json，添加以下腳本：
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. 將下面的代碼粘貼到根目錄下的 next.config.js 文件中：
+  b. 將下面的代碼粘貼到根目錄下的 next.config.js 文件中：
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 如需瞭解更多信息，請訪問本 [指南](https://blog.fleek.co/posts/fleek-nextJS)
 

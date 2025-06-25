@@ -1,0 +1,79 @@
+# Đọc
+
+Bạn có thể gọi các hàm trong Hợp đồng thông minh thông qua API RPC "Gọi". Những gì bạn có thể gọi ở đây bị giới hạn ở **các chức năng xem** không thay đổi bất kỳ trạng thái nào trong Hợp đồng.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractView.js
+    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    // Example usage
+    (async () => {
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const result = await publicClient.readContract({
+            address,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các mô-đun **@kaiachain/ethers-ext** để thêm các tính năng kaia vào web3.
+
+  ```js SmartContractView.js focus=1
+  ```
+
+  ---
+
+  Khởi tạo một máy khách công khai để tương tác chỉ đọc với blockchain Kaia.
+
+  ```js SmartContractView.js focus=3:6
+  ```
+
+  ---
+
+  Đặt **Abi** được tạo từ mã solidity
+
+  ```js SmartContractView.js focus=9
+  ```
+
+  ---
+
+  Xác định **địa chỉ hợp đồng** để tương tác với
+
+  ```js SmartContractView.js focus=10
+  ```
+
+  ---
+
+  Phương thức `readContract` được gọi trên máy khách công khai để truy vấn hàm **number** (hàm xem không sửa đổi trạng thái) từ hợp đồng tại địa chỉ đã chỉ định.
+
+  <CH.Code>
+    ```js SmartContractView.js focus=11:16
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

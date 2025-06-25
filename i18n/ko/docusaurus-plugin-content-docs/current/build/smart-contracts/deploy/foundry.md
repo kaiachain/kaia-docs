@@ -347,7 +347,7 @@ You can convert the result from the task above using [hex to decimal](https://ww
 
 **Transferring USDT**
 
-카이아스캔으로 이동하여 USDT 토큰 보유자를 검색합니다(여기). Let's pick a random account. 이 예제에서는 `0xb3ff853a137bfe10f3d8965a29013455e1619303`을 사용합니다.
+카이아스캔으로 이동하여 USDT 토큰 보유자를 검색합니다([여기](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. 이 예제에서는 `0xb3ff853a137bfe10f3d8965a29013455e1619303`을 사용합니다.
 
 Let's export our contracts and accounts as environment variables:
 

@@ -1,0 +1,79 @@
+# 閱讀
+
+您可以透過「Call」RPC API 來呼叫 Smart Contract 中的函式。 您可以在此呼叫的功能僅限於 **view 函式**，不會改變 Contract 中的任何狀態。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractView.js
+    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    // Example usage
+    (async () => {
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const result = await publicClient.readContract({
+            address,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **@kaiachain/ethers-ext** 模組，在 web3 上加入 kaia 功能。
+
+  ```js SmartContractView.js focus=1
+  ```
+
+  ---
+
+  初始化用於與 Kaia 區塊鏈進行唯讀互動的公共用戶端。
+
+  ```js SmartContractView.js focus=3:6
+  ```
+
+  ---
+
+  設定由 solidity 代碼產生的 **Abi**
+
+  ```js SmartContractView.js focus=9
+  ```
+
+  ---
+
+  定義**合約位址**進行互動
+
+  ```js SmartContractView.js focus=10
+  ```
+
+  ---
+
+  公共用戶端會呼叫 `readContract` 方法，從指定位址的合約中查詢 **number** 函式（一個不修改狀態的檢視函式）。
+
+  <CH.Code>
+    ```js SmartContractView.js focus=11:16
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

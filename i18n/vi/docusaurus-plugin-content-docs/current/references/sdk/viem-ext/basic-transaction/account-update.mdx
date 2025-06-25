@@ -1,0 +1,168 @@
+# Cập nhật tài khoản
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+    import { kairos } from "viem/chains";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+      
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        type: TxType.AccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+      console.log("populated tx request", txRequest);
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+
+      const sentTx = await senderWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [signedTx],
+      });
+      console.log("account update tx", sentTx);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeAccountUpdate.js
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    account update tx 0x169287cafab3bfdf9ed513f0a872517f338a796725df16e7e758bb17149f4127
+
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **ethers** và **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js TxTypeAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  Chỉ định cấu hình chuỗi **kairos** để kết nối với mạng thử nghiệm Kaia Kairos.
+
+  ```js TxTypeAccountUpdate.js focus=3
+  ```
+
+  ---
+
+  Thiết lập ứng dụng ví bằng **createWalletClient**, được cấu hình bằng **chuỗi Kairos**, **phương thức truyền tải HTTP** và **khóa riêng của người gửi** được chuyển đổi thành tài khoản.
+
+  ```js TxTypeAccountUpdate.js focus=5:9
+  ```
+
+  ---
+
+  Tạo **khóa công khai** từ **khóa riêng của người gửi** bằng cách sử dụng **ethers.SigningKey.computePublicKey**. Tham số **true** đảm bảo khóa được nén.
+
+  ```js TxTypeAccountUpdate.js focus=12
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để cập nhật tài khoản bằng cách sử dụng **prepareTransactionRequest**, chỉ định loại giao dịch, tài khoản người gửi, địa chỉ người nhận và khóa công khai mới.
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=14:23
+    ```
+
+    ---
+
+    ```zsh output
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  Ký giao dịch đã chuẩn bị bằng phương thức **signTransaction** của ứng dụng ví.
+
+  ```js TxTypeAccountUpdate.js focus=25
+  ```
+
+  ---
+
+  Gửi giao dịch đã ký đến blockchain Kaia bằng phương thức **kaia_sendRawTransaction** và ghi lại mã băm giao dịch.
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=27:31
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeAccountUpdate.js
+    account update tx 0x61114ca36d5ce9973083feb13e9b366d2592bd7afaa1b4106b08e158ed4b6213
+    ```
+  </CH.Code>
+</CH.Spotlight>

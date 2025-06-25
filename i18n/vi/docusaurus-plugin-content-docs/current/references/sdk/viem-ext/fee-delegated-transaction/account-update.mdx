@@ -1,0 +1,127 @@
+# Cập nhật tài khoản
+
+# Ủy quyền phí
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0,
+        type: TxType.FeeDelegatedAccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx)
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(signedTx);
+
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated acount update tx", res);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedAccountUpdate.js
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1   
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **ethers** và **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  Thiết lập ví người gửi và người trả phí bằng **createWalletClient**, được cấu hình với **chuỗi Kairos**, **phương thức vận chuyển HTTP** và **khóa riêng của người gửi** được chuyển đổi thành một tài khoản.
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=4:13
+  ```
+
+  ---
+
+  Sử dụng thư viện ethers để **tính toán khóa công khai đã nén** từ **khóa riêng của người gửi**. Khóa công khai này sẽ được sử dụng để cập nhật khóa tài khoản của người gửi trên chuỗi khối Kaia.
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=16
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để chuyển giá trị bằng cách sử dụng **prepareTransactionRequest**, chỉ định tài khoản người gửi, địa chỉ người nhận, giá trị cần chuyển (0 KLAY trong ví dụ này), loại giao dịch **(TxType.FeeDelegatedAccountUpdate)** và trường **key** chỉ định khóa công khai mới với loại **AccountKeyType.Public**.
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=18:27
+  ```
+
+  ---
+
+  Ký giao dịch bằng phương thức **signTransaction** của máy khách ví và ghi lại mã băm giao dịch.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=29:30
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1
+    ```
+  </CH.Code>
+
+  ---
+
+  Người trả phí ký vào giao dịch đã được người gửi ký bằng hàm `signTransactionAsFeePayer`, đồng ý trả phí giao dịch.
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=32
+  ```
+
+  ---
+
+  Gửi giao dịch được ủy quyền phí và đã ký đầy đủ (được cả người gửi và người trả phí ký) đến mạng blockchain Kairos bằng phương thức `kaia_sendRawTransaction`, trả về mã băm giao dịch hoặc phản hồi từ mạng.
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=34:38
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

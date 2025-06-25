@@ -1,0 +1,139 @@
+# Biên bản chuyển nhượng giá trị
+
+**TxTypeValueTransferMemo** được sử dụng khi người dùng muốn gửi KAIA với một thông điệp cụ thể.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js
+    import { createWalletClient, http, privateKeyToAccount, toHex, TxType } from "@kaiachain/viem-ext";
+    import { kairos } from "viem/chains";
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0n,
+        type: TxType.ValueTransferMemo,
+        data: toHex('Hello Kaia')
+      });
+      console.log("txRequest", txRequest);
+      const sentTx = await senderWallet.sendTransaction(txRequest);
+      console.log("value transfer memo tx", sentTx);
+      // account update
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeValueTransferMemo.js
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0n,
+      type: 8,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2376,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    value transfer memo tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js TxTypeValueTransferMemo.js focus=1
+  ```
+
+  ---
+
+  Chỉ định cấu hình chuỗi **kairos** để kết nối với mạng thử nghiệm Kaia Kairos.
+
+  ```js TxTypeValueTransferMemo.js focus=2
+  ```
+
+  ---
+
+  Thiết lập ứng dụng ví bằng **createWalletClient**, được cấu hình bằng **chuỗi Kairos**, **phương thức truyền tải HTTP** và **khóa riêng của người gửi** được chuyển đổi thành tài khoản.
+
+  ```js TxTypeValueTransferMemo.js focus=3:9
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để chuyển giá trị bằng cách sử dụng **prepareTransactionRequest**, chỉ định tài khoản người gửi, địa chỉ người nhận, giá trị cần chuyển (0 KLAY trong ví dụ này) và loại giao dịch **(TxType.ValueTransfer)**.
+
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js focus=12:19
+    ```
+
+    ---
+
+    ```zsh output
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0n,
+      type: 8,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2376,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  Ký và gửi giao dịch đến blockchain Kaia bằng phương thức **sendTransaction** của ứng dụng ví và ghi lại mã băm giao dịch.
+
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js focus=20:21
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeValueTransferMemo.js
+    value transfer memo tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+    ```
+  </CH.Code>
+</CH.Spotlight>
