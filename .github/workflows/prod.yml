@@ -2,7 +2,7 @@ name: klaytn-docs-docusaurus prod deploy workflow
 on:
   push:
     branches:
-      - main
+      - testing-github
 
 jobs:
   deploy:
@@ -17,12 +17,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Ensures full Git history is fetched for correct timestamp calculation
-      - name: Get AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN_PROD }}
-          role-session-name: SessionForKlaytnActions
-          aws-region: ${{ secrets.AWS_REGION_PROD }}
+      # - name: Get AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN_PROD }}
+      #     role-session-name: SessionForKlaytnActions
+      #     aws-region: ${{ secrets.AWS_REGION_PROD }}
 
       - name: Installing Node.js
         uses: actions/setup-node@v4
@@ -47,21 +47,21 @@ jobs:
       - name: Build static files
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          AGENT_ID: ${{ secrets.AGENT_ID }}
-          UMAMI_SRC: ${{ secrets.UMAMI_SRC }}
-          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          FEEDBACK_PROJECT_ID: ${{ secrets.FEEDBACK_PROJECT_ID }}
-          RATING_CONTENT_SET_ID: ${{ secrets.RATING_CONTENT_SET_ID }}          
+          # API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          # AGENT_ID: ${{ secrets.AGENT_ID }}
+          # UMAMI_SRC: ${{ secrets.UMAMI_SRC }}
+          # UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          # ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          # ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          # FEEDBACK_PROJECT_ID: ${{ secrets.FEEDBACK_PROJECT_ID }}
+          # RATING_CONTENT_SET_ID: ${{ secrets.RATING_CONTENT_SET_ID }}          
         run: npm run build
 
-      - name: Sync to S3 bucket and validation cloudfront
-        env:
-          S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
-          CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
-        run: |
-          aws s3 sync ./build/ $S3_BUCKET_PROD --delete
-          aws s3 cp llms.txt $S3_BUCKET_PROD
-          aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
+      # - name: Sync to S3 bucket and validation cloudfront
+      #   env:
+      #     S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
+      #     CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
+      #   run: |
+      #     aws s3 sync ./build/ $S3_BUCKET_PROD --delete
+      #     aws s3 cp llms.txt $S3_BUCKET_PROD
+      #     aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
