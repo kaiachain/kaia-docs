@@ -18,11 +18,12 @@ jobs:
         with:
           fetch-depth: 0  # Ensures full Git history is fetched for correct timestamp calculation
       - name: Get AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN_PROD }}
           role-session-name: SessionForKlaytnActions
           aws-region: ${{ secrets.AWS_REGION_PROD }}
+          role-duration-seconds: 40000
 
       - name: Installing Node.js
         uses: actions/setup-node@v4
