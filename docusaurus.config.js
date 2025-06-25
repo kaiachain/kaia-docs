@@ -116,10 +116,11 @@ const config = {
   ],
 
   scripts: [
-    {
+    ...(process.env.UMAMI_SRC ? [{
       src: process.env.UMAMI_SRC,
-      async: true, 'data-website-id': process.env.UMAMI_WEBSITE_ID,
-    },
+      async: true,
+      'data-website-id': process.env.UMAMI_WEBSITE_ID,
+    }] : []),
     {
       src: '/js/formbricks-loader.js',
       async: true,
@@ -246,12 +247,14 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        contextualSearch: true,
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: 'klaytn',
-      },
+      algolia: process.env.ALGOLIA_APP_ID
+        ? {
+            contextualSearch: true,
+            appId: process.env.ALGOLIA_APP_ID,
+            apiKey: process.env.ALGOLIA_API_KEY,
+            indexName: 'klaytn',
+          }
+        : undefined,
 /**     announcementBar: {
         id: 'endpoint_termination',
         content: '<div style="font-size: 15px; font-weight: bold;">📢  <a target="_blank" href="https://www.blockjoy.com/">BlockJoy</a> archive node (<span style="font-size: 14px; font-family: monospace;">http://freely-inspired-ram.n0des.xyz</span>) shuts down by April 30, 2025. If you rely on it, update <a target="_blank" href="https://docs.kaia.io/references/public-en/">configurations</a> now to keep full history access. 🙏🏻</div>',
@@ -551,10 +554,10 @@ const config = {
     }),
 
   customFields: {
-    apiBaseUrl: process.env.API_BASE_URL,
-    agentId: process.env.AGENT_ID,
-    projectId: process.env.FEEDBACK_PROJECT_ID,
-    contentSetId: process.env.RATING_CONTENT_SET_ID,
+    apiBaseUrl: process.env.API_BASE_URL || null,
+    agentId: process.env.AGENT_ID || null,
+    projectId: process.env.FEEDBACK_PROJECT_ID || null,
+    contentSetId: process.env.RATING_CONTENT_SET_ID || null,
   },
 }
 
