@@ -190,6 +190,7 @@ const sidebars = {
       link: { type: 'doc', id: 'build/tutorials/tutorials' },
       items: [
         'build/tutorials/fee-delegation-example',
+        'build/tutorials/fee-delegation-wallet-integration',
         'build/tutorials/scaffold-eth',
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-metamask',
