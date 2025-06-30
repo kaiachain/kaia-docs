@@ -1,5 +1,11 @@
 # Kaiascope
 
+:::info[Service 不再提供]
+
+Kaiascope 即将停产，不再提供使用。 请使用 [KaiaScan](https://kaiascan.io/) 作为 Kaia 网络的主要区块浏览器。 要获得最新的功能和数据，我们强烈建议您转用 Kaiascan。
+
+:::
+
 Kaiascope 是 Kaia 网络的区块资源管理器。 Kaiascope 通过监控网络健康状况和提供 Kaia 网络的各种统计数据，让您深入了解 Kaia 网络。 您还可以查看 Kaia 网络上的区块和交易数据以及智能合约列表。
 
 - 有关 Kairos 网络，请访问 [https://kairos.kaiascope.com](https://kairos.kaiascope.com)
