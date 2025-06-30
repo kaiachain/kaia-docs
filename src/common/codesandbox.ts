@@ -40,6 +40,31 @@ export enum RoutePath {
   EthersExt_SignTx_MultiSig = '/ethers-ext-v6/tx/multisig',
   EthersExt_SignTx_Public = '/ethers-ext-v6/tx/public',
   EthersExt_SignTx_Role = '/ethers-ext-v6/tx/role',
+
+  // Viem Ext
+
+  // 1. basic transaction
+  ViemExt_Account_Update = "/viem-ext/basic-transaction/AccountUpdate",
+  ViemExt_Cancel_Type = "/viem-ext/basic-transaction/CancelType",
+  ViemExt_Legacy_Transaction = "/viem-ext/basic-transaction/LegacyTransaction",
+  ViemExt_SmartContract_Deploy = "/viem-ext/basic-transaction/SmartContractDeploy",
+  ViemExt_SmartContract_Execution = "/viem-ext/basic-transaction/SmartContractExecution",
+  ViemExt_Value_Transfer = "/viem-ext/basic-transaction/ValueTransfer",
+  ViemExt_Value_Transfer_Memo = "/viem-ext/basic-transaction/ValueTransferMemo",
+
+  // 2.Fee Delegated Transaction
+  ViemExt_Fee_Account_Update = "/viem-ext/fee-delegated-transaction/FeeDelegatedAccountUpdate",
+  ViemExt_Fee_Cancel_Type = "/viem-ext/fee-delegated-transaction/FeeDelegatedCancelType",
+  ViemExt_Fee_SmartContract_Deploy = "/viem-ext/fee-delegated-transaction/FeeDelegatedSmartContractDeploy",
+  ViemExt_Fee_SmartContract_Execution = "/viem-ext/fee-delegated-transaction/FeeDelegatedSmartContractExecution",
+  ViemExt_Fee_Value_Transfer = "/viem-ext/fee-delegated-transaction/FeeDelegatedValueTransfer",
+  ViemExt_Fee_Value_Transfer_Memo = "/viem-ext/fee-delegated-transaction/FeeDelegatedValueTransferMemo",
+
+  // 3.SmartContract
+  ViemExt_SmartContract_View = "/viem-ext/smart-contract/smartContractView",
+  ViemExt_SmartContract_Write = "/viem-ext/smart-contract/smartContractWrite",
+  ViemExt_SmartContract_WriteTxType = "/viem-ext/smart-contract/writeTxType",
+  ViemExt_SmartContract_WriteWithFeeDelegation = "/viem-ext/smart-contract/writeWithFeeDelegation",
 }
 
 export const getPath = ({
@@ -49,7 +74,7 @@ export const getPath = ({
   module: `/${string}`
   route: RoutePath
 }): string => {
-  return `https://codesandbox.io/embed/ldf48w?module=${encodeURIComponent(
+  return `https://codesandbox.io/embed/j28kts?module=${encodeURIComponent(
     module
   )}&initialpath=${encodeURIComponent(route)}`
 }

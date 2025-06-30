@@ -1,5 +1,13 @@
 # Smart Contract Execution
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor
+  module='/src/pages/viem-ext/basic-transaction/SmartContractExecutions.tsx'
+  route={RoutePath.ViemExt_SmartContract_Execution}
+/>
+
 **TxTypeSmartContractExecution** executes a smart contract with the given data. **TxTypeSmartContractExecution** is accepted only if "to" is a smart contract account.
 
 This type of transaction can create an account, transfer tokens, deploy a smart contract, execute a smart contract, or perform a mix of aforementioned.
