@@ -1,5 +1,11 @@
 # Kaiascope
 
+:::info[Service Không còn khả dụng]
+
+Kaiascope đã ngừng sản xuất và sẽ không còn được sử dụng nữa. Vui lòng sử dụng [KaiaScan](https://kaiascan.io/) làm trình khám phá khối chính cho mạng Kaia. Để có các tính năng và dữ liệu mới nhất, chúng tôi đặc biệt khuyên bạn nên chuyển sang Kaiascan.
+
+:::
+
 Kaiascope is the block explorer for the Kaia Network. Kaiascope gives you an insight about the Kaia network by monitoring the network health and providing various statistics of Kaia network. You can also explore the block and transaction data and the list of smart contracts on the Kaia network.
 
 - For the Kairos network, visit [https://kairos.kaiascope.com](https://kairos.kaiascope.com)
@@ -201,7 +207,7 @@ The unique characteristics that distinguish each keyword are as follows:
 
 - 66 characters long
 - Starts with a prefix `0x`
-- Hexadecimal number only \[0~9, a~f\]
+- Chỉ số thập lục phân \[0~9, a~f\]
 
 #### Address <a id="address"></a>
 
