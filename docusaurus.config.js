@@ -255,13 +255,13 @@ const config = {
             indexName: 'klaytn',
           }
         : undefined,
-/**     announcementBar: {
-        id: 'endpoint_termination',
-        content: '<div style="font-size: 15px; font-weight: bold;">📢  <a target="_blank" href="https://www.blockjoy.com/">BlockJoy</a> archive node (<span style="font-size: 14px; font-family: monospace;">http://freely-inspired-ram.n0des.xyz</span>) shuts down by April 30, 2025. If you rely on it, update <a target="_blank" href="https://docs.kaia.io/references/public-en/">configurations</a> now to keep full history access. 🙏🏻</div>',
+     announcementBar: {
+        id: 'kaiascope_termination',
+        content: '<div style="font-size: 15px; font-weight: bold;">📢 Urgent: Kaiascope will be discontinued on July 2, 2025. Please switch to <a target="_blank" href="https://kaiascan.io/">KaiaScan</a> immediately as the main block explorer for the Kaia blockchain. 🙏🏻</div>',
         backgroundColor: '#abd908',
         textColor: '#191919',
         isCloseable: true,
-      },*/
+      },
       navbar: {
         title: 'Kaia Docs',
         logo: {
