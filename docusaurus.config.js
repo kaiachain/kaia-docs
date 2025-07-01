@@ -107,8 +107,8 @@ const config = {
         },
         theme: {
           customCss: [
-            require.resolve('./src/css/custom.css'),
             require.resolve("@code-hike/mdx/styles.css"),
+            require.resolve('./src/css/custom.css'),
           ]
         },
       }),
