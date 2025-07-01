@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 jobs:
   deploy:
@@ -10,6 +11,8 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    environment:
+      name: ${{ github.ref_name }}
     runs-on: kaia-xlarge-runner
 
     steps:
