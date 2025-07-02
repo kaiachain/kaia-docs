@@ -452,7 +452,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 검색창에 주소를 붙여넣으면 Klaytnscope에서 이 트랜잭션을 확인할 수 있습니다.
+카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 카이아스캔](https://www.kaiascan.io/)에서 검색 필드에 주소를 붙여넣어 이 거래를 확인할 수 있습니다.
 
 ### 4.2 BMC 스마트 컨트랙트와 상호작용하기 <a id="interacting-with-bmc-contract"></a>
 
