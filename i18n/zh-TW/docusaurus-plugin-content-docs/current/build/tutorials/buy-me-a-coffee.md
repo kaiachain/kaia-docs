@@ -453,7 +453,7 @@ npx hardhat run scripts/deploy.js --network kairos
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-恭喜您在 Kaia Kairos 網絡上部署了 BMC 智能合約！ 您可以在搜索欄中輸入您的地址，在 Kaiascope 上驗證此交易。
+恭喜您在 Kaia Kairos 網絡上部署了 BMC 智能合約！ 您可以在 [KaiaScan](https://www.kaiascan.io/) 的搜尋欄位貼上您的地址，以驗證這項交易。
 
 ### 4.2 與 BMC 智能合約互動 <a id="interacting-with-bmc-contract"></a>
 
