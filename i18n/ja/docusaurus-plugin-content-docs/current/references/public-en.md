@@ -330,7 +330,7 @@ Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバ�
 
 - 蛇口：[KAIA[Faucet](https://faucet.kaia.io)からKairosテストネットワーク用のテストKAIAを入手できます。
 
-- エクスプローラー[Kaiascope](../build/tools/block-explorers/kaiascope.md)はカイアネットワークのブロックエクスプローラーです。
+- エクスプローラ[KaiaScan](../build/tools/block-explorers/kaiascan.md)はカイアネットワークのブロックエクスプローラーです。
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 
