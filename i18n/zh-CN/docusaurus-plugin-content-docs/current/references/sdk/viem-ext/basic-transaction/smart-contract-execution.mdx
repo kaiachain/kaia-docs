@@ -1,5 +1,10 @@
 # 智能合约执行
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/SmartContractExecutions.tsx" route={RoutePath.ViemExt_SmartContract_Execution} />
+
 **TxTypeSmartContractExecution** 使用给定数据执行智能合约。 只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
 
 这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或执行上述交易的组合。
