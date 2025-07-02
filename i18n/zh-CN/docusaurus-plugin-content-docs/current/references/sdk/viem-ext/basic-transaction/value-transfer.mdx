@@ -1,5 +1,10 @@
 # 价值转移
 
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/ValueTransfer.tsx" route={RoutePath.ViemExt_Value_Transfer} />
+
 **TxTypeValueTransfer** 在用户希望发送 KAIA 时使用。
 
 * 由于 kaia 提供了多种交易类型，使每种交易类型只服务于一个目的，因此 TxTypeValueTransfer 只限于将 KAIA 发送到外部拥有的账户（EOA）。
