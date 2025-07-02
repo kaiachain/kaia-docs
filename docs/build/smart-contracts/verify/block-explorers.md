@@ -8,7 +8,7 @@ sidebar_label: Using Block Explorers
 
 Usually, the deployer of a smart contract is the only party with access to the code that was actually deployed, and the public cannot read the source code of a contract until the deployer has verified it. However, this is where contract verification comes in as an important step in the smart-contract development cycle, as it helps improve the transparency (for users), convenience (for developers), and security of deployed contracts.
 
-Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiascan also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
+Having said that, once a smart contract is validated, block explorers like Kaiascan and OKX Kaia Explorer also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. This is in addition to the public having direct access to the verified contract source code.
  
 In this guide, we'll take a look at how to use block explorers to verify deployed smart contracts on the Kaia Network.
 
@@ -21,8 +21,8 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 
 In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorers that exist in the Kaia ecosystem, viz.:
 
-* [Kaiascope](https://kaiascope.com/) 
 * [Kaiascan](https://www.kaiascan.io/)
+* [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)
 
 Without further ado, let's get started!
 

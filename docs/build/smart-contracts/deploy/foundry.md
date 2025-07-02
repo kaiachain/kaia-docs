@@ -334,7 +334,7 @@ To verify you have forked the network, you can query the latest block number:
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
+You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [KaiaScan](https://kaiascan.io/block/118704896?tabId=txList).
 
 ### Illustration
 In this section, you will learn how to transfer USDT tokens from someone who holds USDT to an account created by Anvil (0x70997970C51812dc3A010C7d01b50e0d17dc79C8 - Bob)

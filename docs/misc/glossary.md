@@ -14,7 +14,7 @@ This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring con
 ### block explorer
 A web-based tool that allows users to view and search data on a blockchain. Block explorers typically display information such as block height, block hash, transaction hash, transaction sender and receiver, transaction amount, and transaction status. 
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
+The block explorers available in Kaia are [Kaiascan](https://www.kaiascan.io/) and [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia).
 
 ### core cell (CC)
 
