@@ -18,7 +18,7 @@
 
 一种基于网络的工具，允许用户查看和搜索区块链上的数据。 区块浏览器通常会显示区块高度、区块哈希值、交易哈希值、交易发送方和接收方、交易金额和交易状态等信息。
 
-Kaia 中可用的块探索器有 [Kaiascope](../build/tools/block-explorers/kaiascope.md) 和 [Kaiascan](https://www.kaiascan.io/)。
+Kaia 中可用的块探索器有 [Kaiascan](https://www.kaiascan.io/) 和 [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia) 。
 
 ### 核心细胞
 
