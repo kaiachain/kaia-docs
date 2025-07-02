@@ -280,7 +280,7 @@ return (
 ウォレットへの接続に成功したら、connectWallet() 関数で行ったように、ウォレット接続から返されたプロバイダオブジェクトをステート変数に格納することができます。 したがって、このプロバイダーと署名者オブジェクトを使って、ブロックチェーンにトランザクションを送信することができる。 したがって、このプロバイダーと署名者オブジェクトを使って、ブロックチェーンにトランザクションを送信することができる。
 
 ```js
- // add to the existing useState hook.
+ 
   const [txHash, setTxHash] = useState();
 
   const sendKaia = async () => {
@@ -288,21 +288,21 @@ return (
     if (!provider) {
       console.log("provider not initialized yet");
       return;
-    }
+    } // このガイドではethersのバージョン6.3.0を使用しています。
 	
-    // this guide uses ethers version 6.3.0.
+    //
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // for ethers version below 6.3.0.
+    // ethersのバージョンが6.3.0未満の場合。
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
 
-    // Submit transaction to the blockchain and wait for it to be mined
+    // トランザクションをブロックチェーンに送信し、マイニングされるのを待つ
     const tx = await signer.sendTransaction({
-          to: "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
+          to："0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
           value: ethers.parseEther("0.1"),
-          maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
-          maxFeePerGas: "6000000000000", // Max fee per gas
+          maxPriorityFeePerGas: "5000000000", // ガスあたりの最大優先手数料
+          maxFeePerGas: "6000000000000", // ガスあたりの最大手数料
         })
     
         
@@ -314,7 +314,7 @@ return (
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascan.io/tx/${txHash}`} target="_blank">KaiaScan</a>: ' '。} </div> </div> <div className="App">
     </div>
 );
 
