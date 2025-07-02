@@ -18,7 +18,7 @@
 
 一種基於網絡的工具，允許用戶查看和搜索區塊鏈上的數據。 區塊瀏覽器通常會顯示區塊高度、區塊哈希值、交易哈希值、交易發送方和接收方、交易金額和交易狀態等信息。
 
-Kaia 中可用的塊探索器有 [Kaiascope](../build/tools/block-explorers/kaiascope.md) 和 [Kaiascan](https://www.kaiascan.io/)。
+Kaia 中可用的區塊探索器有 [Kaiascan](https://www.kaiascan.io/) 和 [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)。
 
 ### 核心細胞
 
