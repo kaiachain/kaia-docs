@@ -75,7 +75,7 @@ const kaiaMainnet = defineChain({
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+    default: { name: "Explorer", url: "https://kaiascan.io/" },
   },
   testnet: false,
 });
@@ -94,7 +94,7 @@ const kaiaTestnet = defineChain({
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+    default: { name: "Explorer", url: "https://kairos.kaiascan.io/" },
   },
   testnet: true,
 });

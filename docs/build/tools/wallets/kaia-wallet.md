@@ -13,7 +13,7 @@ For developers, please visit [https://docs.kaiawallet.io](https://docs.kaiawalle
 
 Kaia Wallet is a web browser extension available in Chrome. Kaia Wallet is optimized for the desktop environment.
 
-Kaia Wallet offers manageability of user accounts and keys. All transactions are transparently recorded on the Kaia blockchain, so anybody can access the transaction history by using [Kaiascope].
+Kaia Wallet offers manageability of user accounts and keys. All transactions are transparently recorded on the Kaia blockchain, so anybody can access the transaction history by using [KaiaScan](../block-explorers/kaiascan.md).
 
 Kaia Wallet is a Hierarchical Deterministic (HD) wallet, meaning that it generates a hierarchical tree-like structure of private/public keys indefinitely from a single seed phrase. The seed phrase consists of mnemonic code words, which makes it easier to remember than phrases made of random alphanumerics. Users' private keys are encrypted and stored in their browsers.
 
@@ -29,6 +29,3 @@ Kaia Wallet supports Kaia's Kairos testnet as well as the Mainnet. Moreover, Kai
 
 Kaia Wallet simply bridges the gap between you and dApps, empowering you to sign transactions/data flowing to you from dApps with Kaia Wallet account.
 Kaia Wallet is also an aidful utility for developers to handle [fee-delegated transactions](../../transactions/transactions.md#fee-delegation). Using Kaia Wallet, both transaction senders and fee payers can swiftly sign the fee-delegated transactions.
-
-
-[Kaiascope]: ../block-explorers/kaiascope.md

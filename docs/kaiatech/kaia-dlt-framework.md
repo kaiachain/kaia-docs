@@ -84,7 +84,7 @@ The consensus process consists of the following three stages:
 
 - All transactions provide an immutable and verifiable history of all state changes by recording the process from submission to execution in a block and transparently disclosing the entire past block history.
 
-- Kaia chain provides KaiaScope and Kaiascan to view all the transactions happening on the blockchain.
+- Kaia chain provides Kaiascan and OKX Kaia Explorer to view all the transactions happening on the blockchain.
 
 - The data recorded in each block in the past can be viewed by anyone through the query function, thereby increasing transparency and confidence in the system.
 

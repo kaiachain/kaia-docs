@@ -303,13 +303,8 @@ const sidebars = {
             id: 'build/tools/block-explorers/block-explorers',
           },
           items: [
-            'build/tools/block-explorers/kaiascope',
+            'build/tools/block-explorers/kaiascan',
             'build/tools/block-explorers/okx-kaia-explorer',
-            {
-              type: 'link',
-              label: 'KaiaScan',
-              href: 'https://kaiascan.io/',
-            },
           ],
         },
         {
