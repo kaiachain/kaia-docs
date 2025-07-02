@@ -57,25 +57,25 @@ next_public_app_id='app_id'
 
 import React from "react";
 import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
-import { authWalletConnectors } from "@particle-network/connectkit/auth";
+import { authWalletConnectors } from "@particle-network/connectkit/auth"；
 import { defineChain } from "@particle-network/connectkit/chains";
 import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
 
 const kaiaMainnet = defineChain({
-  id: 8217,
+  id：8217,
   name: "Kaia",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kaiascan.io/"},
   },
   testnet: false,
 });
@@ -83,18 +83,18 @@ const kaiaMainnet = defineChain({
 const kaiaTestnet = defineChain({
   id: 1001,
   name: "Kaia Testnet",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en-kairos.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kairos.kaiascan.io/"},
   },
   testnet: true,
 });
@@ -104,20 +104,20 @@ const config = createConfig({
   clientKey: process.env.NEXT_PUBLIC_CLIENT_KEY!,
   appId: process.env.NEXT_PUBLIC_APP_ID!,
 
-  walletConnectors: [authWalletConnectors({})],
+  walletConnectors：[authWalletConnectors({})],
 
-  plugins: [
+  plugins：[
     wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
+      entryPosition：EntryPosition.BR, // 在登入時將模式按鈕定位在右下方
+      visible: true, // 決定是否顯示錢包模式
     }),
   ],
-  chains: [kaiaMainnet, kaiaTestnet],
+  chains：[kaiaMainnet, kaiaTestnet],
 });
 
 export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
   return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
-};
+}；
 ```
 
 該組件的幾乎所有屬性都可以配置，從支持的不同登錄類型到模態的視覺外觀；要探索這些不同的選項，請訪問 [Particle 文檔](https://developers.particle.network/api-reference/connect/desktop/web#configuration)。
