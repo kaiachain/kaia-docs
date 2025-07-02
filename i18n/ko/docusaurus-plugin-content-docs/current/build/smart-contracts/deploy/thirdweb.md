@@ -44,7 +44,7 @@
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Kaiascope](https://kaiascope.com/).
+트랜잭션이 성공적으로 실행되면, [KaiaScan](https://kaiascan.io/)의 검색창에 컨트랙트 주소를 붙여넣어 배포를 확인할 수 있습니다.
 
 ## Thirdweb CLI를 사용하여 NFT 수집 컨트랙트 생성 및 배포 <a id="creating-deploying-using-thirdweb-cli"></a>
 
