@@ -22,6 +22,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 In this guide, we will be going over verifying both single contracts and multi-part contracts on the block explorer that exists in the Kaia ecosystem, viz.:
 
 * [Kaiascan](https://www.kaiascan.io/)
+* [OKLink](https://www.oklink.com/kaia)
 
 Without further ado, let's get started!
 
@@ -174,7 +175,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 #### Verifying multiple-part contract
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will copy and paste the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png) 
 
@@ -182,6 +183,50 @@ After filling in the verification parameters, click on the **Verify and Publish*
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### OKLink
+
+To verify a single contract and multi-part contracts on OKLink, navigate to the [verify contract preliminary page](https://web3.okx.com/explorer/kaia/verify-contract-preliminary).
+
+:::note
+OKLink support is limited to Kaia Mainnet for now, so contract verification is only available for Mainnet deployments.
+:::
+
+#### Verifying single contract
+
+1. Fill in the **contract address** for the deployed contract (Counter.sol)
+2. Select the **compiler type**. For this  guide select **Solidity(SingleFile)**
+3. Select the **compiler version** used for the Counter.sol example: **v0.8.30+commit.73712a01** and then click **Next**
+4. Make sure to upload Counter.sol from Remix IDE in the **Contract source code** field
+5. Select True for **Optimization** if it was enabled during compilation, and fill in the number of runs under Optimization Runs to be 200.
+6. Select the **Open Source License Type** used for the Counter.sol example. For Counter.sol example, select the option, **MIT License (MIT)**. If there was none used, select **No License (None)**
+7. Select the **EVM version** for the contract. For Counter.sol example, select the option **default**.
+8. Click on the **Submit** button to begin verification.
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. Once verification is done, you will get Verification Successful message. 
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+Now you can paste the contract address in the explorer search bar to view the Contract Source Code,Contract ABI, and Contract deployment bytecode.
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+
+#### Verifying multiple-part contract
+
+Verifying a multi-part contract on OKLink follows the same step as verifying a single contract. However, it is important to note we will copy and paste the `airdropToken_flattened.sol` file in the **Contract source code** field because OKLink does not currently support file upload for verification.
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+After filling in the verification parameters, click on the Submit button to begin verification. Once verification is done, you will get a Verification Successful message. 
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+Now you can paste the contract address in the explorer search bar to view the Contract Source Code, Contract ABI and Contract deployment bytecode. 
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## Conclusion
 
-Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascan to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+Congratulations on following this guide! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascan and OKLink to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
