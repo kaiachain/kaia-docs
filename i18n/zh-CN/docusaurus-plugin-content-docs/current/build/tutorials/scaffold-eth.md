@@ -142,21 +142,21 @@ yarn deploy
 要验证已部署的合同，我们将使用硬帽验证插件。 只需在 Kairos Testnet 的 etherscan 配置对象下的 **hardhat.config.ts** 中添加以下配置即可。
 
 ```js
-  etherscan: {
-    apiKey: {
+  etherscan：{
+    apiKey：{
       kairos: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kairos",
-        chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        network："kairos",
+        chainId：1001,
+        urls：{
+          apiURL："https://kairos-api.kaiascan.io/hardhat-verify",
+          browserURL："https://kairos.kaiascan.io",
         },
       },
     ],
-  },
+}、
 ```
 
 接下来，在终端中复制并粘贴以下命令来验证智能合约：
@@ -174,13 +174,11 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
  "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
 
-如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。 稍等片刻，控制台就会显示验证结果，如果验证成功，还会提供指向 Kaiascope 上已验证合同的 URL。
+如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。 稍等片刻后，控制台将显示验证结果，如果验证成功，还将提供 KaiaScan 上已验证合同的 URL。
 
 ![Verify](/img/build/tutorials/scaffold-verify.png)
 
-![Verify on Kaiascope](/img/build/tutorials/scaffold-3.png)
-
-有关使用 Hardhat Verify 插件在 Kaia 上验证智能合约的更多信息，请参阅 H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/) 。
+有关在 Kaia 上使用 Hardhat Verify 插件验证智能合约的更多信息，请参阅 [Hardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)。
 
 ## Next.js 配置<a href="#nextjs-configuration" id="nextjs-configuration"></a>
 
