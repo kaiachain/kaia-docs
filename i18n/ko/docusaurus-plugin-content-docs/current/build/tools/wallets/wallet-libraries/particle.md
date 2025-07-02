@@ -65,7 +65,7 @@ const kaiaMainnet = defineChain({
   id: 8217,
   name: "Kaia",
   nativeCurrency: {
-    decimals: 18,
+    소수점: 18,
     name: "KAIA",
     symbol: "KAIA",
   },
@@ -75,7 +75,7 @@ const kaiaMainnet = defineChain({
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+    default: { name: "Explorer", url: "https://kaiascan.io/" },
   },
   testnet: false,
 });
@@ -84,7 +84,7 @@ const kaiaTestnet = defineChain({
   id: 1001,
   name: "Kaia Testnet",
   nativeCurrency: {
-    decimals: 18,
+    소수점: 18,
     name: "KAIA",
     symbol: "KAIA",
   },
@@ -94,7 +94,7 @@ const kaiaTestnet = defineChain({
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+    default: { name: "Explorer", url: "https://kairos.kaiascan.io/" },
   },
   testnet: true,
 });
@@ -106,13 +106,13 @@ const config = createConfig({
 
   walletConnectors: [authWalletConnectors({})],
 
-  plugins: [
+  플러그인: [
     wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
+      entryPosition: EntryPosition.BR, // 로그인 시 모달 버튼을 오른쪽 하단에 배치
+      visible: true, // 지갑 모달 표시 여부를 결정합니다
     }),
   ],
-  chains: [kaiaMainnet, kaiaTestnet],
+  체인: [kaiaMainnet, kaiaTestnet],
 });
 
 export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
