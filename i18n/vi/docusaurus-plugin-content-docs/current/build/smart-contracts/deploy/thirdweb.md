@@ -44,7 +44,7 @@ In this section, we will create and deploy a marketplace contract using thirdweb
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-Once the transaction has been successfully executed, you can verify your deployment by pasting the contract address in the search bar of [Kaiascope](https://kaiascope.com/).
+Sau khi giao dịch được thực hiện thành công, bạn có thể xác minh việc triển khai của mình bằng cách dán địa chỉ hợp đồng vào thanh tìm kiếm của [KaiaScan](https://kaiascan.io/).
 
 ## Creating and deploying an NFT collection contract using thirdweb CLI <a id="creating-deploying-using-thirdweb-cli"></a>
 
