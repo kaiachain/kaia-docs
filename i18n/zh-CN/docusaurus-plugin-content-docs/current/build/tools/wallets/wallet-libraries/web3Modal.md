@@ -341,25 +341,25 @@ const signMessage = async(e) => {
 您可以执行本地事务，如将 KAIA 从一个用户发送到另一个用户。
 
 ```js
-    // add to the existing useState hook.
+    //
     const [txHash, setTxHash] = useState();
     const sendKaia = async () => {
     if (!provider) return;
-      const destination = “paste recipient address”;
+      const destination = "paste recipient address";
 
-    // this guide uses ethers version 6.3.0.
+    // 本指南使用etherthers 6.3.0版本。
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // for ethers version below 6.3.0.
+    // 对于低于6.3.0的etherthers版本。
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
       
-    // Submit transaction to the blockchain and wait for it to be mined
+    // 向区块链提交交易并等待挖矿
     const tx = await signer.sendTransaction({
         to: destination,
         value: ethers.parseEther("0.1"),
-        maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
-        maxFeePerGas: "6000000000000", // Max fee per gas
+        maxPriorityFeePerGas: "5000000000", // 每个气体的最大优先级费用
+        maxFeePerGas: "6000000000000", // 每个气体的最大费用
     })
   
       
@@ -370,7 +370,7 @@ const signMessage = async(e) => {
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascan.io/tx/${txHash}`} target="_blank">KaiaScan</a> ：' '} </div> </div> <div className="App">
     </div>
 );
 ```
