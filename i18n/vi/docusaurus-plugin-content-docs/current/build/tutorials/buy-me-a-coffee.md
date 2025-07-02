@@ -453,7 +453,7 @@ Once the contract deploys successfully, your terminal should look like this:
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-Congratulations on deploying your BMC smart contract on Kaia Kairos Network! You can verify this transaction on Kaiascope  by pasting your address in the search field.
+Congratulations on deploying your BMC smart contract on Kaia Kairos Network! Bạn có thể xác minh giao dịch này trên [KaiaScan](https://www.kaiascan.io/) bằng cách dán địa chỉ của bạn vào trường tìm kiếm.
 
 ### 4.2 Interacting with BMC Smart Contract  <a id="interacting-with-bmc-contract"></a>
 
