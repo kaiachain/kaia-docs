@@ -8,7 +8,7 @@ sidebar_label: 블록 탐색기 사용하기
 
 일반적으로 스마트 컨트랙트 배포자는 실제로 배포된 코드에 접근할 수 있는 유일한 당사자이며, 일반인은 배포자가 검증하기 전까지는 컨트랙트의 소스 코드를 읽을 수 없습니다. 그러나 스마트 컨트랙트 개발 주기에서 중요한 단계인 컨트랙트 검증은 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 개선하는 데 도움이 되기 때문에 중요한 역할을 합니다.
 
-Having said that, once a smart contract is validated, block explorers like Kaiascope and Kaiascan also make it possible for the public to interact with the contract's public methods using the block explorer's user interface. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
+하지만 스마트 콘트랙트가 검증되면 카이아스캔과 OKX 카이아 익스플로러와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용해 콘트랙트의 공개 메소드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
 
 이 가이드에서는 블록 탐색기를 사용하여 Klaytn 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
 
@@ -19,9 +19,8 @@ Having said that, once a smart contract is validated, block explorers like Kaias
 
 ## 시작하기
 
-이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기, 즉 다음과 같은 블록에서 단일 컨트랙트와 다중 컨트랙트를 모두 검증하는 방법을 살펴볼 것입니다:
+이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기에서 단일 컨트랙트와 다중 파트 컨트랙트를 모두 검증하는 방법을 살펴보겠습니다:
 
-- [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
 
 더 이상 고민할 필요 없이 시작해 봅시다!
@@ -64,19 +63,19 @@ Remix IDE :
 
 - Remix IDE에서 **Solidity compiler 탭**으로 이동합니다.
 
-    - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
-    - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
-    - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
-    - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
+  - 컨트랙트를 컴파일하고 배포하는 데 사용된 **compiler version**을 확인합니다.
+  - 컨트랙트에 사용된 **Open Source License Type**을 확인합니다. 이는 Solidity 소스 파일의 시작 부분에 사용된 SPDX 라이선스 식별자를 의미합니다. Counter.sol`파일에서는`// SPDX-License-Identifier: MIT\\`를 사용했습니다.
+  - 컨트랙트 배포에 사용된 **EVM version**을 확인합니다.
+  - (선택 사항) 컴파일 중에 **optimization**이 활성화된 경우, 최적화 실행 파라미터의 값을 기록해 두세요.
 
-    ![](/img/build/tutorials/counter-veri-parameters.png)
+  ![](/img/build/tutorials/counter-veri-parameters.png)
 
 - Remix IDE에서 **Kaia 탭**으로 이동합니다.
 
-    - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
-    - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
+  - (선택 사항) 컨트랙트 생성자 메서드가 인수를 허용하는 경우, 생성자 인수의 [ABI 인코딩된 형식](https://docs.soliditylang.org/en/develop/abi-spec.html)을 기록해둡니다.
+  - 배포에 성공한 후 **Deployed Contracts** 탭에서 스마트 컨트랙트의 컨트랙트 주소를 기록해 두세요.
 
-    ![](/img/build/tutorials/counter-veri-parametersII.png)
+  ![](/img/build/tutorials/counter-veri-parametersII.png)
 
 ## 여러 부분으로 구성된 컨트랙트 배포하기
 
@@ -124,15 +123,15 @@ Remix IDE:
 
 - Remix IDE에서 **File explorer 탭**으로 이동합니다.
 
-    - **contracts** 폴더에서 새로 생성한 컨트랙트를 선택합니다.
-    - 두 손가락으로 클릭하거나 탭하여 컨트랙트에서 사용 가능한 모든 명령을 확인합니다.
-    - **flatten**을 선택합니다.
+  - **contracts** 폴더에서 새로 생성한 컨트랙트를 선택합니다.
+  - 두 손가락으로 클릭하거나 탭하여 컨트랙트에서 사용 가능한 모든 명령을 확인합니다.
+  - **flatten**을 선택합니다.
 
-    ![](/img/build/tutorials/airdropToken-flattened.png)
+  ![](/img/build/tutorials/airdropToken-flattened.png)
 
-    - Once the code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
+  - Once the code is flattened, you will see a new contract named `airdropTokens_flattened.sol`.
 
-    ![](/img/build/tutorials/airdropToken-flattened-file.png)
+  ![](/img/build/tutorials/airdropToken-flattened-file.png)
 
 :::note
 
@@ -144,64 +143,7 @@ Remix IDE:
 
 모든 검증 매개변수를 얻었으면, 이 섹션에서는 블록 탐색기에서 단일 스마트 컨트랙트(Counter.sol)와 여러 부분으로 구성된 스마트 컨트랙트(airdropTokens.sol)를 검증하는 단계를 살펴보겠습니다.
 
-### 1. Kaiascope
-
-Kaiascope에서 단일 컨트랙트와 다중 파트 컨트랙트를 확인하려면 아래 단계를 따르세요:
-
-#### 1.1 단일 컨트랙트 검증하기
-
-1. Goto the search bar of [Kaiascope](https://kairos.kaiascope.com) and paste the deployed contract address.
-2. 해당 페이지의 **contract 탭**으로 이동합니다.
-3. Click on the **Match Contract Source Code** link to submit the contract code for verification.
-
-![](/img/build/tutorials/counter-contract-tab.png)
-
-4. On the contract verification page, make sure your account is connected to either Kaia Wallet or Metamask. For this guide, we will be using Kaia Wallet.
-5. **contract address 필드**에 컨트랙트 주소를 입력합니다. 참고: 이 필드는 일반적으로 계약 주소로 자동으로 채워집니다.
-6. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
-7. `Counter.sol` 예제에 사용된 **Open Source License Type**을 선택합니다. Counter.sol\\` 예제의 경우, **MIT License (MIT)** 옵션을 선택합니다. 사용된 라이선스가 없는 경우 \*\*No License (None)\*\*을 선택합니다.
-8. In the **Source Code field**, select **Source Text** and paste the source code for `Counter.sol` in the text field.
-9. 컴파일 시 **Optimization**가 활성화된 경우 **True**를 선택하고, **Optimization Runs**의 실행 횟수를 **200**으로 입력합니다.
-10. 컨트랙트의 **EVM version**을 선택합니다. `Counter.sol` 예제의 경우, **Istanbul** 옵션을 선택합니다.
-11. 하단의 보안 문자를 클릭하고 **Sign and Submit** 버튼을 클릭하여 확인하고 확인을 시작합니다.
-
-![](/img/build/tutorials/counter-verification-page.png)
-
-12. 인증 요청에 서명하면 인증 상태 알림을 받게 됩니다.
-
-![](/img/build/tutorials/counter-success-popup.png)
-
-13. 인증이 완료되면 브라우저에 인증 결과가 표시되고 계약 주소가 포함된 성공 결과 페이지가 표시됩니다. 컨트랙트 주소를 클릭하면 **Contract Source Code**, **Contract ABI**, **Bytecode**를 볼 수 있습니다.
-
-![](/img/build/tutorials/counter-success-popup-I.png)
-
-![](/img/build/tutorials/counter-full-verification.png)
-
-#### 1.2 멀티파티 컨트랙트 검증하기
-
-Kaiascope에서 다중 컨트랙트를 검증하는 것은 몇 가지 추가 단계가 필요하다는 점을 제외하면 단일 컨트랙트를 검증하는 것만큼 간단합니다. 이 섹션에서는 다음과 같은 추가 단계를 통해 `airdropToken.sol` 컨트랙트를 검증하겠습니다:
-
-- **Source Code**에서 **Source Text**를 선택하거나(Counter.sol 예시의 3단계) **Source Code** 필드에서 \*\*Solidity 파일(들)\*\*을 선택할 수 있습니다.  In the case of **Source Text**, copy the code in the `airdropToken_flattened.sol` and paste it in the text field. If **Solidity File(s)**, you can download the `airdropToken_flattened.sol` file on Remix IDE and upload it to the field.
-
-a. 소스 텍스트
-
-![](/img/build/tutorials/airdrop-veri-field-I.png)
-
-b. Solidity 파일
-
-![](/img/build/tutorials/airdrop-veri-field-II.png)
-
-그 이후에는 다른 모든 단계는 단일 컨트랙트를 검증하는 것과 동일하게 유지됩니다. Having filled in the verification parameter, click on the **Sign and Submit** button to confirm and begin verification.
-
-인증이 완료되면 브라우저에 인증 결과가 표시되고 계약 주소가 포함된 성공 결과 페이지가 표시됩니다. 컨트랙트 주소를 클릭하면 **Contract Source Code**, **Contract ABI**, **Bytecode**를 볼 수 있습니다.
-
-![](/img/build/tutorials/airdrop-success-popup.png)
-
-![](/img/build/tutorials/airdrop-success-popup-I.png)
-
-![](/img/build/tutorials/airdrop-full-verification.png)
-
-### 2. Kaiascan
+### Kaiascan
 
 To verify a single contract and multi-part contracts on Kaiascan, navigate to the [contract submission request page](https://kairos.kaiascan.io/contract).
 
@@ -213,7 +155,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 ![](/img/build/tutorials/kaiascan-con-sub-page.png)
 
-#### 2.1 Verifying single contract
+#### 단일 계약 확인
 
 1. 배포된 컨트랙트(Counter.sol)의 **contract address**를 입력합니다.
 2. `Counter.sol` 예제에 사용된 **compiler version**을 선택합니다.
@@ -233,7 +175,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 > ![](/img/build/tutorials/counter-k-full-verification.png)
 
-### 2.2 다중 컨트랙트 검증하기
+#### 여러 부분으로 구성된 계약 확인
 
 Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
 
@@ -245,4 +187,4 @@ After filling in the verification parameters, click on the **Verify and Publish*
 
 ## 결론
 
-이 가이드를 따라해 주셔서 감사합니다! In this tutorial, you learnt how to verify contracts (both single and multi-part) using Kaiascope and Kaiascan solely to enhance the transparency (for users), convenience (for developers), and security of deployed contracts. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 계약의 투명성(사용자를 위한), 편의성(개발자를 위한), 보안을 강화하기 위해 Kaiascan을 사용하여 계약(단일 및 다중 부분 모두)을 검증하는 방법을 배웠습니다. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
