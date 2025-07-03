@@ -22,6 +22,7 @@ sidebar_label: ブロック・エクスプローラーを使う
 このガイドでは、Kaiaエコシステムに存在するブロックエクスプローラーで、シングルコントラクトとマルチパートコントラクトの両方を検証する方法を説明する：
 
 - [カイアスカン](https://www.kaiascan.io/)
+- [OKLink](https://www.oklink.com/kaia)
 
 さっそく始めよう！
 
@@ -177,7 +178,7 @@ Kaiascanでの契約の検証は現在ベータ版です。
 
 #### 複数パート契約の検証
 
-Kaiascanで複数パートにまたがる契約を検証する場合は、単一の契約を検証する場合と同じ手順を踏みます。 ただし、Kaiascan は現在検証用ファイルのアップロードをサポートしていないため、`airdropToken_flattened.sol` ファイルをコピーして **Enter the Solidity Contract Code below** フィールドに貼り付けることに注意してください。 ただし、Kaiascan は現在検証用ファイルのアップロードをサポートしていないため、`airdropToken_flattened.sol` ファイルをコピーして **Enter the Solidity Contract Code below** フィールドに貼り付けることに注意してください。
+Kaiascanで複数パートにまたがる契約を検証する場合は、単一の契約を検証する場合と同じ手順を踏みます。 ただし、Kaiascan は現在検証用ファイルのアップロードをサポートしていないため、`airdropToken_flattened.sol` ファイルをコピーして **Enter the Solidity Contract Code below** フィールドに貼り付けることに注意してください。 ただし、現在 Kaiascan は検証用のファイル アップロードをサポートしていないため、`airdropToken_flattened.sol` ファイルをコピーして **Enter the Solidity Contract Code below** フィールドに貼り付けることに注意してください。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -185,6 +186,49 @@ Kaiascanで複数パートにまたがる契約を検証する場合は、単一
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### OKLink
+
+OKLinkで単一契約および複数パート契約を検証するには、[契約検証予備ページ](https://web3.okx.com/explorer/kaia/verify-contract-preliminary)に移動します。
+
+:::note
+OKLinkのサポートは今のところKaiaメインネットに限定されているため、契約確認はメインネットのデプロイでのみ利用可能です。
+:::
+
+#### 単一契約の検証
+
+1. 配置された契約（Counter.sol）の**契約アドレス**を記入してください。
+2. コンパイラの種類\*\*を選択してください。 このガイドでは、\*\*Solidity(SingleFile)\*\*を選択する。
+3. Counter.solの例で使用した**コンパイラのバージョン**を選択します：**v0.8.30+commit.73712a01**を選択し、**Next**をクリックします。
+4. 契約ソースコード\*\*欄にRemix IDEからCounter.solをアップロードしてください。
+5. コンパイル時に有効になっていれば、**Optimization**にTrueを選択し、Optimization Runsに実行回数を200と記入する。
+6. Counter.solの例で使用されている**オープン・ソース・ライセンス・タイプ**を選択してください。 Counter.solの例では、\*\*MITライセンス(MIT)\*\*を選択してください。 使用されたものがない場合は、\*\*ライセンスなし（None）\*\*を選択する。
+7. 契約の**EVMバージョン**を選択します。 Counter.solの例では、**default**オプションを選択します。
+8. Submit\*\*ボタンをクリックして認証を開始します。
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. 認証が完了すると、「認証に成功しました」というメッセージが表示されます。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+これで、エクスプローラーの検索バーにコントラクトのアドレスを貼り付けて、コントラクトのソースコード、コントラクトABI、コントラクトのデプロイメント・ バイトコードを表示できる。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+#### 複数パート契約の検証
+
+OKLinkでのマルチパート契約の検証は、単一契約の検証と同じステップを踏む。 ただし、現在OKLinkは検証用ファイルのアップロードをサポートしていないため、**契約ソースコード**欄に`airdropToken_flattened.sol`ファイルをコピー＆ペーストすることに注意してください。
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+検証パラメータを入力後、Submitボタンをクリックして検証を開始します。 認証が完了すると、「認証に成功しました」というメッセージが表示されます。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+これで、エクスプローラーの検索バーにコントラクトのアドレスを貼り付けて、コントラクトのソースコード、コントラクトABI、コントラクトのデプロイメント・ バイトコードを表示できる。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## 結論
 
-このガイドに従ったことを祝福する！ このチュートリアルでは、Kaiascanを使用してコントラクト（シングル・パートとマルチ・パートの両方）を検証し、（ユーザーにとっての）透明性、（開発者にとっての）利便性、およびデプロイされたコントラクトの安全性を高める方法を学びました。 より詳しい情報は[Kaia Docs](https://docs.kaia.io/)を、質問があれば[Kaia Forum](https://devforum.kaia.io/)をご覧ください。
+このガイドに従ったことを祝福する！ このチュートリアルでは、KaiascanとOKLinkを使用してコントラクト（シングル・パートとマルチ・パートの両方）を検証し、（ユーザーにとっての）透明性、（開発者にとっての）利便性、およびデプロイされたコントラクトの安全性を高める方法を学びました。 より詳しい情報は[Kaia Docs](https://docs.kaia.io/)を、質問があれば[Kaia Forum](https://devforum.kaia.io/)をご覧ください。
