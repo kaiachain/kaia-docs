@@ -22,6 +22,7 @@ sidebar_label: 블록 탐색기 사용하기
 이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기에서 단일 컨트랙트와 다중 파트 컨트랙트를 모두 검증하는 방법을 살펴보겠습니다:
 
 - [Kaiascan](https://www.kaiascan.io/)
+- [OKLink](https://www.oklink.com/kaia)
 
 더 이상 고민할 필요 없이 시작해 봅시다!
 
@@ -177,7 +178,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 #### 여러 부분으로 구성된 계약 확인
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. 단, 카이아스캔은 현재 검증을 위한 파일 업로드를 지원하지 않으므로 **아래 솔리디티 컨트랙트 코드 입력** 필드에 `airdropToken_flattened.sol` 파일을 복사하여 붙여넣어야 합니다.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -185,6 +186,49 @@ After filling in the verification parameters, click on the **Verify and Publish*
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### OKLink
+
+OKLink에서 단일 계약 및 여러 부분으로 구성된 계약을 확인하려면 [계약 예비 확인 페이지](https://web3.okx.com/explorer/kaia/verify-contract-preliminary)로 이동하세요.
+
+:::note
+OK링크 지원은 현재 카이아 메인넷으로 제한되어 있으므로, 계약 확인은 메인넷 배포에 대해서만 가능합니다.
+:::
+
+#### 단일 계약 확인
+
+1. 배포된 컨트랙트(Counter.sol)의 **컨트랙트 주소**를 입력합니다.
+2. 컴파일러 유형\*\*을 선택합니다. 이 가이드에서는 \*\*솔리디티(단일 파일)\*\*를 선택합니다.
+3. Counter.sol 예제에 사용된 **컴파일러 버전**을 선택합니다: **v0.8.30+commit.73712a01**을 선택한 후 **다음**을 클릭합니다.
+4. 계약 소스 코드\*\* 필드에 Remix IDE에서 Counter.sol을 업로드해야 합니다.
+5. 컴파일 중에 **최적화**가 활성화된 경우 True를 선택하고 최적화 실행 횟수 아래에 실행 횟수를 200으로 입력합니다.
+6. Counter.sol 예제에 사용된 **오픈 소스 라이선스 유형**을 선택합니다. Counter.sol 예제의 경우 **MIT 라이선스(MIT)** 옵션을 선택합니다. 사용한 라이선스가 없는 경우 \*\*라이선스 없음(없음)\*\*을 선택합니다.
+7. 계약의 **EVM 버전**을 선택합니다. Counter.sol 예제의 경우 **기본값** 옵션을 선택합니다.
+8. 제출\*\* 버튼을 클릭하여 인증을 시작합니다.
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. 인증이 완료되면 인증 성공 메시지가 표시됩니다.
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+이제 탐색기 검색창에 계약 주소를 붙여넣어 계약 소스 코드, 계약 ABI 및 계약 배포 바이트코드를 볼 수 있습니다.
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+#### 여러 부분으로 구성된 계약 확인
+
+OK링크에서 여러 부분으로 구성된 계약을 확인하는 것은 단일 계약을 확인하는 것과 동일한 단계를 따릅니다. 단, 현재 오케이링크는 검증을 위한 파일 업로드를 지원하지 않으므로 **계약 소스 코드** 필드에 `airdropToken_flattened.sol` 파일을 복사하여 붙여넣어야 합니다.
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+인증 매개변수를 입력한 후 제출 버튼을 클릭하여 인증을 시작합니다. 인증이 완료되면 인증 성공 메시지가 표시됩니다.
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+이제 탐색기 검색창에 컨트랙트 주소를 붙여넣어 컨트랙트 소스 코드, 컨트랙트 ABI 및 컨트랙트 배포 바이트코드를 볼 수 있습니다.
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## 결론
 
-이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 계약의 투명성(사용자를 위한), 편의성(개발자를 위한), 보안을 강화하기 위해 Kaiascan을 사용하여 계약(단일 및 다중 부분 모두)을 검증하는 방법을 배웠습니다. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 계약의 투명성(사용자를 위한), 편의성(개발자를 위한), 보안을 강화하기 위해 카이아스캔과 OKLink를 사용하여 계약(단일 및 다중 부분 모두)을 확인하는 방법을 배웠습니다. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
