@@ -22,6 +22,7 @@ In this guide, we'll take a look at how to use block explorers to verify deploye
 Trong hướng dẫn này, chúng tôi sẽ xem xét cách xác minh cả hợp đồng đơn lẻ và hợp đồng nhiều phần trên trình khám phá khối có trong hệ sinh thái Kaia, cụ thể là:
 
 - [Kaiascan](https://www.kaiascan.io/)
+- [Liên kết OK](https://www.oklink.com/kaia)
 
 Without further ado, let's get started!
 
@@ -177,7 +178,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 #### Xác minh hợp đồng nhiều phần
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. However, it is important to note we will be copying and pasting the `airdropToken_flattened.sol` file in the **Enter the Solidity Contract Code below** field because Kaiascan does not currently support file upload for verification.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. Tuy nhiên, điều quan trọng cần lưu ý là chúng tôi sẽ sao chép và dán tệp `airdropToken_flattened.sol` vào trường **Nhập Mã hợp đồng Solidity bên dưới** vì Kaiascan hiện không hỗ trợ tải tệp lên để xác minh.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -185,6 +186,49 @@ After filling in the verification parameters, click on the **Verify and Publish*
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### Liên kết OK
+
+Để xác minh hợp đồng đơn lẻ và hợp đồng nhiều phần trên OKLink, hãy điều hướng đến [trang sơ bộ xác minh hợp đồng](https://web3.okx.com/explorer/kaia/verify-contract-preliminary).
+
+:::note
+Hiện tại, hỗ trợ OKLink chỉ giới hạn ở Kaia Mainnet, do đó, xác minh hợp đồng chỉ khả dụng cho các triển khai Mainnet.
+:::
+
+#### Xác minh hợp đồng đơn lẻ
+
+1. Điền **địa chỉ hợp đồng** cho hợp đồng đã triển khai (Counter.sol)
+2. Chọn **loại trình biên dịch**. Đối với hướng dẫn này, hãy chọn **Solidity(SingleFile)**
+3. Chọn **phiên bản trình biên dịch** được sử dụng cho ví dụ Counter.sol: **v0.8.30+commit.73712a01** rồi nhấp vào **Tiếp theo**
+4. Đảm bảo tải Counter.sol từ Remix IDE lên trong trường **Mã nguồn hợp đồng**
+5. Chọn True cho **Tối ưu hóa** nếu tùy chọn này được bật trong quá trình biên dịch và điền số lần chạy trong mục Tối ưu hóa là 200.
+6. Chọn **Loại giấy phép nguồn mở** được sử dụng cho ví dụ Counter.sol. Đối với ví dụ về Counter.sol, hãy chọn tùy chọn **Giấy phép MIT (MIT)**. Nếu không có giấy phép nào được sử dụng, hãy chọn **Không có giấy phép (Không có)**
+7. Chọn **phiên bản EVM** cho hợp đồng. Đối với ví dụ về Counter.sol, hãy chọn tùy chọn **mặc định**.
+8. Nhấp vào nút **Gửi** để bắt đầu xác minh.
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. Sau khi xác minh xong, bạn sẽ nhận được thông báo Xác minh thành công.
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+Bây giờ bạn có thể dán địa chỉ hợp đồng vào thanh tìm kiếm của trình khám phá để xem Mã nguồn hợp đồng, ABI hợp đồng và mã byte triển khai hợp đồng.
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+#### Xác minh hợp đồng nhiều phần
+
+Việc xác minh hợp đồng nhiều phần trên OKLink được thực hiện theo các bước tương tự như xác minh hợp đồng đơn lẻ. Tuy nhiên, điều quan trọng cần lưu ý là chúng tôi sẽ sao chép và dán tệp `airdropToken_flattened.sol` vào trường **Mã nguồn hợp đồng** vì OKLink hiện không hỗ trợ tải tệp lên để xác minh.
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+Sau khi điền thông số xác minh, hãy nhấp vào nút Gửi để bắt đầu xác minh. Sau khi xác minh xong, bạn sẽ nhận được thông báo Xác minh thành công.
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+Bây giờ bạn có thể dán địa chỉ hợp đồng vào thanh tìm kiếm của trình khám phá để xem Mã nguồn hợp đồng, ABI hợp đồng và mã byte triển khai hợp đồng.
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## Conclusion
 
-Congratulations on following this guide! Trong hướng dẫn này, bạn sẽ học cách xác minh hợp đồng (cả hợp đồng đơn và hợp đồng nhiều phần) bằng Kaiascan để tăng cường tính minh bạch (cho người dùng), sự tiện lợi (cho nhà phát triển) và tính bảo mật của hợp đồng đã triển khai. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+Congratulations on following this guide! Trong hướng dẫn này, bạn sẽ học cách xác minh hợp đồng (cả hợp đồng đơn và hợp đồng nhiều phần) bằng Kaiascan và OKLink để tăng cường tính minh bạch (cho người dùng), sự tiện lợi (cho nhà phát triển) và tính bảo mật của hợp đồng đã triển khai. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
