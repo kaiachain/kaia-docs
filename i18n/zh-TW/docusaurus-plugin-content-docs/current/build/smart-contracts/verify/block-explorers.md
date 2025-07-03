@@ -22,6 +22,7 @@ sidebar_label: 使用積木探索器
 在本指南中，我們將在 Kaia 生態系統中存在的區塊探索者上驗證單一契約和多部分契約，即：
 
 - [Kaiascan](https://www.kaiascan.io/)
+- [OKLink](https://www.oklink.com/kaia)
 
 廢話不多說，讓我們開始吧！
 
@@ -177,7 +178,7 @@ Remix IDE:
 
 #### 驗證多部分合約
 
-在 Kaiascan 驗證多部分合同的步驟與驗證單個合同相同。 不過，需要注意的是，由於 Kaiascan 目前不支持上傳文件進行驗證，我們將在**下面輸入 Solidity 合同代碼**字段中複製並粘貼 "airdropToken_flattened.sol "文件。
+在 Kaiascan 驗證多部分合同的步驟與驗證單個合同相同。 但是，需要注意的是，我們將複製並貼上 `airdropToken_flattened.sol` 檔案到 \*\* 輸入下面的 Solidity Contract Code\*\* 欄位，因為 Kaiascan 目前不支援檔案上傳驗證。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -185,6 +186,49 @@ Remix IDE:
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### OKLink
+
+要在 OKLink 上驗證單一合約和多部分合約，請瀏覽 [驗證合約初步頁面](https://web3.okx.com/explorer/kaia/verify-contract-preliminary)。
+
+:::note
+OKLink 支援目前僅限於 Kaia Mainnet，因此合約驗證僅適用於 Mainnet 部署。
+:::
+
+#### 驗證單一合約
+
+1. 填入已部署合約 (Counter.sol) 的**合約地址**。
+2. 選擇 \*\* 編譯器類型\*\*。 本指南選擇 **Solidity(SingleFile)**。
+3. 選擇 Counter.sol 範例使用的 \*\* 編譯器版本\*\*：**v0.8.30+commit.73712a01**，然後按下**Next**。
+4. 請務必將 Remix IDE 中的 Counter.sol 上傳至 **合約原始碼**欄位
+5. 如果在編譯過程中啟用了 **最佳化**，請選擇 True，並在 Optimization Runs（最佳化執行）下填入 200 的執行次數。
+6. 選擇用於 Counter.sol 範例的 \*\* 開放原始碼授權類型\*\*。 以 Counter.sol 為例，請選擇 **MIT License (MIT)** 這個選項。 如果沒有使用，請選擇 **無授權證 (無)**。
+7. 選擇合約的 **EVM 版本**。 以 Counter.sol 為例，請選擇 **default** 選項。
+8. 按一下 **Submit** 按鈕開始驗證。
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. 驗證完成後，您會收到驗證成功的訊息。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+現在您可以在 explorer 搜尋列中貼上契約位址，以檢視契約原始碼、契約 ABI 和契約部署 bytecode。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+#### 驗證多部分合約
+
+在 OKLink 上驗證多部分合約的步驟與驗證單一合約的步驟相同。 但是，需要注意的是，我們將複製並粘貼`airdropToken_flattened.sol` 檔案到**合約原始碼**欄位，因為 OKLink 目前不支援檔案上傳驗證。
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+填寫驗證參數後，按一下「提交」按鈕以開始驗證。 驗證完成後，您會收到驗證成功的訊息。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+現在您可以在 explorer 搜尋列中貼上契約位址，以檢視契約原始碼、契約 ABI 和契約部署 bytecode。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## 結論
 
-恭喜您遵循本指南！ 在本教程中，您將學習如何使用 Kaiascan 驗證契約 (包括單部分和多部分)，以提高已部署契約的透明度 (對使用者而言)、便利性 (對開發人員而言) 和安全性。 如需瞭解更多信息，請訪問 [Kaia 文檔](https://docs.kaia.io/)；如有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
+恭喜您遵循本指南！ 在本教程中，您將學習如何使用 Kaiascan 和 OKLink 來驗證合約 (包括單部分和多部分)，以提高已部署合約的透明度 (對使用者而言)、便利性 (對開發人員而言) 和安全性。 如需瞭解更多信息，請訪問 [Kaia 文檔](https://docs.kaia.io/)；如有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
