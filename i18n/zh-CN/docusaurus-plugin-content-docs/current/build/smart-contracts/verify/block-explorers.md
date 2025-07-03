@@ -22,6 +22,7 @@ sidebar_label: 使用积木探索器
 在本指南中，我们将介绍如何在 Kaia 生态系统中的区块资源管理器上验证单个合约和多部分合约，即
 
 - [Kaiascan](https://www.kaiascan.io/)
+- [OKLink](https://www.oklink.com/kaia)
 
 废话不多说，让我们开始吧！
 
@@ -177,7 +178,7 @@ Remix IDE:
 
 #### 验证多部分合同
 
-在 Kaiascan 验证多部分合同的步骤与验证单个合同相同。 不过，需要注意的是，由于 Kaiascan 目前不支持上传文件进行验证，我们将在**下面输入 Solidity 合同代码**字段中复制并粘贴 "airdropToken_flattened.sol "文件。
+在 Kaiascan 验证多部分合同的步骤与验证单个合同相同。 不过，需要注意的是，我们将把 "airdropToken_flattened.sol "文件复制并粘贴到\*\*下面的 "输入 Solidity 合同代码 "\*\*字段，因为 Kaiascan 目前不支持上传文件进行验证。
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -185,6 +186,49 @@ Remix IDE:
 
 ![](/img/build/tutorials/airdrop-k-full-verification.png)
 
+### OKLink
+
+要在 OKLink 上验证单个合同和多部分合同，请导航到[验证合同初步页面](https://web3.okx.com/explorer/kaia/verify-contract-preliminary)。
+
+:::note
+OKLink 支持目前仅限于 Kaia 主网，因此合同验证仅适用于主网部署。
+:::
+
+#### 验证单一合同
+
+1. 填写已部署合同的**合同地址** (Counter.sol)
+2. 选择**编译器类型**。 本指南选择 **整合（单一文件）**
+3. 选择 Counter.sol 示例使用的**编译器版本**：选择**编译器版本**：**v0.8.30+commit.73712a01**，然后点击**下一步**
+4. 确保在**合同源代码**字段上传 Remix IDE 中的 Counter.sol。
+5. 如果在编译过程中启用了**优化**，则为**优化**选择 "True"，并在 "优化运行 "下填写运行次数为 200。
+6. 选择用于 Counter.sol 示例的**开源许可类型**。 以 Counter.sol 为例，选择 **MIT License (MIT)** 选项。 如果没有使用，请选择 **无许可证（无）**
+7. 为合同选择 **EVM 版本**。 以 Counter.sol 为例，选择**默认**选项。
+8. 点击**提交**按钮开始验证。
+
+![](/img/build/smart-contracts/verify/oklink-sp-verification-params.png)
+
+9. 验证完成后，您将收到 "验证成功 "消息。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-verification-success.png)
+
+现在，你可以在资源管理器搜索栏中粘贴合约地址，查看合约源代码、合约 ABI 和合约部署字节码。
+
+![](/img/build/smart-contracts/verify/oklink-sp-contract-badge.png)
+
+#### 验证多部分合同
+
+在 OKLink 上验证多部分合同的步骤与验证单一合同的步骤相同。 但是，需要注意的是，我们将复制并粘贴 "airdropToken_flattened.sol "文件到**合同源代码**字段，因为 OKLink 目前不支持上传文件进行验证。
+
+![](/img/build/smart-contracts/verify/oklink-mp-verification-params.png)
+
+填写验证参数后，单击 "提交 "按钮开始验证。 验证完成后，您将收到验证成功的信息。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-verification-success.png)
+
+现在，你可以在资源管理器搜索栏中粘贴合约地址，查看合约源代码、合约 ABI 和合约部署字节码。
+
+![](/img/build/smart-contracts/verify/oklink-mp-contract-badge.png)
+
 ## 结论
 
-恭喜您遵循本指南！ 在本教程中，您将学习如何使用 Kaiascan 验证合同（单部分和多部分），以提高部署合同的透明度（对用户）、便利性（对开发人员）和安全性。 如需了解更多信息，请访问 [Kaia 文档](https://docs.kaia.io/)；如有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
+恭喜您遵循本指南！ 在本教程中，您将学会如何使用 Kaiascan 和 OKLink 来验证合同（单部分和多部分），以提高部署合同的透明度（对用户）、便利性（对开发人员）和安全性。 如需了解更多信息，请访问 [Kaia 文档](https://docs.kaia.io/)；如有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。
