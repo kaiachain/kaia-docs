@@ -44,7 +44,7 @@
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-トランザクションが正常に実行されると、[Kaiascope](https://kaiascope.com/)の検索バーに契約アドレスを貼り付けることで、デプロイメントを確認することができます。
+トランザクションが正常に実行されると、[KaiaScan](https://kaiascan.io/)の検索バーに契約アドレスを貼り付けることで、デプロイメントを確認することができます。
 
 ## thirdweb CLIを使用したNFTコレクション契約の作成とデプロイ<a id="creating-deploying-using-thirdweb-cli"></a>
 

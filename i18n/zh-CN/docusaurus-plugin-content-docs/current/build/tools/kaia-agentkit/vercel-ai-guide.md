@@ -154,10 +154,10 @@ export default function Chat() {
 此 React 组件使用 Vercel AI SDK 中的 useChat() 钩子创建了一个简单的聊天界面。 它的作用是
 
 - **管理聊天状态**：useChat() 钩子提供
- - 消息聊天记录（包括 ID、角色和内容）。
- - 输入：当前的用户输入。
- - handleInputChange：在用户输入时更新输入字段。
- - handleSubmit：当表单提交时发送信息。
+  - 消息聊天记录（包括 ID、角色和内容）。
+  - 输入：当前的用户输入。
+  - handleInputChange：在用户输入时更新输入字段。
+  - handleSubmit：当表单提交时发送信息。
 - **显示信息**：该组件映射信息，显示文本是来自用户还是人工智能。
 - **处理用户输入**：它包括一个输入框，用户可以在此输入信息，按下回车键后，信息就会发送出去。
 
@@ -245,19 +245,19 @@ export async function POST(req: Request) {
 这个更新的 `route.ts` 文件使用 Kaia Agent Kit、Viem 和 Vercel AI SDK 将区块链功能集成到我们的人工智能代理中。 以下是详细情况：
 
 - **设置区块链工具和钱包**
- - 导入 Viem、Kaia Agent Kit 和其他工具，以便将链上工具与 Vercel AI SDK 连接起来。
- - 使用 privateKeyToAccount 通过环境变量（WALLET_PRIVATE_KEY）创建钱包账户。
- - 初始化 Viem 的钱包客户端，以便使用 RPC 提供者与 Kaia 区块链交互。
+  - 导入 Viem、Kaia Agent Kit 和其他工具，以便将链上工具与 Vercel AI SDK 连接起来。
+  - 使用 privateKeyToAccount 通过环境变量（WALLET_PRIVATE_KEY）创建钱包账户。
+  - 初始化 Viem 的钱包客户端，以便使用 RPC 提供者与 Kaia 区块链交互。
 - **加载链上工具**
- - 使用 getOnChainTools 加载 Kaia 代理工具包的链上工具。 请注意，您可以通过配置软件包数组并传递以下任一值来限制人工智能代理对特定工具的访问：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。 留空时，默认启用所有软件包。
+  - 使用 getOnChainTools 加载 Kaia 代理工具包的链上工具。 请注意，您可以通过配置软件包数组并传递以下任一值来限制人工智能代理对特定工具的访问：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。 留空时，默认启用所有软件包。
 - **整合人工智能和区块链能力**
- - 流文本的调用条件是
-  - 谷歌双子星 1.5 Pro 作为 LLM 模型
-  - 实现区块链交易的 Onchain 工具（工具
-  - 对话历史（信息）
-  - 多步骤执行（maxSteps: 10），用于处理复杂的工作流程
+  - 流文本的调用条件是
+    - 谷歌双子星 1.5 Pro 作为 LLM 模型
+    - 实现区块链交易的 Onchain 工具（工具
+    - 对话历史（信息）
+    - 多步骤执行（maxSteps: 10），用于处理复杂的工作流程
 - **返回流式人工智能响应**
- 人工智能代理处理请求，并利用嵌入式链上功能流式传输响应。
+  人工智能代理处理请求，并利用嵌入式链上功能流式传输响应。
 
 ## 测试代理功能
 

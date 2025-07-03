@@ -4,6 +4,5 @@
 
 카이아가 지원하는 탐색기 목록은 아래와 같습니다:
 
-- [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
 - [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)

@@ -35,7 +35,7 @@ Assets/
 - 載入必要的 Web3 函式庫。
 - 啟用 Kaia Wallet 整合。
 - 妥善處理區塊鏈互動。
- :::
+  :::
 
 ## 步驟 3：設定 index.html
 
@@ -245,8 +245,8 @@ Assets/
 - 開啟建立設定。
 - 導覽到播放器設定。
 - 在「解析度與呈現」下：
- - 找到「WebGL 範本」。
- - 選擇「KaiaTemplate」。
+  - 找到「WebGL 範本」。
+  - 選擇「KaiaTemplate」。
 - 在「發佈設定」下，在「壓縮格式」欄位中選擇 **已停用**。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)

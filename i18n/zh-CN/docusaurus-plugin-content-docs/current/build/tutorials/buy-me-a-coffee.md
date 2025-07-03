@@ -176,7 +176,7 @@ b. 查看项目目录 当前目录应包括
 - **scripts/** - 此文件夹包含在区块链网络上部署合约的代码
 - **test/** - 该文件夹包含测试智能合约的所有单元测试
 - **hardhat.config.ts** - 该文件包含对 Hardhat 工作非常重要的配置，
- 智能合约的部署。
+  智能合约的部署。
 
 ## 2. 创建 "请我喝咖啡 "智能合约<a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -453,7 +453,7 @@ npx hardhat run scripts/deploy.js --network kairos
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-恭喜您在 Kaia Kairos 网络上部署了 BMC 智能合约！ 您可以在搜索栏中输入您的地址，在 Kaiascope 上验证此交易。
+恭喜您在 Kaia Kairos 网络上部署了 BMC 智能合约！ 您可以在 [KaiaScan](https://www.kaiascan.io/) 的搜索栏中粘贴您的地址来验证此交易。
 
 ### 4.2 与 BMC 智能合约互动 <a id="interacting-with-bmc-contract"></a>
 
@@ -831,24 +831,24 @@ Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和�
 
 1. 确保在前端代码中确认这些配置：
 
- a. 打开 package.json，添加以下脚本：
+  a. 打开 package.json，添加以下脚本：
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. 将下面的代码粘贴到根目录下的 next.config.js 文件中：
+  b. 将下面的代码粘贴到根目录下的 next.config.js 文件中：
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 如需了解更多信息，请访问本 [指南](https://blog.fleek.co/posts/fleek-nextJS)
 

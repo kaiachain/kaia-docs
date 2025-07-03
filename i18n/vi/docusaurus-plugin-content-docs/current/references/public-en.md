@@ -330,7 +330,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
 
-- Explorer: [Kaiascope](../build/tools/block-explorers/kaiascope.md) is the block explorer for the Kaia Network.
+- Trình khám phá: [KaiaScan](../build/tools/block-explorers/kaiascan.md) là trình khám phá khối cho Mạng Kaia.
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet: 8217 (0x2019)
 
