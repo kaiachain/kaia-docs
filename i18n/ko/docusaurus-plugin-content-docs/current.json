@@ -292,23 +292,23 @@
     "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
   },
   "sidebar.learnSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 카이아로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 카이아로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar buildSidebar"
   },
   "sidebar.nodeSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 카이아로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 카이아로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar refSidebar"
   },
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 카이아로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
   }
 }
