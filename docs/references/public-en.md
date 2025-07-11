@@ -46,7 +46,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |[QuickNode](https://quicknode.com/)|`https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://kaia.blockpi.network/v1/rpc/public`|kaia,klay,eth,net|Full|
 |[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|kaia,klay,eth,net|Full|
-|[Pokt Network](https://pokt.network/)|`https://kaia-mainnet.rpc.grove.city/v1/803ceedf`|kaia,klay,eth,net|Full|
+|[Pokt Network](https://pocket.network/)|`https://kaia-mainnet.rpc.grove.city/v1/803ceedf`|kaia,klay,eth,net|Full|
 |[GetBlock](https://getblock.io/)|`https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`|kaia,klay,eth,net|Full|
 |[dRPC](https://drpc.org/)|`https://klaytn.drpc.org`|kaia,klay,eth,net|Full|
 |[Nirvana Labs](https://nirvanalabs.io/)|`https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2`|kaia,klay,eth,net|Archive|
@@ -187,25 +187,23 @@ BlockPI provides free public endpoints to the Kaia community and advanced featur
 * [Subscription](https://dashboard.blockpi.io/wallet/overview)
 * [Website](https://blockpi.io/)
 
-### Pocket Network
+### Grove 🌿 - Built on Pocket Network
 
-Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+Grove is the team of builders and maintainers of Pocket Network. Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
 
-Pocket supports dozens of blockchains, with more being added all the time.
+Grove supports 50+ blockchains, with more being added all the time.
 
 #### Features
 
 * Decentralized RPC Protocol and Marketplace
-* 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
+* 150,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
 * Public Endpoints
-* Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
-* 30+ Blockchains Supported
+* Unlimited, Pay-As-You-Go-plan (if you need more than 150,000 requests per day)
+* 50+ Blockchains Supported
 * 25,000 + Nodes earning POKT for serving applications
-* Archival Node, Archival Node w/ Tracing, & Testnet Node Support
+* Archival Node, Archival Node w/ Tracing Support
 * No Single Point of Failure
 * Zero Downtime
-* Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
-* No monthly sunk costs, turn your infrastructure into an asset
 * Load-Balancing built into the Protocol
 * Infinitely scale the number of requests per day and nodes per hour as you go
 * The most private, censorship-resistant option
@@ -213,9 +211,10 @@ Pocket supports dozens of blockchains, with more being added all the time.
 
 #### References
 
-* [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-* [Website](https://docs.pokt.network/)
-* [Pocket Portal](https://bit.ly/ETHorg_POKTportal) dashboard and analytics
+* [Docs](https://docs.grove.city/kaia-api/intro)
+* [Grove Website](https://grove.city/)
+* [Pocket Network Website](https://pocket.network)
+* [Grove Portal](https://portal.grove.city) 
 
 ### ANKR
 
