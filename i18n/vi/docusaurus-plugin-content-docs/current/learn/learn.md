@@ -117,8 +117,8 @@ Kaia prioritizes transparency and auditability:
 
 - All transactions provide an immutable and verifiable history of state changes.
 - Two primary tools for blockchain exploration:
-  - [Kaiascope](https://kaiascope.com/): A comprehensive blockchain explorer.
-  - [Kaiascan](http://kaiascan.io/): A user-friendly interface for quick blockchain data lookups.
+  - [Kaiascan](http://kaiascan.io/): Trình khám phá khối chính thức của Kaia, cung cấp thông tin chi tiết về các khối, giao dịch, địa chỉ, mã thông báo và hợp đồng thông minh.
+  - [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia): Một trình khám phá khối thay thế cung cấp các chức năng tương tự.
 - The "Square" voting platform discloses all expenses and quarterly known transactions.
 
 ## Network Monitoring

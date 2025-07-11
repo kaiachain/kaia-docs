@@ -18,7 +18,7 @@ This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring con
 
 사용자가 블록체인의 데이터를 보고 검색할 수 있는 웹 기반 도구입니다. 블록 탐색기는 일반적으로 블록 높이, 블록 해시, 트랜잭션 해시, 트랜잭션 발신자 및 수신자, 트랜잭션 금액, 트랜잭션 상태와 같은 정보를 표시합니다.
 
-The block explorers available in Kaia are [Kaiascope](../build/tools/block-explorers/kaiascope.md) and [Kaiascan](https://www.kaiascan.io/).
+카이아에서 사용할 수 있는 블록 탐색기는 [카이아스캔](https://www.kaiascan.io/)과 [OKX 카이아 탐색기](https://www.okx.com/web3/explorer/kaia)입니다.
 
 ### 코어 셀(CC, Core Cell)
 

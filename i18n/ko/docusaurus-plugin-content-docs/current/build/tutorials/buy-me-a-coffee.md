@@ -452,7 +452,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 검색창에 주소를 붙여넣으면 Klaytnscope에서 이 트랜잭션을 확인할 수 있습니다.
+카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 카이아스캔](https://www.kaiascan.io/)에서 검색 필드에 주소를 붙여넣어 이 거래를 확인할 수 있습니다.
 
 ### 4.2 BMC 스마트 컨트랙트와 상호작용하기 <a id="interacting-with-bmc-contract"></a>
 
@@ -830,24 +830,24 @@ Fleek은 IPFS에서 최신 사이트와 앱을 구축할 수 있는 인프라입
 
 1. 프론트엔드 코드에서 이러한 구성을 확인합니다:
 
- a. package.json을 열고 다음 스크립트를 추가합니다:
+  a. package.json을 열고 다음 스크립트를 추가합니다:
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. 루트 디렉터리의 next.config.js 파일에 아래 코드를 붙여넣습니다:
+  b. 루트 디렉터리의 next.config.js 파일에 아래 코드를 붙여넣습니다:
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 자세한 내용은 이 [가이드](https://blog.fleek.co/posts/fleek-nextJS)를 참조하세요.
 

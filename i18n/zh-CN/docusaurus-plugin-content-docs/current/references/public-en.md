@@ -330,7 +330,7 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 - Faucet：您可以从 [KAIA Faucet](https://faucet.kaia.io)获取用于 Kairos 测试网络的测试 KAIA。
 
-- 资源管理器：[Kaiascope](../build/tools/block-explorers/kaiascope.md)是 Kaia 网络的区块资源管理器。
+- 资源管理器：[KaiaScan](../build/tools/block-explorers/kaiascan.md) 是 Kaia 网络的区块资源管理器。
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 

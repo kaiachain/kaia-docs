@@ -312,22 +312,22 @@ const { ethers } = require("hardhat");
 
 async function main() {
 
-  const deployerAddr = "Your Metamask wallet address";
+  const deployerAddr = "귀하의 메타마스크 지갑 주소";
   const deployer = await ethers.getSigner(deployerAddr);
 
-  console.log(`Deploying contracts with the account: ${deployer.address}`);
-  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+  console.log(`계정으로 컨트랙트 배포 중: ${deployer.address}`);
+  console.log(`계정 잔액: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
 
 
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
+console.log(`Congratulations! 방금 소울 바운드 토큰을 성공적으로 배포했습니다.`);
+console.log(`SBT 컨트랙트 주소는 ${sbtContract.target}입니다. https://kairos.kaiascan.io/account/${sbtContract.target}`);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+
+//
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
@@ -342,7 +342,7 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Kaiascope](https://kairos.kaiascope.com/) to check if the SBT token has been deployed successfully.
+**4단계**: 카이아스캔](https://kairos.kaiascan.io/)을 열어 SBT 토큰이 성공적으로 배포되었는지 확인합니다.
 
 **5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. You can confirm the block number on [kaiascope](https://kaiascope.com/).
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 카이아스캔](https://kaiascan.io/)에서 블록 번호를 확인할 수 있습니다.
 
 ### 블록에서 포크하기
 

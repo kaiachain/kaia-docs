@@ -29,7 +29,7 @@ Kaia Docsの翻訳はすべて、共同翻訳プラットフォームであるCr
 
 1. **[Crowdin上のKaia-Docsプロジェクト](https://crowdin.com/project/kaia-docs)に移動してください。**
 2. **Crowdinアカウントを作成する**（すでにお持ちの場合はログインしてください）。
-3. **プロジェクト・ページから貢献したい言語**を選択してください。 もしあなたの言語がリストにない場合は、GitHubでissueを発行することで`content-translation`ラベルを使って新しい言語をリクエストすることができます。
+3. **プロジェクト・ページから貢献したい言語**を選択してください。 もしあなたの言語がリストにない場合は、[GitHubでissueを発行する](https://github.com/kaiachain/kaia-docs/issues/new?assignees=&labels=content-translation&template=feature_request.md&title=%5BLang%20Request%5D%3A%20Add%20\[Your%20Language])ことで`content-translation`ラベルを使って新しい言語をリクエストすることができます。
 4. **選択した言語の翻訳者チーム**に参加してください。 プロジェクトマネージャーの承認が必要な場合があります。
 5. **翻訳またはレビューしたいファイル**を選んでください。
 6. **翻訳を開始する：** Crowdinオンラインエディタを使用してください。

@@ -307,7 +307,7 @@ sentTx TransactionResponse {
 
 ### 4.4 對 Kaiascan 的看法<a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
 
-您也可以在 Kaiascan 上找到上述交易。
+您也可以在 [Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview&page=1) 上找到上述交易。
 
 它顯示交易是 `TxTypeFeeDelegatedValueTransfer` 且 `Fee payer` 是 `0x88311cd55b656d2502b50f62e83f8279c1641e70` 或您輸入的 `feepayerAddress` ，而 `From` 是不同的地址，應該是上面範例中的 `senderAddress` 。
 

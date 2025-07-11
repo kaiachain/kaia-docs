@@ -25,9 +25,9 @@ KIP-149 introduces a standardized method for deploying and managing system contr
 
 - Registry Contract: Manages all system contracts, ensuring centralized tracking and governance control through a governance contract.
 - Proxy Pattern: Utilizes the UUPS proxy pattern to separate data storage from logic, allowing updates without affecting stored data and ensuring upgradability.
- System Contract Lifecycle: Defines stages (Registered, Active, Deprecated) for managing contracts efficiently.
+  System Contract Lifecycle: Defines stages (Registered, Active, Deprecated) for managing contracts efficiently.
 - Governance and Upgrades: Establishes a community-driven proposal and voting process for new contracts or upgrades, ensuring decentralized control and smooth implementation.
- KIP-149 aims to enhance Kaia’s governance and operational efficiency by providing a secure, scalable approach to managing system contracts, facilitating smoother upgrades, and promoting decentralized control.
+  KIP-149 aims to enhance Kaia’s governance and operational efficiency by providing a secure, scalable approach to managing system contracts, facilitating smoother upgrades, and promoting decentralized control.
 
 ## KIP-103: Treasury Fund Rebalancing <a id="KIP-103"></a>
 

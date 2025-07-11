@@ -9,7 +9,7 @@
 - 我們假定您已安裝了 ServiceChain，並按照[連接至 Kairos](en-scn-connection.md)中的說明將 ServiceChain 連接至 Kairos EN。
 - 克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 - 安裝 `Node.js` (v14) 和 `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
- - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
+    - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
 
 ## ERC-20 代幣轉讓（一步式）<a id="erc-20-token-transfer-onestep"></a>
 
@@ -62,7 +62,7 @@ True
 ### 步驟 2：部署合同<a id="step-2-deploy-contracts"></a>
 
 - 連接 SCN 併為合同部署準備節點環境。
- 克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+    克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 
 ![](/img/nodes/sc-vt-deploy.png)
 

@@ -176,7 +176,7 @@ b. Viewing your project directory. Your current directory should include:
 - **scripts/** – this folder contains code that deploys your contracts on the blockchain network
 - **test/** – this folder contains all unit tests that test your smart contract
 - **hardhat.config.ts** – this file contains configurations important for the work of Hardhat and
- the deployment of smart contracts.
+  the deployment of smart contracts.
 
 ## 2. Creating a Buy Me A Coffee Smart Contract <a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -453,7 +453,7 @@ Once the contract deploys successfully, your terminal should look like this:
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-Congratulations on deploying your BMC smart contract on Kaia Kairos Network! You can verify this transaction on Kaiascope  by pasting your address in the search field.
+Congratulations on deploying your BMC smart contract on Kaia Kairos Network! Bạn có thể xác minh giao dịch này trên [KaiaScan](https://www.kaiascan.io/) bằng cách dán địa chỉ của bạn vào trường tìm kiếm.
 
 ### 4.2 Interacting with BMC Smart Contract  <a id="interacting-with-bmc-contract"></a>
 
@@ -831,24 +831,24 @@ The following are the steps to deploy your BMC dApp to Fleek:
 
 1. Make sure to confirm these configurations in your frontend code:
 
- a. Open package.json and add in the following scripts:
+  a. Open package.json and add in the following scripts:
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. Paste the code below in your next.config.js file in the root directory:
+  b. Paste the code below in your next.config.js file in the root directory:
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 For more information, visit this [guide](https://blog.fleek.co/posts/fleek-nextJS)
 

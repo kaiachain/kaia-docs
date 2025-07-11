@@ -13,6 +13,8 @@ Kaia 的某些功能依赖于称为_系统合约_的特殊智能合约。 它们
 | KIP-160 TreasuryRebalanceV2 | 0xa4df15717Da40077C0aD528296AdBBd046579Ee9                                                              | 0x3D478E73c9dBebB72332712D7265961B1868d193                                                              |
 | KIP-149 Registry            | 0x0000000000000000000000000000000000000401                                                              | 0x0000000000000000000000000000000000000401                                                              |
 | KIP-113 SimpleBlsRegistry   | proxy 0x3e80e75975bdb8e04B800485DD28BebeC6d97679 <br/> logic 0xb5ed8d6edd437a0d6ae828580c0aef5678d87f1a | proxy 0x4BEed0651C46aE5a7CB3b7737345d2ee733789e6 <br/> logic 0x6751096fe72d835307d7e635aed51296948b93c5 |
+| KIP-247 无气体交换路由器            | 0xCf658F786bf4AC62D66d70Dd26B5c1395dA22c63                                                              | 0x4b41783732810b731569E4d944F59372F411BEa2                                                              |
+| KIP-226 CLRegistry          | 0x25F4044c655Fc7B23c62bbC78ceF3B4EBFb4e478                                                              | 0x25F4044c655Fc7B23c62bbC78ceF3B4EBFb4e478                                                              |
 
 有些合约不会被 Kaia 节点直接读取，但在 Kaia 区块链及其生态系统的运行中发挥着至关重要的作用。 其中包括财务、治理和 KAIA 代币桥接合约。
 
@@ -31,4 +33,7 @@ Kaia 的某些功能依赖于称为_系统合约_的特殊智能合约。 它们
 | Kaiabridge Judge                | 0x64c91d6517b8f2fd7f4157c32DE4acfe1AeA2611 | 0x3735Ba95cca5DEd47Fa5b202a2Bbda4c63c0B1DD |
 | Kaiabridge Guardian             | 0xE49D152E5FA576caFC18D2775AF4E58C135a6851 | 0xc9e8342C1da4c89A423258d9030414331b4761Cf |
 | KIP-163 PublicDelegationFactory | 0x29C8cc53d22F79D4024ecB67DB1a09b37bCdE415 | 0x98c47c2cda854cbb025d47de72149a7ec238ec33 |
+| KIP-226 CLDEXFactory            | 0x2A4C5eCaafB26460F17d509EA4d15741AF5F5f0a | 0x537D58BdBC98c690bE5d3e3F638d4B93754B15Fd |
+| KIP-226 CLDEX 路由器               | 0x21d3c567058277b19324FE22c8e4Bb3D2AE0D4C3 | 0x41F135a084897e4145CC2032e8701726af795e3a |
+| KIP-226 StakingTrackerV2        | 0xF45c37c265f148894D6d9A4c066aFaAB00557c9c | 0x9b015Ab5916EE53e52Ef60f31E978b4001908c43 |
 
