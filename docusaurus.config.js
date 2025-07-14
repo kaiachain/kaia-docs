@@ -103,8 +103,7 @@ const config = {
             'https://github.com/kaiachain/kaia-docs/tree/main/',
           
           docRootComponent: "@theme/DocRoot",
-          //docItemComponent: "@theme/ApiItem" 
-          // NOTE: Commented out to ensure classic docs use the default DocItem layout (@theme/DocItem/Layout). Starting with docusaurus-theme-openapi-docs v4.1.0, this line affects the classic docs layout, which prevents custom components (e.g. MT disclaimer) from being rendered.
+          docItemComponent: "@theme/ApiItem"
         },
         theme: {
           customCss: [
