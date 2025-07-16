@@ -103,7 +103,7 @@ const config = {
             'https://github.com/kaiachain/kaia-docs/tree/main/',
           
           docRootComponent: "@theme/DocRoot",
-          //docItemComponent: "@theme/ApiItem"
+          docItemComponent: "@theme/ApiItem"
         },
         theme: {
           customCss: [
@@ -132,7 +132,7 @@ const config = {
       'docusaurus-plugin-openapi-docs',
       {
         id: "api", // plugin id
-        docsPluginId: "api", // id of plugin-content-docs or preset for rendering docs
+        docsPluginId: "classic", // id of plugin-content-docs or preset for rendering docs
         config: {
           web3rpcKlay: {
             // template: "api.mustache",
