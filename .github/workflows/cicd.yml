@@ -47,7 +47,7 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=8192
         run: |
           cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
-          cd web3rpc && bash -x web3rpc.sh && cd - && npm run build && exit 0
+          cd web3rpc && bash -x web3rpc.sh && cd -
       - name: Build static files
         env:
           NODE_OPTIONS: --max-old-space-size=8192
