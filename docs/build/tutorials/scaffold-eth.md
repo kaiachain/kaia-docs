@@ -149,8 +149,8 @@ Note:
         network: "kairos",
         chainId: 1001,
         urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+          apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+          browserURL: "https://kairos.kaiascan.io",
         },
       },
     ],
@@ -169,14 +169,11 @@ Actual
 yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
  "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
-As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
+As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on KaiaScan will be provided.
 
 ![Verify](/img/build/tutorials/scaffold-verify.png)
- 
-![Verify on Kaiascope](/img/build/tutorials/scaffold-3.png)
 
-
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
+For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the [Hardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 

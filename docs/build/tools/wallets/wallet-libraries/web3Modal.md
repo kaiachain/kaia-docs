@@ -369,7 +369,7 @@ You can perform native transactions, like sending KAIA from one user to another.
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascan.io/tx/${txHash}`} target="_blank">KaiaScan</a> :  ' ' } </div>
     </div>
 );
 ```

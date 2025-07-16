@@ -1,24 +1,26 @@
 # FAQ
 
-- [What is Kaia?](#what-is-kaia)
-- [How does Kaia support Ethereum equivalence?](#how-ethereum-equivalence)
-- [What is Kaia’s gas policy?](#kaia-gas-policy)
-- [What is special about Kaia’s account structure?](#kaia-account-structure)
-- [Where can I start dApp development with Kaia?](#dapp-development)
-- [Is Kaia Open Source?](#is-kaia-open-source)
-- [How can I initially fund my account?](#fund-my-acconut)
-- [Any Kaia’s Public Node Providers for testing and development?](#node-providers)
-- [Are there faucets to get test KAIA?](#are-there-faucets)
-- [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
-- [Which wallets support Kaia?](#which-wallets)
-- [What is Mainnet, what is Kairos?](#what-is-mainnet-what-is-kairos)
-- [Are there any Kaia SDKs? In what languages?](#kaia-sdks)
-- [Must I install and run an EN (Endpoint Node) to use Kaia?](#must-i-install-and-run-en)
-- [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
-- [Can I use ERC-20 and ERC-721 contracts on Kaia?](#can-i-use-erc-20-and-erc-721)
-- [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
-- [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
-- [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
+- [FAQ](#faq)
+  - [What is Kaia? ](#what-is-kaia-)
+  - [How does Kaia support Ethereum equivalence? ](#how-does-kaia-support-ethereum-equivalence-)
+  - [What is Kaia’s gas policy? ](#what-is-kaias-gas-policy-)
+  - [What is special about Kaia’s account structure? ](#what-is-special-about-kaias-account-structure-)
+  - [Where can I start dApp development with Kaia? ](#where-can-i-start-dapp-development-with-kaia-)
+  - [Is Kaia Open Source? ](#is-kaia-open-source-)
+  - [How can I initially fund my account? ](#how-can-i-initially-fund-my-account-)
+  - [Any Kaia’s Public Node Providers for testing and development? ](#any-kaias-public-node-providers-for-testing-and-development-)
+  - [Are there faucets to get test KAIA? ](#are-there-faucets-to-get-test-kaia-)
+  - [How do I check for Public RPC endpoint status? ](#how-do-i-check-for-public-rpc-endpoint-status-)
+  - [Which wallets support Kaia? ](#which-wallets-support-kaia-)
+  - [What is Mainnet, what is Kairos? ](#what-is-mainnet-what-is-kairos-)
+  - [Are there any Kaia SDKs? In what languages? ](#are-there-any-kaia-sdks-in-what-languages-)
+    - [kaia-sdk (Plug-in SDKs)](#kaia-sdk-plug-in-sdks)
+  - [Must I install and run an EN (Endpoint Node) to use Kaia? ](#must-i-install-and-run-an-en-endpoint-node-to-use-kaia-)
+  - [I am running an EN, and node data sync is too slow. ](#i-am-running-an-en-and-node-data-sync-is-too-slow-)
+  - [Can I use ERC-20 and ERC-721 contracts on Kaia? ](#can-i-use-erc-20-and-erc-721-contracts-on-kaia-)
+  - [Where can I get a browser extension wallet like Metamask? ](#where-can-i-get-a-browser-extension-wallet-like-metamask-)
+  - [Why is my fee-payer account address not derived from the key provided? ](#why-is-my-fee-payer-account-address-not-derived-from-the-key-provided-)
+  - [Where can I find complete working samples of fee-delegation? ](#where-can-i-find-complete-working-samples-of-fee-delegation-)
 
 ## What is Kaia? <a id="what-is-kaia"></a>
 
@@ -77,12 +79,12 @@ Below is information relating to each network.
 Mainnet:
 
 - EN download : Choose the Mainnet package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://kaiascope.com/
+- KaiaScan : https://kaiascan.io/
 
 Kairos testnet:
 
 - EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://kairos.kaiascope.com
+- KaiaScan : https://kairos.kaiascan.io
 - Kairos Faucet : https://faucet.kaia.io
 
 ## Are there any Kaia SDKs? In what languages? <a id="kaia-sdks"></a>
