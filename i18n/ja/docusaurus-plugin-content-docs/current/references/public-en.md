@@ -39,17 +39,17 @@
 
 **HTTPS**
 
-| サービスプロバイダー                           | エンドポイント                                                                                     | 名前空間           | タイプ   |
-| ------------------------------------ | ------------------------------------------------------------------------------------------- | -------------- | ----- |
-| [カイア財団](https://www.kaia.io)         | `https://public-en.node.kaia.io`                                                            | カイア、クレイ、エス、ネット | フル    |
-|                                      | `https://archive-en.node.kaia.io`                                                           | カイア、クレイ、エス、ネット | アーカイブ |
-| [クイックノード](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | カイア、クレイ、エス、ネット | フル    |
-| [BlockPIネットワーク](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`                                                | カイア、クレイ、エス、ネット | フル    |
-| [OnFinality](https://onfinality.io/) | `https://klaytn.api.onfinality.io/public`                                                   | カイア、クレイ、エス、ネット | フル    |
-| [ポクト・ネットワーク](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | カイア、クレイ、エス、ネット | フル    |
-| [GetBlock](https://getblock.io/)     | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | カイア、クレイ、エス、ネット | フル    |
-| [dRPC](https://drpc.org/)            | `https://klaytn.drpc.org`                                                                   | カイア、クレイ、エス、ネット | フル    |
-| [ニルヴァーナ・ラボ](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | カイア、クレイ、エス、ネット | アーカイブ |
+| サービスプロバイダー                            | エンドポイント                                                                                     | 名前空間           | タイプ   |
+| ------------------------------------- | ------------------------------------------------------------------------------------------- | -------------- | ----- |
+| [カイア財団](https://www.kaia.io)          | `https://public-en.node.kaia.io`                                                            | カイア、クレイ、エス、ネット | フル    |
+|                                       | `https://archive-en.node.kaia.io`                                                           | カイア、クレイ、エス、ネット | アーカイブ |
+| [クイックノード](https://quicknode.com/)     | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | カイア、クレイ、エス、ネット | フル    |
+| [BlockPIネットワーク](https://blockpi.io/)  | `https://kaia.blockpi.network/v1/rpc/public`                                                | カイア、クレイ、エス、ネット | フル    |
+| [OnFinality](https://onfinality.io/)  | `https://klaytn.api.onfinality.io/public`                                                   | カイア、クレイ、エス、ネット | フル    |
+| [ポクト・ネットワーク](https://pocket.network/) | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | カイア、クレイ、エス、ネット | フル    |
+| [GetBlock](https://getblock.io/)      | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | カイア、クレイ、エス、ネット | フル    |
+| [dRPC](https://drpc.org/)             | `https://klaytn.drpc.org`                                                                   | カイア、クレイ、エス、ネット | フル    |
+| [ニルヴァーナ・ラボ](https://nirvanalabs.io/)  | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | カイア、クレイ、エス、ネット | アーカイブ |
 
 **ウェブソケット**
 
@@ -185,25 +185,23 @@ BlockPIは、Kaiaコミュニティには無料のパブリックエンドポイ
 - [購読](https://dashboard.blockpi.io/wallet/overview)
 - [ウェブサイト](https://blockpi.io/)
 
-### Pocket Network
+### グローブ 🌿 - ポケットネットワークで構築
 
-ポケットネットワークは、Web3ノードのインフラストラクチャのTCP/IPであり、RPCノードにDAppsとそのユーザーにWeb3アクセスを止められないように提供するインセンティブを与えるマルチチェーン中継プロトコルです。
+グローブはポケットネットワークの構築者であり、保守者でもあるチームだ。 ポケットネットワークは、Web3ノードのインフラストラクチャのTCP/IPであり、RPCノードにDAppsとそのユーザーにWeb3アクセスを止められないように提供するインセンティブを与えるマルチチェーン中継プロトコルです。
 
-ポケットは数十のブロックチェーンをサポートしており、常に追加されている。
+Groveは50以上のブロックチェーンをサポートしており、随時追加されている。
 
 #### 特徴
 
 - 分散型RPCプロトコルとマーケットプレイス
-- 250,000リクエスト/日 無料ティア（2アプリケーションまで、エンドポイント数無制限）
+- 150,000リクエスト/日 無料ティア（最大2アプリケーション、エンドポイント数無制限）
 - パブリック・エンドポイント
-- 有料プラン（1日あたり25万件以上のリクエストが必要な場合）
-- 30以上のブロックチェーンをサポート
+- 無制限、有料プラン（1日あたり15万件以上のリクエストが必要な場合）
+- 50以上のブロックチェーンをサポート
 - 25,000 + アプリケーションの提供でPOKTを獲得するノード
-- アーカイバル・ノード、トレース付きアーカイバル・ノード、テストネット・ノードのサポート
+- アーカイバル・ノード、トレース・サポート付きアーカイバル・ノード
 - 単一障害点なし
 - ダウンタイムゼロ
-- 費用対効果の高いニアゼロ・トークノミクス（ネットワーク帯域幅のためにPOKTを1回賭ける）
-- 毎月のサンクコストが不要、インフラを資産に変える
 - プロトコルに組み込まれた負荷分散
 - 1日あたりのリクエスト数と1時間あたりのノード数を無限に拡張できます。
 - 最もプライベートで検閲に強いオプション
@@ -211,9 +209,10 @@ BlockPIは、Kaiaコミュニティには無料のパブリックエンドポイ
 
 #### 参考文献
 
-- [ドキュメント](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [ウェブサイト](https://docs.pokt.network/)
-- [ポケット・ポータル](https://bit.ly/ETHorg_POKTportal) ダッシュボードとアナリティクス
+- [ドキュメント](https://docs.grove.city/kaia-api/intro)
+- [グローブウェブサイト](https://grove.city/)
+- [ポケットネットワークウェブサイト](https://pocket.network)
+- [グローブポータル](https://portal.grove.city)
 
 ### ANKR
 
