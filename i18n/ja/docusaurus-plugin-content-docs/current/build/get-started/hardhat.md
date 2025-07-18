@@ -322,16 +322,16 @@ async function main() {
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
-}
+console.log(`Congratulations！これでソウルバウンドトークンのデプロイに成功しました `);
+console.log(`SBT contract address is ${sbtContract.target}.https://kairos.kaiascan.io/account/${sbtContract.target}`で確認できます);
+}.
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+
+//
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
-});
+})；
 ```
 
 **ステップ3**：ターミナルで、HardhatにSBTトークンをKaia Test Network (Kairos)にデプロイするように指示する以下のコマンドを実行します。
@@ -342,7 +342,7 @@ npx hardhat run scripts/sbtDeploy.js --network baobab
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**ステップ4**：[Kaiascope](https://kairos.kaiascope.com/) を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
+**ステップ 4**：KaiaScan](https://kairos.kaiascan.io/)を開き、SBTトークンが正常にデプロイされたかどうかを確認します。
 
 \*\*ステップ5配備された契約書アドレスを検索フィールドにコピー＆ペーストし、Enterキーを押します。 最近配備された契約が表示されるはずだ。 最近配備された契約が表示されるはずだ。
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-出力は上のように16進数である。 出力は上のように16進数である。 16進数からブロック番号を得るには、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って16進数を10進数に変換する。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。
+出力は上のように16進数である。 出力は上のように16進数である。 16進数からブロック番号を得るには、この[ツール](https://www.rapidtables.com/convert/number/hex-to-decimal.html)を使って16進数を10進数に変換する。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[kaiascope](https://kaiascope.com/)で確認できる。 ネットワークをフォークした時点から最新のブロック番号を取得する必要がある。 ブロック番号は[KaiaScan](https://kaiascan.io/)で確認できます。
 
 ### ブロックでのフォーク
 

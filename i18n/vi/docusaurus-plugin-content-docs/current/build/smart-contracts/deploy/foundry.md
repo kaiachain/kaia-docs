@@ -339,7 +339,7 @@ To verify you have forked the network, you can query the latest block number:
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. To verify this, cross-reference the block number on [Kaiascope](https://kaiascope.com/block/118704896?tabId=txList).
+You can convert the result from the task above using [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. Để xác minh điều này, hãy tham chiếu chéo số khối trên [KaiaScan](https://kaiascan.io/block/118704896?tabId=txList).
 
 ### Illustration
 
@@ -347,7 +347,7 @@ Trong phần này, bạn sẽ tìm hiểu cách chuyển token USDT từ ngườ
 
 **Transferring USDT**
 
-Truy cập Kaiascan và tìm kiếm người nắm giữ token USDT (tại đây). Let's pick a random account. Trong ví dụ này, chúng tôi sẽ sử dụng `0xb3ff853a137bfe10f3d8965a29013455e1619303`.
+Truy cập Kaiascan và tìm kiếm người nắm giữ token USDT ([tại đây](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. Trong ví dụ này, chúng tôi sẽ sử dụng `0xb3ff853a137bfe10f3d8965a29013455e1619303`.
 
 Let's export our contracts and accounts as environment variables:
 

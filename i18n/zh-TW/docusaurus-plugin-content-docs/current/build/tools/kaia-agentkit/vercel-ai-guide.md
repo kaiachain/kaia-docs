@@ -154,10 +154,10 @@ export default function Chat() {
 這個 React 元件使用 Vercel AI SDK 的 useChat() 鉤子建立一個簡單的聊天介面。 它的功能如下：
 
 - **管理聊天狀態**：useChat() 鉤子提供：
- - 訊息：聊天記錄 (包含 ID、角色和內容)。
- - 輸入：目前使用者的輸入。
- - handleInputChange：在使用者輸入時更新輸入欄位。
- - handleSubmit：表單提交時傳送訊息。
+  - 訊息：聊天記錄 (包含 ID、角色和內容)。
+  - 輸入：目前使用者的輸入。
+  - handleInputChange：在使用者輸入時更新輸入欄位。
+  - handleSubmit：表單提交時傳送訊息。
 - **顯示訊息**：這個元件會映射訊息，顯示文字是來自使用者還是 AI。
 - **處理使用者輸入**：它包含一個輸入欄位，使用者可以在此輸入訊息，然後當他們按下 Enter 鍵時，訊息就會傳送出去。
 
@@ -245,19 +245,19 @@ export async function POST(req: Request) {
 此更新的 `route.ts` 檔案使用 Kaia Agent Kit、Viem 和 Vercel AI SDK 將區塊鏈功能整合到我們的 AI 代理中。 以下是發生的細節：
 
 - **設定區塊鏈工具和錢包**
- - 匯入 Viem、Kaia Agent Kit 及其他工具，用於橋接 onchain 工具與 Vercel AI SDK。
- - 使用 privateKeyToAccount 從環境變數 (WALLET_PRIVATE_KEY) 建立錢包帳號。
- - 初始化 Viem 的錢包用戶端，以便使用 RPC 提供者與 Kaia 區塊鏈互動。
+  - 匯入 Viem、Kaia Agent Kit 及其他工具，用於橋接 onchain 工具與 Vercel AI SDK。
+  - 使用 privateKeyToAccount 從環境變數 (WALLET_PRIVATE_KEY) 建立錢包帳號。
+  - 初始化 Viem 的錢包用戶端，以便使用 RPC 提供者與 Kaia 區塊鏈互動。
 - **載入 Onchain 工具**
- - 使用 getOnChainTools 載入 Kaia Agent Kit 鏈上工具。 請注意，您可以透過設定 packages 陣列並傳入以下任一值，限制 AI 代理存取特定工具：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。 留空時，預設啟用所有套件。
+  - 使用 getOnChainTools 載入 Kaia Agent Kit 鏈上工具。 請注意，您可以透過設定 packages 陣列並傳入以下任一值，限制 AI 代理存取特定工具：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。 留空時，預設啟用所有套件。
 - **整合人工智能與區塊鏈功能**
- - 呼叫 streamText 時會使用：
-  - Google Gemini 1.5 Pro 作為 LLM 模型
-  - Onchain 工具（工具）可實現區塊鏈交易
-  - 對話記錄 (訊息)
-  - 多步驟執行 (maxSteps: 10) 可處理複雜的工作流程
+  - 呼叫 streamText 時會使用：
+    - Google Gemini 1.5 Pro 作為 LLM 模型
+    - Onchain 工具（工具）可實現區塊鏈交易
+    - 對話記錄 (訊息)
+    - 多步驟執行 (maxSteps: 10) 可處理複雜的工作流程
 - **回傳串流式 AI 回應**
- AI 代理程式會處理要求，並利用內嵌的 onchain 功能串流回應。
+  AI 代理程式會處理要求，並利用內嵌的 onchain 功能串流回應。
 
 ## 測試代理功能
 

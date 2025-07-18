@@ -117,8 +117,8 @@ Kaia 将透明度和可审计性放在首位：
 
 - 所有事务都提供了不可更改和可验证的状态变化历史。
 - 区块链探索的两个主要工具：
-  - [Kaiascope](https://kaiascope.com/)：全面的区块链浏览器。
-  - [Kaiascan](http://kaiascan.io/)：快速查找区块链数据的用户友好界面。
+  - [Kaiascan](http://kaiascan.io/)：Kaia 的官方区块浏览器，提供对区块、交易、地址、代币和智能合约的深入了解。
+  - [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia)：提供类似功能的另一种区块资源管理器。
 - Square "投票平台披露所有费用和季度已知交易。
 
 ## 网络监控

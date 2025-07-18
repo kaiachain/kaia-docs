@@ -46,7 +46,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)  | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | Full    |
+| [Pokt 네트워크](https://pocket.network/)   | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | Full    |
 | [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | Full    |
 | [너바나 랩](https://nirvanalabs.io/)       | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | Archive |
@@ -185,25 +185,23 @@ BlockPI provides free public endpoints to the Kaia community and advanced featur
 - [Subscription](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Pocket Network
+### Grove 🌿 - 포켓 네트워크에 구축됨
 
-Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+Grove는 포켓 네트워크의 빌더와 유지 관리자로 구성된 팀입니다. Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
 
-Pocket supports dozens of blockchains, with more being added all the time.
+Grove는 50개 이상의 블록체인을 지원하며, 더 많은 블록체인이 계속 추가되고 있습니다.
 
 #### Features
 
 - Decentralized RPC Protocol and Marketplace
-- 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
+- 하루 150,000건의 요청 무료 티어(최대 2개의 애플리케이션, 무제한 엔드포인트)
 - Public Endpoints
-- Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
-- 30+ Blockchains Supported
+- 무제한, 종량제 요금제(하루에 150,000건 이상의 요청이 필요한 경우)
+- 50개 이상의 블록체인 지원
 - 25,000 + Nodes earning POKT for serving applications
-- Archival Node, Archival Node w/ Tracing, & Testnet Node Support
+- 아카이브 노드, 추적 지원 기능이 있는 아카이브 노드
 - No Single Point of Failure
 - Zero Downtime
-- Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
-- No monthly sunk costs, turn your infrastructure into an asset
 - Load-Balancing built into the Protocol
 - Infinitely scale the number of requests per day and nodes per hour as you go
 - The most private, censorship-resistant option
@@ -211,9 +209,10 @@ Pocket supports dozens of blockchains, with more being added all the time.
 
 #### References
 
-- [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [Website](https://docs.pokt.network/)
-- [Pocket Portal](https://bit.ly/ETHorg_POKTportal) dashboard and analytics
+- [문서](https://docs.grove.city/kaia-api/intro)
+- [Grove 웹사이트](https://grove.city/)
+- [포켓 네트워크 웹사이트](https://pocket.network)
+- [그로브 포털](https://portal.grove.city)
 
 ### ANKR
 
@@ -330,7 +329,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
 
-- Explorer: [Kaiascope](../build/tools/block-explorers/kaiascope.md) is the block explorer for the Kaia Network.
+- 탐색기: [카이아스캔](../build/tools/block-explorers/kaiascan.md)은 카이아 네트워크의 블록 탐색기입니다.
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet: 8217 (0x2019)
 

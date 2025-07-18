@@ -5,7 +5,7 @@
 
 OKX Kaia Explorer 也支援：
 
-- Contract difference checker：此工具對於比較合法合約原始碼與可疑合約特別有用。 它強調差異，以協助偵測對投資人的潛在威脅。 開發人員也可以利用這一點，參考穩健、經過驗證的程式碼來增強安全性和功能性。
+- [Contract difference checker](https://www.okx.com/web3/explorer/contract-diff#source-chain=klaytn&target-chain=klaytn)：此工具對於比較合法合約原始碼與可疑合約特別有用。 它強調差異，以協助偵測對投資人的潛在威脅。 開發人員也可以利用這一點，參考穩健、經過驗證的程式碼來增強安全性和功能性。
 - [Similar contract finder](https://www.okx.com/web3/explorer/similar-contract#source-chain=klaytn)：一個方便的工具，可顯示具有類似 bytecode 但不同構建器參數的契約的原始碼和讀/寫能力。
 - [Large Transfer Monitor](https://www.okx.com/web3/explorer/large-transfer-monitor/kaia) ：提供大額代幣轉讓的即時資料，讓您輕鬆追蹤市場趨勢並發現高回報的機會。
 - [Token alert](https://www.okx.com/web3/explorer/token-alert)：即時取得全面、即時的鏈上資料，包括大型交易和重大資金動向，發掘寶貴的市場洞察力。

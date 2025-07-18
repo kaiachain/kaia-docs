@@ -44,7 +44,7 @@
 
 ![](/img/build/get-started/marketplace-deployed.png)
 
-交易成功执行后，您可以在 [Kaiascope](https://kaiascope.com/)的搜索栏中粘贴合同地址，以验证您的部署。
+交易成功执行后，您可以在 [KaiaScan](https://kaiascan.io/) 的搜索栏中粘贴合同地址，以验证您的部署。
 
 ## 使用 thirdweb CLI 创建和部署 NFT 收集合同<a id="creating-deploying-using-thirdweb-cli"></a>
 

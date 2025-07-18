@@ -1,24 +1,26 @@
 # よくあるご質問
 
-- [カイアとは?](#what-is-kaia)
-- [Kaiaはイーサリアム等価性をどのようにサポートしていますか?](#how-ethereum-equivalence)
-- [カイアのガス政策とは?](#kaia-gas-policy)
-- [カイアのアカウント構成は特別なのか?](#kaia-account-structure)
-- [カイアのdApp開発はどこから始められますか?](#dapp-development)
-- [Kaiaはオープンソースですか？](#is-kaia-open-source)
-- [口座への初期資金はどうすればよいですか](#fund-my-acconut)
-- [カイアのパブリックノードプロバイダーでテストや開発用に使えるものはありますか？](#node-providers)
-- [Are there faucets to get test KLAY?](#are-there-faucets)
-- [パブリックRPCのエンドポイントの状態を確認するにはどうすればよいですか](#rpc-endpoint-status)
-- [どのウォレットがKaiaに対応していますか？](#which-wallets)
-- [メインネットとは何か、カイロスとは何か](#what-is-mainnet-what-is-kairos)
-- [カイアSDKはありますか？ どの言語で](#kaia-sdks)
-- [Kaiaを使用するには、EN（エンドポイントノード）をインストールして実行する必要がありますか?](#must-i-install-and-run-en)
-- [ENを使用していますが、ノードのデータ同期が遅すぎます](#node-data-sync-is-too-slow)
-- [カイアでERC-20とERC-721コントラクトを使用できますか?](#can-i-use-erc-20-and-erc-721)
-- [Metamaskのようなブラウザ拡張ウォレットはどこで手に入りますか](#where-can-i-get-a-browser-extension-wallet)
-- [私の料金支払者アカウントのアドレスが、提供されたキーから導き出されないのはなぜですか](#account-address-is-not-derived-from-the-key)
-- [フィーデレグの完全な実務サンプルはどこで入手できますか](#fee-delegation-samples)
+- [よくある質問](#faq)
+  - [カイアとは？ ](#what-is-kaia-)
+  - [カイアはイーサリアムの等価性をどのようにサポートしていますか？ ](#how-does-kaia-support-ethereum-equivalence-)
+  - [カイアのガス政策は？ ](#what-is-kaias-gas-policy-)
+  - [カイアの口座構成は特別ですか？ ](#what-is-special-about-kaias-account-structure-)
+  - [カイアのdApp開発はどこから始められますか？ ](#where-can-i-start-dapp-development-with-kaia-)
+  - [カイアはオープンソースか？ ](#is-kaia-open-source-)
+  - [口座への最初の入金方法は？ ](#how-can-i-initially-fund-my-account-)
+  - [テストや開発のためのカイアのパブリック・ノード・プロバイダーはありますか？ ](#any-kaias-public-node-providers-for-testing-and-development-)
+  - [KAIAをテストするための蛇口はありますか？ ](#are-there-faucets-to-get-test-kaia-)
+  - [パブリックRPCエンドポイントの状態を確認するには？ ](#how-do-i-check-for-public-rpc-endpoint-status-)
+  - [カイアをサポートしている財布は？ ](#which-wallets-support-kaia-)
+  - [メインネットとは、カイロスとは？ ](#what-is-mainnet-what-is-kairos-)
+  - [カイアSDKはありますか？ どの言語で？ ](#are-there-any-kaia-sdks-in-what-languages-)
+    - [kaia-sdk (プラグインSDK)](#kaia-sdk-plug-in-sdks)
+  - [Kaiaを使用するには、EN（エンドポイントノード）をインストールして実行する必要がありますか？ ](#must-i-install-and-run-an-en-endpoint-node-to-use-kaia-)
+  - [ENを使用しているが、ノードデータの同期が遅すぎる。 ](#i-am-running-an-en-and-node-data-sync-is-too-slow-)
+  - [ERC-20とERC-721はカイアで使用できますか？ ](#can-i-use-erc-20-and-erc-721-contracts-on-kaia-)
+  - [Metamaskのようなブラウザ拡張ウォレットはどこで手に入りますか？ ](#where-can-i-get-a-browser-extension-wallet-like-metamask-)
+  - [なぜ私の料金支払口座の住所は、提供されたキーから導き出されないのですか？ ](#why-is-my-fee-payer-account-address-not-derived-from-the-key-provided-)
+  - [フィーデレグラフの完全なサンプルはどこで手に入りますか？ ](#where-can-i-find-complete-working-samples-of-fee-delegation-)
 
 ## カイアとは？ <a id="what-is-kaia"></a>
 
@@ -77,12 +79,12 @@ You may purchase KLAY on the exchange. 利用可能な取引所のリストは�
 Cypress mainnet:
 
 - EN download : Choose the Baobab package from the [download page](../nodes/downloads/downloads.md).
-- カイアスコープ : https://kaiascope.com/
+- カイアスキャン : https://kaiascan.io/
 
 Kairos testnet:
 
 - EN download : Choose the Cypress package from the [download page](../nodes/downloads/downloads.md).
-- カイアスコープ : https://kairos.kaiascope.com
+- カイアスキャン : https://kairos.kaiascan.io
 - カイロス水栓 : https://faucet.kaia.io
 
 ## カイアSDKはありますか？ どの言語で？ <a id="kaia-sdks"></a>

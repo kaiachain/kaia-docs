@@ -1,24 +1,26 @@
 # FAQ
 
-- [카이아란?](#what-is-klaytn)
-- [카이아는 어떻게 이더리움과 동등성을 지원하나요?](#how-ethereum-equivalence)
-- [카이아의 가스 정책은 무엇인가요?](#klaytn-gas-policy)
-- [카이아의 계정 구조는 어떤 점이 특별한가요?](#klaytn-account-structure)
-- [카이아로 dApp 개발은 어디서 시작할 수 있나요?](#dapp-development)
-- [카이아는 오픈소스인가요?](#is-klaytn-open-source)
-- [계정 초기 자금은 어떻게 조달하나요?](#fund-my-acconut)
-- [테스트와 개발을 위한 카이아의 퍼블릭 노드 제공자가 있나요?](#node-providers)
-- [테스트용 KAIA를 구할 수 있는 Faucet이 있나요?](#are-there-faucets)
-- [퍼블릭 RPC 엔드포인트 상태는 어떻게 확인하나요?](#rpc-endpoint-status)
-- [어떤 지갑이 카이아를 지원하나요?](#which-wallets)
-- [Cypress란 무엇인가요, Kairos는 무엇인가요?](#what-is-cypress-what-is-baobab)
-- [카이아 SDK가 있나요? 어떤 언어가 있나요?](#klaytn-sdks)
-- [카이아를 사용하려면 EN(엔드포인트 노드)을 설치하고 실행해야 하나요?](#must-i-install-and-run-en)
-- [EN을 실행 중인데 노드 데이터 동기화가 너무 느려요.](#node-data-sync-is-too-slow)
-- [카이아에서 ERC-20과 ERC-721 컨트랙트를 사용할 수 있나요?](#can-i-use-erc-20-and-erc-721)
-- [MetaMask와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요?](#where-can-i-get-a-browser-extension-wallet)
-- [수수료 납부자 계정 주소가 제공된 키에서 파생되지 않는 이유는 무엇인가요?](#account-address-is-not-derived-from-the-key)
-- [수수료 위임의 전체 작업 샘플은 어디에서 찾을 수 있나요?](#fee-delegation-samples)
+- [FAQ](#faq)
+  - [카이아란 무엇인가요? ](#what-is-kaia-)
+  - [카이아는 어떻게 이더리움 동등성을 지원하나요? ](#how-does-kaia-support-ethereum-equivalence-)
+  - [카이아의 가스 정책은 무엇인가요? ](#what-is-kaias-gas-policy-)
+  - [카이아 계정 구조의 특별한 점은 무엇인가요? ](#what-is-special-about-kaias-account-structure-)
+  - [카이아로 디앱 개발은 어디서 시작할 수 있나요? ](#where-can-i-start-dapp-development-with-kaia-)
+  - [카이아는 오픈 소스인가요? ](#is-kaia-open-source-)
+  - [계정 초기 자금은 어떻게 조달하나요? ](#how-can-i-initially-fund-my-account-)
+  - [테스트 및 개발을 위한 카이아의 퍼블릭 노드 제공업체가 있나요? ](#any-kaias-public-node-providers-for-testing-and-development-)
+  - [테스트 KAIA를 받을 수 있는 수도꼭지가 있나요? ](#are-there-faucets-to-get-test-kaia-)
+  - [공용 RPC 엔드포인트 상태는 어떻게 확인하나요? ](#how-do-i-check-for-public-rpc-endpoint-status-)
+  - [어떤 지갑이 카이아를 지원하나요? ](#which-wallets-support-kaia-)
+  - [메인넷이란 무엇인가요, 카이로스란 무엇인가요? ](#what-is-mainnet-what-is-kairos-)
+  - [카이아 SDK가 있나요? 어떤 언어로 제공되나요? ](#are-there-any-kaia-sdks-in-what-languages-)
+    - [kaia-sdk(플러그인 SDK)](#kaia-sdk-plug-in-sdks)
+  - [카이아를 사용하려면 EN(엔드포인트 노드)을 설치 및 실행해야 하나요? ](#must-i-install-and-run-an-en-endpoint-node-to-use-kaia-)
+  - [EN을 실행 중인데 노드 데이터 동기화가 너무 느립니다. ](#i-am-running-an-en-and-node-data-sync-is-too-slow-)
+  - [카이아에서 ERC-20 및 ERC-721 컨트랙트를 사용할 수 있나요? ](#can-i-use-erc-20-and-erc-721-contracts-on-kaia-)
+  - [메타마스크와 같은 브라우저 확장 지갑은 어디서 구할 수 있나요? ](#where-can-i-get-a-browser-extension-wallet-like-metamask-)
+  - [수수료 납부자 계정 주소가 제공된 키에서 파생되지 않는 이유는 무엇인가요? ](#why-is-my-fee-payer-account-address-not-derived-from-the-key-provided-)
+  - [수수료 위임의 전체 작업 샘플은 어디에서 찾을 수 있나요? ](#where-can-i-find-complete-working-samples-of-fee-delegation-)
 
 ## 카이아란? <a id="what-is-klaytn"></a>
 
@@ -77,12 +79,12 @@ Cypress는 Kaia 메인넷, Kairos는 테스트넷입니다.
 메인넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 메인넷 패키지를 선택합니다.
-- Kaiascope : https://kaiascope.com/
+- 카이아스캔 : https://kaiascan.io/
 
 Kairos 테스트넷:
 
 - EN 다운로드 : [다운로드 페이지](../nodes/downloads/downloads.md)에서 Kairos 패키지를 선택합니다.
-- Kaiascope : https://kairos.kaiascope.com
+- 카이아스캔 : https://kairos.kaiascan.io
 - Kairos Faucet : https://faucet.kaia.io
 
 ## 카이아 SDK가 있나요? 어떤 언어로 제공되나요? <a id="klaytn-sdks"></a>
