@@ -46,7 +46,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [QuickNode](https://quicknode.com/)                 | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | Full    |
 | [BlockPI Network](https://blockpi.io/)              | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | Full    |
 | [OnFinality](https://onfinality.io/)                | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | Full    |
-| [Pokt Network](https://pokt.network/)               | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | Full    |
+| [Mạng Pokt](https://pocket.network/)                | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)                    | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | Full    |
 | [dRPC](https://drpc.org/)                           | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | Full    |
 | [Phòng thí nghiệm Nirvana](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | Archive |
@@ -185,25 +185,23 @@ BlockPI provides free public endpoints to the Kaia community and advanced featur
 - [Subscription](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Pocket Network
+### Grove 🌿 - Được xây dựng trên Pocket Network
 
-Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
+Grove là nhóm xây dựng và bảo trì Pocket Network. Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
 
-Pocket supports dozens of blockchains, with more being added all the time.
+Grove hỗ trợ hơn 50 blockchain và liên tục bổ sung thêm nhiều blockchain mới.
 
 #### Features
 
 - Decentralized RPC Protocol and Marketplace
-- 250,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
+- Gói miễn phí 150.000 yêu cầu mỗi ngày (tối đa hai ứng dụng, với số điểm cuối không giới hạn)
 - Public Endpoints
-- Pay-As-You-Go-plan (if you need more than 250,000 requests per day)
-- 30+ Blockchains Supported
+- Gói không giới hạn, trả tiền khi sử dụng (nếu bạn cần hơn 150.000 yêu cầu mỗi ngày)
+- Hỗ trợ hơn 50 Blockchain
 - 25,000 + Nodes earning POKT for serving applications
-- Archival Node, Archival Node w/ Tracing, & Testnet Node Support
+- Nút lưu trữ, Nút lưu trữ có hỗ trợ theo dõi
 - No Single Point of Failure
 - Zero Downtime
-- Cost-Effective Near-Zero Tokenomics (stake POKT once for network bandwidth)
-- No monthly sunk costs, turn your infrastructure into an asset
 - Load-Balancing built into the Protocol
 - Infinitely scale the number of requests per day and nodes per hour as you go
 - The most private, censorship-resistant option
@@ -211,9 +209,10 @@ Pocket supports dozens of blockchains, with more being added all the time.
 
 #### References
 
-- [Docs](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [Website](https://docs.pokt.network/)
-- [Pocket Portal](https://bit.ly/ETHorg_POKTportal) dashboard and analytics
+- [Tài liệu](https://docs.grove.city/kaia-api/intro)
+- [Trang web Grove](https://grove.city/)
+- [Trang web Pocket Network](https://pocket.network)
+- [Cổng Grove](https://portal.grove.city)
 
 ### ANKR
 
