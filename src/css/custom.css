@@ -271,3 +271,39 @@ html {
     display: none !important;
   }
 }
+
+/* Custom width adjustments for Code Hike Spotlight layout */
+
+/* Adjust the right pane (code area) width */
+.ch-spotlight-sticker {
+  width: 550px; 
+}
+
+/* For responsive design, you might want to add media queries */
+@media (max-width: 1200px) {
+  .ch-spotlight-sticker {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ch-spotlight-sticker {
+    width: 100%;
+    position: relative;
+    top: 0;
+    max-height: none;
+    min-height: auto;
+  }
+}
+
+/* If you want to adjust the overall container behavior */
+.ch-spotlight {
+  display: flex;
+  gap: 2rem; /* Adjust spacing between panes */
+}
+
+/* Ensure the left pane takes remaining space */
+.ch-spotlight-tabs {
+  flex: 1;
+  min-width: 0; /* Allow flex item to shrink below content size */
+}
