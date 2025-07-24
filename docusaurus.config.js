@@ -255,13 +255,13 @@ const config = {
             indexName: 'klaytn',
           }
         : undefined,
-     announcementBar: {
+     /**announcementBar: {
         id: 'kaiascope_termination',
         content: '<div style="font-size: 15px; font-weight: bold;">📢 Urgent: Kaiascope will be discontinued on July 2, 2025. Please switch to <a target="_blank" href="https://kaiascan.io/">KaiaScan</a> immediately as the main block explorer for the Kaia blockchain. 🙏🏻</div>',
         backgroundColor: '#abd908',
         textColor: '#191919',
         isCloseable: true,
-      },
+      },*/
       navbar: {
         title: 'Kaia Docs',
         logo: {

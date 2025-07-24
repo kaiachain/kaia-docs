@@ -1,6 +1,79 @@
 {
   "updates": [
     {
+      "version": "1.17.2",
+      "date": "2025-07-10",
+      "title": "Update SafePal S1 Wallet Guide",
+      "updateType": "UPDATE",
+      "summary": "Update SafePal S1 wallet guide.",
+      "primaryDocLink": "/build/tools/wallets/hardware-wallets/safepal-s1",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/336"
+    },
+    {
+      "version": "1.17.1",
+      "date": "2025-07-02",
+      "title": "Remove Kaiascope",
+      "updateType": "UPDATE",
+      "summary": "Remove Kaiascope information and update documentation accordingly.",
+      "primaryDocLink": "/build/tools/block-explorers/kaiascope",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/333"
+    },
+    {
+      "version": "1.17.0",
+      "date": "2025-06-30",
+      "title": "Live Code Editor Arrived for Viem Extension!",
+      "updateType": "NEW_FEATURE",
+      "summary": "Experience the new live code editor for the Viem extension, enabling real-time code editing and previewing directly within the Kaia Docs interface.",
+      "primaryDocLink": "/references/sdk/viem-ext/basic-transaction/value-transfer",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/331"
+    },
+    {
+      "version": "1.16.2",
+      "date": "2025-06-25",
+      "title": "Enable Gas-less Transactions Now!",
+      "updateType": "NEW_CONTENT",
+      "summary": "Integrate Kaia SDK into your wallet to support fee-delegated transactions and offer users gas-less experiences.",
+      "primaryDocLink": "/build/tutorials/fee-delegation-wallet-integration",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/330",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.16.1",
+      "date": "2025-06-24",
+      "title": "Introduce Environment Variables",
+      "updateType": "NEW_FEATURE",
+      "summary": "Adopt environment variables to manage sensitive data and configurations in Kaia Docs, enhancing security and flexibility.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/326"
+    },
+    {
+      "version": "1.16.0",
+      "date": "2025-06-23",
+      "title": "Meet Kaia Docs Assistance!",
+      "updateType": "NEW_FEATURE",
+      "summary": "Engage with the new Kaia AI Chatbot, your RAG-powered assistant for conversational information retrieval on the Kaia Docs site. It's now available via the button on the lower-right corner of the screen.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/325",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.15.0",
+      "date": "2025-06-18",
+      "title": "Kaia Viem Extension Docs Are Here!",
+      "updateType": "NEW_CONTENT",
+      "summary": "Discover the new Viem Extension for Kaia documentation, simplifying Ethereum and Kaia transaction support.",
+      "primaryDocLink": "/references/sdk/viem-ext/getting-started",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/322",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.14.1",
+      "date": "2025-06-18",
+      "title": "Kaia vs. Ethereum",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore the new 'Kaia vs. Ethereum' page to grasp their differences for blockchain development and migration.",
+      "primaryDocLink": "/learn/kaia-vs-ethereum",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/321"
+    },    
+    {
       "version": "1.14.0",
       "date": "2025-05-29",
       "title": "Empower AI Agents on Kaia Blockchain!",
