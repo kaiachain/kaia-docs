@@ -145,19 +145,19 @@ To verify our already deployed contract, we'll use the hardhat verify plugin. Al
 ```js
   etherscan: {
     apiKey: {
-      kairos: "unnecessary",
+      kairos: "không cần thiết",
     },
     customChains: [
       {
-        network: "kairos",
+        mạng: "kairos",
         chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        url: {
+          apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+          browserURL: "https://kairos.kaiascan.io",
         },
       },
     ],
-  },
+},
 ```
 
 Next is to copy and paste the following command in your terminal to verify the smart contract:
@@ -175,13 +175,11 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
  "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
 
-As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
+As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). Sau một thời gian chờ ngắn, bảng điều khiển sẽ hiển thị kết quả xác minh và nếu thành công, URL đến hợp đồng đã xác minh trên KaiaScan sẽ được cung cấp.
 
 ![Verify](/img/build/tutorials/scaffold-verify.png)
 
-![Verify on Kaiascope](/img/build/tutorials/scaffold-3.png)
-
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
+Để biết thêm thông tin về việc xác minh hợp đồng thông minh trên Kaia bằng plugin Hardhat Verify, vui lòng tham khảo [Hướng dẫn về plugin Hardhat-Verify](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 

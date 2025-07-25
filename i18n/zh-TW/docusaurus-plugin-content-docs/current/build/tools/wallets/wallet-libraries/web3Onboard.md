@@ -290,19 +290,19 @@ return (
       return;
     }
 	
-    // this guide uses ethers version 6.3.0.
+    // 本指南使用 6.3.0 版的 ethers。
     const ethersProvider = new ethers.BrowserProvider(provider);
-    // for ethers version below 6.3.0.
+    // 對於 6.3.0 以下的 ethers 版本。
     // const provider = new ethers.providers.Web3Provider(provider);
 
     const signer = await ethersProvider.getSigner();
 
-    // Submit transaction to the blockchain and wait for it to be mined
+    // 提交交易到區塊鏈並等待它被挖掘
     const tx = await signer.sendTransaction({
-          to: "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
+          to："0x75Bc50a5664657c869Edc0E058d192EeEfD570eb",
           value: ethers.parseEther("0.1"),
-          maxPriorityFeePerGas: "5000000000", // Max priority fee per gas
-          maxFeePerGas: "6000000000000", // Max fee per gas
+          maxPriorityFeePerGas: "5000000000「, // 每個瓦斯的最大優先費用
+          maxFeePerGas: 」6000000000000", // 每個瓦斯的最大費用
         })
     
         
@@ -314,7 +314,7 @@ return (
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascan.io/tx/${txHash}`} target="_blank">KaiaScan</a> ： ' '} </div> </div> <div className="App">
     </div>
 );
 

@@ -322,16 +322,16 @@ async function main() {
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
+console.log(`Congratulations！您刚刚成功部署了灵魂绑定令牌。`);
+console.log(`SBT 合约地址是 ${sbtContract.target}。您可以在 https://kairos.kaiascan.io/account/${sbtContract.target}` 上验证）;
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+
+//
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
-});
+})；
 ```
 
 \*\*第 3 步在终端运行以下命令，让 Hardhat 在 Kaia 测试网络 (Kairos) 上部署 SBT 令牌
@@ -342,7 +342,7 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**第 4 步**：打开 [Kaiascope](https://kairos.kaiascope.com/)，检查 SBT 令牌是否已成功部署。
+**第 4 步**：打开 [KaiaScan](https://kairos.kaiascan.io/) 检查 SBT 令牌是否已成功部署。
 
 **第 5 步**：在搜索栏中复制并粘贴部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-输出结果为十六进制，如上图所示。 要从十六进制中获取块编号，请使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 将十六进制转换为十进制。 您应该从分叉网络时获得最新的区块编号。 您可以通过 [kaiascope](https://kaiascope.com/)确认区块编号。
+输出结果为十六进制，如上图所示。 要从十六进制中获取块编号，请使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 将十六进制转换为十进制。 您应该从分叉网络时获得最新的区块编号。 您可以在 [KaiaScan](https://kaiascan.io/) 上确认区块编号。
 
 ### 在街区分叉
 

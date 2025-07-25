@@ -1,0 +1,173 @@
+# アカウント更新
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/AccountUpdate.tsx" route={RoutePath.ViemExt_Account_Update} />
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+    import { kairos } from "viem/chains";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+      
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        type: TxType.AccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+      console.log("populated tx request", txRequest);
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+
+      const sentTx = await senderWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [signedTx],
+      });
+      console.log("account update tx", sentTx);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeAccountUpdate.js
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    account update tx 0x169287cafab3bfdf9ed513f0a872517f338a796725df16e7e758bb17149f4127
+
+    ```
+  </CH.Code>
+
+  ---
+
+  ethers**と**@kaiachain/viem-ext\*\*パッケージをインポートして、web3にkaiaの機能を追加する。
+
+  ```js TxTypeAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  Kaiia Kairosテストネットに接続するために、**kairos**チェーン設定を指定します。
+
+  ```js TxTypeAccountUpdate.js focus=3
+  ```
+
+  ---
+
+  createWalletClient**を使用してウォレットクライアントをセットアップし、**Kairosチェーン**、**HTTPトランスポート**、および**送信者の秘密鍵\*\*をアカウントに変換して設定します。
+
+  ```js TxTypeAccountUpdate.js focus=5:9
+  ```
+
+  ---
+
+  ethers.SigningKey.computePublicKey**を使用して、**送信者の秘密鍵**から**公開鍵**を生成する。 true**パラメータは、キーが圧縮されることを保証する。
+
+  ```js TxTypeAccountUpdate.js focus=12
+  ```
+
+  ---
+
+  prepareTransactionRequest\*\*を使用して、アカウント更新のためのトランザクションリ クエストを作成し、トランザクションタイプ、送信者アカウント、受信者アドレス、および新し い公開鍵を指定する。
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=14:23
+    ```
+
+    ---
+
+    ```zsh output
+    populated tx request {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      type: 32,
+      key: {
+        type: 2,
+        key: '0x03dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cd'
+      },
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2373,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  ウォレットクライアントの **signTransaction** メソッドを使用して、準備されたトランザクションに署名する。
+
+  ```js TxTypeAccountUpdate.js focus=25
+  ```
+
+  ---
+
+  kaia_sendRawTransaction\*\*メソッドを使用して署名されたトランザクションをKaiaブロックチェーンに送信し、トランザクションのハッシュを記録する。
+
+  <CH.Code>
+    ```js TxTypeAccountUpdate.js focus=27:31
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeAccountUpdate.js
+    account update tx 0x61114ca36d5ce9973083feb13e9b366d2592bd7afaa1b4106b08e158ed4b6213
+    ```
+  </CH.Code>
+</CH.Spotlight>

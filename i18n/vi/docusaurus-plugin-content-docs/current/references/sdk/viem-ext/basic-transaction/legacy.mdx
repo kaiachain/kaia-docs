@@ -1,0 +1,113 @@
+# Di sản
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/LegacyTransaction.tsx" route={RoutePath.ViemExt_Legacy_Transaction} />
+
+**TxTypeLegacyTransaction** biểu thị một loại giao dịch đã tồn tại trước đó trong kaia.
+
+Loại giao dịch này có thể tạo tài khoản, chuyển mã thông báo, triển khai hợp đồng thông minh, thực hiện hợp đồng thông minh hoặc thực hiện kết hợp những hoạt động đã đề cập ở trên.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js txTypeLegacyTransaction.js
+    import { createWalletClient, http, kairos, privateKeyToAccount } from "@kaiachain/viem-ext";
+
+    const legacyWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x28d06bfebe5447d798ec7d1f208a045a15a1d6872b2a3cbb74cc896817bbb90d"
+      ),
+    });
+    (async () => {
+      // legacy tx
+      const legacyRequest = await legacyWallet.prepareTransactionRequest({
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0,
+      });
+
+      console.log("populated legacy request", legacyRequest);
+
+      const sentLegacyTx = await legacyWallet.sendTransaction(legacyRequest);
+      console.log("value transfer legacy tx", sentLegacyTx);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node txTypeLegacyTransaction.js
+    populated legacy request {
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0,
+      from: '0x7642e9D6F533DCd6F4c20EF7bA83141b6b210d83',
+      nonce: 18,
+      chainId: 1001,
+      type: 'eip1559',
+      maxPriorityFeePerGas: 0n,
+      maxFeePerGas: 30000000000n,
+      gas: 21000n
+    }
+    value transfer legacy tx 0x8da12ab374d592715df3bbf6cc96f11a836175daf0dec7f26295d172d6206056
+
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js txTypeLegacyTransaction.js focus=1
+  ```
+
+  ---
+
+  Thiết lập ứng dụng ví bằng **createWalletClient**, được cấu hình bằng **chuỗi Kairos**, **phương thức truyền tải HTTP** và **khóa riêng của người gửi** được chuyển đổi thành tài khoản.
+
+  ```js txTypeLegacyTransaction.js focus=3:9
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để chuyển **giá trị cũ** bằng cách sử dụng **prepareTransactionRequest**, chỉ định địa chỉ người nhận và **giá trị** cần chuyển (0 trong ví dụ này).
+
+  <CH.Code>
+    ```js txTypeLegacyTransaction.js focus=12:17
+    ```
+
+    ---
+
+    ```zsh output
+    populated legacy request {
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0,
+      from: '0x7642e9D6F533DCd6F4c20EF7bA83141b6b210d83',
+      nonce: 18,
+      chainId: 1001,
+      type: 'eip1559',
+      maxPriorityFeePerGas: 0n,
+      maxFeePerGas: 30000000000n,
+      gas: 21000n
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  Ký và gửi giao dịch cũ đến blockchain Kaia bằng phương thức **sendTransaction** của ứng dụng ví và ghi lại mã băm giao dịch.
+
+  <CH.Code>
+    ```js txTypeLegacyTransaction.js focus=19:20
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node txTypeLegacyTransaction.js
+    value transfer legacy tx 0x8da12ab374d592715df3bbf6cc96f11a836175daf0dec7f26295d172d6206056
+    ```
+  </CH.Code>
+</CH.Spotlight>

@@ -35,7 +35,7 @@ Assets/
 - 必要なWeb3ライブラリをロードします。
 - カイアウォレットの統合を有効にする。
 - ブロックチェーンのやり取りを適切に処理する。
- :::
+  :::
 
 ## ステップ3：index.htmlの設定
 
@@ -245,8 +245,8 @@ Assets/
 - ビルド設定を開きます。
 - プレーヤー設定に移動します。
 - 決議と発表」の下：
- - WebGL Template "を探す。
- - KaiaTemplate」を選択する。
+  - WebGL Template "を探す。
+  - KaiaTemplate」を選択する。
 - Publish Settings "の "Compression Format "フィールドで "**disabled**"を選択します。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)

@@ -143,21 +143,21 @@ Note:
 To verify our already deployed contract, we'll use the hardhat verify plugin. All that is required is to add the following configuration to your **hardhat.config.ts** under the etherscan configuration object for Kairos Testnet.
 
 ```js
-  etherscan: {
+  에테르스캔: {
     apiKey: {
-      kairos: "unnecessary",
+      kairos: "불필요",
     },
     customChains: [
       {
         network: "kairos",
         chainId: 1001,
         urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+          apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+          browserURL: "https://kairos.kaiascan.io",
         },
       },
     ],
-  },
+},
 ```
 
 Next is to copy and paste the following command in your terminal to verify the smart contract:
@@ -175,13 +175,11 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
  "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
 
-As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). After a short wait, the console will display the verification result and, if successful, the URL to the verified contract on Kaiascope will be provided.
+As you can see above, to verify your contracts, you have to pass in the network name, contract address and constructor arguments (if any). 잠시 기다리면 콘솔에 인증 결과가 표시되고, 성공하면 KaiaScan에서 인증된 계약의 URL이 제공됩니다.
 
 ![Verify](/img/build/tutorials/scaffold-verify.png)
 
-![Verify on Kaiascope](/img/build/tutorials/scaffold-3.png)
-
-For more information about verifying smart contracts on Kaia using the Hardhat Verify plugin, please refer to the H[ardhat-Verify-Plugins guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
+하드햇 검증 플러그인을 사용하여 카이아에서 스마트 컨트랙트를 검증하는 방법에 대한 자세한 내용은 [하드햇-검증 플러그인 가이드](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)를 참조하시기 바랍니다.
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 

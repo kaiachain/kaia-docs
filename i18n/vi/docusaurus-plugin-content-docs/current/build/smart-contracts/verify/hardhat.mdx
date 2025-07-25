@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem'
 
 # Cách xác minh hợp đồng thông minh bằng Hardhat
 
-Hướng dẫn này cho phép bạn tự động xác minh mã nguồn hợp đồng thông minh của mình trên Kaiascope trực tiếp từ CLI bằng cách sử dụng Plugin Hardhat Verify.
+Hướng dẫn này cho phép bạn tự động xác minh mã nguồn hợp đồng thông minh của mình trên KaiaScan trực tiếp từ CLI bằng cách sử dụng Plugin Hardhat Verify.
 
 Để xác minh hợp đồng của bạn trên Kaia, bạn cần thêm cấu hình sau vào `hardhat.config.js`:
 
@@ -60,66 +60,6 @@ Hướng dẫn này cho phép bạn tự động xác minh mã nguồn hợp đ�
   </TabItem>
 </Tabs>
 
-## Kaiascope
-
-<Tabs>
-  <TabItem value="kaia-mainnet" label="Mainnet">
-    ```js
-    module.exports = {
-      networks: {
-        kaia: {
-          chainId: 8217,
-          url: "RPC_URL",
-        },
-      },
-      etherscan: {
-        apiKey: {
-          kaia: "unnecessary",
-        },
-        customChains: [
-          {
-            network: "kaia",
-            chainId: 8217,
-            urls: {
-              apiURL: "https://api-cypress.klaytnscope.com/api",
-              browserURL: "https://kaiascope.com/",
-            },
-          },
-        ]
-      }
-    }
-    ```
-  </TabItem>
-
-  <TabItem value="kairos-testnet" label="Kairos">
-    ```js
-    module.exports = {
-      networks: {
-        kairos: {
-          chainId: 1001,
-          url: "RPC_URL",
-        },
-      },
-      etherscan: {
-        apiKey: {
-          kairos: "unnecessary",
-        },
-        customChains: [
-          {
-            network: "kairos",
-            chainId: 1001,
-            urls: {
-              apiURL: "https://api-baobab.klaytnscope.com/api",
-              browserURL: "https://kairos.kaiascope.com",
-            },
-          },
-        ]
-      }
-    }
-    ```
-  </TabItem>
-</Tabs>
-
 Để xác minh hợp đồng, bạn sẽ chạy lệnh verify và truyền vào địa chỉ của hợp đồng đã triển khai, mạng và các tham số nếu có.
 
 ```bash
@@ -132,20 +72,11 @@ npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
 
 Trong thiết bị đầu cuối, bạn sẽ thấy mã nguồn hợp đồng của mình đã được gửi thành công để xác minh.
 
-Nếu xác minh thành công, bạn sẽ thấy hợp đồng đã được xác minh thành công và sẽ có liên kết đến mã hợp đồng trên [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1) và [Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode) tương ứng.
-
-**Kaiascan**
+Nếu xác minh thành công, bạn sẽ thấy hợp đồng đã được xác minh thành công và sẽ có liên kết đến mã hợp đồng trên [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1).
 
 ![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascan-verify.png)
 
-**Kaiascope**
-
-![](/img/build/smart-contracts/verify/kaiascope-terminal.png)
-![](/img/build/smart-contracts/verify/kaiascope-verify.png)
-
 ## Liên kết hữu ích
 
-* [Cấu hình cho Hardhat Verify Plugin trên Kaiascan](https://docs.kaiascan.io/hardhat-verify)
-* [Cấu hình cho Hardhat Verify Plugin trên Kaiascope](https://docs.klaytnscope.com/contract/configuration-for-hardhat-verify-plugin)
-* [Xác minh hợp đồng bằng Hardhat trên Kaiascan](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
+* [Cấu hình cho Hardhat Verify Plugin trên Kaiascan](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)

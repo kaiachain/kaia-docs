@@ -1,0 +1,144 @@
+# 價值轉移備忘錄
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/ValueTransferMemo.tsx" route={RoutePath.ViemExt_Value_Transfer_Memo} />
+
+**TxTypeValueTransferMemo**用於使用者要傳送特定訊息的 KAIA 時。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js
+    import { createWalletClient, http, privateKeyToAccount, toHex, TxType } from "@kaiachain/viem-ext";
+    import { kairos } from "viem/chains";
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0n,
+        type: TxType.ValueTransferMemo,
+        data: toHex('Hello Kaia')
+      });
+      console.log("txRequest", txRequest);
+      const sentTx = await senderWallet.sendTransaction(txRequest);
+      console.log("value transfer memo tx", sentTx);
+      // account update
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeValueTransferMemo.js
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0n,
+      type: 8,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2376,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    value transfer memo tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **@kaiachain/viem-ext** 套件以在 web3 上新增 kaia 功能
+
+  ```js TxTypeValueTransferMemo.js focus=1
+  ```
+
+  ---
+
+  指定**kairos**連線設定，以連線至 Kaia Kairos 測試網路。
+
+  ```js TxTypeValueTransferMemo.js focus=2
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定一個錢包用戶端，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的**寄件者私密金鑰**。
+
+  ```js TxTypeValueTransferMemo.js focus=3:9
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**建立轉移價值的交易請求，指定寄件者帳戶、收件者地址、要轉移的價值（本範例中為 0 KLAY），以及交易類型\*\*(TxType.ValueTransfer)\*\*。
+
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js focus=12:19
+    ```
+
+    ---
+
+    ```zsh output
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+      value: 0n,
+      type: 8,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2376,
+      chainId: 1001,
+      gas: 21000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 52500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用錢包用戶端 **sendTransaction** 方法簽署交易並發送至 Kaia 區塊鏈，並記錄交易哈希值。
+
+  <CH.Code>
+    ```js TxTypeValueTransferMemo.js focus=20:21
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxTypeValueTransferMemo.js
+    value transfer memo tx 0x9a86e7ebf483b6a5ced2620f61ccda39e895419f6485a8ec2499d1104fd12314
+    ```
+  </CH.Code>
+</CH.Spotlight>

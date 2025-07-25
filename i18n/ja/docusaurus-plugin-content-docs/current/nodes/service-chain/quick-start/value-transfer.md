@@ -9,7 +9,7 @@ You will add KLAY to the operator account and deploy bridge and ERC-20 contracts
 - We assume that you installed the ServiceChain, and connected the ServiceChain to the Baobab EN by the instructions in [Connecting to Baobab](en-scn-connection.md).
 - リポジトリ[servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)をクローンします。
 - `Node.js` (v14) と `npm` をインストールする ([インストール方法](https://nodejs.org/en/download/package-manager/))
- - この例では、axiosとcaver-jsという2つのパッケージを利用しているが、どちらもv14をサポートしている。
+    - この例では、axiosとcaver-jsという2つのパッケージを利用しているが、どちらもv14をサポートしている。
 
 ## ERC-20トークン転送（ワンステップ）<a id="erc-20-token-transfer-onestep"></a>
 
@@ -62,7 +62,7 @@ True
 ### ステップ2：契約の展開<a id="step-2-deploy-contracts"></a>
 
 - SCN に接続し、契約展開のためのノード環境を準備します。
- リポジトリ[servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)をクローンします。
+    リポジトリ[servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)をクローンします。
 
 ![](/img/nodes/sc-vt-deploy.png)
 

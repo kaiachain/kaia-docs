@@ -431,7 +431,7 @@ contract MyERC20 is IERC20 {
 - `IERC20` interface defines mandatory interface described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
 - `SafeMath` library defines wrappers over Solidity's arithmetic operations with added overflow checks for safe calculation of `uint256` type of Solidity.
 - `MyERC20` implements `IERC20` interfaces and also defines three optional methods described at [ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20).
- - In addition to ERC20, `constructor` is defined and this constructor is used to define a new ERC20 token name and symbol, and to mint a predefined amount of token. `constructor` is called once on its first deploy.
+  - In addition to ERC20, `constructor` is defined and this constructor is used to define a new ERC20 token name and symbol, and to mint a predefined amount of token. `constructor` is called once on its first deploy.
 
 ### 1.2 Take a look at important methods <a id="1-2-take-a-look-at-important-methods"></a>
 
@@ -576,7 +576,7 @@ Kaia Wallet
 ![](/img/build/smart-contracts/kaia-add-token-kw.png)
 
 - Paste the address of myERC20.sol contract in the Token Contract Address field under Custom Token tab.
-- Follow the prompts afterwards to add your token. Your Token List modal should like this:
+- Follow the prompts afterwards to add your token. Your Token List modal should like like this:
 
 ![](/img/build/smart-contracts/kaia-add-token-kw-ii.png)
 

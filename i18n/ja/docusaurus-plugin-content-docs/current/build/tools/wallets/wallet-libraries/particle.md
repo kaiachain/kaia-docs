@@ -57,25 +57,25 @@ next_public_app_id='app_id'
 
 import React from "react";
 import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
-import { authWalletConnectors } from "@particle-network/connectkit/auth";
+import { authWalletConnectors } from "@particle-network/connectkit/auth"；
 import { defineChain } from "@particle-network/connectkit/chains";
 import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
 
 const kaiaMainnet = defineChain({
-  id: 8217,
+  id：8217,
   name: "Kaia",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kaiascan.io/"},
   },
   testnet: false,
 });
@@ -83,18 +83,18 @@ const kaiaMainnet = defineChain({
 const kaiaTestnet = defineChain({
   id: 1001,
   name: "Kaia Testnet",
-  nativeCurrency: {
+  nativeCurrency：{
     decimals: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    symbol："KAIA",
   },
-  rpcUrls: {
+  rpcUrls：{
     default: {
       http: ["https://public-en-kairos.node.kaia.io"],
     },
   },
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+  blockExplorers：{
+    default: { name: "Explorer", url："https://kairos.kaiascan.io/"},
   },
   testnet: true,
 });
@@ -104,20 +104,20 @@ const config = createConfig({
   clientKey: process.env.NEXT_PUBLIC_CLIENT_KEY!,
   appId: process.env.NEXT_PUBLIC_APP_ID!,
 
-  walletConnectors: [authWalletConnectors({})],
+  walletConnectors：[authWalletConnectors({})],
 
-  plugins: [
+  plugins：[
     wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
+      entryPosition：EntryPosition.BR, // ログイン時にモーダルボタンを右下に配置
+      visible: true, // ウォレットのモーダルが表示されるかどうかを決定
     }),
   ],
-  chains: [kaiaMainnet, kaiaTestnet],
+  chain：[kaiaMainnet, kaiaTestnet],
 });
 
 export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
   return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
-};
+}；
 ```
 
 このコンポーネントは、サポートするさまざまなログインタイプからモーダルの視覚的な外観まで、ほぼすべてのプロパティを設定できます。これらのさまざまなオプションを調べるには、[Particleのドキュメント](https://developers.particle.network/api-reference/connect/desktop/web#configuration)にアクセスしてください。

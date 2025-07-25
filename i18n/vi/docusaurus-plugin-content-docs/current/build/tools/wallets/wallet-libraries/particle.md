@@ -53,29 +53,29 @@ NEXT_PUBLIC_APP_ID='APP_ID'
 Now, add the following code to your `ConnectKit.tsx` file:
 
 ```js
-"use client";
+"sử dụng máy khách";
 
-import React from "react";
-import { ConnectKitProvider, createConfig } from "@particle-network/connectkit";
-import { authWalletConnectors } from "@particle-network/connectkit/auth";
-import { defineChain } from "@particle-network/connectkit/chains";
-import { wallet, EntryPosition } from "@particle-network/connectkit/wallet";
+nhập React từ "react";
+nhập { ConnectKitProvider, createConfig } từ "@particle-network/connectkit";
+nhập { authWalletConnectors } từ "@particle-network/connectkit/auth";
+nhập { defineChain } từ "@particle-network/connectkit/chains";
+nhập { wallet, EntryPosition } từ "@particle-network/connectkit/wallet";
 
 const kaiaMainnet = defineChain({
   id: 8217,
   name: "Kaia",
   nativeCurrency: {
-    decimals: 18,
+    số thập phân: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    ký hiệu: "KAIA",
   },
   rpcUrls: {
-    default: {
+    mặc định: {
       http: ["https://public-en.node.kaia.io"],
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kaiascope.com/" },
+    mặc định: { tên: "Explorer", url: "https://kaiascan.io/" },
   },
   testnet: false,
 });
@@ -84,19 +84,19 @@ const kaiaTestnet = defineChain({
   id: 1001,
   name: "Kaia Testnet",
   nativeCurrency: {
-    decimals: 18,
+    số thập phân: 18,
     name: "KAIA",
-    symbol: "KAIA",
+    ký hiệu: "KAIA",
   },
   rpcUrls: {
-    default: {
+    mặc định: {
       http: ["https://public-en-kairos.node.kaia.io"],
     },
   },
   blockExplorers: {
-    default: { name: "Explorer", url: "https://kairos.kaiascope.com/" },
+    mặc định: { tên: "Explorer", url: "https://kairos.kaiascan.io/" },
   },
-  testnet: true,
+  mạng thử nghiệm: đúng,
 });
 
 const config = createConfig({
@@ -108,15 +108,15 @@ const config = createConfig({
 
   plugins: [
     wallet({
-      entryPosition: EntryPosition.BR, // Positions the modal button at the bottom right on login
-      visible: true, // Determines if the wallet modal is displayed
+      entryPosition: EntryPosition.BR, // Đặt nút modal ở góc dưới bên phải khi đăng nhập
+      visible: true, // Xác định xem modal ví có được hiển thị không
     }),
   ],
-  chains: [kaiaMainnet, kaiaTestnet],
+  chuỗi: [kaiaMainnet, kaiaTestnet],
 });
 
-export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
-  return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
+xuất const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
+  trả về <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
 };
 ```
 
