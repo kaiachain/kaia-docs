@@ -5,4 +5,4 @@ This blockchain tool enables users and enthusiasts to search for real-time and h
 The list of explorers supported by Kaia is provided below:
 
 * [Kaiascan](https://www.kaiascan.io/)
-* [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)
+* [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia)
