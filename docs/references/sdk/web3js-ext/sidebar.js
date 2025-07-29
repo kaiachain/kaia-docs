@@ -77,6 +77,13 @@ export const sidebar = {
         },
         {
             type: 'category',
+            label: 'Gas Abstraction',
+            items: [
+                'references/sdk/web3js-ext/gas-abstraction/gasless',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Smart Contract',
             items: [
                 'references/sdk/web3js-ext/smart-contract/deploy',

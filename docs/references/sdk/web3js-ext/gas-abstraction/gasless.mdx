@@ -1,0 +1,546 @@
+# Gasless
+
+<CH.Spotlight>
+<CH.Code>
+
+```js Gasless.js
+const { Web3 } = require("@kaiachain/web3js-ext");
+
+// Replace with ERC20 token address to be spent
+const tokenAddr = "0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750"; // Kairos:TEST token
+// Replace with your wallet address and private key
+const senderAddr = "0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7";
+const senderPriv = "0x4a72b3d09c3d5e28e8652e0111f9c4ce252e8299aad95bb219a38eb0a3f4da49";
+
+const provider = new Web3.providers.HttpProvider("https://public-en-kairos.node.kaia.io");
+const web3 = new Web3(provider);
+const senderAccount = web3.eth.accounts.privateKeyToAccount(senderPriv);
+
+const ERC20_ABI = JSON.parse('[{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"}]');
+
+// senderAddr wants to swap the ERC20 token for at least 0.01 KAIA so she can execute the AppTx.
+async function main() {
+  const appTxFee = web3.utils.toWei("0.01", "ether");
+
+  console.log(`Using token at address: ${tokenAddr}`);
+  const token = new web3.eth.Contract(ERC20_ABI, tokenAddr);
+  const tokenSymbol = await token.methods.symbol().call();
+  const tokenDecimals = parseInt(await token.methods.decimals().call());
+  const tokenBalance = await token.methods.balanceOf(senderAddr).call();
+
+  console.log(`\nInitial balance of the sender ${senderAddr}`);
+  console.log(`- ${web3.utils.fromWei(await web3.eth.getBalance(senderAddr), "ether")} KAIA`);
+  console.log(`- ${web3.utils.fromWei(tokenBalance, tokenDecimals)} ${tokenSymbol}`);
+
+  const router = await web3.gasless.getGaslessSwapRouter();
+  const routerAddr = await router.options.address;
+  const isTokenSupported = await router.methods.isTokenSupported(tokenAddr).call();
+  const commissionRate = await router.methods.commissionRate().call();
+  console.log(`\nGaslessSwapRouter address: ${routerAddr}`);
+  console.log(`- The token is supported: ${isTokenSupported}`);
+  console.log(`- Commission rate: ${commissionRate} bps`);
+
+
+  // If sender hasn't approved, include ApproveTx first.
+  const allowance = await token.methods.allowance(senderAddr, routerAddr).call();
+  const approveRequired = (allowance == 0n);
+  const txs = [];
+  if (approveRequired) {
+    console.log("\nAdding ApproveTx because allowance is 0");
+    const approveTx = await web3.gasless.getApproveTx(
+      senderAddr,
+      tokenAddr,
+      routerAddr,
+      gasPrice,
+    );
+    txs.push(approveTx);
+  } else {
+    console.log("\nNo ApproveTx needed");
+  }
+
+  // - amountRepay (KAIA) is the cost of LendTx, ApproveTx, and SwapTx. The block miner shall fund it first,
+  //   then the sender has to repay from the swap output.
+  // - minAmountOut (KAIA) is the required amount of the swap output. It must be enough to cover the amountRepay
+  //   and pay the commission, still leaving appTxFee.
+  // - amountIn (token) is the amount of the token to be swapped to produce minAmountOut plus slippage.
+  console.log(`\nCalculating the amount of the token to be swapped...`);
+  const gasPrice = await web3.eth.getGasPrice();
+  console.log(`- gasPrice: ${web3.utils.fromWei(gasPrice, "gwei")} gkei`);
+  const amountRepay = web3.gasless.getAmountRepay(approveRequired, gasPrice);
+  console.log(`- amountRepay: ${web3.utils.fromWei(amountRepay, "ether")} KAIA`);
+  const minAmountOut = web3.gasless.getMinAmountOut(amountRepay, appTxFee, commissionRate);
+  console.log(`- minAmountOut: ${web3.utils.fromWei(minAmountOut, "ether")} KAIA`);
+  const slippageBps = 50 // 0.5%
+  const amountIn = await web3.gasless.getAmountIn(router, tokenAddr, minAmountOut, slippageBps);
+  console.log(`- amountIn: ${web3.utils.fromWei(amountIn, tokenDecimals)} ${tokenSymbol}`);
+
+  if (tokenBalance < amountIn) {
+    console.log(`\nInsufficient balance of the token: ${web3.utils.fromWei(tokenBalance, tokenDecimals)} ${tokenSymbol}`);
+    console.log(`- Please transfer more ${tokenSymbol} to the sender ${senderAddr}`);
+    return;
+  }
+
+  const swapTx = await web3.gasless.getSwapTx(
+    senderAddr,
+    tokenAddr,
+    routerAddr,
+    amountIn,
+    minAmountOut,
+    amountRepay,
+    gasPrice,
+    approveRequired,
+  );
+  txs.push(swapTx);
+
+  console.log("\nSending transactions and waiting for them to be mined...");
+  const signedTxs = [];
+  const txHashes = []
+  for (const tx of txs) {
+    const signResult = await senderAccount.signTransaction(tx);
+    signedTxs.push(signResult.rawTransaction);
+    txHashes.push(signResult.transactionHash);
+    console.log(`- Tx signed: (nonce: ${tx.nonce}) ${signResult.transactionHash} ${signResult.rawTransaction}`);
+  }
+  const receipts = await web3.eth.sendSignedTransactions(signedTxs);
+
+  console.log("\nListing the block's transactions related to the sender...");
+  const block = await web3.eth.getBlock(receipts[0].blockNumber);
+  const names = {
+    [senderAddr.toLowerCase()]: "sender",
+    [tokenAddr.toLowerCase()]: "token",
+    [routerAddr.toLowerCase()]: "router",
+  }
+  for (const txhash of block.transactions) {
+    const tx = await web3.eth.getTransaction(txhash);
+    const fromName = names[tx.from.toLowerCase()] || tx.from;
+    const toName = names[tx.to.toLowerCase()] || tx.to;
+    if (fromName != tx.from || toName != tx.to) {
+      console.log(`- Tx ${tx.hash}: ${fromName} => ${toName}`);
+    }
+  }
+
+  console.log(`\nFinal balance of the sender ${senderAddr}`);
+  console.log(`- ${web3.utils.fromWei(await web3.eth.getBalance(senderAddr), "ether")} KAIA`);
+  console.log(`- ${web3.utils.fromWei(await token.methods.balanceOf(senderAddr).call(), tokenDecimals)} ${tokenSymbol}`);
+}
+
+main();
+```
+
+---
+
+```zsh output
+❯ node Gasless.js
+Using token at address: 0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750
+
+
+Initial balance of the sender 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7
+- 49.9969537425 KAIA
+- 3.0 TEST
+
+GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+- The token is supported: true
+- Commission rate: 0 bps
+
+- 3.0 TEST
+
+GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+- The token is supported: true
+- Commission rate: 0 bps
+
+GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+- The token is supported: true
+- Commission rate: 0 bps
+
+- The token is supported: true
+- Commission rate: 0 bps
+
+- Commission rate: 0 bps
+
+
+Adding ApproveTx because allowance is 0
+
+Calculating the amount of the token to be swapped...
+- gasPrice: 27.5 gkei
+- amountRepay: 0.0170775 KAIA
+- minAmountOut: 0.0270775 KAIA
+- amountIn: 0.027300931296609197 TEST
+
+Sending transactions and waiting for them to be mined...
+- Tx signed: (nonce: 5) 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef
+- Tx signed: (nonce: 6) 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf
+
+Listing the block's transactions related to the sender...
+- Tx 0x50769b14c7814f4e6b169f63595c1c19d9c46ce1c626c14b6b3c5610f691f58a: 0xB74Ff9DEa397fE9E231df545eb53fE2ADF776cb2 => sender
+- Tx 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef: sender => token
+- Tx 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf: sender => router
+
+Final balance of the sender 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7
+- 50.016275725 KAIA
+- 2.972699068703390803 TEST
+```
+
+</CH.Code>
+
+---
+
+Import the **Web3** from **@kaiachain/web3js-ext** packages to add gasless features on web3js
+
+```js Gasless.js focus=1
+
+```
+
+---
+
+The ERC20 token address (TEST token on Kairos testnet).
+
+```js Gasless.js focus=4
+
+```
+
+---
+
+Declare **senderAddr:** The wallet address of the sender performing the swap and **senderPriv:** The sender’s private key for signing transactions.
+
+```js Gasless.js focus=6:7
+
+```
+
+---
+
+Creating a JSON-RPC provider and an instance of **Wallet** with the Kaia Kairos testnet
+
+```js Gasless.js focus=9:10
+
+```
+
+---
+
+Declare **senderAccount** from **sender private key**
+
+```js Gasless.js focus=11
+
+```
+
+---
+
+A minimal ABI for the ERC20 token, including functions to query decimals, symbol, allowance, and balance.
+
+```js Gasless.js focus=13
+
+```
+
+---
+
+A fixed amount of 0.01 KAIA (in wei) that the sender wants to receive from the swap to fund a subsequent application transaction.
+
+```js Gasless.js focus=17
+
+```
+
+---
+
+Show token at address:
+
+<CH.Code>
+```js Gasless.js focus=19
+
+````
+---
+```zsh output
+❯ node Gasless.js
+Using token at address: 0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750
+````
+
+</CH.Code>
+
+---
+
+Creates an instance of an ERC20 token contract to interact with its functions.
+
+```js Gasless.js focus=20
+
+```
+
+---
+
+Queries the token’s symbol (e.g., “TEST” for the TEST token).
+
+```js Gasless.js focus=21
+
+```
+
+---
+
+Queries the token’s decimal places (e.g., 18 for most ERC20 tokens like ETH or TEST).
+
+```js Gasless.js focus=22
+
+```
+
+---
+
+Queries the sender’s balance of the ERC20 token.
+
+```js Gasless.js focus=23
+
+```
+
+---
+
+Display the sender’s initial balances.
+
+<CH.Code>
+```js Gasless.js focus=25:27
+
+````
+---
+```zsh output
+❯ node Gasless.js
+
+Initial balance of the sender 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7
+- 49.9969537425 KAIA
+- 3.0 TEST
+````
+
+</CH.Code>
+
+---
+
+Retrieves an instance of the GaslessSwapRouter contract, which facilitates gasless token swaps on the Kaia blockchain.
+
+```js Gasless.js focus=29
+
+```
+
+---
+
+Retrieves the blockchain address of the GaslessSwapRouter contract.
+
+```js Gasless.js focus=30
+
+```
+
+---
+
+Checks whether the specified ERC20 token is supported by the GaslessSwapRouter for gasless swaps.
+
+```js Gasless.js focus=31
+
+```
+
+---
+
+Retrieves the commission rate charged by the GaslessSwapRouter for facilitating gasless swaps.
+
+```js Gasless.js focus=32
+
+```
+
+---
+
+Show the GaslessSwapRouter address, **true** if the token is supported and commission rate.
+
+<CH.Code>
+```js Gasless.js focus=33:35
+
+````
+---
+```zsh output
+❯ node Gasless.js
+GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+- The token is supported: true
+- Commission rate: 0 bps
+````
+
+</CH.Code>
+
+---
+
+
+Checks how many tokens the GaslessSwapRouter is allowed to spend on behalf of the sender.
+
+```js Gasless.js focus=39
+
+```
+
+---
+
+Determines if an approval transaction is needed by checking if the allowance is zero.
+
+```js Gasless.js focus=40
+
+```
+
+---
+
+Initializes an empty array to store transactions that will be sent later.
+
+```js Gasless.js focus=41
+
+```
+
+---
+
+Checks if an approval transaction is needed based on the approveRequired flag. Generates an ERC20 approve transaction to allow the GaslessSwapRouter to spend the sender’s tokens.
+
+```js Gasless.js focus=44:49
+
+```
+
+---
+
+Retrieves the current gas price from the blockchain and converts it to a JavaScript number.
+
+<CH.Code>
+
+```js Gasless.js focus=61:62
+
+```
+---
+```zsh output
+❯ node Gasless.js
+- gasPrice: 27.5 gkei
+
+````
+
+</CH.Code>
+
+---
+
+Calculates the total KAIA amount (in wei) that the sender must repay to the block miner for funding the gas costs of the transactions.
+
+<CH.Code>
+
+```js Gasless.js focus=63:64
+
+```
+---
+```zsh output
+❯ node Gasless.js
+- amountRepay: 0.0170775 KAIA
+
+````
+
+</CH.Code>
+
+---
+
+Calculates the minimum amount of KAIA (in wei) that the swap must produce to cover the repayment, commission, and the desired application transaction fee.
+
+<CH.Code>
+
+```js Gasless.js focus=65:66
+
+```
+---
+```zsh output
+❯ node Gasless.js
+- minAmountOut: 0.0270775 KAIA
+
+````
+
+</CH.Code>
+
+---
+
+Calculates the amount of ERC20 tokens to swap to receive at least minAmountOut KAIA, accounting for slippage.
+
+<CH.Code>
+
+```js Gasless.js focus=67:69
+
+```
+---
+```zsh output
+❯ node Gasless.js
+- amountIn: 0.027300931296609197 TEST
+
+````
+
+</CH.Code>
+
+---
+
+Checks if the sender’s ERC20 token balance is insufficient to cover the amount of tokens required for the swap.
+
+```js Gasless.js focus=71:75
+
+```
+
+---
+
+Generates the swap transaction to exchange a specified amount of ERC20 tokens for at least a minimum amount of KAIA, incorporating gasless repayment logic. Adds the swap transaction to the txs array for batch execution.
+
+```js Gasless.js focus=77:87
+
+```
+
+---
+
+Sends all transactions in the txs array using the sender’s wallet. Iterates over the sent transactions to log their details.
+
+<CH.Code>
+
+```js Gasless.js focus=89:97
+
+```
+---
+```zsh output
+❯ node Gasless.js
+Sending transactions and waiting for them to be mined...
+- Tx signed: (nonce: 5) 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef
+- Tx signed: (nonce: 6) 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf
+
+````
+
+</CH.Code>
+
+---
+
+Sends an array of signed transactions to the blockchain and waits for their transaction receipts.
+
+```js Gasless.js focus=98
+
+```
+
+---
+
+Listing the block's transactions related to the sender
+
+<CH.Code>
+
+```js Gasless.js focus=100:114
+
+```
+---
+```zsh output
+❯ node Gasless.js
+Listing the block's transactions related to the sender...
+- Tx 0x50769b14c7814f4e6b169f63595c1c19d9c46ce1c626c14b6b3c5610f691f58a: 0xB74Ff9DEa397fE9E231df545eb53fE2ADF776cb2 => sender
+- Tx 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef: sender => token
+- Tx 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf: sender => router
+
+````
+
+</CH.Code>
+
+---
+
+Final balance of the sender
+
+<CH.Code>
+```js Gasless.js focus=116:118
+
+````
+---
+```zsh output
+❯ node Gasless.js
+Final balance of the sender 0x24e8efd18d65bcb6b3ba15a4698c0b0d69d13ff7
+- 50.016275725 KAIA
+- 2.972699068703390803 TEST
+````
+
+</CH.Code>
+
+</CH.Spotlight>

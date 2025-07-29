@@ -180,6 +180,13 @@ export const sidebar = {
           },
           {
             type: 'category',
+            label: 'Gas Abstraction',
+            items: [
+              'references/sdk/ethers-ext/v6/gas-abstraction/gasless',
+            ],
+          },
+          {
+            type: 'category',
             label: 'Smart Contract',
             items: [
               'references/sdk/ethers-ext/v6/smart-contract/deploy',
