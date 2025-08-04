@@ -43,7 +43,7 @@ module.exports = [
   { from: '/learn/storage/state-migration', to: '/learn/storage/state-pruning/#state-batch-pruning-state-migration' },
   { from: '/learn/storage/upstream-en', to: '/misc/operation/upstream-en' },
   { from: '/learn/storage/chaindata-snapshot', to: '/misc/operation/chaindata-snapshot' },
-  { from: '/build/smart-contracts/deploy/ken', to: '/build/smart-contracts/deploy/private-network' },
+  { from: '/build/smart-contracts/deploy/ken', to: '/build/smart-contracts/deployment-and-verification/deploy/private-network' },
   { from: '/references/service-providers/public-en', to: '/references/public-en' },
   { from: '/misc/finschia', to: '/misc/kaia-transition/finschia' },
 ];

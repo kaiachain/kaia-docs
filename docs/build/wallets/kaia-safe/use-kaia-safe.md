@@ -111,7 +111,7 @@ In this section, you'll learn how to send KAIA and KIP-7 tokens from your Kaia S
 
 * **KAIA**
   
-> Note: Add the **recipient address** and the **amount** of KAIA to send the transfer KAIA.
+> Note: Add the **recipient address** and the **amount** of KAIA to transfer.
 
 ![](/img/build/tools/kaia-safe/kaia-safe-send-token-details.gif)
   
@@ -119,7 +119,7 @@ In this section, you'll learn how to send KAIA and KIP-7 tokens from your Kaia S
 
 Select the tokens you want to send in the asset drop-down as seen in the image above.
 
-> Note: Add the recipient address and the number of tokens to transfer KIP7 tokens.
+> Note: Add the **recipient address** and the **number of tokens** to transfer.
   
 
 **Step 3:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.

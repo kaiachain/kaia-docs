@@ -143,7 +143,7 @@ const sidebars = {
           label: 'Wallet Configuration',
           items: [
             'build/wallets/wallet-config/configure-wallet-for-kaia-networks',
-            // 'build/wallets/wallet-config/create-and-manage-wallets-securely',
+            'build/wallets/wallet-config/create-and-manage-wallets-securely',
           ],
         },
         {
@@ -256,7 +256,6 @@ const sidebars = {
           label: 'Token Development',
           items: [
             'build/smart-contracts/token-development/token-standard',
-            'build/smart-contracts/tools/kaia-contracts-wizard',
             {
               type: 'category',
               label: 'Sample Contracts',
@@ -323,6 +322,17 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Cookbooks',
+      items: [
+        'build/wallets/wallet-config/configure-wallet-for-kaia-networks',
+		    'build/wallets/wallet-config/create-and-manage-wallets-securely',
+        'build/wallets/wallet-ops/send-tokens-from-your-kaia-compatible-wallet',
+        'build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask',
+        'build/transactions/cookbooks/how-to-optimize-gas-fees',
+      ],
+    },
+    {
+      type: 'category',
       link: { type: 'doc', id: 'build/tools/tools' },
       label: 'Tools',
       items: [
@@ -338,54 +348,6 @@ const sidebars = {
             'build/tools/kaia-agentkit/mcp',
           ],
         },
-        // {
-        //   type: 'category',
-        //   label: 'Wallets',
-        //   link: { type: 'doc', id: 'build/tools/wallets/wallets' },
-        //   items: [
-        //     {
-        //       type: 'category',
-        //       label: 'Hardware Wallets',
-        //       items: [
-        //         'build/tools/wallets/hardware-wallets/dcent',
-        //         'build/tools/wallets/hardware-wallets/safepal-s1',
-        //       ],
-        //     },
-        //     {
-        //       type: 'category',
-        //       label: 'Kaia Safe',
-        //       link: {
-        //         type: 'doc',
-        //         id: 'build/tools/wallets/kaia-safe/kaia-safe',
-        //       },
-        //       items: [
-        //         'build/tools/wallets/kaia-safe/overview',
-        //         'build/tools/wallets/kaia-safe/use-kaia-safe',
-        //         'build/tools/wallets/kaia-safe/contract-interaction',
-        //         'build/tools/wallets/kaia-safe/tx-builder',
-        //         'build/tools/wallets/kaia-safe/csv-airdrop',
-        //         'build/tools/wallets/kaia-safe/faqs',
-        //         'build/tools/wallets/kaia-safe/kaia-safe-api-kit',
-        //       ],
-        //     },
-        //     'build/tools/wallets/kaia-wallet',
-        //     {
-        //       type: 'category',
-        //       label: 'Wallet Libraries',
-        //       link: {
-        //         type: 'doc',
-        //         id: 'build/tools/wallets/wallet-libraries/wallet-libraries',
-        //       },
-        //       items: [
-        //         'build/tools/wallets/wallet-libraries/web3Auth',
-        //         'build/tools/wallets/wallet-libraries/web3Modal',
-        //         'build/tools/wallets/wallet-libraries/web3Onboard',
-        //         'build/tools/wallets/wallet-libraries/particle',
-        //         'build/tools/wallets/wallet-libraries/privy',
-        //       ],
-        //     },
-        //   ],
-        // },
         {
           type: 'category',
           label: 'Oracles',

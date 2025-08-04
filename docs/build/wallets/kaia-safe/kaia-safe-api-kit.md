@@ -46,13 +46,13 @@ Using API-Kit is as simple as running the installation command below:
 <Tabs>
   <TabItem value="npm" label="npm">
     ```
-    npm install @safe-global/api-kit @safe-global/protocol-kit @safe-global/safe-core-sdk-types  
+    npm install @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
     ```
   </TabItem>
 
  <TabItem value="yarn" label="yarn">
     ```
-    yarn add @safe-global/api-kit @safe-global/protocol-kit @safe-global/safe-core-sdk-types
+    yarn add @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
     ```
  </TabItem>
 </Tabs>
@@ -264,7 +264,7 @@ const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
 console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${hash}`)
+console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
 
