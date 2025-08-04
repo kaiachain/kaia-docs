@@ -5,4 +5,4 @@
 由 Kaia 支持的探险家名单如下：
 
 - [Kaiascan](https://www.kaiascan.io/)
-- [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)
+- [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia)
