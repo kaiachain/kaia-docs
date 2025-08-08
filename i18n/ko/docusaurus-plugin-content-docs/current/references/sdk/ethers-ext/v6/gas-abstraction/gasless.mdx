@@ -1,0 +1,537 @@
+# 가스 없음
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js Gasless.js
+    const ethers = require("ethers");
+
+    const { Wallet, gasless } = require("@kaiachain/ethers-ext/v6");
+
+    // Replace with ERC20 token address to be spent
+    const tokenAddr = "0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750"; // Kairos:TEST token
+
+    // Replace with your wallet address and private key
+    const senderAddr = "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720";
+    const senderPriv = "0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6";
+
+    const provider = new ethers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+    const wallet = new Wallet(senderPriv, provider);
+
+    const ERC20_ABI = [
+      "function decimals() view returns (uint8)",
+      "function symbol() view returns (string)",
+      "function allowance(address owner, address spender) view returns (uint256)",
+      "function balanceOf(address owner) view returns (uint256)"
+    ];
+
+    // senderAddr wants to swap the ERC20 token for at least 0.01 KAIA so she can execute the AppTx.
+    async function main() {
+      const appTxFee = ethers.parseEther("0.01").toString();
+
+      // Query the environment
+      console.log(`Using token at address: ${tokenAddr}`);
+      const token = new ethers.Contract(tokenAddr, ERC20_ABI, provider);
+      const tokenSymbol = await token.symbol();
+      const tokenDecimals = await token.decimals();
+      const tokenBalance = await token.balanceOf(senderAddr);
+
+      console.log(`\nInitial balance of the sender ${senderAddr}`);
+      console.log(`- ${ethers.formatEther(await provider.getBalance(senderAddr))} KAIA`);
+      console.log(`- ${ethers.formatUnits(tokenBalance, tokenDecimals)} ${tokenSymbol}`);
+
+      const router = await gasless.getGaslessSwapRouter(provider);
+      const routerAddr = await router.getAddress();
+      const isTokenSupported = await router.isTokenSupported(tokenAddr);
+      const commissionRate = Number(await router.commissionRate());
+      console.log(`\nGaslessSwapRouter address: ${routerAddr}`);
+      console.log(`- The token is supported: ${isTokenSupported}`);
+      console.log(`- Commission rate: ${commissionRate} bps`);
+
+      
+
+      // If sender hasn't approved, include ApproveTx first.
+      const allowance = await token.allowance(senderAddr, routerAddr);
+      const approveRequired = (allowance == 0n);
+      const txs = [];
+      if (approveRequired) {
+        console.log("\nAdding ApproveTx because allowance is 0");
+        const approveTx = await gasless.getApproveTx(
+          provider,
+          senderAddr,
+          tokenAddr,
+          routerAddr,
+          gasPrice,
+        );
+        txs.push(approveTx);
+      } else {
+        console.log("\nNo ApproveTx needed");
+      }
+
+      // - amountRepay (KAIA) is the cost of LendTx, ApproveTx, and SwapTx. The block miner shall fund it first,
+      //   then the sender has to repay from the swap output.
+      // - minAmountOut (KAIA) is the required amount of the swap output. It must be enough to cover the amountRepay
+      //   and pay the commission, still leaving appTxFee.
+      // - amountIn (token) is the amount of the token to be swapped to produce minAmountOut plus slippage.
+      console.log("\nCalculating the amount of the token to be swapped...");
+      const gasPrice = Number((await provider.getFeeData()).gasPrice);
+      console.log(`- gasPrice: ${ethers.formatUnits(gasPrice, "gwei")} gkei`);
+      const amountRepay = gasless.getAmountRepay(approveRequired, gasPrice);
+      console.log(`- amountRepay: ${ethers.formatEther(amountRepay)} KAIA`);
+      const minAmountOut = gasless.getMinAmountOut(amountRepay, appTxFee, commissionRate);
+      console.log(`- minAmountOut: ${ethers.formatEther(minAmountOut)} KAIA`);
+      const slippageBps = 50 // 0.5%
+      const amountIn = await gasless.getAmountIn(router, tokenAddr, minAmountOut, slippageBps);
+      console.log(`- amountIn: ${ethers.formatUnits(amountIn, tokenDecimals)} ${tokenSymbol}`);
+
+      if (tokenBalance < amountIn) {
+        console.log(`\nInsufficient balance of the token: ${ethers.formatUnits(tokenBalance, tokenDecimals)} ${tokenSymbol}`);
+        console.log(`- Please transfer more ${tokenSymbol} to the sender ${senderAddr}`);
+        return;
+      }
+
+      const swapTx = await gasless.getSwapTx(
+        provider,
+        senderAddr,
+        tokenAddr,
+        routerAddr,
+        amountIn,
+        minAmountOut,
+        amountRepay,
+        gasPrice,
+        approveRequired,
+      );
+      txs.push(swapTx);
+
+      console.log("\nSending transactions...");
+      const sentTxs = await wallet.sendTransactions(txs);
+      for (const tx of sentTxs) {
+        console.log(`- Tx sent: (nonce: ${tx.nonce}) ${tx.hash}`);
+      }
+
+      console.log("\nWaiting for transactions to be mined...");
+      let blockNum = 0;
+      for (const sentTx of sentTxs) {
+        const receipt = await sentTx.wait();
+        console.log(`- Tx mined at block ${receipt.blockNumber}`);
+        blockNum = receipt.blockNumber;
+      }
+
+      console.log("\nListing the block's transactions related to the sender...");
+      const block = await provider.getBlock(blockNum, true);
+      const names = {
+        [senderAddr.toLowerCase()]: "sender",
+        [tokenAddr.toLowerCase()]: "token",
+        [routerAddr.toLowerCase()]: "router",
+      }
+      for (const txhash of block.transactions) {
+        const tx = await provider.getTransaction(txhash);
+        const fromName = names[tx.from.toLowerCase()] || tx.from;
+        const toName = names[tx.to.toLowerCase()] || tx.to;
+        if (fromName != tx.from || toName != tx.to) {
+          console.log(`- Tx ${tx.hash}: ${fromName} => ${toName}`);
+        }
+      }
+
+      console.log(`\nFinal balance of the sender ${senderAddr}`);
+      console.log(`- ${ethers.formatEther(await provider.getBalance(senderAddr))} KAIA`);
+      console.log(`- ${ethers.formatUnits(await token.balanceOf(senderAddr), tokenDecimals)} ${tokenSymbol}`);
+    }
+
+    main().catch(console.error);
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Using token at address: 0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750
+
+
+    Initial balance of the sender 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+    - 49.9969537425 KAIA
+    - 3.0 TEST
+
+    GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+    - The token is supported: true
+    - Commission rate: 0 bps
+
+    - 3.0 TEST
+
+    GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+    - The token is supported: true
+    - Commission rate: 0 bps
+
+    GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+    - The token is supported: true
+    - Commission rate: 0 bps
+
+    - The token is supported: true
+    - Commission rate: 0 bps
+
+    - Commission rate: 0 bps
+
+
+    Adding ApproveTx because allowance is 0
+
+    Calculating the amount of the token to be swapped...
+    - gasPrice: 27.5 gkei
+    - amountRepay: 0.0170775 KAIA
+    - minAmountOut: 0.0270775 KAIA
+    - amountIn: 0.027300931296609197 TEST
+
+    Sending transactions...
+    - Tx sent: (nonce: 5) 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef
+    - Tx sent: (nonce: 6) 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf
+
+    Waiting for transactions to be mined...
+    - Tx mined at block 192123894
+    - Tx mined at block 192123894
+
+    Listing the block's transactions related to the sender...
+    - Tx 0x50769b14c7814f4e6b169f63595c1c19d9c46ce1c626c14b6b3c5610f691f58a: 0xB74Ff9DEa397fE9E231df545eb53fE2ADF776cb2 => sender
+    - Tx 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef: sender => token
+    - Tx 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf: sender => router
+
+    Final balance of the sender 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+    - 50.016275725 KAIA
+    - 2.972699068703390803 TEST
+    ```
+  </CH.Code>
+
+  ---
+
+  ethers.js에 가스 없는 기능을 추가하려면 **ethers** 및 **@kaiachain/ethers-ext/v6** 패키지를 가져옵니다.
+
+  ```js Gasless.js focus=1:3
+  ```
+
+  ---
+
+  ERC20 토큰 주소(카이로스 테스트넷의 TEST 토큰).
+
+  ```js Gasless.js focus=6
+  ```
+
+  ---
+
+  발신자 주소:\*\* 스왑을 수행하는 발신자의 지갑 주소와 **발신자 프라이빗 키:** 트랜잭션 서명을 위한 발신자의 개인키를 선언합니다.
+
+  ```js Gasless.js focus=9:10
+  ```
+
+  ---
+
+  카이아 카이로스 테스트넷으로 JSON-RPC 제공자 및 **Wallet** 인스턴스 생성하기
+
+  ```js Gasless.js focus=12:13
+  ```
+
+  ---
+
+  소수점, 기호, 허용량, 잔액을 쿼리하는 기능을 포함한 ERC20 토큰에 대한 최소한의 ABI입니다.
+
+  ```js Gasless.js focus=15:20
+  ```
+
+  ---
+
+  발신자가 후속 신청 거래에 자금을 지원하기 위해 스왑에서 받기를 원하는 고정 금액 0.01 KAIA(웨이)입니다.
+
+  ```js Gasless.js focus=24
+  ```
+
+  ---
+
+  주소에 토큰 표시:
+
+  <CH.Code>
+    ```js Gasless.js focus=27
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Using token at address: 0xcB00BA2cAb67A3771f9ca1Fa48FDa8881B457750
+    ```
+  </CH.Code>
+
+  ---
+
+  ERC20 토큰 컨트랙트의 인스턴스를 생성하여 해당 기능과 상호 작용합니다.
+
+  ```js Gasless.js focus=28
+  ```
+
+  ---
+
+  토큰의 심볼을 쿼리합니다(예: TEST 토큰의 경우 "TEST").
+
+  ```js Gasless.js focus=29
+  ```
+
+  ---
+
+  토큰의 소수점 이하 자릿수를 쿼리합니다(예: ETH 또는 TEST와 같은 대부분의 ERC20 토큰의 경우 18).
+
+  ```js Gasless.js focus=30
+  ```
+
+  ---
+
+  발신자의 ERC20 토큰 잔액을 조회합니다.
+
+  ```js Gasless.js focus=31
+  ```
+
+  ---
+
+  발신자의 초기 잔액을 표시합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=33:35
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+
+    Initial balance of the sender 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+    - 49.9969537425 KAIA
+    - 3.0 TEST
+    ```
+  </CH.Code>
+
+  ---
+
+  카이아 블록체인에서 가스 없는 토큰 스왑을 가능하게 하는 가스 없는 스왑 라우터 컨트랙트의 인스턴스를 검색합니다.
+
+  ```js Gasless.js focus=37
+  ```
+
+  ---
+
+  가스리스스왑라우터 컨트랙트의 블록체인 주소를 검색합니다.
+
+  ```js Gasless.js focus=38
+  ```
+
+  ---
+
+  가스 없는 스왑을 위해 지정된 ERC20 토큰이 가스 없는 스왑 라우터에서 지원되는지 여부를 확인합니다.
+
+  ```js Gasless.js focus=39
+  ```
+
+  ---
+
+  가스리스 스왑 라우터가 가스리스 스왑을 촉진하기 위해 부과하는 수수료율을 검색합니다.
+
+  ```js Gasless.js focus=40
+  ```
+
+  ---
+
+  가스리스스왑라우터 주소, 토큰이 지원되는 경우 **true**, 수수료율을 표시합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=41:43
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
+    - The token is supported: true
+    - Commission rate: 0 bps
+    ```
+  </CH.Code>
+
+  ---
+
+  가스리스스왑라우터가 발신자를 대신해 사용할 수 있는 토큰의 수를 확인합니다.
+
+  ```js Gasless.js focus=48
+  ```
+
+  ---
+
+  수당이 0인지 확인하여 승인 거래가 필요한지 여부를 결정합니다.
+
+  ```js Gasless.js focus=49
+  ```
+
+  ---
+
+  나중에 전송할 트랜잭션을 저장할 빈 배열을 초기화합니다.
+
+  ```js Gasless.js focus=50
+  ```
+
+  ---
+
+  승인 필요 플래그를 기반으로 승인 트랜잭션이 필요한지 확인합니다. 가스리스스왑라우터가 발신자의 토큰을 사용할 수 있도록 ERC20 승인 트랜잭션을 생성합니다.
+
+  ```js Gasless.js focus=53:60
+  ```
+
+  ---
+
+  블록체인에서 현재 가스 가격을 검색하여 자바스크립트 숫자로 변환합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=71:72
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    - gasPrice: 27.5 gkei
+
+    ```
+  </CH.Code>
+
+  ---
+
+  트랜잭션의 가스 비용을 충당하기 위해 발신자가 블록 채굴자에게 상환해야 하는 총 KAIA 금액(웨이)을 계산합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=73:74
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    - amountRepay: 0.0170775 KAIA
+
+    ```
+  </CH.Code>
+
+  ---
+
+  상환, 수수료 및 원하는 신청 거래 수수료를 충당하기 위해 스왑이 생성해야 하는 최소 KAIA 금액(위화)을 계산합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=75:76
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    - minAmountOut: 0.0270775 KAIA
+
+    ```
+  </CH.Code>
+
+  ---
+
+  미끄러짐을 고려하여 최소 최소금액Out KAIA를 받기 위해 스왑할 ERC20 토큰의 양을 계산합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=77:79
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    - amountIn: 0.027300931296609197 TEST
+
+    ```
+  </CH.Code>
+
+  ---
+
+  발신자의 ERC20 토큰 잔액이 스왑에 필요한 토큰 양을 충당하기에 부족한지 확인합니다.
+
+  ```js Gasless.js focus=81:85
+  ```
+
+  ---
+
+  가스 없는 상환 로직을 통합하여 지정된 양의 ERC20 토큰을 최소한의 KAIA로 교환하는 스왑 거래를 생성합니다. 일괄 실행을 위해 스왑 트랜잭션을 txs 배열에 추가합니다.
+
+  ```js Gasless.js focus=87:98
+  ```
+
+  ---
+
+  발신자의 지갑을 사용하여 txs 배열의 모든 트랜잭션을 전송합니다. 전송된 트랜잭션을 반복하여 세부 정보를 기록합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=100:104
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Sending transactions...
+    - Tx sent: (nonce: 5) 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef
+    - Tx sent: (nonce: 6) 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf
+
+    ```
+  </CH.Code>
+
+  ---
+
+  트랜잭션이 채굴될 때까지 기다렸다가 트랜잭션 영수증을 검색합니다.
+
+  <CH.Code>
+    ```js Gasless.js focus=106:112
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Waiting for transactions to be mined...
+    - Tx mined at block 192123894
+    - Tx mined at block 192123894
+
+    ```
+  </CH.Code>
+
+  ---
+
+  발신자와 관련된 블록의 트랜잭션 목록 보기
+
+  <CH.Code>
+    ```js Gasless.js focus=114:128
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Listing the block's transactions related to the sender...
+    - Tx 0x50769b14c7814f4e6b169f63595c1c19d9c46ce1c626c14b6b3c5610f691f58a: 0xB74Ff9DEa397fE9E231df545eb53fE2ADF776cb2 => sender
+    - Tx 0x1d2bd9e5ae11653b8cddb297d040074b189fe456ae986197c4c2bbf74a51e6ef: sender => token
+    - Tx 0x96dd81962d7ae14baf31bd0a8afb900be1a6c9c8d30ad854011a4120fb0efbaf: sender => router
+
+    ```
+  </CH.Code>
+
+  ---
+
+  발신자의 최종 잔액
+
+  <CH.Code>
+    ```js Gasless.js focus=130:132
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node Gasless.js
+    Final balance of the sender 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
+    - 50.016275725 KAIA
+    - 2.972699068703390803 TEST
+    ```
+  </CH.Code>
+</CH.Spotlight>

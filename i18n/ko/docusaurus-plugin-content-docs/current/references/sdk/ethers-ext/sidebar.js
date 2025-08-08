@@ -183,22 +183,27 @@ export const sidebar = {
         },
         {
           type: 'category',
-          label: 'Smart Contract',
-          items: [
-            'references/sdk/ethers-ext/v6/smart-contract/deploy',
-            'references/sdk/ethers-ext/v6/smart-contract/read',
-            'references/sdk/ethers-ext/v6/smart-contract/write',
-            'references/sdk/ethers-ext/v6/smart-contract/write-txtype',
-            'references/sdk/ethers-ext/v6/smart-contract/write-with-fee-delegation'
-          ]
+          label: '가스 추상화',
+          items: ['참조/sdk/ethers-ext/v6/gas-추상화/가스리스']
         },
         {
           type: 'category',
+          label: '스마트 계약',
+          items: [
+            '참조/sdk/ethers-ext/v6/smart-contract/deploy',
+            '참조/sdk/ethers-ext/v6/smart-contract/read',
+            '참조/sdk/ethers-ext/v6/smart-contract/write',
+            '참조/sdk/ethers-ext/v6/smart-contract/write-txtype',
+            '참조/sdk/ethers-ext/v6/smart-contract/write-with-fee-delegation'
+          ]
+        },
+        {
+          type: '카테고리',
           label: 'Utils',
           items: [
-            'references/sdk/ethers-ext/v6/utils/address',
-            'references/sdk/ethers-ext/v6/utils/signature',
-            'references/sdk/ethers-ext/v6/utils/unit'
+            '참조/sdk/ethers-ext/v6/utils/address',
+            '참조/sdk/ethers-ext/v6/utils/signature',
+            '참조/sdk/ethers-ext/v6/utils/unit'
           ]
         }
       ]

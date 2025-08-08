@@ -29,7 +29,7 @@ Mọi bản dịch cho Kaia Docs đều được quản lý thông qua Crowdin, 
 
 1. **Truy cập [dự án Kaia-Docs trên Crowdin](https://crowdin.com/project/kaia-docs).**
 2. **Tạo tài khoản Crowdin** (hoặc đăng nhập nếu bạn đã có tài khoản).
-3. **Chọn ngôn ngữ** bạn muốn đóng góp từ trang dự án. Nếu ngôn ngữ của bạn không có trong danh sách, bạn có thể yêu cầu ngôn ngữ mới bằng cách mở một vấn đề trên GitHub sử dụng nhãn `content-translation`.
+3. **Chọn ngôn ngữ** bạn muốn đóng góp từ trang dự án. Nếu ngôn ngữ của bạn không có trong danh sách, bạn có thể yêu cầu ngôn ngữ mới bằng cách [mở một vấn đề trên GitHub](https://github.com/kaiachain/kaia-docs/issues/new?assignees=&labels=content-translation&template=feature_request.md&title=%5BLang%20Request%5D%3A%20Add%20\[Your%20Language]) sử dụng nhãn `content-translation`.
 4. **Tham gia nhóm dịch thuật** cho ngôn ngữ bạn chọn. Yêu cầu của bạn có thể cần được người quản lý dự án chấp thuận.
 5. **Chọn tệp** bạn muốn dịch hoặc xem lại.
 6. **Bắt đầu dịch:** Sử dụng trình soạn thảo trực tuyến Crowdin.

@@ -310,7 +310,7 @@ sentTx TransactionResponse {
 
 ### 4.4 Kaiascanで見る
 
-上記のトランザクションは、Kaiascan でも見つけることができます。
+上記のトランザクションは、[Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview&page=1) でも見つけることができます。
 
 これは、トランザクションが `TxTypeFeeDelegatedValueTransfer` であり、`Fee payer` が `0x88311cd55b656d2502b50f62e83f8279c1641e70` または入力した `feepayerAddress` であることを示しています。
 

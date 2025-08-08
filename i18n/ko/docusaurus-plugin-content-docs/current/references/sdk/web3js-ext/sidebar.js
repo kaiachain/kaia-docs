@@ -83,22 +83,27 @@ export const sidebar = {
         },
         {
             type: 'category',
-            label: 'Smart Contract',
-            items: [
-                'references/sdk/web3js-ext/smart-contract/deploy',
-                'references/sdk/web3js-ext/smart-contract/read',
-                'references/sdk/web3js-ext/smart-contract/write',
-                'references/sdk/web3js-ext/smart-contract/write-txtype',
-                'references/sdk/web3js-ext/smart-contract/write-with-fee-delegation'
-            ]
+            label: '가스 추상화',
+            items: ['참조/sdk/web3js-ext/gas-추상화/gasless']
         },
         {
             type: 'category',
+            label: '스마트 계약',
+            items: [
+                '참조/sdk/web3js-ext/smart-contract/deploy',
+                '참조/sdk/web3js-ext/smart-contract/read',
+                '참조/sdk/web3js-ext/smart-contract/write',
+                '참조/sdk/web3js-ext/smart-contract/write-txtype',
+                '참조/sdk/web3js-ext/smart-contract/write-with-fee-delegation'
+            ]
+        },
+        {
+            type: '카테고리',
             label: 'Utils',
             items: [
-                'references/sdk/web3js-ext/utils/address',
-                'references/sdk/web3js-ext/utils/signature',
-                'references/sdk/web3js-ext/utils/unit'
+                '참조/sdk/web3js-ext/utils/address',
+                '참조/sdk/web3js-ext/utils/signature',
+                '참조/sdk/web3js-ext/utils/unit'
             ]
         }
     ]

@@ -83,22 +83,27 @@ export const sidebar = {
         },
         {
             type: 'category',
-            label: 'Smart Contract',
-            items: [
-                'references/sdk/web3js-ext/smart-contract/deploy',
-                'references/sdk/web3js-ext/smart-contract/read',
-                'references/sdk/web3js-ext/smart-contract/write',
-                'references/sdk/web3js-ext/smart-contract/write-txtype',
-                'references/sdk/web3js-ext/smart-contract/write-with-fee-delegation'
-            ]
+            label: 'Chiết xuất khí',
+            items: ['Tham chiếu/SDK/web3js-ext/gas-abstraction/gasless']
         },
         {
             type: 'category',
-            label: 'Utils',
+            label: 'Hợp đồng thông minh',
             items: [
-                'references/sdk/web3js-ext/utils/address',
-                'references/sdk/web3js-ext/utils/signature',
-                'references/sdk/web3js-ext/utils/unit'
+                'Tham chiếu/SDK/web3js-ext/smart-contract/deploy',
+                'Tham chiếu/SDK/web3js-ext/smart-contract/read',
+                'Tham chiếu/SDK/web3js-ext/smart-contract/write',
+                'Tham chiếu/SDK/web3js-ext/smart-contract/write-txtype',
+                'Tham chiếu/SDK/web3js-ext/smart-contract/viết hợp đồng thông minh với phí ủy quyền'
+            ]
+        },
+        {
+            type: 'danh mục',
+            label: 'Công cụ',
+            items: [
+                'Tham chiếu/SDK/web3js-ext/utils/address',
+                'Tham chiếu/SDK/web3js-ext/utils/signature',
+                'Tham chiếu/SDK/web3js-ext/utils/unit'
             ]
         }
     ]

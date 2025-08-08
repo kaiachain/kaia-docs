@@ -310,24 +310,24 @@ Scripts are JavaScript/Typescript files that help you deploy contracts to the bl
 ```js
 const { ethers } = require("hardhat");
 
-async function main() {
+hàm async main() {
 
-  const deployerAddr = "Your Metamask wallet address";
+  const deployerAddr = "Địa chỉ ví Metamask của bạn";
   const deployer = await ethers.getSigner(deployerAddr);
 
-  console.log(`Deploying contracts with the account: ${deployer.address}`);
-  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+  console.log(`Đang triển khai hợp đồng với tài khoản: ${deployer.address}`);
+  console.log(`Số dư tài khoản: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
 
 
   const sbtContract = await ethers.deployContract("SoulBoundToken");
   await sbtContract.waitForDeployment();
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascope.com/account/${sbtContract.target}`);
+console.log(`Xin chúc mừng! Bạn vừa triển khai thành công các token liên kết linh hồn của mình.`);
+console.log(`Địa chỉ hợp đồng SBT là ${sbtContract.target}. Bạn có thể xác minh trên https://kairos.kaiascan.io/account/${sbtContract.target}`);
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
+// Chúng tôi khuyên bạn nên sử dụng mẫu này để có thể sử dụng async/await ở mọi nơi
+// và xử lý lỗi đúng cách.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
@@ -342,7 +342,7 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**Step 4**: Open [Kaiascope](https://kairos.kaiascope.com/) to check if the SBT token has been deployed successfully.
+**Bước 4**: Mở [KaiaScan](https://kairos.kaiascan.io/) để kiểm tra xem token SBT đã được triển khai thành công hay chưa.
 
 **Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [kaiascope](https://kaiascope.com/).
+The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. Bạn có thể xác nhận số khối trên [KaiaScan](https://kaiascan.io/).
 
 ### Forking at a Block
 

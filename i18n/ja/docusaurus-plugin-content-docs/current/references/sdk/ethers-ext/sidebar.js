@@ -183,6 +183,11 @@ export const sidebar = {
         },
         {
           type: 'カテゴリー',
+          label: 'ガス抽出',
+          items: ['リファレンス/sdk/ethers-ext/v6/gas-abstraction/gasless']
+        },
+        {
+          type: 'カテゴリー',
           label: 'スマート契約',
           items: [
             'リファレンス/sdk/ethers-ext/v6/スマート契約/デプロイ',

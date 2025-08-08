@@ -1,0 +1,134 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# 如何從 Kaia 相容錢包傳送代幣
+
+本文提供使用 Kaia 相容的錢包 (例如 Kaia Wallet 和 MetaMask) 傳送 KAIA (原生代幣) 和 ERC20 代幣的逐步指南。 不過，無論您使用的是哪個網路 (Kaia Mainnet 或 Kaia Kairos Testnet)，過程基本上都是一樣的 - 只要確定您有足夠的網路原生代幣來支付交易即可。
+
+您需要什麼？
+
+- 收件人的帳戶地址
+- 您帳戶中有足夠的網路原生代幣 (KAIA) 餘額來支付瓦斯費用。
+
+## KAIA (原住民代幣)
+
+### MetaMask
+
+<Tabs>
+  <TabItem value="Browser" label="Browser Extension" default>
+	1. 從您的錢包首頁，確定您是在正確的帳戶和正確的網路中進行交易，然後按一下螢幕中間的 **Send** 按鈕。
+	![](/img/build/wallets/mm-homepage-send.png)
+	2. 現在您需要輸入收件者的公開地址。 如果您已經在通訊錄中儲存了地址，它們現在就會出現。
+	![](/img/build/wallets/mm-insert-address.png)
+	3. 輸入您要傳送的代幣數量，然後按一下 **繼續**。
+	![](/img/build/wallets/mm-insert-amount.png)
+	4. 現在您會看到交易詳細資料。 在按一下 ** 確認** 繼續之前，請務必仔細檢查交易詳細資料。
+	![](/img/build/wallets/mm-tx-details.png)
+	交易成功後，您會被重新導向到首頁，您可以在「活動」標籤上看到您最近的交易清單。
+  </TabItem>
+  <TabItem value="Mobile" label="Mobile">
+	1. 在錢包首頁的代幣標籤下選擇 KAIA 代幣，進入顯示代幣詳細資訊的頁面
+	![](/img/build/wallets/mm-m-select-kaia.jpg)
+	2. 點選 **Send** 按鈕繼續
+	![](/img/build/wallets/mm-m-send-btn.jpg)
+	3. 現在您需要輸入要傳送的地址。 從剪貼簿貼入地址 (例如其他應用程式) 或從通訊錄選取一個地址，然後按一下 **下一步**。
+	![](/img/build/wallets/mm-m-insert-address.jpg)
+	4. 現在您會被帶到一個畫面，您可以輸入要傳送的金額，然後按 ** 下一步**
+	![](/img/build/wallets/mm-m-insert-amount.jpg)
+	5. 現在您會看到交易詳細資料。 在按一下 ** 確認** 繼續之前，請務必仔細檢查交易詳細資料。
+	![](/img/build/wallets/mm-m-tx-details.jpg)  
+</TabItem>
+</Tabs>
+
+### Kaia 皮夾
+
+<Tabs>
+  <TabItem value="Browser" label="Browser Extension" default>
+	1. 從您的錢包首頁，確定您是在正確的帳戶和正確的網路中進行交易，然後按一下螢幕中間的 **Send** 按鈕。
+	![](/img/build/wallets/kw-homepage-send.png)
+	2. 現在您需要輸入收件者的公開地址。 如果您已經在通訊錄中儲存了地址，它們現在就會出現。
+	3. 輸入您要傳送的代幣數量，然後按一下 **繼續**。
+	![](/img/build/wallets/kw-input-address-amount.png)
+	4. 現在您會看到交易詳細資料。 在按一下 ** 確認** 繼續之前，請務必仔細檢查交易詳細資料。
+	![](/img/build/wallets/kw-tx-details.png)
+	5. 如果代幣已成功傳送，您將會看到成功訊息模組。 
+	![](/img/build/wallets/kw-token-success-msg.png)
+	6. 現在您可以在**交易歷史**標籤中查看最近的交易。
+	![](/img/build/wallets/kw-tx-history.png)  
+</TabItem>
+  <TabItem value="Mobile" label="Mobile">
+	1. 從錢包的首頁，確認您是在正確的帳戶和正確的網路中進行交易。
+	2. 直接按下與 KAIA 結餘相同欄位的 **Send** 按鈕
+	![](/img/build/wallets/kw-m-send-btn.jpg)
+	3. 現在您需要輸入收件者的公開地址，然後按一下 **下一步**。
+	![](/img/build/wallets/kw-m-insert-address.jpg)
+	4. 輸入您要傳送的代幣數量，然後按一下 **下一步**。
+	![](/img/build/wallets/kw-m-insert-amount.jpg)
+	5. 現在您會看到交易詳細資料。 請務必仔細檢查交易詳細資訊，然後再按一下 ** 傳送** 繼續。
+	![](/img/build/wallets/kw-m-tx-details.jpg)
+	6. 當您點擊 KAIA 結餘卡時，您現在可以在**交易歷史**頁面看到您最近的交易。
+	![](/img/build/wallets/kw-m-tx-history.jpg)  
+</TabItem>
+</Tabs>
+
+## ERC20 代幣
+
+### MetaMask
+
+<Tabs>
+  <TabItem value="Browser" label="Browser Extension" default>
+	1. 導覽至您首頁上的 **Tokens** 標籤，並選擇您要傳送的代幣，以存取顯示代幣詳細資訊的頁面
+	![](/img/build/wallets/mm-erc20-homepage.png)
+	2. 按一下 **Send** 按鈕
+	![](/img/build/wallets/mm-erc20-send-btn.png)
+	3. 輸入收件者的地址和要傳送的代幣數量，然後按 **Continue**
+	![](/img/build/wallets/mm-erc20-input-ao.png)
+	4. 按一下 **Confirm** 按鈕以提交交易，並傳送您的 ERC20 代碼
+	![](/img/build/wallets/mm-erc20-tx-details.png)  
+</TabItem>
+  <TabItem value="Mobile" label="Mobile">
+	1. 點選 **Tokens** 標籤，並選擇您要傳送的 ERC20 代幣，以存取顯示代幣詳細資訊的頁面
+	![](/img/build/wallets/mm-m-erc20-select.jpg)
+	2. 點選 **Send** 按鈕繼續
+	![](/img/build/wallets/mm-m-erc20-send-btn.jpg)
+	3. 現在您需要輸入收件者的公開地址，然後按一下 **下一步**。
+	![](/img/build/wallets/mm-m-insert-address.jpg)
+	4. 輸入您要傳送的代幣數量，然後按一下 **下一步**。
+	![](/img/build/wallets/mm-m-erc20-insert-amount.jpg)
+	5. 點選螢幕下方的 **Send** 按鈕。
+	![](/img/build/wallets/mm-m-erc20-tx-details.jpg)  
+</TabItem>
+</Tabs>
+
+### Kaia 皮夾
+
+<Tabs>
+  <TabItem value="Browser" label="Browser Extension" default>
+	1. 導覽到錢包首頁的 ** 代幣清單** 面板
+	![](/img/build/wallets/kw-erc20-token-list.png)
+	2. 選擇您要傳送的代幣，以存取顯示代幣詳細資訊的頁面
+	3. 按一下 ** 傳送** 按鈕。
+	![](/img/build/wallets/kw-erc20-send-btn.png)
+	4. 輸入收件者的地址和您要傳送的代幣數量，然後按一下 **Proceed**
+	![](/img/build/wallets/kw-erc20-input-ao.png)
+	5. 按一下 **Confirm** 按鈕，以提交交易並傳送您的 ERC20 代幣 
+	![](/img/build/wallets/kw-erc20-tx-details.png)
+	6. 如果代幣已成功傳送，您將會看到成功訊息模組。
+	![](/img/build/wallets/kw-erc20-success-msg.png)  
+</TabItem>
+  <TabItem value="Mobile" label="Mobile">
+	1. 從錢包的首頁，確認您是在正確的帳戶和正確的網路中進行交易。
+	2. 直接按一下您要傳送的 ERC20 代幣餘額同一行的 **Send** 按鈕。
+	![](/img/build/wallets/kw-m-erc20-send-btn.jpg)
+	3.  現在您需要輸入收件者的公開地址，然後按一下 **下一步**。
+	![](/img/build/wallets/kw-m-erc20-insert-addr.jpg)
+	4. 輸入您要傳送的代幣數量，然後按一下 **下一步**。
+	![](/img/build/wallets/kw-m-erc20-insert-amount.jpg)
+	5. 現在您會看到交易詳細資料。 請務必仔細檢查交易詳細資訊，然後再按一下 ** 傳送** 繼續。
+	![](/img/build/wallets/kw-m-erc20-tx-details.jpg)
+	6. 如果代幣已成功傳送，您將會看到成功訊息模組。
+	![](/img/build/wallets/kw-m-erc20-success-msg.jpg)
+	7. 當您按一下代用餘額卡時，您現在可以在 **Transaction History** 頁面看到您最近的交易。
+	![](/img/build/wallets/kw-m-erc20-tx-history.jpg)  
+</TabItem>
+</Tabs>

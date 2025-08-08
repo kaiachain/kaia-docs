@@ -83,6 +83,11 @@ export const sidebar = {
         },
         {
             type: 'カテゴリー',
+            label: 'ガス抽出',
+            items: ['参考文献/sdk/web3js-ext/gas-abstraction/gasless']
+        },
+        {
+            type: 'カテゴリー',
             label: 'スマート契約',
             items: [
                 '参考文献/sdk/web3js-ext/スマートコントラクト/デプロイ',

@@ -83,7 +83,12 @@ export const sidebar = {
         },
         {
             type: 'category',
-            label: 'Smart Contract',
+            label: '瓦斯抽取',
+            items: ['references/sdk/web3js-ext/gas-abstraction/gasless']
+        },
+        {
+            type: 'category',
+            label: '智慧型契約',
             items: [
                 'references/sdk/web3js-ext/smart-contract/deploy',
                 'references/sdk/web3js-ext/smart-contract/read',
@@ -93,8 +98,8 @@ export const sidebar = {
             ]
         },
         {
-            type: 'category',
-            label: 'Utils',
+            type: '類別',
+            label: '工具',
             items: [
                 'references/sdk/web3js-ext/utils/address',
                 'references/sdk/web3js-ext/utils/signature',
