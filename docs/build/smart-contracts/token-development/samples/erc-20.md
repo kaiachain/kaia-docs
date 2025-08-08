@@ -2,7 +2,7 @@
 
 ## Overview <a id="overview"></a>
 
-Creating a fungible token on Kaia follows very similar steps to how you would on Ethereum and it uses the [ERC20 standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20).
+Creating a fungible token on Kaia follows similar steps to how you would on Ethereum and it uses the [ERC20 standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20).
 
 To follow the standard, you will deploy a contract that implements the following events and functions:
 
