@@ -1,0 +1,82 @@
+---
+id: hardhat
+title: 하드햇 사용
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# 하드햇을 사용하여 스마트 컨트랙트를 확인하는 방법
+
+이 가이드를 통해 하드햇 검증 플러그인을 사용하여 CLI에서 바로 카이아스캔에서 스마트 컨트랙트의 소스 코드를 자동으로 검증할 수 있습니다.
+
+Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추가해야 합니다:
+
+## Kaiascan
+
+<Tabs>
+  <TabItem value="카이아 메인넷" label="메인넷">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kaia: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kaia",
+              chainId: 8217,
+              urls: {
+                apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+
+  <TabItem value="카이로스 테스트넷" label="카이로스">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kairos: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kairos",
+              chainId: 1001,
+              urls: {
+                apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kairos.kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+컨트랙트를 확인하려면 verify 명령을 실행하고 배포된 컨트랙트의 주소, 네트워크 및 매개변수(있는 경우)를 전달합니다.
+
+```bash
+npx hardhat verify –network <network> <deployed_address> <parameters>
+
+## example
+
+npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
+```
+
+터미널에서 확인을 위해 계약의 소스 코드가 성공적으로 제출된 것을 확인할 수 있습니다.
+
+인증에 성공했다면 [카이아스캔](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)에 성공적으로 인증된 계약이 표시되고 계약 코드 링크가 있습니다.
+
+![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
+![](/img/build/smart-contracts/verify/kaiascan-verify.png)
+
+## 유용한 링크
+
+* [카이아스캔의 하드햇 검증 플러그인 설정](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
