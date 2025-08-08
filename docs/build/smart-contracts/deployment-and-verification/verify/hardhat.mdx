@@ -1,0 +1,84 @@
+---
+id: hardhat
+title: Using Hardhat
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# How to Verify Smart Contracts Using Hardhat
+
+This guide allows you to automatically verify your smart contracts' source code on KaiaScan straight from your CLI using the Hardhat Verify Plugin.
+
+To verify your contract on Kaia, you need to add the following configuration to your `hardhat.config.js`:
+
+## Kaiascan
+
+<Tabs>
+    <TabItem value="kaia-mainnet" label="Mainnet">
+        ```js
+        module.exports = {
+          etherscan: {
+              apiKey: {
+                kaia: "unnecessary",
+              },
+              customChains: [
+                {
+                  network: "kaia",
+                  chainId: 8217,
+                  urls: {
+                    apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+                    browserURL: "https://kaiascan.io",
+                  }
+                },
+              ]
+            }
+        }
+        ```
+  </TabItem>
+
+  <TabItem value="kairos-testnet" label="Kairos">
+      ```js
+      module.exports = {
+        etherscan: {
+            apiKey: {
+              kairos: "unnecessary",
+            },
+            customChains: [
+              {
+                network: "kairos",
+                chainId: 1001,
+                urls: {
+                  apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+                  browserURL: "https://kairos.kaiascan.io",
+                }
+              },
+            ]
+          }
+}
+      ```
+  </TabItem>
+</Tabs>
+
+To verify the contract, you will run the verify command and pass in the address of the deployed contract, network and parameters if any.
+
+```bash
+npx hardhat verify –network <network> <deployed_address> <parameters>
+
+## example
+
+npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
+```
+
+In your terminal you should see the source code for your contract was successfully submitted for verification. 
+
+If the verification was successful, you should see Successfully verified contract and there will be a link to the contract code on [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract&page=1).
+
+![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
+![](/img/build/smart-contracts/verify/kaiascan-verify.png)
+
+## Useful links
+
+- [Configuration for Hardhat Verify Plugin on Kaiascan](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
+
+

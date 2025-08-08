@@ -134,13 +134,99 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Wallets',
+      link: { type: 'doc', id: 'build/wallets/wallets' },
+      items: [
+        'build/wallets/overview/kaia-wallet',
+        {
+          type: 'category',
+          label: 'Wallet Configuration',
+          items: [
+            'build/wallets/wallet-config/configure-wallet-for-kaia-networks',
+            'build/wallets/wallet-config/create-and-manage-wallets-securely',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Wallet Operations',
+          items: [
+            'build/wallets/wallet-ops/send-tokens-from-your-kaia-compatible-wallet',
+            'build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'dApp Integration',
+          items: [
+            'build/wallets/dapp-integration/integrate-dapp-with-kaiawallet',
+            'build/wallets/dapp-integration/how-to-integrate-fee-delegation-features-into-wallets',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Wallet Libraries',
+          link: {
+            type: 'doc',
+            id: 'build/wallets/wallet-libraries/wallet-libraries',
+          },
+          items: [
+            'build/wallets/wallet-libraries/web3Auth',
+            'build/wallets/wallet-libraries/web3Modal',
+            'build/wallets/wallet-libraries/web3Onboard',
+            'build/wallets/wallet-libraries/particle',
+            'build/wallets/wallet-libraries/privy',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Hardware Wallets',
+          items: [
+            'build/wallets/hardware-wallets/dcent',
+            'build/wallets/hardware-wallets/safepal-s1',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Kaia Safe',
+          link: {
+            type: 'doc',
+            id: 'build/wallets/kaia-safe/kaia-safe',
+          },
+          items: [
+            'build/wallets/kaia-safe/overview',
+            'build/wallets/kaia-safe/use-kaia-safe',
+            'build/wallets/kaia-safe/contract-interaction',
+            'build/wallets/kaia-safe/tx-builder',
+            'build/wallets/kaia-safe/csv-airdrop',
+            'build/wallets/kaia-safe/faqs',
+            'build/wallets/kaia-safe/kaia-safe-api-kit',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Transactions',
       link: { type: 'doc', id: 'build/transactions/transactions' },
       items: [
-        'build/transactions/basic',
-        'build/transactions/ethereum',
-        'build/transactions/fee-delegation',
-        'build/transactions/partial-fee-delegation',
+        {
+          type: 'category',
+          label: 'Implementing Transactions',
+          items: [
+            'build/transactions/basic',
+            'build/transactions/ethereum',
+            'build/transactions/fee-delegation',
+            'build/transactions/partial-fee-delegation',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Cookbooks',
+          items: [
+            'build/transactions/cookbooks/how-to-optimize-gas-fees',
+            // 'build/transactions/cookbooks/how-to-delegate-gas-fees',
+          ],
+        },
       ],
     },
     {
@@ -148,40 +234,77 @@ const sidebars = {
       label: 'Smart Contracts',
       link: { type: 'doc', id: 'build/smart-contracts/smart-contracts' },
       items: [
-        'build/smart-contracts/solidity-smart-contract-language',
-        'build/smart-contracts/ide-and-tools/ide-and-tools',
         {
           type: 'category',
-          label: 'Deploy Smart Contracts',
-          link: { type: 'doc', id: 'build/smart-contracts/deploy/deploy' },
+          label: 'Fundamentals',
           items: [
-            'build/smart-contracts/deploy/foundry',
-            'build/smart-contracts/deploy/thirdweb',
-            'build/smart-contracts/deploy/private-network',
+            'build/smart-contracts/fundamentals/solidity-smart-contract-language',
+            'build/smart-contracts/fundamentals/porting-ethereum-contract',
+            'build/smart-contracts/fundamentals/best-practices-for-smart-contract-security',
           ],
         },
         {
           type: 'category',
-          label: 'Verify Smart Contracts',
+          label: 'Tools',
           items: [
-            'build/smart-contracts/verify/block-explorers',
-            'build/smart-contracts/verify/foundry',
-            'build/smart-contracts/verify/hardhat',
-            'build/smart-contracts/verify/sourcify',
+            'build/smart-contracts/tools/ide-and-tools',
+            'build/smart-contracts/tools/kaia-contracts-wizard',
           ],
         },
         {
           type: 'category',
-          label: 'Sample Contracts',
-          link: { type: 'doc', id: 'build/smart-contracts/samples/samples' },
+          label: 'Token Development',
           items: [
-            'build/smart-contracts/samples/kaiagreeter',
-            'build/smart-contracts/samples/erc-20',
-            'build/smart-contracts/samples/erc-721',
+            'build/smart-contracts/token-development/token-standard',
+            {
+              type: 'category',
+              label: 'Sample Contracts',
+              link: {
+                type: 'doc',
+                id: 'build/smart-contracts/token-development/samples/samples',
+              },
+              items: [
+                'build/smart-contracts/token-development/samples/kaiagreeter',
+                'build/smart-contracts/token-development/samples/erc-20',
+                'build/smart-contracts/token-development/samples/erc-721',
+              ],
+            },
           ],
         },
-        'build/smart-contracts/token-standard',
-        'build/smart-contracts/porting-ethereum-contract',
+        {
+          type: 'category',
+          label: 'Deployment & Verification',
+          items: [
+            {
+              type: 'category',
+              label: 'Deploy Smart Contracts',
+              link: {
+                type: 'doc',
+                id: 'build/smart-contracts/token-development/samples/samples',
+              },
+              items: [
+                'build/smart-contracts/deployment-and-verification/deploy/foundry',
+                'build/smart-contracts/deployment-and-verification/deploy/thirdweb',
+                'build/smart-contracts/deployment-and-verification/deploy/private-network',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Verify Smart Contracts',
+              link: {
+                type: 'doc',
+                id: 'build/smart-contracts/token-development/samples/samples',
+              },
+              items: [
+                'build/smart-contracts/deployment-and-verification/verify/block-explorers',
+                'build/smart-contracts/deployment-and-verification/verify/foundry',
+                'build/smart-contracts/deployment-and-verification/verify/hardhat',
+                'build/smart-contracts/deployment-and-verification/verify/sourcify',
+
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -189,14 +312,23 @@ const sidebars = {
       label: 'Tutorials',
       link: { type: 'doc', id: 'build/tutorials/tutorials' },
       items: [
+        'build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk',
         'build/tutorials/fee-delegation-example',
-        'build/tutorials/fee-delegation-wallet-integration',
         'build/tutorials/scaffold-eth',
         'build/tutorials/buy-me-a-coffee',
-        'build/tutorials/connecting-metamask',
         'build/tutorials/connecting-remix',
-        'build/tutorials/kaia-wallet-dapp-integration',
         'build/tutorials/migrating-ethereum-app-to-kaia',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Cookbooks',
+      items: [
+        'build/wallets/wallet-config/configure-wallet-for-kaia-networks',
+		    'build/wallets/wallet-config/create-and-manage-wallets-securely',
+        'build/wallets/wallet-ops/send-tokens-from-your-kaia-compatible-wallet',
+        'build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask',
+        'build/transactions/cookbooks/how-to-optimize-gas-fees',
       ],
     },
     {
@@ -205,7 +337,7 @@ const sidebars = {
       label: 'Tools',
       items: [
         'build/tools/kaia-online-toolkit',
-             {
+        {
           type: 'category',
           label: 'Kaia Agent Kit',
           link: { type: 'doc', id: 'build/tools/kaia-agentkit/kaia-agentkit' },
@@ -214,55 +346,6 @@ const sidebars = {
             'build/tools/kaia-agentkit/eliza',
             'build/tools/kaia-agentkit/langchain',
             'build/tools/kaia-agentkit/mcp',
-
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Wallets',
-          link: { type: 'doc', id: 'build/tools/wallets/wallets' },
-          items: [
-            {
-              type: 'category',
-              label: 'Hardware Wallets',
-              items: [
-                'build/tools/wallets/hardware-wallets/dcent',
-                'build/tools/wallets/hardware-wallets/safepal-s1',
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Kaia Safe',
-              link: {
-                type: 'doc',
-                id: 'build/tools/wallets/kaia-safe/kaia-safe',
-              },
-              items: [
-                'build/tools/wallets/kaia-safe/overview',
-                'build/tools/wallets/kaia-safe/use-kaia-safe',
-                'build/tools/wallets/kaia-safe/contract-interaction',
-                'build/tools/wallets/kaia-safe/tx-builder',
-                'build/tools/wallets/kaia-safe/csv-airdrop',
-                'build/tools/wallets/kaia-safe/faqs',
-                'build/tools/wallets/kaia-safe/kaia-safe-api-kit',
-              ],
-            },
-            'build/tools/wallets/kaia-wallet',
-            {
-              type: 'category',
-              label: 'Wallet Libraries',
-              link: {
-                type: 'doc',
-                id: 'build/tools/wallets/wallet-libraries/wallet-libraries',
-              },
-              items: [
-                'build/tools/wallets/wallet-libraries/web3Auth',
-                'build/tools/wallets/wallet-libraries/web3Modal',
-                'build/tools/wallets/wallet-libraries/web3Onboard',
-                'build/tools/wallets/wallet-libraries/particle',
-                'build/tools/wallets/wallet-libraries/privy',
-              ],
-            },
           ],
         },
         {
@@ -333,7 +416,6 @@ const sidebars = {
             },
           ],
         },
-        'build/tools/kaia-contracts-wizard',
       ],
     },
     ...commonSidebar,
@@ -416,13 +498,13 @@ const sidebars = {
     {
       type: 'category',
       label: 'Debugging and Diagnostics',
-      link: { type: 'doc', id: 'nodes/debugging/debugging'},
+      link: { type: 'doc', id: 'nodes/debugging/debugging' },
       items: [
         'nodes/debugging/monitoring-setup',
         'nodes/debugging/node-profiling',
         'nodes/debugging/node-log',
         'nodes/debugging/analytics-tool',
-      ]
+      ],
     },
     {
       type: 'category',
