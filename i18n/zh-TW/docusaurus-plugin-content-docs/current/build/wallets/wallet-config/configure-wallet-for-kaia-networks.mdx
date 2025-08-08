@@ -1,0 +1,307 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# 如何為 Kaia Networks 設定您的錢包
+
+## 導言
+
+本指南提供實用的逐步指示，說明如何設定領先的軟體錢包 - Kaia Wallet 和 MetaMask，以連線至 Kaia Mainnet 和 Kairos Testnet。 本指南專為對加密錢包和網路有基本認識，需要在 Kaia 上進行建置或測試的開發人員所設計。
+
+您將學習添加 Kaia 網路的最快和手動方式，以及如何使用 testnet KAIA 為您的錢包注資。
+
+## 要求
+
+* 基本瞭解區塊鏈概念（錢包、網絡、交易）
+* 已安裝 Chrome 或相容的瀏覽器
+* 瞭解測試網路與主網路的概念
+
+## 為 Kaia 設定 Kaia 皮夾<a id="configure-kaia-wallet-for-kaia" />
+
+[Kaia Wallet](../overview/kaia-wallet.md) 是 Kaia 生態系統的原生瀏覽器延伸錢包。 雖然它與 MetaMask 分享許多功能，但它已針對 Kaia 進行最佳化，支援獨特的交易類型、費用委託交易以及特定於網路的帳戶系統，並在網路中提供無縫的使用者體驗。
+
+### 安裝 Kaia 電子錢包
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    1. 訪問 [https://www.kaiawallet.io](https://www.kaiawallet.io/)
+    2. 按一下 \*\* 瀏覽器延伸功能 (Chrome/Brave)\*\* 按鈕。
+    3. 按一下 \*\* 加入 Brave\*\* 按鈕。
+       ![](/img/build/wallets/install-kw-be-add-to-brave.png)
+    4. 在彈出視窗中，按一下 \*\* 新增延伸功能\*\* 按鈕。
+       ![](/img/build/wallets/install-kw-be-add-extension.png)
+
+    新增 Kaia Wallet 擴充套件後，會自動開啟一個安裝完成的標籤。 您也可以按一下螢幕右上方的拼圖圖示，直接將它釘選在工具列中，以確保它能在您的工具列中輕鬆存取。
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    1. 請造訪 [https://www.kaiawallet.io](https://www.kaiawallet.io)。
+    2. 根據您的行動裝置，點選 **App Store** 或 **Play Store** 按鈕
+       ![](/img/build/wallets/install-kw-ma-landing.jpg)
+    3. 按一下 **Get** 按鈕下載 Kaia Wallet。 下載完成後，按一下 \*\* 開啟\*\* 按鈕。
+       ![](/img/build/wallets/install-kw-ma-open-btn.jpg)
+  </TabItem>
+</Tabs>
+
+### 建立 Kaia 皮夾
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    現在您已成功安裝 Kaia Wallet，接下來就是建立一個錢包，看看它們的運作情況。
+
+    1. 點選您釘選延伸功能列上的 Kaia Wallet 圖示
+    2. 設定唯一密碼，用於存取您的帳戶，如下所示
+       ![](/img/build/wallets/be-kw-set-password.png)
+    3. 輸入錢包暱稱，然後按一下 **Create** 按鈕
+       ![](/img/build/wallets/be-kw-wallet-name.png)
+
+    > 如果您要匯入已存在的錢包，請按一下 **Restore** 標籤，並依照相應的步驟操作。
+
+    4. 請務必閱讀安全指南，然後按一下 **Next** 按鈕。
+       ![](/img/build/wallets/be-kw-security-guide.png)
+    5. 安全地儲存您的復原短語
+       ![](/img/build/wallets/be-kw-store-rp.png)
+    6. 輸入您安全儲存的復原短語，然後按一下 **Verify**
+       ![](/img/build/wallets/be-kw-verify-srp.png)
+    7. 點擊 **Start Kaia Wallet** 按鈕開始使用您的錢包
+       ![](/img/build/wallets/be-kw-start-wallet.png)
+       ![](/img/build/wallets/be-kw-default-account.png)
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    1. 勾選 **Kaia Wallet 使用條款** 同意方塊，然後按一下 **Create Wallet** 按鈕。
+       ![](/img/build/wallets/kw-ma-consent-create-wallet.jpg)
+
+    > 注意：如果您想要還原現有的錢包，您可以點擊 **Restore Existing Wallet** 按鈕，並按照相應的步驟進行操作。
+
+    2. 選擇一種方法來建立您的錢包。 您可以使用**社群網站 (SNS)** 如*Google*、*LINE*、*Apple*、*Kakao*、*Naver*建立，或使用**復原階段**建立。 在本指南中，我們會選擇 **「在復原階段創建錢包」**。
+       ![](/img/build/wallets/kw-ma-create-wallet-rp.jpg)
+    3. 設定您的密碼並驗證密碼，以保護錢包並進行驗證。
+       ![](/img/build/wallets/kw-ma-set-passcode.jpg)
+    4. 安全地儲存您的 Recovery Phrase，然後按一下 **Next**（下一步）按鈕。
+       ![](/img/build/wallets/kw-ma-store-srp.png)
+    5. 您會看到一個彈出視窗，驗證您是否準確儲存了復原短語。 按一下 **Verify** 進入下一步。
+       ![](/img/build/wallets/kw-ma-verify-srp.jpg)
+    6. 輸入與空白數字對應的短語，然後驗證。
+       ![](/img/build/wallets/kw-ma-arrange-srp.jpg)
+    7. 按一下 **Start Kaia Wallet** 按鈕，開始使用您的錢包。
+       ![](/img/build/wallets/kw-ma-start-kw.jpg)
+  </TabItem>
+</Tabs>
+
+### 在錢包中新增帳戶
+
+當您建立 Kaia 錢包時，會給您一個 Secret Recovery Phrase，並且會自動產生一個帳號。 當您啟動錢包時，您會看到該帳戶是您的預設帳戶，如*創建錢包*部分所示。
+
+在某些情況下，您可能需要建立和管理多個帳戶。 只需在 Kaia Wallet 中新增更多帳戶，即可輕鬆實現此流程。
+
+> 請注意，一旦新增帳號，就無法永久刪除。 它將永遠存在於區塊鏈上。
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    1. 按一下錢包右上方的 **Manage Accounts** 圖示。
+       ![](/img/build/wallets/be-kw-manage-account.png)
+    2. 選擇清單底部的 **Create** 按鈕。
+       ![](/img/build/wallets/be-kw-create-account-btn.png)
+    3. 輸入**錢包暱稱**，然後按一下**建立**
+       ![](/img/build/wallets/be-kw-new-account-name.png)
+    4. 現在您的新帳戶已加入 Kaia Wallet
+       ![](/img/build/wallets/be-kw-new-account-created.png)
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    1. 在錢包檢視中，點選目前選取的帳戶名稱。
+    2. 在出現的帳戶選擇器功能表上，點選 + 圖示
+       ![](/img/build/wallets/kw-ma-add-account.gif)
+    3. 從 **Add wallet** 彈出式選單中選擇 **Create new wallet** 選項。
+       ![](/img/build/wallets/kw-ma-new-account-cw.jpg)
+    4. 輸入您的密碼。
+       ![](/img/build/wallets/kw-ma-new-account-passcode.png)
+    5. 按一下 **前往錢包頁面**，以檢視新加入的帳戶。
+       ![](/img/build/wallets/kw-ma-goto-wallet-page.jpg)
+       ![](/img/build/wallets/kw-ma-new-account-added.jpg)
+  </TabItem>
+</Tabs>
+
+### 安全備份種子詞組
+
+您的種子詞組是 Web3 電子錢包的主密碼。 它允許您建立和恢復您的錢包，包括在錢包內生成的每個帳戶。 與種子短語綁定的每個帳戶都有自己的私密金鑰，但種子短語允許存取所有帳戶 - 例如 *帳戶 1*、*帳戶 2* 和 *帳戶 3*
+
+如果您只有一個帳戶的私人密碼匙，則無法存取其他帳戶。 這使得您的種子詞組成為需要安全備份的最重要資訊。
+
+**該怎麼做**
+
+* \*\* 寫下來並安全地儲存\*\*：手寫您的種子詞組可防止網路竊取。 避免將其儲存在任何連線至網際網路的裝置上。
+* \*\* 再三檢查您的書寫\*\*：確認每個單字的拼寫都正確無誤，並完全符合所提供的順序。
+* **離線儲存**：實體備份可降低遭駭客入侵或意外刪除的風險。
+
+**應避免的事項**
+
+* \*\* 請勿將其放在顯眼處\*\*：避免放在明顯的地方，例如桌上的紙條或貼在筆記型電腦上。
+* **請勿儲存於數位位置**：雲端服務、電子郵件草稿或備註應用程式都容易受到駭客攻擊。
+* **永遠不要與任何人分享**：任何人，包括 Kaia Wallet 支援人員，都不得向您索取種子詞組。
+* **請勿改變字詞的順序**：順序很重要。 任何變更都會使短語無效。
+
+如果由於某些原因，您忘記備份您的種子詞組或遺失了原始副本，而您的 Kaia Wallet 仍然解鎖，您仍然可以使用密碼檢視您的 *Recovery Phrase*。 請務必立即記錄，並儲存在安全的地方。
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    1. 按一下錢包右上方的 \*\* 設定\*\* 圖示。
+       ![](/img/build/wallets/be-kw-settings.png)
+    2. 在設定選項中選擇 **顯示復原語句**。
+       ![](/img/build/wallets/be-kw-reveal-srp.png)
+    3. 輸入您的密碼，然後按一下 **繼續**
+       ![](/img/build/wallets/be-kw-password-for-reveal-srp.png)
+    4. 安全地儲存您揭露的種子詞組
+       ![](/img/build/wallets/be-kw-reveal-rp-ii.png)
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    1. 按一下錢包右下方的 \*\* 設定\*\* 圖示。
+       ![](/img/build/wallets/kw-ma-settings-icon.jpg)
+    2. 在設定選項中選擇 \*\* 檢查復原短語\*\*。
+       ![](/img/build/wallets/kw-ma-check-srp.jpg)
+    3. 輸入您的密碼
+       ![](/img/build/wallets/kw-ma-set-passcode.jpg)
+    4. 安全地儲存您揭露的種子詞組
+       ![](/img/build/wallets/kw-ma-srp-reveal.png)
+  </TabItem>
+</Tabs>
+
+### 為您的 Kaia Wallet 帳戶注資
+
+<Tabs>
+  <TabItem value="主網路" label="Kaia Mainnet" default>
+    若要使用 KAIA 代幣為您的帳戶注資，您可以直接從集中交易所 (CEX) 購買和發送。 請看看您可以購買和發送 KAIA 的交易所：[Coingecko](https://www.coingecko.com/en/coins/kaia#markets) 和 [CoinMarketCap](https://coinmarketcap.com/currencies/kaia/#Markets)
+  </TabItem>
+
+  <TabItem value="測試網" label="啟動測試網路">
+    testnet KAIA 水龍頭在 Kairos 網路上執行。 可從 Kairos Kaia 水龍頭進入。 若要接收 testnet KAIA，您必須擁有有效的 Kaia 帳戶。
+
+    * 在 \*\* 帳戶地址\*\* 輸入欄位中貼上您的 \*\* 帳戶地址\*\*。
+    * 按一下 **Run Faucet** 按鈕，您會收到 50 個 testnet KAIA 傳送給您。 請注意，您可以每 24 小時為每個帳戶開啟一次水龍頭。
+
+    ![](/img/build/wallets/fund-kaia-faucet.png)
+  </TabItem>
+</Tabs>
+
+## 將 MetaMask 連接到 Kaia<a id="connect-metamask-to-kaia" />
+
+MetaMask 是 EVM 生態系統中使用最廣泛的瀏覽器型錢包之一。 其與 Kaia 位址結構的相容性，使其成為跨多 EVM 相容鏈開發人員的熱門選擇。 本章將教您如何特別為 Kaia 設定。
+
+### 安裝 MetaMask
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    * 請造訪 [https://metamask.io](https://metamask.io)。
+    * 按一下功能表列中的 **下載**。
+    * 本範例中我們將使用 Chrome 瀏覽器。 (Install
+      Chrome)
+    * 新增 MetaMask
+      Extension
+      至 Chrome。
+    * 您可以按一下 Chrome 瀏覽器右上角
+      的圖示，啟動 MetaMask。
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    * 我們將從**官方應用程式商店**下載適合您
+      裝置/作業系統的 MetaMask。 在本範例中，我們將使用 iOS。
+    * 開啟 **App Store**，然後按右下方的搜尋按鈕。 在搜尋列中輸入 MetaMask。
+    * 點選 **Get** 或點選應用程式名稱，即可查看更多詳細資訊。 之後，完成一般的 App Store 下載確認程序。
+  </TabItem>
+</Tabs>
+
+### 建立 MetaMask 錢包
+
+此程序適用於 MetaMask 電子錢包的瀏覽器擴充套件和手機版本。
+
+* 按一下 **Create a Wallet** 按鈕。
+* 設定密碼。
+* 您會得到一個 12 個字的種子詞組；請將它儲存在安全的地方。
+* 將您的秘密恢復語句備份到安全且離線的地方！
+* 按照所有提示建立您的錢包。
+
+:::note
+您只能使用種子短語還原您的錢包。 與他人分享您的種子短語可能會導致您失去所有資金。 因此，建議您以手動方式寫下或儲存在離線裝置中。
+:::
+
+### 連接至 Kaia 網路
+
+#### 快速組態
+
+**瀏覽器擴充**
+
+<Tabs>
+  <TabItem value="主網路" label="Kaia Mainnet" default>
+    使用 [Chainlist](https://chainlist.org/chain/8217) 一鍵設定
+    ，並依照指示操作。
+  </TabItem>
+
+  <TabItem value="測試網" label="啟動測試網路">
+    使用 [Chainlist](https://chainlist.org/chain/1001) 一鍵設定
+    ，並依照指示操作。
+  </TabItem>
+</Tabs>
+
+\*\* 移動\*\*
+
+<Tabs>
+  <TabItem value="主網路" label="Kaia Mainnet" default>
+    使用 MetaMask 應用程式內瀏覽器導覽到 [Chainlist](https://chainlist.org/chain/8217) 並依照指示新增網路。
+
+    ![](/img/build/wallets/mm-kaia-chainlist-cw.jpg)
+  </TabItem>
+
+  <TabItem value="測試網" label="啟動測試網路">
+    使用 MetaMask 應用程式內瀏覽器導覽到 [Chainlist](https://chainlist.org/chain/1001) 並依照指示新增網路。
+
+    ![](/img/build/wallets/mm-kairos-chainlist-cw.jpg)
+  </TabItem>
+</Tabs>
+
+#### 手動設定
+
+<Tabs>
+  <TabItem value="瀏覽器" label="瀏覽器擴充套件" default>
+    * 按一下上方的 **Networks** 標籤，預設是在 Ethereum Mainnet 上，然後選擇新增網路。
+
+    ![](/img/build/wallets/mm-add-network.png)
+
+    * 在 \*\* 手動新增網路\*\* 頁面輸入下列 Kaia 網路詳細資訊，然後按一下儲存。
+
+    <Tabs>
+      <TabItem value="主網路" label="Kaia Mainnet" default>
+        ```jsx
+        Name: Kaia Mainnet
+        RPC: https://public-en.node.kaia.io
+        ID: 8217
+        Symbol: KAIA
+        Block Explorer: https://kaiascan.io
+        ```
+      </TabItem>
+
+      <TabItem value="測試網" label="啟動測試網路">
+        ```jsx
+        Name: Kaia Kairos Testnet
+        RPC: https://public-en-kairos.node.kaia.io
+        ID: 1001
+        Symbol: KAIA
+        Block Explorer: https://kairos.kaiascan.io
+        ```
+      </TabItem>
+    </Tabs>
+  </TabItem>
+
+  <TabItem value="行動版" label="行動版">
+    * 點選螢幕上方的網路選擇器。
+    * 按一下 \*\* 新增網路\*\* 按鈕。
+    * 切換至 \*\* 自訂網路\*\* 標籤。
+    * 如我們在瀏覽器擴充套件標籤中一樣，填入網路的詳細資料
+  </TabItem>
+</Tabs>
+
+## 下一步：推進您的設定
+
+恭喜你 現在您已在 Kaia 網路上設定、連線並注資了一個錢包。 您已準備好開始您的開發旅程。
+
+您的下一步是學習如何安全地管理您的金鑰，以便進行開發、測試和生產部署。 如需使用 Foundry 和 Hardhat 等工具、與硬體錢包整合，以及設定生產等級安全性的深入秘訣，請參閱我們全面的安全錢包管理 Cookbook。
