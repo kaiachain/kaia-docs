@@ -1,0 +1,82 @@
+---
+id: hardhat
+title: ハードハットの使用
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Hardhatを使用してスマートコントラクトを検証する方法
+
+このガイドでは、Hardhat Verifyプラグインを使用して、CLIから直接KaiaScan上でスマートコントラクトのソースコードを自動的に検証することができます。
+
+Kaiaで契約を確認するには、`hardhat.config.js`に以下の設定を追加する必要があります：
+
+## Kaiascan
+
+<Tabs>
+  <TabItem value="カイアメインネット" label="メインネット">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kaia: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kaia",
+              chainId: 8217,
+              urls: {
+                apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+
+  <TabItem value="カイロステストネット" label="カイロス">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kairos: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kairos",
+              chainId: 1001,
+              urls: {
+                apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kairos.kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+コントラクトを検証するには、verifyコマンドを実行し、デプロイされたコントラクトのアドレス、ネットワーク、パラメータがあればそれを渡す。
+
+```bash
+npx hardhat verify –network <network> <deployed_address> <parameters>
+
+## example
+
+npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
+```
+
+ターミナルに、契約のソースコードが検証のために正常に送信されたことが表示されるはずです。
+
+認証に成功した場合、[Successfully verified contract]と表示され、[Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)に契約コードへのリンクが表示されます。
+
+![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
+![](/img/build/smart-contracts/verify/kaiascan-verify.png)
+
+## 検証が成功した場合、[Successfully verified contract]と表示され、[Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)と[Kaiascope](https://baobab.klaytnscope.com/account/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contractCode)にそれぞれ契約コードへのリンクが表示されます。
+
+* [KaiascanにおけるHardhat Verifyプラグインの設定](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
