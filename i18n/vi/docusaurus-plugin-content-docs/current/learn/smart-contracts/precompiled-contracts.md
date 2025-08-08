@@ -277,7 +277,7 @@ hàm bls12381g2add() trả về công khai (byte bộ nhớ) {
 Hợp đồng được biên dịch trước này không được trình biên dịch Solidity hỗ trợ. Có thể sử dụng đoạn mã sau để gọi hợp đồng được biên dịch trước này.
 
 ```text
-function bls12381g2mul() public returns (bytes memory) {
+hàm bls12381g2mul() public returns (bytes memory) {
     bytes memory input = hex"00000000000000000000000000000000103121a2ceaae586d240843a398967325f8eb5a93e8fea99b62b9f88d8556c80dd726a4b30e84a36eeabaf3592937f2700000000000000000000000000000000086b990f3da2aeac0a36143b7d7c824428215140db1bb859338764cb58458f081d92664f9053b50b3fbd2e4723121b68000000000000000000000000000000000f9e7ba9a86a8f7624aa2b42dcc8772e1af4ae115685e60abc2c9b90242167acef3d0be4050bf935eed7c3b6fc7ba77e000000000000000000000000000000000d22c3652d0dc6f0fc9316e14268477c2049ef772e852108d269d9c38dba1d4802e8dae479818184c08f9a569d878451263dbd792f5b1be47ed85f8938c0f29586af0d3ac7b977f21c278fe1462040e3";
     (bool ok, bytes memory output) = address(0x0e).call(input);
     require(ok, "bls12381 G2 mul operation failed");
