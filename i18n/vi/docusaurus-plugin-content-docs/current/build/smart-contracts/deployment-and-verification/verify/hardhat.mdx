@@ -1,0 +1,82 @@
+---
+id: hardhat
+title: Sử dụng Hardhat
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Cách xác minh hợp đồng thông minh bằng Hardhat
+
+Hướng dẫn này cho phép bạn tự động xác minh mã nguồn hợp đồng thông minh của mình trên KaiaScan trực tiếp từ CLI bằng cách sử dụng Plugin Hardhat Verify.
+
+Để xác minh hợp đồng của bạn trên Kaia, bạn cần thêm cấu hình sau vào `hardhat.config.js`:
+
+## Kaiascan
+
+<Tabs>
+  <TabItem value="kaia-mainnet" label="Mạng chính">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kaia: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kaia",
+              chainId: 8217,
+              urls: {
+                apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+
+  <TabItem value="kairos-mạng thử nghiệm" label="Thời đại">
+    ```js
+    module.exports = {
+      etherscan: {
+          apiKey: {
+            kairos: "unnecessary",
+          },
+          customChains: [
+            {
+              network: "kairos",
+              chainId: 1001,
+              urls: {
+                apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+                browserURL: "https://kairos.kaiascan.io",
+              }
+            },
+          ]
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+Để xác minh hợp đồng, bạn sẽ chạy lệnh verify và truyền vào địa chỉ của hợp đồng đã triển khai, mạng và các tham số nếu có.
+
+```bash
+npx hardhat verify –network <network> <deployed_address> <parameters>
+
+## example
+
+npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
+```
+
+Trong thiết bị đầu cuối, bạn sẽ thấy mã nguồn hợp đồng của mình đã được gửi thành công để xác minh.
+
+Nếu xác minh thành công, bạn sẽ thấy hợp đồng đã được xác minh thành công và sẽ có liên kết đến mã hợp đồng trên [Kaiascan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1).
+
+![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
+![](/img/build/smart-contracts/verify/kaiascan-verify.png)
+
+## Liên kết hữu ích
+
+* [Cấu hình cho Hardhat Verify Plugin trên Kaiascan](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
