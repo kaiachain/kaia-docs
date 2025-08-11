@@ -34,7 +34,7 @@
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-3.jpeg)
 
-4. 블록체인 네트워크 아래에서 **카이아**를 선택하고 **계속하기**를 클릭합니다.
+4. 블록체인 네트워크 아래에서 **Kaia**를 선택하고 **계속하기**를 클릭합니다.
 
 ![](/img/build/tools/token-management/liquidity-locks/ll-step-4.jpeg)
 
