@@ -4,7 +4,7 @@
 
 ## 소개
 
-[오라클 네트워크](https://docs.orakl.network/docs/developers-guide/readme)는 스마트 컨트랙트가 오프체인 데이터 및 기타 리소스에 안전하게 접근할 수 있도록 하는 탈중앙화 오라클 네트워크입니다. 오라클은 [데이터 피드](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [요청-응답](https://docs.orakl.network/developers-guide/request-response) 및 [준비금 증명](https://docs.orakl.network/developers-guide/proof-of-reserve) 솔루션을 제공하는 카이아 네이티브 오라클이라는 자부심을 가지고 있습니다.
+[오라클 네트워크](https://docs.orakl.network/docs/developers-guide/readme)는 스마트 컨트랙트가 오프체인 데이터 및 기타 리소스에 안전하게 접근할 수 있도록 하는 탈중앙화 오라클 네트워크입니다. 오라클은 [데이터 피드](https://docs.orakl.network/developers-guide/data-feed), [VRF](https://docs.orakl.network/developers-guide/vrf), [요청-응답](https://docs.orakl.network/developers-guide/request-response) 및 [준비금 증명](https://docs.orakl.network/developers-guide/proof-of-reserve) 솔루션을 제공하는 Kaia 네이티브 오라클이라는 자부심을 가지고 있습니다.
 
 오라클 네트워크를 통해 사용자는 스마트 컨트랙트에서 예측 불가능하고 편향되지 않은 무작위성을 확보할 수 있습니다. 오라클 네트워크 [검증 가능한 랜덤 함수(VRF)](https://docs.orakl.network/docs/developers-guide/verifiable-random-function-vrf#what-is-verifiable-random-function)는 스마트 컨트랙트가 VRF를 사용하여 검증 가능한 랜덤 값을 생성할 수 있도록 하며, 이는 무작위성이 필요한 다양한 dApp에서 사용될 수 있습니다. 오라클 네트워크는 개발자에게 두 가지 계정 유형을 통해 VRF 서비스에 대한 액세스를 제공합니다: [영구 계정](https://docs.orakl.network/developers-guide/readme#permanent-account) 또는 [임시 계정](https://docs.orakl.network/developers-guide/readme#temporary-account).
 
@@ -14,7 +14,7 @@
 
 - [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Remix Kaia 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Test KAIA from [Faucet](https://faucet.kaia.io)
 
 ## 시작하기
@@ -180,7 +180,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### 스마트 컨트랙트와의 상호작용
 
-스마트 컨트랙트에서 난수를 요청하려면 먼저 `requestRandomWordsDirect()` 함수를 실행해야 합니다. 이 함수가 성공적으로 실행되려면 앞서 설명한 대로 KAIA(최소 1개)를 전송하고 `keyHash`, `callbackGasLimit`, `numWords`, `refundRecipient` 파라미터를 제공해야 합니다. `keyHash` 매개변수는 요청을 이행할 수 있는 사용자를 고유하게 정의합니다. 오라클 네트워크 VRF는 각 카이아 체인에 하나의 키 해시를 제공합니다.
+스마트 컨트랙트에서 난수를 요청하려면 먼저 `requestRandomWordsDirect()` 함수를 실행해야 합니다. 이 함수가 성공적으로 실행되려면 앞서 설명한 대로 KAIA(최소 1개)를 전송하고 `keyHash`, `callbackGasLimit`, `numWords`, `refundRecipient` 파라미터를 제공해야 합니다. `keyHash` 매개변수는 요청을 이행할 수 있는 사용자를 고유하게 정의합니다. 오라클 네트워크 VRF는 각 Kaia 체인에 하나의 키 해시를 제공합니다.
 
 - Kairos: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
 - Mainnet: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
