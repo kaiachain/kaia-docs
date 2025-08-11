@@ -203,6 +203,6 @@ build/
 
 LINE 미니 디앱 개발에 대한 자세한 내용은 다음 종합 리소스를 참조하세요:
 
-- [카이아 문서](https://docs.kaia.io/)
+- [Kaia 문서](https://docs.kaia.io/)
 - [LINE 개발자 문서](https://developers.line.biz/en/docs/line-mini-app/)
 - [코코스 크리에이터 문서](https://docs.cocos.com/creator/3.8/manual/en/getting-started/)
