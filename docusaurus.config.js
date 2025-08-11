@@ -3,7 +3,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula
 const {
   remarkCodeHike,
 } = require("@code-hike/mdx")
-const redirects = require('./redirects');
+const { redirects, createRedirects } = require('./redirects');
 import 'dotenv/config';
 
 /** @type {import('@docusaurus/types').Config} */
@@ -230,7 +230,8 @@ const config = {
     [
       '@docusaurus/plugin-client-redirects',
       {
-        redirects
+        redirects,
+        createRedirects, // dynamic folder-wide redirects
       },
     ],
   ],

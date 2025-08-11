@@ -1,4 +1,4 @@
-module.exports = [
+const redirects = [
   { from: '/misc/operation/node-log', to: '/nodes/debugging/node-log' },
   { from: '/misc/operation/monitoring-setup', to: '/nodes/debugging/monitoring-setup' },
   { from: '/misc/operation/node-profiling', to: '/nodes/debugging/node-profiling' },
@@ -47,4 +47,46 @@ module.exports = [
   { from: '/references/service-providers/public-en', to: '/references/public-en' },
   { from: '/misc/finschia', to: '/misc/kaia-transition/finschia' },
   { from: '/kaiatech', to: '/kaiatech/kaia-white-paper' },
+  { from: '/build/smart-contracts/porting-ethereum-contract', to: '/build/smart-contracts/fundamentals/porting-ethereum-contract' },
+  { from: '/build/smart-contracts/solidity-smart-contract-language', to: '/build/smart-contracts/fundamentals/solidity-smart-contract-language' },
+  { from: '/build/smart-contracts/token-standard', to: '/build/smart-contracts/token-development/token-standard' },
+  { from: '/build/smart-contracts/ide-and-tools', to: '/build/smart-contracts/tools/ide-and-tools' },  
+  { from: '/build/tools/kaia-contracts-wizard', to: '/build/smart-contracts/tools/kaia-contracts-wizard' },
+  { from: '/build/tutorials/fee-delegation-wallet-integration', to: '/build/wallets/dapp-integration/how-to-integrate-fee-delegation-features-into-wallets' },
+  { from: '/build/tutorials/kaia-wallet-dapp-integration', to: '/build/wallets/dapp-integration/integrate-dapp-with-kaiawallet' },
+  { from: '/build/tools/wallets/kaia-wallet', to: '/build/wallets/overview/kaia-wallet' },
+  { from: '/build/tools/wallets', to: '/build/wallets' },
 ];
+
+// Folder-wide mappings (oldBase -> newBase)
+const folderRedirects = [
+  ['/build/smart-contracts/deploy', '/build/smart-contracts/deployment-and-verification/deploy'],
+  ['/build/smart-contracts/verify', '/build/smart-contracts/deployment-and-verification/verify'],
+  ['/build/smart-contracts/samples', '/build/smart-contracts/token-development/samples'],
+  ['/build/tools/wallets/hardware-wallets', '/build/wallets/hardware-wallets'],
+  ['/build/tools/wallets/kaia-safe', '/build/wallets/kaia-safe'],
+  ['/build/tools/wallets/wallet-libraries', '/build/wallets/wallet-libraries'],
+];
+
+const stripTrailing = (p) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const addTrailing = (p) => (p.endsWith('/') ? p : `${p}/`);
+
+function createRedirects(existingPath) {
+  const froms = [];
+  const epNo = stripTrailing(existingPath);
+
+  for (const [oldBase, newBase] of folderRedirects) {
+    const oldNo = stripTrailing(oldBase);
+    const newNo = stripTrailing(newBase);
+
+    if (epNo === newNo || epNo.startsWith(`${newNo}/`)) {
+      const fromNo = epNo.replace(newNo, oldNo);
+      const from = existingPath.endsWith('/') ? addTrailing(fromNo) : fromNo;
+      froms.push(from);
+    }
+  }
+
+  return froms.length ? froms : undefined;
+}
+
+module.exports = { redirects, createRedirects };
