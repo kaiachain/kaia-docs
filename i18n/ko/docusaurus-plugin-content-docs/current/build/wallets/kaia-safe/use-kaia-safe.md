@@ -108,7 +108,7 @@ NFT 전송에 대한 자세한 내용은 OpenSea에서 제공하는 [가이드](
 
 - **KAIA**
 
-> Note: Add the **recipient address** and the **amount** of KAIA to transfer.
+> 참고: 송금할 **수취인 주소**와 **금액**을 추가하세요.
 
 ![](/img/build/tools/kaia-safe/kaia-safe-send-token-details.gif)
 
@@ -116,7 +116,7 @@ NFT 전송에 대한 자세한 내용은 OpenSea에서 제공하는 [가이드](
 
 위 이미지와 같이 자산 드롭다운에서 보내려는 토큰을 선택합니다.
 
-> Note: Add the **recipient address** and the **number of tokens** to transfer.
+> 참고: 송금할 **수취인 주소**와 **토큰 개수**를 추가하세요.
 
 **3단계**: 트랜잭션을 검토하고 제출합니다. 서명자 지갑으로 트랜잭션에 서명해야 하며, 확인 임계값에 도달하면 트랜잭션이 실행됩니다.
 
