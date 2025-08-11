@@ -1,4 +1,4 @@
-# Remix를 카이아에 연결하기
+# Remix를 Kaia에 연결하기
 
 ![](/img/banners/kaia-remix.png)
 
@@ -63,7 +63,7 @@ To connect to Kaia plugin on Remix IDE, you can either use this [Kaia Plugin for
 
 - Navigate to the **Plugin manager** tab
 - 검색 필드에 Kaia 입력
-- Kaia 플러그인을 활성화합니다. 카이아 탭이 나타나면 카이아와 상호작용할 준비가 된 것입니다.
+- Kaia 플러그인을 활성화합니다. Kaia 탭이 나타나면 Kaia와 상호작용할 준비가 된 것입니다.
 
 ![](/img/build/smart-contracts/kg-plugin-manager.png)
 
@@ -110,9 +110,9 @@ You can export private key or Keystore from any compatible wallet to use here.
 
 ## Deploying the smart contract <a href="#deploying-contract" id="deploying-contract"></a>
 
-이 섹션에서는 카이아 월렛을 사용하여 `KaiaGreeter.sol` 컨트랙트를 배포하겠습니다. Having compiled the contract in the Compile Section, follow the deployment process below:
+이 섹션에서는 Kaia 월렛을 사용하여 `KaiaGreeter.sol` 컨트랙트를 배포하겠습니다. Having compiled the contract in the Compile Section, follow the deployment process below:
 
-- 배포 환경을 [주입된 공급자 - 카이아 지갑]으로 설정합니다. Make sure to confirm all the connection prompts to Remix.
+- 배포 환경을 [주입된 공급자 - Kaia 지갑]으로 설정합니다. Make sure to confirm all the connection prompts to Remix.
 - Select the contract you want to deploy in the CONTRACT field.
 - Click on the Deploy button. This would generate a Kaia Wallet popup that requires transaction confirmation. Simply confirm the transaction!
 
