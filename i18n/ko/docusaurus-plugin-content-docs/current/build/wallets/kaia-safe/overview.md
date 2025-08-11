@@ -8,7 +8,7 @@
 
 - **Safe Config Service**: Kaia Safe 클라이언트 환경의 설정 정보(예: 모든 체인 상세 정보 및 API 구성)를 제공합니다.
 
-- **Safe Client Gateway**: Kaia Safe 클라이언트와 백엔드 서비스(트랜잭션 서비스, 카이아 노드) 사이의 게이트웨이입니다.
+- **Safe Client Gateway**: Kaia Safe 클라이언트와 백엔드 서비스(트랜잭션 서비스, Kaia 노드) 사이의 게이트웨이입니다.
 
 - **Safe Infrastructure**: 백엔드 서비스(Safe-Transaction, Safe-Config, Safe-Client 게이트웨이)를 배포하기 위한 클러스터 설정입니다.
 
