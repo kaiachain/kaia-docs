@@ -1,14 +1,14 @@
-# How to integrate Fee Delegation features into wallets
+# 수수료 위임 기능을 지갑에 통합하는 방법
 
-Thanks to Kaia’s [native fee delegation](https://docs.kaia.io/build/transactions/fee-delegation/) feature, users can enjoy gas-less transactions on dApps. However, to enable this functionality, wallets must support fee-delegated transaction types. This guide explains how wallet providers can integrate fee delegation capabilities into their wallets.
+카이아의 [네이티브 수수료 위임](https://docs.kaia.io/build/transactions/fee-delegation/) 기능 덕분에 사용자들은 디앱에서 가스 없이 거래를 즐길 수 있습니다. 하지만 이 기능을 사용하려면 지갑이 수수료 위임 거래 유형을 지원해야 합니다. 이 가이드에서는 지갑 공급자가 수수료 대납 기능을 지갑에 통합하는 방법을 설명합니다.
 
-To integrate fee delegation, wallet providers should:
+수수료 위임을 통합하려면 지갑 공급업체가 통합해야 합니다:
 
-1. Add the [Kaia SDK](https://github.com/kaiachain/kaia-sdk) (for example, kaiachain/ethers-ext) to your codebase.
-2. Whenever the RPC method of the wallet provider, `kaia_signTransaction`, is called, use the Kaia SDK to sign the transaction.
-3. As a result, the wallet should return the signed transaction, `senderTxHashRlp`, to the dApp instead of sending it directly to the node provider. It will be transferred to the fee payer.
+1. 코드베이스에 [Kaia SDK](https://github.com/kaiachain/kaia-sdk)(예: kaiachain/ethers-ext)를 추가합니다.
+2. 지갑 공급자의 RPC 메서드인 `kaia_signTransaction`이 호출될 때마다 Kaia SDK를 사용하여 트랜잭션에 서명합니다.
+3. 결과적으로 지갑은 서명된 트랜잭션인 `senderTxHashRlp`를 노드 공급자에게 직접 전송하는 대신 dApp에 반환해야 합니다. 수수료 납부자에게 이체됩니다.
 
-Below is a basic example for a simple value transfer:
+다음은 간단한 가치 이전을 위한 기본 예시입니다:
 
 ```javascript
 const ethers = require("ethers6"); 
@@ -36,7 +36,7 @@ const senderTxHashRLP = await senderWallet.signTransaction(populatedTx); console
 }
 ```
 
-For contract interactions:
+계약 상호 작용의 경우:
 
 ```javascript
 const ethers = require("ethers6"); 
@@ -72,6 +72,6 @@ const senderTxHashRLP = await senderWallet.signTransaction(populatedTx); console
 
 :::note
 
-The exact integration code may vary depending on your wallet’s implementation.
+정확한 통합 코드는 지갑의 구현 방식에 따라 다를 수 있습니다.
 
 :::
