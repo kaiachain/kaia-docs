@@ -50,7 +50,7 @@ API-Kitの使用方法は、以下のインストールコマンドを実行す�
   </TabItem>
 
  <TabItem value="yarn" label="yarn">
-
+    ```
     yarn add @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
     ```
  </TabItem>
