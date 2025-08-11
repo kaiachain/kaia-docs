@@ -1,10 +1,10 @@
 # 자주 쓰는 명령어
 
-## 카이아 디렉터리(일반적으로 "카이아 DIR") 찾는 방법
+## Kaia 디렉터리(일반적으로 "Kaia DIR") 찾는 방법
 
 ---
 
-카이아 디렉터리는 `kcn` 또는 `kpn` 설정에서 확인할 수 있습니다. 설정 파일은 `/etc/kcnd/conf` 또는 `/etc/kpnd/conf` 아래에 있습니다.
+Kaia 디렉터리는 `kcn` 또는 `kpn` 설정에서 확인할 수 있습니다. 설정 파일은 `/etc/kcnd/conf` 또는 `/etc/kpnd/conf` 아래에 있습니다.
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)
@@ -14,11 +14,11 @@ DATA_DIR=/var/kcnd/data/
 LOG_DIR=/var/kcnd/logs/
 ```
 
-## 카이아 콘솔에 접속하는 방법
+## Kaia 콘솔에 접속하는 방법
 
 ---
 
-카이아 API에 연결하여 노드 및 네트워크 상태를 확인합니다.
+Kaia API에 연결하여 노드 및 네트워크 상태를 확인합니다.
 
 ```bash
 # execute the command below with the Kaia DATA_DIR Path
