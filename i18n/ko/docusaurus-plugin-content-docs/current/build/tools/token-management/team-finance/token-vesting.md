@@ -18,7 +18,7 @@
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-2.png)
 
-3. 블록체인 네트워크 아래에서 **카이아**를 선택하고 **계속하기**를 클릭합니다.
+3. 블록체인 네트워크 아래에서 **Kaia**를 선택하고 **계속하기**를 클릭합니다.
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-3.png)
 
@@ -26,7 +26,7 @@
 
 ![](/img/build/tools/token-management/token-vesting/tv-step-4.png)
 
-> 저희의 경우 교육 목적으로 카이아 체인에서 만들어진 **Eddie** 토큰을 사용하고 있습니다.
+> 저희의 경우 교육 목적으로 Kaia 체인에서 만들어진 **Eddie** 토큰을 사용하고 있습니다.
 
 5. 베스팅 세부 정보를 추가합니다. 베스팅 세부 정보를 수동으로 추가하거나 파일(CSV 또는 Excel)을 업로드할 수 있습니다. 이 가이드에서는 **새로운 베스팅 플랜 만들기** 방법을 사용하고 **주소 추가**를 클릭하겠습니다.
 
