@@ -1,5 +1,5 @@
-'@theme/Tabs'에서 탭 가져오기
-'@theme/TabItem'에서 탭 항목 가져오기
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Kaia 호환 지갑에서 토큰을 보내는 방법
 
