@@ -310,5 +310,53 @@
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
     "message": "Finschia to Kaia",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Configuration": {
+    "message": "Wallet Configuration",
+    "description": "The label for category Wallet Configuration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Operations": {
+    "message": "Wallet Operations",
+    "description": "The label for category Wallet Operations in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.dApp Integration": {
+    "message": "dApp Integration",
+    "description": "The label for category dApp Integration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Implementing Transactions": {
+    "message": "Implementing Transactions",
+    "description": "The label for category Implementing Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Cookbooks": {
+    "message": "Cookbooks",
+    "description": "The label for category Cookbooks in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Fundamentals": {
+    "message": "Fundamentals",
+    "description": "The label for category Fundamentals in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Development": {
+    "message": "Token Development",
+    "description": "The label for category Token Development in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Deployment & Verification": {
+    "message": "Deployment & Verification",
+    "description": "The label for category Deployment & Verification in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Integrate Gas Abstraction (GA)": {
+    "message": "Integrate Gas Abstraction (GA)",
+    "description": "The label for category Integrate Gas Abstraction (GA) in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Kaia Agent Kit": {
+    "message": "Kaia Agent Kit",
+    "description": "The label for category Kaia Agent Kit in sidebar buildSidebar"
+  },
+  "sidebar.refSidebar.category.Gas Abstraction": {
+    "message": "Gas Abstraction",
+    "description": "The label for category Gas Abstraction in sidebar refSidebar"
+  },
+  "sidebar.refSidebar.category.viem-ext": {
+    "message": "viem-ext",
+    "description": "The label for category viem-ext in sidebar refSidebar"
   }
 }
