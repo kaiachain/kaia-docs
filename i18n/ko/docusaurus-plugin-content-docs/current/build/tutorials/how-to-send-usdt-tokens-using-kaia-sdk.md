@@ -1,8 +1,8 @@
-# 카이아 SDK를 사용하여 ERC-20 토큰을 전송하는 방법(USDT 예시)
+# Kaia SDK를 사용하여 ERC-20 토큰을 전송하는 방법(USDT 예시)
 
 ## 개요
 
-이 가이드에서는 카이아 블록체인에서 이더스엑스트 SDK를 사용하여 USDT를 예로 들어 ERC 20 토큰을 프로그래밍 방식으로 전송하는 방법에 대해 설명합니다. Kaia SDK는 개발자가 다양한 프로그래밍 환경에서 Kaia 노드와 상호 작용할 수 있도록 도와주는 ethers-ext, web3js-ext, viem-ext, web3j-ext 및 web3py-ext를 포함한 라이브러리 모음입니다.
+이 가이드에서는 Kaia 블록체인에서 이더스엑스트 SDK를 사용하여 USDT를 예로 들어 ERC 20 토큰을 프로그래밍 방식으로 전송하는 방법에 대해 설명합니다. Kaia SDK는 개발자가 다양한 프로그래밍 환경에서 Kaia 노드와 상호 작용할 수 있도록 도와주는 ethers-ext, web3js-ext, viem-ext, web3j-ext 및 web3py-ext를 포함한 라이브러리 모음입니다.
 
 이 가이드는 스마트 컨트랙트 호출을 통해 USDT 토큰을 전송하기 위해 이더 익스체인지 SDK를 사용하는 방법에 중점을 두고 있습니다.
 
