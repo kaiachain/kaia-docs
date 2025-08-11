@@ -1,17 +1,17 @@
-# How to Send ERC-20 Tokens Using the Kaia SDK (USDT Example)
+# 카이아 SDK를 사용하여 ERC-20 토큰을 전송하는 방법(USDT 예시)
 
-## Overview
+## 개요
 
-In this guide, you will learn how to programmatically send ERC 20 tokens using USDT as an example on the Kaia blockchain with the ethers-ext SDK. The Kaia SDK is a collection of libraries including ethers-ext, web3js-ext, viem-ext, web3j-ext, and web3py-ext that help developers interact with Kaia nodes across different programming environments.
+이 가이드에서는 카이아 블록체인에서 이더스엑스트 SDK를 사용하여 USDT를 예로 들어 ERC 20 토큰을 프로그래밍 방식으로 전송하는 방법에 대해 설명합니다. Kaia SDK는 개발자가 다양한 프로그래밍 환경에서 Kaia 노드와 상호 작용할 수 있도록 도와주는 ethers-ext, web3js-ext, viem-ext, web3j-ext 및 web3py-ext를 포함한 라이브러리 모음입니다.
 
-This guide focuses on using the ethers-ext SDK to send USDT tokens through a smart contract call.
+이 가이드는 스마트 컨트랙트 호출을 통해 USDT 토큰을 전송하기 위해 이더 익스체인지 SDK를 사용하는 방법에 중점을 두고 있습니다.
 
-## Prerequisite
+## 전제 조건
 
-- A [MetaMask](https://metamask.io/download) Account (a dev account was used for this example)
-- Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+- 메타마스크](https://metamask.io/download) 계정(이 예제에서는 개발자 계정이 사용됨)
+- 수도꼭지](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
 
-## Step 1: Setup project and install ethers-ext and ethers.js
+## 1단계: 프로젝트 설정 및 ethers-ext 및 ethers.js 설치하기
 
 ```bash
 mkdir send-usdt-kaiasdk
@@ -20,9 +20,9 @@ npm init -y
 npm install --save @kaiachain/ethers-ext ethers@6 dotenv
 ```
 
-## Step 2: Set up Provider and Wallet instance
+## 2단계: 공급자 및 지갑 인스턴스 설정하기
 
-Create a new file named `index.js` and paste the code below into it.
+'index.js'라는 새 파일을 만들고 아래 코드를 붙여넣습니다.
 
 ```js
 import { ethers } from "ethers";
@@ -38,7 +38,7 @@ const provider = new JsonRpcProvider("https://public-en.node.kaia.io");
 const wallet = new Wallet(senderPriv, provider);
 ```
 
-## Step 3: Create USDT contract instance
+## 3단계: USDT 컨트랙트 인스턴스 생성
 
 ```js
 const USDT_CONTRACT_ABI = [
@@ -94,7 +94,7 @@ async function main() {
 }
 ```
 
-## Step 4: Send Tokens
+## 4단계: 토큰 보내기
 
 ```js
 async function main() {
@@ -113,7 +113,7 @@ async function main() {
 main();
 ```
 
-**Full Code**
+**전체 코드**
 
 ```js
 import { ethers } from "ethers";
@@ -194,6 +194,6 @@ async function main() {
 main();
 ```
 
-Run `node index.js` in your terminal to see your transaction executed.
+터미널에서 `node index.js`를 실행하여 트랜잭션이 실행되는 것을 확인합니다.
 
 ![](/img/build/tutorials/send-usdt-kaiasdk.png)
