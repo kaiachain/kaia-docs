@@ -24,7 +24,7 @@ In a typical blockchain platform like Kaia, most users are familiar with single 
 
 ## Kaia Safe란? <a id="What is Kaia Safe"></a>
 
-Kaia Safe는 카이아 생태계를 위한 다중서명 지갑입니다. 잘 알려진 다중서명 지갑인 [Gnosis Safe](https://gnosis-safe.io/)의 포크입니다.
+Kaia Safe는 Kaia 생태계를 위한 다중서명 지갑입니다. 잘 알려진 다중서명 지갑인 [Gnosis Safe](https://gnosis-safe.io/)의 포크입니다.
 
 ## Kaia Safe의 장점 <a id="Benefits of Kaia Safe"></a>
 
