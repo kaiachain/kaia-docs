@@ -1,4 +1,4 @@
-# How to delegate gas fees
+# 가스 요금 위임 방법
 
-Thanks to Kaia’s [native fee delegation](https://docs.kaia.io/build/transactions/fee-delegation/) feature, users can enjoy gas-less transactions on dApps. However, to enable this functionality, wallets must support fee-delegated transaction types. This guide explains how wallet providers can integrate fee delegation capabilities into their wallets.
+카이아의 [네이티브 수수료 위임](https://docs.kaia.io/build/transactions/fee-delegation/) 기능 덕분에 사용자들은 디앱에서 가스 없이 거래를 즐길 수 있습니다. 하지만 이 기능을 사용하려면 지갑이 수수료 위임 거래 유형을 지원해야 합니다. 이 가이드에서는 지갑 공급자가 수수료 대납 기능을 지갑에 통합하는 방법을 설명합니다.
 
