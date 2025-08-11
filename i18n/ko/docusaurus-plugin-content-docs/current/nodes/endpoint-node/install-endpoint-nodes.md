@@ -60,9 +60,9 @@ $ yum install kend-vX.X.X.el7.x86_64.rpm
 $ yum install kend-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### 카이아 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
 
-또는 카이아 Yum 저장소에서 `kend`를 설치하고 실행할 수 있습니다:
+또는 Kaia Yum 저장소에서 `kend`를 설치하고 실행할 수 있습니다:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kend
@@ -92,7 +92,7 @@ EN 설정은 데이터 디렉터리를 생성하고 설정 파일 `kend.conf`에
 
 ### EN 데이터 디렉터리 생성 <a id="en-data-directory-creation"></a>
 
-카이아 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 디렉터리를 생성해야 합니다.
+Kaia 블록체인 데이터의 크기가 계속 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것이 좋습니다. 원하는 경로에 디렉터리를 생성해야 합니다.
 
 ```text
 $ sudo mkdir -p /var/kend/data
@@ -205,7 +205,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### ken 콘솔 <a id="ken-console"></a>
 
-카이아는 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
+Kaia는 `ken console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `DATA_DIR` path on an EN.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
@@ -224,7 +224,7 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 EN의 상태를 확인하는 데 유용한 API입니다:
 
 - `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
+- `net.peerCount` (현재 연결된 Kaia 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
