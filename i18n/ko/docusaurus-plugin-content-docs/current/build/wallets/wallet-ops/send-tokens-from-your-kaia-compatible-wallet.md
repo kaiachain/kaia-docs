@@ -1,134 +1,134 @@
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
+'@theme/Tabs'에서 탭 가져오기
+'@theme/TabItem'에서 탭 항목 가져오기
 
-# How to send tokens from your Kaia Compatible Wallet
+# 카이아 호환 지갑에서 토큰을 보내는 방법
 
-This article provides a step by step guide to sending KAIA (native token) and ERC20 tokens using Kaia Compatible wallets such as Kaia Wallet and MetaMask. However, the process is essentially the same regardless of the network (Kaia Mainnet or Kaia Kairos Testnet) you're using — just make sure you have enough of the network's native token to pay for the transaction.
+이 문서에서는 카이아 지갑과 메타마스크와 같은 카이아 호환 지갑을 사용하여 카이아(네이티브 토큰) 및 ERC20 토큰을 전송하는 방법을 단계별로 안내합니다. 그러나 이 과정은 사용 중인 네트워크(카이아 메인넷 또는 카이아 카이로스 테스트넷)에 관계없이 본질적으로 동일하며, 트랜잭션을 결제할 수 있는 네트워크의 기본 토큰을 충분히 보유하고 있는지 확인하기만 하면 됩니다.
 
-What you’ll need:
+준비물
 
-- The recipient’s account address
-- A sufficient balance of the network's native token (KAIA) in your account to cover gas fees.
+- 받는 사람의 계정 주소
+- 가스 요금을 충당할 수 있을 만큼 계정에 네트워크의 네이티브 토큰(KAIA)이 충분히 잔액되어 있어야 합니다.
 
-## KAIA (Native Tokens)
+## KAIA (네이티브 토큰)
 
-### MetaMask
+### 메타마스크
 
 <Tabs>
   <TabItem value="Browser" label="Browser Extension" default>
-	1. From your wallet homepage, make sure you're in the right account and right network from which you want to transact, and click the **Send** button in the middle of the screen.
+	1. 지갑 홈페이지에서 거래하려는 계정과 네트워크가 올바른지 확인한 다음 화면 중앙에 있는 **송금** 버튼을 클릭합니다.
 	![](/img/build/wallets/mm-homepage-send.png)
-	2. Now you need to input the public address of the recipient. If you already have addresses saved in your address book, they will appear now.
+	2. 이제 받는 사람의 공개 주소를 입력해야 합니다. 주소록에 이미 저장된 주소가 있는 경우 해당 주소가 표시됩니다.
 	![](/img/build/wallets/mm-insert-address.png)
-	3. Enter the amount of tokens you want to send and click **Continue**.
+	3. 전송할 토큰의 양을 입력하고 **계속하기**를 클릭합니다.
 	![](/img/build/wallets/mm-insert-amount.png)
-	4. Now you're presented with your transaction details. Make sure to double-check the transaction details before clicking **Confirm** to proceed.
+	4. 이제 거래 세부 정보가 표시됩니다. 계속하려면 **확인**을 클릭하기 전에 거래 세부 정보를 다시 한 번 확인하시기 바랍니다.
 	![](/img/build/wallets/mm-tx-details.png)
-	Once the transaction is successful, you will then be redirected to the homepage, where you can see a list of your recent transactions on the 'Activity' tab.
+	거래가 성공하면 홈페이지로 리디렉션되어 '활동' 탭에서 최근 거래 목록을 확인할 수 있습니다.
   </TabItem>
   <TabItem value="Mobile" label="Mobile">
-	1. Select KAIA tokens under your tokens tab in your wallet homepage to access a page that shows the tokens details
+	1. 지갑 홈페이지의 토큰 탭에서 KAIA 토큰을 선택하면 토큰 세부 정보가 표시되는 페이지에 액세스합니다
 	![](/img/build/wallets/mm-m-select-kaia.jpg)
-	2. Tap the **Send** button to proceed
+	2. 계속하려면 **보내기** 버튼을 탭합니다
 	![](/img/build/wallets/mm-m-send-btn.jpg)
-	3. Now you'll need to input the address you want to send to. Either paste in the address from your clipboard (i.e. another app) or select one from your address book and click **Next**.
+	3. 이제 보낼 주소를 입력해야 합니다. 클립보드(예: 다른 앱)에 있는 주소를 붙여넣거나 주소록에서 주소를 선택한 후 **다음**을 클릭합니다.
 	![](/img/build/wallets/mm-m-insert-address.jpg)
-	4. Now you'll be taken to a screen where you can input the amount you want to send and click **Next**
+	4. 이제 송금 금액을 입력할 수 있는 화면으로 이동하여 **다음**
 	![](/img/build/wallets/mm-m-insert-amount.jpg)
-	5. Now you're presented with your transaction details. Make sure to double-check the transaction details before clicking **Confirm** to proceed.
+	5. 이제 거래 세부 정보가 표시됩니다. 계속하려면 **확인**을 클릭하기 전에 거래 세부 정보를 다시 한 번 확인하시기 바랍니다.
 	![](/img/build/wallets/mm-m-tx-details.jpg)  
 </TabItem>
 </Tabs>
 
-### Kaia Wallet
+### 카이아 지갑
 
 <Tabs>
   <TabItem value="Browser" label="Browser Extension" default>
-	1. From your wallet homepage, make sure you're in the right account and right network from which you want to transact, and click the **Send** button in the middle of the screen.
+	1. 지갑 홈페이지에서 거래하려는 계정과 네트워크가 올바른지 확인한 다음 화면 중앙에 있는 **송금** 버튼을 클릭합니다.
 	![](/img/build/wallets/kw-homepage-send.png)
-	2. Now you need to input the public address of the recipient. If you already have addresses saved in your address book, they will appear now.
-	3. Enter the amount of tokens you want to send and click **Proceed**.
+	2. 이제 받는 사람의 공개 주소를 입력해야 합니다. 주소록에 이미 저장된 주소가 있는 경우 해당 주소가 표시됩니다.
+	3. 전송할 토큰의 양을 입력하고 **진행**을 클릭합니다.
 	![](/img/build/wallets/kw-input-address-amount.png)
-	4. Now you're presented with your transaction details. Make sure to double-check the transaction details before clicking **Confirm** to proceed.
+	4. 이제 거래 세부 정보가 표시됩니다. 계속하려면 **확인**을 클릭하기 전에 거래 세부 정보를 다시 한 번 확인하시기 바랍니다.
 	![](/img/build/wallets/kw-tx-details.png)
-	5. You will then see a success message modal if your tokens were successfully sent. 
+	5. 토큰이 성공적으로 전송되었다면 성공 메시지 모달이 표시됩니다. 
 	![](/img/build/wallets/kw-token-success-msg.png)
-	6. You can now see your recent transactions in the **Transaction History** tab.
+	6. 이제 **거래 내역** 탭에서 최근 거래를 확인할 수 있습니다.
 	![](/img/build/wallets/kw-tx-history.png)  
 </TabItem>
   <TabItem value="Mobile" label="Mobile">
-	1. From the home page of your wallet, make sure you're in the right account and right network from which you want to transact.
-	2. Click the **Send** button directly in the same column as the KAIA Balance
+	1. 지갑 홈페이지에서 거래하려는 계정과 네트워크가 올바른지 확인합니다.
+	2. KAIA 잔액과 같은 열에서 **보내기** 버튼을 직접 클릭합니다
 	![](/img/build/wallets/kw-m-send-btn.jpg)
-	3. Now you need to input the public address of the recipient and click **Next**.
+	3. 이제 수신자의 공개 주소를 입력하고 **다음**을 클릭해야 합니다.
 	![](/img/build/wallets/kw-m-insert-address.jpg)
-	4. Enter the amount of tokens you want to send and click **Next**.
+	4. 보내려는 토큰의 양을 입력하고 **다음**을 클릭합니다.
 	![](/img/build/wallets/kw-m-insert-amount.jpg)
-	5. Now you're presented with your transaction details. Make sure to double-check the transaction details before clicking **Send** to proceed.
+	5. 이제 거래 세부 정보가 표시됩니다. 계속하려면 **전송**을 클릭하기 전에 거래 세부 정보를 다시 한 번 확인하세요.
 	![](/img/build/wallets/kw-m-tx-details.jpg)
-	6. When you click on the KAIA balance card, you can now see your recent transactions in the **Transaction History** page.
+	6. KAIA 잔액 카드를 클릭하면 이제 **거래 내역** 페이지에서 최근 거래 내역을 확인할 수 있습니다.
 	![](/img/build/wallets/kw-m-tx-history.jpg)  
 </TabItem>
 </Tabs>
 
-## ERC20 Tokens
+## ERC20 토큰
 
-### MetaMask
+### 메타마스크
 
 <Tabs>
   <TabItem value="Browser" label="Browser Extension" default>
-	1. Navigate to the **Tokens** tab on your homepage and select the tokens you want to send to access a page that shows the tokens details
+	1. 홈페이지의 **토큰** 탭으로 이동하여 보내려는 토큰을 선택하여 토큰 세부 정보가 표시되는 페이지에 액세스합니다.
 	![](/img/build/wallets/mm-erc20-homepage.png)
-	2. Click the **Send** button
+	2. 보내기** 버튼을 클릭합니다
 	![](/img/build/wallets/mm-erc20-send-btn.png)
-	3. Input the recipient's address and amount of tokens you want to send and click **Continue**
+	3. 수취인 주소와 보낼 토큰 수량을 입력하고 **계속**
 	![](/img/build/wallets/mm-erc20-input-ao.png)
-	4. Click the **Confirm** button to submit the transaction and send your ERC20 token
+	4. 확인** 버튼을 클릭하여 트랜잭션을 제출하고 ERC20 토큰을 전송하세요
 	![](/img/build/wallets/mm-erc20-tx-details.png)  
 </TabItem>
   <TabItem value="Mobile" label="Mobile">
-	1. Tap on the **Tokens** tab and select the ERC20 tokens you want to send to access a page that shows the tokens details
+	1. 토큰** 탭을 탭하고 보내려는 ERC20 토큰을 선택하여 토큰 세부 정보가 표시되는 페이지에 액세스합니다
 	![](/img/build/wallets/mm-m-erc20-select.jpg)
-	2. Tap the **Send** button to proceed
+	2. 계속하려면 **보내기** 버튼을 탭합니다
 	![](/img/build/wallets/mm-m-erc20-send-btn.jpg)
-	3. Now you need to input the public address of the recipient and click **Next**.
+	3. 이제 수신자의 공개 주소를 입력하고 **다음**을 클릭해야 합니다.
 	![](/img/build/wallets/mm-m-insert-address.jpg)
-	4. Enter the amount of tokens you want to send and click **Next**.
+	4. 전송할 토큰의 양을 입력하고 **다음**을 클릭합니다.
 	![](/img/build/wallets/mm-m-erc20-insert-amount.jpg)
-	5. Tap on the **Send** button at the bottom of the screen.
+	5. 화면 하단의 **전송** 버튼을 탭합니다.
 	![](/img/build/wallets/mm-m-erc20-tx-details.jpg)  
 </TabItem>
 </Tabs>
 
-### Kaia Wallet
+### 카이아 지갑
 
 <Tabs>
   <TabItem value="Browser" label="Browser Extension" default>
-	1. Navigate to the **Token List** panel on your wallet homepage
+	1. 지갑 홈페이지의 **토큰 목록** 패널로 이동합니다
 	![](/img/build/wallets/kw-erc20-token-list.png)
-	2. Select the tokens you want to send to access a page that shows the tokens details
-	3. Click the **Send** button.
+	2. 보내려는 토큰을 선택하여 토큰 세부 정보가 표시된 페이지에 액세스합니다
+	3. 보내기** 버튼을 클릭합니다.
 	![](/img/build/wallets/kw-erc20-send-btn.png)
-	4. Input the recipient's address and amount of tokens you want to send and click **Proceed**
+	4. 수취인 주소와 보낼 토큰 수량을 입력하고 **진행**
 	![](/img/build/wallets/kw-erc20-input-ao.png)
-	5. Click the **Confirm** button to submit the transaction and send your ERC20 tokens 
+	5. 확인** 버튼을 클릭하여 트랜잭션을 제출하고 ERC20 토큰을 전송합니다 
 	![](/img/build/wallets/kw-erc20-tx-details.png)
-	6. You will then see a success message modal if your tokens were successfully sent.
+	6. 토큰이 성공적으로 전송되었다면 성공 메시지 모달이 표시됩니다.
 	![](/img/build/wallets/kw-erc20-success-msg.png)  
 </TabItem>
   <TabItem value="Mobile" label="Mobile">
-	1. From the home page of your wallet, make sure you're in the right account and right network  from which you want to transact.
-	2. Click the **Send** button directly in the same row as the ERC20 token balance you want to send.
+	1. 지갑 홈페이지에서 거래하려는 계정과 네트워크가 올바른지 확인합니다.
+	2. 송금하려는 ERC20 토큰 잔액과 같은 행에 있는 **송금** 버튼을 바로 클릭합니다.
 	![](/img/build/wallets/kw-m-erc20-send-btn.jpg)
-	3.  Now you need to input the public address of the recipient and click **Next**.
+	3.  이제 수신자의 공개 주소를 입력하고 **다음**을 클릭해야 합니다.
 	![](/img/build/wallets/kw-m-erc20-insert-addr.jpg)
-	4. Enter the amount of tokens you want to send and click **Next**.
+	4. 송금할 토큰의 수량을 입력하고 **다음**을 클릭합니다.
 	![](/img/build/wallets/kw-m-erc20-insert-amount.jpg)
-	5. Now you're presented with your transaction details. Make sure to double-check the transaction details before clicking **Send** to proceed.
+	5. 이제 거래 세부 정보가 표시됩니다. 계속하려면 **전송**을 클릭하기 전에 거래 세부 정보를 다시 한 번 확인하세요.
 	![](/img/build/wallets/kw-m-erc20-tx-details.jpg)
-	6. You will then see a success message modal if your tokens were successfully sent.
+	6. 토큰이 성공적으로 전송되었다면 성공 메시지 모달이 표시됩니다.
 	![](/img/build/wallets/kw-m-erc20-success-msg.jpg)
-	7. When you click on the token balance card, You can now see your recent transactions in the **Transaction History** page.
+	7. 토큰 잔액 카드를 클릭하면 **거래 내역** 페이지에서 최근 거래 내역을 확인할 수 있습니다.
 	![](/img/build/wallets/kw-m-erc20-tx-history.jpg)  
 </TabItem>
 </Tabs>
