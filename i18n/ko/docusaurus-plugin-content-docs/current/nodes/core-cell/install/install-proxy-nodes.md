@@ -60,9 +60,9 @@ $ yum install kpnd-vX.X.X.el7.x86_64.rpm
 $ yum install kpnd-baobab-vX.X.X.el7.x86_64.rpm
 ```
 
-### 카이아 Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
+### Kaia Yum 리포지토리에서 설치 <a id="install-from-klaytn-yum-repo"></a>
 
-또는 카이아 Yum 저장소에서 `kpnd`를 설치하고 실행할 수 있습니다:
+또는 Kaia Yum 저장소에서 `kpnd`를 설치하고 실행할 수 있습니다:
 
 ```bash
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
@@ -94,7 +94,7 @@ PN 설정은 데이터 디렉터리를 생성하고 설정 파일 `kpnd.conf`에
 
 ### PN 데이터 디렉터리 생성 <a id="pn-data-directory-creation"></a>
 
-카이아 블록체인 데이터의 크기가 항상 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다. 원하는 경로에 디렉터리를 생성해야 할 수도 있습니다.
+Kaia 블록체인 데이터의 크기가 항상 증가한다는 사실을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다. 원하는 경로에 디렉터리를 생성해야 할 수도 있습니다.
 
 ```bash
 $ mkdir -p /var/kpnd/data
@@ -152,7 +152,7 @@ Synching from the genesis block is time-consuming. You may use [Chaindata Snapsh
 
 ### PN 시작/중지 <a id="pn-start-stop"></a>
 
-다음 `systemctl` 명령어로 카이아 서비스를 시작/중지할 수 있습니다.
+다음 `systemctl` 명령어로 Kaia 서비스를 시작/중지할 수 있습니다.
 
 **참고**: 루트 권한이 필요합니다.
 
@@ -252,7 +252,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kpn 콘솔 <a id="kcn-console-kpn-console"></a>
 
-카이아는 `kpn console`이라는 CLI 클라이언트를 제공합니다. 그러나 PN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
+Kaia는 `kpn console`이라는 CLI 클라이언트를 제공합니다. 그러나 PN은 보안상의 이유로 클라이언트에 대한 RPC 인터페이스를 비활성화할 수 있습니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다.
 
 The IPC file `klay.ipc` is located in the `DATA_DIR` path on a PN.
 
@@ -275,7 +275,7 @@ You can check the usable commands on [API Document](../../../references/json-rpc
 PN의 상태를 확인하는 데 유용한 API입니다:
 
 - `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
+- `net.peerCount` (현재 연결된 Kaia 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 
