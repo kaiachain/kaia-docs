@@ -120,7 +120,7 @@
     "description": "The label for category Node Quick Reference in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Kaia Safe": {
-    "message": "카이아 세이프",
+    "message": "Kaia 세이프",
     "description": "The label for category Kaia Safe in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Node Quick Reference": {
@@ -128,7 +128,7 @@
     "description": "The label for category Node Quick Reference in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.link.KaiaScan": {
-    "message": "카이아스캔",
+    "message": "KaiaScan",
     "description": "The label for link KaiaScan in sidebar buildSidebar, linking to https://kaiascan.io/"
   },
   "sidebar.nodeSidebar.category.Node Quick Reference": {
@@ -292,23 +292,23 @@
     "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
   },
   "sidebar.learnSidebar.category.Finschia to Kaia": {
-    "message": "핀시아에서 카이아로 옮기기",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Finschia to Kaia": {
-    "message": "핀시아에서 카이아로 옮기기",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar buildSidebar"
   },
   "sidebar.nodeSidebar.category.Finschia to Kaia": {
-    "message": "핀시아에서 카이아로 옮기기",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.Finschia to Kaia": {
-    "message": "핀시아에서 카이아로 옮기기",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar refSidebar"
   },
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
-    "message": "핀시아에서 카이아로 옮기기",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
   }
 }
