@@ -1,6 +1,6 @@
-# 카이아 호환 토큰(KCT)
+# Kaia 호환 토큰(KCT)
 
-카이아 호환 토큰(KCT)은 특정 기술 사양을 구현하는 특별한 유형의 스마트 컨트랙트입니다. 카이아 위에서 토큰을 발행하고자 하는 사람은 누구나 이 사양을 따라야 합니다.
+Kaia 호환 토큰(KCT)은 특정 기술 사양을 구현하는 특별한 유형의 스마트 컨트랙트입니다. Kaia 위에서 토큰을 발행하고자 하는 사람은 누구나 이 사양을 따라야 합니다.
 
 Token standards are defined in Kaia such as [KIP-7](https://kips.kaia.io/KIPs/kip-7) and [KIP-17](https://kips.kaia.io/KIPs/kip-17).
 
@@ -127,12 +127,12 @@ For more information, refer to the official [KIP-17 documentation](https://kips.
 
 - An example implementation is available at [https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol](https://github.com/kaiachain/kaia-contracts/blob/main/contracts/KIP/token/KIP17/KIP17.sol).
 
-## 카이아 서비스체인을 위한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
+## Kaia 서비스체인을 위한 토큰 표준 <a id="token-standards-for-klaytn-service-chain"></a>
 
-서비스체인이란 카이아의 메인 블록체인 네트워크에 앵커링되는 카이아의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 메인체인과 서비스체인 간의 밸류 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이러한 컨트랙트는 현재 개발 중이며, 준비가 완료되면 카이아 서비스체인을 위한 토큰 사양이 KlaytnDocs에 제공될 예정입니다.
+서비스체인이란 Kaia의 메인 블록체인 네트워크에 앵커링되는 Kaia의 사이드체인을 의미합니다. 서비스체인을 구현할 때, 메인체인과 서비스체인 간의 밸류 전송을 지원하기 위해 특별한 유형의 컨트랙트가 사용됩니다. 이러한 컨트랙트는 현재 개발 중이며, 준비가 완료되면 Kaia 서비스체인을 위한 토큰 사양이 KlaytnDocs에 제공될 예정입니다.
 
 ## ERC-20 및 ERC-721에 대한 참고사항 <a id="notes-on-erc-20-and-erc-721"></a>
 
 Kaia는 토큰 표준으로 KIP-7과 KIP-17을 발표했기 때문에, 대체 가능한 토큰과 대체 불가능한 토큰 컨트랙트는 각각 ERC-20과 ERC-721을 따르기보다는 KIP-7과 KIP-17에 따라 구현할 것을 권장합니다.
-KIP-7과 KIP-17은 ERC-20과 ERC-721을 기반으로 하지만, 카이아에 맞게 조정되었기 때문에 카이아 생태계에 더 적합합니다. 그러나 ERC-20과 ERC-721은 여전히 Kaia 네트워크에서 지원되지만, 카이아 생태계의 다양한 도구와 호환되지 않을 수 있습니다.
+KIP-7과 KIP-17은 ERC-20과 ERC-721을 기반으로 하지만, Kaia에 맞게 조정되었기 때문에 Kaia 생태계에 더 적합합니다. 그러나 ERC-20과 ERC-721은 여전히 Kaia 네트워크에서 지원되지만, Kaia 생태계의 다양한 도구와 호환되지 않을 수 있습니다.
 For more information about the differences on token standards, please visit [KIP-7](https://kips.kaia.io/KIPs/kip-7#differences-with-erc-20) and [KIP-17](https://kips.kaia.io/KIPs/kip-17#differences-from-erc-721).
