@@ -71,21 +71,21 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  웹3에서 카이아 기능을 추가하기 위해 **@카이아체인/viem-ext** 패키지를 가져옵니다.
+  웹3에서 Kaia 기능을 추가하기 위해 **@Kaia체인/viem-ext** 패키지를 가져옵니다.
 
   ```js txTypeValueTransferTransaction.js focus=1
   ```
 
   ---
 
-  카이아 카이로스 테스트넷에 연결할 **카이로스** 체인 구성을 지정합니다.
+  Kaia Kairos 테스트넷에 연결할 **Kairos** 체인 구성을 지정합니다.
 
   ```js txTypeValueTransferTransaction.js focus=2
   ```
 
   ---
 
-  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
 
   ```js txTypeValueTransferTransaction.js focus=3:9
   ```
@@ -129,7 +129,7 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 트랜잭션에 서명하고 카이아 블록체인으로 전송한 후 트랜잭션 해시를 기록합니다.
+  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 트랜잭션에 서명하고 Kaia 블록체인으로 전송한 후 트랜잭션 해시를 기록합니다.
 
   <CH.Code>
     ```js txTypeValueTransferTransaction.js focus=19:20
