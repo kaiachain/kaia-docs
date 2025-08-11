@@ -2,7 +2,7 @@
 
 ## 개요 <a id="overview"></a>
 
-카이아에서 대체 가능한 토큰을 생성하는 방법은 이더리움에서와 비슷한 단계를 따르며, [ERC20 표준](https://ethereum.org/en/developers/docs/standards/tokens/erc-20)을 사용합니다.
+Kaia에서 대체 가능한 토큰을 생성하는 방법은 이더리움에서와 비슷한 단계를 따르며, [ERC20 표준](https://ethereum.org/en/developers/docs/standards/tokens/erc-20)을 사용합니다.
 
 표준을 따르기 위해 다음 이벤트와 기능을 구현하는 컨트랙트를 배포합니다:
 
@@ -81,7 +81,7 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 ![](/img/build/smart-contracts/mm-import-tokens-e20g.png)
 
-- 네트워크 선택\*\* 필드에서 카이아 카이로스 네트워크를 선택하고 **토큰 컨트랙트 주소** 필드에 최근에 배포한 그리스 컨트랙트 주소를 붙여넣어야 합니다.
+- 네트워크 선택\*\* 필드에서 Kaia Kairos 네트워크를 선택하고 **토큰 컨트랙트 주소** 필드에 최근에 배포한 그리스 컨트랙트 주소를 붙여넣어야 합니다.
 
 ![](/img/build/smart-contracts/mm-custom-tokens-e20g.png)
 
