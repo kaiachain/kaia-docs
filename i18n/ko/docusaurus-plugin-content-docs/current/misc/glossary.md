@@ -1,6 +1,6 @@
 # 용어집
 
-이 용어집은 카이아 블록체인과 관련된 기술 용어에 대한 설명을 제공합니다. 카이아 문서, 가이드, 튜토리얼을 살펴보면서 접하게 될 수많은 용어를 이해하기 위한 길잡이 역할을 합니다.
+이 용어집은 Kaia 블록체인과 관련된 기술 용어에 대한 설명을 제공합니다. Kaia 문서, 가이드, 튜토리얼을 살펴보면서 접하게 될 수많은 용어를 이해하기 위한 길잡이 역할을 합니다.
 
 ### 앵커
 
@@ -18,11 +18,11 @@ This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring con
 
 사용자가 블록체인의 데이터를 보고 검색할 수 있는 웹 기반 도구입니다. 블록 탐색기는 일반적으로 블록 높이, 블록 해시, 트랜잭션 해시, 트랜잭션 발신자 및 수신자, 트랜잭션 금액, 트랜잭션 상태와 같은 정보를 표시합니다.
 
-카이아에서 사용할 수 있는 블록 탐색기는 [카이아스캔](https://www.kaiascan.io/)과 [OKX 카이아 탐색기](https://www.okx.com/web3/explorer/kaia)입니다.
+Kaia에서 사용할 수 있는 블록 탐색기는 [KaiaScan](https://www.kaiascan.io/)과 [OKX Kaia 탐색기](https://www.okx.com/web3/explorer/kaia)입니다.
 
 ### 코어 셀(CC, Core Cell)
 
-트랜잭션을 실행하고 블록을 생성하는 카이아 블록체인 아키텍처의 엔티티입니다. 코어 셀은 일반적으로 합의 노드와 여러 프록시 노드로 구성됩니다.
+트랜잭션을 실행하고 블록을 생성하는 Kaia 블록체인 아키텍처의 엔티티입니다. 코어 셀은 일반적으로 합의 노드와 여러 프록시 노드로 구성됩니다.
 
 [컨센서스 노드(CN)](#consensus-node-cn), [프록시 노드(PN)](#proxy-node-pn)도 참조하세요.
 
@@ -32,11 +32,11 @@ This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring con
 
 ### 합의 노드(CN, Consensus Node)
 
-블록을 생성하고 전파하며, 카이아 블록체인의 상태에 대한 합의에 도달하는 역할을 하는 노드입니다. 합의 노드는 제출된 트랜잭션의 유효성을 검사하고 유효한 트랜잭션을 실행합니다.
+블록을 생성하고 전파하며, Kaia 블록체인의 상태에 대한 합의에 도달하는 역할을 하는 노드입니다. 합의 노드는 제출된 트랜잭션의 유효성을 검사하고 유효한 트랜잭션을 실행합니다.
 
 ### 엔드포인트 노드(EN, Endpoint Node)
 
-서비스체인과 dApp이 노출된 RPC API를 통해 카이아 블록체인과 상호작용할 수 있는 진입점 역할을 하는 노드입니다. 엔드포인트 노드는 전체 블록체인 원장을 동기화하고 프록시 노드를 거치지 않고 블록체인 데이터를 읽거나 트랜잭션을 네트워크에 직접 전송할 수 있습니다.
+서비스체인과 dApp이 노출된 RPC API를 통해 Kaia 블록체인과 상호작용할 수 있는 진입점 역할을 하는 노드입니다. 엔드포인트 노드는 전체 블록체인 원장을 동기화하고 프록시 노드를 거치지 않고 블록체인 데이터를 읽거나 트랜잭션을 네트워크에 직접 전송할 수 있습니다.
 
 ### 엔드포인트 노드 네트워크(ENN)
 
@@ -66,23 +66,23 @@ This is a blockchain that utilizes Byzantine Fault Tolerance (BFT), ensuring con
 
 ### Kaia Ecosystem Fund (KEF)
 
-카이아 재단이 카이아 블록체인 생태계의 성장과 발전에 기여하는 이니셔티브를 지원하기 위해 설립한 기금입니다. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
+Kaia 재단이 Kaia 블록체인 생태계의 성장과 발전에 기여하는 이니셔티브를 지원하기 위해 설립한 기금입니다. The KEF provides grants and financial support to projects, organizations, and individuals working to expand usage and adoption of Kaia. The goal of the KEF is to advance innovation and community growth around Kaia through funded initiatives.
 
-### 카이아 엔드포인트 노드(KEN)
+### Kaia 엔드포인트 노드(KEN)
 
 [엔드포인트 노드(EN)](#endpoint-node-en)를 참조하세요.
 
 ### Kaia Infrastructure Fund (KIF)
 
-카이아 재단이 운영 비용과 장기적인 이니셔티브를 지원하기 위해 설립한 예비 기금입니다. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
+Kaia 재단이 운영 비용과 장기적인 이니셔티브를 지원하기 위해 설립한 예비 기금입니다. The KIF aids in funding the Foundation's work to further develop and enhance the Kaia blockchain protocol and ecosystem through research, business development activities, education programs and more.
 
-### 카이아 거버넌스 카운슬(KGC, Kaia Governance Council)
+### Kaia 거버넌스 카운슬(KGC, Kaia Governance Council)
 
-카이아 블록체인의 관리를 담당하는 조직들의 협의체입니다. GC 멤버는 카이아 재단이 선정하며, 카이아 네트워크에서 합의 노드를 운영해야 합니다. GC는 업그레이드, 파트너십, 생태계 개발 이니셔티브 등 카이아 블록체인의 개발과 운영에 관한 의사결정을 내릴 책임이 있습니다.
+Kaia 블록체인의 관리를 담당하는 조직들의 협의체입니다. GC 멤버는 Kaia 재단이 선정하며, Kaia 네트워크에서 합의 노드를 운영해야 합니다. GC는 업그레이드, 파트너십, 생태계 개발 이니셔티브 등 Kaia 블록체인의 개발과 운영에 관한 의사결정을 내릴 책임이 있습니다.
 
-### 카이아 개선 제안(KIP, Kaia Improvement Proposal)
+### Kaia 개선 제안(KIP, Kaia Improvement Proposal)
 
-카이아 블록체인 네트워크의 새로운 기능이나 프로세스에 관한 정보를 카이아 이해관계자들에게 제공하는 설계 문서입니다. KIP는 프로토콜 업그레이드와 혁신을 제안, 검토, 채택하기 위한 일관되고 통제된 메커니즘을 제공하기 위한 것입니다. 이를 통해 지지자들은 카이아 커뮤니티와 협력하여 잠재적인 프로토콜 업그레이드를 소프트웨어에 포함하기 전에 구체화할 수 있습니다.
+Kaia 블록체인 네트워크의 새로운 기능이나 프로세스에 관한 정보를 Kaia 이해관계자들에게 제공하는 설계 문서입니다. KIP는 프로토콜 업그레이드와 혁신을 제안, 검토, 채택하기 위한 일관되고 통제된 메커니즘을 제공하기 위한 것입니다. 이를 통해 지지자들은 Kaia 커뮤니티와 협력하여 잠재적인 프로토콜 업그레이드를 소프트웨어에 포함하기 전에 구체화할 수 있습니다.
 
 KIP의 대표적인 예로는 [KIP-7](http://kips.klaytn.foundation/KIPs/kip-7), [KIP-17](http://kips.klaytn.foundation/KIPs/kip-17), [KIP-37](http://kips.klaytn.foundation/KIPs/kip-37)이 있습니다.
 
@@ -92,19 +92,19 @@ This is the world state of accounts in Kaia containing the balances, storage var
 
 ### Kaia virtual machine (KVM)
 
-카이아 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
+Kaia 스마트 컨트랙트를 실행하는 가상 상태 머신입니다. 이더리움 가상머신(EVM)에서 파생된 준 튜링 완전 스택 기반 가상머신입니다. The KVM is responsible for processing and executing smart contracts on the Kaia blockchain.
 
-### 카이아 네트워크 식별자(KNI, Kaia network identifier)
+### Kaia 네트워크 식별자(KNI, Kaia network identifier)
 
-카이아 노드를 식별하기 위한 고유한 리소스 식별자 체계입니다. nodeID, 호스트명, 포트, 디스크로 구성됩니다.
+Kaia 노드를 식별하기 위한 고유한 리소스 식별자 체계입니다. nodeID, 호스트명, 포트, 디스크로 구성됩니다.
 
 ### Kairos
 
-카이아 플랫폼의 퍼블릭 테스트넷입니다. 개발자가 메인넷에 배포하기 전에 애플리케이션을 테스트하고 검증하는 데 사용됩니다.
+Kaia 플랫폼의 퍼블릭 테스트넷입니다. 개발자가 메인넷에 배포하기 전에 애플리케이션을 테스트하고 검증하는 데 사용됩니다.
 
 ### 제안자
 
-블록 생성의 각 라운드에서 합의 노드(CN)에 할당된 역할입니다. 제안자는 다음 블록을 생성하기 위해 무작위적이지만 결정론적으로 선택됩니다. CN이 제안자로 선정될 확률은 해당 CN이 보유한 카이아 토큰, 즉 KAIA의 양에 따라 결정됩니다.
+블록 생성의 각 라운드에서 합의 노드(CN)에 할당된 역할입니다. 제안자는 다음 블록을 생성하기 위해 무작위적이지만 결정론적으로 선택됩니다. CN이 제안자로 선정될 확률은 해당 CN이 보유한 Kaia 토큰, 즉 KAIA의 양에 따라 결정됩니다.
 
 ### 프록시 노드(PN, Proxy Node)
 
@@ -130,17 +130,17 @@ Web3 생태계에서 개인의 정체성과 업적을 나타내는 양도 불가
 
 ### 서비스 체인
 
-카이아 메인넷에 연결된 사이드체인 또는 보조 블록체인입니다. 서비스 체인은 즉각적인 완결성, 크로스체인 토큰 전송, 메인체인에 데이터 앵커링 등 다양한 애플리케이션이나 산업의 특정 요구사항을 충족하도록 설계되었습니다.
+Kaia 메인넷에 연결된 사이드체인 또는 보조 블록체인입니다. 서비스 체인은 즉각적인 완결성, 크로스체인 토큰 전송, 메인체인에 데이터 앵커링 등 다양한 애플리케이션이나 산업의 특정 요구사항을 충족하도록 설계되었습니다.
 
 ### 서비스체인 합의 노드(SCN)
 
-카이아 서비스체인에서 합의 과정에 참여하는 역할을 담당하는 노드입니다.
+Kaia 서비스체인에서 합의 과정에 참여하는 역할을 담당하는 노드입니다.
 
 [컨센서스 노드(CN)](#consensus-node-cn), [서비스 체인](#service-chain)도 참조하세요.
 
 ### 서비스체인 엔드포인트 노드(SEN)
 
-서비스체인과 상호작용할 수 있는 퍼블릭 인터페이스를 제공하는 카이아 서비스체인의 노드입니다.
+서비스체인과 상호작용할 수 있는 퍼블릭 인터페이스를 제공하는 Kaia 서비스체인의 노드입니다.
 
 [엔드포인트 노드(EN)](#endpoint-node-en), [서비스 체인](#service-chain)도 참조하세요.
 
@@ -154,4 +154,4 @@ A critical component for managing pending and queued transactions awaiting inclu
 
 ### 검증자
 
-새로운 블록에 포함된 데이터의 정확성을 검증하고 블록이 네트워크에서 효율적으로 처리되도록 하는 노드입니다. 카이아의 비허가형 검증 구조에서는 기존의 거버넌스 카운슬 구조와 역할을 유지하면서 일정 자격을 갖추면 누구나 블록 검증자로 활동할 수 있습니다.
+새로운 블록에 포함된 데이터의 정확성을 검증하고 블록이 네트워크에서 효율적으로 처리되도록 하는 노드입니다. Kaia의 비허가형 검증 구조에서는 기존의 거버넌스 카운슬 구조와 역할을 유지하면서 일정 자격을 갖추면 누구나 블록 검증자로 활동할 수 있습니다.
