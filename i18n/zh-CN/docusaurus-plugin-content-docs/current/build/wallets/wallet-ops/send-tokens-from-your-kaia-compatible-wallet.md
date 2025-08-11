@@ -1,5 +1,5 @@
-从"@theme/Tabs "导入标签
-从"@theme/TabItem "导入 TabItem
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # 如何从 Kaia 兼容钱包发送代币
 
