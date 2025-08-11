@@ -12,7 +12,7 @@ SupraOracles을 사용하면 스마트 컨트랙트가 가격 데이터 피드�
 
 - [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
 - [Remix IDE](https://remix.ethereum.org/)
-- [Remix 카이아 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Remix Kaia 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Test KAIA from [Faucet](https://faucet.kaia.io)
 
 ## 시작하기
@@ -42,7 +42,7 @@ contract ISupraSValueFeedExample {
 }
 ```
 
-이 예제에서는 Kaia Kairos 테스트넷에서 S-Value Feed를 구현하고 있습니다. 카이아 Kairos S-Value 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
+이 예제에서는 Kaia Kairos 테스트넷에서 S-Value Feed를 구현하고 있습니다. Kaia Kairos S-Value 피드 주소는 [여기](https://supraoracles.com/docs/get-started/networks/)에서 확인할 수 있습니다.
 
 ### 3단계: S-Value 암호화폐 가격 확인하기
 
@@ -145,4 +145,4 @@ getEthUsdtPrice()
 
 ## 결론
 
-이 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles을 사용하면 스마트 컨트랙트에서 난수를 생성할 수도 있습니다. 이 과정이 궁금하다면 카이아에 SupraVRF를 통합하는 방법에 대한 [이 가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참고하시기 바랍니다. SupraOracles에 대한 더 자세한 가이드는 [SupraOracles Docs](https://supraoracles.com/docs/development-guides)를 참고하세요.
+이 튜토리얼에서는 SupraOracles 가격 피드 솔루션을 사용하여 ETH/USD 가격을 요청하는 방법을 배웠습니다. SupraOracles을 사용하면 스마트 컨트랙트에서 난수를 생성할 수도 있습니다. 이 과정이 궁금하다면 Kaia에 SupraVRF를 통합하는 방법에 대한 [이 가이드](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/supraOracles-tutorial)를 참고하시기 바랍니다. SupraOracles에 대한 더 자세한 가이드는 [SupraOracles Docs](https://supraoracles.com/docs/development-guides)를 참고하세요.
