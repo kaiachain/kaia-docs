@@ -44,13 +44,13 @@ Using API-Kit is as simple as running the installation command below:
 
 <Tabs>
   <TabItem value="npm" label="npm">
-    ```
+
     npm install @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
     ```
   </TabItem>
 
  <TabItem value="yarn" label="yarn">
-    ```
+
     yarn add @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
     ```
  </TabItem>
@@ -201,11 +201,11 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 // https://chainlist.org/?search=kaia&testnets=true
 const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Owner Safe Address Ex: 0x123.... SAFE SHOULD 
-const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // ONLY OWNER 1 and SAFE ADDRESS Need to have some test KAIA balance
+const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>"; // 2 Owner Safe Address Ex: 0x123.... 안전해야 
+const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // 소유자 1과 안전 주소만 테스트 KAIA 잔액 필요
 const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 need not have any test KAIA
-const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
+const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2는 테스트 KAIA가 필요 없음
+const TO_ADDRESS = OWNER_1_ADDRESS; // 1 위를 받는 샘플 트랜잭션의 수신자 주소
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
@@ -215,7 +215,7 @@ const protocolKitOwner1 = await Safe.default.init({
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
-// 1. Create transaction
+// 1. 트랜잭션 생성
 const safeTransactionData = {
   to: TO_ADDRESS,
   value: '1', // 1 wei
@@ -227,7 +227,7 @@ const safeTransaction = await protocolKitOwner1.createTransaction({
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2. Propose transaction to the service
+// 2. 서비스에 트랜잭션을 제안합니다
 try {
   await apiKit.proposeTransaction({
     safeAddress: SAFE_ADDRESS,
@@ -239,27 +239,27 @@ try {
 } catch(err) {
   console.log(err)
 }
-console.log("Transaction hash is "+safeTxHash)
+console.log("트랜잭션 해시는 "+safeTxHash")
 const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getPendingTransactions()
 // const transactions = await service.getIncomingTransactions()
 // const transactions = await service.getMultisigTransactions()
 // const transactions = await service.getModuleTransactions()
 // const transactions = await service.getAllTransactions()
-// 3. Confirmation from Owner 2
+// 3. Owner 2의 확인
 const protocolKitOwner2 = await Safe.default.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Confirm the Safe transaction
+// 안전한 트랜잭션 확인
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
 )
 console.log(signatureResponse)
-// 4. Execute transaction
+// 4. 트랜잭션 실행
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
