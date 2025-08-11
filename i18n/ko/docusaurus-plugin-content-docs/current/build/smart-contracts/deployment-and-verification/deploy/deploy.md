@@ -1,8 +1,8 @@
 # 스마트 컨트랙트 배포
 
-카이아에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 Remix IDE를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다.
+Kaia에 스마트 컨트랙트를 배포하는 방법에는 여러 가지가 있습니다. 이 문서는 Remix IDE를 사용하여 샘플 컨트랙트를 배포하는 단계별 가이드를 제공합니다.
 
-이 가이드에서는 계정 생성을 위해 [카이아 툴킷](https://toolkit.kaia.io/account/)을 사용하며, 생성된 계정은 리믹스 카이아 플러그인을 통해 거래에 서명하는 데 사용됩니다.
+이 가이드에서는 계정 생성을 위해 [Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하며, 생성된 계정은 리믹스 Kaia 플러그인을 통해 거래에 서명하는 데 사용됩니다.
 
 ## Remix 온라인 IDE <a id="remix-ide"></a>
 
@@ -29,7 +29,7 @@ contract CoinFlip {
     event GameFinished(주소 색인 winnerAddress, 문자열 winner, uint256 풀);
     
     function enter() public payable {
-        require(msg.value == 0.01 ether, "입장하려면 0.01 카이아를 보내야 합니다");
+        require(msg.value == 0.01 ether, "입장하려면 0.01 Kaia를 보내야 합니다");
         if (player1 == address(0)) {
             player1 = msg.sender;
         } else {
@@ -61,11 +61,11 @@ contract CoinFlip {
 
 ![](/img/build/smart-contracts/d-remix-compile.png)
 
-4. Kaia 플러그인 탭에서 원하는 EVM 환경을 선택합니다. 이 가이드에서는 카이로스(테스트넷)를 선택하겠습니다.
+4. Kaia 플러그인 탭에서 원하는 EVM 환경을 선택합니다. 이 가이드에서는 Kairos(테스트넷)를 선택하겠습니다.
 
 ![](/img/build/smart-contracts/d-remix-env.png)
 
-다음은 거래에 서명할 계정을 가져오는 것입니다. Kaia 호환 지갑에서 개인 키를 내보내거나 Kaia 툴킷을 사용하여 개발자 계정을 생성할 수 있습니다. 이 가이드에서는 [카이아 툴킷](https://toolkit.kaia.io/account)을 사용하여 개발자 계정을 생성합니다.
+다음은 거래에 서명할 계정을 가져오는 것입니다. Kaia 호환 지갑에서 개인 키를 내보내거나 Kaia 툴킷을 사용하여 개발자 계정을 생성할 수 있습니다. 이 가이드에서는 [Kaia 툴킷](https://toolkit.kaia.io/account)을 사용하여 개발자 계정을 생성합니다.
 
 5. 계정 옆의 더하기 버튼을 클릭하여 계정을 가져옵니다.
 
@@ -82,7 +82,7 @@ contract CoinFlip {
 
 7. 배포\*\* 버튼을 클릭합니다.
 
-컨트랙트가 성공적으로 배포되면 터미널에 해당 트랜잭션 해시가 표시되며, [카이아스캔](https://kairos.kaiascan.io)에서 확인할 수 있습니다.
+컨트랙트가 성공적으로 배포되면 터미널에 해당 트랜잭션 해시가 표시되며, [KaiaScan](https://kairos.kaiascan.io)에서 확인할 수 있습니다.
 
 ![](/img/build/smart-contracts/d-remix-deploy-btn.png)
 
@@ -94,6 +94,6 @@ contract CoinFlip {
 
 ![](/img/build/smart-contracts/d-remix-deployed.png)
 
-이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [카이아 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Remix IDE로 빌드하는 동안 필요할 수 있는 유용한 리소스 목록입니다.
+이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [Kaia 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Remix IDE로 빌드하는 동안 필요할 수 있는 유용한 리소스 목록입니다.
 
 - [리믹스 문서](https://remix-ide.readthedocs.io/en/latest/)
