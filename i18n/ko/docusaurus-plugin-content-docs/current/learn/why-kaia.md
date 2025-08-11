@@ -1,10 +1,10 @@
-# 카이아를 기반으로 구축해야 하는 이유
+# Kaia를 기반으로 구축해야 하는 이유
 
 Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 제공하여 웹3.0 채택을 선도하는 아시아 최고의 블록체인이 되는 것을 목표로 합니다. 이 문서에서는 주요 디자인 원칙과 가치 지향점을 바탕으로 Kaia가 어떻게 다른지 설명합니다.
 
 ## 폭넓은 사용자층
 
-1. **웹2.0 사용자 접근성**: 카이아는 카카오(한국 5천만 사용자), 라인(일본, 대만, 인도네시아, 태국 2억 사용자)과 협력하여 메신저 통합 지갑을 통해 기존 웹2.0 사용자들이 쉽게 접근할 수 있도록 합니다.
+1. **웹2.0 사용자 접근성**: Kaia는 카카오(한국 5천만 사용자), 라인(일본, 대만, 인도네시아, 태국 2억 사용자)과 협력하여 메신저 통합 지갑을 통해 기존 웹2.0 사용자들이 쉽게 접근할 수 있도록 합니다.
 
 2. **Web3 User Accessibility**: Kaia offers more than 1.2 million active wallet addresses and interfaces connecting users to projects, facilitating quick attraction of Web3 users.
 
@@ -44,7 +44,7 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 2. **보조 인프라**: 서비스 통합, 스테이블코인 통합, DAO, NFT 마켓플레이스, DEX, DeFi, 기존 금융 인터페이스 등 제품 및 서비스를 지원하기 위한 에코시스템입니다.
 
-3. **생태계 펀드**: 새로 발행되는 토큰의 50%는 [카이아 생태계 펀드](./token-economics/token-economy.md#kaia-ecosystem-fund)와 [카이아 인프라 펀드](./token-economics/token-economy.md#kaia-infrastructure-fund)를 통해 생태계에 재투자됩니다.
+3. **생태계 펀드**: 새로 발행되는 토큰의 50%는 [Kaia 생태계 펀드](./token-economics/token-economy.md#kaia-ecosystem-fund)와 [Kaia 인프라 펀드](./token-economics/token-economy.md#kaia-infrastructure-fund)를 통해 생태계에 재투자됩니다.
 
 ## 커뮤니티 협업 및 거버넌스
 
