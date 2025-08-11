@@ -17,7 +17,7 @@ Foundry는 빠르고 모듈화된 스마트 컨트랙트 개발을 가능하게 
 
 - 간단한 Foundry 프로젝트를 생성합니다.
 - Foundry를 사용하여 스마트 컨트랙트 샘플을 컴파일하고 테스트합니다.
-- Foundry를 사용하여 스마트 컨트랙트를 카이아 Kairos 네트워크에 배포합니다.
+- Foundry를 사용하여 스마트 컨트랙트를 Kaia Kairos 네트워크에 배포합니다.
 - Cast와 Anvil로 메인넷 포크 살펴보기.
 
 ## 사전 요구 사항
@@ -71,7 +71,7 @@ Foundry 프로젝트를 초기화한 후, 현재 디렉터리에 다음이 포�
 .env 파일은 이 형식을 따라야 합니다:
 
 ```bash
-카이로스_RPC_URL=PAST_RPC_URL
+Kairos_RPC_URL=PAST_RPC_URL
 ```
 
 다음은 `foundry.toml` 파일을 편집하는 것입니다. 프로젝트의 루트에는 스캐폴드 뒤에 이미 하나가 있어야 합니다.
@@ -80,10 +80,10 @@ Foundry 프로젝트를 초기화한 후, 현재 디렉터리에 다음이 포�
 
 ```bash
 [rpc_endpoints]
-카이로스 = "${KAIROS_RPC_URL}"
+Kairos = "${KAIROS_RPC_URL}"
 ```
 
-이렇게 하면 카이아 카이로스 테스트넷을 위한 [RPC 별칭](https://book.getfoundry.sh/cheatcodes/rpc.html)이 생성됩니다.
+이렇게 하면 Kaia Kairos 테스트넷을 위한 [RPC 별칭](https://book.getfoundry.sh/cheatcodes/rpc.html)이 생성됩니다.
 
 ## 계정 가져오기
 
@@ -185,7 +185,7 @@ To deploy a contract using foundry, you must provide an RPC URL and a private ke
 
 ### Forge Create 사용
 
-**1단계**: 위조 생성을 사용하여 카이아 카이로스 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
+**1단계**: 위조 생성을 사용하여 Kaia Kairos 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 
 ```bash
 # .env 파일에 변수를 로드하려면
@@ -205,7 +205,7 @@ forge create --rpc-url $KAIROS_RPC_URL src/Counter.sol:Counter --broadcast --acc
 
 ![](/img/build/get-started/forge-create-deploy.png)
 
-**2단계**: 카이아스캔을 열어 카운터 컨트랙트가 성공적으로 배포되었는지 확인합니다.
+**2단계**: KaiaScan을 열어 카운터 컨트랙트가 성공적으로 배포되었는지 확인합니다.
 
 **Step 3**: Copy and paste the transaction hash in the search field and press Enter. You should see the recently deployed contract.
 
@@ -213,7 +213,7 @@ forge create --rpc-url $KAIROS_RPC_URL src/Counter.sol:Counter --broadcast --acc
 
 ### 포지 스크립트 사용
 
-위조 스크립트를 사용하여 카이아 카이로스 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
+위조 스크립트를 사용하여 Kaia Kairos 네트워크에 컨트랙트를 배포하려면 아래 명령을 실행하세요:
 
 ```bash
 # .env 파일에 변수를 로드하려면
@@ -227,7 +227,7 @@ forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_R
 
 ## Interacting with the contract
 
-스마트 컨트랙트를 성공적으로 배포한 다음 단계는 일반적으로 함수를 호출하고 실행하여 스마트 컨트랙트와 상호 작용하는 것입니다. 캐스트](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 카이아 카이로스 네트워크에 배포된 컨트랙트와 바로 상호작용해 보겠습니다.
+스마트 컨트랙트를 성공적으로 배포한 다음 단계는 일반적으로 함수를 호출하고 실행하여 스마트 컨트랙트와 상호 작용하는 것입니다. 캐스트](https://book.getfoundry.sh/reference/cast/cast-send.html)를 사용하여 Kaia Kairos 네트워크에 배포된 컨트랙트와 바로 상호작용해 보겠습니다.
 
 In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
 
@@ -347,7 +347,7 @@ You can convert the result from the task above using [hex to decimal](https://ww
 
 **Transferring USDT**
 
-카이아스캔으로 이동하여 USDT 토큰 보유자를 검색합니다([여기](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. 이 예제에서는 `0xb3ff853a137bfe10f3d8965a29013455e1619303`을 사용합니다.
+KaiaScan으로 이동하여 USDT 토큰 보유자를 검색합니다([여기](https://kaiascan.io/token/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=tokenHolder&page=1)). Let's pick a random account. 이 예제에서는 `0xb3ff853a137bfe10f3d8965a29013455e1619303`을 사용합니다.
 
 Let's export our contracts and accounts as environment variables:
 
@@ -426,7 +426,7 @@ cast call $USDT "balanceOf(주소)(uint256)" $USDTHolder
 
 ![](/img/build/get-started/gas-estimation-err.png)
 
-이는 일반적으로 배포 중 부정확한 가스 추정으로 인해 발생합니다. 파운드리의 기본 가스 추정 알고리즘(기본 130% 승수 사용)은 때때로 카이아 네트워크에서 부족하여 배포가 완료되기 전에 가스가 부족해지기도 합니다.
+이는 일반적으로 배포 중 부정확한 가스 추정으로 인해 발생합니다. 파운드리의 기본 가스 추정 알고리즘(기본 130% 승수 사용)은 때때로 Kaia 네트워크에서 부족하여 배포가 완료되기 전에 가스가 부족해지기도 합니다.
 
 실제 필요한 가스가 예상량을 초과하면 컨트랙트 배포 중에 트랜잭션에 가스가 부족하여 _컨트랙트 생성 코드 저장소 가스 부족_ 오류가 발생합니다.
 
@@ -459,7 +459,7 @@ forge 스크립트 --체인 1001 스크립트/NFT.s.sol:NFTScript --rpc-url $KAI
 
 ## 결론
 
-이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [카이아 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Foundry를 사용하여 빌드하는 데 필요한 유용한 리소스 목록입니다.
+이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [Kaia 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Foundry를 사용하여 빌드하는 데 필요한 유용한 리소스 목록입니다.
 
 - [파운드리 문서](https://book.getfoundry.sh/)
 - [사이프린 파운드리 기초](https://updraft.cyfrin.io/courses/foundry)
