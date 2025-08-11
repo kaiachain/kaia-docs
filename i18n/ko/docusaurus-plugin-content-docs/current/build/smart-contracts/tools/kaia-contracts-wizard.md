@@ -4,17 +4,17 @@
 
 ## 소개
 
-카이아는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이것이 바로 Kaia Contracts Wizard(KCW)를 만든 원동력입니다. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). 즉, 카이아 컨트랙트의 구성요소를 활용하여 스마트 컨트랙트를 개발하는 과정을 간소화합니다. Kaia Contracts Wizard는 OpenZeppelin 마법사의 기반 위에 구축되어 스마트 컨트랙트 개발의 보안을 더욱 강화한다는 점에 주목할 필요가 있습니다.
+Kaia는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이것이 바로 Kaia Contracts Wizard(KCW)를 만든 원동력입니다. KCW serves as an interactive tool for effortlessly bootstrapping your smart contracts and utilizing the secure, tested components available in [Kaia Contracts](https://github.com/kaiachain/kaia-contracts). 즉, Kaia 컨트랙트의 구성요소를 활용하여 스마트 컨트랙트를 개발하는 과정을 간소화합니다. Kaia Contracts Wizard는 OpenZeppelin 마법사의 기반 위에 구축되어 스마트 컨트랙트 개발의 보안을 더욱 강화한다는 점에 주목할 필요가 있습니다.
 
 이 가이드에서는 다음과 같이 설명합니다:
 
 - Kaia Contracts Wizard의 기본 기능을 이해합니다.
 - Kaia Contracts Wizard를 사용하여 스마트 컨트랙트 코드 생성 및 커스터마이징하기.
-- Foundry 스크립팅 시스템을 사용하여 카이아 컨트랙트를 카이아 네트워크(Kairos)에 배포합니다.
+- Foundry 스크립팅 시스템을 사용하여 Kaia 컨트랙트를 Kaia 네트워크(Kairos)에 배포합니다.
 
 ## Kaia Contracts Wizard 살펴보기
 
-Kaia Contracts Wizard는 카이아 컨트랙트를 사용하여 스마트 컨트랙트를 작성하는 가장 빠르고 쉬운 방법이라고 자부합니다. 이번 섹션에서는 Kaia Contracts Wizard의 다양한 구성 요소와 세그먼트에 대해 자세히 살펴보겠습니다.
+Kaia Contracts Wizard는 Kaia 컨트랙트를 사용하여 스마트 컨트랙트를 작성하는 가장 빠르고 쉬운 방법이라고 자부합니다. 이번 섹션에서는 Kaia Contracts Wizard의 다양한 구성 요소와 세그먼트에 대해 자세히 살펴보겠습니다.
 
 현재 Kaia Contracts Wizard는 다음과 같은 토큰 표준을 지원합니다:
 
@@ -44,7 +44,7 @@ Kaia Contracts Wizard는 다음 섹션으로 구성되어 있습니다:
 
 Kaia Contracts Wizard의 여러 부분을 살펴봤다면 이제 원하는 컨트랙트 종류(현재 **KIP7**, **KIP17**, **KIP37**, **ERC20**, **ERC721**, **ERC1155**, **거버너** 및 사용자 정의 컨트랙트 지원)를 선택하고 파라미터와 원하는 기능(토큰 이름, 심볼, 사전 발행량, 접근 제어 등)을 설정하면 컨트랙트 마법사가 필요한 모든 코드를 생성해줍니다. 생성된 코드는 컴파일 및 배포할 준비가 된 상태이며, 시작점으로 사용하거나 애플리케이션별 로직으로 추가 사용자 지정할 수 있습니다.
 
-## 카이아 네트워크에서 카이아 컨트랙트 커스터마이징 및 배포하기
+## Kaia 네트워크에서 Kaia 컨트랙트 커스터마이징 및 배포하기
 
 In this section, you will deploy the generated code from kaia contracts wizard to the Kaia Testnet Kairos using Foundry. 생성된 코드는 시작점으로 사용되며, KIP7 및 KIP17 토큰의 에어드랍 컨트랙트에 맞게 추가로 커스터마이징할 수 있습니다.  다른 쪽에서는 KIP37에 대해 생성된 코드가 그대로 사용됩니다.
 
@@ -55,7 +55,7 @@ In this section, you will deploy the generated code from kaia contracts wizard t
 이 튜토리얼을 따라하기 위한 사전 요구 사항은 아래에 강조 표시되어 있습니다:
 
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
-- 카이아 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
+- Kaia 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
 - [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
@@ -283,7 +283,7 @@ contract KIP37MultiToken is KIP37, Ownable {
 
 이제 KIP37 컨트랙트 코드가 준비되었으므로, 다음 단계는 프로젝트 디렉터리의 src 폴더에 KIP37MultiToken.sol이라는 새 파일을 생성하고 생성된 코드를 붙여넣는 것입니다.
 
-모든 카이아 컨트랙트에 대한 컨트랙트 코드를 생성했으면, 다음 단계는 Foundry Solidity 스크립트를 사용하여 카이아 테스트넷 Kairos에 배포하는 것입니다.
+모든 Kaia 컨트랙트에 대한 컨트랙트 코드를 생성했으면, 다음 단계는 Foundry Solidity 스크립트를 사용하여 Kaia 테스트넷 Kairos에 배포하는 것입니다.
 
 ## Foundry 스크립트를 사용하여 생성된 스마트 컨트랙트 코드 배포하기
 
@@ -454,7 +454,7 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 이 튜토리얼에서는 Kaia 컨트랙트 마법사와 그 기능, 그리고 KCW를 사용하여 컨트랙트를 커스터마이징하는 방법에 대해 배웠습니다. 또한 스마트 컨트랙트 코드를 생성하는 방법과 생성된 스마트 컨트랙트 코드를 시작점으로 삼아 애플리케이션별 로직으로 추가 커스터마이징하는 방법도 보여드렸습니다.
 
-또한, 생성된 컨트랙트를 Foundry Solidity 스크립팅을 사용하여 카이아 Kairos 테스트넷에 배포했습니다. Remix IDE 또는 다른 스마트 컨트랙트 개발 환경을 사용하여 Kaia Contracts Wizard를 통해 파생되거나 커스터마이징된 스마트 컨트랙트를 배포할 수 있습니다. 다음 링크에서 해당 튜토리얼을 찾을 수 있습니다:
+또한, 생성된 컨트랙트를 Foundry Solidity 스크립팅을 사용하여 Kaia Kairos 테스트넷에 배포했습니다. Remix IDE 또는 다른 스마트 컨트랙트 개발 환경을 사용하여 Kaia Contracts Wizard를 통해 파생되거나 커스터마이징된 스마트 컨트랙트를 배포할 수 있습니다. 다음 링크에서 해당 튜토리얼을 찾을 수 있습니다:
 
 - [Remix에 연결하기](../tutorials/connecting-remix.md#connecting-klaytn-remix-using-metamask)
 - [Hardhat을 이용한 스마트 컨트랙트 배포하기](../get-started/hardhat.md)
