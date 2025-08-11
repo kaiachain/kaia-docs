@@ -14,7 +14,7 @@
    - [트랜잭션 번들 구성 요소](ga-inside.md#2.2-transaction-bundle-components)
    - [주요 액터 및 상호작용](ga-inside.md#2.3-key-actors-and-interactions)
    - [원자성 및 롤백](ga-inside.md#2.4-atomicity-and-rollback)
-3. [지원되는 토큰](ga-tokens.md)
+3. [지원 토큰](ga-tokens.md)
    - [토큰 자격 기준](ga-tokens.md#3.1-token-eligibility-criteria)
    - [현재 지원되는 토큰](ga-tokens.md#3.2-currently-supported-tokens)
    - [지원되는 토큰 목록 확인 방법](ga-tokens.md#3.3-how-to-check-the-supported-token-list)
