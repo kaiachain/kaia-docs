@@ -2,7 +2,7 @@
 
 ## TxTypeLegacyTransaction <a id="txtypelegacytransaction"></a>
 
-TxTypeLegacyTransaction은 카이아에 이전에 존재했던 트랜잭션 유형을 나타냅니다. 이 트랜잭션 유형은 호환성을 지원하기 위해 존재하므로 [AccountKeyLegacy](../../learn/accounts.md#accountkeylegacy)와 연결된 EOA에서만 작동합니다. 다른 계정 키 유형과 연결된 EOA는 TxTypeValueTransfer, TxTypeSmartContractExecution 등과 같은 다른 트랜잭션 유형을 사용해야 합니다. 이 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행, 또는 앞서 언급한 여러 가지 작업을 수행할 수 있습니다. 이 트랜잭션 유형은 다음과 같은 변경을 시작합니다.
+TxTypeLegacyTransaction은 Kaia에 이전에 존재했던 트랜잭션 유형을 나타냅니다. 이 트랜잭션 유형은 호환성을 지원하기 위해 존재하므로 [AccountKeyLegacy](../../learn/accounts.md#accountkeylegacy)와 연결된 EOA에서만 작동합니다. 다른 계정 키 유형과 연결된 EOA는 TxTypeValueTransfer, TxTypeSmartContractExecution 등과 같은 다른 트랜잭션 유형을 사용해야 합니다. 이 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행, 또는 앞서 언급한 여러 가지 작업을 수행할 수 있습니다. 이 트랜잭션 유형은 다음과 같은 변경을 시작합니다.
 
 1. 발신자의 잔액이 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 nonce가 1 증가합니다.
@@ -120,7 +120,7 @@ SenderTxHash e434257753bf31a130c839fec0bd34fc6ea4aa256b825288ee82db31c2ed7524
 
 ## TxTypeValuetransfer <a id="txtypevaluetransfer"></a>
 
-TxTypeValueTransfer는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. 카이아는 여러 트랜잭션 유형을 제공하여 각 트랜잭션 유형이 하나의 용도로만 사용될 수 있도록 하기 때문에 TxTypeValueTransfer는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 `to`가 외부 소유 계정인 경우에만 TxTypeValueTransfer가 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeSmartContractExecution](#txtypesmartcontractexecution)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
+TxTypeValueTransfer는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. Kaia는 여러 트랜잭션 유형을 제공하여 각 트랜잭션 유형이 하나의 용도로만 사용될 수 있도록 하기 때문에 TxTypeValueTransfer는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 `to`가 외부 소유 계정인 경우에만 TxTypeValueTransfer가 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeSmartContractExecution](#txtypesmartcontractexecution)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
 
 1. 발신자의 잔액이 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 nonce가 1 증가합니다.
@@ -717,11 +717,11 @@ SenderTxHash 8c70627d6b637c7d033ead083fc5e43e5cad10c704a86dd9bda7ac104a0e5ad0
 
 TxTypeCancel은 트랜잭션 풀에서 동일한 nonce를 가진 트랜잭션의 실행을 취소합니다. 이 트랜잭션 유형은 제출된 트랜잭션이 일정 시간 동안 처리되지 않은 것처럼 보일 때 유용합니다. 트랜잭션이 처리되지 않은 것처럼 보이는 몇 가지 경우가 있습니다. The transaction was lost somewhere and did not reach any of the consensus nodes. 2. 트랜잭션이 합의 노드에서 아직 처리되지 않은 경우. 3. 3. 트랜잭션이 처리되었지만 트랜잭션이 포함된 블록이 수신되지 않은 경우.
 
-클라이언트 측에서 정확한 이유를 파악하기 위해서는 모든 합의 노드 내부를 살펴봐야 하기 때문에 정확한 이유를 파악하는 것은 매우 어렵습니다. 그러나 일반인이 합의 노드에 연결하는 것은 금지되어 있습니다. 이러한 상황에서 일반적인 블록체인 플랫폼에서는 사용자가 이전 트랜잭션을 대체하기 위해 더 높은 가스 가격을 가진 다른 트랜잭션을 제출하는 경우가 많습니다. 하지만 카이아에서는 가스 가격이 고정되어 있기 때문에 기존 트랜잭션을 더 높은 가스 가격으로 대체하는 것은 적용되지 않습니다.
+클라이언트 측에서 정확한 이유를 파악하기 위해서는 모든 합의 노드 내부를 살펴봐야 하기 때문에 정확한 이유를 파악하는 것은 매우 어렵습니다. 그러나 일반인이 합의 노드에 연결하는 것은 금지되어 있습니다. 이러한 상황에서 일반적인 블록체인 플랫폼에서는 사용자가 이전 트랜잭션을 대체하기 위해 더 높은 가스 가격을 가진 다른 트랜잭션을 제출하는 경우가 많습니다. 하지만 Kaia에서는 가스 가격이 고정되어 있기 때문에 기존 트랜잭션을 더 높은 가스 가격으로 대체하는 것은 적용되지 않습니다.
 
 트랜잭션이 처리되지 않은 채로 남아 있으면 nonce가 트랜잭션의 실행 순서를 결정하기 때문에 nonce가 더 높은 다른 트랜잭션은 처리할 수 없습니다.
 
-이 문제를 해결하기 위해 카이아는 트랜잭션 유형 TxTypeCancel을 제공합니다. 사용자가 이러한 상황에 직면했을 때 TxTypeCancel 트랜잭션을 제출할 수 있습니다.
+이 문제를 해결하기 위해 Kaia는 트랜잭션 유형 TxTypeCancel을 제공합니다. 사용자가 이러한 상황에 직면했을 때 TxTypeCancel 트랜잭션을 제출할 수 있습니다.
 
 위의 각 상황은 다음과 같이 처리됩니다: 1. 이전 트랜잭션이 손실된 경우, 이 TxTypeCancel 트랜잭션이 실행되어 블록에 포함됩니다. 2. 이전 트랜잭션이 아직 처리되지 않은 경우, 이 TxTypeCancel이 이전 트랜잭션을 대체합니다. 그런 다음 트랜잭션이 실행되고 블록에 포함됩니다. 3. 이전 트랜잭션이 이미 실행된 경우 nonce가 증가했으므로 nonce가 낮아져 이 TxTypeCancel 트랜잭션이 폐기됩니다.
 
@@ -839,7 +839,7 @@ SenderTxHash 10d135d590cb587cc45c1f94f4a0e3b8c24d24a6e4243f09ca395fb4e2450413
 
 ## TxTypeChainDataAnchoring <a id="txtypechaindataanchoring"></a>
 
-TxTypeChainDataAnchoringTransaction은 서비스 체인 데이터를 카이아 메인체인에 앵커링하는 트랜잭션입니다. 서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이 유형의 트랜잭션을 카이아 메인체인에 전송합니다. 데이터 앵커링에 대한 자세한 내용은 [앵커링](../../nodes/service-chain/configure/anchoring.md)을 참고하세요. 이 트랜잭션은 RPC를 통해 전송할 수 없다는 점에 유의하세요. 현재 이 트랜잭션은 보안상의 이유로 비공개 P2P 채널을 통해 실행됩니다. 이 트랜잭션은 발신자의 nonce가 1 증가한다는 것 외에는 Kaia 블록체인의 상태를 변경하지 않습니다.
+TxTypeChainDataAnchoringTransaction은 서비스 체인 데이터를 Kaia 메인체인에 앵커링하는 트랜잭션입니다. 서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이 유형의 트랜잭션을 Kaia 메인체인에 전송합니다. 데이터 앵커링에 대한 자세한 내용은 [앵커링](../../nodes/service-chain/configure/anchoring.md)을 참고하세요. 이 트랜잭션은 RPC를 통해 전송할 수 없다는 점에 유의하세요. 현재 이 트랜잭션은 보안상의 이유로 비공개 P2P 채널을 통해 실행됩니다. 이 트랜잭션은 발신자의 nonce가 1 증가한다는 것 외에는 Kaia 블록체인의 상태를 변경하지 않습니다.
 
 ### 속성 <a id="attributes"></a>
 
