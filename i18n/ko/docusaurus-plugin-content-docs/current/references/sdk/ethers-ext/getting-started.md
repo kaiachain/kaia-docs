@@ -1,6 +1,6 @@
 # Ethers.js Extension for Kaia
 
-[카이아용 Ethers.js 확장](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext)을 제공합니다:
+[Kaia용 Ethers.js 확장](https://github.com/kaiachain/kaia-sdk/tree/main/ethers-ext)을 제공합니다:
 
 - Drop-in replacement to `ethers.Wallet` that handles both Ethereum and Kaia transaction types
   involving AccountKey and TxTypes.
