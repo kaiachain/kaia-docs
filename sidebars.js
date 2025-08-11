@@ -312,6 +312,19 @@ const sidebars = {
       label: 'Tutorials',
       link: { type: 'doc', id: 'build/tutorials/tutorials' },
       items: [
+        {
+          type: 'category',
+          label: 'Integrate Gas Abstraction (GA)',
+          link: { type: 'doc', id: 'build/tutorials/ga-tutorial/ga-tutorial' },
+          items: [
+            'build/tutorials/ga-tutorial/ga-intro',
+            'build/tutorials/ga-tutorial/ga-inside',
+            'build/tutorials/ga-tutorial/ga-tokens',
+            'build/tutorials/ga-tutorial/ga-integration',
+            'build/tutorials/ga-tutorial/ga-sdk',
+            'build/tutorials/ga-tutorial/ga-advanced',
+          ],
+        },        
         'build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk',
         'build/tutorials/fee-delegation-example',
         'build/tutorials/scaffold-eth',
