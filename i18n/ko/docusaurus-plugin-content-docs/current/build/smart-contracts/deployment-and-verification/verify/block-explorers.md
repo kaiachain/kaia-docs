@@ -8,7 +8,7 @@ sidebar_label: 블록 탐색기 사용하기
 
 일반적으로 스마트 컨트랙트 배포자는 실제로 배포된 코드에 접근할 수 있는 유일한 당사자이며, 일반인은 배포자가 검증하기 전까지는 컨트랙트의 소스 코드를 읽을 수 없습니다. 그러나 스마트 컨트랙트 개발 주기에서 중요한 단계인 컨트랙트 검증은 배포된 컨트랙트의 투명성(사용자), 편의성(개발자), 보안을 개선하는 데 도움이 되기 때문에 중요한 역할을 합니다.
 
-하지만 스마트 콘트랙트가 검증되면 카이아스캔과 OKX 카이아 익스플로러와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용해 콘트랙트의 공개 메소드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
+하지만 스마트 콘트랙트가 검증되면 KaiaScan과 OKX Kaia 익스플로러와 같은 블록 탐색기를 통해 대중이 블록 탐색기의 사용자 인터페이스를 사용해 콘트랙트의 공개 메소드와 상호작용할 수 있습니다. 이는 대중이 검증된 컨트랙트 소스 코드에 직접 접근할 수 있는 것 외에도 추가적인 기능입니다.
 
 이 가이드에서는 블록 탐색기를 사용하여 Klaytn 네트워크에 배포된 스마트 컨트랙트를 검증하는 방법을 살펴보겠습니다.
 
@@ -19,7 +19,7 @@ sidebar_label: 블록 탐색기 사용하기
 
 ## 시작하기
 
-이 가이드에서는 카이아 생태계에 존재하는 블록 탐색기에서 단일 컨트랙트와 다중 파트 컨트랙트를 모두 검증하는 방법을 살펴보겠습니다:
+이 가이드에서는 Kaia 생태계에 존재하는 블록 탐색기에서 단일 컨트랙트와 다중 파트 컨트랙트를 모두 검증하는 방법을 살펴보겠습니다:
 
 - [Kaiascan](https://www.kaiascan.io/)
 - [OKLink](https://www.oklink.com/kaia)
@@ -28,7 +28,7 @@ sidebar_label: 블록 탐색기 사용하기
 
 ## 단일 컨트랙트 배포하기
 
-스마트 컨트랙트를 검증하려면 먼저 컨트랙트를 대상 네트워크에 배포해야 합니다. 따라서 이 가이드에서는 카이아 Kairos 테스트넷에 컨트랙트를 배포하겠습니다. 또한, 이 튜토리얼에서는 'Counter.sol'이라는 간단한 카운터 컨트랙트를 Remix IDE에 배포할 것입니다. 코드는 아래와 같습니다:
+스마트 컨트랙트를 검증하려면 먼저 컨트랙트를 대상 네트워크에 배포해야 합니다. 따라서 이 가이드에서는 Kaia Kairos 테스트넷에 컨트랙트를 배포하겠습니다. 또한, 이 튜토리얼에서는 'Counter.sol'이라는 간단한 카운터 컨트랙트를 Remix IDE에 배포할 것입니다. 코드는 아래와 같습니다:
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-이 페이지에서 카이아 Kairos 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 카이아 Kairos 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
+이 페이지에서 Kaia Kairos 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 Kaia Kairos 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
 
 :::
 
@@ -178,7 +178,7 @@ Verification of contracts on Kaiascan is currently in beta.
 
 #### 여러 부분으로 구성된 계약 확인
 
-Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. 단, 카이아스캔은 현재 검증을 위한 파일 업로드를 지원하지 않으므로 **아래 솔리디티 컨트랙트 코드 입력** 필드에 `airdropToken_flattened.sol` 파일을 복사하여 붙여넣어야 합니다.
+Verifying a multi-part contract on Kaiascan follows the same step as verifying a single contract. 단, KaiaScan은 현재 검증을 위한 파일 업로드를 지원하지 않으므로 **아래 솔리디티 컨트랙트 코드 입력** 필드에 `airdropToken_flattened.sol` 파일을 복사하여 붙여넣어야 합니다.
 
 ![](/img/build/tutorials/airdrop-k-verification-page.png)
 
@@ -191,7 +191,7 @@ After filling in the verification parameters, click on the **Verify and Publish*
 OKLink에서 단일 계약 및 여러 부분으로 구성된 계약을 확인하려면 [계약 예비 확인 페이지](https://web3.okx.com/explorer/kaia/verify-contract-preliminary)로 이동하세요.
 
 :::note
-OK링크 지원은 현재 카이아 메인넷으로 제한되어 있으므로, 계약 확인은 메인넷 배포에 대해서만 가능합니다.
+OK링크 지원은 현재 Kaia 메인넷으로 제한되어 있으므로, 계약 확인은 메인넷 배포에 대해서만 가능합니다.
 :::
 
 #### 단일 계약 확인
@@ -231,4 +231,4 @@ OK링크에서 여러 부분으로 구성된 계약을 확인하는 것은 단�
 
 ## 결론
 
-이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 계약의 투명성(사용자를 위한), 편의성(개발자를 위한), 보안을 강화하기 위해 카이아스캔과 OKLink를 사용하여 계약(단일 및 다중 부분 모두)을 확인하는 방법을 배웠습니다. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
+이 가이드를 따라해 주셔서 감사합니다! 이 튜토리얼에서는 배포된 계약의 투명성(사용자를 위한), 편의성(개발자를 위한), 보안을 강화하기 위해 KaiaScan과 OKLink를 사용하여 계약(단일 및 다중 부분 모두)을 확인하는 방법을 배웠습니다. Visit [Kaia Docs](https://docs.kaia.io/) for more information and [Kaia Forum](https://devforum.kaia.io/) if you have any questions.
