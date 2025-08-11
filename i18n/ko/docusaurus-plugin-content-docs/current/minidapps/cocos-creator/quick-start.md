@@ -8,7 +8,7 @@
 - 기본적인 타입스크립트 지식
 - 코코스 개발자 계정](https://auth.cocos.com/#/sign_up/register?language=en)
 - LINE 개발자 계정(이메일로 간편하게 생성)
-- 카이아 수도꼭지](https://faucet.kaia.io/)에서 카이아 토큰을 테스트하세요.
+- Kaia 수도꼭지](https://faucet.kaia.io/)에서 Kaia 토큰을 테스트하세요.
 - 미니 디앱 SDK 클라이언트 ID(디앱 포털 팀에서 제공)
 - 기본적인 웹3.0 숙지(지갑과 토큰에 대한 일반적인 이해 정도면 충분)
 
