@@ -25,7 +25,7 @@ contract KaiaGreeter {
 
 ## Remix 온라인 IDE를 사용하여 KaiaGreeter 배포하기 <a href="#deploying-kaiagreeter-using-klaytn-ide" id="deploying-kaiagreeter-using-klaytn-ide"></a>
 
-- 리믹스용 카이아 플러그인](https://ide.kaia.io)을 방문하여 `KaiaGreeter.sol` 컨트랙트를 생성하세요.
+- 리믹스용 Kaia 플러그인](https://ide.kaia.io)을 방문하여 `KaiaGreeter.sol` 컨트랙트를 생성하세요.
 
 - 위의 코드를 복사하여 새로 만든 파일에 붙여넣습니다: `KaiaGreeter.sol`.
 
