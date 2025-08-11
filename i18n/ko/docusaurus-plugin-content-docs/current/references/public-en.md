@@ -116,7 +116,7 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - 로드 밸런싱
 - 무한한 확장성
 - 소셜 계정으로 가입하기
-- 카이아 토큰을 포함한 암호화폐로 충전하기
+- Kaia 토큰을 포함한 암호화폐로 충전하기
 - 텔레그램, 이메일, 풍부한 문서 등을 통한 지원
 - 전담 웹3 카피라이터와 함께하는 고객 스토리
 
@@ -329,7 +329,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
 
-- 탐색기: [카이아스캔](../build/tools/block-explorers/kaiascan.md)은 카이아 네트워크의 블록 탐색기입니다.
+- 탐색기: [KaiaScan](../build/tools/block-explorers/kaiascan.md)은 Kaia 네트워크의 블록 탐색기입니다.
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet: 8217 (0x2019)
 
