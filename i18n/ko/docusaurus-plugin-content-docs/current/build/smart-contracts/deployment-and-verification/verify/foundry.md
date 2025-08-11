@@ -4,7 +4,7 @@ sidebar_label: 파운드리 사용
 
 # 파운드리를 사용하여 스마트 컨트랙트를 검증하는 방법
 
-이 가이드는 Foundry를 사용하여 CLI에서 직접 카이아스캔에서 스마트 컨트랙트의 소스 코드를 자동으로 검증하는 단계를 안내합니다. 현재 카이아스캔은 Foundry를 사용할 때 플랫화된 계약 파일의 검증만 지원합니다.
+이 가이드는 Foundry를 사용하여 CLI에서 직접 KaiaScan에서 스마트 컨트랙트의 소스 코드를 자동으로 검증하는 단계를 안내합니다. 현재 KaiaScan은 Foundry를 사용할 때 플랫화된 계약 파일의 검증만 지원합니다.
 
 > 확인 절차를 진행하기 전에 계약서가 평평하게 작성되었는지 확인하세요.
 
@@ -115,7 +115,7 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ## 유용한 링크
 
-- [카이아스캔에서 파운드리 검증을 위한 구성](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+- [KaiaScan에서 파운드리 검증을 위한 구성](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
