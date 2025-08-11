@@ -2,15 +2,15 @@
 
 Solidity는 이미 공식 웹사이트에 잘 설명되어 있으므로 이 장에서는 Solidity로 작성된 높은 수준의 개념, 개발 프로세스 및 예제만 설명합니다. 언어 사양이나 구현에 대해서는 아래의 [참조](#references)를 참조하시기 바랍니다. 이 장의 내용은 [참조](#references)에 나열된 다양한 웹사이트를 기반으로 합니다.
 
-## Solidity와 카이아 <a id="solidity-and-klaytn"></a>
+## Solidity와 Kaia <a id="solidity-and-klaytn"></a>
 
-[Solidity](https://github.com/ethereum/solidity)는 이더리움 플랫폼에서 스마트 컨트랙트를 구현하기 위한 높은 수준의 정적 타입의 컨트랙트 지향 언어입니다. Solidity는 원래 이더리움용으로 설계되었지만, 스마트 컨트랙트를 작성하기에 충분히 일반적이므로 카이아와 같은 다른 블록체인 플랫폼에서도 사용할 수 있습니다.
+[Solidity](https://github.com/ethereum/solidity)는 이더리움 플랫폼에서 스마트 컨트랙트를 구현하기 위한 높은 수준의 정적 타입의 컨트랙트 지향 언어입니다. Solidity는 원래 이더리움용으로 설계되었지만, 스마트 컨트랙트를 작성하기에 충분히 일반적이므로 Kaia와 같은 다른 블록체인 플랫폼에서도 사용할 수 있습니다.
 
-카이아는 **London** 이더리움 가상머신(EVM) 버전과 공식적으로 호환됩니다. 카이아의 다른 EVM 버전과의 하위 호환성은 보장되지 않습니다. 따라서 Istanbul 타겟 옵션으로 Solidity 코드를 컴파일할 것을 적극 권장합니다. [Solidity의 EVM 버전 설정 방법](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)을 참고하시기 바랍니다.
+Kaia는 **London** 이더리움 가상머신(EVM) 버전과 공식적으로 호환됩니다. Kaia의 다른 EVM 버전과의 하위 호환성은 보장되지 않습니다. 따라서 Istanbul 타겟 옵션으로 Solidity 코드를 컴파일할 것을 적극 권장합니다. [Solidity의 EVM 버전 설정 방법](https://solidity.readthedocs.io/en/latest/using-the-compiler.html#setting-the-evm-version-to-target)을 참고하시기 바랍니다.
 
 :::note
 
-v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 아이템과 카이아 자체 아이템을 포함한 호환되지 않는 변경 사항.
+v1.7.0 프로토콜 업그레이드 - **Istanbul** 하드포크 아이템과 Kaia 자체 아이템을 포함한 호환되지 않는 변경 사항.
 Kairos 네트워크의 경우 블록 번호 `#75,373,312`, 메인 네트워크의 경우 `#86,816,005`부터 활성화되었습니다.
 
 v1.7.3 프로토콜 업그레이드 - **London** 하드포크의 기본 수수료를 포함한 호환되지 않는 변경 사항.
@@ -21,7 +21,7 @@ Kairos 네트워크의 경우 블록 번호 '#86,513,895', 메인 네트워크�
 
 :::
 
-카이아를 위한 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\) 및 [하드햇](https://hardhat.org/docs) \(개발 프레임워크\) 같은 개발 도구를 사용할 수 있습니다. 카이아 팀은 이더리움의 개발 도구와 카이아의 개발 도구 간의 호환성을 유지하기 위해 노력할 것이지만, 필요한 경우 카이아 스마트 컨트랙트 개발자에게 해당 도구의 향상된 버전 또는 업데이트된 버전을 제공할 수 있습니다.
+Kaia를 위한 스마트 컨트랙트를 개발할 때 [Remix](https://remix.ethereum.org/) \(브라우저 기반 IDE\) 및 [하드햇](https://hardhat.org/docs) \(개발 프레임워크\) 같은 개발 도구를 사용할 수 있습니다. Kaia 팀은 이더리움의 개발 도구와 Kaia의 개발 도구 간의 호환성을 유지하기 위해 노력할 것이지만, 필요한 경우 Kaia 스마트 컨트랙트 개발자에게 해당 도구의 향상된 버전 또는 업데이트된 버전을 제공할 수 있습니다.
 
 스마트 컨트랙트를 개발할 때는 Remix나 하드햇을 활용하는 것이 편리하지만, 솔리디티 컴파일러는 아래 웹페이지에 설명된 지침에 따라 빌드하거나 설치하여 로컬에서 사용할 수 있습니다:
 
