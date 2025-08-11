@@ -10,7 +10,7 @@ sidebar_label: Web3-Onboard
 
 프로젝트와 개발자는 [Web3-Onboard](https://onboard.blocknative.com/docs/overview/introduction)와 같은 도구를 활용하여 여러 지갑을 탈중앙화 애플리케이션(dApp)에 빠르게 통합할 수 있습니다. Web3-Onboard의 도움으로 사용자 온보딩이 간소화되었습니다. Web3-Onboard는 여러 지갑 지원부터 사용자가 자신의 계정을 다른 체인이나 네트워크에 연결하고 실시간 거래 알림을 받을 수 있는 기능 등 다양한 기능을 갖추고 있습니다.
 
-이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, 카이아 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다. into your dApp built on the Kaia Network.
+이 가이드에서는 Web3-Onboard 라이브러리를 사용해 여러 지갑(예: Coinbase Wallet, MetaMask, WalletConnect 등) 을 통합하는 방법, 즉, Kaia 네트워크에 구축한 dApp에 통합하는 방법을 설명합니다. into your dApp built on the Kaia Network.
 
 ## 전제 조건
 
@@ -21,7 +21,7 @@ sidebar_label: Web3-Onboard
 
 ## 시작하기
 
-체인에 구애받지 않는 지갑 라이브러리인 Web3-Onboard는 모든 EVM 호환 네트워크를 지원하며, 라이브러리에 새로운 네트워크를 추가할 수 있는 유연성도 제공합니다. 이 가이드에서는 Web3-Onboard를 사용해 Kaia 메인넷과 카이아 테스트넷 Kairos를 dApp에 추가해 보겠습니다. 이제 Web3-Onboard를 사용해 다중지갑 호환성을 카이아 네트워크에 구축한 dApp에 통합해 보겠습니다.
+체인에 구애받지 않는 지갑 라이브러리인 Web3-Onboard는 모든 EVM 호환 네트워크를 지원하며, 라이브러리에 새로운 네트워크를 추가할 수 있는 유연성도 제공합니다. 이 가이드에서는 Web3-Onboard를 사용해 Kaia 메인넷과 Kaia 테스트넷 Kairos를 dApp에 추가해 보겠습니다. 이제 Web3-Onboard를 사용해 다중지갑 호환성을 Kaia 네트워크에 구축한 dApp에 통합해 보겠습니다.
 
 ## 온보드 및 지갑 모듈 설정
 
