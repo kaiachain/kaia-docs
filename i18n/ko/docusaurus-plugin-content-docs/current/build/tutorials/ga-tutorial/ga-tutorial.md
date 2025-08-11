@@ -1,15 +1,15 @@
 # 개발자 가이드: 카이아 가스 추상화(GA) 통합하기
 
-이 가이드는 Kaia의 가스 추상화(GA) 기능을 통합하기 위한 모범 사례와 기술적 세부 사항을 통합합니다. 포괄적인 개요, 심층적인 프로토콜 분석, 실용적인 튜토리얼, 실제 사례를 통해 원활하고 가스 없는 경험을 구축할 수 있도록 도와줍니다. 결국, 사용자가 ERC-20 토큰으로 수수료를 결제할 수 있도록 지원하여 온보딩 마찰을 줄이고 리텐션을 높일 수 있습니다.
+본 가이드는 Kaia의 가스 추상화(GA) 기능을 월렛 또는 dApp에 통합하기 위한 각종 기술 자료, 구현 가이드, 모범 사례 등을 종합적으로 정리한 문서입니다. 개요, 프로토콜 분석, 실습 튜토리얼, 실제 사례를 바탕으로 원활한 가스프리 경험을 구현할 수 있도록 도와드립니다. 이 가이드를 통해 개발자는 사용자가 ERC-20 토큰으로 수수료를 지불할 수 있게 구현할 수 있으며, 이로써 온보딩 과정의 불편을 줄이고 사용자 리텐션을 높일 수 있습니다.
 
 ## 목차
 
 1. [가스 추상화 소개](ga-intro.md)
-   - [가스 추상화란 무엇인가요?](ga-intro.md#1.1-what-is-gas-abstraction)
+   - [가스 추상화란?](ga-intro.md#1.1-what-is-gas-abstraction)
    - [가스 추상화가 중요한 이유](ga-intro.md#1.2-why-gas-abstraction-matters)
-   - [사용 사례 및 이점](ga-intro.md#1.3-use-cases-and-benefits)
+   - [유즈 케이스 및 이점](ga-intro.md#1.3-use-cases-and-benefits)
    - [컨센서스 유동성(CL)과의 관계](ga-intro.md#1.4-relationship-with-consensus-liquidity-cl)
-2. [GA 작동 방식: 기술 심층 분석](ga-inside.md)
+2. [가스 추상화 작동 원리](ga-inside.md)
    - [아키텍처 개요](ga-inside.md#2.1-architecture-overview)
    - [트랜잭션 번들 구성 요소](ga-inside.md#2.2-transaction-bundle-components)
    - [주요 액터 및 상호작용](ga-inside.md#2.3-key-actors-and-interactions)
