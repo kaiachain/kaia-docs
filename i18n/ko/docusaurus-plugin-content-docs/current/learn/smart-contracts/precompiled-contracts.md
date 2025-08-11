@@ -336,7 +336,7 @@ function bls12381mapg1() public returns (bytes memory) {
 
 ## 주소 0x3fd: vmLog\(str\) <a id="address-0x-3fc-vmlog-str"></a>
 
-0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. 자세한 내용은 [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target)을 참조하세요. 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, 카이아 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Kaia 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
+0x3FD 주소는 지정된 문자열 `str`을 특정 파일에 인쇄하거나 로거 모듈에 전달합니다. 자세한 내용은 [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target)을 참조하세요. 이 사전 컴파일된 컨트랙트는 디버깅 목적으로만 사용해야 하며, Kaia 노드가 시작될 때 `--vmlog` 옵션을 활성화해야 한다는 점에 유의하세요. 또한, Kaia 노드의 로그 레벨이 4 이상이어야 vmLog의 출력을 볼 수 있습니다. 이 사전 컴파일된 컨트랙트는 솔리디티 컴파일러에서 지원되지 않습니다. 다음 코드를 사용하여 이 사전 컴파일된 컨트랙트를 호출할 수 있습니다.
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -369,7 +369,7 @@ function feePayer() internal returns (address addr) {
 - 서명을 생성하는 데 사용되는 메시지 해시
 - 발신자의 개인 키가 주어진 메시지 해시를 사용하여 서명한 서명
 
-미리 컴파일된 컨트랙트는 주어진 서명이 발신자의 개인키에 의해 올바르게 서명되었는지 검증합니다. 카이아는 기본적으로 다중 서명을 지원하므로 여러 개의 서명이 있을 수 있다는 점에 유의하세요. 서명은 65바이트 길이여야 합니다.
+미리 컴파일된 컨트랙트는 주어진 서명이 발신자의 개인키에 의해 올바르게 서명되었는지 검증합니다. Kaia는 기본적으로 다중 서명을 지원하므로 여러 개의 서명이 있을 수 있다는 점에 유의하세요. 서명은 65바이트 길이여야 합니다.
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
