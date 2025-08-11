@@ -1,51 +1,50 @@
-# Best Practices for Smart Contract Security
+# 스마트 컨트랙트 보안을 위한 모범 사례
 
-This guide offers a practical and structured walkthrough of the best practices for smart contract security.
-Smart contracts serve as the powerhouse of most onchain applications. They define and enforce the logic behind a wide range of use cases, including decentralized finance, play to earn games, real world asset tokenization, and many more.
+이 가이드는 스마트 계약 보안을 위한 모범 사례에 대한 실용적이고 체계적인 안내를 제공합니다.
+스마트 컨트랙트는 대부분의 온체인 애플리케이션에서 핵심적인 역할을 합니다. 탈중앙화 금융, 게임 플레이를 통한 수익 창출, 실제 자산 토큰화 등 다양한 사용 사례의 논리를 정의하고 적용합니다.
 
-Within the Kaia ecosystem, especially among developers building Mini dApps, there has been a rapid increase in adoption and usage of these apps. However, the more value is transacted through or locked in smart contracts, the more likely it is to attract malicious actors. These attackers often focus on the core of the system — the smart contract.
+카이아 생태계 내에서, 특히 미니 디앱을 개발하는 개발자들 사이에서 이러한 앱의 채택과 사용량이 빠르게 증가하고 있습니다. 그러나 스마트 컨트랙트를 통해 더 많은 가치가 거래되거나 스마트 컨트랙트에 잠길수록 악의적인 행위자를 끌어들일 가능성이 높아집니다. 이러한 공격자들은 종종 시스템의 핵심인 스마트 컨트랙트에 집중합니다.
 
-For this reason, smart contract security must not be treated as an afterthought. It should be a priority from the earliest stages of development through deployment and ongoing interaction with the contract.
+그렇기 때문에 스마트 컨트랙트 보안을 뒷전으로 미뤄서는 안 됩니다. 개발 초기 단계부터 배포 및 계약과의 지속적인 상호 작용에 이르기까지 우선순위를 두어야 합니다.
 
-## What is smart contract security ?
+## 스마트 컨트랙트 보안이란 무엇인가요?
 
-A smart contract is a program stored on a blockchain that automatically executes when predefined conditions are met. Once deployed, its code becomes immutable, meaning it cannot be changed. This immutability ensures transparency and removes the need for intermediaries, but it also introduces serious risks. If the contract contains vulnerabilities, they cannot be patched after deployment, which can result in stolen funds and a loss of trust.
+스마트 컨트랙트는 미리 정의된 조건이 충족되면 자동으로 실행되는 블록체인에 저장된 프로그램입니다. 일단 배포된 코드는 변경할 수 없는 불변의 코드가 됩니다. 이러한 불변성은 투명성을 보장하고 중개자의 필요성을 없애주지만 심각한 위험을 초래하기도 합니다. 컨트랙트에 취약점이 있는 경우 배포 후 패치할 수 없으므로 자금이 도난당하고 신뢰를 잃을 수 있습니다.
 
-Smart contract security then refers to the set of practices and measures used to protect these contracts from malicious attacks and programming flaws. A well secured contract helps prevent unauthorized access, data manipulation, and financial losses, thereby safeguarding the integrity of your protocol.
+스마트 컨트랙트 보안은 악의적인 공격과 프로그래밍 결함으로부터 이러한 컨트랙트를 보호하는 데 사용되는 일련의 관행과 조치를 의미합니다. 보안이 잘 갖춰진 계약은 무단 액세스, 데이터 조작, 금전적 손실을 방지하여 프로토콜의 무결성을 보호하는 데 도움이 됩니다.
 
-## Why is Smart Contract Security Important?
+## 스마트 컨트랙트 보안이 중요한 이유는 무엇인가요?
 
-Because smart contracts are immutable after deployment, any bugs or vulnerabilities become permanent. Malicious actors can exploit these weaknesses to drain funds or manipulate the behavior of a protocol. In many cases, a single mistake in the code can result in the loss of millions of dollars.
+스마트 컨트랙트는 배포 후 변경할 수 없으므로 버그나 취약점은 영구적으로 존재하게 됩니다. 악의적인 공격자는 이러한 약점을 악용하여 자금을 빼내거나 프로토콜의 동작을 조작할 수 있습니다. 많은 경우 코드에서 한 번의 실수로 수백만 달러의 손실이 발생할 수 있습니다.
 
-According to DeFiLlama, as of June 2025, the total amount stolen in decentralized finance attacks is valued at  $6.6b. Of this amount, smart contract exploits account for approximately $3.3b which is about 51%. These figures highlight just how essential smart contract security is for any onchain protocol.
+디파이라마에 따르면, 2025년 6월 현재 탈중앙화 금융 공격으로 도난당한 금액은 총 66억 달러에 달합니다. 이 금액 중 스마트 컨트랙트 익스플로잇이 차지하는 비중은 약 33억 달러로 약 51%에 달합니다. 이 수치는 스마트 컨트랙트 보안이 모든 온체인 프로토콜에 얼마나 필수적인지 잘 보여줍니다.
 
-## Best Practices for Writing Secure Smart Contract
+## 안전한 스마트 컨트랙트 작성을 위한 모범 사례
 
-### ‍1. Use Well Tested and Secure Libraries or Functions
+### ‍1. 잘 테스트되고 안전한 라이브러리 또는 함수 사용
 
-‍
-Using external dependencies in your smart contract can introduce malicious code if those dependencies are not properly tested or reviewed. To reduce this risk, always rely on well tested and widely trusted libraries such as [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master), which are maintained by a strong community and regularly audited.
+스마트 컨트랙트에서 외부 종속성을 사용하면 해당 종속성을 제대로 테스트하거나 검토하지 않으면 악성 코드가 발생할 수 있습니다. 이러한 위험을 줄이려면 항상 강력한 커뮤니티에서 유지 관리하고 정기적으로 감사를 받는 [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master)과 같이 테스트를 거치고 널리 신뢰받는 라이브러리를 사용하세요.
 
-In addition, conduct a thorough review of any third party code before integrating it into your contract. Testing and reviewing external code helps ensure that it does not contain hidden vulnerabilities or introduce unexpected behavior into your protocol.
+또한 타사 코드를 계약에 통합하기 전에 철저한 검토를 수행하세요. 외부 코드를 테스트하고 검토하면 숨겨진 취약점을 포함하거나 프로토콜에 예기치 않은 동작을 도입하지 않도록 할 수 있습니다.
 
-### 2. Implement Development Security Patterns
+### 2. 개발 보안 패턴 구현
 
-Security patterns are standardized techniques for defending against known attack vectors, such as reentrancy. They offer a reliable and widely accepted approach to preventing vulnerabilities before they occur. Incorporating these patterns into your code improves its resilience and reduces the risk of exploits.
-Below are some essential security patterns to consider:
+보안 패턴은 재침입과 같은 알려진 공격 벡터를 방어하기 위한 표준화된 기술입니다. 취약점이 발생하기 전에 이를 예방하기 위한 신뢰할 수 있고 널리 인정받는 접근 방식을 제공합니다. 이러한 패턴을 코드에 통합하면 코드의 복원력이 향상되고 익스플로잇의 위험이 줄어듭니다.
+다음은 고려해야 할 몇 가지 필수 보안 패턴입니다:
 
-#### 2.1 CEI Pattern (Checks-Effects-Interaction)
+#### 2.1 CEI 패턴(확인-효과-상호 작용)
 
-The CEI pattern helps ensure that all necessary validations are completed before any external interaction takes place. This structure reduces the chances of unexpected or malicious behavior during smart contract execution.
+CEI 패턴은 외부 상호 작용이 발생하기 전에 필요한 모든 유효성 검사를 완료하는 데 도움이 됩니다. 이러한 구조는 스마트 컨트랙트 실행 중 예기치 않은 또는 악의적인 행동이 발생할 가능성을 줄여줍니다.
 
-When implemented correctly, the CEI pattern follows this order:
+올바르게 구현된 경우 CEI 패턴은 이 순서를 따릅니다:
 
-- Checks: Confirm that all required conditions are met (for example, confirming that the user has enough balance).
-- Effects: Update the contract's internal state (such as reducing the user’s balance).
-- Interaction: Transfer funds or call external contracts.
+- 확인합니다: 필요한 모든 조건이 충족되었는지 확인합니다(예: 사용자의 잔액이 충분한지 확인).
+- 효과: 효과: 컨트랙트의 내부 상태를 업데이트합니다(예: 사용자의 잔액 감소).
+- 상호 작용: 자금을 이체하거나 외부 계약자에게 전화를 걸 수 있습니다.
 
-By following this structure, you can significantly reduce the risk of reentrancy attacks.
+이 구조를 따르면 재진입 공격의 위험을 크게 줄일 수 있습니다.
 
-For instance, the example below is vulnerable because it sends Ether to the user before updating their balance.
+예를 들어, 아래 예시는 잔액을 업데이트하기 전에 사용자에게 이더를 전송하기 때문에 취약한 예시입니다.
 
 ```solidity
 contract InSecureBank {
@@ -70,9 +69,9 @@ contract InSecureBank {
 }
 ```
 
-The code above is vulnerable to a reentrancy attack, which allows a malicious actor to repeatedly call the withdraw function before the balance is updated. The CEI pattern helps prevent this by ensuring the contract’s state is updated before any external call is made.
+위의 코드는 재진입 공격에 취약하여 악의적인 공격자가 잔액이 업데이트되기 전에 인출 함수를 반복적으로 호출할 수 있습니다. CEI 패턴은 외부 호출이 이루어지기 전에 컨트랙트의 상태가 업데이트되도록 하여 이를 방지합니다.
 
-Here is an updated version of the code above that follows the CEI pattern :
+다음은 CEI 패턴을 따르는 위 코드의 업데이트 버전입니다:
 
 ```solidity
 contract SecureBank {
@@ -96,16 +95,15 @@ contract SecureBank {
 }
 ```
 
-In the updated version that follows the CEI pattern, the balance is adjusted before any tokens are transferred. This way, even if a user attempts to reenter the function, the call will fail because their balance has already been reduced.
+CEI 패턴을 따르는 업데이트 버전에서는 토큰이 전송되기 전에 잔액이 조정됩니다. 이렇게 하면 사용자가 함수를 다시 입력하려고 해도 잔액이 이미 줄어들었기 때문에 호출이 실패합니다.
 
-#### 2.2. Emergency Stop Pattern
+#### 2.2. 비상 정지 패턴
 
-‍
-The Emergency Stop pattern, often referred to as a circuit breaker, allows selected functions in a smart contract to be paused during emergencies. It provides a way to quickly disable critical operations if a vulnerability or unexpected behavior is detected.
+비상 정지 패턴은 흔히 회로 차단기라고도 하며, 비상 시 스마트 컨트랙트에서 선택한 기능을 일시 중지할 수 있습니다. 취약점이나 예기치 않은 동작이 감지되면 중요한 작업을 신속하게 비활성화할 수 있는 방법을 제공합니다.
 
-To proactively monitor your contract for such issues, you can use monitoring tools or bots customised for such purposes. These bots scan for specific transaction patterns or abnormal changes in contract state to flag potential threats.
+이러한 문제를 사전에 모니터링하려면 이러한 목적에 맞게 사용자 지정한 모니터링 도구 또는 봇을 사용할 수 있습니다. 이러한 봇은 특정 거래 패턴이나 계약 상태의 비정상적인 변화를 스캔하여 잠재적인 위협을 표시합니다.
 
-Below is an example demonstrating how to implement a circuit breaker mechanism in your contract:
+아래는 계약에서 회로 차단기 메커니즘을 구현하는 방법을 보여주는 예시입니다:
 
 ```solidity
 contract CircuitBreaker {
@@ -151,13 +149,13 @@ contract CircuitBreaker {
 }
 ```
 
-#### 2.3. Speed Bump Pattern
+#### 2.3. 과속 방지턱 패턴
 
-The Speed Bump pattern introduces a delay period before executing critical onchain actions, such as withdrawals or governance decisions. This delay acts as a protective measure, giving users or administrators time to detect and respond to suspicious activity.
+스피드 범프 패턴은 출금이나 거버넌스 결정과 같은 중요한 온체인 작업을 실행하기 전에 지연 기간을 도입합니다. 이러한 지연은 사용자 또는 관리자가 의심스러운 활동을 감지하고 대응할 수 있는 시간을 제공하는 보호 조치 역할을 합니다.
 
-For example, you can limit withdrawals by setting a fixed waiting period or a maximum withdrawal amount. This helps prevent unauthorized access or rapid fund depletion due to malicious actions.
+예를 들어 고정 대기 기간이나 최대 인출 금액을 설정하여 인출을 제한할 수 있습니다. 이를 통해 악의적인 행동으로 인한 무단 액세스 또는 빠른 자금 고갈을 방지할 수 있습니다.
 
-The sample below shows how this pattern works by enforcing a five-day wait before a user can withdraw funds.
+아래 샘플은 사용자가 자금을 인출하기 전에 5일을 기다리도록 하여 이 패턴이 어떻게 작동하는지 보여줍니다.
 
 ```solidity
 contract BankWithSpeedBump { 
@@ -200,71 +198,64 @@ contract BankWithSpeedBump {
 }
 ```
 
-### 3. Use the Latest Version of the Solidity Compiler
+### 3. 최신 버전의 솔리디티 컴파일러 사용
 
-‍
-Always use the most recent version of the Solidity compiler. Newer versions often include important security fixes and improvements to the language. For example, Solidity version 0.8.x and above introduced built-in protections against arithmetic overflows and underflows, which were previously common vulnerabilities in smart contracts.
+항상 최신 버전의 솔리디티 컴파일러를 사용하세요. 최신 버전에는 종종 중요한 보안 수정 사항과 언어 개선 사항이 포함되어 있습니다. 예를 들어, 솔리디티 버전 0.8.x 이상에서는 이전에 스마트 컨트랙트의 일반적인 취약점이었던 산술 오버플로우와 언더플로우에 대한 보호 기능이 내장되어 있습니다.
 
-Staying up to date ensures that your code benefits from the latest security features and compiler checks.
+최신 상태를 유지하면 코드가 최신 보안 기능과 컴파일러 검사의 이점을 누릴 수 있습니다.
 
-### 4. Keep Smart Contract Simple
+### 4. 스마트 컨트랙트를 단순하게 유지
 
-‍
-Simplicity is a key principle when writing secure smart contracts. Complex logic often introduces unnecessary risk and hidden vulnerabilities. It is best to keep your contract code and structure as simple and clear as possible. When complexity is unavoidable, break down the logic into smaller functions, each with a specific purpose.
+단순성은 안전한 스마트 컨트랙트를 작성할 때 핵심 원칙입니다. 복잡한 논리로 인해 불필요한 위험과 숨겨진 취약점이 발생하는 경우가 많습니다. 계약 코드와 구조를 최대한 간단하고 명확하게 유지하는 것이 가장 좋습니다. 복잡성을 피할 수 없는 경우에는 로직을 각각 특정 목적을 가진 작은 함수로 세분화하세요.
 
-### 5. Test Your Smart Contract in a Simulated Environment
+### 5. 시뮬레이션 환경에서 스마트 컨트랙트 테스트
 
-‍
-Before deploying your smart contract to a live network, always run it in a simulated environment such as the Kairos Testnet. Testing in this controlled setting allows you to rigorously evaluate how your contract behaves under different conditions and edge cases.
-This process helps uncover vulnerabilities, confirm expected behaviors, and improve overall reliability. It also reduces the risk of deploying flawed logic that could result in loss of funds or system failure.
+스마트 컨트랙트를 라이브 네트워크에 배포하기 전에 항상 카이로스 테스트넷과 같은 시뮬레이션 환경에서 실행하세요. 이 통제된 환경에서 테스트하면 다양한 조건과 에지 케이스에서 계약이 어떻게 작동하는지 엄격하게 평가할 수 있습니다.
+이 프로세스는 취약점을 발견하고 예상되는 동작을 확인하며 전반적인 안정성을 개선하는 데 도움이 됩니다. 또한 자금 손실이나 시스템 장애를 초래할 수 있는 결함이 있는 로직을 배포할 위험을 줄여줍니다.
 
-‍Below are several recommended testing methods to validate your smart contract:
+다음은 스마트 컨트랙트의 유효성을 검사하는 데 권장되는 몇 가지 테스트 방법입니다:
 
-#### 5.1 Unit Testing
+#### 5.1 단위 테스트
 
-‍
-Unit testing focuses on evaluating individual functions within a smart contract. To perform unit tests effectively, you need to structure your contract into small, single-purpose functions that can be tested in isolation.
+단위 테스트는 스마트 컨트랙트 내의 개별 기능을 평가하는 데 중점을 둡니다. 단위 테스트를 효과적으로 수행하려면 컨트랙트를 독립적으로 테스트할 수 있는 작은 단일 목적의 함수로 구성해야 합니다.
 
-A common approach is to use assertions — clear statements that describe the expected behavior of a function. You then verify whether those assertions hold true under different conditions. Unit testing should always be performed before integration testing, as it helps identify and fix issues early in the development process.
+일반적인 접근 방식은 함수의 예상 동작을 설명하는 명확한 진술인 어설션을 사용하는 것입니다. 그런 다음 다양한 조건에서 이러한 주장이 참인지 검증합니다. 단위 테스트는 개발 프로세스 초기에 문제를 식별하고 수정하는 데 도움이 되므로 통합 테스트 전에 항상 수행해야 합니다.
 
-#### 5.2. Integration Testing
+#### 5.2. 통합 테스트
 
-‍
-Integration testing evaluates how various components of your contract work together. This includes checking interactions between functions, external contracts, and systems such as APIs.
-This type of testing is essential for identifying issues related to cross-contract calls, dependencies, and inherited functionality. It ensures that individual parts function correctly when combined and that the contract behaves as expected in a broader system context.
+통합 테스트는 계약의 다양한 구성 요소가 함께 작동하는 방식을 평가합니다. 여기에는 함수, 외부 계약 및 API와 같은 시스템 간의 상호 작용 확인이 포함됩니다.
+이러한 유형의 테스트는 교차 계약 호출, 종속성 및 상속된 기능과 관련된 문제를 식별하는 데 필수적입니다. 이는 개별 부품이 결합될 때 올바르게 작동하고 계약이 더 넓은 시스템 맥락에서 예상대로 작동하도록 보장합니다.
 
-#### 5.3. Fuzz Testing
+#### 5.3. 퍼즈 테스트
 
-‍
-Fuzz testing involves passing random or extreme input values into your contract to observe its behavior. This technique helps uncover vulnerabilities that may not be evident during unit or integration testing.
+퍼즈 테스트는 무작위 또는 극단적인 입력값을 컨트랙트에 전달하여 그 동작을 관찰하는 것입니다. 이 기법은 단위 또는 통합 테스트 중에 드러나지 않을 수 있는 취약점을 발견하는 데 도움이 됩니다.
 
-Fuzzing is especially valuable when your contract includes mathematical operations or input validation logic. It allows you to stress test your code and identify unexpected behaviors under uncommon conditions.
+퍼징은 계약에 수학적 연산이나 입력 유효성 검사 로직이 포함된 경우 특히 유용합니다. 이를 통해 코드를 스트레스 테스트하고 일반적인 조건에서 예기치 않은 동작을 식별할 수 있습니다.
 
-### 6. Perform a Smart Contract Audit
+### 6. 스마트 컨트랙트 감사 수행
 
-‍
-An audit is a structured review of your contract’s code by an independent team to identify vulnerabilities, bugs, or design flaws. This process adds an extra layer of confidence in the safety and reliability of your smart contract before deployment.
+감사는 독립적인 팀이 계약의 코드를 구조적으로 검토하여 취약성, 버그 또는 설계 결함을 식별하는 것입니다. 이 프로세스는 배포 전에 스마트 컨트랙트의 안전성과 신뢰성에 대한 확신을 한층 더 높여줍니다.
 
-A typical audit includes:
+일반적인 감사에는 다음이 포함됩니다:
 
-- A thorough manual review of the code
-- Automated scanning for known vulnerabilities
-- Testing to validate the contract’s behavior
-- A detailed report outlining identified issues and suggestions for improvement
+- 코드에 대한 철저한 수동 검토
+- 알려진 취약점에 대한 자동화된 스캔
+- 계약의 동작을 검증하기 위한 테스트
+- 식별된 문제와 개선 제안을 요약한 상세 보고서
 
-Audits help reduce the risk of exploits and ensure your smart contract meets security standards before going live.
+감사를 통해 익스플로잇의 위험을 줄이고 스마트 컨트랙트를 출시하기 전에 보안 표준을 충족하는지 확인할 수 있습니다.
 
-### 7. Include a Fail-Safe mechanism
+### 7. 페일 세이프 메커니즘 포함
 
-For security purposes, especially when working with new contracts, it is important to include a reliable fail safe approach. This allows you to respond quickly if any issue arises. Below are a few strategies to consider:
+보안을 위해, 특히 새 계약으로 작업할 때는 신뢰할 수 있는 페일 세이프 접근 방식을 포함하는 것이 중요합니다. 이를 통해 문제가 발생할 경우 신속하게 대응할 수 있습니다. 다음은 고려해야 할 몇 가지 전략입니다:
 
-- **Upgradeability**: Make sure your contract allows for future upgrades. This makes it possible to fix bugs and introduce new features without replacing the entire contract.
-- **Decentralized Control**: Avoid concentrating control in one place. Use multi signature wallets so that important actions require confirmation from several parties.
-- **Time Lock**: Add a delay before executing important actions. This gives the team or the wider community time to review transactions and respond if needed.
+- **업그레이드 가능성**: 계약이 향후 업그레이드를 허용하는지 확인하세요. 이렇게 하면 전체 계약을 교체하지 않고도 버그를 수정하고 새로운 기능을 도입할 수 있습니다.
+- **분산 제어**: 한 곳에 제어 권한이 집중되지 않도록 합니다. 다중 서명 지갑을 사용하여 중요한 작업에는 여러 당사자의 확인이 필요합니다.
+- **시간 잠금**: 중요한 작업을 실행하기 전에 지연 시간을 추가합니다. 이를 통해 팀이나 더 넓은 커뮤니티에서 거래를 검토하고 필요한 경우 대응할 시간을 확보할 수 있습니다.
 
-## Conclusion
+## 결론
 
-Security should never be treated as an afterthought. It must be an essential part of every stage in the software development process, from development to production. Developers need to adopt a security-first mindset when working with smart contracts.
+보안은 결코 뒷전으로 미뤄서는 안 됩니다. 개발에서 생산에 이르는 소프트웨어 개발 프로세스의 모든 단계에서 필수적인 부분이어야 합니다. 개발자는 스마트 컨트랙트로 작업할 때 보안을 우선시하는 사고방식을 채택해야 합니다.
 
-Always prepare for possible failure, roll out changes with care, stay informed about updates in the ecosystem, understand EVM’s peculiarity, and keep your contracts as simple as possible. By following the best practices outlined above, you will significantly reduce risk and improve the reliability of your smart contracts.
+항상 실패 가능성에 대비하고, 신중하게 변경 사항을 적용하고, 에코시스템의 업데이트에 대한 정보를 얻고, EVM의 특성을 이해하고, 계약을 가능한 한 간단하게 유지하세요. 위에서 설명한 모범 사례를 따르면 위험을 크게 줄이고 스마트 컨트랙트의 신뢰성을 향상시킬 수 있습니다.
 
