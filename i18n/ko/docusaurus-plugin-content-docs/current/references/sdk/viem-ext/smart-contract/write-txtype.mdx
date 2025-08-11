@@ -93,21 +93,21 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  웹3에서 카이아 기능을 추가하려면 **@카이아체인/ethers-ext** 모듈을 가져옵니다.
+  웹3에서 Kaia 기능을 추가하려면 **@Kaia체인/ethers-ext** 모듈을 가져옵니다.
 
   ```js writeTxType.js focus=1:7
   ```
 
   ---
 
-  카이아 블록체인과의 읽기 전용 상호작용을 위해 퍼블릭 클라이언트를 초기화합니다.
+  Kaia 블록체인과의 읽기 전용 상호작용을 위해 퍼블릭 클라이언트를 초기화합니다.
 
   ```js writeTxType.js focus=9:12
   ```
 
   ---
 
-  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
 
   ```js writeTxType.js focus=13:19
   ```
@@ -173,7 +173,7 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 트랜잭션을 카이아 블록체인으로 전송하고 트랜잭션 해시를 기록합니다.
+  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 트랜잭션을 Kaia 블록체인으로 전송하고 트랜잭션 해시를 기록합니다.
 
   <CH.Code>
     ```js writeTxType.js focus=38:39
