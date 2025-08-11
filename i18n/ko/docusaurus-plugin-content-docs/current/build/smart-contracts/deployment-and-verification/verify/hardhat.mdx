@@ -8,14 +8,14 @@ import TabItem from '@theme/TabItem'
 
 # 하드햇을 사용하여 스마트 컨트랙트를 확인하는 방법
 
-이 가이드를 통해 하드햇 검증 플러그인을 사용하여 CLI에서 바로 카이아스캔에서 스마트 컨트랙트의 소스 코드를 자동으로 검증할 수 있습니다.
+이 가이드를 통해 하드햇 검증 플러그인을 사용하여 CLI에서 바로 KaiaScan에서 스마트 컨트랙트의 소스 코드를 자동으로 검증할 수 있습니다.
 
 Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추가해야 합니다:
 
 ## Kaiascan
 
 <Tabs>
-  <TabItem value="카이아 메인넷" label="메인넷">
+  <TabItem value="Kaia 메인넷" label="메인넷">
     ```js
     module.exports = {
       etherscan: {
@@ -37,7 +37,7 @@ Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추
     ```
   </TabItem>
 
-  <TabItem value="카이로스 테스트넷" label="카이로스">
+  <TabItem value="Kairos 테스트넷" label="Kairos">
     ```js
     module.exports = {
       etherscan: {
@@ -72,11 +72,11 @@ npx hardhat verify --network kairos 0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535
 
 터미널에서 확인을 위해 계약의 소스 코드가 성공적으로 제출된 것을 확인할 수 있습니다.
 
-인증에 성공했다면 [카이아스캔](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)에 성공적으로 인증된 계약이 표시되고 계약 코드 링크가 있습니다.
+인증에 성공했다면 [KaiaScan](https://kairos.kaiascan.io/address/0x3e360fC99c4383e3adaAE9742c0fC983fDAa0535?tabId=contract\&page=1)에 성공적으로 인증된 계약이 표시되고 계약 코드 링크가 있습니다.
 
 ![](/img/build/smart-contracts/verify/kaiascan-terminal.png)
 ![](/img/build/smart-contracts/verify/kaiascan-verify.png)
 
 ## 유용한 링크
 
-* [카이아스캔의 하드햇 검증 플러그인 설정](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
+* [KaiaScan의 하드햇 검증 플러그인 설정](https://docs.kaiascan.io/smart-contract-verification/hardhat-verify)
