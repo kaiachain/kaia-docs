@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValuetransfer <a id="txtypefeedelegatedvaluetransfer"></a>
 
-TxTypeFeeDelegatedValueTransfer는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. 카이아는 각 트랜잭션 유형이 하나의 용도로 사용될 수 있도록 여러 트랜잭션 유형을 제공하기 때문에 TxTypeFeeDelegatedValueTransfer는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransfer는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
+TxTypeFeeDelegatedValueTransfer는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. Kaia는 각 트랜잭션 유형이 하나의 용도로 사용될 수 있도록 여러 트랜잭션 유형을 제공하기 때문에 TxTypeFeeDelegatedValueTransfer는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransfer는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecution](#txtypefeedelegatedsmartcontractexecution)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같이 변경됩니다.
 
 1. 수수료 납부자의 잔액이 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 nonce가 1 증가합니다.
@@ -886,7 +886,7 @@ SenderTxHash cc6c2673398903b3d906a3023b41636fc08bd1bddd5aa1602116091638f48447
 
 ## TxTypeFeeDelegatedChainDataAnchoring <a id="txtypefeedelegatedchaindataanchoring"></a>
 
-TxTypeFeeDelegatedChainDataAnchoring은 서비스 체인 데이터를 카이아 메인체인에 앵커링하는 수수료 위임 트랜잭션입니다. 서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이러한 유형의 트랜잭션을 카이아 메인체인에 전송합니다. 데이터 앵커링에 대한 자세한 내용은 [앵커링](../../nodes/service-chain/configure/anchoring.md)을 참고하세요. 또한 수수료 위임 트랜잭션이므로 트랜잭션 수수료는 수수료 납부자에게 부과됩니다. 이 트랜잭션을 RPC를 통해 전송하는 것은 허용되지 않는다는 점에 유의하세요. 현재 이 트랜잭션은 보안상의 이유로 개인 P2P 채널을 통해 실행됩니다. 이 트랜잭션은 발신자의 nonce가 1 증가한다는 것 외에는 Kaia 블록체인의 상태를 변경하지 않습니다.
+TxTypeFeeDelegatedChainDataAnchoring은 서비스 체인 데이터를 Kaia 메인체인에 앵커링하는 수수료 위임 트랜잭션입니다. 서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이러한 유형의 트랜잭션을 Kaia 메인체인에 전송합니다. 데이터 앵커링에 대한 자세한 내용은 [앵커링](../../nodes/service-chain/configure/anchoring.md)을 참고하세요. 또한 수수료 위임 트랜잭션이므로 트랜잭션 수수료는 수수료 납부자에게 부과됩니다. 이 트랜잭션을 RPC를 통해 전송하는 것은 허용되지 않는다는 점에 유의하세요. 현재 이 트랜잭션은 보안상의 이유로 개인 P2P 채널을 통해 실행됩니다. 이 트랜잭션은 발신자의 nonce가 1 증가한다는 것 외에는 Kaia 블록체인의 상태를 변경하지 않습니다.
 
 ### 속성 <a id="rlp-encoding-for-sendertxhash"></a>
 
