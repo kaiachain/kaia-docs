@@ -310,5 +310,53 @@
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
     "message": "芬斯基亚呼叫卡伊娅",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Configuration": {
+    "message": "钱包配置",
+    "description": "The label for category Wallet Configuration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Operations": {
+    "message": "钱包操作",
+    "description": "The label for category Wallet Operations in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.dApp Integration": {
+    "message": "dApp 整合",
+    "description": "The label for category dApp Integration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Implementing Transactions": {
+    "message": "实施交易",
+    "description": "The label for category Implementing Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Cookbooks": {
+    "message": "烹饪书",
+    "description": "The label for category Cookbooks in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Fundamentals": {
+    "message": "基础知识",
+    "description": "The label for category Fundamentals in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Development": {
+    "message": "代币开发",
+    "description": "The label for category Token Development in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Deployment & Verification": {
+    "message": "部署与验证",
+    "description": "The label for category Deployment & Verification in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Integrate Gas Abstraction (GA)": {
+    "message": "整合气体抽取 (GA)",
+    "description": "The label for category Integrate Gas Abstraction (GA) in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Kaia Agent Kit": {
+    "message": "Kaia 代理套件",
+    "description": "The label for category Kaia Agent Kit in sidebar buildSidebar"
+  },
+  "sidebar.refSidebar.category.Gas Abstraction": {
+    "message": "气体抽取",
+    "description": "The label for category Gas Abstraction in sidebar refSidebar"
+  },
+  "sidebar.refSidebar.category.viem-ext": {
+    "message": "viem-ext",
+    "description": "The label for category viem-ext in sidebar refSidebar"
   }
 }
