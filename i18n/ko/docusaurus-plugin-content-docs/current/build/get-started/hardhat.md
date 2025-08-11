@@ -4,7 +4,7 @@
 
 ## 소개
 
-이 섹션에서는 [Hardhat](https://hardhat.org/)을 사용하여 카이아 Kairos 네트워크에 Soul-bound token을 배포하는 방법을 안내합니다.
+이 섹션에서는 [Hardhat](https://hardhat.org/)을 사용하여 Kaia Kairos 네트워크에 Soul-bound token을 배포하는 방법을 안내합니다.
 
 Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 
@@ -15,7 +15,7 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
-- 카이아에서 Hardhat 프로젝트를 설정합니다.
+- Kaia에서 Hardhat 프로젝트를 설정합니다.
 - 간단한 Soul-bound token 생성하기.
 - [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
 - This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin.
@@ -342,7 +342,7 @@ npx hardhat run ignition/modules/sbtDeploy.js --network kairos
 
 ![](/img/build/get-started/sbtDeploy.png)
 
-**4단계**: 카이아스캔](https://kairos.kaiascan.io/)을 열어 SBT 토큰이 성공적으로 배포되었는지 확인합니다.
+**4단계**: KaiaScan](https://kairos.kaiascan.io/)을 열어 SBT 토큰이 성공적으로 배포되었는지 확인합니다.
 
 **5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
 
@@ -392,7 +392,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hardhat-fork-bn.png)
 
-출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. 카이아스캔](https://kaiascan.io/)에서 블록 번호를 확인할 수 있습니다.
+출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. KaiaScan](https://kaiascan.io/)에서 블록 번호를 확인할 수 있습니다.
 
 ### 블록에서 포크하기
 
