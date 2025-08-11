@@ -4,7 +4,7 @@
 
 네트워크 성능은 네트워크 내 최악의 하드웨어 사양을 기준으로 측정됩니다. 블록체인 네트워크 구조상 수직적 확장(하드웨어 용량 증가)만이 가능합니다. 따라서 네트워크 내 모든 노드는 최소한 서로 비슷한 사양의 최고급 하드웨어를 보유하는 것이 좋습니다.
 
-이 하드웨어 사양의 근거가 궁금하신 분들은 미디엄 글 [카이아 노드 운영자를 위한 최적의 하드웨어 사양 결정하기](https://klaytn.foundation/node-operator-optimal-specs/)를 참고하시면 이해에 도움이 될 것입니다.
+이 하드웨어 사양의 근거가 궁금하신 분들은 미디엄 글 [Kaia 노드 운영자를 위한 최적의 하드웨어 사양 결정하기](https://klaytn.foundation/node-operator-optimal-specs/)를 참고하시면 이해에 도움이 될 것입니다.
 
 다음 섹션에서는 CN과 PN 모두에 대한 권장 사양을 보여줍니다.
 
@@ -64,4 +64,4 @@ The information above is from [https://cloud.google.com/compute/vm-instance-pric
 ## 운영 체제 <a id="operating-system"></a>
 
 권장 환경은 RHEL(7.8 이상)과 호환됩니다.
-카이아 바이너리는 Amazon Linux 2에서 완벽하게 테스트되었지만, 다른 리눅스 기반 환경에서도 작동할 것입니다. 개발 목적으로 macOS 바이너리도 제공됩니다.
+Kaia 바이너리는 Amazon Linux 2에서 완벽하게 테스트되었지만, 다른 리눅스 기반 환경에서도 작동할 것입니다. 개발 목적으로 macOS 바이너리도 제공됩니다.
