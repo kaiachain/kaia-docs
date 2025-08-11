@@ -60,14 +60,14 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  웹3에서 카이아 기능을 추가하려면 **@kaiachain/viem-ext** 패키지를 가져옵니다.
+  웹3에서 Kaia 기능을 추가하려면 **@kaiachain/viem-ext** 패키지를 가져옵니다.
 
   ```js TxFeeDelegatedCancelType.js focus=1
   ```
 
   ---
 
-  카이로스 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 발신자 및 수수료 납부자 지갑을 설정합니다.
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 발신자 및 수수료 납부자 지갑을 설정합니다.
 
   ```js TxFeeDelegatedCancelType.js focus=3:16
   ```
@@ -103,7 +103,7 @@ import Editor from '@site/src/components/Editor'
 
   ---
 
-  완전히 서명된 수수료 위임 트랜잭션(발신자와 수수료 납부자 모두 서명)을 `kaia_sendRawTransaction` 메서드를 사용하여 카이로스 블록체인 네트워크에 전송하고 네트워크에서 트랜잭션 해시 또는 응답을 반환합니다.
+  완전히 서명된 수수료 위임 트랜잭션(발신자와 수수료 납부자 모두 서명)을 `kaia_sendRawTransaction` 메서드를 사용하여 Kairos 블록체인 네트워크에 전송하고 네트워크에서 트랜잭션 해시 또는 응답을 반환합니다.
 
   <CH.Code>
     ```js TxFeeDelegatedCancelType.js focus=28:32
