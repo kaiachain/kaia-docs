@@ -1,10 +1,10 @@
 # ERC-20
 
-## Overview <a id="overview"></a>
+## 개요 <a id="overview"></a>
 
-Creating a fungible token on Kaia follows similar steps to how you would on Ethereum and it uses the [ERC20 standard](https://ethereum.org/en/developers/docs/standards/tokens/erc-20).
+카이아에서 대체 가능한 토큰을 생성하는 방법은 이더리움에서와 비슷한 단계를 따르며, [ERC20 표준](https://ethereum.org/en/developers/docs/standards/tokens/erc-20)을 사용합니다.
 
-To follow the standard, you will deploy a contract that implements the following events and functions:
+표준을 따르기 위해 다음 이벤트와 기능을 구현하는 컨트랙트를 배포합니다:
 
 ```solidity
 function name() public view returns (string) //optional
@@ -21,73 +21,73 @@ event Transfer(address indexed _from, address indexed _to, uint256 _value)
 event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 ```
 
-- **name**: A method that returns the name of the token.
-- **symbol**: A method that returns the symbol of the token.
-- **decimals**: A method that returns the number of decimals the token uses. It is used to define the smallest unit of the token. For example, if an ERC-20 token has a decimal value of 18, this means that the token can be divided up to eighteen decimal places.
-- **totalSupply**: A method that defines the total supply of your tokens; when this limit is reached, the smart contract will refuse to create new tokens.
-- **balanceOf**: A method that returns the number of tokens a wallet address has.
-- **transfer**: A method that takes a certain amount of tokens from the total supply and gives it to a user.
-- **transferFrom**: Another type of transfer method that is used to transfer tokens between users.
-- **approve**: This method verifies whether a smart contract is allowed to allocate a certain amount of tokens to a user, considering the total supply.
-- **allowance**: This method is exactly the same as the approved method except that it checks if one user has enough balance to send a certain amount of tokens to another.
-- **Transfer event**: emitted when tokens are transferred
-- **Approval event**: emitted when there is token approval.
+- **이름**: 토큰의 이름을 반환하는 메서드입니다.
+- **심볼**: 토큰의 심볼을 반환하는 메서드입니다.
+- **소수점**: 토큰이 사용하는 소수점 수를 반환하는 메서드입니다. 토큰의 가장 작은 단위를 정의하는 데 사용됩니다. 예를 들어 ERC-20 토큰의 소수점 값이 18인 경우, 이는 토큰을 소수점 이하 18자리까지 나눌 수 있다는 뜻입니다.
+- **총공급량**: 토큰의 총 공급량을 정의하는 방법으로, 이 한도에 도달하면 스마트 컨트랙트는 새로운 토큰 생성을 거부합니다.
+- **balanceOf**: 지갑 주소가 보유한 토큰 수를 반환하는 메서드입니다.
+- **전송**: 총 공급량에서 일정량의 토큰을 가져와 사용자에게 지급하는 방식입니다.
+- **송금인**: 사용자 간에 토큰을 전송하는 데 사용되는 또 다른 유형의 전송 방법입니다.
+- **승인**: 이 방법은 총 공급량을 고려하여 스마트 컨트랙트가 사용자에게 일정량의 토큰을 할당할 수 있는지 여부를 확인합니다.
+- **허용**: 이 방법은 한 사용자가 다른 사용자에게 일정량의 토큰을 보낼 수 있는 충분한 잔액이 있는지 확인한다는 점을 제외하면 승인된 방법과 완전히 동일합니다.
+- **토큰 전송 이벤트**: 토큰 전송 시 발생합니다.
+- **승인 이벤트**: 토큰 승인이 있을 때 발생하는 이벤트입니다.
 
-## Getting Started <a id="getting-started"></a>
+## 시작하기 <a id="getting-started"></a>
 
-In this section, you'll create and  deploy your ERC20 token contract using Remix Online IDE. There are several implementations of ERC20-compliant tokens developed by different teams with each developed with several factors in mind. For ease and security, we’ll use the [OpenZeppelin ERC-20](https://docs.openzeppelin.com/contracts/5.x/erc20) contract to create our token. With OpenZeppelin, we don’t need to write the whole ERC-20 interface. Instead, we can import the library contract and use it's functions.
+이 섹션에서는 Remix Online IDE를 사용하여 ERC20 토큰 컨트랙트를 생성하고 배포하는 방법을 설명합니다. 여러 팀에서 여러 가지 요소를 염두에 두고 개발한 ERC20 호환 토큰이 여러 가지 구현되어 있습니다. 편의성과 보안을 위해 [OpenZeppelin ERC-20](https://docs.openzeppelin.com/contracts/5.x/erc20) 컨트랙트를 사용하여 토큰을 생성합니다. 오픈제플린을 사용하면 전체 ERC-20 인터페이스를 작성할 필요가 없습니다. 대신 라이브러리 컨트랙트를 가져와서 그 기능을 사용할 수 있습니다.
 
-### Step 1: Create  ERC20 token contract <a id="create-erc20-token-contract"></a>
+### 1단계: ERC20 토큰 컨트랙트 만들기 <a id="create-erc20-token-contract"></a>
 
-**OpenZeppelin Contract Wizard**
+**오픈제플린 계약 마법사**
 
-- Open [OpenZeppelin Contract Wizard](https://wizard.openzeppelin.com)
-- Select **ERC20**.
-- Provide a **name** and a **symbol** for the token. For example: _Greek_ and _GK_ respectively.
-- In the **Premint** field, set it to 10,000. This creates an initial amount of tokens for the deployer.
-- In the **Features** section, check the Mintable box to allow privileged accounts (onlyOwner) be able to create more supply.
-- Click the **Copy** icon to copy the code for use on Remix in the next section.
+- 오픈제플린 계약 마법사] 열기(https://wizard.openzeppelin.com)
+- ERC20\*\*을 선택합니다.
+- 토큰의 **이름**과 **심볼**을 입력합니다. 예를 들어: 예: 각각 _Greek_ 및 _GK_.
+- 인쇄수량\*\* 필드에서 10,000으로 설정합니다. 이렇게 하면 배포자를 위한 초기 토큰이 생성됩니다.
+- 기능\*\* 섹션에서 주조 가능 확인란을 선택하여 권한이 있는 계정(onlyOwner)이 더 많은 공급량을 만들 수 있도록 허용합니다.
+- 복사\*\* 아이콘을 클릭하여 다음 섹션의 Remix에서 사용할 코드를 복사합니다.
 
 ![](/img/build/smart-contracts/oz-erc20-setup.png)
 
-### Step 2: Deploy ERC20 token contract <a id="deploy-erc20-token-contract"></a>
+### 2단계: ERC20 토큰 컨트랙트 배포 <a id="deploy-erc20-token-contract"></a>
 
-**Remix IDE**
+**리믹스 IDE**
 
-- In [Remix](https://remix.ethereum.org), Navigate to **File Explorer** and create a new file named `Greek.sol` in the contracts folder.
-- Navigate to the **Solidity Compiler** tab and click **Compile Greek.sol** to compile the token contract.
-- Navigate to the **Deploy & run transactions** tab
-- Select **Environment** > **Injected Provider** > **MetaMask**.
-- In the **Contract** dropdown, select your contract. For example, _Greek_.
-- In the **Deploy** field, provide the constructor argument for recipient and initialOwner.
-- Click **Deploy/transact**
+- Remix](https://remix.ethereum.org)에서 **파일 탐색기**로 이동하여 계약 폴더에 'Greek.sol'이라는 새 파일을 생성합니다.
+- 솔리디티 컴파일러\*\* 탭으로 이동하여 **그리스어.sol 컴파일**을 클릭하여 토큰 컨트랙트를 컴파일합니다.
+- 트랜잭션 배포 및 실행\*\* 탭으로 이동합니다.
+- 환경\*\* > **주입된 공급자** > **메타마스크**를 선택합니다.
+- 계약\*\* 드롭다운에서 계약을 선택합니다. 예를 들어, _그리스어_.
+- 배포\*\* 필드에 수신자 및 초기 소유자에 대한 생성자 인수를 입력합니다.
+- 배포/거래\*\*를 클릭합니다.
 
 ![](/img/build/smart-contracts/remix-erc20-deploy.png)
 
-After deploying, you can invoke **balanceOf** with your account, which was used to deploy the contract. You will find there are 10000000000000000000000 tokens available in your account as below.
+배포 후 컨트랙트를 배포할 때 사용한 계정으로 **balanceOf**를 호출할 수 있습니다. 계정에는 아래와 같이 10000000000000000000000 토큰이 있습니다.
 
-Because you set the decimal as 18 when deploying the contract above, it minted a fixed number of 10000 tokens in the constructor, with one token having a decimal value of 10^18. TotalSupply method will return the total supply of tokens minted which should be also 10000000000000000000000.
+위 컨트랙트를 배포할 때 소수를 18로 설정했기 때문에 생성자에서 고정된 수의 10000 토큰을 발행했으며, 토큰 하나는 10^18의 소수점 값을 가졌습니다. 총공급 메서드는 발행된 토큰의 총 공급량을 반환하며, 이 값은 10000000000000000000000.
 
 ![](/img/build/smart-contracts/remix-erc20-bal-totalsupply.png)
 
-### Step 3: Interact with ERC-20 token from MetaMask <a id="interact-with-erc20-token-from-MetaMask"></a>
+### 3단계: 메타마스크에서 ERC-20 토큰과 상호 작용하기 <a id="interact-with-erc20-token-from-MetaMask"></a>
 
-You can use MetaMask to check your balance and transfer the ERC-20-compatible Greek tokens you just deployed. To view your token balance on MetaMask, follow the steps below:
+메타마스크를 사용하여 잔액을 확인하고 방금 배포한 ERC-20 호환 그리스 토큰을 전송할 수 있습니다. 메타마스크에서 토큰 잔액을 확인하려면 아래 단계를 따르세요:
 
-**MetaMask**
+**메타마스크**
 
-- Open up MetaMask
-- Click on the **Ellipsis** icon at the far right, and then click **Import tokens**
+- 메타마스크 열기
+- 맨 오른쪽의 **줄임표** 아이콘을 클릭한 다음 **토큰 가져오기**를 클릭합니다.
 
 ![](/img/build/smart-contracts/mm-import-tokens-e20g.png)
 
-- Make sure to select Kaia Kairos Network in the **select a network** field and also paste the recently deployed Greek contract address in the **Token contract address** field.
+- 네트워크 선택\*\* 필드에서 카이아 카이로스 네트워크를 선택하고 **토큰 컨트랙트 주소** 필드에 최근에 배포한 그리스 컨트랙트 주소를 붙여넣어야 합니다.
 
 ![](/img/build/smart-contracts/mm-custom-tokens-e20g.png)
 
-- Click **import** as the final step
+- 마지막 단계로 **가져오기**를 클릭합니다.
 
 ![](/img/build/smart-contracts/mm-custom-tokens-imported-e20g.png)
 
-Once done, you should see a modal with this message: "_Token imported: You’ve successfully imported GK_" and the imported token (GK) as part of the list of tokens in your MetaMask wallet.
+완료되면 다음과 같은 메시지가 표시되는 모달이 나타납니다: "_토큰을 가져왔습니다: GK_를 성공적으로 가져왔습니다."라는 메시지와 가져온 토큰(GK)이 메타마스크 지갑의 토큰 목록에 표시됩니다.
 
