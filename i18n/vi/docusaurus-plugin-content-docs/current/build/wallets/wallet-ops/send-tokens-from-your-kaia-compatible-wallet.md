@@ -1,5 +1,5 @@
-Nhập Tabs từ '@theme/Tabs'
-Nhập TabItem từ '@theme/TabItem'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 # Cách gửi token từ ví Kaia tương thích
 
