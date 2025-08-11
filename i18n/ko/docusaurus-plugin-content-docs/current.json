@@ -252,7 +252,7 @@
     "description": "The label for category Token Management in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Team Finance": {
-    "message": "팀 재무",
+    "message": "Team Finance",
     "description": "The label for category Team Finance in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.LINE Mini DApp with Unity": {
@@ -344,7 +344,7 @@
     "description": "The label for category Deployment & Verification in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Integrate Gas Abstraction (GA)": {
-    "message": "가스 추상화(GA) 통합",
+    "message": "가스 추상화(GA) 구현하기",
     "description": "The label for category Integrate Gas Abstraction (GA) in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Kaia Agent Kit": {
