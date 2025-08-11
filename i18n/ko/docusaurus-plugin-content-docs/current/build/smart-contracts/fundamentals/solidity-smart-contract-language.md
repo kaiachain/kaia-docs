@@ -123,7 +123,7 @@ solc --optimize --bin UserStorage.sol
 
 스마트 콘트랙트에서 보안 문제와 코드 품질 문제를 제거하려면 Solidity 프로그래밍의 모범 사례를 연구하고 따르는 것이 중요합니다. 여기에서는 Solidity 모범 사례에 대한 참조를 보여드리겠습니다.
 
-- [Smart Contract Security Best Practices](best-practices-for-smart-contract-security.md)
+- [스마트 계약 보안 모범 사례](best-practices-for-smart-contract-security.md)
 - [안전한 스마트 컨트랙트 코드 작성을 위한 모범 사례](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 참조 <a id="references"></a>
