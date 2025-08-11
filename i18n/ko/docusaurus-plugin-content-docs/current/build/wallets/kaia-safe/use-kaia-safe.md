@@ -2,7 +2,7 @@
 
 ## 금고 만들기
 
-여기서는 카이아 네트워크에서 세이프 생성 방법과 이점을 평가하는 방법을 보여드리겠습니다.
+여기서는 Kaia 네트워크에서 세이프 생성 방법과 이점을 평가하는 방법을 보여드리겠습니다.
 
 **Step 1:** Navigate to [Kaia Safe App](https://safe.kaia.io/). 웹 브라우저에서 애플리케이션으로 이동하면 Kaia Safe의 기능을 살펴볼 수 있습니다.
 
@@ -85,7 +85,7 @@ Kaia Safe 계정을 성공적으로 생성하신 것을 축하드립니다!
 다양한 방법으로 NFT를 안전 계좌로 이체할 수 있습니다. 다음은 [OpenSea](https://opensea.io/about)를 사용하여 NFT를 안전계좌로 이체하는 방법의 예시입니다.
 
 1. [OpenSea 계정](https://testnets.opensea.io/account) 프로필 페이지로 이동합니다.
-2. 전송하고 싶은 NFT로 이동합니다. 카이아 네트워크에 있는 NFT(Mainnet 또는 Kairos)를 선택해야 합니다.
+2. 전송하고 싶은 NFT로 이동합니다. Kaia 네트워크에 있는 NFT(Mainnet 또는 Kairos)를 선택해야 합니다.
 3. 다음 페이지에서 전송 버튼을 클릭합니다.
 4. 텍스트 상자에 금고 주소를 붙여넣고 금고로 전송합니다.
 5. Kaia Safe의 자산 섹션에서 OpenSea의 NFT를 찾을 수 있습니다.
