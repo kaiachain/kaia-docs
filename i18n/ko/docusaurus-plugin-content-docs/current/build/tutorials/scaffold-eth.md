@@ -179,7 +179,7 @@ As you can see above, to verify your contracts, you have to pass in the network 
 
 ![Verify](/img/build/tutorials/scaffold-verify.png)
 
-하드햇 검증 플러그인을 사용하여 카이아에서 스마트 컨트랙트를 검증하는 방법에 대한 자세한 내용은 [하드햇-검증 플러그인 가이드](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)를 참조하시기 바랍니다.
+하드햇 검증 플러그인을 사용하여 Kaia에서 스마트 컨트랙트를 검증하는 방법에 대한 자세한 내용은 [하드햇-검증 플러그인 가이드](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)를 참조하시기 바랍니다.
 
 ## Next.js Configuration <a href="#nextjs-configuration" id="nextjs-configuration"></a>
 
