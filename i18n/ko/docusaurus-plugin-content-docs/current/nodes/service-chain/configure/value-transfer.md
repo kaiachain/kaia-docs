@@ -1,6 +1,6 @@
 # 토큰 전송
 
-카이아 디자인 섹션에서 설명한 것처럼 서비스체인은 부모체인과 자식체인 간의 밸류(KLAY, ERC-20, ERC-721) 전송을 지원합니다.
+Kaia 디자인 섹션에서 설명한 것처럼 서비스체인은 부모체인과 자식체인 간의 밸류(KLAY, ERC-20, ERC-721) 전송을 지원합니다.
 이 페이지는 SCN에서 밸류 전송 기능을 활성화하는 방법을 보여줍니다.
 
 EN과 SCN을 설정한 후 체인 간 밸류 전송을 활성화하려면 다음 절차가 필요합니다.
@@ -321,7 +321,7 @@ function requestValueTransfer(uint256 _uid, address _to) external
 ### onERC721Received() <a id="unsupported-onERC721Received"></a>
 
 ERC-721 표준에는 [onERC721Received](https://eips.ethereum.org/EIPS/eip-721) 콜백 함수가 있습니다.
-현재 카이아 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
+현재 Kaia 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다.
 
 아니면 `onERC721Recieved()`와 같은 추가 작업은 이벤트 수신과 같은 다른 방식으로 구현해야 합니다(예: `event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)`).
 
