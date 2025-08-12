@@ -102,5 +102,5 @@
 
 此外，建议选择占所有者 51%的阈值，例如 3 人中的 2 人、5 人中的 3 人等。  正因为如此，即使一位所有者失去了对其账户的访问权限，用户也不会立即被锁定其在保险箱中的所有资金；相反，其他所有者仍可进行交易，例如，替换该丢失的所有者账户。 可以说，这是一种恢复机制。
 
-**兼容哪些钱包？**
-目前，Kaia Safe兼容[Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../../tutorials/connecting-metamask.mdx)。
+\*\* 与哪些钱包兼容？ \*\*
+目前，Kaia Safe 与 [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../tutorials/connecting-metamask.mdx) 兼容。
