@@ -69,7 +69,7 @@ You may purchase KLAY on the exchange. 利用可能な取引所のリストは�
 
 ## どのウォレットがカイアをサポートしていますか？ <a id="which-wallets"></a>
 
-カイアは、コールドウォレットのD'centや、カイアウォレット、MetaMaskなどのホットウォレットのホストによってサポートされています。 リスト[こちら](../build/tools/wallets/wallets.md)をご参照ください。
+カイアは、コールドウォレットのD'centや、カイアウォレット、MetaMaskなどのホットウォレットのホストによってサポートされています。 リスト[こちら](../build/wallets/wallets.md)をご参照ください。
 
 ## メインネットとは、カイロスとは？ <a id="what-is-cypress-what-is-baobab"></a>
 
@@ -113,7 +113,7 @@ Kaia Nodeはイーサリアムと互換性があるため、ethers.js、web3.js�
 
 ## カイアでERC-20とERC-721を使用できますか？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
-そうだ。 Kaiaはスマートコントラクト言語としてSolidityをサポートしています。 Etherem用のSolidityで書かれた[ERC-20](../build/smart-contracts/samples/erc-20.md)と[ERC-721](../build/smart-contracts/samples/erc-721.md)は、Kaiaにデプロイして実行することができます。
+そうだ。 Kaiaはスマートコントラクト言語としてSolidityをサポートしています。 Etherem用のSolidityで書かれた[ERC-20](../build/smart-contracts/token-development/samples/erc-20.md)と[ERC-721](../build/smart-contracts/token-development/samples/erc-721.md)は、Kaiaにデプロイして実行することができます。
 
 さらにKaia固有のトークン標準を定義することができます。 KIP (Kaia Improvement Proposal)](https://kips.kaia.io/)をフォローして、議論に参加しよう。
 
