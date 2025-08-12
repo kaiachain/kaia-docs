@@ -10,11 +10,11 @@ Remix Online IDE는 EVM 호환 스마트 컨트랙트를 개발, 배포, 디버�
 
 Kaia Contracts Wizard는 스마트 컨트랙트를 부트스트랩하고 Kaia 컨트랙트에 대해 배울 수 있는 대화형 생성기입니다. OpenZeppelin 마법사를 기반으로 합니다.
 
-#### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
+#### [써드웹](../deployment-and-verification/deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
 Thirdweb은 앱과 게임을 탈중앙화 네트워크에 연결하는 데 필요한 모든 것을 제공하는 완전한 웹 3.0 개발 프레임워크입니다.
 
-#### [Kaia 지갑](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
+#### [카이아 월렛](../../wallets/overview/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
 
 Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
 
