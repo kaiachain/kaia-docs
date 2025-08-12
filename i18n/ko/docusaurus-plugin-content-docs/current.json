@@ -228,7 +228,7 @@
     "description": "The label for category Core Concepts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Smart Contracts": {
-    "message": "스마트 계약",
+    "message": "스마트 컨트랙트",
     "description": "The label for category Smart Contracts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Advanced Topics": {
@@ -236,7 +236,7 @@
     "description": "The label for category Advanced Topics in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Transaction Execution": {
-    "message": "거래 실행",
+    "message": "트랜잭션 실행",
     "description": "The label for category Transaction Execution in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Token Economics": {
@@ -244,7 +244,7 @@
     "description": "The label for category Token Economics in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Transactions": {
-    "message": "거래",
+    "message": "트랜잭션",
     "description": "The label for category Transactions in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Token Management": {
@@ -312,11 +312,11 @@
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
   },
   "sidebar.buildSidebar.category.Wallet Configuration": {
-    "message": "지갑 구성",
+    "message": "월렛 구성",
     "description": "The label for category Wallet Configuration in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Wallet Operations": {
-    "message": "지갑 운영",
+    "message": "월렛 운영",
     "description": "The label for category Wallet Operations in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.dApp Integration": {
@@ -328,7 +328,7 @@
     "description": "The label for category Implementing Transactions in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Cookbooks": {
-    "message": "요리책",
+    "message": "쿡북",
     "description": "The label for category Cookbooks in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Fundamentals": {
