@@ -16,7 +16,7 @@ In this guide, you will use the web3Modal library to integrate multiple wallets 
 
 - 작동하는 리액트 프로젝트(`npx create-react-app 프로젝트 이름`을 실행하여)
 - Install the necessary wallets ([Kaia Wallet](https://www.kaiawallet.io/en_US/), [Coinbase Wallet](https://www.coinbase.com/wallet/downloads), and [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자] 중 하나에서 받을 수 있습니다(../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ## Web3Modal 및 지갑 공급자 옵션 설정하기
