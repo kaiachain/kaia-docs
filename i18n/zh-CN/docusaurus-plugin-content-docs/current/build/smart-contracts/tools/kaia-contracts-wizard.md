@@ -56,8 +56,8 @@ Kaia 合同向导由以下部分组成：
 
 - 确保安装了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
 - 克隆 [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 代码。
-- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合约、签署事务和与合约交互。
-- RPC 端点：您可以从支持的[端点提供程序](../../references/public-en.md)中获取。
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：用于部署合同、签署交易和与合同交互。
+- RPC 端点：可从受支持的 [端点提供程序](../../../references/public-en.md) 中获取。
 - 从 [水龙头](https://faucet.kaia.io)测试 KAIA：为账户注入足够的 KAIA。
 
 ### 开始
@@ -456,6 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 此外，我们还使用 Foundry solidity 脚本将生成的合同部署到 Kaia Kairos Testnet。 您可以使用 Remix IDE 或任何智能合约开发环境来部署从 Kaia Contracts Wizard 派生或定制的智能合约。 您可以在以下链接中找到相应的教程：
 
-- [连接到 Remix](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [使用 Hardhat 部署智能合约](../get-started/hardhat.md)
-- [使用 Truffle 部署智能合约](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [Connecting to Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [使用 Hardhat 部署智能合约](../../get-started/hardhat.md)
