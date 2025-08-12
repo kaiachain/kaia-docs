@@ -43,4 +43,4 @@ contract KaiaGreeter {
 
 For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-- [Trình phối lại trực tuyến IDE](../../smart-contracts/deploy/deploy.md)
+- [Remix Trình soạn thảo mã nguồn trực tuyến](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
