@@ -118,5 +118,9 @@
   "item.label.Debugging and Diagnostics": {
     "message": "除錯與診斷",
     "description": "Navbar item with label Debugging and Diagnostics"
+  },
+  "item.label.Wallets": {
+    "message": "皮夾",
+    "description": "Navbar item with label Wallets"
   }
 }
