@@ -56,8 +56,8 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 - 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
 - kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit)のコードをクローンする。
-- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
-- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../references/public-en.md)の1つから取得できます。
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 ### はじめに
@@ -456,6 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 さらに、Foundry solidityスクリプトを使用して、生成されたコントラクトをKaia Kairos Testnetにデプロイしました。 Remix IDEやその他のスマートコントラクト開発環境を利用して、Kaiaコントラクトウィザードから派生またはカスタマイズしたスマートコントラクトをデプロイできます。 対応するチュートリアルは以下のリンクからご覧いただけます：
 
-- [リミックスにつなげる](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [Hardhatを使用したスマートコントラクトのデプロイ](../get-started/hardhat.md)
-- [Truffleを使用したスマートコントラクトのデプロイ](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [リミックスにつなげる](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [Hardhatを使用したスマートコントラクトのデプロイ](../../get-started/hardhat.md)
