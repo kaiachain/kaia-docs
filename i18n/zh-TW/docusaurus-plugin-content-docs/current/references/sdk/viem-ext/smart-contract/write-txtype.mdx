@@ -1,0 +1,204 @@
+# 寫入 (SmartContractExecution TxType)
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/smart-contract/writeTxType.tsx" route={RoutePath.ViemExt_SmartContract_WriteTxType} />
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js writeTxType.js
+    import {
+        http,
+        encodeFunctionData,
+        createWalletClient, createPublicClient, kairos,
+        TxType,
+        privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    const senderWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+        ),
+    });
+    // Example usage
+    (async () => {
+        const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const data = encodeFunctionData({
+            abi,
+            args: [Date.now()],
+            functionName: "setNumber",
+        });
+        const tx = await senderWallet.prepareTransactionRequest({
+            type: TxType.SmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        console.log("preparedTx", tx);
+
+        const sentTx = await senderWallet.sendTransaction(tx);
+        console.log("contract interaction tx", sentTx);
+
+        const result = await publicClient.readContract({
+            address: contractAddr,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2399,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+    Current contract value 1750147159253n
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **@kaiachain/ethers-ext** 模組，在 web3 上加入 kaia 功能。
+
+  ```js writeTxType.js focus=1:7
+  ```
+
+  ---
+
+  初始化用於與 Kaia 區塊鏈進行唯讀互動的公共用戶端。
+
+  ```js writeTxType.js focus=9:12
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定一個錢包用戶端，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的**寄件者私密金鑰**。
+
+  ```js writeTxType.js focus=13:19
+  ```
+
+  ---
+
+  設定由 solidity 代碼產生的 **Abi**
+
+  ```js writeTxType.js focus=22
+  ```
+
+  ---
+
+  定義**合約位址**進行互動
+
+  ```js writeTxType.js focus=23
+  ```
+
+  ---
+
+  使用 **encodeFunctionData** 函式對函式名稱和參數進行編碼
+
+  ```js writeTxType.js focus=24:28
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**建立一個轉移價值的交易請求，指定寄件者帳戶、收件者地址、要轉移的價值（本範例中為 0 KLAY），以及交易類型\*\*(TxType.SmartContractExecution)\*\*。
+
+  <CH.Code>
+    ```js writeTxType.js focus=29:36
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2399,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用錢包用戶端 **sendTransaction** 方法將交易傳送至 Kaia 區塊鏈，並記錄交易哈希值。
+
+  <CH.Code>
+    ```js writeTxType.js focus=38:39
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+    ```
+  </CH.Code>
+
+  ---
+
+  使用公共用戶端從合約中查詢 **number** 函式（一個不修改狀態的檢視函式）。 這會擷取數字變數的目前值，該值應反映前一筆交易設定的時間戳記 (如果成功的話)。
+
+  <CH.Code>
+    ```js writeTxType.js focus=41:46
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    Current contract value 1750147159253n
+    ```
+  </CH.Code>
+</CH.Spotlight>

@@ -2,15 +2,15 @@
 
 ## 개요
 
-카이아 에이전트 키트는 여러 인기 AI 프레임워크와 통합되어, 선호하는 개발 도구를 사용하여 온체인 작업을 자율적으로 실행하는 에이전트를 구축할 수 있습니다. 이 가이드에서는 온체인 액션을 위해 [카이아 에이전트 키트](https://github.com/kaiachain/kaia-agent-kit)를 사용하는 [LangChain](https://www.langchain.com/agents)으로 AI 에이전트를 생성하는 방법을 알아보세요. .
+Kaia 에이전트 키트는 여러 인기 AI 프레임워크와 통합되어, 선호하는 개발 도구를 사용하여 온체인 작업을 자율적으로 실행하는 에이전트를 구축할 수 있습니다. 이 가이드에서는 온체인 액션을 위해 [Kaia 에이전트 키트](https://github.com/kaiachain/kaia-agent-kit)를 사용하는 [LangChain](https://www.langchain.com/agents)으로 AI 에이전트를 생성하는 방법을 알아보세요. .
 
 ## 전제 조건
 
 - [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation) 설치됨
-- 개인 키가 준비된 [카이아 지갑](https://www.kaiawallet.io/)
+- 개인 키가 준비된 [Kaia 지갑](https://www.kaiawallet.io/)
 - [Google 생성 API 키](https://ai.google.dev/gemini-api/docs/api-key)
-- 카이아 네트워크용 [RPC 공급자](https://docs.kaia.io/references/public-en/)
-- [카이아스캔 API 키](https://docs.kaiascan.io/account-creation)
+- Kaia 네트워크용 [RPC 공급자](https://docs.kaia.io/references/public-en/)
+- [KaiaScan API 키](https://docs.kaiascan.io/account-creation)
 
 ## 시작하기
 
@@ -18,7 +18,7 @@
 
 - 네이티브 토큰, 대체 가능한 토큰(FT), 대체 불가능한 토큰(NFT)을 전송합니다.
 - 네이티브 토큰, FT, NFT의 잔액을 확인합니다.
-- 블록체인 데이터 카이아스캔 API를 가져와 네트워크 요약, 카이아의 가격, 주소의 토큰 잔액 등을 검색할 수 있습니다.
+- 블록체인 데이터 KaiaScan API를 가져와 네트워크 요약, Kaia의 가격, 주소의 토큰 잔액 등을 검색할 수 있습니다.
 
 ### AI 에이전트 스택 이해하기
 
@@ -28,9 +28,9 @@
 
 LangChain은 대규모 언어 모델(LLM)로 구동되는 애플리케이션을 구축하기 위한 강력한 프레임워크입니다. 언어 모델이 외부 도구를 사용하여 의사 결정을 내릴 수 있는 에이전트 아키텍처, 여러 상호작용에서 컨텍스트 인식을 위한 메모리 관리, 에이전트가 조치를 취하기 전에 정보를 통해 생각할 수 있는 추론 및 작업 패턴을 제공합니다.
 
-**카이아 에이전트 키트**
+**Kaia 에이전트 키트**
 
-반면 카이아 에이전트 키트는 온체인 도구를 AI 에이전트에 연결하여 카이아 블록체인과 원활하게 상호작용할 수 있도록 하는 도구입니다. 이를 통해 에이전트는 온체인에서 작업을 실행하고, 온체인 정보를 가져오고, 트랜잭션을 자율적으로 검증할 수 있습니다.
+반면 Kaia 에이전트 키트는 온체인 도구를 AI 에이전트에 연결하여 Kaia 블록체인과 원활하게 상호작용할 수 있도록 하는 도구입니다. 이를 통해 에이전트는 온체인에서 작업을 실행하고, 온체인 정보를 가져오고, 트랜잭션을 자율적으로 검증할 수 있습니다.
 
 ## 프로젝트 설정
 
@@ -86,7 +86,7 @@ kaia-agentkit-langchain-example/
 
 ### Agent.ts
 
-이 파일은 랭체인 리액트 에이전트, 카이아 에이전트 키트, 지갑 및 대화형 프롬프트를 설정하는 메인 애플리케이션 파일입니다.
+이 파일은 랭체인 리액트 에이전트, Kaia 에이전트 키트, 지갑 및 대화형 프롬프트를 설정하는 메인 애플리케이션 파일입니다.
 
 ```typescript
 #!/usr/bin/env node
@@ -189,11 +189,11 @@ const walletClient = createWalletClient({
     - createReactAgent: ReAct 패턴을 따르는 에이전트를 생성합니다.
 - **블록체인 라이브러리:**
     - viem: 블록체인과 상호 작용하기 위한 EVM 라이브러리
-    - 카이로스: 카이로스 네트워크의 체인 구성
+    - Kairos: Kairos 네트워크의 체인 구성
 - **도구 및 에이전트 초기화:**
     - 겟온체인툴: 블록체인 기능을 LangChain 도구로 변환합니다.
-    - Kaia: 카이아: 카이아 전용 블록체인 상호작용을 위한 플러그인
-    - 고급 블록체인 쿼리를 위한 API 키와 카이아 플러그인 통합
+    - Kaia: Kaia: Kaia 전용 블록체인 상호작용을 위한 플러그인
+    - 고급 블록체인 쿼리를 위한 API 키와 Kaia 플러그인 통합
 - **LLM 구성:**
     - 상담원의 인텔리전스로 Google의 Gemini 1.5 Pro 모델 사용
 
@@ -205,7 +205,7 @@ const walletClient = createWalletClient({
 pnpm tsx agent.ts
 ```
 
-이제 AI 에이전트와 상호작용하여 카이아에서 온체인 작업을 수행할 수 있습니다:
+이제 AI 에이전트와 상호작용하여 Kaia에서 온체인 작업을 수행할 수 있습니다:
 
 ```
 What is the current  Kaia balance of 0x75Bc50a5664657c869Edc0E058d192EeEfD570eb on kairos? 

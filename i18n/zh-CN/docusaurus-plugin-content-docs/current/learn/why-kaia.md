@@ -26,7 +26,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 2. **以太坊兼容性**：
    - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
-   - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。 参见 [Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
+   - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。 参见 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
 
 3. **方便的账户模式**：可为账户分配各种密钥，加强安全性并改善用户体验。
 

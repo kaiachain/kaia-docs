@@ -23,7 +23,7 @@ Kaia provides different types of AMIs, whose chaindata has been synced with diff
 | state-migrated | Full mode, state migrated (or state batch pruned) | `kaia-xxxx-clean-en-xxxx`         |
 | archive        | Archive mode                                                         | `kaia-xxxx-clean-archive-en-xxxx` |
 
-Kaia provides these 4 types of AMIs for mainnet. '전체' 유형을 제외한 카이로스용 AMI도 있습니다.
+Kaia provides these 4 types of AMIs for mainnet. '전체' 유형을 제외한 Kairos용 AMI도 있습니다.
 
 See [State Batch Pruning](../../../learn/storage/state-pruning/#state-batch-pruning-state-migration) for more details on state migrated chaindata.
 See [Block Synchronization](../../learn/storage/block-sync.md) for more details on block sync modes.

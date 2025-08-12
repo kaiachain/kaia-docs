@@ -2,7 +2,7 @@
 
 ## TxTypeFeeDelegatedValueTransferWithRatio <a id="txtypefeedelegatedvaluetransferwithratio"></a>
 
-TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. 카이아는 각 트랜잭션 유형이 하나의 용도로 사용될 수 있도록 여러 트랜잭션 유형을 제공하기 때문에 TxTypeFeeDelegatedValueTransferWithRatio는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
+TxTypeFeeDelegatedValueTransferWithRatio는 사용자가 KAIA를 전송하고자 할 때 사용됩니다. Kaia는 각 트랜잭션 유형이 하나의 용도로 사용될 수 있도록 여러 트랜잭션 유형을 제공하기 때문에 TxTypeFeeDelegatedValueTransferWithRatio는 외부 소유 계정으로 KAIA를 전송하는 것으로 제한됩니다. 따라서 TxTypeFeeDelegatedValueTransferWithRatio는 `to`가 외부 소유 계정인 경우에만 허용됩니다. 스마트 컨트랙트 계정으로 KAIA를 전송하려면, 대신 [TxTypeFeeDelegatedSmartContractExecutionWithRatio](#txtypefeedelegatedsmartcontractexecutionwithratio)을 사용하세요. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
 
 1. 수수료 납부자의 잔액이 트랜잭션 수수료만큼 감소합니다.
 2. 발신자의 잔액이 남은 트랜잭션 수수료만큼 감소합니다. 예: feeRatio가 30이면 수수료의 30%는 수수료 지불자가 지불하고, 나머지 70%는 spender가 지불합니다.
@@ -904,8 +904,8 @@ SenderTxHash c0818be4cffbacfe29be1134e0267e10fd1afb6571f4ccc95dcc67a788bab5e7
 
 ## TxTypeFeeDelegatedChainDataAnchoringWithRatio <a id="txtypefeedelegatedchaindataanchoringwithratio"></a>
 
-TxTypeFeeDelegatedChainDataAnchoringWithRatio는 서비스 체인 데이터를 카이아 메인체인에 앵커링하는 수수료 위임 트랜잭션으로, 비율에 따라 수수료가 결정됩니다.
-서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이러한 유형의 트랜잭션을 카이아 메인체인에 전송합니다.
+TxTypeFeeDelegatedChainDataAnchoringWithRatio는 서비스 체인 데이터를 Kaia 메인체인에 앵커링하는 수수료 위임 트랜잭션으로, 비율에 따라 수수료가 결정됩니다.
+서비스체인은 데이터의 보안과 신뢰성을 보장하기 위해 주기적으로 이러한 유형의 트랜잭션을 Kaia 메인체인에 전송합니다.
 데이터 앵커링에 대한 자세한 내용은 [앵커링](../../nodes/service-chain/configure/anchoring.md)을 참고하세요.
 지정된 비율로 수수료를 위임하는 트랜잭션이므로 수수료 납부자는 지정된 비율에 따라 트랜잭션 수수료 중 정해진 부분만 부담하고 나머지는 발신자가 부담합니다.
 이 트랜잭션을 RPC를 통해 전송하는 것은 허용되지 않는다는 점에 유의하세요.

@@ -20,7 +20,7 @@
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-2.jpeg)
 
-3. 블록체인 네트워크에서 **카이아**를 선택하고 \*\*"계속"\*\*을 클릭합니다.
+3. 블록체인 네트워크에서 **Kaia**를 선택하고 \*\*"계속"\*\*을 클릭합니다.
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-3.jpeg)
 
@@ -28,7 +28,7 @@
 
 ![](/img/build/tools/token-management/team-token-locks/ttl-step-4.jpeg)
 
-> 저희의 경우 카이아 체인에서 만들어진 **KTT** 토큰을 사용하고 있습니다.
+> 저희의 경우 Kaia 체인에서 만들어진 **KTT** 토큰을 사용하고 있습니다.
 
 5. 잠금 금액\*\* 및 **잠금 기간**을 포함하여 팀 토큰 잠금에 대한 세부 정보를 추가합니다. 계속하려면 \*\*"계속"\*\*을 클릭합니다.
 

@@ -65,7 +65,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 
 ## 합의 엔진 <a id="consensus-engine"></a>
 
-카이아 네트워크에서 사용할 수 있는 합의 엔진은 Clique와 Istanbul입니다. 각 엔진에 대한 설명은 다음과 같습니다.
+Kaia 네트워크에서 사용할 수 있는 합의 엔진은 Clique와 Istanbul입니다. 각 엔진에 대한 설명은 다음과 같습니다.
 
 ### Clique <a id="clique"></a>
 

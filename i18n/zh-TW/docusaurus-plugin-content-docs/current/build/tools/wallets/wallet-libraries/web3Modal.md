@@ -345,7 +345,7 @@ const signMessage = async(e) => {
     const [txHash, setTxHash] = useState();
     const sendKaia = async () => {
     if (!provider) return;
-      const destination = “paste recipient address”;
+      const destination = "paste recipient address";
 
     // this guide uses ethers version 6.3.0.
     const ethersProvider = new ethers.BrowserProvider(provider);
@@ -354,7 +354,7 @@ const signMessage = async(e) => {
 
     const signer = await ethersProvider.getSigner();
       
-    // Submit transaction to the blockchain and wait for it to be mined
+    // 提交交易到區塊鏈並等待它被挖掘
     const tx = await signer.sendTransaction({
         to: destination,
         value: ethers.parseEther("0.1"),
@@ -370,7 +370,7 @@ const signMessage = async(e) => {
 return (
     <div className="App">
         <button onClick={sendKlay}>Send Klay</button>
-        <div>Send-Kaia Tx Hash :  {txHash ? <a href={`https://kairos.kaiascope.com/tx/${txHash}`} target="_blank">Kaiascope</a> :  ' ' } </div>
+        <div>Send-Kaia Tx Hash : {txHash ?<a href={`https://kairos.kaiascan.io/tx/${txHash}`} target="_blank">KaiaScan</a>: ' ' '。} </div> </div> <div className="App">
     </div>
 );
 ```

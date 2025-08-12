@@ -48,7 +48,7 @@ It is recommended to download and use the package which version is v1.0.0 or hig
 
 ## 로그 레벨 변경 (0\~5)
 
-카이아 콘솔로 이동
+Kaia 콘솔로 이동
 
 ```
 #default Value

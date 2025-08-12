@@ -2,7 +2,7 @@
 
 ## 개요 <a id="overview"></a>
 
-The Kaia team provides a site for monitoring the Kaia CCN at [http://node.kaia.io:3000](http://node.kaia.io:3000). `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 메트릭을 수집하고 모니터링 서버로 전송합니다. 설치가 완료되면 모니터링 사이트를 방문하여 카이아 CC의 메트릭을 확인할 수 있습니다.
+The Kaia team provides a site for monitoring the Kaia CCN at [http://node.kaia.io:3000](http://node.kaia.io:3000). `telegraf` 모니터링 에이전트는 CC의 각 CN/PN에 설치되어 메트릭을 수집하고 모니터링 서버로 전송합니다. 설치가 완료되면 모니터링 사이트를 방문하여 Kaia CC의 메트릭을 확인할 수 있습니다.
 
 설치 과정은 다음과 같습니다:
 

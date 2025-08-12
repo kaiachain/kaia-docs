@@ -18,7 +18,7 @@
 
 ![](/img/build/tools/token-management/token-creation/tc-step-2.png)
 
-3. 블록체인 네트워크 아래에서 **카이아**를 선택하고 **계속하기**를 클릭합니다.
+3. 블록체인 네트워크 아래에서 **Kaia**를 선택하고 **계속하기**를 클릭합니다.
 
 ![](/img/build/tools/token-management/token-creation/tc-step-3.png)
 

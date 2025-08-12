@@ -1,0 +1,119 @@
+# キャンセル
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/fee-delegated-transaction/FeeDelegatedCancelType.tsx" route={RoutePath.ViemExt_Fee_Cancel_Type} />
+
+**TxTypeCancel**は、トランザクションプール内の同じnonceを持つトランザク ションの実行をキャンセルする。 このトランザクション・タイプは、送信されたトランザクションが一定時間未処理のように見える場合に有用である。
+
+# 手数料の委任
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js
+    import { createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        type: TxType.FeeDelegatedCancel,
+      });
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx
+      );
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated cancel tx", res);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxFeeDelegatedCancelType.js
+    signedTx 0x39f86b82095e85066720b3008302059494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0e203205f0f0728d964f8da4a8f891b63d2140c9a0144d33a9a682be1db90c212a05a3999602aeefda3cabbf0af3a935b85a9c5e94ffa3c00c8def218a121281343
+    fee delegated cancel tx 0x4580d6e7599fe0b2623f9942cb0b167449c764e49f40b7a63b15c8ff60053923
+
+    ```
+  </CH.Code>
+
+  ---
+
+  web3にkaiaの機能を追加するために、**@kaiachain/viem-ext**パッケージをインポートする。
+
+  ```js TxFeeDelegatedCancelType.js focus=1
+  ```
+
+  ---
+
+  Kairosチェーン\*\*、**HTTPトランスポート**、および**送信者の秘密鍵**をアカウントに変換した**createWalletClient**を使用して、送信者と料金支払者のウォレットを設定します。
+
+  ```js TxFeeDelegatedCancelType.js focus=3:16
+  ```
+
+  ---
+
+  prepareTransactionRequest**を使用して、送信者の口座とトランザクションタイプ**(TxType.FeeDelegatedCancel)\*\*を指定し、価値移転のトランザクションリクエストを作成する。
+
+  ```js TxFeeDelegatedCancelType.js focus=18:21
+  ```
+
+  ---
+
+  ウォレットクライアントの **signTransaction** メソッドでトランザクションに署名し、トランザクションハッシュを記録する。
+
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js focus=22:23
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x39f86b82095e85066720b3008302059494a2a8854b1802d8cd5de631e690817c253d6a9153f847f8458207f6a0e203205f0f0728d964f8da4a8f891b63d2140c9a0144d33a9a682be1db90c212a05a3999602aeefda3cabbf0af3a935b85a9c5e94ffa3c00c8def218a121281343
+    ```
+  </CH.Code>
+
+  ---
+
+  手数料の支払者は、関数 `signTransactionAsFeePayer` を用いて、送信者からの署名済みのトランザクションに署名し、トランザクショ ン手数料の支払いに同意する。
+
+  ```js TxFeeDelegatedCancelType.js focus=25:27
+  ```
+
+  ---
+
+  kaia_sendRawTransaction\`メソッドを使用して、完全に署名された手数料委譲トランザクション（送信者と手数料支払者の両方が署名）をKairosブロックチェーンネットワークに送信し、トランザクションハッシュまたはネットワークからの応答を返します。
+
+  <CH.Code>
+    ```js TxFeeDelegatedCancelType.js focus=28:32
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated cancel tx 0x4580d6e7599fe0b2623f9942cb0b167449c764e49f40b7a63b15c8ff60053923
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

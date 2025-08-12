@@ -5,7 +5,7 @@ Ngoài tìm kiếm cơ bản [Địa chỉ](https://www.okx.com/web3/explorer/ka
 
 OKX Kaia Explorer cũng hỗ trợ:
 
-- Công cụ kiểm tra sự khác biệt của hợp đồng: Công cụ này đặc biệt hữu ích để so sánh mã nguồn hợp đồng hợp pháp với các hợp đồng đáng ngờ. Nó làm nổi bật sự khác biệt để giúp phát hiện các mối đe dọa tiềm ẩn đối với các nhà đầu tư. Các nhà phát triển cũng có thể sử dụng điều này để tăng cường bảo mật và chức năng bằng cách tham khảo mã mạnh mẽ và đã được chứng minh.
+- [Công cụ kiểm tra sự khác biệt của hợp đồng](https://www.okx.com/web3/explorer/contract-diff#source-chain=klaytn&target-chain=klaytn): Công cụ này đặc biệt hữu ích để so sánh mã nguồn hợp đồng hợp pháp với các hợp đồng đáng ngờ. Nó làm nổi bật sự khác biệt để giúp phát hiện các mối đe dọa tiềm ẩn đối với các nhà đầu tư. Các nhà phát triển cũng có thể sử dụng điều này để tăng cường bảo mật và chức năng bằng cách tham khảo mã mạnh mẽ và đã được chứng minh.
 - [Công cụ tìm kiếm hợp đồng tương tự](https://www.okx.com/web3/explorer/similar-contract#source-chain=klaytn): Một công cụ tiện dụng hiển thị mã nguồn và khả năng Đọc/Ghi cho các hợp đồng có mã bytecode tương tự nhưng đối số xây dựng khác nhau.
 - [Trình giám sát chuyển tiền lớn](https://www.okx.com/web3/explorer/large-transfer-monitor/kaia) : Cung cấp dữ liệu thời gian thực về các giao dịch chuyển tiền lớn, giúp bạn dễ dàng theo dõi xu hướng thị trường và phát hiện các cơ hội có lợi nhuận cao.
 - [Cảnh báo mã thông báo](https://www.okx.com/web3/explorer/token-alert): Truy cập ngay vào dữ liệu toàn diện, theo thời gian thực trên chuỗi, bao gồm các giao dịch lớn và chuyển động quỹ đáng kể, mở khóa những thông tin chi tiết có giá trị về thị trường.

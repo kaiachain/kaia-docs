@@ -9,8 +9,8 @@ This section covers how to set up a multi-node ServiceChain. We will set up a 4-
 - Download packages for `kscn`, `homi` binary from [Download](../../downloads/downloads.md).
 - 4 Linux or MacOS servers
 - Minimum hardware requirements
- - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
- - Please refer to [System Requirements](../system-requirements.md) for more explanation.
+  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+  - Please refer to [System Requirements](../system-requirements.md) for more explanation.
 
 ## Step 0: Install SCN on all nodes <a id="install-scn"></a>
 

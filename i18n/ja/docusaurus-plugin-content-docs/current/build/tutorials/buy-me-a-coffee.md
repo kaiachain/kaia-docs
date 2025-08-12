@@ -176,7 +176,7 @@ b. プロジェクトディレクトリの表示 プロジェクトディレク�
 - **スクリプト/** - このフォルダには、あなたのコントラクトをブロックチェーン・ネットワーク上にデプロイするコードが含まれています。
 - **test/** - このフォルダには、スマートコントラクトをテストするすべてのユニットテストが含まれています。
 - **hardhat.config.ts** - このファイルには、Hardhatの作業に重要な設定が含まれており、
- 、スマート・コントラクトのデプロイが行われます。
+  、スマート・コントラクトのデプロイが行われます。
 
 ## 2. コーヒーを買うスマートコントラクトの作成<a id="creating-a-buy-me-a-coffee-contract"></a>
 
@@ -453,7 +453,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-BMCスマートコントラクトのKaia Kairos Networkへのデプロイおめでとうございます！ 検索フィールドにあなたのアドレスを貼り付けると、Kaiascopeでこの取引を確認することができます。
+BMCスマートコントラクトのKaia Kairos Networkへのデプロイおめでとうございます！ この取引は[KaiaScan](https://www.kaiascan.io/)の検索フィールドにあなたの住所を貼り付けることで確認できます。
 
 ### 4.2 BMCスマートコントラクトとの対話 <a id="interacting-with-bmc-contract"></a>
 
@@ -831,24 +831,24 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 1. フロントエンドのコードでこれらの設定を確認してください：
 
- a. package.jsonを開き、以下のスクリプトを追加する：
+  a. package.jsonを開き、以下のスクリプトを追加する：
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
+  b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 詳しくはこちらの[ガイド](https://blog.fleek.co/posts/fleek-nextJS)をご覧ください。
 

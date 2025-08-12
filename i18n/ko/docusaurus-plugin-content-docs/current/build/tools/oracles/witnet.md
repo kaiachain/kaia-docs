@@ -8,7 +8,7 @@
 
 ## 사용법
 
-이 오라클 네트워크는 현재 카이아 메인넷과 카이아 Kairos 테스트넷에서 실행되고 있습니다. 카이아에서 데이터 피드와 무작위성에 연결하기 시작하려면 다음 가이드를 참조하세요.
+이 오라클 네트워크는 현재 Kaia 메인넷과 Kaia Kairos 테스트넷에서 실행되고 있습니다. Kaia에서 데이터 피드와 무작위성에 연결하기 시작하려면 다음 가이드를 참조하세요.
 
 - [Witnet 가격 피드 튜토리얼](https://metaverse-knowledge-kit.klaytn.foundation/docs/decentralized-oracle/oracle-providers/witnet-tutorial)
-- [Witnet으로 카이아에서 난수 생성하기](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)
+- [Witnet으로 Kaia에서 난수 생성하기](https://medium.com/klaytn/random-number-generation-on-klaytn-with-witnet-ae136dad0562)

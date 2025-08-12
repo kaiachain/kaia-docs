@@ -1,0 +1,84 @@
+# 읽기
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/smart-contract/smartContractView.tsx" route={RoutePath.ViemExt_SmartContract_View} />
+
+스마트 컨트랙트에서 "호출" RPC API를 통해 함수를 호출할 수 있습니다. 여기서 호출할 수 있는 것은 컨트랙트의 상태를 변경하지 않는 **보기 함수**로 제한됩니다.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractView.js
+    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    // Example usage
+    (async () => {
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const address = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const result = await publicClient.readContract({
+            address,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 Kaia 기능을 추가하려면 **@Kaia체인/ethers-ext** 모듈을 가져옵니다.
+
+  ```js SmartContractView.js focus=1
+  ```
+
+  ---
+
+  Kaia 블록체인과의 읽기 전용 상호작용을 위해 퍼블릭 클라이언트를 초기화합니다.
+
+  ```js SmartContractView.js focus=3:6
+  ```
+
+  ---
+
+  솔리디티 코드에서 생성된 **Abi**를 설정합니다.
+
+  ```js SmartContractView.js focus=9
+  ```
+
+  ---
+
+  상호작용할 **계약 주소**를 정의하세요.
+
+  ```js SmartContractView.js focus=10
+  ```
+
+  ---
+
+  퍼블릭 클라이언트에서 `readContract` 메서드가 호출되어 지정된 주소의 컨트랙트에서 **number** 함수(상태를 수정하지 않는 보기 함수)를 쿼리합니다.
+
+  <CH.Code>
+    ```js SmartContractView.js focus=11:16
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractView.js
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

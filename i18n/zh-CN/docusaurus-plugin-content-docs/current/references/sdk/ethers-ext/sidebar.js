@@ -183,7 +183,12 @@ export const sidebar = {
         },
         {
           type: 'category',
-          label: 'Smart Contract',
+          label: '气体抽取',
+          items: ['references/sdk/ethers-ext/v6/gas-abstraction/gasless']
+        },
+        {
+          type: 'category',
+          label: '智能合约',
           items: [
             'references/sdk/ethers-ext/v6/smart-contract/deploy',
             'references/sdk/ethers-ext/v6/smart-contract/read',
@@ -193,8 +198,8 @@ export const sidebar = {
           ]
         },
         {
-          type: 'category',
-          label: 'Utils',
+          type: '类别',
+          label: '实用工具',
           items: [
             'reference/sdk/ethers-ext/v6/utils/address',
             'references/sdk/ethers-ext/v6/utils/signature',

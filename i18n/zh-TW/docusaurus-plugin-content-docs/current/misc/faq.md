@@ -1,24 +1,26 @@
 # 常見問題
 
-- [什麼是 Kaia？](#what-is-kaia)
-- [Kaia 如何支持以太坊等價性？](#how-ethereum-equivalence)
-- [什麼是 Kaia 的天然氣政策？](#kaia-gas-policy)
-- [Kaia 的賬戶結構有什麼特別之處？](#kaia-account-structure)
-- [在哪裡可以開始使用 Kaia 開發 dApp？](#dapp-development)
-- [Kaia 是開源的嗎？](#is-kaia-open-source)
-- [如何為我的賬戶充值？](#fund-my-acconut)
-- [任何用於測試和開發的 Kaia 公共節點提供程序？](#node-providers)
-- [是否有水龍頭可以測試 KAIA？](#are-there-faucets)
-- [如何檢查公共 RPC 端點狀態？](#rpc-endpoint-status)
-- [哪些錢包支持 Kaia？](#which-wallets)
-- [什麼是 Mainnet，什麼是 Kairos？](#what-is-mainnet-what-is-kairos)
-- [有 Kaia SDK 嗎？ 用什麼語言？](#kaia-sdks)
-- [我必須安裝並運行 EN（端點節點）才能使用 Kaia 嗎？](#must-i-install-and-run-en)
-- [我正在運行 EN，節點數據同步太慢。](#node-data-sync-is-too-slow)
-- [我可以在 Kaia 上使用 ERC-20 和 ERC-721 合約嗎？](#can-i-use-erc-20-and-erc-721)
-- [哪裡可以獲得類似 Metamask 的瀏覽器擴展錢包？](#where-can-i-get-a-browser-extension-wallet)
-- [為什麼我的繳費賬戶地址不是從所提供的密鑰中導出的？](#account-address-is-not-derived-from-the-key)
-- [在哪裡可以找到完整的收費授權工作樣本？](#fee-delegation-samples)
+- [FAQ](#faq)
+  - [Kaia是什麼？ ](#what-is-kaia-)
+  - [Kaia如何支援Ethereum等價性？ ](#how-does-kaia-support-ethereum-equivalence-)
+  - [Kaia的瓦斯政策是什麼？ ](#what-is-kaias-gas-policy-)
+  - [Kaia的帳戶結構有何特別之處？ ](#what-is-special-about-kaias-account-structure-)
+  - [我可以從哪裡開始使用 Kaia 開發 dApp？ ](#where-can-i-start-dapp-development-with-kaia-)
+  - [Kaia 是否開放原始碼？ ](#is-kaia-open-source-)
+  - [如何為我的帳戶初始注資？ ](#how-can-i-initially-fund-my-account-)
+  - [任何 Kaia 用於測試和開發的公共節點提供者？ ](#any-kaias-public-node-providers-for-testing-and-development-)
+  - [Are there faucets to get test KAIA? ](#are-there-faucets-to-get-test-kaia-)
+  - [如何檢查公共 RPC 端點狀態？ ](#how-do-i-check-for-public-rpc-endpoint-status-)
+  - [哪些錢包支援 Kaia？ ](#which-wallets-support-kaia-)
+  - [什麼是 Mainnet，什麼是 Kairos？ ](#what-is-mainnet-what-is-kairos-)
+  - [有 Kaia SDK 嗎？ 用什麼語言？ ](#are-there-any-kaia-sdks-in-what-languages-)
+    - [kaia-sdk (Plug-in SDKs)](#kaia-sdk-plug-in-sdks)
+  - [我必須安裝並執行 EN（端點節點）才能使用 Kaia？ ](#must-i-install-and-run-an-en-endpoint-node-to-use-kaia-)
+  - [I am running an EN, and node data sync is too slow. ](#i-am-running-an-en-and-node-data-sync-is-too-slow-)
+  - [我可以在 Kaia 上使用 ERC-20 和 ERC-721 契約嗎？ ](#can-i-use-erc-20-and-erc-721-contracts-on-kaia-)
+  - [哪裡可以取得像 Metamask 這樣的瀏覽器擴充套件錢包？ ](#where-can-i-get-a-browser-extension-wallet-like-metamask-)
+  - [為什麼我的付費者帳戶地址無法從所提供的鑰匙中得出？ ](#why-is-my-fee-payer-account-address-not-derived-from-the-key-provided-)
+  - [我在哪裡可以找到完整的費用授權工作範例？ ](#where-can-i-find-complete-working-samples-of-fee-delegation-)
 
 ## Kaia 是什麼？ <a id="what-is-kaia"></a>
 
@@ -67,7 +69,7 @@ Kaia 當然是開源的！ 看看我們的 [Github 組織](https://github.com/ka
 
 ## 哪些錢包支持 Kaia？ <a id="which-wallets"></a>
 
-Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等）支持。 請參閱 [此處](../build/tools/wallets/wallets.md)列表。
+Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等）支持。 請參閱清單 [此處](../build/wallets/wallets.md)。
 
 ## 什麼是 Mainnet，什麼是 Kairos？ <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -77,12 +79,12 @@ Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等�
 主網：
 
 - EN 下載：從 [download page](../nodes/downloads/downloads.md) 中選擇 Mainnet 軟件包。
-- Kaiascope : https://kaiascope.com/
+- KaiaScan : https://kaiascan.io/
 
 啟明星測試網
 
 - EN 下載 ：從[下載頁面](../nodes/downloads/downloads.md)選擇 Kairos 軟件包。
-- Kaiascope : https://kairos.kaiascope.com
+- KaiaScan : https://kairos.kaiascan.io
 - Kairos Faucet : https://faucet.kaia.io
 
 ## 有 Kaia SDK 嗎？ 用什麼語言？ <a id="kaia-sdks"></a>
@@ -111,7 +113,7 @@ Kaia Node 與以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 
 ## 我可以在 Kaia 上使用 ERC-20 和 ERC-721 合約嗎？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
-是的。 Kaia 支持 Solidity 作為智能合約語言。 用 Solidity 為 Etherem 編寫的 [ERC-20](../build/smart-contracts/samples/erc-20.md) 和 [ERC-721](../build/smart-contracts/samples/erc-721.md) 可以在 Kaia 上部署和執行。
+是的。 Kaia 支持 Solidity 作為智能合約語言。 以 Solidity 為 Etherem 寫成的 [ERC-20](../build/smart-contracts/token-development/samples/erc-20.md) 和 [ERC-721](../build/smart-contracts/token-development/samples/erc-721.md) 可以在 Kaia 上部署和執行。
 
 還可以定義更多的 Kaia 專用代幣標準。 關注 [KIP（Kaia改進提案）](https://kips.kaia.io/) 並參與討論。
 

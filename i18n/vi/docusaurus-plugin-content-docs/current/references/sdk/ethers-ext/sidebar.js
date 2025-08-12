@@ -183,22 +183,27 @@ export const sidebar = {
         },
         {
           type: 'category',
-          label: 'Smart Contract',
-          items: [
-            'references/sdk/ethers-ext/v6/smart-contract/deploy',
-            'references/sdk/ethers-ext/v6/smart-contract/read',
-            'references/sdk/ethers-ext/v6/smart-contract/write',
-            'references/sdk/ethers-ext/v6/smart-contract/write-txtype',
-            'references/sdk/ethers-ext/v6/smart-contract/write-with-fee-delegation'
-          ]
+          label: 'Chiết xuất khí',
+          items: ['Tham chiếu/SDK/Ethers-Ext/v6/Gas-Abstraction/Gasless']
         },
         {
           type: 'category',
-          label: 'Utils',
+          label: 'Hợp đồng thông minh',
           items: [
-            'references/sdk/ethers-ext/v6/utils/address',
-            'references/sdk/ethers-ext/v6/utils/signature',
-            'references/sdk/ethers-ext/v6/utils/unit'
+            'Tham chiếu/SDK/Ethers-Ext/v6/Hợp đồng thông minh/Triển khai',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Hợp đồng thông minh/Đọc',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Hợp đồng thông minh/Viết',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Hợp đồng thông minh/Viết kiểu văn bản',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Hợp đồng thông minh/Ghi với phí ủy quyền'
+          ]
+        },
+        {
+          type: 'danh mục',
+          label: 'Công cụ',
+          items: [
+            'Tham chiếu/SDK/Ethers-Ext/v6/Utils/Địa chỉ',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Utils/Chữ ký',
+            'Tham chiếu/SDK/Ethers-Ext/v6/Utils/Unit'
           ]
         }
       ]

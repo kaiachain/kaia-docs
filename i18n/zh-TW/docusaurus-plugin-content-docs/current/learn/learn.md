@@ -117,8 +117,8 @@ Kaia 將透明度和可審計性放在首位：
 
 - 所有事務都提供了不可更改和可驗證的狀態變化歷史。
 - 區塊鏈探索的兩個主要工具：
-  - [Kaiascope](https://kaiascope.com/)：全面的區塊鏈瀏覽器。
-  - [Kaiascan](http://kaiascan.io/)：快速查找區塊鏈數據的用戶友好界面。
+  - [Kaiascan](http://kaiascan.io/)：Kaia 的官方區塊瀏覽器，提供對區塊、交易、位址、代幣和智慧型契約的深入瞭解。
+  - [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia)：提供類似功能的另一種區塊瀏覽器。
 - Square "投票平臺披露所有費用和季度已知交易。
 
 ## 網絡監控

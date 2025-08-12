@@ -84,7 +84,7 @@ Kaia JavaScript コンソールへようこそ！
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-詳しくは[subbridge API](../../../references/json-rpc/subbridge/parent-operator)を参照されたい。
+詳細については、サブブリッジAPI（[#1](https://docs.kaia.io/references/json-rpc/subbridge/subscribe-bridge/)、[#2](https://docs.kaia.io/references/json-rpc/subbridge/child-operator/)）を参照してください。
 
 ### Send KLAY to Bridge Operators <a id="send-klay-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ Kaia JavaScript コンソールへようこそ！
 }].
 ```
 
-詳しくは[subbridge API](../../..references/json-rpc/subbridge/deploy-bridge)を参照されたい。
+詳しくは[subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/)を参照されたい。
 
 `subbridge_listBridge`はブリッジのコントラクトアドレスとサブスクリプションステータスを表示します。
 サブブリッジは、ブリッジ契約アドレスのリストをファイルに保存する。 再起動時に、サブブリッジはブリッジ契約リストをファイルからリロードする。
@@ -213,7 +213,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 ### RPC API <a id="rpc-api"></a>
 
 ブリッジの契約状況は以下のように確認できます。
-詳しくは[subbridge API](../../../references/json-rpc/subbridge/get-bridge-information)を参照されたい。
+詳しくは[subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/)を参照されたい。
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -234,7 +234,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 サービス・チェーンはERC-20/721による価値移転もサポートしている。
 これらをサポートするには、サービスチェーン互換のERC-20/721トークンコントラクトを親チェーンと子チェーンの両方に導入する必要がある。
 ERC-20/721トークンコントラクトコードについては、
-[Token standard](../../../build/smart-contracts/token-standard.md)を参照することができます。
+[Token standard](../../../build/smart-contracts/token-development/token-standard.md)を参照することができます。
 
 ### 配備 <a id="deployment"></a>
 
@@ -253,7 +253,7 @@ null
 
 このコマンドは、子チェーントークン（"0x376b72abe1b29cace831bd3f5acdfa967814c9d"）を子チェーンブリッジコントラクト（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）に登録する。 そして、親チェーントークン（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）と親チェーンブリッジコントラクト（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
 
-詳しくは[Service Chain API](../../../references/json-rpc/subbridge/register-token)を参照してください。
+詳しくは[Service Chain API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/)を参照してください。
 
 ## バリュー・トランスファーのリクエスト<a id="request-value-transfer"></a>
 

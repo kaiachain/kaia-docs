@@ -84,7 +84,7 @@ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-详细信息请参阅 [subbridge API](../../../references/json-rpc/subbridge/parent-operator)。
+更多详情可参考子桥 API（[#1](https://docs.kaia.io/references/json-rpc/subbridge/subscribe-bridge/)、[#2](https://docs.kaia.io/references/json-rpc/subbridge/child-operator/)）。
 
 ### 向桥梁运营商发送 KAIA<a id="send-kaia-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-更多详情可参考 [subbridge API](../../...reference/json-rpc/subbridge/deploy-bridge)。
+更多详情可参阅 [subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/)。
 
 `subbridge_listBridge` 显示网桥合同地址及其订阅状态。
 子桥将桥接器合同地址列表保存在文件中。 重启时，子桥会从文件中重新加载桥接器合同列表。
@@ -213,7 +213,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 ### RPC API <a id="rpc-api"></a>
 
 您可以像下面这样查看桥牌合约的状态。
-详细信息请参阅 [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information)。
+更多详情可参阅 [subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/)。
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -233,8 +233,8 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 
 服务链还支持 ERC-20/721 价值转移。
 为支持它们，应在父链和子链上部署与服务链兼容的 ERC-20/721 令牌合约。
-关于 ERC-20/721 令牌合约代码，
-，您可以参考 [Token standard](../../../build/smart-contracts/token-standard.md).
+关于 ERC-20/721 代币合约代码，
+，您可以参考[代币标准](../../../build/smart-contracts/token-development/token-standard.md)。
 
 ### 部署 <a id="deployment"></a>
 
@@ -253,7 +253,7 @@ null
 
 该命令将子链令牌（"0x376b72abe1b29cace831bd3f5acdfa967814c9cd"）与子链桥合约（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）进行注册。 以及父链令牌（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）和父链桥接合约（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
 
-详细信息请参阅 [Service Chain API](../../../references/json-rpc/subbridge/register-token)。
+详细信息请参阅 [Service Chain API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/)。
 
 ## 申请价值转移<a id="request-value-transfer"></a>
 

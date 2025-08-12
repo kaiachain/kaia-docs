@@ -1,10 +1,10 @@
-# 카이아 툴킷
+# Kaia 툴킷
 
-## 카이아 툴킷이란 무엇인가요?
+## Kaia 툴킷이란 무엇인가요?
 
-[카이아 툴킷\*\*](https://toolkit.kaia.io)은 개발자 친화적인 코드 샘플과 대화형 웹 도구를 제공하여 카이아 블록체인과의 통합을 간소화합니다. 분산형 애플리케이션을 구축하기 위한 학습 리소스이자 실용적인 유틸리티 제품군입니다.
+[Kaia 툴킷\*\*](https://toolkit.kaia.io)은 개발자 친화적인 코드 샘플과 대화형 웹 도구를 제공하여 Kaia 블록체인과의 통합을 간소화합니다. 분산형 애플리케이션을 구축하기 위한 학습 리소스이자 실용적인 유틸리티 제품군입니다.
 
-![카이아 툴킷](/img/build/tools/klaytn-online-toolkit.png)
+![Kaia 툴킷](/img/build/tools/klaytn-online-toolkit.png)
 
 ## 주요 기능
 
@@ -21,7 +21,7 @@
 
 ## 개발자 리소스
 
-카이아 툴킷 및 관련 리소스에 대한 링크는 다음과 같습니다:
+Kaia 툴킷 및 관련 리소스에 대한 링크는 다음과 같습니다:
 
 - [깃허브 리포지토리](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)

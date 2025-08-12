@@ -35,7 +35,7 @@ Assets/
 - 加载必要的 Web3 库。
 - 启用 Kaia 钱包集成。
 - 正确处理区块链互动。
- :::
+  :::
 
 ## 步骤 3：设置 index.html
 
@@ -245,8 +245,8 @@ Assets/
 - 打开 "构建设置"。
 - 导航至播放器设置。
 - 在 "决议和列报 "下：
- - 找到 "WebGL 模板"。
- - 选择 "KaiaTemplate"。
+  - 找到 "WebGL 模板"。
+  - 选择 "KaiaTemplate"。
 - 在 "发布设置 "下的 "压缩格式 "字段中选择**已禁用**。
 
 ![](/img/minidapps/unity-minidapp/ui-select-webgl-temp.png)

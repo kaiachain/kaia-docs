@@ -5,7 +5,7 @@
 - [1. 프로젝트 설정](#1-project-setup)
 - [2. 커피 구매 스마트 컨트랙트 생성하기](#2-creating-a-buy-me-a-coffee-smart-contract)
 - [3. 스크립트를 사용하여 컨트랙트 기능 테스트하기](#3-testing-the-contracts-functionalities-using-scripts)
-- [4. 카이아 테스트넷에 BMC 스마트 컨트랙트 배포하기](#4-deploying-bmc-smart-contract)
+- [4. Kaia 테스트넷에 BMC 스마트 컨트랙트 배포하기](#4-deploying-bmc-smart-contract)
 - [5. 리액트와 Web3Onbaord로 BMC 프론트엔드 구축하기](#5-building-the-bmc-frontend-with-react-and-web3onboard)
 - [6. Fleek을 사용하여 IPFS에 프론트엔드 코드 배포하기](#6-deploying-frontend-code-on-ipfs-using-fleek)
 - [7. 결론](#7-conclusion)
@@ -27,7 +27,7 @@ In this tutorial. 이 튜토리얼에서는 탈중앙화된 버전의 Buy Me a C
 
 - Solidity: BMC 스마트 컨트랙트를 작성하기 위해
 - NextJs와 Tailwind: BMC dApp을 위한 프론트엔드 웹사이트 구축용
-- Web3Onboard: 카이아 테스트넷 Kairos에 여러 지갑을 연결할 수 있도록 합니다.
+- Web3Onboard: Kaia 테스트넷 Kairos에 여러 지갑을 연결할 수 있도록 합니다.
 - Fleek: Fleek을 사용하면 IPFS에서 BMC dApp을 호스팅할 수 있습니다.
 
 ## 전제 조건 <a href="#2-prerequisites" id="2-prerequisites"></a>
@@ -377,7 +377,7 @@ At 1686307887, Japhet, with 0x90F79bf6EB2c4f870365E785982E1f101E93b906, said: "H
 
 ## 4. BMC 스마트 컨트랙트 배포
 
-### 4.1 카이아 테스트넷에 BMC 스마트 컨트랙트 배포하기 <a id="deploying-bmc-contract"></a>
+### 4.1 Kaia 테스트넷에 BMC 스마트 컨트랙트 배포하기 <a id="deploying-bmc-contract"></a>
 
 BMC 스마트 컨트랙트의 기능을 성공적으로 테스트했다면, 다음 단계에 따라 Kaia 테스트넷 Kairos에 배포해 보겠습니다:
 
@@ -452,7 +452,7 @@ npx hardhat run scripts/deploy.js --network baobab
 BuyMeACoffee Contract Address 0x0bEd1ed7B205d8c18e38A20b5BaB6e265A96d1AC
 ```
 
-카이아 Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! 검색창에 주소를 붙여넣으면 Klaytnscope에서 이 트랜잭션을 확인할 수 있습니다.
+Kaia Kairos 네트워크에 BMC 스마트 컨트랙트를 배포한 것을 축하드립니다! KaiaScan](https://www.kaiascan.io/)에서 검색 필드에 주소를 붙여넣어 이 거래를 확인할 수 있습니다.
 
 ### 4.2 BMC 스마트 컨트랙트와 상호작용하기 <a id="interacting-with-bmc-contract"></a>
 
@@ -545,7 +545,7 @@ cd frontend
 
 다음 단계는 BMC 프론트엔드 웹사이트를 실행하는 데 필요한 종속성을 설치하는 것입니다.  설치해야 할 패키지는 다음과 같습니다:
 
-1. Web3Onbaord 패키지: Web3-Onboard는 카이아 블록체인과 같은 EVM 호환 네트워크에 구축된 dApp에서 멀티월렛 호환성을 지원하는 체인에 구애받지 않는 지갑 라이브러리입니다.
+1. Web3Onbaord 패키지: Web3-Onboard는 Kaia 블록체인과 같은 EVM 호환 네트워크에 구축된 dApp에서 멀티월렛 호환성을 지원하는 체인에 구애받지 않는 지갑 라이브러리입니다.
 2. ethers.js: [ethers.js](https://docs.ethers.org/v6/), [web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)와 같은 라이브러리와 함께 사용할 수 있는 Web3-Onboard 공급자. 이 가이드에서는 ethers.js를 사용하여 사용자 계정 가져오기, 잔액 가져오기, 트랜잭션 서명, 트랜잭션 보내기, 스마트 컨트랙트 읽기 및 쓰기와 같은 Kaia 블록체인 호출을 해보겠습니다.
 
 중요: 프론트엔드/페이지 폴더에서 2개의 파일을 편집해야 합니다.
@@ -830,24 +830,24 @@ Fleek은 IPFS에서 최신 사이트와 앱을 구축할 수 있는 인프라입
 
 1. 프론트엔드 코드에서 이러한 구성을 확인합니다:
 
- a. package.json을 열고 다음 스크립트를 추가합니다:
+  a. package.json을 열고 다음 스크립트를 추가합니다:
 
- ```js
- 	"scripts": {
- 	 "dev": "next",
- 	 "build": "next build",
- 	  "start": "next start",
- 		  "export": "next export"  
- 	}
- ```
+  ```js
+  	"scripts": {
+  	 "dev": "next",
+  	 "build": "next build",
+  	  "start": "next start",
+  		  "export": "next export"  
+  	}
+  ```
 
- b. 루트 디렉터리의 next.config.js 파일에 아래 코드를 붙여넣습니다:
+  b. 루트 디렉터리의 next.config.js 파일에 아래 코드를 붙여넣습니다:
 
- ```js
- 	module.exports = {
- 		exportTrailingSlash: true,
- 	};
- ```
+  ```js
+  	module.exports = {
+  		exportTrailingSlash: true,
+  	};
+  ```
 
 자세한 내용은 이 [가이드](https://blog.fleek.co/posts/fleek-nextJS)를 참조하세요.
 
@@ -886,4 +886,4 @@ Fleek은 IPFS에서 최신 사이트와 앱을 구축할 수 있는 인프라입
 
 여기에서 프런트엔드에서 정적으로 1 KAIA를 보내는 것 외에 커피 양을 입력하는 새로운 입력 필드를 추가하는 등 다른 옵션도 살펴볼 수 있습니다. 전체 코드베이스는 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)에서 확인할 수 있으며, 이 [링크](https://spring-fog-0605.on.fleek.co/)를 사용하여 웹사이트를 테스트할 수도 있습니다.
 
-더 자세한 내용은 [카이아 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).
+더 자세한 내용은 [Kaia 문서](https://docs.klaytn.foundation/), [Web3Onbaord 문서](https://onboard.blocknative.com/docs/modules/react), [Fleek 문서](https://docs.fleek.co/tutorials/hosting/)를 참고하시기 바랍니다. If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).

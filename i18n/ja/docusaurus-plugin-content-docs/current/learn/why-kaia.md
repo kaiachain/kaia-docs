@@ -26,7 +26,7 @@
 
 2. **イーサリアム互換性**：
    - 100％の互換性により、EVMベースのdAppを変更することなく搭載できる。
-   - 開発ツール、EVM、APIはイーサリアムと同等であり、シームレスな統合と両エコシステムの相互利益を可能にする。 Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md)、[Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)を参照。
+   - 開発ツール、EVM、APIはイーサリアムと同等であり、シームレスな統合と両エコシステムの相互利益を可能にする。 Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md)、[Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)を参照。
 
 3. **便利なアカウントモデル**：アカウントに様々なキーを割り当てることができ、セキュリティを強化し、ユーザーエクスペリエンスを向上させます。
 

@@ -84,7 +84,7 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/parent-operator) for more details.
+Bạn có thể tham khảo các API của subbridge ([#1](https://docs.kaia.io/references/json-rpc/subbridge/subscribe-bridge/), [#2](https://docs.kaia.io/references/json-rpc/subbridge/child-operator/)) để biết thêm chi tiết.
 
 ### Send KAIA to Bridge Operators <a id="send-kaia-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-You can refer to the [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge) for more details.
+Bạn có thể tham khảo tài liệu API của subbridge tại [https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/] để biết thêm chi tiết.
 
 `subbridge_listBridge` shows the bridge contract addresses and their subscription status.
 Sub-bridge saves the list of bridge contract addresses in a file. On reboot, sub-bridge reloads the bridge contract list from the file.
@@ -213,7 +213,7 @@ Each value means like below
 ### RPC API <a id="rpc-api"></a>
 
 You can check the status of a bridge contract like below.
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
+Bạn có thể tham khảo tài liệu API của subbridge tại [https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/] để biết thêm chi tiết.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -233,8 +233,8 @@ You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-
 
 Service Chain supports ERC-20/721 value transfer as well.
 To support them, service chain compatible ERC-20/721 token contracts should be deployed on both parent and child chains.
-For the ERC-20/721 token contract code,
-you can refer to the [Token standard](../../../build/smart-contracts/token-standard.md).
+Đối với mã hợp đồng token ERC-20/721,
+, bạn có thể tham khảo [Tiêu chuẩn token](../../../build/smart-contracts/token-development/token-standard.md).
 
 ### Deployment  <a id="deployment"></a>
 
@@ -253,7 +253,7 @@ null
 
 This command registers the child chain token ("0x376b72abe1b29cace831bd3f5acdfa967814c9cd") with the child chain bridge contract ("0x27caeba831d98b5fbb1d81ce0ed20801702f443a"). And the parent chain token ("0x53160735f7cc6ff75e48619f368bb94daff66a1b") with the parent chain bridge contract ("0x22c41ae528627b790233d2e59ea520be12350eb5").
 
-You can refer to the [Service Chain API](../../../references/json-rpc/subbridge/register-token) for more details.
+Bạn có thể tham khảo [Service Chain API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/) để biết thêm chi tiết.
 
 ## Request Value Transfer <a id="request-value-transfer"></a>
 

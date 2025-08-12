@@ -8,19 +8,19 @@
 
 ## 서비스체인 개요 <a id="service-chain-overview"></a>
 
-서비스체인은 밸류 전송, 보안, 고성능, 커스터마이징과 같은 기업의 요구사항을 충족하기 위한 엔터프라이즈급 블록체인입니다. 카이아 서비스체인은 다음과 같은 기능을 제공합니다:
+서비스체인은 밸류 전송, 보안, 고성능, 커스터마이징과 같은 기업의 요구사항을 충족하기 위한 엔터프라이즈급 블록체인입니다. Kaia 서비스체인은 다음과 같은 기능을 제공합니다:
 
 - 즉각적인 최종성
-- 카이아 체인 간 토큰 전송
+- Kaia 체인 간 토큰 전송
 - 데이터 무결성을 위해 메인 체인에 데이터 앵커링
 - 엔터프라이즈 수준의 보안 요건을 충족하는 다중 서명 브리지 컨트랙트
 
 ![](/img/nodes/sc-overview.png)
 
-[카이아 스케일링 솔루션](../../learn/scaling-solutions.md)에서 서비스체인에 대한 자세한 내용을 확인할 수 있습니다. 그리고 다음 동영상은 카이아 서비스체인을 이해하는 데 도움이 될 것입니다.
+[Kaia 스케일링 솔루션](../../learn/scaling-solutions.md)에서 서비스체인에 대한 자세한 내용을 확인할 수 있습니다. 그리고 다음 동영상은 Kaia 서비스체인을 이해하는 데 도움이 될 것입니다.
 
-- [카이아 서비스체인을 통한 수평 확장 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
-- [카이아 서비스체인의 고가용성 아키텍처 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
+- [Kaia 서비스체인을 통한 수평 확장 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
+- [Kaia 서비스체인의 고가용성 아키텍처 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
 
 ## 다운로드 <a id="download"></a>
 
@@ -64,7 +64,7 @@ $ yum install homi-vX.X.X.el7.x86_64.rpm
 
 ### 설치 위치 <a id="scn-configuration"></a>
 
-카이아 리눅스 패키지는 실행 가능한 바이너리와 다음과 같은 구조의 설정 파일로 구성되어 있습니다.
+Kaia 리눅스 패키지는 실행 가능한 바이너리와 다음과 같은 구조의 설정 파일로 구성되어 있습니다.
 
 | 파일명                        | 위치                                         |
 | :------------------------- | :----------------------------------------- |
@@ -138,14 +138,14 @@ $ cat homi-output/keys/nodekey1
 ```
 
 제네시스 파일에서 체인ID를 변경하세요. 리플레이 공격을 방지하기 위해 고유 번호를 사용하세요.
-(카이아 Mainnet(8217), Kairos(1001)과 같은 체인ID를 사용하지 마세요).
+(Kaia Mainnet(8217), Kairos(1001)과 같은 체인ID를 사용하지 마세요).
 
 원하는 경우 제네시스 파일에서 `"alloc"`을 편집하여 미리 펀딩된 주소를 변경할 수 있습니다.
 (자세한 내용은 [Genesis JSON](../service-chain/configure/genesis.md)에서 확인할 수 있습니다.)
 
 ### SCN 데이터 디렉터리 생성 <a id="scn-data-directory-creation"></a>
 
-카이아 블록체인 데이터의 크기가 계속 커지는 것을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다.
+Kaia 블록체인 데이터의 크기가 계속 커지는 것을 고려하면 충분히 큰 스토리지를 사용하는 것을 권장합니다.
 데이터 디렉터리는 원하는 경로에 생성할 수 있습니다.
 이 문서에서는 데이터 디렉터리로 `~/kscnd_home`을 생성합니다.
 
@@ -221,7 +221,7 @@ DATA_DIR=~/kscnd_home
 
 ## SCN 시작/중지 <a id="starting-stopping-scn"></a>
 
-설치 유형에 따라 다음 `systemctl` 또는 `kscnd` 명령어로 카이아 서비스를 시작/중지할 수 있습니다.
+설치 유형에 따라 다음 `systemctl` 또는 `kscnd` 명령어로 Kaia 서비스를 시작/중지할 수 있습니다.
 
 **시작**
 
@@ -318,7 +318,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn 콘솔 <a id="kscn-console"></a>
 
-카이아는 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `DATA_DIR` path on an SCN.
+Kaia는 `kscn console`이라는 CLI 클라이언트를 제공합니다. 클라이언트를 사용하는 또 다른 방법은 IPC(프로세스 간 통신)를 통해 프로세스에 연결하는 것입니다. The IPC file `klay.ipc` is located in the `DATA_DIR` path on an SCN.
 
 다음 명령을 실행하고 결과를 확인하세요.
 
@@ -338,7 +338,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 SCN의 상태를 확인하는 데 유용한 API입니다:
 
 - `klay.blockNumber` (최신 블록 번호 가져오기)
-- `net.peerCount` (현재 연결된 카이아 노드 수 확인)
+- `net.peerCount` (현재 연결된 Kaia 노드 수 확인)
 
 #### klay.blockNumber <a id="klay-blocknumber"></a>
 

@@ -1,0 +1,132 @@
+# 帳戶更新
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/fee-delegated-transaction/FeeDelegatedAccountUpdate.tsx" route={RoutePath.ViemExt_Fee_Account_Update} />
+
+# 費用委派
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js
+    import { AccountKeyType, createWalletClient, http, kairos, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { ethers } from "ethers";
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8")
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount("0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4")
+    });
+
+    async function main() {
+      const pub = ethers.SigningKey.computePublicKey("0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8", true);
+
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        to: "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        value: 0,
+        type: TxType.FeeDelegatedAccountUpdate,
+        key: {
+          type: AccountKeyType.Public,
+          key: pub,
+        },
+      });
+
+      const signedTx = await senderWallet.signTransaction(txRequest);
+      console.log("signedTx", signedTx)
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(signedTx);
+
+      const res = await feePayerWallet.request({
+        method: "kaia_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee delegated acount update tx", res);
+    };
+
+    main();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js TxTypeFeeDelegatedAccountUpdate.js
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1   
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **ethers** 和 **@kaiachain/viem-ext** 套件，以在 web3 上新增 kaia 功能
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=1:2
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定寄件者和付費者的錢包，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的 \*\* 寄件者私密金鑰\*\*。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=4:13
+  ```
+
+  ---
+
+  使用 ethers 函式庫從**寄件者的私人密碼匙**計算壓縮的公開密碼匙\*\*。 此公開金鑰將被用來更新寄件者在 Kaia 區塊鏈上的帳號金鑰。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=16
+  ```
+
+  ---
+
+  使用 **prepareTransactionRequest** 建立一個轉移價值的交易請求，指定寄件者帳戶、收件者地址、要轉移的價值 (本範例中為 0 KLAY)、交易類型 **(TxType.FeeDelegatedAccountUpdate)** 以及 **key** 欄位指定類型為 **AccountKeyType.Public** 的新公開金鑰。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=18:27
+  ```
+
+  ---
+
+  使用錢包用戶端 **signTransaction** 方法簽署交易，並記錄交易哈希值。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=29:30
+    ```
+
+    ---
+
+    ```zsh output
+    signedTx 0x21f88e82095785066720b30082cd1494a2a8854b1802d8cd5de631e690817c253d6a9153a302a103dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdf847f8458207f5a0d3251e52a53fae1891b0fdc8e0b5ecf2a7f2841d9f8fa8cf68d8bc037dd1e44fa06ab24023150e38fb03e431efbd5328a3f2f69ce7f2f98eb13c0846fb8ff8b0f1
+    ```
+  </CH.Code>
+
+  ---
+
+  付費者使用函式 `signTransactionAsFeePayer` 簽署寄件者已簽署的交易，同意支付交易費用。
+
+  ```js TxTypeFeeDelegatedAccountUpdate.js focus=32
+  ```
+
+  ---
+
+  使用 `kaia_sendRawTransaction` 方法將完全簽署、費用委託的交易（由寄件者和付費者簽署）發送至 Kairos 區塊鏈網路，並傳回交易哈希值或網路的回應。
+
+  <CH.Code>
+    ```js TxTypeFeeDelegatedAccountUpdate.js focus=34:38
+    ```
+
+    ---
+
+    ```zsh output
+    fee delegated acount update tx 0x59147c1dbbea0aab51fd4d46484d516a50eeca9266dd417281e18f3b686c0fd9
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

@@ -310,5 +310,53 @@
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
     "message": "フィンシャ→カイア",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Configuration": {
+    "message": "ウォレットの設定",
+    "description": "The label for category Wallet Configuration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Operations": {
+    "message": "ウォレットオペレーション",
+    "description": "The label for category Wallet Operations in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.dApp Integration": {
+    "message": "dAppとの統合",
+    "description": "The label for category dApp Integration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Implementing Transactions": {
+    "message": "トランザクションの実装",
+    "description": "The label for category Implementing Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Cookbooks": {
+    "message": "料理本",
+    "description": "The label for category Cookbooks in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Fundamentals": {
+    "message": "基礎",
+    "description": "The label for category Fundamentals in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Development": {
+    "message": "トークン開発",
+    "description": "The label for category Token Development in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Deployment & Verification": {
+    "message": "展開と検証",
+    "description": "The label for category Deployment & Verification in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Integrate Gas Abstraction (GA)": {
+    "message": "ガスアブストラクション（GA）の統合",
+    "description": "The label for category Integrate Gas Abstraction (GA) in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Kaia Agent Kit": {
+    "message": "カイア・エージェント・キット",
+    "description": "The label for category Kaia Agent Kit in sidebar buildSidebar"
+  },
+  "sidebar.refSidebar.category.Gas Abstraction": {
+    "message": "ガス抽出",
+    "description": "The label for category Gas Abstraction in sidebar refSidebar"
+  },
+  "sidebar.refSidebar.category.viem-ext": {
+    "message": "ヴィエムエクスト",
+    "description": "The label for category viem-ext in sidebar refSidebar"
   }
 }

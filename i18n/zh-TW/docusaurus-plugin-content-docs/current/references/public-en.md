@@ -46,7 +46,7 @@
 | [QuickNode](https://quicknode.com/)     | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/)  | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/)    | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | 全部 |
-| [Pokt Network](https://pokt.network/)   | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
+| [Pokt Network](https://pocket.network/) | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)        | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | 全部 |
 | [dRPC](https://drpc.org/)               | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | 全部 |
 | [Nirvana Labs](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | 檔案 |
@@ -185,25 +185,23 @@ BlockPI 為 Kaia 社區提供免費的公共端點，併為付費用戶提供高
 - [訂閱](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Pocket Network
+### Grove 🌿 - 建於 Pocket 網路
 
-Pocket Network 是 Web3 節點基礎設施的 TCP/IP - 一種多鏈中繼協議，可激勵 RPC 節點為 DApp 及其用戶提供勢不可擋的 Web3 訪問。
+Grove 是 Pocket Network 的建置與維護團隊。 Pocket Network 是 Web3 節點基礎設施的 TCP/IP - 一種多鏈中繼協議，可激勵 RPC 節點為 DApp 及其用戶提供勢不可擋的 Web3 訪問。
 
-Pocket 支持數十種區塊鏈，而且還在不斷增加。
+Grove 支援 50 多個區塊鏈，而且還在不斷增加。
 
 #### 特點
 
 - 去中心化 RPC 協議和市場
-- 每天 250,000 次請求 免費級別（最多兩個應用程序，端點數量不限）
+- 每天 150,000 次請求免費層級（最多兩個應用程式，端點數量不限）
 - 公共端點
-- 付費計劃（如果您每天需要超過 250,000 個請求）
-- 支持 30 多種區塊鏈
+- 無限制、隨用隨付計畫 (如果您每天需要超過 150,000 個請求)
+- 支援 50+ 區塊鏈
 - 25,000 + 個節點為應用程序提供 POKT 服務
-- 支持存檔節點、帶跟蹤功能的存檔節點和測試網絡節點
+- 存檔節點、支援追蹤的存檔節點
 - 無單點故障
 - 零停機時間
-- 低成本高效益的近零代幣經濟（用一次 POKT 換取網絡帶寬）
-- 無需每月支付沉沒成本，將基礎設施轉化為資產
 - 協議內置負載平衡功能
 - 無限擴展每天的請求數和每小時的節點數
 - 最私密、抗審查的選擇
@@ -211,9 +209,10 @@ Pocket 支持數十種區塊鏈，而且還在不斷增加。
 
 #### 參考資料
 
-- [文件](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [Website](https://docs.pokt.network/)
-- [掌上門戶](https://bit.ly/ETHorg_POKTportal) 儀表板和分析
+- [Docs](https://docs.grove.city/kaia-api/intro)
+- [Grove 網站](https://grove.city/)
+- [Pocket Network 網站](https://pocket.network)
+- [Grove Portal](https://portal.grove.city)
 
 ### ANKR
 
@@ -326,11 +325,11 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 
 ## 實用資源
 
-- 錢包[Kaia Wallet](../build/tools/wallets/kaia-wallet.md)是 Kaia 網絡的瀏覽器擴展錢包。
+- 錢包：[Kaia Wallet](../build/wallets/overview/kaia-wallet.md) 是 Kaia Network 的瀏覽器延伸錢包。
 
 - Faucet：您可以從 [KAIA Faucet](https://faucet.kaia.io)獲取用於 Kairos 測試網絡的測試 KAIA。
 
-- 資源管理器：[Kaiascope](../build/tools/block-explorers/kaiascope.md)是 Kaia 網絡的區塊資源管理器。
+- 瀏覽器：[KaiaScan](../build/tools/block-explorers/kaiascan.md) 是 Kaia 網路的區塊瀏覽器。
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 

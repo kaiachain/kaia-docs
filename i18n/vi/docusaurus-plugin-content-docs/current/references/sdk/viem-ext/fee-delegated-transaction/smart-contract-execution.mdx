@@ -1,0 +1,261 @@
+# Thực hiện hợp đồng thông minh
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/fee-delegated-transaction/FeeDelegatedSmartContractExecution.tsx" route={RoutePath.ViemExt_Fee_SmartContract_Execution} />
+
+**TxTypeSmartContractExecution** thực thi hợp đồng thông minh với dữ liệu được cung cấp. **TxTypeSmartContractExecution** chỉ được chấp nhận nếu "to" là tài khoản hợp đồng thông minh.
+
+# Ủy quyền phí
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js
+    import {
+      http, encodeFunctionData, createWalletClient, 
+      createPublicClient, kairos, TxType, privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+    });
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    })
+    const feePayerWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+      const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+
+      const data = encodeFunctionData({
+        abi,
+        args: [123n],
+        functionName: "setNumber",
+      });
+      // non fee payer
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      console.log("preparedTx", tx);
+
+      const signedTx = await senderWallet.signTransaction(tx);
+
+      const sentTx = await senderWallet.request({
+        method: "klay_sendRawTransaction",
+        params: [signedTx],
+      });
+      console.log("contract interaction tx", sentTx);
+
+      // fee payer
+      const tx2 = await senderWallet.prepareTransactionRequest({
+        type: TxType.FeeDelegatedSmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      const signedTx2 = await senderWallet.signTransaction(tx2);
+
+      const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+        signedTx2
+      );
+
+      const sentFeePayerTx = await feePayerWallet.request({
+        method: "klay_sendRawTransaction",
+        params: [feePayerSignedTx],
+      });
+      console.log("fee payer contract execution tx", sentFeePayerTx);
+
+      const result = await publicClient.readContract({
+        address: contractAddr,
+        abi,
+        functionName: 'number'
+      })
+      console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js FeeDelegatedSmartContractExecution.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2396,
+      chainId: 1001,
+      gas: 25093n,
+      gasPrice: '0x66720b300',
+      gasLimit: 62732
+    }
+    contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d22128233e85c8592
+    fee payer contract execution tx 0x910b967d4bdaa439efab64fa8d7a092d075989a477ef723d66601e694f9c5698
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  Nhập các gói **@kaiachain/viem-ext** để thêm các tính năng kaia trên web3
+
+  ```js FeeDelegatedSmartContractExecution.js focus=1:4
+  ```
+
+  ---
+
+  Khởi tạo một máy khách công khai để tương tác chỉ đọc với blockchain Kaia.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=6:9
+  ```
+
+  ---
+
+  Thiết lập ví người gửi và người trả phí bằng **createWalletClient**, được cấu hình với **chuỗi Kairos**, **phương thức vận chuyển HTTP** và **khóa riêng của người gửi** được chuyển đổi thành một tài khoản.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=10:23
+  ```
+
+  ---
+
+  Đặt **địa chỉ hợp đồng** mà bạn muốn thực hiện vào trường đến và đặt **ABI**.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=26:27
+  ```
+
+  ---
+
+  Mã hóa tên hàm và tham số bằng hàm **encodeFunctionData**
+
+  ```js FeeDelegatedSmartContractExecution.js focus=29:33
+  ```
+
+  ---
+
+  Tạo yêu cầu giao dịch để **thực hiện hợp đồng thông minh** bằng cách sử dụng **prepareTransactionRequest**, chỉ định tài khoản người gửi, địa chỉ người nhận, giá trị cần chuyển (0 KLAY trong ví dụ này) và loại giao dịch **(TxType.FeeDelegatedSmartContractDeploy)**
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=35:42
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2396,
+      chainId: 1001,
+      gas: 25093n,
+      gasPrice: '0x66720b300',
+      gasLimit: 62732
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  Ký giao dịch bằng phương thức **signTransaction** của ví khách hàng.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=44
+  ```
+
+  ---
+
+  Người gửi gửi giao dịch đến blockchain Kaia bằng cách sử dụng `klay_sendRawTransaction` và kết quả (thường là hàm băm giao dịch) sẽ được ghi lại. Người gửi trả phí giao dịch.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=46:50
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d22128233e85c8592
+    ```
+  </CH.Code>
+
+  ---
+
+  Chuẩn bị giao dịch được ủy quyền phí (`FeeDelegatedSmartContractExecution`) để gọi cùng hàm `setNumber` trên hợp đồng. Thiết lập tương tự như giao dịch không ủy quyền phí, nhưng người trả phí ký giao dịch để **chi trả phí**.
+
+  ```js FeeDelegatedSmartContractExecution.js focus=53:59
+  ```
+
+  ---
+
+  Người gửi ký giao dịch trước, người trả phí thêm chữ ký của họ và giao dịch được gửi đến blockchain Kaia.
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=60:70
+    ```
+
+    ---
+
+    ```zsh output
+    fee payer contract execution tx 0x910b967d4bdaa439efab64fa8d7a092d075989a477ef723d66601e694f9c5698
+    ```
+  </CH.Code>
+
+  ---
+
+  Sử dụng máy khách công khai để đọc giá trị của biến số từ hợp đồng bằng cách gọi hàm `số` (hàm xem không sửa đổi trạng thái).
+
+  <CH.Code>
+    ```js FeeDelegatedSmartContractExecution.js focus=72:77
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

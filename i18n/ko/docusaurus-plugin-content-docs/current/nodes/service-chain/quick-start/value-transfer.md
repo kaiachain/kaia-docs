@@ -9,7 +9,7 @@
 - 서비스체인을 설치하고, [Kairos에 연결하기](en-scn-connection.md)의 지침에 따라 서비스체인을 Kairos EN에 연결했다고 가정합니다.
 - 리파지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
 - `Node.js`(v14) 및 `npm`을 설치합니다([설치 방법](https://nodejs.org/en/download/package-manager/)).
- - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
+    - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
 
 ## ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
 
@@ -28,7 +28,7 @@ $ kscn attach --datadir ~/data
 ![](/img/nodes/sc-vt-add-klay.png)
 
 `subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KAIA를 가지고 있어야 합니다. `subbridge.parentOperator`는 Kairos 네트워크의 계정이고, `subbridge.childOperator`는 서비스체인 네트워크의 계정이라는 점에 유의하세요.
-카이아 툴킷](https://toolkit.kaia.io/account/)을 사용하여 테스트 계정을 생성하고 [더 수도꼭지](https://faucet.kaia.io/)에서 테스트 카이아를 받으세요. 그런 다음 `parentOperator`에게 KAIA를 전송합니다. childOperator`는 `homi\\`가 생성한 테스트 계정에서 KAIA를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조).
+Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 테스트 계정을 생성하고 [더 수도꼭지](https://faucet.kaia.io/)에서 테스트 Kaia를 받으세요. 그런 다음 `parentOperator`에게 KAIA를 전송합니다. childOperator`는 `homi\\`가 생성한 테스트 계정에서 KAIA를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조).
 
 ```
 $ kscn account import ~/homi-output/keys_test/testkey1
@@ -62,7 +62,7 @@ True
 ### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
 - SCN에 연결하고 컨트랙트 배포를 위한 노드 환경을 준비합니다.
- 리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+    리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
 
 ![](/img/nodes/sc-vt-deploy.png)
 
@@ -82,7 +82,7 @@ $ cd erc20
 - `child.key`를 `homi`가 생성한 `testkey1`로 바꿉니다.
 - `child.operator`를 이전 단계에서 살펴본 `subbridge.childOperator` 주소로 설정합니다.
 - `parent` 섹션(Kairos 네트워크의 EN 노드)의 `url`을 EN 노드 IP로 바꾸고 `kend.conf`의 `RPC_PORT`에서 적절한 포트 번호로 바꿉니다.
-- 부모.key\`를 이전 단계에서 [카이아 툴킷](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 바꿉니다.
+- 부모.key\`를 이전 단계에서 [Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 바꿉니다.
 - `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
 
 ```
@@ -181,7 +181,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## KIP-7 및 KIP-17에 대한 네이티브 지원 (구현 예정) <a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
-현재 카이아 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다. KIP-7과 KIP-17에 해당하는 요청 함수는 곧 지원될 예정입니다. 구현이 완료되기 전에는 위에서 볼 수 있듯이 ERC-20 인터페이스를 사용하여 KIP-7 토큰을 전송할 수 있습니다.
+현재 Kaia 팀이 제공하는 브리지 컨트랙트는 토큰 전송을 위해 `requestERC20Transfer()`와 `requestERC721Transfer()`만 지원하고 있습니다. KIP-7과 KIP-17에 해당하는 요청 함수는 곧 지원될 예정입니다. 구현이 완료되기 전에는 위에서 볼 수 있듯이 ERC-20 인터페이스를 사용하여 KIP-7 토큰을 전송할 수 있습니다.
 
 ## ERC-721, KIP-17, KAIA용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 

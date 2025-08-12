@@ -1,0 +1,202 @@
+# 스마트 컨트랙트 실행
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/SmartContractExecutions.tsx" route={RoutePath.ViemExt_SmartContract_Execution} />
+
+**TxTypeSmartContractExecution**은 주어진 데이터로 스마트 컨트랙트를 실행합니다. **TxTypeSmartContractExecution**은 "to"가 스마트 컨트랙트 계정인 경우에만 허용됩니다.
+
+이러한 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행, 또는 앞서 언급한 여러 가지를 혼합하여 수행할 수 있습니다.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js smartContractExecution.js
+    import {
+      http,
+      encodeFunctionData,
+      createWalletClient, createPublicClient, kairos,
+      TxType,
+      privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+    });
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+      const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+      const data = encodeFunctionData({
+        abi,
+        args: [Date.now()],
+        functionName: "setNumber",
+      });
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      console.log("preparedTx", tx);
+
+      const sentTx = await senderWallet.sendTransaction(tx);
+      console.log("contract interaction tx", sentTx);
+
+      const result = await publicClient.readContract({
+        address: contractAddr,
+        abi,
+        functionName: 'number'
+      })
+      console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node smartContractExecution.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977b9b017d',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2384,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    contract interaction tx 0x50d708b08ae4de72e9e52212eb48ec317032c2d7d06620b615d819ecdf004e8f
+    Current contract value 1750125336184n
+
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 Kaia 기능을 추가하기 위해 **@Kaia체인/viem-ext** 패키지를 가져옵니다.
+
+  ```js smartContractExecution.js focus=1:7
+  ```
+
+  ---
+
+  HTTP\*\* 전송(`http()`)을 통해 **Kaia Kairos 테스트넷**(`Kairos`)과 상호 작용하도록 구성된 **createPublicClient**를 사용하여 **publicClient**를 생성합니다. 퍼블릭 클라이언트는 개인 키나 서명 기능 없이 **블록체인 쿼리** 또는 **스마트 컨트랙트 상태 읽기**와 같은 **읽기 전용 작업**에 사용됩니다.
+
+  ```js smartContractExecution.js focus=9:12
+  ```
+
+  ---
+
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+
+  ```js smartContractExecution.js focus=13:19
+  ```
+
+  ---
+
+  실행하려는 **계약 주소**를 to 필드에 설정하고 **ABI**를 설정합니다.
+
+  ```js smartContractExecution.js focus=22:23
+  ```
+
+  ---
+
+  함수 이름과 파라미터를 **encodeFunctionData** 함수로 인코딩합니다.
+
+  ```js smartContractExecution.js focus=24:28
+  ```
+
+  ---
+
+  준비 트랜잭션 요청\*\*을 사용해 **스마트 컨트랙트 실행**을 위한 트랜잭션 요청을 생성합니다. 트랜잭션 유형 \*\*(TxType.smartContractExecution)\*\*을 지정합니다.
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=29:36
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977b9b017d',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2384,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  TX를 블록체인으로 전송합니다. 함수 `sendTransaction`은 계정의 개인 키로 내부적으로 서명한 다음 블록체인 네트워크로 전송합니다.
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=38:39
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x50d708b08ae4de72e9e52212eb48ec317032c2d7d06620b615d819ecdf004e8f
+    ```
+  </CH.Code>
+
+  ---
+
+  publicClient\*\*는 스마트 컨트랙트에서 **number** 함수를 호출하여 컨트랙트의 상태에 저장된 현재 값을 가져옵니다.
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=28:29
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 1750125336184n
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

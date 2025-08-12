@@ -108,4 +108,4 @@ For efficiency, only batch pruned (state migrated) or live pruned database are p
 | mainnet | state migrated | https://packages.kaia.io/mainnet/chaindata/         |
 | 메인넷     | live pruning   | https://packages.kaia.io/mainnet/pruning-chaindata/ |
 | kairos  | state migrated | https://packages.kaia.io/kairos/chaindata/          |
-| 카이로스    | live pruning   | https://packages.kaia.io/kairos/pruning-chaindata/  |
+| Kairos  | live pruning   | https://packages.kaia.io/kairos/pruning-chaindata/  |

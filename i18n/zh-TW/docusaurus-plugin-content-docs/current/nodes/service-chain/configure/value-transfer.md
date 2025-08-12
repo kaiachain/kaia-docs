@@ -84,7 +84,7 @@ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-詳細信息請參閱 [subbridge API](../../../references/json-rpc/subbridge/parent-operator)。
+您可以參考子橋 API ([#1](https://docs.kaia.io/references/json-rpc/subbridge/subscribe-bridge/)、[#2](https://docs.kaia.io/references/json-rpc/subbridge/child-operator/)) 以瞭解更多詳細資訊。
 
 ### 向橋樑運營商發送 KAIA<a id="send-kaia-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance：Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-更多詳情可參考 [subbridge API](../../...reference/json-rpc/subbridge/deploy-bridge)。
+您可以參考 [subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/) 取得更多詳細資訊。
 
 `subbridge_listBridge` 顯示網橋合同地址及其訂閱狀態。
 子橋將橋接器合同地址列表保存在文件中。 重啟時，子橋會從文件中重新加載橋接器合同列表。
@@ -213,7 +213,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 ### RPC API <a id="rpc-api"></a>
 
 您可以像下面這樣查看橋牌合約的狀態。
-詳細信息請參閱 [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information)。
+您可以參考 [subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/) 取得更多詳細資訊。
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -233,8 +233,8 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 
 服務鏈還支持 ERC-20/721 價值轉移。
 為支持它們，應在父鏈和子鏈上部署與服務鏈兼容的 ERC-20/721 令牌合約。
-關於 ERC-20/721 令牌合約代碼，
-，您可以參考 [Token standard](../../../build/smart-contracts/token-standard.md).
+關於 ERC-20/721 代幣合約代碼，
+，您可以參考 [Token standard](../../../build/smart-contracts/token-development/token-standard.md)。
 
 ### 部署 <a id="deployment"></a>
 
@@ -253,7 +253,7 @@ null
 
 該命令將子鏈令牌（"0x376b72abe1b29cace831bd3f5acdfa967814c9cd"）與子鏈橋合約（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）進行註冊。 以及父鏈令牌（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）和父鏈橋接合約（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
 
-詳細信息請參閱 [Service Chain API](../../../references/json-rpc/subbridge/register-token)。
+您可以參考 [Service Chain API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/) 以瞭解更多詳細資訊。
 
 ## 申請價值轉移<a id="request-value-transfer"></a>
 

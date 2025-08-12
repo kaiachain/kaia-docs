@@ -120,7 +120,7 @@
     "description": "The label for category Node Quick Reference in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Kaia Safe": {
-    "message": "카이아 세이프",
+    "message": "Kaia 세이프",
     "description": "The label for category Kaia Safe in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Node Quick Reference": {
@@ -128,7 +128,7 @@
     "description": "The label for category Node Quick Reference in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.link.KaiaScan": {
-    "message": "카이아스캔",
+    "message": "KaiaScan",
     "description": "The label for link KaiaScan in sidebar buildSidebar, linking to https://kaiascan.io/"
   },
   "sidebar.nodeSidebar.category.Node Quick Reference": {
@@ -228,7 +228,7 @@
     "description": "The label for category Core Concepts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Smart Contracts": {
-    "message": "스마트 계약",
+    "message": "스마트 컨트랙트",
     "description": "The label for category Smart Contracts in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Advanced Topics": {
@@ -236,7 +236,7 @@
     "description": "The label for category Advanced Topics in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Transaction Execution": {
-    "message": "거래 실행",
+    "message": "트랜잭션 실행",
     "description": "The label for category Transaction Execution in sidebar learnSidebar"
   },
   "sidebar.learnSidebar.category.Token Economics": {
@@ -244,7 +244,7 @@
     "description": "The label for category Token Economics in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Transactions": {
-    "message": "거래",
+    "message": "트랜잭션",
     "description": "The label for category Transactions in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Token Management": {
@@ -252,7 +252,7 @@
     "description": "The label for category Token Management in sidebar buildSidebar"
   },
   "sidebar.buildSidebar.category.Team Finance": {
-    "message": "팀 재무",
+    "message": "Team Finance",
     "description": "The label for category Team Finance in sidebar buildSidebar"
   },
   "sidebar.miniDappSidebar.category.LINE Mini DApp with Unity": {
@@ -292,23 +292,71 @@
     "description": "The label for link Docs Updates in sidebar miniDappSidebar, linking to /misc/updates"
   },
   "sidebar.learnSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar learnSidebar"
   },
   "sidebar.buildSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar buildSidebar"
   },
   "sidebar.nodeSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar nodeSidebar"
   },
   "sidebar.refSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar refSidebar"
   },
   "sidebar.miniDappSidebar.category.Finschia to Kaia": {
-    "message": "핀스키아에서 카이아까지",
+    "message": "핀시아에서 Kaia로 옮기기",
     "description": "The label for category Finschia to Kaia in sidebar miniDappSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Configuration": {
+    "message": "월렛 구성",
+    "description": "The label for category Wallet Configuration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Wallet Operations": {
+    "message": "월렛 운영",
+    "description": "The label for category Wallet Operations in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.dApp Integration": {
+    "message": "dApp 통합",
+    "description": "The label for category dApp Integration in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Implementing Transactions": {
+    "message": "트랜잭션 구현",
+    "description": "The label for category Implementing Transactions in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Cookbooks": {
+    "message": "쿡북",
+    "description": "The label for category Cookbooks in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Fundamentals": {
+    "message": "기본 사항",
+    "description": "The label for category Fundamentals in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Token Development": {
+    "message": "토큰 개발",
+    "description": "The label for category Token Development in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Deployment & Verification": {
+    "message": "배포 및 검증",
+    "description": "The label for category Deployment & Verification in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Integrate Gas Abstraction (GA)": {
+    "message": "가스 추상화(GA) 구현하기",
+    "description": "The label for category Integrate Gas Abstraction (GA) in sidebar buildSidebar"
+  },
+  "sidebar.buildSidebar.category.Kaia Agent Kit": {
+    "message": "카이아 에이전트 키트",
+    "description": "The label for category Kaia Agent Kit in sidebar buildSidebar"
+  },
+  "sidebar.refSidebar.category.Gas Abstraction": {
+    "message": "가스 추상화",
+    "description": "The label for category Gas Abstraction in sidebar refSidebar"
+  },
+  "sidebar.refSidebar.category.viem-ext": {
+    "message": "viem-ext",
+    "description": "The label for category viem-ext in sidebar refSidebar"
   }
 }

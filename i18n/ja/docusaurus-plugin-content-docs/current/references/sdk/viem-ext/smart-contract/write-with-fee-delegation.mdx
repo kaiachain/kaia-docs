@@ -1,0 +1,262 @@
+# 書き込み（手数料の委任）
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/smart-contract/writeWithFeeDelegation.tsx" route={RoutePath.ViemExt_SmartContract_WriteWithFeeDelegation} />
+
+スマートコントラクトを実行したい場合、feepayerに**支払い要求**を含む\*\*「トランザクション」\*\*を行うことができる。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js writeWithFeeDelegation.js
+    import {
+        http,
+        encodeFunctionData,
+        createWalletClient, createPublicClient, kairos,
+        TxType,
+        privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    const senderWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+        ),
+    })
+    const feePayerWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x9435261ed483b6efa3886d6ad9f64c12078a0e28d8d80715c773e16fc000cff4"
+        ),
+    });
+    // Example usage
+    (async () => {
+        const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+
+        const data = encodeFunctionData({
+            abi,
+            args: [123n],
+            functionName: "setNumber",
+        });
+        // non fee payer
+        const tx = await senderWallet.prepareTransactionRequest({
+            type: TxType.SmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        console.log("preparedTx", tx);
+
+        const signedTx = await senderWallet.signTransaction(tx);
+
+        const sentTx = await senderWallet.request({
+            method: "klay_sendRawTransaction",
+            params: [signedTx],
+        });
+        console.log("contract interaction tx", sentTx);
+
+        // fee payer
+        const tx2 = await senderWallet.prepareTransactionRequest({
+            type: TxType.FeeDelegatedSmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        const signedTx2 = await senderWallet.signTransaction(tx2);
+
+        const feePayerSignedTx = await feePayerWallet.signTransactionAsFeePayer(
+            signedTx2
+        );
+        const sentFeePayerTx = await feePayerWallet.request({
+            method: "klay_sendRawTransaction",
+            params: [feePayerSignedTx],
+        });
+        console.log("fee payer contract execution tx", sentFeePayerTx);
+
+        const result = await publicClient.readContract({
+            address: contractAddr,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ js writeWithFeeDelegation.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2400,
+      chainId: 1001,
+      gas: 27893n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69732
+    }
+    contract interaction tx 0x67e3975188a4e7c221ac823450b51a4ac8064ddeb35523defd890b1559e0343d
+    fee payer contract execution tx 0xc63d64d49a95ecc9f0fa9a25e78a7df5192224d703f634a77a64123ed36ac97f
+    Current contract value 123n
+    ```
+  </CH.Code>
+
+  ---
+
+  web3にkaiaの機能を追加するために、**@kaiachain/viem-ext**パッケージをインポートする。
+
+  ```js writeWithFeeDelegation.js focus=1:7
+  ```
+
+  ---
+
+  カイアブロックチェーンとの読み取り専用インタラクションのためのパブリッククライアントを初期化します。
+
+  ```js writeWithFeeDelegation.js focus=9:12
+  ```
+
+  ---
+
+  Kairosチェーン\*\*、**HTTPトランスポート**、および**送信者の秘密鍵**をアカウントに変換した**createWalletClient**を使用して、送信者と料金支払者のウォレットを設定します。
+
+  ```js writeWithFeeDelegation.js focus=13:26
+  ```
+
+  ---
+
+  実行したい**契約アドレス**をtoフィールドにセットし、**ABI**をセットする。
+
+  ```js writeWithFeeDelegation.js focus=29:30
+  ```
+
+  ---
+
+  関数名とパラメータを**encodeFunctionData**関数でエンコードする。
+
+  ```js writeWithFeeDelegation.js focus=32:36
+  ```
+
+  ---
+
+  prepareTransactionRequest**を使用して、**スマートコントラクトを書き込む**ためのトランザクショ ンリクエストを作成し、送信者のアカウント、受信者のアドレス、転送する値（この例では0 KLAY）、およびトランザクションタイプ**(TxType.SmartContractExecution)\*\*を指定する。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=38:45
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000000000000007b',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2400,
+      chainId: 1001,
+      gas: 27893n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69732
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  ウォレットクライアントの **signTransaction** メソッドでトランザクションに署名する。
+
+  ```js writeWithFeeDelegation.js focus=47
+  ```
+
+  ---
+
+  送信者は `klay_sendRawTransaction` を使ってKaiaブロックチェーンにトランザクションを送信し、その結果（通常はトランザクションハッシュ）が記録される。 送金者は取引手数料を支払う。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=49:53
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x67e3975188a4e7c221ac823450b51a4ac8064ddeb35523defd890b1559e0343d
+    ```
+  </CH.Code>
+
+  ---
+
+  契約に同じ `setNumber` 関数を呼び出すために、フィー委譲トランザクション (`FeeDelegatedSmartContractExecution`) を準備する。 この設定は、手数料を支払わない取引と似ているが、手数料の支払者は、**手数料をカバーする**ために取引に署名する。
+
+  ```js writeWithFeeDelegation.js focus=56:62
+  ```
+
+  ---
+
+  まず送金者が取引に署名し、手数料の支払者が署名を加え、取引がカイア・ブロックチェーンに提出される。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=63:72
+    ```
+
+    ---
+
+    ```zsh output
+    fee payer contract execution tx 0xc63d64d49a95ecc9f0fa9a25e78a7df5192224d703f634a77a64123ed36ac97f
+    ```
+  </CH.Code>
+
+  ---
+
+  パブリッククライアントを使用して `number` 関数（状態を変更しないビュー関数）を呼び出し、コントラクトから number 変数の値を読み取ります。
+
+  <CH.Code>
+    ```js writeWithFeeDelegation.js focus=74:79
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 123n
+    ```
+  </CH.Code>
+</CH.Spotlight>

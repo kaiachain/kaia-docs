@@ -16,7 +16,7 @@ Team Finance의 토큰 멀티발송 기능으로 한 번에 여러 지갑 주소
 
 ![](/img/build/tools/token-management/multisender/ms-step-2.png)
 
-3. 블록체인 네트워크 아래에서 **카이아**를 선택하고 **계속하기**를 클릭합니다.
+3. 블록체인 네트워크 아래에서 **Kaia**를 선택하고 **계속하기**를 클릭합니다.
 
 ![](/img/build/tools/token-management/multisender/ms-step-3.png)
 

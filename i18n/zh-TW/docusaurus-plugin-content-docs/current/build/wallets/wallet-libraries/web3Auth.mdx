@@ -1,0 +1,751 @@
+---
+sidebar_label: Web3Auth
+---
+
+# 將 Web3Auth 集成到 dApp 中
+
+![](/img/banners/kaia-web3Auth.png)
+
+## 導言
+
+[Web3Auth](https://web3auth.io/docs/) 是一種錢包基礎設施，可插入 dApp 或錢包。 它是 Web3 錢包和應用程序的可插拔認證基礎設施。 憑藉 Web3Auth 卓越的用戶體驗，無論是主流用戶還是加密貨幣原住民，都可以在幾分鐘內完成註冊。
+
+作為一種錢包基礎設施，它為所有社交登錄、網絡和移動原生平臺、錢包和其他密鑰管理方法提供開箱即用的支持。 本指南結束時，您將把 Web3Auth 集成到基於 Kaia 網絡構建的去中心化網絡應用程序中。 要將 Web3Auth 集成到其他平臺（Android、iOS、React Native、Flutter 和 Unity），請參考本 [指南](https://web3auth.io/docs/quick-start)。
+
+為了快速入門，本教程的完整代碼可在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md) 上獲取。 您可以克隆或下載該版本庫，以便跟隨學習。
+
+## 先決條件
+
+* 一個正在運行的 react 項目（通過執行 `npm create vite@latest project-name -- --template react-ts`)
+* 安裝必要的錢包（[Coinbase Wallet](https://www.coinbase.com/wallet/downloads)、[Metamask](https://metamask.io/download/)）。
+* RPC 端點：您可以從其中一個支援的 [端點提供者](../../../references/public-en.md) 取得。
+* 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
+* 從 [Web3Auth 控制面板](https://dashboard.web3auth.io/) 獲取您的客戶 ID。
+
+## 安裝
+
+要在 dApp 中使用 Web3Auth，必須先安裝所需的庫和 SDK。 因此，您需要設置 ethers.js 和 Web3Auth Web SDK。 您可以將 Web3Auth 與 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 或 [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) 庫一起使用，以便與 Kaia 區塊鏈通信。 本指南將使用 ethers.js。
+
+```bash
+npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
+npm install --save ethers
+```
+
+## 初始化 Web3Auth 和提供程序實例
+
+成功安裝所需的庫後，接下來要初始化 Web3Auth 實例，在 "useState() "鉤子中設置 Web3Auth **provider** 實例，並在 "useEffect() "鉤子中設置 "init() "函數。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js App.tsx
+    import {
+      CHAIN_NAMESPACES,
+      IProvider,
+      IAdapter,
+      WEB3AUTH_NETWORK,
+    } from '@web3auth/base'
+    import { EthereumPrivateKeyProvider } from '@web3auth/ethereum-provider'
+    import { Web3Auth, Web3AuthOptions } from '@web3auth/modal'
+    import { getDefaultExternalAdapters } from '@web3auth/default-evm-adapter'
+
+    import './App.css'
+
+    import { useEffect, useState } from 'react'
+    import RPC from './etherRPC'
+
+    const clientId =
+      'BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ'
+
+    const chainConfig = {
+      chainNamespace: CHAIN_NAMESPACES.EIP155,
+      chainId: '0x3e9', // Kairos Testnet
+      rpcTarget: 'https://public-en-kairos.node.kaia.io',
+      displayName: 'Kairos Testnet',
+      blockExplorerUrl: 'https://kairos.kaiascan.io',
+      ticker: 'KLAY',
+      tickerName: 'KLAY',
+    }
+
+    const privateKeyProvider = new EthereumPrivateKeyProvider({
+      config: { chainConfig },
+    })
+
+    const web3AuthOptions: Web3AuthOptions = {
+      clientId,
+      web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
+      privateKeyProvider,
+    }
+
+    const web3auth = new Web3Auth(web3AuthOptions)
+
+    const adapters = await getDefaultExternalAdapters({ options: web3AuthOptions })
+    adapters.forEach((adapter: IAdapter<unknown>) => {
+      web3auth.configureAdapter(adapter)
+    })
+
+    interface UserInfo {
+      email: string;
+      name: string;
+      profileImage: string;
+      [key: string]: unknown;
+    }
+
+    function App() {
+
+      const [provider, setProvider] = useState<IProvider | null>(null);
+      const [loggedIn, setLoggedIn] = useState<boolean>(false);
+      const [loading, setLoading] = useState<boolean>(true);
+      const [address, setAddress] = useState<string>("");
+      const [balance, setBalance] = useState<string>("");
+      const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+
+      useEffect(() => {
+        const init = async () => {
+          try {
+            await web3auth.initModal()
+            setProvider(web3auth.provider)
+
+            if (web3auth.connected) {
+              setLoggedIn(true)
+              await updateUserInfo()
+            }
+          } catch (error) {
+            console.error(error)
+          } finally {
+            setLoading(false)
+          }
+        }
+
+        init()
+      }, [])
+
+      const updateUserInfo = async () => {
+        if (web3auth.provider) {
+          const user = await web3auth.getUserInfo()
+          // @ts-ignore
+          setUserInfo(user)
+          const accounts = await RPC.getAccounts(web3auth.provider)
+          setAddress(accounts)
+          const balance = await RPC.getBalance(web3auth.provider)
+          setBalance(balance)
+        }
+      }
+    }
+    ```
+
+    ```js etherRPC.ts
+    /*
+     * etherRPC.ts
+     * 
+     * This file contains utility functions for lower-level blockchain interactions
+     * using the provider object from ethers.js. It abstracts Ethereum RPC calls
+     * for common operations like getting account info, sending transactions,
+     * and interacting with smart contracts.
+     */
+
+    import type { IProvider } from "@web3auth/base";
+    import { ethers } from "ethers";
+
+    import { contractAddress, contractABI } from "./constants";
+    import { AddressLike } from "ethers";
+
+    const getChainId = async (provider: IProvider): Promise<string> => {
+      try {
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const networkDetails = await ethersProvider.getNetwork();
+        return networkDetails.chainId.toString();
+      } catch (error) {
+        return error as string;
+      }
+    };
+
+    const getAccounts = async (provider: IProvider): Promise<string> => {
+      try {
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+        const address = await signer.getAddress();
+        return address;
+      } catch (error) {
+        return error as string;
+      }
+    };
+
+    const getBalance = async (provider: IProvider): Promise<string> => {
+      try {
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+        const address = await signer.getAddress();
+        const balance = ethers.formatEther(await ethersProvider.getBalance(address));
+        return balance;
+      } catch (error) {
+        return error as string;
+      }
+    };
+
+    const sendKaiaTx = async (provider: IProvider, destination : AddressLike, amount : any): Promise<any> => {
+      try {
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+
+        const amountToSend = ethers.parseEther(amount);
+            
+        const tx = await signer.sendTransaction({
+          to: destination,
+          value: amountToSend,
+        });
+        const receipt = await tx.wait();
+        return receipt;
+      } catch (error) {
+        return error as string;
+      }
+    };
+
+    const signMessage = async (provider: IProvider, originalMessage : string): Promise<string> => {
+      try {
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+
+        const signedMessage = await signer.signMessage(originalMessage);
+        return signedMessage;
+      } catch (error) {
+        return error as string;
+      }
+    };
+
+    const getContractValue = async (provider: IProvider): Promise<string> => {
+      try {
+
+        const ethersProvider = new ethers.BrowserProvider(provider);
+
+        const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
+      
+        // Read message from smart contract
+
+        const contractMessage = await contract.retrieve();
+        console.log(contractMessage.toString());
+        return contractMessage.toString();
+      } catch (error) {
+        return error as string;
+      }
+
+    } 
+
+    const setContractValue = async (provider: IProvider, value : string): Promise<any> => {
+      try {
+
+        const ethersProvider = new ethers.BrowserProvider(provider);
+        const signer = await ethersProvider.getSigner();
+
+        const contract = new ethers.Contract(contractAddress, contractABI, signer);
+      
+        // Read message from smart contract
+
+        const contractTx = await contract.store(value);
+        console.log(contractTx);
+        return contractTx;
+      } catch (error) {
+        return error as string;
+      }
+
+    } 
+
+    export default { getChainId, getAccounts, getBalance, sendKaiaTx, signMessage, getContractValue, setContractValue };
+
+    ```
+
+    ```js package.json
+    {
+      "name"："kaia-web3Auth-react-vite",
+      "private": true,
+      "version"："0.0.0",
+      "type"："module",
+      "scripts"：{
+        "dev"："vite",
+        "build"："tsc && vite build",
+        "lint"："eslint .--ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview"："vite preview"
+      },
+      "dependencies"：{
+        "@web3auth/base"："^9.0.2",
+        "@web3auth/default-evm-adapter"："^9.0.2",
+        "@web3auth/ethereum-provider"："^9.0.2",
+        "@web3auth/modal"："^9.0.2",
+        "ethers"："^6.13.2",
+        "react"："^18.2.0",
+        "react-dom"："^18.2.0"
+      },
+      "devDependencies"：{
+        "@types/react"："^18.2.15",
+        "@types/react-dom"："^18.2.7",
+        "@typescript-eslint/eslint-plugin"："^6.0.0",
+        "@typescript-eslint/parser"："^6.0.0",
+        "@vitejs/plugin-react"："^4.0.3",
+        "autoprefixer"："^10.4.14",
+        "eslint"："^8.45.0",
+        "eslint-plugin-react-hooks"："^4.6.0",
+        "eslint-plugin-react-refresh"："^0.4.3",
+        "postcss"："^8.4.27",
+        "tailwindcss"："^3.3.3",
+        "typescript"："^5.0.2",
+        "vite"："^4.4.5",
+        "vite-plugin-node-polyfills"："^0.9.0"
+      }
+    }
+
+    ```
+
+    ```js vite.config.ts
+    import { defineConfig } from 'vite'
+    import react from '@vitejs/plugin-react'
+    import { nodePolyfills } from 'vite-plugin-node-polyfills'
+
+    export default defineConfig({
+      plugins：[
+        react(),
+        nodePolyfills({
+          globals: {
+            Buffer: true,
+            global: true,
+            process: true,
+          },
+          protocolImports: true,
+        }),
+      ],
+      define：{
+        'process.env'：{},
+        global: 'globalThis',
+      },
+    })
+
+    ```
+  </CH.Code>
+
+  ---
+
+  導入 Web3Auth 和其他依賴軟件包。
+
+  ```js App.tsx focus=1:10
+  ```
+
+  ---
+
+  導入 React 掛鉤（useState 和 useEffect）和實用功能：
+
+  * `useState` 和 `useEffect`：用於狀態管理和副作用的 React 掛鉤。
+  * `RPC`：來自 `etherRPC.ts` 的自定義實用功能，用於使用 ethers.js 進行以太坊兼容的區塊鏈交互。
+
+  ```js App.tsx focus=13:15
+  ```
+
+  ---
+
+  從 Web3Auth 控制面板粘貼您的 \*\* 客戶 ID\*\*。
+
+  ```js App.tsx focus=16:17
+  ```
+
+  ---
+
+  設置 \*\* 鏈配置\*\*：要使用 Web3Auth，您需要為選定的鏈 - Kaia 設置鏈配置。
+
+  ```js App.tsx focus=18:27
+  ```
+
+  ---
+
+  通過使用構造函數初始化 Web3Auth，在構造函數中，您可以傳入您想要的 Web3Auth 的所有配置。
+
+  ```js App.tsx focus=27:44
+  ```
+
+  ---
+
+  在 "useState() "鉤子中設置 Web3Auth **provider** 實例、**userInfo** 和 "useEffect() "鉤子中的 "init() "函數。
+
+  ```js App.tsx focus=53:95 
+  ```
+
+  ---
+</CH.Spotlight>
+
+## 連接錢包
+
+在 `App.tsx` 文件的 App 函數中，調用 web3Auth 實例的 [connect()](https://web3auth.io/docs/sdk/pnp/web/modal/usage?product=PNP\&sdk=PNP_MODAL\&framework=REACT\&stepIndex=0\&stepIndex=6#logging-in-the-user) 方法啟動錢包連接。
+
+```js
+function App() {
+  const [provider, setProvider] = (useState < IProvider) | (null > null)
+  const [loggedIn, setLoggedIn] = useState < boolean > false
+
+  const login = async () => {
+    if (!web3auth) {
+      console.log('web3auth not initialized yet')
+      return
+    }
+    const web3authProvider = await web3auth.connect()
+    setProvider(web3authProvider)
+    if (web3auth.connected) {
+      setLoggedIn(true)
+      await updateUserInfo()
+    }
+  }
+
+  return (
+    <div className="App">
+      <button onClick={login}>Login</button>
+    </div>
+  )
+}
+```
+
+![](/img/build/tools/web3Auth-login.png)
+
+## 設置實用工具功能
+
+在本指南中，我們將使用實用工具函數：`truncateAddress()`。 truncateAddress() 函數接收一個有效地址，並返回一個更可讀的地址格式。 以下步驟展示瞭如何在項目中設置和使用 utils 函數。
+
+**第 1** 步在 `src` 根文件夾中創建一個 `utils.ts` 文件。
+
+將以下代碼粘貼到新創建的 utils.ts 文件中：
+
+```js
+export const truncateAddress = (address) => {
+  if (!address) return 'No Account'
+  const match = address.match(
+    /^(0x[a-zA-Z0-9]{2})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/
+  )
+  if (!match) return address
+  return `${match[1]}…${match[2]}`
+}
+```
+
+**第 2** 步在您的 `App.tsx` 文件中導入該函數。
+
+```js
+從'./utils'導入 { truncateAddress }
+```
+
+## 獲取賬戶和餘額
+
+調用 Web3Auth 實例上的 `connect()` 方法成功連接錢包後，就可以使用提供者和簽名者對象獲取用戶賬戶及其餘額。
+
+```js
+function App() {
+  const [provider, setProvider] = useState<IProvider | null>(null);
+  const [address, setAddress] = useState<string>("");
+  const [balance, setBalance] = useState<string>("");
+
+  const getAccounts = async () => {
+    if (!provider) {
+      console.log('provider not initialized yet')
+      return
+    }
+    const address = await RPC.getAccounts(provider)
+    setAddress(address)
+    console.log('Address:', address)
+  }
+
+  const getBalance = async () => {
+    if (!provider) {
+      console.log('provider not initialized yet')
+      return
+    }
+    const balance = await RPC.getBalance(provider)
+    setBalance(balance)
+    console.log('Balance:', balance)
+  }
+
+  return (
+    <div className="App">
+      <div>
+        <button onClick={getAccounts}>Get Account</button>
+        <h2>
+          {' '}
+          Address: <span>
+            {' '}
+            {`${truncateAddress(address)}` || 'Not available'}
+          </span>
+        </h2>
+      </div>
+
+      <div>
+        <button onClick={getBalance}>Get Balance</button>
+        <h2>
+          Balance: <span> {balance || 'Not available'}</span>
+        </h2>
+      </div>
+    </div>
+  )
+}
+```
+
+## 斷開錢包連接
+
+使用 Web3Auth 實例上的 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 方法可以斷開與錢包的連接。 此外，一個好的做法是刷新狀態，清除之前存儲的連接數據。
+
+```js
+function App() {
+
+  const logout = async () => {
+    if (!web3auth) {
+      console.log('web3auth not initialized yet')
+      return
+    }
+    await web3auth.logout()
+    setProvider(null)
+    setLoggedIn(false)
+    setAddress('')
+    setBalance('')
+    setUserInfo(null)
+    console.log('Logged out')
+  }
+
+  return (
+    <div className="App">
+      <button onClick={logout}>Logout</button>
+    </div>
+  )
+}
+```
+
+## 獲取用戶信息
+
+Web3Auth 的一個獨特功能是社交登錄。 用戶使用社交平臺登錄後，Web3Auth 實例會返回登錄用戶的一些信息。 在 Web3Auth 實例上調用 `getUserInfo()` 方法即可簡單地獲取登錄用戶信息。
+
+```js
+const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+
+const getUserInfo = async () => {
+  if (!web3auth) {
+    console.log('web3auth not initialized yet')
+    return
+  }
+  const user = await web3auth.getUserInfo()
+  // @ts-ignore
+  setUserInfo(user)
+  console.log('User Info:', user)
+}
+
+return (
+  <div className="App">
+    <button onClick={getUserInfo}>Get User Info</button>
+    <div>
+      <h2>User Info:</h2>
+      <pre>
+        {userInfo ? JSON.stringify(userInfo, null, 2) : 'Not available'}
+      </pre>
+    </div>
+  </div>
+)
+```
+
+## 簽署信息
+
+初始化提供者和簽名者對象後，用戶就可以簽署任意字符串。
+
+```js
+// add to the existing useState hook.
+const [signedMessage, setSignedMessage] = useState<string>("");
+
+const signMessage = async () => {
+  if (!provider) {
+      console.log("provider not initialized yet");
+      return;
+  }
+    
+  const originalMessage = "YOUR_MESSAGE";
+
+  const signedMessage = await RPC.signMessage(provider, originalMessage);
+  setSignedMessage(signedMessage);
+  console.log("Signed Message:", signedMessage);
+};
+
+return (
+  <div className="App">
+    <button onClick={signMessage}>Sign Message</button>
+
+    {signedMessage && (
+      <div>
+        <h2 className="text-wrap text-center text-sm font-semibold">
+          Signed Message: <span className="font-normal">{signedMessage}</span>
+        </h2>
+      </div>
+    )}
+  </div>
+)
+```
+
+## 發送本地事務
+
+您可以執行本地事務，如將 KAIA 從一個用戶發送到另一個用戶。
+
+```js
+// add to the existing useState hook.
+const [txHash, setTxHash] = useState<string>("");
+
+const sendKaiaTx = async () => {
+  if (!provider) {
+    console.log("provider not initialized yet");
+    return;
+  }
+  console.log("Sending Transaction...");
+
+  const destination = "0x75Bc50a5664657c869Edc0E058d192EeEfD570eb";
+  const amount = "0.1";    
+    
+  const receipt = await RPC.sendKaiaTx(provider, destination, amount);
+  setTxHash(receipt.hash);
+  console.log("Transaction Receipt:", receipt);
+};
+
+return (
+  <div className="App">
+    <button onClick={sendKaiaTx}>Send Kaia</button>
+
+    {txHash && (
+      <div>
+        <h2>
+          Transaction Hash:{' '}
+          <a
+            href={`${chainConfig.blockExplorerUrl}/tx/${txHash}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {txHash}
+          </a>
+        </h2>
+      </div>
+    )}
+  </div>
+)
+```
+
+## 使用智能合約
+
+您可以根據智能合約的應用程序二進制接口（ABI）和合約地址與已部署的智能合約進行交互。 以下步驟說明瞭如何在項目中設置和使用合同地址和 ABI。
+
+**第 1** 步在 `src` 根文件夾中創建一個 `constants.ts` 文件。
+
+將以下代碼粘貼到新創建的 constants.ts 文件中：
+
+```js
+export const contractABI = [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_initNum",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "retrieve",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "num",
+          "type": "uint256"
+        }
+      ],
+      "name": "store",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ] as const;
+  
+  export const contractAddress = "0x3b01E4025B428fFad9481a500BAc36396719092C";
+```
+
+**第 2 步**：在 `etherRPC.ts` 文件中導入**contractABI**和**contractAddress**。
+
+```js
+從"./constants "導入 { contractAddress, contractABI }；
+```
+
+### 1. 撰寫合同
+
+```js
+// add to existing useState hook
+const [contractTxHash, setContractTxHash] = useState<string>("");
+
+const setContractValue = async () => {
+  if (!provider) {
+    console.log("provider not initialized yet");
+    return;
+  }
+  console.log("setting contract value...");
+
+  const value = "100";
+
+  const tx = await RPC.setContractValue(provider, value);
+  setContractTxHash(tx.hash);
+
+  console.log("Transaction Receipt:", tx);
+}
+
+return (
+  <div className="App">
+    <button onClick={setContractValue}>Write to Contract</button>
+    {contractTxHash && (
+      <div>
+        <h2>
+          Contract Tx Hash: <span>{contractTxHash}</span>
+        </h2>
+      </div>
+    )}
+  </div>
+)
+```
+
+### 2. 閱讀合同
+
+```js
+// add to existing useState hook
+  const [contractMessage, setContractMessage] = useState<string>("");
+
+  const getContractValue = async () => {
+    if (!provider) {
+      console.log("provider not initialized yet");
+      return;
+    }
+    console.log("getting value from contract...");
+
+    const message = await RPC.getContractValue(provider);
+    setContractMessage(message);
+    console.log("contract message:", message);
+  }
+
+
+  return (
+    <button onClick={getContractValue}>Read From Contract</button>
+    {contractMessage && (
+          <div>
+            <h2 className="text-wrap text-center text-sm font-semibold">Read Message: <span className="font-normal">{contractMessage}</span></h2>
+          </div>
+    )}  
+)
+```
+
+## 故障排除
+
+您可以訪問[故障排除頁面](https://web3auth.io/docs/troubleshooting)，從不同的捆綁程序中探索常見挑戰和問題的解決方案。
+
+## 下一步
+
+有關 Web3Auth 的更多深入指南，請參閱 [Web3Auth 文檔](https://web3auth.io/docs/connect-blockchain/klaytn) 和 [Web3Auth Github 存儲庫](https://github.com/web3auth)。

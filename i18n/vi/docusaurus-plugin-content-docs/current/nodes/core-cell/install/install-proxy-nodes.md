@@ -68,6 +68,12 @@ Alternatively, you can install `kpnd` from the Kaia Yum repo, run:
 $ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/kaia.repo && sudo yum install kpnd
 ```
 
+hoặc
+
+```bash
+$ sudo curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/9-stream/kaia.repo && sudo yum cài đặt kpnd
+```
+
 ### Installed Location <a id="installed-location"></a>
 
 The installed files are located as follows.

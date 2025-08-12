@@ -1,6 +1,6 @@
-# 카이아 네트워크 식별자
+# Kaia 네트워크 식별자
 
-**KNI(Kaia 네트워크 식별자)** 는 카이아 노드를 식별하기 위한 URL 체계입니다. 그 구문은 아래와 같습니다.
+**KNI(Kaia 네트워크 식별자)** 는 Kaia 노드를 식별하기 위한 URL 체계입니다. 그 구문은 아래와 같습니다.
 
 ```
 kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
@@ -17,7 +17,7 @@ kni://<nodeID>@<hostname>:<port>?subport=<subport>&discport=<discport>
 - IPv4 매핑된 IPv6(`[2001:db8:3c4d:15::abcd:ef12]`)
 - 도메인 이름(`your.node.com`)
 
-**port**는 TCP를 통해 피어 노드와 연결할 때 사용됩니다. 카이아에서 기본 `port`는 `32323`, 기본 `subport`는 `32324`입니다. 기본 `subport`는 `kend.conf`에서 `port + 1`로 설정되어 있음을 참고하세요. Kaia는 TCP 수신 포트 수에 따라 두 가지 [연결 유형]을 제공합니다(scaling-solutions.md#multi-channel-communication).
+**port**는 TCP를 통해 피어 노드와 연결할 때 사용됩니다. Kaia에서 기본 `port`는 `32323`, 기본 `subport`는 `32324`입니다. 기본 `subport`는 `kend.conf`에서 `port + 1`로 설정되어 있음을 참고하세요. Kaia는 TCP 수신 포트 수에 따라 두 가지 [연결 유형]을 제공합니다(scaling-solutions.md#multi-channel-communication).
 
 **discport** is used for checking if the known neighbors are reachable kaia nodes and fetching their neighbors' addresses for new connections. 이 포트는 UDP 포트입니다.
 기본적으로 UDP 포트, 즉 `discport`는 TCP 포트와 동일한 포트를 사용합니다.

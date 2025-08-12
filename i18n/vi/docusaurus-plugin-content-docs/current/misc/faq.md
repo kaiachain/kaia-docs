@@ -1,24 +1,26 @@
 # FAQ
 
-- [What is Kaia?](#what-is-kaia)
-- [How does Kaia support Ethereum equivalence?](#how-ethereum-equivalence)
-- [What is Kaia’s gas policy?](#kaia-gas-policy)
-- [What is special about Kaia’s account structure?](#kaia-account-structure)
-- [Where can I start dApp development with Kaia?](#dapp-development)
-- [Is Kaia Open Source?](#is-kaia-open-source)
-- [How can I initially fund my account?](#fund-my-acconut)
-- [Any Kaia’s Public Node Providers for testing and development?](#node-providers)
-- [Are there faucets to get test KAIA?](#are-there-faucets)
-- [How do I check for Public RPC endpoint status?](#rpc-endpoint-status)
-- [Which wallets support Kaia?](#which-wallets)
-- [What is Mainnet, what is Kairos?](#what-is-mainnet-what-is-kairos)
-- [Are there any Kaia SDKs? In what languages?](#kaia-sdks)
-- [Must I install and run an EN (Endpoint Node) to use Kaia?](#must-i-install-and-run-en)
-- [I am running an EN, and node data sync is too slow.](#node-data-sync-is-too-slow)
-- [Can I use ERC-20 and ERC-721 contracts on Kaia?](#can-i-use-erc-20-and-erc-721)
-- [Where can I get a browser extension wallet like Metamask?](#where-can-i-get-a-browser-extension-wallet)
-- [Why is my fee-payer account address not derived from the key provided?](#account-address-is-not-derived-from-the-key)
-- [Where can I find complete working samples of fee-delegation?](#fee-delegation-samples)
+- [Câu hỏi thường gặp](#faq)
+  - [Kaia là gì? ](#what-is-kaia-)
+  - [Kaia hỗ trợ tính tương đương của Ethereum như thế nào? ](#how-does-kaia-support-ethereum-equivalence-)
+  - [Chính sách khí đốt của Kaia là gì? ](#what-is-kaias-gas-policy-)
+  - [Cấu trúc tài khoản của Kaia có gì đặc biệt? ](#what-is-special-about-kaias-account-structure-)
+  - [Tôi có thể bắt đầu phát triển dApp với Kaia ở đâu? ](#where-can-i-start-dapp-development-with-kaia-)
+  - [Kaia có phải là mã nguồn mở không? ](#is-kaia-open-source-)
+  - [Tôi có thể nạp tiền vào tài khoản của mình như thế nào? ](#how-can-i-initially-fund-my-account-)
+  - [Có nhà cung cấp nút công khai nào của Kaia để thử nghiệm và phát triển không? ](#any-kaias-public-node-providers-for-testing-and-development-)
+  - [Có vòi nước để lấy mẫu xét nghiệm KAIA không? ](#are-there-faucets-to-get-test-kaia-)
+  - [Tôi có thể kiểm tra trạng thái điểm cuối RPC công khai như thế nào? ](#how-do-i-check-for-public-rpc-endpoint-status-)
+  - [Ví nào hỗ trợ Kaia? ](#which-wallets-support-kaia-)
+  - [Mainnet là gì, Kairos là gì? ](#what-is-mainnet-what-is-kairos-)
+  - [Are there any Kaia SDKs? In what languages? ](#are-there-any-kaia-sdks-in-what-languages-)
+    - [kaia-sdk (SDK bổ trợ)](#kaia-sdk-plug-in-sdks)
+  - [Tôi có cần cài đặt và chạy EN (Endpoint Node) để sử dụng Kaia không? ](#must-i-install-and-run-an-en-endpoint-node-to-use-kaia-)
+  - [Tôi đang chạy EN và quá trình đồng bộ dữ liệu nút quá chậm. ](#i-am-running-an-en-and-node-data-sync-is-too-slow-)
+  - [Tôi có thể sử dụng hợp đồng ERC-20 và ERC-721 trên Kaia không? ](#can-i-use-erc-20-and-erc-721-contracts-on-kaia-)
+  - [Tôi có thể tải ví tiện ích mở rộng trình duyệt như Metamask ở đâu? ](#where-can-i-get-a-browser-extension-wallet-like-metamask-)
+  - [Tại sao địa chỉ tài khoản người nộp phí của tôi không được lấy từ khóa được cung cấp? ](#why-is-my-fee-payer-account-address-not-derived-from-the-key-provided-)
+  - [Tôi có thể tìm thấy mẫu hoàn chỉnh về việc ủy quyền phí ở đâu? ](#where-can-i-find-complete-working-samples-of-fee-delegation-)
 
 ## What is Kaia? <a id="what-is-kaia"></a>
 
@@ -67,7 +69,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 ## Which wallets support Kaia? <a id="which-wallets"></a>
 
-Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](../build/tools/wallets/wallets.md).
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Vui lòng tham khảo danh sách [tại đây](../build/wallets/wallets.md).
 
 ## What is Mainnet, what is Kairos? <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -77,15 +79,15 @@ Below is information relating to each network.
 Mainnet:
 
 - EN download : Choose the Mainnet package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://kaiascope.com/
+- KaiaScan : https://kaiascan.io/
 
 Kairos testnet:
 
 - EN download : Choose the Kairos package from the [download page](../nodes/downloads/downloads.md).
-- Kaiascope : https://kairos.kaiascope.com
+- KaiaScan: https://kairos.kaiascan.io
 - Kairos Faucet : https://faucet.kaia.io
 
-## Are there any Kaia SDKs? In what languages? <a id="kaia-sdks"></a>
+## Are there any Kaia SDKs? Bằng những ngôn ngữ nào? <a id="kaia-sdks"></a>
 
 Kaia Node is Ethereum-compatible, so you can use popular Ethereum SDKs like ethers.js, web3.js, web3py, web3j, or viem. However, Kaia Node also includes extended features with Kaia-specific account and transaction types.
 
@@ -111,7 +113,7 @@ Second, consider [downloading chaindata snapshot](../nodes/endpoint-node/install
 
 ## Can I use ERC-20 and ERC-721 contracts on Kaia? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-Yes. Kaia supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/samples/erc-20.md) and [ERC-721](../build/smart-contracts/samples/erc-721.md) written in Solidity for Etherem can be deployed and executed on Kaia.
+Yes. Kaia supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/token-development/samples/erc-20.md) và [ERC-721](../build/smart-contracts/token-development/samples/erc-721.md) được viết bằng Solidity cho Ethereum có thể được triển khai và thực thi trên Kaia.
 
 Further Kaia-specific token standards can be defined. Follow the [KIP (Kaia Improvement Proposal)](https://kips.kaia.io/) and join the discussion.
 

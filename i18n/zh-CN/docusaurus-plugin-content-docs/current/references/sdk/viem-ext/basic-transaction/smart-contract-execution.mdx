@@ -1,0 +1,202 @@
+# 智能合约执行
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/SmartContractExecutions.tsx" route={RoutePath.ViemExt_SmartContract_Execution} />
+
+**TxTypeSmartContractExecution** 使用给定数据执行智能合约。 只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
+
+这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或执行上述交易的组合。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js smartContractExecution.js
+    import {
+      http,
+      encodeFunctionData,
+      createWalletClient, createPublicClient, kairos,
+      TxType,
+      privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+    });
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+      const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+      const data = encodeFunctionData({
+        abi,
+        args: [Date.now()],
+        functionName: "setNumber",
+      });
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractExecution,
+        account: senderWallet.account,
+        to: contractAddr,
+        value: 0,
+        data,
+      });
+      console.log("preparedTx", tx);
+
+      const sentTx = await senderWallet.sendTransaction(tx);
+      console.log("contract interaction tx", sentTx);
+
+      const result = await publicClient.readContract({
+        address: contractAddr,
+        abi,
+        functionName: 'number'
+      })
+      console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node smartContractExecution.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977b9b017d',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2384,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    contract interaction tx 0x50d708b08ae4de72e9e52212eb48ec317032c2d7d06620b615d819ecdf004e8f
+    Current contract value 1750125336184n
+
+    ```
+  </CH.Code>
+
+  ---
+
+  导入 **@kaiachain/viem-ext** 软件包，在 web3 上添加 kaia 功能
+
+  ```js smartContractExecution.js focus=1:7
+  ```
+
+  ---
+
+  使用**createPublicClient**创建一个**publicClient**，配置为通过**HTTP**传输（`http()`）与**Kaia Kairos testnet**（`kairos`）交互。 公共客户端用于**只读操作**，如**查询区块链**或**读取智能合约状态**，**无需私钥或签名功能**。
+
+  ```js smartContractExecution.js focus=9:12
+  ```
+
+  ---
+
+  使用**createWalletClient**建立钱包客户端，配置**Kairos链**、**HTTP传输**和转换为账户的**发送者私钥**。
+
+  ```js smartContractExecution.js focus=13:19
+  ```
+
+  ---
+
+  在至字段中设置要执行的**合同地址**，并设置**ABI**。
+
+  ```js smartContractExecution.js focus=22:23
+  ```
+
+  ---
+
+  使用 **encodeFunctionData** 函数对函数名和参数进行编码
+
+  ```js smartContractExecution.js focus=24:28
+  ```
+
+  ---
+
+  使用**prepareTransactionRequest**为**执行智能合约**创建交易请求。 指定交易类型\*\*（TxType.smartContractExecution）\*\*
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=29:36
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977b9b017d',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2384,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=38:39
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x50d708b08ae4de72e9e52212eb48ec317032c2d7d06620b615d819ecdf004e8f
+    ```
+  </CH.Code>
+
+  ---
+
+  **publicClient** 调用智能合约上的**number**函数，该函数会检索存储在合约状态中的当前值。
+
+  <CH.Code>
+    ```js smartContractExecution.js focus=28:29
+    ```
+
+    ---
+
+    ```zsh output
+    Current contract value 1750125336184n
+
+    ```
+  </CH.Code>
+</CH.Spotlight>

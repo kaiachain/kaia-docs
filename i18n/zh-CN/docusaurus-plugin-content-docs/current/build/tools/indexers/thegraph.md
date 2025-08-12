@@ -60,10 +60,10 @@ graph init --studio<SUBGRAPH_SLUG>
 不过，KaiaScan 的 API 还没有准备好，所以当被要求重试时，只需说 "不"。 以下是手动获取这些信息的方法：
 
 1. ABI：您需要在运行 `graph init` 的同一目录下准备一个包含 ABI 的 json 文件。 从[Kaiascan 上的合同页面](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)，进入 "合同 "选项卡，点击 "查看代码"，就能复制 ABI。 将其保存为 json 文件，放在运行 `graph init` 的同一文件夹中。 在上面的截图中，它被保存为 `abi.json`。
- ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
+  ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. 启动区块：点击创建合约的交易哈希值。 在那里你会找到创建合同的区块。
- ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
+  ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
 3. 合同名称：输入合同名称即可。 如果这是您在该子图中索引的唯一一份合同，那么使用默认的 `Contract` 即可。
 

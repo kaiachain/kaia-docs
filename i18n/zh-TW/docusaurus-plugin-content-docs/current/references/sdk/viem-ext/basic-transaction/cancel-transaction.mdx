@@ -1,0 +1,136 @@
+# 取消
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/CancelType.tsx" route={RoutePath.ViemExt_Cancel_Type} />
+
+**TxTypeCancel** 取消交易池中具有相同 nonce 的交易的執行。 當已提交的交易看起來有一段時間沒有被處理時，此交易類型就很有用。
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js TxCancelType.js
+    import { createWalletClient, http, privateKeyToAccount, TxType } from "@kaiachain/viem-ext";
+    import { kairos } from "viem/chains";
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const txRequest = await senderWallet.prepareTransactionRequest({
+        account: senderWallet.account,
+        type: TxType.Cancel,
+      });
+      console.log("txRequest", txRequest);
+      
+      const sentTx = await senderWallet.sendTransaction(txRequest);
+      console.log("Cancel tx", sentTx);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node TxCancelType.js
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      type: 56,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2385,
+      chainId: 1001,
+      gas: 53000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 132500
+    }
+    Cancel tx 0x1bc6db276a8bc2395fcbcd3efd96afba7cf4b5cbcfd18f6bdde541d04838d065
+
+    ```
+  </CH.Code>
+
+  ---
+
+  匯入 **@kaiachain/viem-ext** 套件以在 web3 上新增 kaia 功能
+
+  ```js TxCancelType.js focus=1
+  ```
+
+  ---
+
+  指定**kairos**連線設定，以連線至 Kaia Kairos 測試網路。
+
+  ```js TxCancelType.js focus=2
+  ```
+
+  ---
+
+  使用 **createWalletClient** 設定一個錢包用戶端，並配置 **Kairos 鏈**、**HTTP 傳輸**，以及轉換為帳戶的**寄件者私密金鑰**。
+
+  ```js TxCancelType.js focus=3:9
+  ```
+
+  ---
+
+  使用 **prepareTransactionRequest** 建立**取消交易**的交易請求，指定交易類型和寄件者帳戶。
+
+  <CH.Code>
+    ```js TxCancelType.js focus=12:17
+    ```
+
+    ---
+
+    ```zsh output
+    txRequest {
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      type: 56,
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2385,
+      chainId: 1001,
+      gas: 53000n,
+      gasPrice: '0x66720b300',
+      gasLimit: 132500
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  使用錢包用戶端 **sendTransaction** 方法簽署並發送取消交易到 Kaia 區塊鏈，並記錄交易哈希值。
+
+  <CH.Code>
+    ```js TxCancelType.js focus=19:20
+    ```
+
+    ---
+
+    ```zsh output
+    value transfer legacy tx 0x8da12ab374d592715df3bbf6cc96f11a836175daf0dec7f26295d172d6206056
+    ```
+  </CH.Code>
+</CH.Spotlight>

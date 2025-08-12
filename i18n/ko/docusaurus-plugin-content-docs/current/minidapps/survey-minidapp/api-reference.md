@@ -242,11 +242,11 @@ export async function POST(req: NextRequest) {
 
 ## 결론
 
-만세 🥳, 솔리디티, Next.js, 세마포어, 카이아 블록체인 기반 미니 댑 SDK로 개인 정보를 보호하는 설문조사 미니 댑을 성공적으로 구축했습니다. 이 미니 디앱은 실제 사용 사례를 위해 블록체인을 영지식 증명과 결합하는 힘을 보여줍니다.
+만세 🥳, 솔리디티, Next.js, 세마포어, Kaia 블록체인 기반 미니 댑 SDK로 개인 정보를 보호하는 설문조사 미니 댑을 성공적으로 구축했습니다. 이 미니 디앱은 실제 사용 사례를 위해 블록체인을 영지식 증명과 결합하는 힘을 보여줍니다.
 
 LINE 미니 디앱 개발에 대한 자세한 내용은 다음 종합 리소스를 참조하세요:
 
-- [카이아 문서](https://docs.kaia.io/)
+- [Kaia 문서](https://docs.kaia.io/)
 - [LINE 개발자](https://developers.line.biz/en/docs/liff/)
 - [하드햇 문서](https://hardhat.org/docs)
 - [세마포어 문서](https://docs.semaphore.pse.dev/)

@@ -4,6 +4,5 @@
 
 由 Kaia 支持的探險家名單如下：
 
-- [Kaiascope](https://kaiascope.com/)
 - [Kaiascan](https://www.kaiascan.io/)
-- [OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)
+- [OKX Kaia Explorer](https://web3.okx.com/explorer/kaia)

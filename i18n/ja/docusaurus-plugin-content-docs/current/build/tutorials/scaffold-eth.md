@@ -143,21 +143,21 @@ KaiaネットワークをサポートするためにHardhatを設定した後、
 すでにデプロイされたコントラクトを検証するために、hardhat verifyプラグインを使おう。 すでにデプロイされたコントラクトを検証するために、hardhat verifyプラグインを使おう。 必要なのは、Kairos Testnet用のetherscan設定オブジェクトの下にある**hardhat.config.ts**に以下の設定を追加することだけです。
 
 ```js
-  etherscan: {
-    apiKey: {
+  イーサースキャン{
+    apiKey：{
       kairos: "unnecessary",
     },
-    customChains: [
+    customChains：[
       {
-        network: "kairos",
-        chainId: 1001,
-        urls: {
-          apiURL: "https://api-baobab.klaytnscope.com/api",
-          browserURL: "https://kairos.kaiascope.com",
+        network："kairos",
+        chainId：1001,
+        urls：{
+          apiURL："https://kairos-api.kaiascan.io/hardhat-verify",
+          browserURL："https://kairos.kaiascan.io",
         },
       },
     ],
-  },
+}、
 ```
 
 次に、スマート・コントラクトを検証するために、以下のコマンドをターミナルにコピー＆ペーストする：
@@ -175,13 +175,11 @@ yarn hardhat-verify --network kairos 0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da
  "0x7fc9656fc8c8ab433867e58b7c6afc19ec4275da"
 ```
 
-上で見たように、コントラクトを検証するには、ネットワーク名、コントラクトのアドレス、コンストラクタの引数（もしあれば）を渡す必要がある。 しばらく待つと、コンソールに検証結果が表示され、成功した場合は、Kaiascope上の検証済みコントラクトへのURLが提供されます。
+上で見たように、コントラクトを検証するには、ネットワーク名、コントラクトのアドレス、コンストラクタの引数（もしあれば）を渡す必要がある。 しばらく待つと、コンソールに検証結果が表示され、成功した場合はKaiaScan上で検証されたコントラクトへのURLが提供されます。
 
 検証](/img/build/tutorials/scaffold-verify.png)
 
-カイアスコープで検証](/img/build/tutorials/scaffold-3.png)
-
-Hardhat Verifyプラグインを使用したKaia上でのスマートコントラクトの検証の詳細については、H[ardhat-Verify-Pluginsガイド](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)を参照してください。
+Hardhat Verifyプラグインを使用したKaia上でのスマートコントラクトの検証の詳細については、[Hardhat-Verify-Pluginsガイド](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)を参照してください。
 
 ## Next.jsの設定<a href="#nextjs-configuration" id="nextjs-configuration"></a>
 

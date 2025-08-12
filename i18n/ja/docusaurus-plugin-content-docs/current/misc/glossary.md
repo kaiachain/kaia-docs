@@ -18,7 +18,7 @@
 
 ブロックチェーン上のデータを閲覧・検索できるウェブベースのツール。 ブロックエクスプローラは通常、ブロックの高さ、ブロックハッシュ、トランザクションハッシュ、トランザクションの送信者と受信者、トランザクションの金額、トランザクションのステータスなどの情報を表示する。
 
-カイアで利用可能なブロック・エクスプローラーは、[Kaiascope](../build/tools/block-explorers/kaiascope.md)と[Kaiascan](https://www.kaiascan.io/)です。
+Kaiaで利用可能なブロックエクスプローラーは、[Kaiascan](https://www.kaiascan.io/)と[OKX Kaia Explorer](https://www.okx.com/web3/explorer/kaia)です。
 
 ### コアセル（CC）
 

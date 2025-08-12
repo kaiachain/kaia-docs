@@ -75,13 +75,13 @@ const rc = await sentTx.wait();
 console.log("biên lai", rc);
 ```
 
-## 3. Simple server and client for fee delegation <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
+## 3. Máy chủ và máy khách đơn giản cho việc ủy quyền phí <a href="#3-simple-server-and-client-for-fee-delegation" id="3-simple-server-and-client-for-fee-delegation"></a>
 
-Let's write a simple server and client using above fee delegation code.
+Hãy viết một máy chủ và một client đơn giản sử dụng mã phân quyền phí ở trên.
 
-### 3.1 Environment setup <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
+### 3.1 Cài đặt môi trường <a href="#3-1-environment-setup" id="3-1-environment-setup"></a>
 
-We will use `npm init -y` to setup our Node.js project, and install [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
+Chúng ta sẽ sử dụng `npm init -y` để thiết lập dự án Node.js của mình và cài đặt [ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
 
 ```bash
 mkdir feedelegation_server
@@ -91,14 +91,14 @@ npm install - -save @kaiachain/ethers-ext@^1.2.0 ethers@6
 ```
 
 :::note
-@kaiachain/ethers-ext@^1.2.0 recommends node 22 or later
+@kaiachain/ethers-ext@^1.2.0 khuyến nghị sử dụng phiên bản node 22 hoặc mới hơn.
 :::
 
-### 3.2 Sender's client <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
+### 3.2 Khách hàng của người gửi <a href="#3-1-sender-s-client" id="3-1-sender-s-client"></a>
 
 First, we are going to write a `sender_client.js` as below.
 
-In the example, kindly replace `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` and `"RECEIVER_ADDRESS"` with the actual values.
+Trong ví dụ, vui lòng thay thế `"SENDER_ADDRESS"`, `"SENDER_PRIVATEKEY"` và `"RECEIVER_ADDRESS"` bằng các giá trị thực tế.
 
 ```javascript
 const { Socket } = require("net");
@@ -117,7 +117,7 @@ const sendFeeDelegateTx = async () => {
 
       const senderWallet = new Wallet(senderPrivateKey, provider);
   
-     // Create a new transaction
+     // Tạo giao dịch mới
     let tx = {
         type: TxType.FeeDelegatedValueTransfer,
         to: recieverAddr,
@@ -125,7 +125,7 @@ const sendFeeDelegateTx = async () => {
         from: senderAddress,
       };
   
-      // Sign the transaction
+      // Ký giao dịch
       tx = await senderWallet.populateTransaction(tx);
       console.log(tx);
     
@@ -134,44 +134,44 @@ const sendFeeDelegateTx = async () => {
     
   
       if (!senderTxHashRLP) {
-        throw new Error("Failed to generate raw transaction");
+        throw new Error("Không thể tạo giao dịch thô");
       }
   
-      // Send signed raw transaction to fee payer's server
+      // Gửi giao dịch thô đã ký đến máy chủ của người trả phí
       client.connect(1337, "127.0.0.1", () => {
-        console.log("Connected to fee delegated service");
+        console.log("Kết nối thành công với dịch vụ ủy quyền phí");
         client.write(senderTxHashRLP);
       });
   
       client.on("data", (data) => {
-        console.log("Received data from server:", data.toString());
+        console.log("Nhận dữ liệu từ máy chủ:", data.toString());
       });
   
       client.on("error", (error) => {
-        console.error("Connection error:", error);
+        console.error("Lỗi kết nối:", error);
         s;
       });
   
       client.on("close", () => {
-        console.log("Connection closed");
+        console.log("Kết nối đã đóng");
       });
     } catch (error) {
-      console.error("Transaction error:", error);
+      console.error("Lỗi giao dịch:", error);
       client.end();
       process.exit(1);
     }
-  };
+  }
 
   sendFeeDelegateTx();
 ```
 
-The above code signs a fee delegated value transfer transaction with `senderPrivateKey` and sends the signed `senderTxHashRLP` to the fee payer's server which is running on port `1337` on `127.0.0.1`, i.e. localhost.
+Mã code trên ký một giao dịch chuyển giá trị được ủy quyền phí bằng `senderPrivateKey` và gửi `senderTxHashRLP` đã ký đến máy chủ của người trả phí, đang chạy trên cổng `1337` tại `127.0.0.1`, tức là localhost.
 
-### 3.3 Fee payer's server <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
+### 3.3 Máy chủ của bên thanh toán phí <a href="#3-2-fee-payer-s-server" id="3-2-fee-payer-s-server"></a>
 
-Now let's write the fee payer's server, `feepayer_server.js`, which signs the received `senderTxHashRLP` with `feePayerPrivateKey` and sends it to Kairos testnet.
+Bây giờ chúng ta sẽ viết máy chủ của người trả phí, `feepayer_server.js`, máy chủ này sẽ ký `senderTxHashRLP` đã nhận bằng `feePayerPrivateKey` và gửi nó đến mạng thử nghiệm Kairos.
 
-In the below example, kindly replace `"FEEPAYER_ADDRESS"` and `"FEEPAYER_PRIVATEKEY"` with actual values.
+Trong ví dụ dưới đây, vui lòng thay thế `"FEEPAYER_ADDRESS"` và `"FEEPAYER_PRIVATEKEY"` bằng các giá trị thực tế.
 
 ```javascript
 const { createServer } = require("net");
@@ -186,7 +186,7 @@ const feePayerWallet = new Wallet(feePayerPrivateKey, provider);
 const feePayerSign = async (senderTxHashRLP, socket) => {
   try {
     
-    // Send the transaction
+    // Gửi giao dịch
     const sentTx = await feePayerWallet.sendTransactionAsFeePayer(senderTxHashRLP);
     console.log("sentTx", sentTx);
   
@@ -198,8 +198,8 @@ const feePayerSign = async (senderTxHashRLP, socket) => {
       socket.write(`Sender Tx hash: ${rc.senderTxHash || ""}\n`);
     }
   } catch (error) {
-    console.error("Error in feePayerSign:", error);
-    socket.write(`Error: ${error.message}\n`);
+    console.error("Lỗi trong feePayerSign:", error);
+    socket.write(`Lỗi: ${error.message}\n`);
   }
 };
 
@@ -209,12 +209,12 @@ const server = createServer(function (socket) {
   socket.write("Fee payer is " + feePayerAddress);
   
   socket.on("data", function (data) {
-    console.log("Received data from client:", data.toString());
+    console.log("Nhận dữ liệu từ client:", data.toString());
     feePayerSign(data.toString(), socket);
   });
   
   socket.on("error", (error) => {
-    console.error("Socket error:", error);
+    console.error("Lỗi socket:", error);
   });
 
   socket.on("end", () => {
@@ -223,13 +223,13 @@ const server = createServer(function (socket) {
 });
 
 server.listen(1337, "127.0.0.1");
-console.log("Fee delegate service started ...");
+console.log("Dịch vụ đại lý phí đã khởi động ...");
 
 ```
 
 The server listens on port `1337`.
 
-When there is incoming `data`, it signs the `data` with `feePayerPrivateKey` and sends it to the Kaia blockchain. It assumes that the `data` is `senderTxHashRLP` from the `sender_client.js`.
+When there is incoming `data`, it signs the `data` with `feePayerPrivateKey` and sends it to the Kaia blockchain. Nó giả định rằng `data` là `senderTxHashRLP` từ `sender_client.js`.
 
 ## 4. Run example <a href="#4-run-example" id="4-run-example"></a>
 
@@ -237,13 +237,13 @@ Prepare two terminals, one for `sender_client.js` and another for `feepayer_serv
 
 ### 4.1 Run `feepayer_server.js` <a href="#4-1-run-feepayer_server-js" id="4-1-run-feepayer_server-js"></a>
 
-Run the command below to start the fee payer's server:
+Chạy lệnh sau để khởi động máy chủ của người thanh toán phí:
 
 ```bash
 node feepayer_server.js
 
-// output
-Fee delegate service started ...
+// Kết quả đầu ra
+Dịch vụ ủy quyền phí đã khởi động ...
 ```
 
 The server starts and is now listening on port 1337.
@@ -260,29 +260,29 @@ $ node sender_client.js
   type: 9,
   to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
   value: 10000000000000000n,
-  from: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
+  từ: '0x7D3C7202582299470F2aD3DDCB8EF2F45407F871',
   nonce: 202,
   gasLimit: 52500,
   gasPrice: '27500000000',
   chainId: '1001'
 }
 senderTxHashRLP 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
-Connected to fee delegated service
-Received data from server: This is fee delegating, serviceFee payer is 0x88311cD55B656D2502b50f62E83F8279c1641e70
+Kết nối với dịch vụ ủy quyền phí
+Nhận dữ liệu từ máy chủ: Đây là ủy quyền phí, người trả phí dịch vụ là 0x88311cD55B656D2502b50f62E83F8279c1641e70
 ```
 
-It will sign a transaction with the `sender` private key and send the signed transaction to the fee delegated service (i.e., fee payer's server). Then it will receive the response from the fee delegate service including the `Fee payer` address, `Tx hash`. `Tx hash` is hash of a transaction submitted to the Kaia network.
+It will sign a transaction with the `sender` private key and send the signed transaction to the fee delegated service (i.e., fee payer's server). Sau đó, nó sẽ nhận được phản hồi từ dịch vụ ủy quyền phí, bao gồm địa chỉ `Fee payer` và `Tx hash`. `Tx hash` là băm của một giao dịch được gửi đến mạng Kaia.
 
-### 4.3 Check `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
+### 4.3 Kiểm tra `feepayer_server.js` <a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-On the server's console, you will see below outputs. It prints the transaction receipt from the Kaia.
+Trên giao diện điều khiển của máy chủ, bạn sẽ thấy các kết quả sau đây. Nó in hóa đơn giao dịch từ Kaia.
 
 ```bash
 $ node feepayer_server.js
 
-Fee delegate service started ...
-Client is connected ...
-Received data from client: 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
+Dịch vụ ủy quyền phí đã khởi động ...
+Khách hàng đã kết nối ...
+Đã nhận dữ liệu từ khách hàng: 0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc41e1c47872386f26fc10000947d3c7202582299470f2ad3ddcb8ef2f45407f871f847f8458207f6a0820d11029771f2fa368ce11da01f1c9e7f4de6d48915074d149e132692f9d63ea0131c62470a6799dfc5d7e3a7ac8d0a4f3b8fb8b59110ca5dabb26a9ee409f274
 sentTx TransactionResponse {
 …
   to: '0x3a388d3fD71A0d9722c525E17007DdCcc41e1C47',
@@ -305,10 +305,10 @@ sentTx TransactionResponse {
 
 ```
 
-### 4.4 View on Kaiascan <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
+### 4.4 Xem trên Kaiascan <a href="#4-4-kaiascan" id="4-4-kaiascan"></a>
 
-You can also find the above transaction on Kaiascan.
+Bạn cũng có thể tìm thấy giao dịch trên tại [Kaiascan](https://kairos.kaiascan.io/tx/0x7cb1e8d20b4db7d9db1abc094781e1af83a9391153aab8cc935510639a548222?tabId=overview&page=1).
 
-It shows that the transaction is `TxTypeFeeDelegatedValueTransfer` and `Fee payer` is `0x88311cd55b656d2502b50f62e83f8279c1641e70` or `feepayerAddress` that you entered, while `From` is a different address which should be the `senderAddress` in above example.
+Nó cho thấy giao dịch có loại `TxTypeFeeDelegatedValueTransfer` và `Fee payer` là `0x88311cd55b656d2502b50f62e83f8279c1641e70` hoặc `feepayerAddress` mà bạn đã nhập, trong khi `From` là một địa chỉ khác, đây nên là `senderAddress` trong ví dụ trên.
 
-![Fee delegated Tx](/img/build/tutorials/fd-kaiascan-example.png)
+![Phí giao dịch được ủy quyền](/img/build/tutorials/fd-kaiascan-example.png)

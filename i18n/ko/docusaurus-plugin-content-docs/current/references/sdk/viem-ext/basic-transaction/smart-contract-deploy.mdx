@@ -1,0 +1,151 @@
+# 스마트 계약 배포
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/basic-transaction/SmartContractDeploy.tsx" route={RoutePath.ViemExt_SmartContract_Deploy} />
+
+**TxTypeSmartContractDeploy**는 지정된 주소에 스마트 컨트랙트를 배포합니다. 이 트랜잭션 유형에 따라 다음과 같은 변경 사항이 적용됩니다.
+
+이러한 유형의 트랜잭션은 계정 생성, 토큰 전송, 스마트 컨트랙트 배포, 스마트 컨트랙트 실행, 또는 앞서 언급한 여러 가지를 혼합하여 수행할 수 있습니다.
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js SmartContractDeploy.js
+    import {
+      http,
+      createWalletClient, kairos,
+      TxType,
+      privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+
+    const senderWallet = createWalletClient({
+      chain: kairos,
+      transport: http(),
+      account: privateKeyToAccount(
+        "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+      ),
+    });
+    // Example usage
+    (async () => {
+      const tx = await senderWallet.prepareTransactionRequest({
+        type: TxType.SmartContractDeploy,
+        account: senderWallet.account,
+        value: 0,
+        humanReadable: false,
+        codeFormat: 0,
+        data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      });
+      console.log('tx', tx);
+      
+      const sentTx = await senderWallet.sendTransaction(tx);
+      console.log("contract deploy tx", sentTx);
+
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractDeploy.js
+    tx {
+      type: 40,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      value: 0,
+      humanReadable: false,
+      codeFormat: 0,
+      data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2382,
+      chainId: 1001,
+      gas: 106737n,
+      gasPrice: '0x66720b300',
+      gasLimit: 266842
+    }
+    contract deploy tx 0xbae1cacead055c19fa326af76598f99f779ed30a4c33513a6688a490a0bde12c
+
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 Kaia 기능을 추가하기 위해 **@Kaia체인/viem-ext** 패키지를 가져옵니다.
+
+  ```js SmartContractDeploy.js focus=1:6
+  ```
+
+  ---
+
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+
+  ```js SmartContractDeploy.js focus=9:15
+  ```
+
+  ---
+
+  준비 트랜잭션 요청을 사용하여 **스마트 컨트랙트 배포**를 위한 트랜잭션 요청을 생성합니다. 트랜잭션 유형 \*\*(TxType.SmartContractDeploy)\*\*을 지정합니다.
+
+  <CH.Code>
+    ```js SmartContractDeploy.js focus=18:26
+    ```
+
+    ---
+
+    ```zsh output
+    tx {
+      type: 40,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'   
+      },
+      value: 0,
+      humanReadable: false,
+      codeFormat: 0,
+      data: '0x608060405234801561001057600080fd5b5060f78061001f6000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80633fb5c1cb1460415780638381f58a146053578063d09de08a14606d575b600080fd5b6051604c3660046083565b600055565b005b605b60005481565b60405190815260200160405180910390f35b6051600080549080607c83609b565b9190505550565b600060208284031215609457600080fd5b5035919050565b60006001820160ba57634e487b7160e01b600052601160045260246000fd5b506001019056fea2646970667358221220e0f4e7861cb6d7acf0f61d34896310975b57b5bc109681dbbfb2e548ef7546b364736f6c63430008120033',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2382,
+      chainId: 1001,
+      gas: 106737n,
+      gasPrice: '0x66720b300',
+      gasLimit: 266842
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 레거시 트랜잭션에 서명하고 Kaia 블록체인으로 전송한 후 트랜잭션 해시를 기록합니다.
+
+  <CH.Code>
+    ```js SmartContractDeploy.js focus=28:29
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node SmartContractDeploy.js
+    contract deploy tx 0xbae1cacead055c19fa326af76598f99f779ed30a4c33513a6688a490a0bde12c
+    ```
+  </CH.Code>
+</CH.Spotlight>

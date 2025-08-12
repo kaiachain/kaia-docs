@@ -154,10 +154,10 @@ export default function Chat() {
 Thành phần React này tạo ra một giao diện trò chuyện đơn giản bằng cách sử dụng hook useChat() từ Vercel AI SDK. Sau đây là những gì nó làm:
 
 - **Quản lý trạng thái trò chuyện**: Hook useChat() cung cấp:
- - tin nhắn: Lịch sử trò chuyện (có id, vai trò và nội dung).
- - đầu vào: Đầu vào hiện tại của người dùng.
- - handleInputChange: Cập nhật trường nhập liệu khi người dùng nhập.
- - handleSubmit: Gửi tin nhắn khi biểu mẫu được gửi.
+  - tin nhắn: Lịch sử trò chuyện (có id, vai trò và nội dung).
+  - đầu vào: Đầu vào hiện tại của người dùng.
+  - handleInputChange: Cập nhật trường nhập liệu khi người dùng nhập.
+  - handleSubmit: Gửi tin nhắn khi biểu mẫu được gửi.
 - **Hiển thị tin nhắn**: Thành phần này ánh xạ các tin nhắn, cho biết văn bản đó đến từ người dùng hay AI.
 - **Xử lý dữ liệu đầu vào của người dùng**: Bao gồm một trường nhập liệu nơi người dùng có thể nhập tin nhắn, sau đó tin nhắn sẽ được gửi đi khi họ nhấn enter.
 
@@ -245,19 +245,19 @@ export async function POST(req: Request) {
 Tệp `route.ts` được cập nhật này tích hợp các chức năng blockchain vào tác nhân AI của chúng tôi bằng cách sử dụng Kaia Agent Kit, Viem và Vercel AI SDK. Sau đây là thông tin chi tiết về những gì đang diễn ra:
 
 - **Thiết lập công cụ Blockchain và ví**
- - Nhập Viem, Kaia Agent Kit và các công cụ khác để kết nối các công cụ trên chuỗi với Vercel AI SDK.
- - Sử dụng privateKeyToAccount để tạo tài khoản ví từ biến môi trường (WALLET_PRIVATE_KEY).
- - Khởi tạo ứng dụng ví Viem để tương tác với blockchain Kaia bằng cách sử dụng nhà cung cấp RPC.
+  - Nhập Viem, Kaia Agent Kit và các công cụ khác để kết nối các công cụ trên chuỗi với Vercel AI SDK.
+  - Sử dụng privateKeyToAccount để tạo tài khoản ví từ biến môi trường (WALLET_PRIVATE_KEY).
+  - Khởi tạo ứng dụng ví Viem để tương tác với blockchain Kaia bằng cách sử dụng nhà cung cấp RPC.
 - **Đang tải công cụ Onchain**
- - Sử dụng getOnChainTools để tải các công cụ Kaia Agent Kit trên chuỗi. Xin lưu ý rằng bạn có thể hạn chế quyền truy cập của tác nhân AI vào các công cụ cụ thể bằng cách cấu hình mảng packages và truyền vào một trong các giá trị sau: PackagesEnum.WEB3, PackagesEnum.KAIASCAN, PackagesEnum.DGSWAP. Khi để trống, tất cả các gói đều được bật theo mặc định.
+  - Sử dụng getOnChainTools để tải các công cụ Kaia Agent Kit trên chuỗi. Xin lưu ý rằng bạn có thể hạn chế quyền truy cập của tác nhân AI vào các công cụ cụ thể bằng cách cấu hình mảng packages và truyền vào một trong các giá trị sau: PackagesEnum.WEB3, PackagesEnum.KAIASCAN, PackagesEnum.DGSWAP. Khi để trống, tất cả các gói đều được bật theo mặc định.
 - **Tích hợp khả năng AI và Blockchain**
- - streamText được gọi bằng:
-  - Google Gemini 1.5 Pro là mô hình LLM
-  - Các công cụ trên chuỗi (công cụ) để cho phép các giao dịch chuỗi khối
-  - Lịch sử trò chuyện (tin nhắn)
-  - Thực hiện nhiều bước (maxSteps: 10) để xử lý các quy trình làm việc phức tạp
+  - streamText được gọi bằng:
+    - Google Gemini 1.5 Pro là mô hình LLM
+    - Các công cụ trên chuỗi (công cụ) để cho phép các giao dịch chuỗi khối
+    - Lịch sử trò chuyện (tin nhắn)
+    - Thực hiện nhiều bước (maxSteps: 10) để xử lý các quy trình làm việc phức tạp
 - **Trả về phản hồi AI được truyền phát**
- Tác nhân AI xử lý yêu cầu và truyền phát phản hồi với các khả năng tích hợp trên chuỗi.
+  Tác nhân AI xử lý yêu cầu và truyền phát phản hồi với các khả năng tích hợp trên chuỗi.
 
 ## Kiểm tra chức năng của Agent
 

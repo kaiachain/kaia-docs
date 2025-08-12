@@ -46,7 +46,7 @@
 | [QuickNode](https://quicknode.com/)     | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/)  | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/)    | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | 全部 |
-| [Pokt Network](https://pokt.network/)   | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
+| [Pokt Network](https://pocket.network/) | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)        | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | 全部 |
 | [dRPC](https://drpc.org/)               | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | 全部 |
 | [Nirvana Labs](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | 档案 |
@@ -185,25 +185,23 @@ BlockPI 为 Kaia 社区提供免费的公共端点，并为付费用户提供高
 - [订阅](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Pocket Network
+### Grove 🌿 - 建立在袖珍网络上
 
-Pocket Network 是 Web3 节点基础设施的 TCP/IP - 一种多链中继协议，可激励 RPC 节点为 DApp 及其用户提供势不可挡的 Web3 访问。
+Grove 是 Pocket Network 的建设和维护团队。 Pocket Network 是 Web3 节点基础设施的 TCP/IP - 一种多链中继协议，可激励 RPC 节点为 DApp 及其用户提供势不可挡的 Web3 访问。
 
-Pocket 支持数十种区块链，而且还在不断增加。
+Grove 支持 50 多种区块链，而且还在不断增加。
 
 #### 特点
 
 - 去中心化 RPC 协议和市场
-- 每天 250,000 次请求 免费级别（最多两个应用程序，端点数量不限）
+- 每天 150,000 次请求 免费级别（最多两个应用程序，端点数量不限）
 - 公共端点
-- 付费计划（如果您每天需要超过 250,000 个请求）
-- 支持 30 多种区块链
+- 无限制、按需付费计划（如果您每天需要超过 150,000 个请求）
+- 支持 50 多种区块链
 - 25,000 + 个节点为应用程序提供 POKT 服务
-- 支持存档节点、带跟踪功能的存档节点和测试网络节点
+- 档案节点，带跟踪支持的档案节点
 - 无单点故障
 - 零停机时间
-- 低成本高效益的近零代币经济（用一次 POKT 换取网络带宽）
-- 无需每月支付沉没成本，将基础设施转化为资产
 - 协议内置负载平衡功能
 - 无限扩展每天的请求数和每小时的节点数
 - 最私密、抗审查的选择
@@ -211,9 +209,10 @@ Pocket 支持数十种区块链，而且还在不断增加。
 
 #### 参考资料
 
-- [文件](https://docs.pokt.network/api-docs/klaytn-evm/#/)
-- [Website](https://docs.pokt.network/)
-- [掌上门户](https://bit.ly/ETHorg_POKTportal) 仪表板和分析
+- [Docs](https://docs.grove.city/kaia-api/intro)
+- [Grove Website](https://grove.city/)
+- [Pocket Network Website](https://pocket.network)
+- [Grove Portal](https://portal.grove.city)
 
 ### ANKR
 
@@ -326,11 +325,11 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 ## 实用资源
 
-- 钱包[Kaia Wallet](../build/tools/wallets/kaia-wallet.md)是 Kaia 网络的浏览器扩展钱包。
+- 钱包：[Kaia Wallet](../build/wallets/overview/kaia-wallet.md) 是 Kaia 网络的浏览器扩展钱包。
 
 - Faucet：您可以从 [KAIA Faucet](https://faucet.kaia.io)获取用于 Kairos 测试网络的测试 KAIA。
 
-- 资源管理器：[Kaiascope](../build/tools/block-explorers/kaiascope.md)是 Kaia 网络的区块资源管理器。
+- 资源管理器：[KaiaScan](../build/tools/block-explorers/kaiascan.md) 是 Kaia 网络的区块资源管理器。
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 

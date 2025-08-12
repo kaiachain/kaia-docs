@@ -1,0 +1,204 @@
+# 쓰기 (스마트 컨트랙트 실행 TxType)
+
+import { RoutePath } from '@site/src/common/codesandbox'
+import Editor from '@site/src/components/Editor'
+
+<Editor module="/src/pages/viem-ext/smart-contract/writeTxType.tsx" route={RoutePath.ViemExt_SmartContract_WriteTxType} />
+
+<CH.Spotlight>
+  <CH.Code>
+    ```js writeTxType.js
+    import {
+        http,
+        encodeFunctionData,
+        createWalletClient, createPublicClient, kairos,
+        TxType,
+        privateKeyToAccount
+    } from "@kaiachain/viem-ext";
+
+    const publicClient = createPublicClient({
+        chain: kairos,
+        transport: http(),
+    });
+    const senderWallet = createWalletClient({
+        chain: kairos,
+        transport: http(),
+        account: privateKeyToAccount(
+            "0x0e4ca6d38096ad99324de0dde108587e5d7c600165ae4cd6c2462c597458c2b8"
+        ),
+    });
+    // Example usage
+    (async () => {
+        const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+        const abi = [{ "inputs": [{ "internalType": "uint256", "name": "initNumber", "type": "uint256" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "internalType": "uint256", "name": "number", "type": "uint256" }], "name": "SetNumber", "type": "event" }, { "inputs": [], "name": "increment", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "number", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "newNumber", "type": "uint256" }], "name": "setNumber", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+        const data = encodeFunctionData({
+            abi,
+            args: [Date.now()],
+            functionName: "setNumber",
+        });
+        const tx = await senderWallet.prepareTransactionRequest({
+            type: TxType.SmartContractExecution,
+            account: senderWallet.account,
+            to: contractAddr,
+            value: 0,
+            data,
+        });
+        console.log("preparedTx", tx);
+
+        const sentTx = await senderWallet.sendTransaction(tx);
+        console.log("contract interaction tx", sentTx);
+
+        const result = await publicClient.readContract({
+            address: contractAddr,
+            abi,
+            functionName: 'number'
+        })
+        console.log('Current contract value', result);
+    })();
+
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2399,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+    Current contract value 1750147159253n
+    ```
+  </CH.Code>
+
+  ---
+
+  웹3에서 Kaia 기능을 추가하려면 **@Kaia체인/ethers-ext** 모듈을 가져옵니다.
+
+  ```js writeTxType.js focus=1:7
+  ```
+
+  ---
+
+  Kaia 블록체인과의 읽기 전용 상호작용을 위해 퍼블릭 클라이언트를 초기화합니다.
+
+  ```js writeTxType.js focus=9:12
+  ```
+
+  ---
+
+  Kairos 체인\*\*, **HTTP 전송**, 계정으로 변환된 **발신자의 개인 키**로 구성된 **createWalletClient**를 사용하여 지갑 클라이언트를 설정합니다.
+
+  ```js writeTxType.js focus=13:19
+  ```
+
+  ---
+
+  솔리디티 코드에서 생성된 **Abi**를 설정합니다.
+
+  ```js writeTxType.js focus=22
+  ```
+
+  ---
+
+  상호작용할 **계약 주소**를 정의하세요.
+
+  ```js writeTxType.js focus=23
+  ```
+
+  ---
+
+  함수 이름과 파라미터를 **encodeFunctionData** 함수로 인코딩합니다.
+
+  ```js writeTxType.js focus=24:28
+  ```
+
+  ---
+
+  발신자 계정, 수신자 주소, 전송할 값(이 예시에서는 0 KLAY), 트랜잭션 유형 \*\*(TxType.SmartContractExecution)\*\*을 지정하여 **prepareTransactionRequest**를 사용해 값 전송을 위한 트랜잭션 요청을 생성합니다.
+
+  <CH.Code>
+    ```js writeTxType.js focus=29:36
+    ```
+
+    ---
+
+    ```zsh output
+    preparedTx {
+      type: 48,
+      account: {
+        address: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+        nonceManager: undefined,
+        sign: [AsyncFunction: sign],
+        signAuthorization: [AsyncFunction: signAuthorization],
+        signMessage: [AsyncFunction: signMessage],
+        signTransaction: [AsyncFunction: signTransaction],
+        signTypedData: [AsyncFunction: signTypedData],
+        source: 'privateKey',
+        type: 'local',
+        publicKey: '0x04dc9dccbd788c00fa98f7f4082f2f714e799bc0c29d63f04d48b54fe6250453cdaf06ca34ae8714cf3dae06bacdb78c7c2d4054bd38961d40853cd5f15955da79'
+      },
+      to: '0x95Be48607498109030592C08aDC9577c7C2dD505',
+      value: 0,
+      data: '0x3fb5c1cb000000000000000000000000000000000000000000000000000001977cfdd996',
+      from: '0xA2a8854b1802D8Cd5De631E690817c253d6a9153',
+      nonce: 2399,
+      chainId: 1001,
+      gas: 27953n,
+      gasPrice: '0x66720b300',
+      gasLimit: 69882
+    }
+    ```
+  </CH.Code>
+
+  ---
+
+  지갑 클라이언트의 **sendTransaction** 메서드를 사용해 트랜잭션을 Kaia 블록체인으로 전송하고 트랜잭션 해시를 기록합니다.
+
+  <CH.Code>
+    ```js writeTxType.js focus=38:39
+    ```
+
+    ---
+
+    ```zsh output
+    contract interaction tx 0x1834bf6fb6fe30bbf1799b03db6dd5448b0bb445e503f38496845b995f909baa
+    ```
+  </CH.Code>
+
+  ---
+
+  퍼블릭 클라이언트를 사용하여 컨트랙트에서 **number** 함수(상태를 수정하지 않는 보기 함수)를 쿼리합니다. 그러면 숫자 변수의 현재 값이 검색되며, 이 값은 이전 트랜잭션에서 설정한 타임스탬프(성공한 경우)를 반영해야 합니다.
+
+  <CH.Code>
+    ```js writeTxType.js focus=41:46
+    ```
+
+    ---
+
+    ```zsh output
+    ❯ node writeTxType.js
+    Current contract value 1750147159253n
+    ```
+  </CH.Code>
+</CH.Spotlight>

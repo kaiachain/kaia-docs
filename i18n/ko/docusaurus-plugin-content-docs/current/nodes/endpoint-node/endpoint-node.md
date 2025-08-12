@@ -3,7 +3,7 @@
 ## 대상 독자 <a id="intended-audience"></a>
 
 - [Kaia API](../../references/json-rpc/klay/account-created)를 사용하여 트랜잭션을 전송하거나 Kaia 네트워크의 상태를 조회하려는 사람은 누구나 엔드포인트 노드를 통해 이를 수행해야 합니다.
-- 엔드포인트 노드는 카이아 네트워크의 인터페이스입니다.
+- 엔드포인트 노드는 Kaia 네트워크의 인터페이스입니다.
 
 ## 엔드포인트 노드 개요 <a id="endpoint-node-overview"></a>
 

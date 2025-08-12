@@ -4,6 +4,5 @@
 
 カイアがサポートするエクスプローラのリストは以下の通りです：
 
-- [カイアスコープ](https://kaiascope.com/)
 - [カイアスカン](https://www.kaiascan.io/)
-- [OKX カイア・エクスプローラー](https://www.okx.com/web3/explorer/kaia)
+- [OKX カイア・エクスプローラー](https://web3.okx.com/explorer/kaia)

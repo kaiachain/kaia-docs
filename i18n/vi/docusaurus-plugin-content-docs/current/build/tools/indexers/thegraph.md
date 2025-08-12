@@ -60,10 +60,10 @@ After entering the contract info, the graph-cli will attempt to fetch ABI, Start
 However, KaiaScan's API is not ready yet, so when asked to retry, just say "no". Here's how to obtain these manually:
 
 1. ABI: You need to prepare a json file containing the ABI in the same directory where you're running `graph init`. From the [contract's page on Kaiascan](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd), go to the `Contract` tab, click `View Code` and you'll be able to copy the ABI. Save it as a json file in the same folder where you're running  `graph init`. In this screenshot above, it was saved as `abi.json`.
- ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
+  ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. Start Block: Click into the transaction hash where the contract was created. There you'll find the block where the contract was created.
- ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
+  ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
 3. Contract Name: Just type in the name of the contract. If this is the only contract you're indexing in this subgraph, it's OK to just go with the default `Contract`.
 
