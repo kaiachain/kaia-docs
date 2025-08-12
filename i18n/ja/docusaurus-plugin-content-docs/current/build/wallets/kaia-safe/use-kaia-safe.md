@@ -6,9 +6,9 @@
 
 \*\*ステップ 1: \*\* [Kaia Safe App](https://safe.kaia.io/) に移動します。 ウェブブラウザでアプリケーションに移動すると、Kaia Safeの機能を調べることができます。 ウェブブラウザでアプリケーションに移動すると、Kaia Safeの機能を調べることができます。
 
-**ステップ2:** [ウォレット](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)を接続します。 **ステップ2:** [ウォレット](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)を接続します。 現在、Kaia Safeは、[Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../../tutorials/connecting-metamask.mdx)ウォレットなど、様々なウォレットに対応しています。
+**ステップ2:** [ウォレット](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)を接続します。 現在、Kaia Safeは、[Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../tutorials/connecting-metamask.mdx)ウォレットなど、様々なウォレットに対応しています。
 
-このガイドでは、MetaMaskを使用する。 このガイドでは、MetaMaskを使用する。 MetaMaskウォレットにKaiaネットワーク([Mainnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)または[Kairos Testnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)が追加されていることを確認してください。
+このガイドでは、MetaMaskを使用する。 MetaMaskウォレットにKaiaネットワーク([Mainnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)または[Kairos Testnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)が追加されていることを確認してください。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
 
