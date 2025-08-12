@@ -4,7 +4,7 @@
 
 **前提条件**
 
-- [メタマスク](https://metamask.io/download/) & [カイアメタマスクコンフィグ](../../../tutorials/connecting-metamask.mdx#send-klay)
+- [メタマスク](https://metamask.io/download/) & [カイアメタマスクコンフィグ](../../tutorials/connecting-metamask.mdx#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - [Faucet](https://faucet.kaia.io)からテスト用KAIAを入手。
 
