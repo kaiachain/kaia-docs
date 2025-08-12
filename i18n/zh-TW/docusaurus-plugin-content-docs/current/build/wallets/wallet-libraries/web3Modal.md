@@ -16,7 +16,7 @@ sidebar_label: Web3Modal
 
 - 一個正在運行的 react 項目（執行 `npx create-react-app project-name` 命令）
 - 安裝必要的錢包（[Kaia Wallet](https://www.kaiawallet.io/en_US/)、[Coinbase Wallet](https://www.coinbase.com/wallet/downloads) 和 [Metamask](https://metamask.io/download/))。
-- RPC 端點：您可以從支持的[端點提供者](../../../../references/public-en.md)中獲取。
+- RPC 端點：您可以從其中一個支援的 [端點提供者](../../../references/public-en.md) 取得。
 - 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 
 ## 設置 Web3Modal 和錢包提供程序選項
