@@ -4,7 +4,7 @@
 
 **先決條件**
 
-- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask.mdx#send-klay)
+- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../tutorials/connecting-metamask.mdx#send-klay)
 - [混音](https://remix.ethereum.org/) 和[Kaia 混音插件](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - 從 [水龍頭](https://faucet.kaia.io) 獲取測試 KAIA
 
