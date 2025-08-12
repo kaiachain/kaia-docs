@@ -284,16 +284,20 @@ const config = {
                 label: 'Get Started',
               },
               {
+                to: "build/wallets",
+                label: 'Wallets',
+              },
+              {
+                to: "build/tutorials",
+                label: 'Tutorials',
+              },              
+              {
                 to: "build/transactions",
                 label: 'Transactions',
               },
               {
                 to: "build/smart-contracts",
                 label: 'Smart Contracts',
-              },
-              {
-                to: "build/tutorials",
-                label: 'Tutorials',
               },
               {
                 to: "build/tools",
