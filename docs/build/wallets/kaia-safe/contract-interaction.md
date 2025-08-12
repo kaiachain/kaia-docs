@@ -4,7 +4,7 @@ In this section, you will be interacting with and sending a transaction to a sim
 
 **Pre-requisites**
 
-* [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask.mdx#send-klay)
+* [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../tutorials/connecting-metamask.mdx#send-klay)
 * [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 * Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
 

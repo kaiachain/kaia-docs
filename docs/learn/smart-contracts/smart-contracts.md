@@ -14,7 +14,7 @@ Smart contracts on the Kaia Blockchain are essentially self-executing digital ag
 
 Kaia Blockchain utilizes a specialized virtual machine called the Kaia Virtual Machine (KVM) to execute smart contracts. The KVM is a derivative of the widely-used Ethereum Virtual Machine (EVM), providing key advantages:
 
-- **Developer-Friendly**: Developers familiar with Ethereum can easily migrate existing smart contracts to Kaia or build new ones using familiar tools, languages (like Solidity), and [development environments](../../build/smart-contracts/ide-and-tools/ide-and-tools.md).
+- **Developer-Friendly**: Developers familiar with Ethereum can easily migrate existing smart contracts to Kaia or build new ones using familiar tools, languages (like Solidity), and [development environments](../../build/smart-contracts/tools/ide-and-tools.md).
 - **Enhanced Functionality**: While maintaining full compatibility with EVM opcodes, the KVM introduces additional precompiled contracts unique to Kaia, expanding the capabilities for developers. To avoid conflicts with existing EVM precompiled contracts, Kaia's [precompiled contract addresses](precompiled-contracts.md) are assigned in descending order from `0x03ff`.
 
 When a smart contract is deployed on Kaia, it receives a unique address on the blockchain, much like a digital mailbox. Users interact with the contract by sending transactions to this address. These transactions can trigger a variety of actions predefined in the contract's code, such as:

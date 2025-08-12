@@ -26,7 +26,7 @@ Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web
 
 2. **Ethereum Compatibility**:
    - 100% compatibility ensures EVM-based dApps can be onboarded without modifications.
-   - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. See [Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md), and [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
+   - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. See [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md), and [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
 
 3. **Convenient Account Model**: Enables assigning various keys to accounts, strengthening security and improving user experience.
 
