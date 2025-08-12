@@ -6,9 +6,9 @@
 
 **Step 1:** Navigate to [Kaia Safe App](https://safe.kaia.io/). 웹 브라우저에서 애플리케이션으로 이동하면 Kaia Safe의 기능을 살펴볼 수 있습니다.
 
-**2단계**: [지갑](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)을 연결합니다. At the moment, Kaia Safe support various wallets like [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../../tutorials/connecting-metamask.mdx) wallet, etc.
+**2단계**: [지갑](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)을 연결합니다. 현재 카이아 세이프는 [카이아 월렛](https://docs.kaiawallet.io/), [메타마스크](../../tutorials/connecting-metamask.mdx) 지갑 등 다양한 지갑을 지원하고 있습니다.
 
-이 가이드에서는 MetaMask를 사용하겠습니다. Make sure you have Kaia networks([Mainnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network) or [Kairos Testnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)) added to your MetaMask wallet to connect successfully.
+이 가이드에서는 MetaMask를 사용하겠습니다. 메타마스크 지갑에 카이아 네트워크([메인넷](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network) 또는 [카이로스 테스트넷](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network))가 추가되어 있어야 성공적으로 연결할 수 있습니다.
 
 ![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
 
