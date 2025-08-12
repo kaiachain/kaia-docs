@@ -325,7 +325,7 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 
 ## 实用资源
 
-- 钱包[Kaia Wallet](../build/tools/wallets/kaia-wallet.md)是 Kaia 网络的浏览器扩展钱包。
+- 钱包：[Kaia Wallet](../build/wallets/overview/kaia-wallet.md) 是 Kaia 网络的浏览器扩展钱包。
 
 - Faucet：您可以从 [KAIA Faucet](https://faucet.kaia.io)获取用于 Kairos 测试网络的测试 KAIA。
 
