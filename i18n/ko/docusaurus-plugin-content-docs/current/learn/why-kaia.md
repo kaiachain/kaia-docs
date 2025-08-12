@@ -26,7 +26,7 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 
 2. **이더리움 호환성**:
    - 100% 호환성을 지원하므로 EVM 기반 dApp을 수정 없이 온보딩할 수 있습니다.
-   - 개발 도구, EVM, API는 이더리움과 동일하므로 두 생태계의 원활한 통합과 상호 이익이 가능합니다. See [Solidity-Smart Contract Language](../build/smart-contracts/solidity-smart-contract-language.md), and [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
+   - 개발 도구, EVM, API는 이더리움과 동일하므로 두 생태계의 원활한 통합과 상호 이익이 가능합니다. 솔리디티-스마트 컨트랙트 언어](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 및 [이더리움 앱을 카이아로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)를 참조하세요.
 
 3. **편리한 계정 모델**: 계정에 다양한 키를 할당하여 보안을 강화하고 사용자 경험을 개선할 수 있습니다.
 
