@@ -120,7 +120,7 @@
     "description": "Navbar item with label Debugging and Diagnostics"
   },
   "item.label.Wallets": {
-    "message": "지갑",
+    "message": "월렛",
     "description": "Navbar item with label Wallets"
   }
 }
