@@ -118,5 +118,9 @@
   "item.label.Debugging and Diagnostics": {
     "message": "디버깅 및 진단",
     "description": "Navbar item with label Debugging and Diagnostics"
+  },
+  "item.label.Wallets": {
+    "message": "지갑",
+    "description": "Navbar item with label Wallets"
   }
 }
