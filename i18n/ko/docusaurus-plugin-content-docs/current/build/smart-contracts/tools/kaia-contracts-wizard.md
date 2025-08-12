@@ -56,8 +56,8 @@ In this section, you will deploy the generated code from kaia contracts wizard t
 
 - [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
 - Kaia 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
-- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
+- [메타마스크](../../tutorials/connecting-metamask.mdx#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호작용하는 데 사용됩니다.
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자] 중 하나에서 받을 수 있습니다(../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ### 시작하기
@@ -456,6 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 또한, 생성된 컨트랙트를 Foundry Solidity 스크립팅을 사용하여 Kaia Kairos 테스트넷에 배포했습니다. Remix IDE 또는 다른 스마트 컨트랙트 개발 환경을 사용하여 Kaia Contracts Wizard를 통해 파생되거나 커스터마이징된 스마트 컨트랙트를 배포할 수 있습니다. 다음 링크에서 해당 튜토리얼을 찾을 수 있습니다:
 
-- [Remix에 연결하기](../tutorials/connecting-remix.md#connecting-klaytn-remix-using-metamask)
-- [Hardhat을 이용한 스마트 컨트랙트 배포하기](../get-started/hardhat.md)
-- [Truffle을 이용한 스마트 컨트랙트 배포하기](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+- [리믹스에 연결하기](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [하드햇을 사용하여 스마트 컨트랙트 배포하기](../../get-started/hardhat.md)
