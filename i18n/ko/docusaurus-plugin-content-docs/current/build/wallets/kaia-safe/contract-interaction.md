@@ -4,7 +4,7 @@
 
 **사전 요구 사항**
 
-- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../../tutorials/connecting-metamask.mdx#send-klay)
+- [메타마스크](https://metamask.io/download/) & [카이아 메타마스크 구성](../../tutorials/connecting-metamask.mdx#send-klay)
 - [Remix](https://remix.ethereum.org/) & [Kaia Remix 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
 - Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
 
