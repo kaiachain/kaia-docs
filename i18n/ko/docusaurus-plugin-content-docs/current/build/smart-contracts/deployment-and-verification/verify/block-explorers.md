@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-이 페이지에서 Kaia Kairos 테스트넷에서 [라이브러리](../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼을 확인할 수 있습니다. 또한, [하드햇](../get-started/hardhat.md), [Foundry](../smart-contracts/deploy/foundry.md), [Remix](../smart-contracts/deploy/deploy.md#remix-ide) 또는 다른 개발자 도구를 사용하여 Kaia Kairos 테스트넷에 스마트 컨트랙트를 배포할 수 있습니다.
+카이아 카이로스 테스트넷에서 [라이브러리](../../../../references/sdk/sdk.md)를 사용하여 스마트 컨트랙트를 배포하는 튜토리얼은 이 페이지에서 확인하실 수 있습니다. 하드햇](../../../get-started/hardhat.md), [파운드리](../../deployment-and-verification/deploy/foundry.md), [리믹스](../../deployment-and-verification/deploy/deploy.md#remix-ide) 또는 원하는 경우 다른 개발자 도구를 사용하여 카이아 카이로스 테스트넷에 스마트 컨트랙트를 배포할 수도 있습니다.
 
 :::
 
