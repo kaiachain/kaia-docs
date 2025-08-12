@@ -69,7 +69,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 ## 어떤 지갑이 Kaia를 지원하나요? <a id="which-wallets"></a>
 
-Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](../build/tools/wallets/wallets.md).
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. 목록을 참조하세요 [여기](../build/wallets/wallets.md).
 
 ## What is Mainnet, what is Kairos? <a id="what-is-cypress-what-is-baobab"></a>
 
@@ -113,7 +113,7 @@ Second, consider [downloading chaindata snapshot](../nodes/endpoint-node/install
 
 ## Kaia에서 ERC-20과 ERC-721 컨트랙트를 사용할 수 있나요? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-예. Kaia는 스마트 컨트랙트 언어로서 Solidity를 지원합니다. 이더리움 스마트 컨트랙트 언어 Solidity로 작성된 [ERC-20](../build/smart-contracts/samples/erc-20.md) 및 [ERC-721](../build/smart-contracts/samples/erc-721.md)은 Klaytn에서 배포 및 실행될 수 있습니다.
+예. Kaia는 스마트 컨트랙트 언어로서 Solidity를 지원합니다. 이더리움용 솔리디티로 작성된 [ERC-20](../build/smart-contracts/token-development/samples/erc-20.md) 및 [ERC-721](../build/smart-contracts/token-development/samples/erc-721.md)은 카이아에서 배포 및 실행할 수 있습니다.
 
 Kaia에 특화된 토큰 표준을 추가로 정의할 수 있습니다. Follow the [KIP (Kaia Improvement Proposal)](https://kips.kaia.io/) and join the discussion.
 
