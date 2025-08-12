@@ -1,6 +1,26 @@
 {
   "updates": [
     {
+      "version": "1.19.0",
+      "date": "2025-08-12",
+      "title": "Integrating Kaia Gas Abstraction!",
+      "updateType": "UPDATE",
+      "summary": "Enable gas-free transactions by integrating Kaia's Gas Abstraction feature, allowing users to pay fees with ERC-20 tokens.",
+      "primaryDocLink": "/build/tutorials/ga-tutorial",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/348",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.18.0",
+      "date": "2025-08-08",
+      "title": "Exploring Kaia Developer Cookbooks!",
+      "updateType": "UPDATE",
+      "summary": "Discover the new Cookbook section with step-by-step guides on configuring wallets, managing security, and optimizing gas fees.",
+      "primaryDocLink": "/build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/347",
+      "showInWhatsNew": true
+    },
+    {
       "version": "1.17.2",
       "date": "2025-07-10",
       "title": "Update SafePal S1 Wallet Guide",
