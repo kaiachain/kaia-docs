@@ -38,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## 분리된 키 쌍(Key Pairs) <a id="decoupled-key-pairs"></a>
 
-Kaia [주소에서 키 쌍 분리](../../learn/accounts.md#decoupling-key-pairs-from-addresses). 사용자가 [계정을 업데이트](../transactions/basic.md#txtypeaccountupdate)하면 특정 계정의 비공개 키가 다른 키로 바뀝니다. 대부분의 경우 비즈니스 로직에는 영향을 미치지 않습니다. 그러나 비즈니스 로직에 ecrecover가 포함된 경우에는 validateSender 사용을 고려해야 합니다. 자세한 내용은 [여기](../../learn/smart-contracts/precompiled-contracts.md)를 참조하세요.
+Kaia [주소에서 키 쌍 분리](../../../learn/accounts.md#decoupling-key-pairs-from-addresses). 사용자가 [계정을 업데이트](../../transactions/basic.md#txtypeaccountupdate)하면 특정 계정의 비공개 키가 다른 키로 바뀝니다. 대부분의 경우 비즈니스 로직에는 영향을 미치지 않습니다. 그러나 비즈니스 로직에 ecrecover가 포함된 경우에는 validateSender 사용을 고려해야 합니다. 자세한 내용은 [여기](../../../learn/smart-contracts/precompiled-contracts.md)를 참조하세요.
