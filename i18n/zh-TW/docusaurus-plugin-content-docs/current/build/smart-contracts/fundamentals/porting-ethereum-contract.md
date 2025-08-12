@@ -38,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## 解耦密鑰對<a id="decoupled-key-pairs"></a>
 
-Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). 如果使用者 [更新帳號](../transactions/basic.md#txtypeaccountupdate)，特定帳號的私密金鑰會被另一個帳號取代。 大多數情況下，這不會影響您的業務邏輯。 但是，如果您的業務邏輯包括 ecrecover，則應考慮使用 validateSender。 如需詳細資訊，請參閱 [here](../../learn/smart-contracts/precompiled-contracts.md)。
+Kaia [將金鑰對與位址解耦](../../../learn/accounts.md#decoupling-key-pairs-from-addresses). 如果使用者 [更新帳號](../../transactions/basic.md#txtypeaccountupdate)，特定帳號的私密金鑰會被另一個帳號取代。 大多數情況下，這不會影響您的業務邏輯。 但是，如果您的業務邏輯包括 ecrecover，則應考慮使用 validateSender。 如需詳細資訊，請參閱 [here](../../../learn/smart-contracts/precompiled-contracts.md)。
