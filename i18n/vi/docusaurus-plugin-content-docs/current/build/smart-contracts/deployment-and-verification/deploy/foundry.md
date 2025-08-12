@@ -25,8 +25,8 @@ Trong hướng dẫn này, bạn sẽ:
 Để làm theo hướng dẫn này, bạn cần đáp ứng các điều kiện tiên quyết sau:
 
 - Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
-- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- Điểm cuối RPC: bạn có thể nhận từ một trong những [Nhà cung cấp điểm cuối](../../../references/public-en.md) được hỗ trợ.
+- [MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask): được sử dụng để triển khai hợp đồng thông minh, ký giao dịch và tương tác với các hợp đồng thông minh.
+- Điểm cuối RPC: Bạn có thể lấy thông tin này từ một trong các nhà cung cấp điểm cuối được hỗ trợ [endpoint providers](../../../../references/public-en.md).
 - KAIA thử nghiệm từ [Vòi](https://faucet.kaia.io): nạp tiền vào tài khoản với một lượng KAIA vừa đủ.
 - Cài đặt [Rust](https://www.rust-lang.org/tools/install) và [Foundry](https://github.com/foundry-rs/foundry#installation).
 
@@ -179,7 +179,7 @@ forge build
 
 ## Deploying your contracts
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Xem danh sách các nhà cung cấp RPC (rpc-providers) trên Kaia tại [../../../../references/public-en.md] để tìm địa chỉ RPC của bạn, sau đó tạo tài khoản bằng [MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask).
 
 Trong hướng dẫn này, chúng tôi sẽ sử dụng hai phương pháp triển khai hợp đồng do Foundry cung cấp:
 
