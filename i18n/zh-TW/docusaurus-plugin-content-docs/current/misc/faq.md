@@ -69,7 +69,7 @@ Kaia 當然是開源的！ 看看我們的 [Github 組織](https://github.com/ka
 
 ## 哪些錢包支持 Kaia？ <a id="which-wallets"></a>
 
-Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等）支持。 請參閱 [此處](../build/tools/wallets/wallets.md)列表。
+Kaia 由冷錢包 D'cent 以及大量熱錢包（如 Kaia Wallet、MetaMask 等）支持。 請參閱清單 [此處](../build/wallets/wallets.md)。
 
 ## 什麼是 Mainnet，什麼是 Kairos？ <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -113,7 +113,7 @@ Kaia Node 與以太坊兼容，因此您可以使用流行的以太坊 SDK，如
 
 ## 我可以在 Kaia 上使用 ERC-20 和 ERC-721 合約嗎？ <a id="can-i-use-erc-20-and-erc-721"></a>
 
-是的。 Kaia 支持 Solidity 作為智能合約語言。 用 Solidity 為 Etherem 編寫的 [ERC-20](../build/smart-contracts/samples/erc-20.md) 和 [ERC-721](../build/smart-contracts/samples/erc-721.md) 可以在 Kaia 上部署和執行。
+是的。 Kaia 支持 Solidity 作為智能合約語言。 以 Solidity 為 Etherem 寫成的 [ERC-20](../build/smart-contracts/token-development/samples/erc-20.md) 和 [ERC-721](../build/smart-contracts/token-development/samples/erc-721.md) 可以在 Kaia 上部署和執行。
 
 還可以定義更多的 Kaia 專用代幣標準。 關注 [KIP（Kaia改進提案）](https://kips.kaia.io/) 並參與討論。
 
