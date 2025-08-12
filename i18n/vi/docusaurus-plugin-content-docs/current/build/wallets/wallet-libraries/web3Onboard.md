@@ -16,7 +16,7 @@ In this guide, you will use Web3-Onboard library to integrate multiple wallets (
 
 - A working react project (by executing `npx create-react-app project-name`)
 - Install the necessary wallets ([Coinbase Wallet](https://www.coinbase.com/wallet/downloads), [Metamask](https://metamask.io/download/)).
-- RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../../references/public-en.md).
+- Điểm cuối RPC: Bạn có thể lấy thông tin này từ một trong các nhà cung cấp điểm cuối được hỗ trợ [endpoint providers](../../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ## Getting Started
