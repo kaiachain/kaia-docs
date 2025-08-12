@@ -84,7 +84,7 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 "0x5C1C757a6Cb6c6FcEFE398674D8209FDA2A74Df4"
 ```
 
-자세한 내용은 [subbridge API](../../../references/json-rpc/subbridge/parent-operator)를 참조하세요.
+자세한 내용은 서브브릿지 API([#1](https://docs.kaia.io/references/json-rpc/subbridge/subscribe-bridge/), [#2](https://docs.kaia.io/references/json-rpc/subbridge/child-operator/))를 참조하세요.
 
 ### 브리지 오퍼레이터에게 KAIA 보내기 <a id="send-klay-to-bridge-operators"></a>
 
@@ -152,7 +152,7 @@ instance: Kaia/vvX.X.X/XXXX-XXXX/goX.X.X
 }]
 ```
 
-자세한 내용은 [subbridge API](../../..references/json-rpc/subbridge/deploy-bridge)를 참조하세요.
+자세한 내용은 [서브브릿지 API](https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/)를 참조하세요.
 
 `subbridge_listBridge`는 브리지 컨트랙트 주소와 해당 컨트랙트의 구독 상태를 보여줍니다.
 서브브릿지는 브리지 컨트랙트 주소 목록을 파일에 저장합니다. 재부팅 시 서브브릿지는 파일에서 브리지 컨트랙트 목록을 다시 로드합니다.
@@ -213,7 +213,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 ### RPC API <a id="rpc-api"></a>
 
 아래와 같이 브리지 컨트랙트의 상태를 확인할 수 있습니다.
-You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-bridge-information) for more details.
+자세한 내용은 [서브브릿지 API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/)를 참조하세요.
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -233,8 +233,8 @@ You can refer to the [subbridge API](../../../references/json-rpc/subbridge/get-
 
 서비스체인은 ERC-20/721 밸류 전송도 지원합니다.
 이를 지원하려면 서비스 체인과 호환되는 ERC-20/721 토큰 컨트랙트를 부모 체인 및 자식 체인 모두에 배포해야 합니다.
-ERC-20/721 토큰 컨트랙트 코드의 경우,
-[토큰 표준](../../../build/smart-contracts/token-standard.md)을 참조하세요.
+ERC-20/721 토큰 컨트랙트 코드(
+)는 [토큰 표준](../../../build/smart-contracts/token-development/token-standard.md)을 참조하세요.
 
 ### 배포 <a id="deployment"></a>
 
@@ -253,7 +253,7 @@ null
 
 이 명령은 자식 체인 토큰("0x376b72abe1b29cace831bd3f5acdfa967814c9cd")을 자식 체인 브리지 컨트랙트("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")와 함께 등록합니다. 이 단계에서는 부모 체인뿐만 아니라 자식 체인에 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포합니다.
 
-자세한 내용은 [Service Chain API](../../../references/json-rpc/subbridge/register-token)를 참조하세요.
+자세한 내용은 [서비스 체인 API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/)를 참조하세요.
 
 ## 밸류 전송 요청 <a id="request-value-transfer"></a>
 
