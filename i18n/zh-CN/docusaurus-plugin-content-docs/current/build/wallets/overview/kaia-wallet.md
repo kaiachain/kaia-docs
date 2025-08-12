@@ -13,7 +13,7 @@ Kaia 钱包是 Kaia 网络的浏览器扩展钱包。 Kaia 钱包可在 Google C
 
 Kaia Wallet 是 Chrome 浏览器的一个网络扩展。 Kaia Wallet 针对桌面环境进行了优化。
 
-Kaia 钱包提供用户账户和密钥的可管理性。 所有交易都透明地记录在 Kaia 区块链上，因此任何人都可以使用 [KaiaScan](../block-explorers/kaiascan.md) 访问交易历史。
+Kaia 钱包提供用户账户和密钥的可管理性。 所有交易都透明地记录在 Kaia 区块链上，因此任何人都可以使用 [KaiaScan](../../tools/block-explorers/kaiascan.md) 访问交易历史。
 
 Kaia 钱包是一种分层确定性（HD）钱包，这意味着它能从单个种子短语无限生成分层树状结构的私钥/公钥。 种子短语由记忆代码词组成，因此比由随机字母数字组成的短语更容易记忆。 用户的私人密钥经过加密并存储在浏览器中。
 
