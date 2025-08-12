@@ -118,5 +118,9 @@
   "item.label.Debugging and Diagnostics": {
     "message": "调试和诊断",
     "description": "Navbar item with label Debugging and Diagnostics"
+  },
+  "item.label.Wallets": {
+    "message": "钱包",
+    "description": "Navbar item with label Wallets"
   }
 }
