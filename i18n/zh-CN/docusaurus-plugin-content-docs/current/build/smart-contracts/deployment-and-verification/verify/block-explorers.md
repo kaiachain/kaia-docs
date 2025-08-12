@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-您可以在此页面查看 Kaia Kairos Testnet 上使用 [libaries](../../../references/sdk/sdk.md)部署智能合约的教程。 您也可以使用 [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide) 等开发工具或其他工具，将智能合约部署到 Kaia Kairos Testnet。
+您可以查看此页面，了解在 Kaia Kairos Testnet 上使用 [libraries](../../../../references/sdk/sdk.md) 部署智能合约的教程。 您也可以使用 [Hardhat](../../../get-started/hardhat.md)、[Foundry](../../deployment-and-verification/deploy/foundry.md)、[Remix](../../deployment-and-verification/deploy/deploy.md#remix-ide) 等开发工具或其他工具（如果愿意），将智能合约部署到 Kaia Kairos Testnet。
 
 :::
 
