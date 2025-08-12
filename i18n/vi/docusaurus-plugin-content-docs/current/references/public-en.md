@@ -325,7 +325,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 ## Useful Resources
 
-- Wallet: [Kaia Wallet](../build/tools/wallets/kaia-wallet.md) is a browser extension wallet for the Kaia Network.
+- Ví: [Kaia Wallet](../build/wallets/overview/kaia-wallet.md) là một tiện ích mở rộng trình duyệt ví cho mạng Kaia.
 
 - Faucet: You can obtain test KAIA for the Kairos test network from [KAIA Faucet](https://faucet.kaia.io).
 
