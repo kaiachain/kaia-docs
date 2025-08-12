@@ -6,9 +6,9 @@
 
 **步骤 1：** 导航至 [Kaia Safe App](https://safe.kaia.io/)。 通过在网络浏览器上导航到应用程序，您可以探索 Kaia Safe 的功能。
 
-**步骤 2：** 连接 [钱包](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)。 目前，Kaia Safe 支持多种钱包，如 [Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../../tutorials/connecting-metamask.mdx) 钱包等。
+**步骤 2：** 连接 [钱包](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)。 目前，Kaia Safe 支持多种钱包，如 [Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../tutorials/connecting-metamask.mdx) 钱包等。
 
-在本指南中，我们将使用 MetaMask。 确保您的 MetaMask 钱包已添加 Kaia 网络（[Mainnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)或 [Kairos Testnet](../../../tutorials/connecting-metamask.mdx#connect-to-kaia-network))，以便成功连接。
+在本指南中，我们将使用 MetaMask。 请确保您的 MetaMask 钱包已添加 Kaia 网络（[Mainnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network) 或 [Kairos Testnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)），以便成功连接。
 
 ![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
 
