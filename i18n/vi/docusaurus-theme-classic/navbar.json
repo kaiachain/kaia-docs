@@ -118,5 +118,9 @@
   "item.label.Debugging and Diagnostics": {
     "message": "Gỡ lỗi và chẩn đoán",
     "description": "Navbar item with label Debugging and Diagnostics"
+  },
+  "item.label.Wallets": {
+    "message": "Ví",
+    "description": "Navbar item with label Wallets"
   }
 }
