@@ -25,8 +25,8 @@ Foundryは、高速でモジュール化されたスマート・コントラク�
 このチュートリアルに従うには、次のことが前提条件となる：
 
 - コードエディタ: [VS Code](https://code.visualstudio.com/download)などのソースコードエディタ。
-- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
-- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
+- [MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../../references/public-en.md)の1つから取得できます。
 - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 - [Rust](https://www.rust-lang.org/tools/install)と[Foundry](https://github.com/foundry-rs/foundry#installation)をインストールする。
 
@@ -179,7 +179,7 @@ forge build
 
 ## Deploying your contracts
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Kaiaの[rpc-providers](../../../../references/public-en.md)のリストを見て、あなたのrpc-urlを見つけ、[MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask)を使ってアカウントを作成してください。
 
 このガイドでは、ファウンドリが提供する2つの契約展開方法を使用する：
 
