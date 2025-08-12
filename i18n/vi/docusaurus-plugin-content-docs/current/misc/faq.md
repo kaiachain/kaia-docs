@@ -69,7 +69,7 @@ Since we cannot guarantee uptime and stability of the endpoints, you can always 
 
 ## Which wallets support Kaia? <a id="which-wallets"></a>
 
-Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Please refer to the list [here](../build/tools/wallets/wallets.md).
+Kaia is supported by the cold wallet D’cent, as well as a host of hot wallets like Kaia Wallet, MetaMask and more. Vui lòng tham khảo danh sách [tại đây](../build/wallets/wallets.md).
 
 ## What is Mainnet, what is Kairos? <a id="what-is-mainnet-what-is-kairos"></a>
 
@@ -113,7 +113,7 @@ Second, consider [downloading chaindata snapshot](../nodes/endpoint-node/install
 
 ## Can I use ERC-20 and ERC-721 contracts on Kaia? <a id="can-i-use-erc-20-and-erc-721"></a>
 
-Yes. Kaia supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/samples/erc-20.md) and [ERC-721](../build/smart-contracts/samples/erc-721.md) written in Solidity for Etherem can be deployed and executed on Kaia.
+Yes. Kaia supports Solidity as a smart contract language. [ERC-20](../build/smart-contracts/token-development/samples/erc-20.md) và [ERC-721](../build/smart-contracts/token-development/samples/erc-721.md) được viết bằng Solidity cho Ethereum có thể được triển khai và thực thi trên Kaia.
 
 Further Kaia-specific token standards can be defined. Follow the [KIP (Kaia Improvement Proposal)](https://kips.kaia.io/) and join the discussion.
 
