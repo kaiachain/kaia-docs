@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-You can check this page for a tutorial on deploying smart contracts using [libraries](../../../references/sdk/sdk.md) on Kaia Kairos Testnet. You may also use a developer tool such as [Hardhat](../../get-started/hardhat.md), [Foundry](../deploy/foundry.md), [Remix](../deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Kaia Kairos Testnet.
+You can check this page for a tutorial on deploying smart contracts using [libraries](../../../../references/sdk/sdk.md) on Kaia Kairos Testnet. You may also use a developer tool such as [Hardhat](../../../get-started/hardhat.md), [Foundry](../../deployment-and-verification/deploy/foundry.md), [Remix](../../deployment-and-verification/deploy/deploy.md#remix-ide)  or another tool if preferred, to deploy the smart contract to Kaia Kairos Testnet.
 
 :::
 

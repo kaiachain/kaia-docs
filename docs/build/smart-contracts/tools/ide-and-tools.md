@@ -10,11 +10,11 @@ Remix Online IDE is a powerful toolset for developing, deploying, debugging, and
 
 Kaia Contracts Wizard is an interactive generator to bootstrap your smart contract and learn about Kaia Contracts. This is based on OpenZeppelin Wizard.
 
-#### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
+#### [Thirdweb](../deployment-and-verification/deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
 
 Thirdweb is a complete web3 development framework that provides everything you need to connect your apps and games to decentralized networks.
 
-#### [Kaia Wallet](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
+#### [Kaia Wallet](../../wallets/overview/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
 
 Kaia Wallet is a browser extension wallet for the Kaia Network. Kaia Wallet empowers you to store and interact with KAIA and your Kaia-based tokens. Kaia Wallet also enables you to sign transactions from web-based Kaia dApps in realtime.
 

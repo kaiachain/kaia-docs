@@ -54,8 +54,8 @@ Let’s get started!
 To follow along in this tutorial, the prerequisites are highlighted below:
 * Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed. 
 * Clone the [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) code.
-* [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../references/public-en.md).
+* [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
+* RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
 * Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ### Getting Started
@@ -446,6 +446,5 @@ In this tutorial, you learned about the Kaia contracts wizard, its functionality
 
 Further, we deployed the generated contracts to Kaia Kairos Testnet using Foundry solidity scripting. You can make use of Remix IDE or any smart contract development environment to deploy smart contract derived or customized using from Kaia Contracts Wizard. You can find corresponding tutorials in the following links:
 
-* [Connecting to Remix](../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask) 
-* [Deploying smart contract using Hardhat](../get-started/hardhat.md)
-* [Deploying smart contract using Truffle](../smart-contracts/samples/erc-20.md#2-2-deploying-smart-contract-using-truffle)
+* [Connecting to Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask) 
+* [Deploying smart contract using Hardhat](../../get-started/hardhat.md)
