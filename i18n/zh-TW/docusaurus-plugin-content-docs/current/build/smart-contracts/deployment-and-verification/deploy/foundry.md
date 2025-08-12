@@ -25,8 +25,8 @@ Foundry 由四個主要 CLI 工具組成，可實現快速、模塊化的智能�
 學習本教程的前提條件如下：
 
 - 代碼編輯器：源代碼編輯器，如 [VS Code](https://code.visualstudio.com/download)。
-- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：用於部署合約、簽署事務和與合約交互。
-- RPC 端點：您可以從支持的[端點提供者](../../../references/public-en.md)中獲取。
+- [MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask): 用來部署契約、簽署交易以及與契約互動。
+- RPC 端點：您可以從其中一個支援的 [端點提供者](../../../../references/public-en.md) 取得。
 - 從 [Faucet](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 - 安裝 [Rust](https://www.rust-lang.org/tools/install) 和 [Foundry](https://github.com/foundry-rs/foundry#installation)。
 
@@ -179,7 +179,7 @@ forge build
 
 ## Deploying your contracts
 
-To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. Take a look at the list of [rpc-providers](../../../references/public-en.md) on Kaia to find your rpc-url, and create an account using [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask).
+To deploy a contract using foundry, you must provide an RPC URL and a private key of the account that will deploy the contract. 看看 Kaia 上 [rpc-providers](../../../../references/public-en.md) 的清單，找到您的 rpc-url，並使用 [MetaMask](../../../tutorials/connecting-metamask.mdx#install-metamask) 建立帳號。
 
 在本指南中，我們將使用 foundry 提供的兩種合約部署方法：
 
