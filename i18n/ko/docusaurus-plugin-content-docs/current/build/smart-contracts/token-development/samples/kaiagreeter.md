@@ -43,4 +43,4 @@ contract KaiaGreeter {
 
 컨트랙트 배포에 대한 자세한 내용과 Remix Online IDE 사용 가이드라인은 다음 문서를 참조하세요.
 
-- [리믹스 온라인 IDE](../../smart-contracts/deploy/deploy.md)
+- [리믹스 온라인 IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
