@@ -43,4 +43,4 @@ contract KaiaGreeter {
 
 有關合同部署詳情和 Remix Online IDE 使用指南，請參閱以下文件。
 
-- [Remix Online IDE](../../smart-contracts/deploy/deploy.md)
+- [Remix Online IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
