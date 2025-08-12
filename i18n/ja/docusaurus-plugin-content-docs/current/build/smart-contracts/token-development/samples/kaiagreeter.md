@@ -43,4 +43,4 @@ contract KaiaGreeter {
 
 契約展開の詳細およびRemix Online IDE利用ガイドラインについては、以下のドキュメントをご参照ください。
 
-- [Remix Online IDE](../../smart-contracts/deploy/deploy.md)
+- [Remix Online IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
