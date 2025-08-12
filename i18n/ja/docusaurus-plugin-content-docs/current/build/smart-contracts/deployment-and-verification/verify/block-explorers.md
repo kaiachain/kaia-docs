@@ -52,7 +52,7 @@ contract Counter {
 
 :::note
 
-Kaia Kairos Testnetの[libraries](../../../references/sdk/sdk.md)を使ったスマートコントラクトのデプロイに関するチュートリアルは、このページで確認できます。 スマートコントラクトをKaia Kairos Testnetにデプロイするには、[Hardhat](../../get-started/hardhat.md)、[Foundry](../deploy/foundry.md)、[Remix](../deploy/deploy.md#remix-ide)などの開発者ツールを使用することもできます。
+Kaia Kairos Testnetの[ライブラリ](../../../../references/sdk/sdk.md)を使用したスマートコントラクトのデプロイに関するチュートリアルは、こちらのページをご覧ください。 スマートコントラクトをKaia Kairos Testnetにデプロイするには、[Hardhat](../../../get-started/hardhat.md)、[Foundry](../../deployment-and-verification/deploy/foundry.md)、[Remix](../../deployment-and-verification/deploy/deploy.md#remix-ide)などの開発者ツールを使用することもできます。
 
 :::
 
