@@ -10,11 +10,11 @@ Remix Online IDEは、EVM互換のスマートコントラクトを開発、デ�
 
 Kaiaコントラクトウィザードは、スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。 これはOpenZeppelin Wizardに基づいています。
 
-#### [Thirdweb](../deploy/thirdweb.md) <a href="#thirdweb" id="thirdweb"></a>
+#### [サードウェブ](../deployment-and-verification/deploy/thirdweb.md)<a href="#thirdweb" id="thirdweb"></a>
 
 Thirdwebは、あなたのアプリやゲームを分散型ネットワークに接続するために必要なすべてを提供する完全なWeb3開発フレームワークです。
 
-#### [Kaia Wallet](../../tools/wallets/kaia-wallet.md) <a href="#kaia-wallet" id="kaia-wallet"></a>
+#### [カイア・ウォレット](../../wallets/overview/kaia-wallet.md)<a href="#kaia-wallet" id="kaia-wallet"></a>
 
 Kaiaコントラクトウィザードは、スマートコントラクトをブートストラップし、Kaiaコントラクトについて学ぶためのインタラクティブなジェネレーターです。 これはOpenZeppelin Wizardに基づいています。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイアウォレットは、カイアネットワークのためのブラウザ拡張ウォレットです。 KAIAウォレットは、KAIAとKAIAベースのトークンを保管し、やり取りすることを可能にします。 カイア・ウォレットはまた、ウェブベースのカイアdAppsからのトランザクションにリアルタイムで署名することもできる。
 
