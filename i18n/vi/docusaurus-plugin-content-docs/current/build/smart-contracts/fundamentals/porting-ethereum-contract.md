@@ -38,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## Decoupled Key Pairs <a id="decoupled-key-pairs"></a>
 
-Kaia [decouples key pairs from addresses](../../learn/accounts.md#decoupling-key-pairs-from-addresses). Nếu người dùng [cập nhật tài khoản](../transactions/basic.md#txtypeaccountupdate), khóa riêng cho một tài khoản cụ thể sẽ được thay thế bằng một khóa khác. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. Để biết thêm chi tiết, hãy tham khảo [tại đây](../../learn/smart-contracts/precompiled-contracts.md).
+Kaia [tách cặp khóa khỏi địa chỉ](../../../learn/accounts.md#decoupling-key-pairs-from-addresses). Nếu người dùng [cập nhật tài khoản](../../transactions/basic.md#txtypeaccountupdate), khóa riêng tư của tài khoản cụ thể đó sẽ được thay thế bằng một khóa khác. Most cases this will not affect your business logic. However if your business logic includes ecrecover, you should consider using validateSender. Để biết thêm chi tiết, vui lòng tham khảo [tại đây](../../../learn/smart-contracts/precompiled-contracts.md).
