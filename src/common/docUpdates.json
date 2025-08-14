@@ -1,6 +1,16 @@
 {
   "updates": [
     {
+      "version": "1.19.1",
+      "date": "2025-08-14",
+      "title": "Enable Kaia Fee Delegation!",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn how to integrate Kaia Fee Delegation Service into your DApp by applying for access and using the provided API references.",
+      "primaryDocLink": "/build/tutorials/integrate-fee-delegation-service",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/352",
+      "showInWhatsNew": true
+    },    
+    {
       "version": "1.19.0",
       "date": "2025-08-12",
       "title": "Integrating Kaia Gas Abstraction!",
