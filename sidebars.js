@@ -325,6 +325,7 @@ const sidebars = {
             'build/tutorials/ga-tutorial/ga-advanced',
           ],
         },        
+        'build/tutorials/integrate-fee-delegation-service',
         'build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk',
         'build/tutorials/fee-delegation-example',
         'build/tutorials/scaffold-eth',
