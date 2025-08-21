@@ -12,8 +12,8 @@ While Full Sync processes every block, Kaia provides flexibility in how much sta
 
 ![Block sync options](/img/learn/block_sync.png)
 
-- **Archive Mode**: This mode persists every block state to disk. To enable it, use the `--gcmode archive` flag. Nodes operating in this mode are referred to as **Archive Nodes**.
-- **Full Mode**: This mode persists block states at specific intervals to optimize disk usage. To enable it, use the `--gcmode full` flag or omit the `--gcmode` flag altogether. Nodes operating in this mode are referred to as **Full Nodes**. Don't confuse this with the general "full sync" method.
+ - **Archive Mode**: This mode persists every block state to disk. To enable it, use the `--gcmode archive` flag. Nodes operating in this mode are referred to as **Archive Nodes**.
+ - **Full Mode**: This mode persists block states at specific intervals to optimize disk usage. To enable it, use the `--gcmode full` flag or omit the `--gcmode` flag altogether. Nodes operating in this mode are referred to as **Full Nodes**. Don't confuse this with the general "full sync" method.
 
 In a full node, block states are persisted to disk every multiple of the number specified by `--state.block-interval NNN` (default: 128). Also the block states of the recent `--state.tries-in-memory NNN` (default: 128) blocks are kept in memory to serve APIs. Therefore, block states are available only when it is a multiple of block interval or recently processed.
 
@@ -44,8 +44,8 @@ However, data analysis often requires using an archive node. It's important to n
 
 To summarize:
 
-- Full Node: Suitable for most applications requiring access to the latest state data and occasional historical data access via tracing APIs.
-- Archive Node: Essential for applications requiring comprehensive historical state access, such as data analysis tools.
+ - Full Node: Suitable for most applications requiring access to the latest state data and occasional historical data access via tracing APIs.
+ - Archive Node: Essential for applications requiring comprehensive historical state access, such as data analysis tools.
 
 ### Hybrid Option: Upstream EN
 
