@@ -21,12 +21,12 @@ Kaia Blockchain aims to become Asia's #1 blockchain, leading the adoption of Web
 ## Top-Level Core Technology and Development Convenience
 
 1. **High Performance**:
-   - Main chain handles at least 4,000 TPS with immediate transaction finality and one-second block generation time.
-   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
+    - Main chain handles at least 4,000 TPS with immediate transaction finality and one-second block generation time.
+    - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
 
 2. **Ethereum Compatibility**:
-   - 100% compatibility ensures EVM-based dApps can be onboarded without modifications.
-   - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. Xem [Solidity - Ngôn ngữ hợp đồng thông minh](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md), và [Di chuyển ứng dụng Ethereum sang Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
+    - 100% compatibility ensures EVM-based dApps can be onboarded without modifications.
+    - Development tools, EVM, and APIs are equivalent to Ethereum, allowing seamless integration and mutual benefit to both ecosystems. Xem [Solidity - Ngôn ngữ hợp đồng thông minh](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md), và [Di chuyển ứng dụng Ethereum sang Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx).
 
 3. **Convenient Account Model**: Enables assigning various keys to accounts, strengthening security and improving user experience.
 
