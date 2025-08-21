@@ -8,9 +8,9 @@ Kaia 優先考慮提供無縫的開發人員體驗，這也是創建 Kaia 合同
 
 在本指南中，您將
 
-- 瞭解 Kaia 合同嚮導的基本功能。
-- 使用 Kaia Contracts Wizard 生成和定製智能合約代碼。
-- 使用 Foundry 腳本系統將 Kaia 合同部署到 Kaia 網絡 (Kairos)。
+ - 瞭解 Kaia 合同嚮導的基本功能。
+ - 使用 Kaia Contracts Wizard 生成和定製智能合約代碼。
+ - 使用 Foundry 腳本系統將 Kaia 合同部署到 Kaia 網絡 (Kairos)。
 
 ## 探索 Kaia 合同嚮導
 
@@ -18,27 +18,27 @@ Kaia Contracts Wizard 將自己定位為使用 Kaia Contracts 編寫智能合約
 
 目前，Kaia 合約嚮導支持以下令牌標準：
 
-- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - 這是 Kaia 的可替代令牌標準。 可互換是指所有代幣都可分割和互換，即具有相同的價值。 可替代代幣的一個典型例子就是法定貨幣，每張等面值的鈔票都具有相同的價值。
-- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - 這是 Kaia 的不可篡改令牌標準。 不可竄改是指每個標記都是不可分割的，因此也是獨一無二的。 KIP17 代幣可以代表一個獨特物品的所有權，無論是實物財產還是虛擬收藏品，如圖片、遊戲中的物品、不動產等。
-- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - 這被稱為 Kaia 的多令牌標準，因為它可以在單個智能合約中同時表示可替換令牌和不可替換令牌。
+ - [KIP-7](https://kips.kaia.io/KIPs/kip-7) - 這是 Kaia 的可替代令牌標準。 可互換是指所有代幣都可分割和互換，即具有相同的價值。 可替代代幣的一個典型例子就是法定貨幣，每張等面值的鈔票都具有相同的價值。
+ - [KIP-17](https://kips.kaia.io/KIPs/kip-17) - 這是 Kaia 的不可篡改令牌標準。 不可竄改是指每個標記都是不可分割的，因此也是獨一無二的。 KIP17 代幣可以代表一個獨特物品的所有權，無論是實物財產還是虛擬收藏品，如圖片、遊戲中的物品、不動產等。
+ - [KIP-37](https://kips.kaia.io/KIPs/kip-37) - 這被稱為 Kaia 的多令牌標準，因為它可以在單個智能合約中同時表示可替換令牌和不可替換令牌。
 
 與我們的 [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) 支持一致，Kaia 合約嚮導也支持 [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)。
 
 Kaia 合同嚮導由以下部分組成：
 
-- **令牌標準部分**：該選項卡包含 Kaia 合約嚮導支持的所有不同令牌標準。
+ - **令牌標準部分**：該選項卡包含 Kaia 合約嚮導支持的所有不同令牌標準。
 
-- **設置部分**：該部分提供每個代幣標準的初步設置，如代幣名稱、符號、預鑄幣（合約部署時的代幣供應）和 URI（針對不可兌換代幣）。
+ - **設置部分**：該部分提供每個代幣標準的初步設置，如代幣名稱、符號、預鑄幣（合約部署時的代幣供應）和 URI（針對不可兌換代幣）。
 
-- **功能部分**：包括每個令牌標準的所有功能。 您可以在以下鏈接中找到更多關於每種令牌可用的不同擴展名的信息：
+ - **功能部分**：包括每個令牌標準的所有功能。 您可以在以下鏈接中找到更多關於每種令牌可用的不同擴展名的信息：
 
-    - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-    - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-    - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+     - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+     - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+     - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
-- **訪問控制部分**：包括每個令牌標準的所有可用訪問控制機制。
+ - **訪問控制部分**：包括每個令牌標準的所有可用訪問控制機制。
 
-- **交互式代碼顯示部分**：顯示根據用戶設置的配置生成的智能合約代碼。
+ - **交互式代碼顯示部分**：顯示根據用戶設置的配置生成的智能合約代碼。
 
 ![](/img/build/tools/kcw-image.png)
 
@@ -54,11 +54,11 @@ Kaia 合同嚮導由以下部分組成：
 
 要跟上本教程，先決條件如下：
 
-- 確保安裝了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
-- 克隆 [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 程式碼。
-- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): 用來部署契約、簽署交易以及與契約互動。
-- RPC 端點：您可以從其中一個支援的 [端點提供者](../../../references/public-en.md) 取得。
-- 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
+ - 確保安裝了 [foundry](https://book.getfoundry.sh/getting-started/installation)。
+ - 克隆 [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 程式碼。
+ - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): 用來部署契約、簽署交易以及與契約互動。
+ - RPC 端點：您可以從其中一個支援的 [端點提供者](../../../references/public-en.md) 取得。
+ - 從 [水龍頭](https://faucet.kaia.io)測試 KAIA：為賬戶注入足夠的 KAIA。
 
 ### 開始
 
@@ -456,5 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 此外，我們還使用 Foundry solidity 腳本將生成的合同部署到 Kaia Kairos Testnet。 您可以使用 Remix IDE 或任何智能合約開發環境來部署從 Kaia Contracts Wizard 派生或定製的智能合約。 您可以在以下鏈接中找到相應的教程：
 
-- [Connecting to Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [使用 Hardhat 部署智慧契約](../../get-started/hardhat.md)
+ - [Connecting to Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+ - [使用 Hardhat 部署智慧契約](../../get-started/hardhat.md)
