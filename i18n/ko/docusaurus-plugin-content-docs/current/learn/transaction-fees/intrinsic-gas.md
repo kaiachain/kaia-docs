@@ -16,10 +16,10 @@ A transaction's `intrinsicGas` can be calculated by adding up the next four fact
 IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
 
-- `PayloadGas` is calculated based on the size of the data field in the tx.
-- `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
-- `KeyValidationGas` is calculated based on the number of signatures.
-- `TxTypedGas` is defined based on the transaction types.
+ - `PayloadGas` is calculated based on the size of the data field in the tx.
+ - `KeyCreationGas` is calculated when the transaction registers new keys. Only applicable in `accountUpdate` transaction.
+ - `KeyValidationGas` is calculated based on the number of signatures.
+ - `TxTypedGas` is defined based on the transaction types.
 
 Before we get into the detail, keep in mind that not all key types apply the keyGases (`KeyCreationGas` and `KeyValidationGas`).
 
@@ -62,24 +62,24 @@ There are three types of transactions in klaytn; `base`, `feeDelegated`, and `fe
 
 For example,
 
-- TxTypeValueTransfer is the `base` type of the valueTransaction transaction.
-- TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
-- TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
+ - TxTypeValueTransfer is the `base` type of the valueTransaction transaction.
+ - TxTypeFeeDelegatedValueTransfer is a `feeDelegated` type of the valueTransfer transaction.
+ - TxTypeFeeDelegatedValueTransferWithRatio is a `feeDelegatedWithRatio` type of the valueTransfer transaction.
 
 This is important when calculating TxTypedGas:
 
-- First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
-    - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
-    - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
-- Second, check the transaction creates contract or not.
-    - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
-    - Otherwise, add `TxGas (21000)` to TxTypedGas.
+ - First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
+     - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+     - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+ - Second, check the transaction creates contract or not.
+     - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+     - Otherwise, add `TxGas (21000)` to TxTypedGas.
 
 For example,
 
-- If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
-- If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
-- If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
+ - If it's legacyTransaction and creates contract, the TxTypedGas would be `0 + TxGasContractCreation(53000)`.
+ - If it's TxTypeFeeDelegatedValueTransfer, the TxTypedGas would be `TxGasFeeDelegated(10000) + TxGas (21000)`
+ - If it's TxTypeFeeDelegatedSmartContractDeployWithRatio, the TxTypedGas would be `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)`
 
 ## Hardfork changes
 
