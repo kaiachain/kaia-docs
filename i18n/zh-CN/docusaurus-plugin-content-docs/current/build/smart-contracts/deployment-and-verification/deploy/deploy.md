@@ -77,8 +77,8 @@ contract CoinFlip {
 
 6. 设置气体限值和发送值。
 
-- 如果部署的是更复杂的合同，可能需要设置更高的气体限值。 在本例中，可以保持原样。
-- 将 `Value` 设为 0，除非您想在部署时向合同发送 `KAIA`。
+ - 如果部署的是更复杂的合同，可能需要设置更高的气体限值。 在本例中，可以保持原样。
+ - 将 `Value` 设为 0，除非您想在部署时向合同发送 `KAIA`。
 
 7. 点击**部署**按钮
 
@@ -96,4 +96,4 @@ contract CoinFlip {
 
 如果您读完了本指南，恭喜您。 如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。 不过，以下是您在 Kaia 上使用 Remix IDE 进一步构建时可能需要的有用资源列表。
 
-- [混音文档](https://remix-ide.readthedocs.io/en/latest/)
+ - [混音文档](https://remix-ide.readthedocs.io/en/latest/)
