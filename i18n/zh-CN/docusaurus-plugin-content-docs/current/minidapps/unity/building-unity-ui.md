@@ -21,9 +21,9 @@
 
 1. 右键单击 Web3UI 并选择 "创建空"。
 2. 创建并重新命名这些面板：
-   - StatusPanel - 您的 dApp 信息显示屏
-   - 按钮面板 - 用于用户交互
-   - MintPanel - 用于代币铸造功能
+    - StatusPanel - 您的 dApp 信息显示屏
+    - 按钮面板 - 用于用户交互
+    - MintPanel - 用于代币铸造功能
 
 ## 创建面板组件
 
@@ -31,7 +31,7 @@
 
 该面板显示所有重要的 Web3 信息：
 
-- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "状态......"
+ - 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "状态......"
 
 :::note
 **TextMeshPro（TMP）设置**
@@ -43,8 +43,8 @@
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 AddressText。 确保填写文本对象，例如 "地址文本......"
-- 右键点击 StatusPanel，点击 UI → Text - TextMeshPro，然后重命名为 TokenBalanceText。 确保填写文本对象，例如 "0.0000 ET"
+ - 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 AddressText。 确保填写文本对象，例如 "地址文本......"
+ - 右键点击 StatusPanel，点击 UI → Text - TextMeshPro，然后重命名为 TokenBalanceText。 确保填写文本对象，例如 "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@
 
 您的主要互动按钮
 
-- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
+ - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
 
-- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
+ - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 代币铸造界面：
 
-- 右键单击 MintPanel，单击用户界面 → 输入字段 → TextMeshPro，然后重命名为 MintAmountInput。 确保在占位符对象上填写 "输入金额…"
-- 右键单击 MintPanel，单击用户界面 → 按钮 → TextMeshPro，然后重命名为 MintButton。 确保用 "薄荷 "填充文本对象
+ - 右键单击 MintPanel，单击用户界面 → 输入字段 → TextMeshPro，然后重命名为 MintAmountInput。 确保在占位符对象上填写 "输入金额…"
+ - 右键单击 MintPanel，单击用户界面 → 按钮 → TextMeshPro，然后重命名为 MintButton。 确保用 "薄荷 "填充文本对象
 
 ```code
 MintPanel
