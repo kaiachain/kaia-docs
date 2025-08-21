@@ -10,8 +10,8 @@
 
 1. アクティブなCNの `nodekey` のバックアップを作成する。
 2. スタンバイCNを設置する。 以外はアクティブCNと同じ構成である：
-   - スタンバイでは別の `nodekey` を使用する。
-   - `$DATA_DIR/static-nodes.json`にPNのアドレスを追加する。
+    - スタンバイでは別の `nodekey` を使用する。
+    - `$DATA_DIR/static-nodes.json`にPNのアドレスを追加する。
 
 ### フェイルオーバー<a id="failover"></a>
 
