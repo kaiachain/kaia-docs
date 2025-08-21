@@ -831,24 +831,24 @@ Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和�
 
 1. 确保在前端代码中确认这些配置：
 
-  a. 打开 package.json，添加以下脚本：
+   a. 打开 package.json，添加以下脚本：
 
-  ```js
-  	"scripts": {
-  	 "dev": "next",
-  	 "build": "next build",
-  	  "start": "next start",
-  		  "export": "next export"  
-  	}
-  ```
+   ```js
+   	"scripts": {
+   	 "dev": "next",
+   	 "build": "next build",
+   	  "start": "next start",
+   		  "export": "next export"  
+   	}
+   ```
 
-  b. 将下面的代码粘贴到根目录下的 next.config.js 文件中：
+   b. 将下面的代码粘贴到根目录下的 next.config.js 文件中：
 
-  ```js
-  	module.exports = {
-  		exportTrailingSlash: true,
-  	};
-  ```
+   ```js
+   	module.exports = {
+   		exportTrailingSlash: true,
+   	};
+   ```
 
 如需了解更多信息，请访问本 [指南](https://blog.fleek.co/posts/fleek-nextJS)
 
