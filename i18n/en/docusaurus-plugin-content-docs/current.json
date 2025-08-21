@@ -358,5 +358,33 @@
   "sidebar.refSidebar.category.viem-ext": {
     "message": "viem-ext",
     "description": "The label for category viem-ext in sidebar refSidebar"
+  },
+  "sidebar.buildSidebar.doc.Step 1: Foundation Setup": {
+    "message": "Step 1: Foundation Setup",
+    "description": "The label for the doc item Step 1: Foundation Setup in sidebar buildSidebar, linking to the doc build/get-started/foundation-setup"
+  },
+  "sidebar.buildSidebar.doc.Step 2: Set up Account and Networks": {
+    "message": "Step 2: Set up Account and Networks",
+    "description": "The label for the doc item Step 2: Set up Account and Networks in sidebar buildSidebar, linking to the doc build/wallets/wallet-config/configure-wallet-for-kaia-networks"
+  },
+  "sidebar.buildSidebar.doc.Step 3: Get KAIA": {
+    "message": "Step 3: Get KAIA",
+    "description": "The label for the doc item Step 3: Get KAIA in sidebar buildSidebar, linking to the doc build/get-started/getting-kaia"
+  },
+  "sidebar.buildSidebar.doc.Step 4: Deploy Hello World Contract": {
+    "message": "Step 4: Deploy Hello World Contract",
+    "description": "The label for the doc item Step 4: Deploy Hello World Contract in sidebar buildSidebar, linking to the doc build/smart-contracts/token-development/samples/kaiagreeter"
+  },
+  "sidebar.buildSidebar.doc.Step 5: Deploy your First Token Contract": {
+    "message": "Step 5: Deploy your First Token Contract",
+    "description": "The label for the doc item Step 5: Deploy your First Token Contract in sidebar buildSidebar, linking to the doc build/get-started/hardhat"
+  },
+  "sidebar.buildSidebar.doc.Step 6: Build your First dApp on Kaia": {
+    "message": "Step 6: Build your First dApp on Kaia",
+    "description": "The label for the doc item Step 6: Build your First dApp on Kaia in sidebar buildSidebar, linking to the doc build/tutorials/scaffold-eth"
+  },
+  "sidebar.buildSidebar.doc.Step 7: Build your Mini dApp on Kaia": {
+    "message": "Step 7: Build your Mini dApp on Kaia",
+    "description": "The label for the doc item Step 7: Build your Mini dApp on Kaia in sidebar buildSidebar, linking to the doc minidapps/minidapps"
   }
 }
