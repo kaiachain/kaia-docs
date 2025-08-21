@@ -115,7 +115,7 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ## 有用連結
 
-- [在 Kaiascan 上設定 Foundry Verify](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+ - [在 Kaiascan 上設定 Foundry Verify](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
