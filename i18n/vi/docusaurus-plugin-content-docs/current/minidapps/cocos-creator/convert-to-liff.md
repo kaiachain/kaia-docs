@@ -10,19 +10,19 @@ Chúng ta hãy bắt đầu nhé!
 
 1. Thiết lập bảng điều khiển LINE Developers:
 
-  - Truy cập Bảng điều khiển dành cho nhà phát triển LINE.
-  - Tạo Nhà cung cấp (bỏ qua nếu bạn đã có).
+   - Truy cập Bảng điều khiển dành cho nhà phát triển LINE.
+   - Tạo Nhà cung cấp (bỏ qua nếu bạn đã có).
 
-  ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
+   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - Tạo kênh Đăng nhập LINE mới.
+   - Tạo kênh Đăng nhập LINE mới.
 
-  ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - Điều hướng đến tab LIFF
-  - Nhấp vào "Thêm ứng dụng LIFF"
+   - Điều hướng đến tab LIFF
+   - Nhấp vào "Thêm ứng dụng LIFF"
 
-  ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. Cấu hình cài đặt LIFF:
 
@@ -190,10 +190,10 @@ build/
 ## Bước 6: Cấu hình và thử nghiệm cuối cùng <a id="final-configuration-and-testing"></a>
 
 1. Cập nhật điểm cuối LIFF của bạn:
-  - Quay lại Bảng điều khiển dành cho nhà phát triển LINE
-  - Xác định vị trí ứng dụng LIFF của bạn
-  - Nhấp vào "Chỉnh sửa"
-  - Cập nhật URL tới trang web đã triển khai của bạn.
+   - Quay lại Bảng điều khiển dành cho nhà phát triển LINE
+   - Xác định vị trí ứng dụng LIFF của bạn
+   - Nhấp vào "Chỉnh sửa"
+   - Cập nhật URL tới trang web đã triển khai của bạn.
 
 Bây giờ dApp mini của bạn đã có thể sử dụng được.
 
