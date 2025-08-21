@@ -25,17 +25,17 @@ contract KaiaGreeter {
 
 ## Remix 온라인 IDE를 사용하여 KaiaGreeter 배포하기 <a href="#deploying-kaiagreeter-using-klaytn-ide" id="deploying-kaiagreeter-using-klaytn-ide"></a>
 
-- 리믹스용 Kaia 플러그인](https://ide.kaia.io)을 방문하여 `KaiaGreeter.sol` 컨트랙트를 생성하세요.
+ - 리믹스용 Kaia 플러그인](https://ide.kaia.io)을 방문하여 `KaiaGreeter.sol` 컨트랙트를 생성하세요.
 
-- 위의 코드를 복사하여 새로 만든 파일에 붙여넣습니다: `KaiaGreeter.sol`.
+ - 위의 코드를 복사하여 새로 만든 파일에 붙여넣습니다: `KaiaGreeter.sol`.
 
     ![](/img/build/smart-contracts/kg-v2-create.png)
 
-- 아직 테스트 KAIA가 없는 경우 [수도꼭지](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
+ - 아직 테스트 KAIA가 없는 경우 [Faucet](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
 
-- 초기 파라미터인 인사말 메시지와 함께 컨트랙트를 배포합니다.
+ - 초기 파라미터인 인사말 메시지와 함께 컨트랙트를 배포합니다.
 
-- 배포 후, IDE에서 `greet`를 호출할 수 있습니다.
+ - 배포 후, IDE에서 `greet`를 호출할 수 있습니다.
 
     ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
@@ -43,4 +43,4 @@ contract KaiaGreeter {
 
 컨트랙트 배포에 대한 자세한 내용과 Remix Online IDE 사용 가이드라인은 다음 문서를 참조하세요.
 
-- [리믹스 온라인 IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
+ - [리믹스 온라인 IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
