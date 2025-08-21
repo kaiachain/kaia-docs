@@ -6,29 +6,29 @@
 
 ### 步骤 1：创建场景文件夹<a id="create-scene-folder"></a>
 
-- 导航至项目的 **assets** 文件夹。
-- 右键单击并选择 \*\* 创建文件夹\*\*。
-- 说出**场景**。 (插入图片）
-- 在场景文件夹中，右键单击并选择 \*\* 创建 → 场景\*\*。
+ - 导航至项目的 **assets** 文件夹。
+ - 右键单击并选择 \*\* 创建文件夹\*\*。
+ - 说出**场景**。 (插入图片）
+ - 在场景文件夹中，右键单击并选择 \*\* 创建 → 场景\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-create-scene-r.png)
 
-- 按提示保存场景文件。
-- 双击新创建的场景，将其设置为**默认场景**。
+ - 按提示保存场景文件。
+ - 双击新创建的场景，将其设置为**默认场景**。
 
 ### 步骤 2：创建基本画布<a id="creating-base-canvas"></a>
 
-- 在层次结构窗口中，右键单击**场景**。
-- 导航至 **创建 → UI 组件 → 画布**。
-- 将其重命名为 **Canvas**
+ - 在层次结构窗口中，右键单击**场景**。
+ - 导航至 **创建 → UI 组件 → 画布**。
+ - 将其重命名为 **Canvas**
 
 ![](/img/minidapps/cocos-creator/cp-create-canvas-r.png)
 
 ### 步骤 3：创建 Web3UI 容器<a id="create-web3ui-container"></a>
 
-- 右键单击新创建的**画布**。
-- 选择 \*\* 创建 → 空节点\*\*。
-- 将其重命名为 **Web3UI**。
+ - 右键单击新创建的**画布**。
+ - 选择 \*\* 创建 → 空节点\*\*。
+ - 将其重命名为 **Web3UI**。
 
 ![](/img/minidapps/cocos-creator/cp-create-web3-ui-r.png)
 
@@ -38,37 +38,37 @@
 
 **1. 连接钱包按钮**
 
-- 右键单击 **Web3UI → 创建 → UI 组件 → 按钮**。
+ - 右键单击 **Web3UI → 创建 → UI 组件 → 按钮**。
 
 ![](/img/minidapps/cocos-creator/cp-connect-button-r.png)
 
-- 将其重命名为 **ConnectWallet**。
-- 在**检查器窗格**中，将按钮标签文本设置为**连接钱包**。
+ - 将其重命名为 **ConnectWallet**。
+ - 在**检查器窗格**中，将按钮标签文本设置为**连接钱包**。
 
 ![](/img/minidapps/cocos-creator/cp-connect-label-r.png)
 
 **2. 薄荷纽扣**
 
-- 右键单击 **Web3UI → 创建 → UI 组件 → 按钮**。
-- 将其重命名为 **MintButton**。
-- 将按钮标签文本设置为 **薄荷按钮**。
+ - 右键单击 **Web3UI → 创建 → UI 组件 → 按钮**。
+ - 将其重命名为 **MintButton**。
+ - 将按钮标签文本设置为 **薄荷按钮**。
 
 **3. 地址标签**
 
-- 右键单击 **Web3UI → 创建 → 2D 对象 → 标签**。
+ - 右键单击 **Web3UI → 创建 → 2D 对象 → 标签**。
 
 ![](/img/minidapps/cocos-creator/cp-address-label-r.png)
 
-- 将其重命名为 **地址标签**。
-- 将标签文本设置为 **连接地址：**。
+ - 将其重命名为 **地址标签**。
+ - 将标签文本设置为 **连接地址：**。
 
 ![](/img/minidapps/cocos-creator/cp-connected-address-r.png)
 
 **4. 余额标签**
 
-- 右键单击 **Web3UI → 创建 → 2D 对象 → 标签**。
-- 将其重命名为 **BalanceLabel**。
-- 将标签文本设置为 **0.000ET**。
+ - 右键单击 **Web3UI → 创建 → 2D 对象 → 标签**。
+ - 将其重命名为 **BalanceLabel**。
+ - 将标签文本设置为 **0.000ET**。
 
 添加所有组件后，层次结构应如下所示：
 
