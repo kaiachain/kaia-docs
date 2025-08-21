@@ -10,10 +10,10 @@
 
 ## 先决条件
 
-- [Kaia 钱包](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
-- [Remix IDE](https://remix.ethereum.org/)
-- [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- 测试来自 [龙头] 的 KAIA(https://faucet.kaia.io)
+ - [Kaia 钱包](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+ - [Remix IDE](https://remix.ethereum.org/)
+ - [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+ - 测试来自 [龙头] 的 KAIA(https://faucet.kaia.io)
 
 ## 开始
 
@@ -66,14 +66,14 @@ return price;
 
 **Remix IDE**
 
-- 导航至 [Remix IDE](https://remix.ethereum.org/)
-- 单击 "文件资源管理器 "选项卡，在合同文件夹中新建一个名为 "demoSupraPriceFeed.sol "的文件。
-- 将下面的代码粘贴到新创建的文件中
-- 在 Remix 中，点击 **编译合同**。
-- 安装插件后，点击左侧的 Kaia 选项卡
-- 选择 **环境** > **注入式提供商** - **Kaia Wallet**。
-- 在**合同**中，选择您的合同。 例如，ISupraSValueFeedExample。
-- 点击 **部署**。
+ - 导航至 [Remix IDE](https://remix.ethereum.org/)
+ - 单击 "文件资源管理器 "选项卡，在合同文件夹中新建一个名为 "demoSupraPriceFeed.sol "的文件。
+ - 将下面的代码粘贴到新创建的文件中
+ - 在 Remix 中，点击 **编译合同**。
+ - 安装插件后，点击左侧的 Kaia 选项卡
+ - 选择 **环境** > **注入式提供商** - **Kaia Wallet**。
+ - 在**合同**中，选择您的合同。 例如，ISupraSValueFeedExample。
+ - 点击 **部署**。
 
 \*\* 示例代码\*\*
 
