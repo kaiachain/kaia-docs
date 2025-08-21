@@ -4,9 +4,9 @@
 
 ### Setting Java
 
-- Use java version: 11 `<=` v `<=` 18
-- https://adoptopenjdk.net 사이트 방문
-- Download OpenJDK
+ - Use java version: 11 `<=` v `<=` 18
+ - https://adoptopenjdk.net 사이트 방문
+ - Download OpenJDK
 
 ## Install Web3j kaia extension
 
