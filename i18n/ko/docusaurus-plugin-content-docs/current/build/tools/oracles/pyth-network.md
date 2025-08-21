@@ -58,8 +58,8 @@ For more information, check out the official [Pyth documentation](https://docs.p
 
 The Pyth Network smart contract is available at the following address:
 
-- Mainnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
-- Kairos Testnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+ - Mainnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+ - Kairos Testnet: [0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
 Additionally, click to access the [Pyth price-feed IDs](https://pyth.network/developers/price-feed-ids).
 
@@ -73,10 +73,10 @@ The Pyth network provides additional tools to developers, such as [TradingView I
 
 Check out the following links to get started with Pyth.
 
-- [Pyth EVM Integration Guide](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
-- [Pyth Docs](https://docs.pyth.network/home)
-- [Pyth API Reference](https://api-reference.pyth.network/price-feeds/evm/getPrice)
-- [Pyth Examples](https://github.com/pyth-network/pyth-examples)
-- [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
-- [Website](https://pyth.network/)
-- [Twitter](https://x.com/PythNetwork)
+ - [Pyth EVM Integration Guide](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
+ - [Pyth Docs](https://docs.pyth.network/home)
+ - [Pyth API Reference](https://api-reference.pyth.network/price-feeds/evm/getPrice)
+ - [Pyth Examples](https://github.com/pyth-network/pyth-examples)
+ - [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
+ - [Website](https://pyth.network/)
+ - [Twitter](https://x.com/PythNetwork)
