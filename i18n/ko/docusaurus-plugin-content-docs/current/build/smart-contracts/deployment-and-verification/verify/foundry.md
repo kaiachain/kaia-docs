@@ -115,7 +115,7 @@ forge verify-contract --verifier-url https://kairos-api.kaiascan.io/forge-verify
 
 ## 유용한 링크
 
-- [KaiaScan에서 파운드리 검증을 위한 구성](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+ - [KaiaScan에서 파운드리 검증을 위한 구성](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
