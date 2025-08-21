@@ -4,10 +4,10 @@ Survey Mini dApp là ứng dụng phi tập trung (dApp) tập trung vào quyề
 
 Hướng dẫn toàn diện này bao gồm:
 
-- Ứng dụng này có chức năng gì và mục tiêu của nó.
-- Các công cụ và điều kiện tiên quyết cần thiết.
-- Thiết lập môi trường phát triển hợp đồng thông minh.
-- Tích hợp và triển khai giao diện người dùng.
+ - Ứng dụng này có chức năng gì và mục tiêu của nó.
+ - Các công cụ và điều kiện tiên quyết cần thiết.
+ - Thiết lập môi trường phát triển hợp đồng thông minh.
+ - Tích hợp và triển khai giao diện người dùng.
 
 Để bắt đầu nhanh chóng, bạn sẽ tìm thấy toàn bộ mã cho hướng dẫn này trên [Github](https://github.com/kjeom/ExampleMiniDapp). Bằng cách này, bạn có thể khám phá cách thức hoạt động bên trong của ứng dụng khi thực hiện theo.
 
