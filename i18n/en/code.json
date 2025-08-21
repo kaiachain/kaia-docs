@@ -756,5 +756,47 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "Collapse the dropdown",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "Step 1: Foundation Setup"
+  },
+  "getStarted.step1.description": {
+    "message": "Get oriented with Kaia networks, tools, and development environment."
+  },
+  "getStarted.step2.title": {
+    "message": "Step 2: Set Up Wallet & Network"
+  },
+  "getStarted.step2.description": {
+    "message": "Configure your wallet for Kaia networks and create an account."
+  },
+  "getStarted.step3.title": {
+    "message": "Step 3: Get Test KAIA"
+  },
+  "getStarted.step3.description": {
+    "message": "Fund your wallet with testnet KAIA from the faucet."
+  },
+  "getStarted.step4.title": {
+    "message": "Step 4: Hello World with Remix"
+  },
+  "getStarted.step4.description": {
+    "message": "Deploy your first smart contract using Remix IDE."
+  },
+  "getStarted.step5.title": {
+    "message": "Step 5: Create Your First Token"
+  },
+  "getStarted.step5.description": {
+    "message": "Build and deploy a soulbound token using Hardhat."
+  },
+  "getStarted.step6.title": {
+    "message": "Step 6: Build Your First dApp"
+  },
+  "getStarted.step6.description": {
+    "message": "Create a full-stack decentralized application."
+  },
+  "getStarted.step7.title": {
+    "message": "Step 7: Build a Mini dApp"
+  },
+  "getStarted.step7.description": {
+    "message": "Integrate Web3 features into platforms like LINE."
   }
 }
