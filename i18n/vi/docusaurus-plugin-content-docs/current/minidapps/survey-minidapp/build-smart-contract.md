@@ -266,25 +266,25 @@ Trong giao diện ISemaphore, chúng ta có những nội dung sau:
 **Chức năng chính:**
 
 1. **Quản lý nhóm**
-  - _createGroup()_: Tạo nhóm mới với tùy chọn quản trị viên và thời hạn
-  - _updateGroupAdmin()_: Thay đổi quản trị viên nhóm
-  - _acceptGroupAdmin()_: Chấp nhận vai trò quản trị viên cho nhóm
+   - _createGroup()_: Tạo nhóm mới với tùy chọn quản trị viên và thời hạn
+   - _updateGroupAdmin()_: Thay đổi quản trị viên nhóm
+   - _acceptGroupAdmin()_: Chấp nhận vai trò quản trị viên cho nhóm
 2. **Quản lý thành viên**
-  - _addMember()_: Thêm một thành viên vào nhóm
-  - _addMembers()_: Thêm nhiều thành viên cùng một lúc
-  - _updateMember()_: Cập nhật cam kết danh tính của thành viên
-  - _removeMember()_: Xóa thành viên khỏi nhóm
+   - _addMember()_: Thêm một thành viên vào nhóm
+   - _addMembers()_: Thêm nhiều thành viên cùng một lúc
+   - _updateMember()_: Cập nhật cam kết danh tính của thành viên
+   - _removeMember()_: Xóa thành viên khỏi nhóm
 3. **Xác thực bằng chứng**
-  - validateProof(): Xác thực bằng chứng không kiến thức và ngăn chặn tín hiệu kép
-  - verifyProof(): Xác minh tính hợp lệ của bằng chứng mà không thay đổi trạng thái
+   - validateProof(): Xác thực bằng chứng không kiến thức và ngăn chặn tín hiệu kép
+   - verifyProof(): Xác minh tính hợp lệ của bằng chứng mà không thay đổi trạng thái
 4. **Cấu hình**
-  - _groupCounter()_: Trả về tổng số nhóm đã tạo
-  - _updateGroupMerkleTreeDuration()_: Cập nhật thời lượng của cây Merkle
+   - _groupCounter()_: Trả về tổng số nhóm đã tạo
+   - _updateGroupMerkleTreeDuration()_: Cập nhật thời lượng của cây Merkle
 5. **Sự kiện**:
-  - _GroupMerkleTreeDurationUpdated_: Ghi lại những thay đổi về thời lượng của cây Merkle
-  - _ProofValidated_: Ghi lại chi tiết bằng chứng đã xác thực
+   - _GroupMerkleTreeDurationUpdated_: Ghi lại những thay đổi về thời lượng của cây Merkle
+   - _ProofValidated_: Ghi lại chi tiết bằng chứng đã xác thực
 6. **Xử lý lỗi**:
-  - Lỗi tùy chỉnh cho các bản in thử không hợp lệ, các phần tử hủy trùng lặp, nhóm trống, v.v.
+   - Lỗi tùy chỉnh cho các bản in thử không hợp lệ, các phần tử hủy trùng lặp, nhóm trống, v.v.
 
 Giao diện này cung cấp nền tảng cho việc quản lý nhóm đảm bảo quyền riêng tư và xác minh không tiết lộ thông tin trong hệ thống khảo sát.
 
