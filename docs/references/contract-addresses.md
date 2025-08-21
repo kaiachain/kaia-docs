@@ -36,4 +36,4 @@ Some contracts are not directly read by Kaia nodes but play crucial roles in ope
 | KIP-226 CLDEXFactory            | 0x2A4C5eCaafB26460F17d509EA4d15741AF5F5f0a | 0x537D58BdBC98c690bE5d3e3F638d4B93754B15Fd |
 | KIP-226 CLDEXRouter             | 0x21d3c567058277b19324FE22c8e4Bb3D2AE0D4C3 | 0x41F135a084897e4145CC2032e8701726af795e3a |
 | KIP-226 StakingTrackerV2        | 0xF45c37c265f148894D6d9A4c066aFaAB00557c9c | 0x9b015Ab5916EE53e52Ef60f31E978b4001908c43 |
-
+| [Canonical WKAIA](../build/smart-contracts/token-development/canonical-wkaia.md)           | 0x19Aac5f612f524B754CA7e7c41cbFa2E981A4432 | 0x043c471bEe060e00A56CcD02c0Ca286808a5A436 |
