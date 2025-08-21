@@ -256,6 +256,7 @@ const sidebars = {
           label: 'Token Development',
           items: [
             'build/smart-contracts/token-development/token-standard',
+            'build/smart-contracts/token-development/canonical-wkaia',
             {
               type: 'category',
               label: 'Sample Contracts',
