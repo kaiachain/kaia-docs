@@ -8,19 +8,19 @@
 
 1. LINE 开发人员控制台设置：
 
-  - 访问 LINE 开发人员控制台。
-  - 创建一个提供程序（如果已经有一个，请跳过）。
+   - 访问 LINE 开发人员控制台。
+   - 创建一个提供程序（如果已经有一个，请跳过）。
 
-  ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
+   ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
 
-  - 创建新的 LINE 登录通道。
+   - 创建新的 LINE 登录通道。
 
-  ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - 导航至 LIFF 选项
-  - 点击 "添加 LIFF 应用程序
+   - 导航至 LIFF 选项
+   - 点击 "添加 LIFF 应用程序
 
-  ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. 配置 LIFF 设置：
 
@@ -264,10 +264,10 @@ Minidapp/
 ## 步骤 4：最终配置和测试<a id="step4-final-config-testing"></a>
 
 1. 更新您的 LIFF 端点：
-  - 返回 LINE 开发人员控制台
-  - 查找您的 LIFF 应用程序
-  - 点击 "编辑
-  - 更新已部署网站的 URL。
+   - 返回 LINE 开发人员控制台
+   - 查找您的 LIFF 应用程序
+   - 点击 "编辑
+   - 更新已部署网站的 URL。
 
 现在，您的迷你 dApp 应该可以随时使用了。
 
