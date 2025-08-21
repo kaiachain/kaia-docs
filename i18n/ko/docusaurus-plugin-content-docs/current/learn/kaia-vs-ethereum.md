@@ -74,14 +74,14 @@ sidebar_label: Kaia 대 이더리움
 ## 빌더를 위한 다음 단계
 
 1. **환경 구성하기**\
-  기존 이더리움 도구가 Kaia와 함께 작동하도록 구성합니다:
+   기존 이더리움 도구가 Kaia와 함께 작동하도록 구성합니다:
 
 - [메인넷 RPC](https://docs.kaia.io/references/public-en/#mainnet-public-json-rpc-endpoints): https://public-en.node.kaia.io ([체인 ID](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/#properties-): 8217\)
-- 테스트넷: 테스트용 Kairos 테스트넷([수도꼭지](https://www.kaia.io/faucet)에서 무료 토큰 받기([무료 토큰 받기](https://docs.kaia.io/build/get-started/getting-kaia/)))
+- 테스트넷: 테스트용 Kairos 테스트넷([Faucet](https://www.kaia.io/faucet)에서 무료 토큰 받기([무료 토큰 받기](https://docs.kaia.io/build/get-started/getting-kaia/)))
 - 도구: 하드햇, 파운드리 및 메타마스크는 수정 없이 작동합니다.
 
 2. **배포 및 테스트**\
-  솔리디티 컨트랙트는 완전한 EVM 호환성으로 인해 변경 없이 배포됩니다. Kairos 테스트넷에서 테스트하여 Kaia의 동적 요금 모델에 따른 가스 사용 패턴을 확인합니다.
+   솔리디티 컨트랙트는 완전한 EVM 호환성으로 인해 변경 없이 배포됩니다. Kairos 테스트넷에서 테스트하여 Kaia의 동적 요금 모델에 따른 가스 사용 패턴을 확인합니다.
 
 3. Kaia의 장점 활용하기\*\*\*\*
 
