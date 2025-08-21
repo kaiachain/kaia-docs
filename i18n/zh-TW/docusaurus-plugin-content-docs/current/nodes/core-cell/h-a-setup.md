@@ -10,8 +10,8 @@
 
 1. 創建活動 CN 的`nodekey`備份。
 2. 安裝備用 CN。 除此以外，配置與活動 CN 相同：
-   - 備用機應使用不同的 \`nodekey
-   - 將 PN 地址添加到 `$DATA_DIR/static-nodes.json` 中
+    - 備用機應使用不同的 \`nodekey
+    - 將 PN 地址添加到 `$DATA_DIR/static-nodes.json` 中
 
 ### 故障切換<a id="failover"></a>
 
