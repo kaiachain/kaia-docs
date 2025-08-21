@@ -10,8 +10,8 @@
 
 1. 创建活动 CN 的`nodekey`备份。
 2. 安装备用 CN。 除此以外，配置与活动 CN 相同：
-   - 备用机应使用不同的 \`nodekey
-   - 将 PN 地址添加到 `$DATA_DIR/static-nodes.json` 中
+    - 备用机应使用不同的 \`nodekey
+    - 将 PN 地址添加到 `$DATA_DIR/static-nodes.json` 中
 
 ### 故障切换<a id="failover"></a>
 
