@@ -50,14 +50,14 @@ Chúng tôi đã xóa trình sửa đổi onlyOwner để cho phép bất kỳ a
 
 1. Sao chép và dán mã ở trên vào tệp ET.sol mới tạo trên Remix IDE.
 2. Trong Remix IDE:
-  - Nhấp vào nút **Biên dịch hợp đồng**.
-  - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
-  - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm - Ví Kaia**.
-  - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
-  - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
+   - Nhấp vào nút **Biên dịch hợp đồng**.
+   - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
+   - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm - Ví Kaia**.
+   - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
+   - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
 3. Khi Ví Kaia của bạn hiện lên:
-  - Xem lại thông tin chi tiết triển khai.
-  - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
+   - Xem lại thông tin chi tiết triển khai.
+   - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
 
 :::note
 Sao chép và lưu địa chỉ hợp đồng đã triển khai. Bạn sẽ cần đến nó sau trong phần hướng dẫn.

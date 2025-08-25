@@ -266,25 +266,25 @@ ISemaphoreインターフェイスでは、次のようになっている：
 \*\*主な機能
 
 1. \*\*グループ経営
-  - _createGroup()_：新しいグループを作成します。
-  - _updateGroupAdmin()_：グループ管理者を変更する
-  - _acceptGroupAdmin()_：グループの管理者ロールを受け入れる
+   - _createGroup()_：新しいグループを作成します。
+   - _updateGroupAdmin()_：グループ管理者を変更する
+   - _acceptGroupAdmin()_：グループの管理者ロールを受け入れる
 2. \*\*会員管理
-  - _addMember()_：単一のメンバーをグループに追加する
-  - _addMembers()_：複数のメンバーを一度に追加する
-  - _updateMember()_：メンバーのIDコミットメントを更新する
-  - _removeMember()_：グループからメンバーを削除する
+   - _addMember()_：単一のメンバーをグループに追加する
+   - _addMembers()_：複数のメンバーを一度に追加する
+   - _updateMember()_：メンバーのIDコミットメントを更新する
+   - _removeMember()_：グループからメンバーを削除する
 3. \*\*プルーフ・バリデーション
-  - validateProof()：ゼロ知識証明を検証し、二重シグナリングを防ぐ
-  - verifyProof()：状態を変更せずに証明の有効性を検証する
+   - validateProof()：ゼロ知識証明を検証し、二重シグナリングを防ぐ
+   - verifyProof()：状態を変更せずに証明の有効性を検証する
 4. \*\*コンフィギュレーション
-  - _groupCounter()_：作成されたグループの総数を返す
-  - _updateGroupMerkleTreeDuration()_：メルクルツリーの期間を更新
+   - _groupCounter()_：作成されたグループの総数を返す
+   - _updateGroupMerkleTreeDuration()_：メルクルツリーの期間を更新
 5. \*\*イベント
-  - _GroupMerkleTreeDurationUpdated_：merkleツリーの期間の変更をログに記録
-  - _ProofValidated_：有効な証明の詳細をログに記録
+   - _GroupMerkleTreeDurationUpdated_：merkleツリーの期間の変更をログに記録
+   - _ProofValidated_：有効な証明の詳細をログに記録
 6. **エラー処理**：
-  - 無効な証明、重複したヌリファイアー、空のグループなどに対するカスタム・エラー。
+   - 無効な証明、重複したヌリファイアー、空のグループなどに対するカスタム・エラー。
 
 このインターフェイスは、調査システムにおいてプライバシーを保持したグループ管理とゼロ知識証明検証の基盤を提供する。
 

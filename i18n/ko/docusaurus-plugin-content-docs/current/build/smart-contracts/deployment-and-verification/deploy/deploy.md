@@ -72,13 +72,13 @@ contract CoinFlip {
 ![](/img/build/smart-contracts/d-remix-import-account.png)
 
 :::note
-계정에 스마트 컨트랙트를 배포하는 거래에 대한 비용을 지불하기에 충분한 KAIA가 있는지 확인하세요. 아직 테스트 KAIA가 없는 경우 [수도꼭지](https://faucet.kaia.io/)에서 테스트 KAIA를 받으세요.
+계정에 스마트 컨트랙트를 배포하는 거래에 대한 비용을 지불하기에 충분한 KAIA가 있는지 확인하세요. 아직 테스트 KAIA가 없는 경우 [Faucet](https://faucet.kaia.io/)에서 테스트 KAIA를 받으세요.
 :::
 
 6. 가스 한도 및 전송할 값을 설정합니다.
 
-- 더 복잡한 컨트랙트를 배포하는 경우 가스 한도를 더 높게 설정해야 할 수도 있습니다. 이 예제에서는 그대로 두셔도 됩니다.
-- 배포 시점에 컨트랙트에 `KLAY`를 보내지 않으려면 `Value`를 0으로 설정합니다.
+ - 더 복잡한 컨트랙트를 배포하는 경우 가스 한도를 더 높게 설정해야 할 수도 있습니다. 이 예제에서는 그대로 두셔도 됩니다.
+ - 배포 시점에 컨트랙트에 `KLAY`를 보내지 않으려면 `Value`를 0으로 설정합니다.
 
 7. 배포\*\* 버튼을 클릭합니다.
 
@@ -96,4 +96,4 @@ contract CoinFlip {
 
 이 가이드의 끝까지 읽으셨다면 축하드립니다. 궁금한 점이 있으면 [Kaia 포럼](https://devforum.kaia.io/)을 방문하세요. 하지만 아래는 Kaia에서 Remix IDE로 빌드하는 동안 필요할 수 있는 유용한 리소스 목록입니다.
 
-- [리믹스 문서](https://remix-ide.readthedocs.io/en/latest/)
+ - [리믹스 문서](https://remix-ide.readthedocs.io/en/latest/)

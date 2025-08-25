@@ -9,7 +9,7 @@
   - [Kaia는 오픈 소스인가요? ](#is-kaia-open-source-)
   - [계정 초기 자금은 어떻게 조달하나요? ](#how-can-i-initially-fund-my-account-)
   - [테스트 및 개발을 위한 Kaia의 퍼블릭 노드 제공업체가 있나요? ](#any-kaias-public-node-providers-for-testing-and-development-)
-  - [테스트 KAIA를 받을 수 있는 수도꼭지가 있나요? ](#are-there-faucets-to-get-test-kaia-)
+  - [테스트 KAIA를 받을 수 있는 Faucet이 있나요? ](#are-there-faucets-to-get-test-kaia-)
   - [공용 RPC 엔드포인트 상태는 어떻게 확인하나요? ](#how-do-i-check-for-public-rpc-endpoint-status-)
   - [어떤 지갑이 Kaia를 지원하나요? ](#which-wallets-support-kaia-)
   - [메인넷이란 무엇인가요, Kairos란 무엇인가요? ](#what-is-mainnet-what-is-kairos-)

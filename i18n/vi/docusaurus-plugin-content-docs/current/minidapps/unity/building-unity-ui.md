@@ -21,9 +21,9 @@ Bên trong Web3UI, tạo ba đối tượng bảng điều khiển:
 
 1. Nhấp chuột phải vào Web3UI và chọn "Create Empty".
 2. Tạo và đổi tên các bảng điều khiển này:
-   - StatusPanel - Hiển thị thông tin dApp của bạn
-   - ButtonPanel - Dành cho tương tác của người dùng
-   - MintPanel - Dành cho các tính năng đúc mã thông báo
+    - StatusPanel - Hiển thị thông tin dApp của bạn
+    - ButtonPanel - Dành cho tương tác của người dùng
+    - MintPanel - Dành cho các tính năng đúc mã thông báo
 
 ## Tạo thành phần bảng điều khiển
 
@@ -31,7 +31,7 @@ Bên trong Web3UI, tạo ba đối tượng bảng điều khiển:
 
 Bảng điều khiển này hiển thị tất cả thông tin quan trọng về Web3 của bạn:
 
-- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành StatusText. Đảm bảo điền vào trường “Nhập văn bản” trong ngăn Thanh tra, ví dụ: “Trạng thái…”
+ - Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành StatusText. Đảm bảo điền vào trường “Nhập văn bản” trong ngăn Thanh tra, ví dụ: “Trạng thái…”
 
 :::note
 **Cài đặt TextMeshPro (TMP)**
@@ -43,8 +43,8 @@ Tại sao chúng ta cần điều này: TextMeshPro yêu cầu các tài nguyên
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành AddressText. Hãy chắc chắn điền vào đối tượng văn bản, ví dụ "Văn bản địa chỉ..."
-- Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành TokenBalanceText. Hãy đảm bảo điền vào đối tượng văn bản ví dụ "0.0000 ET"
+ - Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành AddressText. Hãy chắc chắn điền vào đối tượng văn bản, ví dụ "Văn bản địa chỉ..."
+ - Nhấp chuột phải vào StatusPanel, nhấp vào UI → Text - TextMeshPro rồi đổi tên thành TokenBalanceText. Hãy đảm bảo điền vào đối tượng văn bản ví dụ "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@ Tại sao chúng ta cần điều này: TextMeshPro yêu cầu các tài nguyên
 
 Các nút tương tác chính của bạn:
 
-- Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành ConnectWalletButton. Đảm bảo điền "Kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
+ - Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành ConnectWalletButton. Đảm bảo điền "Kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
 
-- Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành DisconnectWalletButton. Đảm bảo điền "Ngắt kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
+ - Nhấp chuột phải vào ButtonPanel, nhấp vào UI → Button - TextMeshPro rồi đổi tên thành DisconnectWalletButton. Đảm bảo điền "Ngắt kết nối ví" vào trường "Nhập văn bản" trong ngăn Thanh tra.
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 Giao diện đúc mã thông báo:
 
-- Nhấp chuột phải vào MintPanel, nhấp vào UI → Input Field → TextMeshPro rồi đổi tên thành MintAmountInput. Đảm bảo điền vào đối tượng giữ chỗ bằng "Nhập số tiền…"
-- Nhấp chuột phải vào MintPanel, nhấp vào UI → Button → TextMeshPro rồi đổi tên thành MintButton. Hãy chắc chắn điền vào đối tượng văn bản bằng "Mint"
+ - Nhấp chuột phải vào MintPanel, nhấp vào UI → Input Field → TextMeshPro rồi đổi tên thành MintAmountInput. Đảm bảo điền vào đối tượng giữ chỗ bằng "Nhập số tiền…"
+ - Nhấp chuột phải vào MintPanel, nhấp vào UI → Button → TextMeshPro rồi đổi tên thành MintButton. Hãy chắc chắn điền vào đối tượng văn bản bằng "Mint"
 
 ```code
 MintPanel

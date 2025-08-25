@@ -10,19 +10,19 @@
 
 1. LINE 개발자 콘솔 설정:
 
-  - LINE 개발자 콘솔을 방문하세요.
-  - 공급자를 만듭니다(이미 있는 경우 건너뛰기).
+   - LINE 개발자 콘솔을 방문하세요.
+   - 공급자를 만듭니다(이미 있는 경우 건너뛰기).
 
-  ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
+   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - LINE 로그인 채널을 새로 만듭니다.
+   - LINE 로그인 채널을 새로 만듭니다.
 
-  ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - LIFF 탭으로 이동합니다.
-  - "LIFF 앱 추가"를 클릭합니다.
+   - LIFF 탭으로 이동합니다.
+   - "LIFF 앱 추가"를 클릭합니다.
 
-  ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. LIFF 설정을 구성합니다:
 
@@ -190,10 +190,10 @@ build/
 ## 6단계: 최종 구성 및 테스트 <a id="final-configuration-and-testing"></a>
 
 1. LIFF 엔드포인트를 업데이트하세요:
-  - LINE 개발자 콘솔로 돌아가기
-  - LIFF 앱 찾기
-  - "편집"을 클릭합니다.
-  - 배포된 사이트의 URL을 업데이트합니다.
+   - LINE 개발자 콘솔로 돌아가기
+   - LIFF 앱 찾기
+   - "편집"을 클릭합니다.
+   - 배포된 사이트의 URL을 업데이트합니다.
 
 이제 미니 디앱을 바로 사용할 수 있습니다.
 

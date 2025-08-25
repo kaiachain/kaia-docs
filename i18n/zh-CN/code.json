@@ -756,5 +756,47 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "折叠下拉菜单",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "步骤 1：地基设置"
+  },
+  "getStarted.step1.description": {
+    "message": "熟悉 Kaia 网络、工具和开发环境。"
+  },
+  "getStarted.step2.title": {
+    "message": "步骤 2：设置钱包和网络"
+  },
+  "getStarted.step2.description": {
+    "message": "为 Kaia 网络配置钱包并创建账户。"
+  },
+  "getStarted.step3.title": {
+    "message": "步骤 3：获取 KAIA 测试报告"
+  },
+  "getStarted.step3.description": {
+    "message": "从水龙头为您的钱包注入测试网络 KAIA 的资金。"
+  },
+  "getStarted.step4.title": {
+    "message": "步骤 4：使用 Remix 的 Hello World"
+  },
+  "getStarted.step4.description": {
+    "message": "使用 Remix IDE 部署第一个智能合约。"
+  },
+  "getStarted.step5.title": {
+    "message": "步骤 5：创建第一个令牌"
+  },
+  "getStarted.step5.description": {
+    "message": "使用 \"硬帽 \"构建并部署灵魂令牌。"
+  },
+  "getStarted.step6.title": {
+    "message": "第 6 步：创建第一个应用程序"
+  },
+  "getStarted.step6.description": {
+    "message": "创建全栈分散式应用程序。"
+  },
+  "getStarted.step7.title": {
+    "message": "第 7 步：构建迷你应用程序"
+  },
+  "getStarted.step7.description": {
+    "message": "将 Web3 功能整合到 LINE 等平台中。"
   }
 }

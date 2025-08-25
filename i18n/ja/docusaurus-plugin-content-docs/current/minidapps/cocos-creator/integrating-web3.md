@@ -50,14 +50,14 @@ onlyOwner修飾子を削除し、オリジナルのデプロイメント者や�
 
 1. 上記のコードをコピーして、Remix IDEで新しく作成したファイルET.solに貼り付けます。
 2. リミックスIDEで：
-  - 契約書をコンパイルする\*\*ボタンをクリックする。
-  - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
-  - Kaia PluginタブのEnvironmentで、**Injected Provider - Kaia Wallet**を選択します。
-  - Contract\*\*ドロップダウンで契約（ExampleTokens）を検索します。
-  - Deploy\*\*をクリックしてトークンを起動します！
+   - 契約書をコンパイルする\*\*ボタンをクリックする。
+   - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
+   - Kaia PluginタブのEnvironmentで、**Injected Provider - Kaia Wallet**を選択します。
+   - Contract\*\*ドロップダウンで契約（ExampleTokens）を検索します。
+   - Deploy\*\*をクリックしてトークンを起動します！
 3. カイアウォレットがポップアップしたら：
-  - 配備の詳細を確認する。
-  - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
+   - 配備の詳細を確認する。
+   - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
 
 :::note
 展開された契約アドレスをコピーして保存する。 チュートリアルの後半で必要になる。

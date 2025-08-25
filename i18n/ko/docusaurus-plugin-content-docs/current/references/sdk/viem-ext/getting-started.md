@@ -2,8 +2,8 @@
 
 Kaia용 Viem 확장 프로그램 제공:
 
-- 이더리움과 Kaia 거래 유형을 모두 지원합니다.
-- 메타마스크(`window.ethereum`)와 카이카스(`window.klaytn`) 모두에서 작업하세요.
+ - 이더리움과 Kaia 거래 유형을 모두 지원합니다.
+ - 메타마스크(`window.ethereum`)와 카이카스(`window.klaytn`) 모두에서 작업하세요.
 
 ## 설치
 
@@ -12,11 +12,11 @@ Kaia용 Viem 확장 프로그램 제공:
 
 ### Node.js
 
-- 설치
+ - 설치
     ```sh
     npm install --save @kaiachain/viem-ext
     ```
-- ESM 또는 TypeScript
+ - ESM 또는 TypeScript
     ```ts
     import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
     const publicClient = createPublicClient({
@@ -24,7 +24,7 @@ Kaia용 Viem 확장 프로그램 제공:
         transport: http(),
     })
     ```
-- CommonJS
+ - CommonJS
     ```js
     const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
     const publicClient = createPublicClient({

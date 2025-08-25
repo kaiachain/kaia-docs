@@ -60,12 +60,12 @@ npm install -g @graphprotocol/graph-cli
 ただし、KaiaScanのAPIはまだ準備ができていないので、再試行を求められたら「いいえ」と答えてください。 手動で入手する方法は以下の通り： 手動で入手する方法は以下の通り：
 
 1. ABI: ABIを含むjsonファイルを`graph init`を実行しているディレクトリに用意する必要がある。 [Kaiascanの契約のページ](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)から、`Contract`タブを開き、`View Code`をクリックすると、ABIをコピーすることができます。 それをjsonファイルとして、`graph init`を実行しているフォルダと同じ場所に保存する。 上のスクリーンショットでは、`abi.json`として保存されている。
-  ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp) [Kaiascanの契約のページ](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)から、`Contract`タブを開き、`View Code`をクリックすると、ABIをコピーすることができます。 それをjsonファイルとして、`graph init`を実行しているフォルダと同じ場所に保存する。 上のスクリーンショットでは、`abi.json`として保存されている。
-  ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
+   ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp) [Kaiascanの契約のページ](https://kaiascan.io/address/0x5096db80b21ef45230c9e423c373f1fc9c0198dd)から、`Contract`タブを開き、`View Code`をクリックすると、ABIをコピーすることができます。 それをjsonファイルとして、`graph init`を実行しているフォルダと同じ場所に保存する。 上のスクリーンショットでは、`abi.json`として保存されている。
+   ![Finding ABI](/img/build/tools/graph/04-kaiascan-abi.webp)
 
 2. ブロックを開始する：契約が作成されたトランザクションハッシュをクリックします。 そこに契約が作成されたブロックがある。
-  ![contract creation](/img/build/tools/graph/05-contract-creation.webp) そこに契約が作成されたブロックがある。
-  ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
+   ![contract creation](/img/build/tools/graph/05-contract-creation.webp) そこに契約が作成されたブロックがある。
+   ![contract creation](/img/build/tools/graph/05-contract-creation.webp)
 
 3. 契約名：契約名を入力してください。 契約名：契約名を入力してください。 このサブグラフでインデックスを作成するコントラクトがこれだけであれば、デフォルトの `Contract` を使用しても問題ありません。
 

@@ -12,9 +12,9 @@
 
 在三种不同的情况下，执行合同时会收取执行费。 有时，某些政策可能会被省略。
 
-- 第一种也是最常见的一种是 "constantGas"。 这是计算操作的固有费用。
-- 其次，气体可被扣除，以形成从属报文调用或合同创建的付款；这构成 "CREATE"、"CALL "和 "CALLCODE "付款的一部分。
-- 最后，由于内存使用量增加，可能会收取气体费用。
+ - 第一种也是最常见的一种是 "constantGas"。 这是计算操作的固有费用。
+ - 其次，气体可被扣除，以形成从属报文调用或合同创建的付款；这构成 "CREATE"、"CALL "和 "CALLCODE "付款的一部分。
+ - 最后，由于内存使用量增加，可能会收取气体费用。
 
 在一个账户的执行过程中，应支付的内存使用费总额与 32 字节的最小倍数成正比，而 32 字节的最小倍数是包括所有内存索引（无论是读取还是写入）的范围。 这笔费用是按时支付的；因此，如果引用的内存区域至少比先前索引的内存区域大 32 字节，就会产生额外的内存使用费。 由于这笔费用，地址超过 32 位界限的可能性很小。 尽管如此，实施方案必须能够管理这种可能发生的情况。
 
@@ -96,43 +96,43 @@
 
 在此，我将简要说明合同执行过程中使用上述费用表变量的天然气计算逻辑。 由于本解释假设的是一般情况，因此没有考虑回退等异常情况。
 
-- 将每个操作码中定义的 "constantGas "添加到 gas 中
-    - 例如，如果操作码为 `MUL`，则在 gas 中添加 \`G_low
-    - 例如，如果操作码是 `CREATE2`，则在 gas 中添加 \`G_create
-- 添加通过额外定义的气体计算方法计算出的气体
-    - 对于 `LOG'N'`，其中 N 为 [0,1,2,3,4]，将 `G_log + memoryGasCost * g_logdata + N x G_logtopic` 添加到气体中
-    - 对于 `EXP`，将 `G_exp + byteSize(stack.back(1)) x G_expbyte` 加入气体中
-    - 对于`CALLDATACOPY`或`CODECOPY`或`RETURNDATACOPY`，在气体中添加`wordSize(stack.back(2)) x G_copy`。
-    - 用于 `EXTCODECOPY`、
-        - 将 `wordSize(stack.back(3)) x G_copy` 添加到气体中
-        - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将`G_coldSloadCost - G_warmStorageReadCost` 添加到气体中。
-    - 用于 `EXTCODESIZE` 或 `EXTCODEHASH` 或 `BALANCE`、
-        - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将`G_coldSloadCost - G_warmStorageReadCost` 添加到气体中。
-    - 对于 `SHA3`，将 `G_sha3 + wordSize(stack.back(1)) x G_sha3word` 添加到气体中。
-    - 对于 `RETURN`、`REVERT`、`MLoad`、`MStore8`、`MStore`，将 `memoryGasCost` 添加到气体中
-    - 对于 "CREATE"，在气体中添加 "memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord
-    - 对于 `CREATE2`，将 `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` 添加到气体中
-    - 对于 "SSTORE"、
-        - [**_eip2929_**] 如果槽（contractAddr, 槽）不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中。
-        - 如果只是读取插槽（无操作），则将 `G_warmStorageReadCost` 添加到 gas
-        - 如果创建了一个新槽，则将 `G_sset` 添加到 gas
-        - 如果它删除了插槽，则在 gas 中添加 `G_sreset-G_coldSloadCost` 并在 refund 中添加 `R_sclear`
-        - 如果重新创建过一次插槽，则在气体中加入 `G_warmStorageReadCost` 并从退款中减去 `R_sclear` 。
-        - 如果它删除了之前存在过的插槽，则在退款时添加 `R_sclear` 。
-        - 如果重置为原来不存在的插槽，则在 gas 中添加 `G_warmStorageReadCost` 并在退款中添加 `G_sset - G_warmStorageReadCost`
-        - 如果重置为原来的现有插槽，则在 gas 中添加 `G_warmStorageReadCost` 并在 refund 中添加 \`G_sreset - G_coldSloadCost - G_warmStorageReadCost
-    - 用于 `SLOAD`、
-        - [**_eip2929_**] 如果槽（contractAddr, 槽）不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中。
-        - [**_eip2929_**] 如果槽（contractAddr, 槽）位于 AccessList 中，则将 `G_warmStorageReadCost` 添加到气体中。
-    - 用于 `CALL`、`CALLCODE`、`DELEGATECALL`、`STATICCALL`、
-        - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中
-        - 如果它是 `CALL` 和 `CALLCODE`，如果它传输值，则在 gas 中添加 \`G_callvalue
-        - 如果是 `CALL'，如果是转账，如果是新账户，则在 gas 中添加 `G_newaccount
-        - 如果受话人合同是预编译合同，则计算预编译合同天然气成本，并将其添加到天然气成本中。
-        - 将 "内存燃气成本 + 可用燃气 - 可用燃气/64，其中可用燃气 = 合同.燃气 - 燃气 "添加到燃气中
-    - 用于 `SELFDESTRUCT`、
-        - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中
-        - 如果是转移值，如果是新账户，则将 `G_newaccount` 加入 gas
+ - 将每个操作码中定义的 "constantGas "添加到 gas 中
+     - 例如，如果操作码为 `MUL`，则在 gas 中添加 \`G_low
+     - 例如，如果操作码是 `CREATE2`，则在 gas 中添加 \`G_create
+ - 添加通过额外定义的气体计算方法计算出的气体
+     - 对于 `LOG'N'`，其中 N 为 [0,1,2,3,4]，将 `G_log + memoryGasCost * g_logdata + N x G_logtopic` 添加到气体中
+     - 对于 `EXP`，将 `G_exp + byteSize(stack.back(1)) x G_expbyte` 加入气体中
+     - 对于`CALLDATACOPY`或`CODECOPY`或`RETURNDATACOPY`，在气体中添加`wordSize(stack.back(2)) x G_copy`。
+     - 用于 `EXTCODECOPY`、
+         - 将 `wordSize(stack.back(3)) x G_copy` 添加到气体中
+         - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将`G_coldSloadCost - G_warmStorageReadCost` 添加到气体中。
+     - 用于 `EXTCODESIZE` 或 `EXTCODEHASH` 或 `BALANCE`、
+         - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将`G_coldSloadCost - G_warmStorageReadCost` 添加到气体中。
+     - 对于 `SHA3`，将 `G_sha3 + wordSize(stack.back(1)) x G_sha3word` 添加到气体中。
+     - 对于 `RETURN`、`REVERT`、`MLoad`、`MStore8`、`MStore`，将 `memoryGasCost` 添加到气体中
+     - 对于 "CREATE"，在气体中添加 "memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord
+     - 对于 `CREATE2`，将 `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` 添加到气体中
+     - 对于 "SSTORE"、
+         - [**_eip2929_**] 如果槽（contractAddr, 槽）不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中。
+         - 如果只是读取插槽（无操作），则将 `G_warmStorageReadCost` 添加到 gas
+         - 如果创建了一个新槽，则将 `G_sset` 添加到 gas
+         - 如果它删除了插槽，则在 gas 中添加 `G_sreset-G_coldSloadCost` 并在 refund 中添加 `R_sclear`
+         - 如果重新创建过一次插槽，则在气体中加入 `G_warmStorageReadCost` 并从退款中减去 `R_sclear` 。
+         - 如果它删除了之前存在过的插槽，则在退款时添加 `R_sclear` 。
+         - 如果重置为原来不存在的插槽，则在 gas 中添加 `G_warmStorageReadCost` 并在退款中添加 `G_sset - G_warmStorageReadCost`
+         - 如果重置为原来的现有插槽，则在 gas 中添加 `G_warmStorageReadCost` 并在 refund 中添加 \`G_sreset - G_coldSloadCost - G_warmStorageReadCost
+     - 用于 `SLOAD`、
+         - [**_eip2929_**] 如果槽（contractAddr, 槽）不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中。
+         - [**_eip2929_**] 如果槽（contractAddr, 槽）位于 AccessList 中，则将 `G_warmStorageReadCost` 添加到气体中。
+     - 用于 `CALL`、`CALLCODE`、`DELEGATECALL`、`STATICCALL`、
+         - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中
+         - 如果它是 `CALL` 和 `CALLCODE`，如果它传输值，则在 gas 中添加 \`G_callvalue
+         - 如果是 `CALL'，如果是转账，如果是新账户，则在 gas 中添加 `G_newaccount
+         - 如果受话人合同是预编译合同，则计算预编译合同天然气成本，并将其添加到天然气成本中。
+         - 将 "内存燃气成本 + 可用燃气 - 可用燃气/64，其中可用燃气 = 合同.燃气 - 燃气 "添加到燃气中
+     - 用于 `SELFDESTRUCT`、
+         - [**_eip2929_**] 如果地址不在 AccessList 中，则将其添加到 AccessList 中，并将 `G_coldSloadCost` 添加到气体中
+         - 如果是转移值，如果是新账户，则将 `G_newaccount` 加入 gas
 
 ## Hardfork changes
 

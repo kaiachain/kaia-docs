@@ -10,10 +10,10 @@ SupraOracles을 사용하면 스마트 컨트랙트가 가격 데이터 피드�
 
 ## 전제 조건
 
-- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
-- [Remix IDE](https://remix.ethereum.org/)
-- [Remix Kaia 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Test KAIA from [Faucet](https://faucet.kaia.io)
+ - [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+ - [Remix IDE](https://remix.ethereum.org/)
+ - [Remix Kaia 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+ - Test KAIA from [Faucet](https://faucet.kaia.io)
 
 ## 시작하기
 
@@ -66,14 +66,14 @@ return price;
 
 **Remix IDE**
 
-- [Remix IDE](https://remix.ethereum.org/)로 이동합니다.
-- 파일 탐색기 탭을 클릭하고, contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 파일을 새로 생성합니다.
-- 새로 생성한 파일에 아래 코드를 붙여넣습니다.
-- Remix에서 **Compile contract**을 클릭합니다.
-- 플러그인을 설치한 후 왼쪽의 Kaia 탭을 클릭합니다.
-- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
-- **Contract**에서 원하는 컨트랙트를 선택합니다. (예: ISupraSValueFeedExample)
-- **Deploy**를 클릭합니다..
+ - [Remix IDE](https://remix.ethereum.org/)로 이동합니다.
+ - 파일 탐색기 탭을 클릭하고, contracts 폴더에 `demoSupraPriceFeed.sol`이라는 이름의 파일을 새로 생성합니다.
+ - 새로 생성한 파일에 아래 코드를 붙여넣습니다.
+ - Remix에서 **Compile contract**을 클릭합니다.
+ - 플러그인을 설치한 후 왼쪽의 Kaia 탭을 클릭합니다.
+ - Select **Environment** > **Injected Provider** - **Kaia Wallet**.
+ - **Contract**에서 원하는 컨트랙트를 선택합니다. (예: ISupraSValueFeedExample)
+ - **Deploy**를 클릭합니다..
 
 **샘플 코드**
 

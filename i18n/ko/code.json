@@ -756,5 +756,47 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "드롭다운 축소",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "1단계: 기초 설정"
+  },
+  "getStarted.step1.description": {
+    "message": "Kaia 네트워크, 도구, 개발 환경에 대해 알아보세요."
+  },
+  "getStarted.step2.title": {
+    "message": "2단계: 지갑 및 네트워크 설정"
+  },
+  "getStarted.step2.description": {
+    "message": "Kaia 네트워크용 지갑을 구성하고 계정을 만드세요."
+  },
+  "getStarted.step3.title": {
+    "message": "3단계: KAIA 테스트 받기"
+  },
+  "getStarted.step3.description": {
+    "message": "수도꼭지에서 테스트넷 KAIA로 지갑에 자금을 조달하세요."
+  },
+  "getStarted.step4.title": {
+    "message": "4단계: 리믹스와 함께하는 헬로 월드"
+  },
+  "getStarted.step4.description": {
+    "message": "Remix IDE를 사용하여 첫 번째 스마트 컨트랙트를 배포하세요."
+  },
+  "getStarted.step5.title": {
+    "message": "5단계: 첫 번째 토큰 만들기"
+  },
+  "getStarted.step5.description": {
+    "message": "하드햇을 사용하여 소울바운드 토큰을 빌드하고 배포하세요."
+  },
+  "getStarted.step6.title": {
+    "message": "6단계: 첫 번째 dApp 구축"
+  },
+  "getStarted.step6.description": {
+    "message": "풀스택 탈중앙화 애플리케이션을 만듭니다."
+  },
+  "getStarted.step7.title": {
+    "message": "7단계: 미니 디앱 구축"
+  },
+  "getStarted.step7.description": {
+    "message": "LINE과 같은 플랫폼에 Web3 기능을 통합합니다."
   }
 }

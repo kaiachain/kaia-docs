@@ -50,14 +50,14 @@ contract ExampleTokens is KIP7 {
 
 1. 複製並貼上上述程式碼到 Remix IDE 新建立的檔案 ET.sol。
 2. 在 Remix IDE 中：
-  - 按一下 \*\* 編譯合約\*\* 按鈕。
-  - 在外掛程式管理員中啟動 **Kaia 外掛程式**。
-  - 在 Kaia 外掛索引標籤的「環境」下，選擇 **注入提供者 - Kaia Wallet**。
-  - 在 **Contract** 下拉式選單中找到您的合約 (ExampleTokens)。
-  - 按一下 \*\* 部署\*\* 以啟動您的令牌！
+   - 按一下 \*\* 編譯合約\*\* 按鈕。
+   - 在外掛程式管理員中啟動 **Kaia 外掛程式**。
+   - 在 Kaia 外掛索引標籤的「環境」下，選擇 **注入提供者 - Kaia Wallet**。
+   - 在 **Contract** 下拉式選單中找到您的合約 (ExampleTokens)。
+   - 按一下 \*\* 部署\*\* 以啟動您的令牌！
 3. 當您的 Kaia Wallet 彈出時：
-  - 檢視部署詳細資訊。
-  - 按一下「確認」以部署到 Kaia Kairos Testnet。
+   - 檢視部署詳細資訊。
+   - 按一下「確認」以部署到 Kaia Kairos Testnet。
 
 :::note
 複製並儲存已部署的合約位址。 您在稍後的教學中會用到它。

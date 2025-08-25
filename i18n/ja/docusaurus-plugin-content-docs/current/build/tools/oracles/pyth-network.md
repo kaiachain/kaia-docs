@@ -58,8 +58,8 @@ Pyth データを利用する際には、[consumer best practices](https://docs.
 
 Pyth Networkのスマートコントラクトは以下のアドレスで入手できる：
 
-- メインネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
-- Kairos テストネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+ - メインネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+ - Kairos テストネット[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
 さらに、クリックすると[Pyth price-feed IDs](https://pyth.network/developers/price-feed-ids)にアクセスできる。
 
@@ -73,10 +73,10 @@ Pythネットワークは、[TradingView Integration](https://docs.pyth.network/
 
 Pythを始めるには以下のリンクをチェックしてください。
 
-- [Pyth EVM 統合ガイド](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
-- [Pyth Docs](https://docs.pyth.network/home)
-- [Pyth APIリファレンス](https://api-reference.pyth.network/price-feeds/evm/getPrice)
-- [Pyth Examples](https://github.com/pyth-network/pyth-examples)
-- [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
-- [ウェブサイト](https://pyth.network/)
-- [ツイッター](https://x.com/PythNetwork)
+ - [Pyth EVM 統合ガイド](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
+ - [Pyth Docs](https://docs.pyth.network/home)
+ - [Pyth APIリファレンス](https://api-reference.pyth.network/price-feeds/evm/getPrice)
+ - [Pyth Examples](https://github.com/pyth-network/pyth-examples)
+ - [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
+ - [ウェブサイト](https://pyth.network/)
+ - [ツイッター](https://x.com/PythNetwork)

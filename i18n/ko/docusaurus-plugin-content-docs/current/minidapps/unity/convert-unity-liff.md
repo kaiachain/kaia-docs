@@ -8,19 +8,19 @@ First, let's set up your app in the LINE ecosystem:
 
 1. LINE Developers Console Setup:
 
-  - Visit LINE Developers Console.
-  - Create a Provider (skip if you already have one).
+   - Visit LINE Developers Console.
+   - Create a Provider (skip if you already have one).
 
-  ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
+   ![](/img/minidapps/unity-minidapp/create-provider-lc.png)
 
-  - Create a new LINE Login channel.
+   - Create a new LINE Login channel.
 
-  ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - Navigate to the LIFF tab
-  - Click "Add LIFF app"
+   - Navigate to the LIFF tab
+   - Click "Add LIFF app"
 
-  ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. Configure LIFF Settings:
 
@@ -264,10 +264,10 @@ Minidapp/
 ## Step 4: Final Configuration & Testing <a id="step4-final-config-testing"></a>
 
 1. Update your LIFF endpoint:
-  - Return to LINE Developers Console
-  - Locate your LIFF app
-  - Click "Edit"
-  - 배포된 사이트의 URL을 업데이트합니다.
+   - Return to LINE Developers Console
+   - Locate your LIFF app
+   - Click "Edit"
+   - 배포된 사이트의 URL을 업데이트합니다.
 
 이제 미니 디앱을 바로 사용할 수 있습니다.
 

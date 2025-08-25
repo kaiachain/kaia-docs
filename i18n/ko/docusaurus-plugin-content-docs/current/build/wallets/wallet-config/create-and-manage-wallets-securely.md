@@ -413,7 +413,7 @@ Kaia 세이프 계정에 충분한 자금이 있는지 확인하세요. 이 가�
 
 - [메타마스크](https://metamask.io/download)
 - [Remix IDE](https://remix.ethereum.org)
-- 수도꼭지](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
+- [Faucet](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
 
 ##### 1단계: [Remix IDE](https://remix.ethereum.org/)로 이동합니다.
 

@@ -7,7 +7,7 @@
 - 컴퓨터에 [Unity Hub](https://unity.com/download)를 설치 - 여기에서 dApp 인터페이스를 빌드합니다.
 - 기본 C# 및 JavaScript 지식 - 너무 화려하지 않고 기본적인 것만 있으면 됩니다.
 - LINE 개발자 계정 - 이메일을 사용하여 쉽게 만들 수 있습니다.
-- Kaia 수도꼭지](https://faucet.kaia.io/)에서 Kaia를 테스트하세요.
+- [Kaia Faucet](https://faucet.kaia.io/)에서 Kaia를 테스트하세요.
 - 디앱 포털 팀으로부터 받은 미니 디앱 SDK 클라이언트 ID.
 - Web3 개념에 익숙하다면 - 지갑과 토큰을 이해하신다면 바로 사용하실 수 있습니다.
 

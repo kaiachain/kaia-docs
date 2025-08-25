@@ -185,20 +185,20 @@ brew services start grafana
 
 3. Thêm Prometheus làm Nguồn dữ liệu.
 
-  - Điều hướng đến **Cấu hình** -> **Nguồn dữ liệu**.
-  - Nhấp vào **Thêm nguồn dữ liệu**.
-  - Chọn **Prometheus** làm loại.
-  - Đặt **URL** thành `http://localhost:9090` (sửa đổi nếu Prometheus nằm trên một máy chủ khác).
-  - Nhấp vào **Lưu & Kiểm tra** để xác minh kết nối.
+   - Điều hướng đến **Cấu hình** -> **Nguồn dữ liệu**.
+   - Nhấp vào **Thêm nguồn dữ liệu**.
+   - Chọn **Prometheus** làm loại.
+   - Đặt **URL** thành `http://localhost:9090` (sửa đổi nếu Prometheus nằm trên một máy chủ khác).
+   - Nhấp vào **Lưu & Kiểm tra** để xác minh kết nối.
 
 4. Thêm bảng điều khiển Kaia và thêm bảng điều khiển để trực quan hóa số khối Kaia.
-  - [Tạo bảng điều khiển mới](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) hoặc điều hướng đến bảng điều khiển hiện có.
-  - Nhấp vào **Chỉnh sửa** ở góc trên bên phải, nhấp vào **Thêm** trong tiêu đề bảng điều khiển và chọn **Hình ảnh hóa** trong danh sách thả xuống để thêm bảng điều khiển.
-  - Trong **Truy vấn**:
-    1. Chọn Prometheus của bạn làm **Nguồn dữ liệu**.
-    2. Nhập `klaytn_blockchain_head_blocknumber` vào trường **Số liệu**.
-    3. Trong **Tùy chọn**, chọn **Tùy chỉnh** từ danh sách thả xuống **Chú giải** và nhập `{{instance}}` làm định dạng chú giải tùy chỉnh.
-  - Nhấp vào **Áp dụng** để lưu bảng điều khiển vào bảng thông tin của bạn.
+   - [Tạo bảng điều khiển mới](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) hoặc điều hướng đến bảng điều khiển hiện có.
+   - Nhấp vào **Chỉnh sửa** ở góc trên bên phải, nhấp vào **Thêm** trong tiêu đề bảng điều khiển và chọn **Hình ảnh hóa** trong danh sách thả xuống để thêm bảng điều khiển.
+   - Trong **Truy vấn**:
+     1. Chọn Prometheus của bạn làm **Nguồn dữ liệu**.
+     2. Nhập `klaytn_blockchain_head_blocknumber` vào trường **Số liệu**.
+     3. Trong **Tùy chọn**, chọn **Tùy chỉnh** từ danh sách thả xuống **Chú giải** và nhập `{{instance}}` làm định dạng chú giải tùy chỉnh.
+   - Nhấp vào **Áp dụng** để lưu bảng điều khiển vào bảng thông tin của bạn.
 
 :::note[Additional Bảng điều khiển Kaia]
 

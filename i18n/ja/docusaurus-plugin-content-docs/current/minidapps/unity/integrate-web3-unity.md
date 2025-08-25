@@ -11,10 +11,10 @@
 1. カイア契約ウィザードに移動します。
 2. KIP7（ERC20に似たカイアのトークン規格）を選択する。
 3. トークンを設定します：
-  - 名前ExampleTestToken (または他の何か!)
-  - シンボルET（あなたのトークンのティッカー）
-  - プレミント100（初期トークン供給）
-  - 特徴チェック ✅ 造幣可能
+   - 名前ExampleTestToken (または他の何か!)
+   - シンボルET（あなたのトークンのティッカー）
+   - プレミント100（初期トークン供給）
+   - 特徴チェック ✅ 造幣可能
 
 このガイドでは、onlyOwner修飾子を持たないようにmint関数を調整します。 そのためには、ownable.solのインポートとOwnableの継承を削除しなければならない。 手を加えたコードは次のようになるはずだ：
 
@@ -50,14 +50,14 @@ onlyOwner修飾子を削除し、オリジナルのデプロイメント者や�
 
 1. 上記のコードをRemix IDE上で新規作成したファイル`ET.sol`にコピー＆ペーストする。
 2. リミックスIDEで：
-  - 契約書をコンパイルする\*\*ボタンをクリックする。
-  - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
-  - Kaia PluginタブのEnvironmentで、**Injected Provider** - **Kaia Wallet**を選択します。
-  - Contract\*\*ドロップダウンで契約（ExampleTokens）を検索します。
-  - Deploy\*\*をクリックしてトークンを起動します！
+   - 契約書をコンパイルする\*\*ボタンをクリックする。
+   - プラグインマネージャーで**Kaiaプラグイン**を有効にする。
+   - Kaia PluginタブのEnvironmentで、**Injected Provider** - **Kaia Wallet**を選択します。
+   - Contract\*\*ドロップダウンで契約（ExampleTokens）を検索します。
+   - Deploy\*\*をクリックしてトークンを起動します！
 3. カイアウォレットがポップアップしたら：
-  - 配備の詳細を確認する。
-  - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
+   - 配備の詳細を確認する。
+   - 確認」をクリックすると、Kaia Kairos Testnetにデプロイされます。
 
 :::important
 展開された契約アドレスをコピーして保存する。 チュートリアルの後半で必要になる。
@@ -83,9 +83,9 @@ Assets/
 2. なぜ.jslibなのか？ UnityのC#とブラウザのJavaScriptをつなぐトランスレーターのようなものだ！
 
 3. プラグインは3つのコア機能を処理する：
-  - ConnectWallet() - カイアウォレット接続を処理する
-  - GetTokenBalance() - トークンの残高をチェックする
-  - MintTokens() - トークンの鋳造を管理する
+   - ConnectWallet() - カイアウォレット接続を処理する
+   - GetTokenBalance() - トークンの残高をチェックする
+   - MintTokens() - トークンの鋳造を管理する
 
 このファイルをVS Codeで開き、[Appendix A](convert-unity-liff.md#appendix-a)にある`KaiaPlugin.jslib`のソースコードを貼り付ける：
 
@@ -120,20 +120,20 @@ Assets/
 最後に、Unityですべてをまとめよう：
 
 1. Manager オブジェクトを作成します：
-  - 階層ウィンドウ（ルートレベル）で右クリックします。
-  - 空のオブジェクトを作成」を選択する。
-  - 名前を "Web3Manager "とする。
+   - 階層ウィンドウ（ルートレベル）で右クリックします。
+   - 空のオブジェクトを作成」を選択する。
+   - 名前を "Web3Manager "とする。
 2. 台本を添付してください：
-  - Web3Manager GameObjectを選択する。
-  - Inspector]で、[Add Component]をクリックします。
-  - Web3Manager "を検索して選択します。
+   - Web3Manager GameObjectを選択する。
+   - Inspector]で、[Add Component]をクリックします。
+   - Web3Manager "を検索して選択します。
 3. UI要素を接続する：
-  - Web3Managerを選択した状態で、インスペクタを見ます。
-  - UI要素を階層から対応するフィールドにドラッグ＆ドロップします：
-    - ステータステキスト
-    - アドレステキスト
-    - トークン・バランス・テキスト
-    - 接続、切断、ミントボタン
-    - 入力フィールド
+   - Web3Managerを選択した状態で、インスペクタを見ます。
+   - UI要素を階層から対応するフィールドにドラッグ＆ドロップします：
+     - ステータステキスト
+     - アドレステキスト
+     - トークン・バランス・テキスト
+     - 接続、切断、ミントボタン
+     - 入力フィールド
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)

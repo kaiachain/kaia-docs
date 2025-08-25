@@ -6,19 +6,19 @@ Kaia 에이전트 키트는 여러 인기 AI 프레임워크와 통합되어, �
 
 ## 전제 조건
 
-- [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation) 설치됨
-- 개인 키가 준비된 [Kaia 지갑](https://www.kaiawallet.io/)
-- [Google 생성 API 키](https://ai.google.dev/gemini-api/docs/api-key)
-- Kaia 네트워크용 [RPC 공급자](https://docs.kaia.io/references/public-en/)
-- [KaiaScan API 키](https://docs.kaiascan.io/account-creation)
+ - [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation) 설치됨
+ - 개인 키가 준비된 [Kaia 지갑](https://www.kaiawallet.io/)
+ - [Google 생성 API 키](https://ai.google.dev/gemini-api/docs/api-key)
+ - Kaia 네트워크용 [RPC 공급자](https://docs.kaia.io/references/public-en/)
+ - [KaiaScan API 키](https://docs.kaiascan.io/account-creation)
 
 ## 시작하기
 
 이 가이드에서는 LangChain과 Kaia 에이전트 키트를 사용하여 AI 에이전트를 구축하는 방법을 설명합니다:
 
-- 네이티브 토큰, 대체 가능한 토큰(FT), 대체 불가능한 토큰(NFT)을 전송합니다.
-- 네이티브 토큰, FT, NFT의 잔액을 확인합니다.
-- 블록체인 데이터 KaiaScan API를 가져와 네트워크 요약, Kaia의 가격, 주소의 토큰 잔액 등을 검색할 수 있습니다.
+ - 네이티브 토큰, 대체 가능한 토큰(FT), 대체 불가능한 토큰(NFT)을 전송합니다.
+ - 네이티브 토큰, FT, NFT의 잔액을 확인합니다.
+ - 블록체인 데이터 KaiaScan API를 가져와 네트워크 요약, Kaia의 가격, 주소의 토큰 잔액 등을 검색할 수 있습니다.
 
 ### AI 에이전트 스택 이해하기
 
@@ -182,20 +182,20 @@ const walletClient = createWalletClient({
 
 코드의 핵심 작동 방식을 살펴보겠습니다:
 
-- **랭체인 구성요소:**
-    - ChatGoogleGenerativeAI: Google의 제너레이티브 AI 인터페이스
-    - 메모리세이버: 상호 작용 간의 대화 상태 저장
-    - 휴먼메시지: 사용자의 입력 메시지를 구조화합니다.
-    - createReactAgent: ReAct 패턴을 따르는 에이전트를 생성합니다.
-- **블록체인 라이브러리:**
-    - viem: 블록체인과 상호 작용하기 위한 EVM 라이브러리
-    - Kairos: Kairos 네트워크의 체인 구성
-- **도구 및 에이전트 초기화:**
-    - 겟온체인툴: 블록체인 기능을 LangChain 도구로 변환합니다.
-    - Kaia: Kaia: Kaia 전용 블록체인 상호작용을 위한 플러그인
-    - 고급 블록체인 쿼리를 위한 API 키와 Kaia 플러그인 통합
-- **LLM 구성:**
-    - 상담원의 인텔리전스로 Google의 Gemini 1.5 Pro 모델 사용
+ - **랭체인 구성요소:**
+     - ChatGoogleGenerativeAI: Google의 제너레이티브 AI 인터페이스
+     - 메모리세이버: 상호 작용 간의 대화 상태 저장
+     - 휴먼메시지: 사용자의 입력 메시지를 구조화합니다.
+     - createReactAgent: ReAct 패턴을 따르는 에이전트를 생성합니다.
+ - **블록체인 라이브러리:**
+     - viem: 블록체인과 상호 작용하기 위한 EVM 라이브러리
+     - Kairos: Kairos 네트워크의 체인 구성
+ - **도구 및 에이전트 초기화:**
+     - 겟온체인툴: 블록체인 기능을 LangChain 도구로 변환합니다.
+     - Kaia: Kaia: Kaia 전용 블록체인 상호작용을 위한 플러그인
+     - 고급 블록체인 쿼리를 위한 API 키와 Kaia 플러그인 통합
+ - **LLM 구성:**
+     - 상담원의 인텔리전스로 Google의 Gemini 1.5 Pro 모델 사용
 
 ## 에이전트 실행
 
@@ -226,9 +226,9 @@ Send 1 FM NFT (0x61eaee91759adc35b4665fc589b95f885f685dab) with token id 1 to th
 
 ## 추가 리소스
 
-- [다중 에이전트 시스템](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
-- [LangGraph 빠른 시작 가이드](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
-- [사전 빌드된 LangChain 도구](https://js.langchain.com/docs/integrations/tools/)
+ - [다중 에이전트 시스템](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
+ - [LangGraph 빠른 시작 가이드](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+ - [사전 빌드된 LangChain 도구](https://js.langchain.com/docs/integrations/tools/)
 
 
 

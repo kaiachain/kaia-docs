@@ -266,25 +266,25 @@ SurveyFactory 契約是部署新調查問卷契約的工廠模式實作。
 \*\* 主要功能：\*\*
 
 1. **集團管理**
-  - _createGroup()_：創建新群組，可選擇管理員和持續時間
-  - _updateGroupAdmin()_：變更群組管理員
-  - _acceptGroupAdmin()_：接受群組的管理角色
+   - _createGroup()_：創建新群組，可選擇管理員和持續時間
+   - _updateGroupAdmin()_：變更群組管理員
+   - _acceptGroupAdmin()_：接受群組的管理角色
 2. **會員管理**
-  - _addMember()_：將單一成員加入群組
-  - _addMembers()_：一次加入多個成員
-  - _updateMember()_：更新成員的身份承諾
-  - _removeMember()_：從群組移除成員
+   - _addMember()_：將單一成員加入群組
+   - _addMembers()_：一次加入多個成員
+   - _updateMember()_：更新成員的身份承諾
+   - _removeMember()_：從群組移除成員
 3. **證明驗證**
-  - validateProof()：驗證零知識證明並防止雙重訊號
-  - verifyProof()：在不改變狀態的情況下驗證證明的有效性
+   - validateProof()：驗證零知識證明並防止雙重訊號
+   - verifyProof()：在不改變狀態的情況下驗證證明的有效性
 4. \*\* 設定\*\*
-  - _groupCounter()_：回傳建立的群組總數
-  - _updateGroupMerkleTreeDuration()_：更新 merkle 樹的持續時間
+   - _groupCounter()_：回傳建立的群組總數
+   - _updateGroupMerkleTreeDuration()_：更新 merkle 樹的持續時間
 5. **活動**：
-  - _GroupMerkleTreeDurationUpdated_：記錄 Merkle 樹持續時間的變更
-  - _ProofValidated_：記錄已驗證的證明細節
+   - _GroupMerkleTreeDurationUpdated_：記錄 Merkle 樹持續時間的變更
+   - _ProofValidated_：記錄已驗證的證明細節
 6. \*\* 錯誤處理\*\*：
-  - 針對無效證明、重複無效、空群組等自訂錯誤。
+   - 針對無效證明、重複無效、空群組等自訂錯誤。
 
 此介面為調查系統中的隱私保護群組管理和零知識證明驗證提供了基礎。
 

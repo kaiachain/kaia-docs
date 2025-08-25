@@ -38,9 +38,9 @@ Mô hình CEI giúp đảm bảo rằng tất cả các bước xác thực cầ
 
 Khi được triển khai đúng cách, mẫu CEI tuân theo thứ tự sau:
 
-- Kiểm tra: Xác minh rằng tất cả các điều kiện cần thiết đã được đáp ứng (ví dụ: xác minh rằng người dùng có đủ số dư).
-- Hiệu ứng: Cập nhật trạng thái nội bộ của hợp đồng (ví dụ: giảm số dư của người dùng).
-- Tương tác: Chuyển tiền hoặc gọi hợp đồng bên ngoài.
+ - Kiểm tra: Xác minh rằng tất cả các điều kiện cần thiết đã được đáp ứng (ví dụ: xác minh rằng người dùng có đủ số dư).
+ - Hiệu ứng: Cập nhật trạng thái nội bộ của hợp đồng (ví dụ: giảm số dư của người dùng).
+ - Tương tác: Chuyển tiền hoặc gọi hợp đồng bên ngoài.
 
 Bằng cách tuân theo cấu trúc này, bạn có thể giảm đáng kể nguy cơ xảy ra các cuộc tấn công tái nhập.
 
@@ -238,10 +238,10 @@ Kiểm toán là quá trình đánh giá có hệ thống mã nguồn của hợ
 
 Một cuộc kiểm toán thông thường bao gồm:
 
-- Một cuộc kiểm tra thủ công chi tiết về mã nguồn.
-- Quét tự động các lỗ hổng bảo mật đã biết
-- Kiểm thử để xác minh hành vi của hợp đồng
-- Báo cáo chi tiết nêu rõ các vấn đề đã được xác định và các đề xuất cải thiện.
+ - Một cuộc kiểm tra thủ công chi tiết về mã nguồn.
+ - Quét tự động các lỗ hổng bảo mật đã biết
+ - Kiểm thử để xác minh hành vi của hợp đồng
+ - Báo cáo chi tiết nêu rõ các vấn đề đã được xác định và các đề xuất cải thiện.
 
 Kiểm toán giúp giảm thiểu rủi ro bị khai thác và đảm bảo hợp đồng thông minh của bạn đáp ứng các tiêu chuẩn bảo mật trước khi triển khai.
 
@@ -249,9 +249,9 @@ Kiểm toán giúp giảm thiểu rủi ro bị khai thác và đảm bảo hợ
 
 Vì lý do bảo mật, đặc biệt khi làm việc với các hợp đồng mới, việc bao gồm một phương án dự phòng đáng tin cậy là rất quan trọng. Điều này cho phép bạn phản hồi nhanh chóng nếu có bất kỳ vấn đề nào phát sinh. Dưới đây là một số chiến lược cần xem xét:
 
-- **Khả năng nâng cấp**: Đảm bảo hợp đồng của bạn cho phép nâng cấp trong tương lai. Điều này cho phép sửa lỗi và thêm tính năng mới mà không cần thay thế toàn bộ hợp đồng.
-- **Kiểm soát phi tập trung**: Tránh tập trung quyền kiểm soát vào một nơi duy nhất. Sử dụng ví đa chữ ký để các hành động quan trọng yêu cầu xác nhận từ nhiều bên.
-- **Khóa thời gian**: Thêm thời gian chờ trước khi thực hiện các hành động quan trọng. Điều này cho phép đội ngũ hoặc cộng đồng rộng lớn hơn có thời gian để xem xét các giao dịch và phản hồi nếu cần thiết.
+ - **Khả năng nâng cấp**: Đảm bảo hợp đồng của bạn cho phép nâng cấp trong tương lai. Điều này cho phép sửa lỗi và thêm tính năng mới mà không cần thay thế toàn bộ hợp đồng.
+ - **Kiểm soát phi tập trung**: Tránh tập trung quyền kiểm soát vào một nơi duy nhất. Sử dụng ví đa chữ ký để các hành động quan trọng yêu cầu xác nhận từ nhiều bên.
+ - **Khóa thời gian**: Thêm thời gian chờ trước khi thực hiện các hành động quan trọng. Điều này cho phép đội ngũ hoặc cộng đồng rộng lớn hơn có thời gian để xem xét các giao dịch và phản hồi nếu cần thiết.
 
 ## Kết luận
 

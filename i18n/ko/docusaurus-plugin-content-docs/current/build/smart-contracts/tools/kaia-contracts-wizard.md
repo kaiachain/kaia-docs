@@ -8,9 +8,9 @@ Kaia는 원활한 개발자 경험을 제공하는 것을 우선시하며, 이�
 
 이 가이드에서는 다음과 같이 설명합니다:
 
-- Kaia Contracts Wizard의 기본 기능을 이해합니다.
-- Kaia Contracts Wizard를 사용하여 스마트 컨트랙트 코드 생성 및 커스터마이징하기.
-- Foundry 스크립팅 시스템을 사용하여 Kaia 컨트랙트를 Kaia 네트워크(Kairos)에 배포합니다.
+ - Kaia Contracts Wizard의 기본 기능을 이해합니다.
+ - Kaia Contracts Wizard를 사용하여 스마트 컨트랙트 코드 생성 및 커스터마이징하기.
+ - Foundry 스크립팅 시스템을 사용하여 Kaia 컨트랙트를 Kaia 네트워크(Kairos)에 배포합니다.
 
 ## Kaia Contracts Wizard 살펴보기
 
@@ -18,27 +18,27 @@ Kaia Contracts Wizard는 Kaia 컨트랙트를 사용하여 스마트 컨트랙�
 
 현재 Kaia Contracts Wizard는 다음과 같은 토큰 표준을 지원합니다:
 
-- [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. 대체 가능이란 모든 토큰이 분할 및 교환이 가능하며, 즉 동일한 가치를 갖는다는 것을 의미합니다. 대체 가능한 토큰의 대표적인 예로는 동일한 액면가의 지폐가 동일한 가치를 갖는 법정화폐를 들 수 있습니다.
-- [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. 대체 불가능하다는 것은 각 토큰이 분할할 수 없으므로 고유하다는 것을 의미합니다. KIP17 토큰은 그림, 게임 아이템, 부동산 등 물리적 자산이든 가상의 수집품이든 고유한 아이템의 소유권을 나타낼 수 있습니다.
-- [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
+ - [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. 대체 가능이란 모든 토큰이 분할 및 교환이 가능하며, 즉 동일한 가치를 갖는다는 것을 의미합니다. 대체 가능한 토큰의 대표적인 예로는 동일한 액면가의 지폐가 동일한 가치를 갖는 법정화폐를 들 수 있습니다.
+ - [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. 대체 불가능하다는 것은 각 토큰이 분할할 수 없으므로 고유하다는 것을 의미합니다. KIP17 토큰은 그림, 게임 아이템, 부동산 등 물리적 자산이든 가상의 수집품이든 고유한 아이템의 소유권을 나타낼 수 있습니다.
+ - [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 이더리움 컨트랙트 마법사는 [이더리움 동등성](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) 지원과 함께 [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)도 지원합니다.
 
 Kaia Contracts Wizard는 다음 섹션으로 구성되어 있습니다:
 
-- **토큰 표준 섹션**: 이 탭은 Kaia Contracts Wizard가 지원하는 모든 토큰 표준으로 구성되어 있습니다.
+ - **토큰 표준 섹션**: 이 탭은 Kaia Contracts Wizard가 지원하는 모든 토큰 표준으로 구성되어 있습니다.
 
-- **설정 섹션**: 이 섹션에서는 토큰 이름, 심볼, 프리 민트(컨트랙트 배포 시 토큰 공급), URI(대체 불가능한 토큰의 경우) 등 각 토큰 표준에 대한 예비 설정을 제공합니다.
+ - **설정 섹션**: 이 섹션에서는 토큰 이름, 심볼, 프리 민트(컨트랙트 배포 시 토큰 공급), URI(대체 불가능한 토큰의 경우) 등 각 토큰 표준에 대한 예비 설정을 제공합니다.
 
-- **기능 섹션**: 각 토큰 표준에서 사용할 수 있는 모든 기능으로 구성됩니다. 각 토큰에서 사용할 수 있는 다양한 확장 기능에 대한 자세한 정보는 다음 링크에서 확인할 수 있습니다:
+ - **기능 섹션**: 각 토큰 표준에서 사용할 수 있는 모든 기능으로 구성됩니다. 각 토큰에서 사용할 수 있는 다양한 확장 기능에 대한 자세한 정보는 다음 링크에서 확인할 수 있습니다:
 
-    - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-    - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-    - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+     - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+     - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+     - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
-- **접근 제어 섹션**: 각 토큰 표준에 대해 사용 가능한 모든 접근 제어 메커니즘으로 구성됩니다.
+ - **접근 제어 섹션**: 각 토큰 표준에 대해 사용 가능한 모든 접근 제어 메커니즘으로 구성됩니다.
 
-- **대화형 코드 표시 섹션**: 사용자가 설정한 구성으로 생성된 스마트 컨트랙트 코드를 표시합니다.
+ - **대화형 코드 표시 섹션**: 사용자가 설정한 구성으로 생성된 스마트 컨트랙트 코드를 표시합니다.
 
 ![](/img/build/tools/kcw-image.png)
 
@@ -54,11 +54,11 @@ In this section, you will deploy the generated code from kaia contracts wizard t
 
 이 튜토리얼을 따라하기 위한 사전 요구 사항은 아래에 강조 표시되어 있습니다:
 
-- [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
-- Kaia 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
-- [메타마스크](../../tutorials/connecting-metamask.mdx#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호작용하는 데 사용됩니다.
-- RPC 엔드포인트: 지원되는 [엔드포인트 공급자] 중 하나에서 받을 수 있습니다(../../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+ - [Foundry](https://book.getfoundry.sh/getting-started/installation)가 설치되어 있는지 확인합니다.
+ - Kaia 파운드리 스타터킷](https://github.com/ayo-klaytn/kaia-foundry-starterkit) 코드를 복제합니다.
+ - [메타마스크](../../tutorials/connecting-metamask.mdx#install-metamask): 컨트랙트를 배포하고, 트랜잭션에 서명하고, 컨트랙트와 상호작용하는 데 사용됩니다.
+ - RPC 엔드포인트: 지원되는 [엔드포인트 공급자] 중 하나에서 받을 수 있습니다(../../../references/public-en.md).
+ - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ### 시작하기
 
@@ -456,5 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 또한, 생성된 컨트랙트를 Foundry Solidity 스크립팅을 사용하여 Kaia Kairos 테스트넷에 배포했습니다. Remix IDE 또는 다른 스마트 컨트랙트 개발 환경을 사용하여 Kaia Contracts Wizard를 통해 파생되거나 커스터마이징된 스마트 컨트랙트를 배포할 수 있습니다. 다음 링크에서 해당 튜토리얼을 찾을 수 있습니다:
 
-- [리믹스에 연결하기](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
-- [하드햇을 사용하여 스마트 컨트랙트 배포하기](../../get-started/hardhat.md)
+ - [리믹스에 연결하기](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+ - [하드햇을 사용하여 스마트 컨트랙트 배포하기](../../get-started/hardhat.md)

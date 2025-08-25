@@ -2,8 +2,8 @@
 
 カイアのヴィーム・エクステンションが提案する：
 
-- イーサリアムとカイアの両方のトランザクションタイプをサポート。
-- MetaMask (`window.ethereum`) と Kaikas (`window.klaytn`) の両方で動作する。
+ - イーサリアムとカイアの両方のトランザクションタイプをサポート。
+ - MetaMask (`window.ethereum`) と Kaikas (`window.klaytn`) の両方で動作する。
 
 ## インストール
 
@@ -12,11 +12,11 @@
 
 ### Node.js
 
-- インストール
+ - インストール
     ```sh
     npm install --save @kaiachain/viem-ext
     ```
-- ESMまたはTypeScript
+ - ESMまたはTypeScript
     ```ts
     import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
     const publicClient = createPublicClient({
@@ -24,7 +24,7 @@
         transport: http(),
     })
     ```
-- コモンJS
+ - コモンJS
     ```js
     const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
     const publicClient = createPublicClient({

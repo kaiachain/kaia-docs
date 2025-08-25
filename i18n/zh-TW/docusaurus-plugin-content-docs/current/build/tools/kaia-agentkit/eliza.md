@@ -10,10 +10,10 @@ Kaia Eliza 外掛程式在引擎蓋下使用 Kaia Agent Kit。 這表示所有�
 
 \*\* 主要特色\*\*
 
-- **代幣傳輸**：輕鬆地在錢包間傳送 KAIA 代幣。
-- **錢包查詢**：檢索錢包餘額和即時 KAIA 價格資料。
-- **網路管理**：與 Kaia 區塊鏈無縫互動。
-- \*\* 區塊與交易資訊\*\*：存取網路中交易和區塊的詳細資訊。
+ - **代幣傳輸**：輕鬆地在錢包間傳送 KAIA 代幣。
+ - **錢包查詢**：檢索錢包餘額和即時 KAIA 價格資料。
+ - **網路管理**：與 Kaia 區塊鏈無縫互動。
+ - \*\* 區塊與交易資訊\*\*：存取網路中交易和區塊的詳細資訊。
 
 ## 開始使用
 
@@ -65,9 +65,9 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 
 提供下列值：
 
-- **kaia_evm_private_key**：鏈上交易必須使用。
-- **kaia_kaiascan_api_key**：可從 [KaiaScan](https://kaiascan.io) 取得。
-- **kaia_faucet_amount**：指定請求時要分發的代幣金額。
+ - **kaia_evm_private_key**：鏈上交易必須使用。
+ - **kaia_kaiascan_api_key**：可從 [KaiaScan](https://kaiascan.io) 取得。
+ - **kaia_faucet_amount**：指定請求時要分發的代幣金額。
 
 \*\* 設定範例\*\*
 
@@ -203,11 +203,11 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 我們歡迎開發人員社群的貢獻。 若要探索更多關於 Kaia 區塊鏈的資訊，請造訪：
 
-- [Kaia Documentation](https://docs.kaia.io/)
-- [Kaia 開發者入口網站](https://www.kaia.io/developers)
-- [KaiaScan Explorer](https://kaiascan.io)
-- [KaiaScan API Docs](https://docs.kaiascan.io/)
-- [Kaia Github Repository](https://github.com/kaiachain)
+ - [Kaia Documentation](https://docs.kaia.io/)
+ - [Kaia 開發者入口網站](https://www.kaia.io/developers)
+ - [KaiaScan Explorer](https://kaiascan.io)
+ - [KaiaScan API Docs](https://docs.kaiascan.io/)
+ - [Kaia Github Repository](https://github.com/kaiachain)
 
 ## 總結
 

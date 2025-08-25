@@ -831,24 +831,24 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 1. フロントエンドのコードでこれらの設定を確認してください：
 
-  a. package.jsonを開き、以下のスクリプトを追加する：
+   a. package.jsonを開き、以下のスクリプトを追加する：
 
-  ```js
-  	"scripts": {
-  	 "dev": "next",
-  	 "build": "next build",
-  	  "start": "next start",
-  		  "export": "next export"  
-  	}
-  ```
+   ```js
+   	"scripts": {
+   	 "dev": "next",
+   	 "build": "next build",
+   	  "start": "next start",
+   		  "export": "next export"  
+   	}
+   ```
 
-  b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
+   b. ルート・ディレクトリにあるnext.config.jsファイルに、以下のコードを貼り付けます：
 
-  ```js
-  	module.exports = {
-  		exportTrailingSlash: true,
-  	};
-  ```
+   ```js
+   	module.exports = {
+   		exportTrailingSlash: true,
+   	};
+   ```
 
 詳しくはこちらの[ガイド](https://blog.fleek.co/posts/fleek-nextJS)をご覧ください。
 

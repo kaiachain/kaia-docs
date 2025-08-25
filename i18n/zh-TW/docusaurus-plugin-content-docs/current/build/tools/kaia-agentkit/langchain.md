@@ -6,19 +6,19 @@ Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的�
 
 ## 先決條件
 
-- 已安裝 [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation)
-- 已準備好私密金鑰的 [Kaia Wallet](https://www.kaiawallet.io/)
-- [Google Generative API key](https://ai.google.dev/gemini-api/docs/api-key)
-- Kaia 網路的 [RPC Provider](https://docs.kaia.io/references/public-en/)
-- [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
+ - 已安裝 [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation)
+ - 已準備好私密金鑰的 [Kaia Wallet](https://www.kaiawallet.io/)
+ - [Google Generative API key](https://ai.google.dev/gemini-api/docs/api-key)
+ - Kaia 網路的 [RPC Provider](https://docs.kaia.io/references/public-en/)
+ - [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
 
 ## 開始使用
 
 在本指南中，我們將使用 LangChain 和 Kaia Agent Kit 建立一個 AI 代理，它可以：
 
-- 發送原生代幣、可替代代幣 (FT) 和 NFT。
-- 檢查原生代幣、FT 和 NFT 的餘額。
-- 擷取區塊鏈資料 Kaiascan API 可擷取網路摘要、Kaia 的價格、地址的代幣餘額等。
+ - 發送原生代幣、可替代代幣 (FT) 和 NFT。
+ - 檢查原生代幣、FT 和 NFT 的餘額。
+ - 擷取區塊鏈資料 Kaiascan API 可擷取網路摘要、Kaia 的價格、地址的代幣餘額等。
 
 ### 瞭解 AI 代理堆疊
 
@@ -182,20 +182,20 @@ const walletClient = createWalletClient({
 
 讓我們來看看程式碼的核心運作：
 
-- **LangChain 元件：**
-    - 聊天GoogleGenerativeAI：Google 的 Generative AI 介面
-    - MemorySaver：在互動之間儲存對話狀態
-    - HumanMessage：結構化使用者輸入的訊息
-    - createReactAgent：建立一個遵循 ReAct 模式的代理程式
-- \*\* 區塊鏈程式庫：\*\*
-    - viem：與區塊鏈互動的 EVM 函式庫
-    - kairos：Kairos 網路的連鎖組態
-- **工具與代理程式初始化：**
-    - getOnChainTools：將區塊鏈函數轉換為 LangChain 工具
-    - Kaia：Kaia 特定區塊鏈互動的外掛程式
-    - 結合 Kaia 外掛程式與 API 金鑰，進行進階區塊鏈查詢
-- **LLM 配置：**
-    - 使用 Google 的 Gemini 1.5 Pro 模型作為代理的智慧功能
+ - **LangChain 元件：**
+     - 聊天GoogleGenerativeAI：Google 的 Generative AI 介面
+     - MemorySaver：在互動之間儲存對話狀態
+     - HumanMessage：結構化使用者輸入的訊息
+     - createReactAgent：建立一個遵循 ReAct 模式的代理程式
+ - \*\* 區塊鏈程式庫：\*\*
+     - viem：與區塊鏈互動的 EVM 函式庫
+     - kairos：Kairos 網路的連鎖組態
+ - **工具與代理程式初始化：**
+     - getOnChainTools：將區塊鏈函數轉換為 LangChain 工具
+     - Kaia：Kaia 特定區塊鏈互動的外掛程式
+     - 結合 Kaia 外掛程式與 API 金鑰，進行進階區塊鏈查詢
+ - **LLM 配置：**
+     - 使用 Google 的 Gemini 1.5 Pro 模型作為代理的智慧功能
 
 ## 執行代理程式
 
@@ -226,9 +226,9 @@ Send 1 FM NFT (0x61eaee91759adc35b4665fc589b95f885f685dab) with token id 1 to th
 
 ## 其他資源
 
-- [多重代理系統](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
-- [LangGraph 快速入門指南](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
-- [Prebuilt LangChain tools](https://js.langchain.com/docs/integrations/tools/)
+ - [多重代理系統](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
+ - [LangGraph 快速入門指南](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+ - [Prebuilt LangChain tools](https://js.langchain.com/docs/integrations/tools/)
 
 
 

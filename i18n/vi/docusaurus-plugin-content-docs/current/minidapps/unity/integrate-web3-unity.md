@@ -11,10 +11,10 @@ Trong phần này, chúng ta sẽ xây dựng các phần để tích hợp web3
 1. Điều hướng đến Kaia Contract Wizard.
 2. Chọn KIP7 (tiêu chuẩn mã thông báo của Kaia, tương tự như ERC20).
 3. Cấu hình mã thông báo của bạn:
-  - Tên: ExampleTestToken (hoặc tên khác!)
-  - Biểu tượng: ET (mã token của bạn)
-  - Đúc trước: 100 (nguồn cung cấp token ban đầu)
-  - Tính năng: Kiểm tra ✅ Có thể đúc
+   - Tên: ExampleTestToken (hoặc tên khác!)
+   - Biểu tượng: ET (mã token của bạn)
+   - Đúc trước: 100 (nguồn cung cấp token ban đầu)
+   - Tính năng: Kiểm tra ✅ Có thể đúc
 
 Trong hướng dẫn này, chúng tôi sẽ điều chỉnh hàm mint để không chỉ có trình sửa đổi onlyOwner. Để thực hiện điều này, chúng ta phải xóa lệnh import ownable.sol và lệnh kế thừa Ownable. Mã đã chỉnh sửa bây giờ sẽ trông như thế này:
 
@@ -50,14 +50,14 @@ Chúng tôi đã xóa trình sửa đổi onlyOwner để cho phép bất kỳ a
 
 1. Sao chép và dán mã ở trên vào tệp `ET.sol` mới tạo trên Remix IDE.
 2. Trong Remix IDE:
-  - Nhấp vào nút **Biên dịch hợp đồng**.
-  - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
-  - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm** - **Ví Kaia**.
-  - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
-  - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
+   - Nhấp vào nút **Biên dịch hợp đồng**.
+   - Kích hoạt **Plugin Kaia** trong trình quản lý plugin.
+   - Trong mục Môi trường của tab Plugin Kaia, chọn **Nhà cung cấp được tiêm** - **Ví Kaia**.
+   - Tìm hợp đồng của bạn (ExampleTokens) trong danh sách thả xuống **Hợp đồng**.
+   - Nhấp vào **Triển khai** để khởi chạy mã thông báo của bạn!
 3. Khi Ví Kaia của bạn hiện lên:
-  - Xem lại thông tin chi tiết triển khai.
-  - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
+   - Xem lại thông tin chi tiết triển khai.
+   - Nhấp vào Xác nhận để triển khai lên Kaia Kairos Testnet.
 
 :::important
 Sao chép và lưu địa chỉ hợp đồng đã triển khai. Bạn sẽ cần đến nó sau trong phần hướng dẫn.
@@ -83,9 +83,9 @@ Assets/
 2. Tại sao lại là .jslib? Hãy coi nó như một trình biên dịch giữa C# của Unity và JavaScript của trình duyệt - rất cần thiết cho các tương tác trên Web3!
 
 3. Plugin này sẽ xử lý ba chức năng cốt lõi:
-  - ConnectWallet() - Xử lý kết nối Kaia Wallet
-  - GetTokenBalance() - Kiểm tra số dư token
-  - MintTokens() - Quản lý việc đúc token
+   - ConnectWallet() - Xử lý kết nối Kaia Wallet
+   - GetTokenBalance() - Kiểm tra số dư token
+   - MintTokens() - Quản lý việc đúc token
 
 Mở tệp này trong VS Code và dán mã nguồn `KaiaPlugin.jslib` vào [Phụ lục A](convert-unity-liff.md#appendix-a):
 
@@ -120,20 +120,20 @@ Assets/
 Cuối cùng, chúng ta hãy kết hợp tất cả lại trong Unity:
 
 1. Tạo đối tượng quản lý:
-  - Nhấp chuột phải vào cửa sổ Phân cấp (cấp gốc).
-  - Chọn "Tạo đối tượng rỗng".
-  - Đặt tên là "Web3Manager".
+   - Nhấp chuột phải vào cửa sổ Phân cấp (cấp gốc).
+   - Chọn "Tạo đối tượng rỗng".
+   - Đặt tên là "Web3Manager".
 2. Đính kèm tập lệnh của bạn:
-  - Chọn GameObject Web3Manager.
-  - Trong Inspector, nhấp vào Thêm thành phần.
-  - Tìm kiếm và chọn "Web3Manager".
+   - Chọn GameObject Web3Manager.
+   - Trong Inspector, nhấp vào Thêm thành phần.
+   - Tìm kiếm và chọn "Web3Manager".
 3. Kết nối các thành phần UI:
-  - Khi đã chọn Web3Manager, hãy nhìn vào Inspector.
-  - Kéo và thả các thành phần UI của bạn từ Phân cấp vào các trường tương ứng:
-    - Trạng tháiVăn bản
-    - Địa chỉVăn bản
-    - TokenBalanceVăn bản
-    - Kết nối, Ngắt kết nối, Nút Mint
-    - Các trường nhập liệu
+   - Khi đã chọn Web3Manager, hãy nhìn vào Inspector.
+   - Kéo và thả các thành phần UI của bạn từ Phân cấp vào các trường tương ứng:
+     - Trạng tháiVăn bản
+     - Địa chỉVăn bản
+     - TokenBalanceVăn bản
+     - Kết nối, Ngắt kết nối, Nút Mint
+     - Các trường nhập liệu
 
 ![](/img/minidapps/unity-minidapp/connect-ui-manager.png)
