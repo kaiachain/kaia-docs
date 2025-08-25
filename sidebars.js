@@ -118,18 +118,13 @@ const sidebars = {
       label: 'Get Started',
       link: { type: 'doc', id: 'build/get-started/get-started' },
       items: [
-        'build/get-started/before-you-start',
-        'build/get-started/hardhat',
-        {
-          type: 'category',
-          label: 'Account Basics',
-          link: { type: 'doc', id: 'build/get-started/account/account' },
-          items: [
-            'build/get-started/account/creating-accounts',
-            'build/get-started/account/managing-accounts',
-          ],
-        },
-        'build/get-started/getting-kaia',
+        { type: 'doc', label: 'Step 1: Foundation Setup', id: 'build/get-started/foundation-setup' },
+        { type: 'doc', label: 'Step 2: Set up Account and Networks', id: 'build/wallets/wallet-config/configure-wallet-for-kaia-networks' },
+        { type: 'doc', label: 'Step 3: Get KAIA', id: 'build/get-started/getting-kaia' },
+        { type: 'doc', label: 'Step 4: Deploy Hello World Contract', id: 'build/smart-contracts/token-development/samples/kaiagreeter' },
+        { type: 'doc', label: 'Step 5: Deploy your First Token Contract', id: 'build/get-started/hardhat' },
+        { type: 'doc', label: 'Step 6: Build your First dApp on Kaia', id: 'build/tutorials/scaffold-eth' },
+        { type: 'doc', label: 'Step 7: Build your Mini dApp on Kaia', id: 'minidapps/minidapps' },
       ],
     },
     {

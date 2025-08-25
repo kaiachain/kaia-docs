@@ -55,7 +55,8 @@ const redirects = [
   { from: '/build/tutorials/fee-delegation-wallet-integration', to: '/build/wallets/dapp-integration/how-to-integrate-fee-delegation-features-into-wallets' },
   { from: '/build/tutorials/kaia-wallet-dapp-integration', to: '/build/wallets/dapp-integration/integrate-dapp-with-kaiawallet' },
   { from: '/build/tools/wallets/kaia-wallet', to: '/build/wallets/overview/kaia-wallet' },
-  { from: '/build/tools/wallets', to: '/build/wallets' },
+  { from: ['/build/get-started/account', '/build/get-started/account/creating-accounts', '/build/get-started/account/managing-accounts'], to: '/nodes/endpoint-node/ken-cli-commands' },
+  { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
 ];
 
 // Folder-wide mappings (oldBase -> newBase)
