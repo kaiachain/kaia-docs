@@ -1,6 +1,33 @@
 {
   "updates": [
     {
+      "version": "1.20.1",
+      "date": "2025-08-22",
+      "title": "Add Canonical WKAIA page",
+      "updateType": "NEW_CONTENT",
+      "summary": "Added a dedicated page for the WKAIA token, detailing its features, benefits, and usage within the Kaia ecosystem.",
+      "primaryDocLink": "/build/smart-contracts/token-development/canonical-wkaia",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/356"
+    },
+    {
+      "version": "1.20.0",
+      "date": "2025-08-21",
+      "title": "Revamp Get Started Section",
+      "updateType": "NEW_CONTENT",
+      "summary": "Revamped the Get Started section to provide a clearer and more comprehensive introduction to Kaia development.",
+      "primaryDocLink": "/build/get-started",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/355"
+    },
+    {
+      "version": "1.19.2",
+      "date": "2025-08-20",
+      "title": "Add Code Sandbox for Gas Abstraction",
+      "updateType": "UPDATE",
+      "summary": "Integrate a code sandbox environment for testing gas abstraction features in ethers-ext and web3js-ext SDKs.",
+      "primaryDocLink": "/references/sdk/ethers-ext/v6/gas-abstraction/gasless",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/354"
+    },
+    {
       "version": "1.19.1",
       "date": "2025-08-14",
       "title": "Enable Kaia Fee Delegation!",
@@ -9,7 +36,7 @@
       "primaryDocLink": "/build/tutorials/integrate-fee-delegation-service",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/352",
       "showInWhatsNew": true
-    },    
+    },
     {
       "version": "1.19.0",
       "date": "2025-08-12",

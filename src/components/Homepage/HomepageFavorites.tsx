@@ -32,7 +32,7 @@ interface HomepageUpdateItem {
 
 // --- Static Data for Favorites ---
 const leftFavorites: Favorite[] = [
-  { type: 'gettingStarted', link: '/build/get-started/hardhat' },
+  { type: 'gettingStarted', link: '/build/get-started' },
   { type: 'metamask', link: '/build/tutorials/connecting-metamask' },
   { type: 'snapshot', link: '/misc/operation/chaindata-snapshot' },
 ];
@@ -250,8 +250,8 @@ const FavoriteContent = ({ favorite }: { favorite: Favorite }) => {
       </FavoriteTitle>
       <FavoriteDescription themeMode={colorMode}>
         {favorite.type === 'gettingStarted' && (
-          <Translate id="homepage.favorites.gettingStarted.description" description="Description for Getting Started guide">
-            Deploy your first smart contract using Hardhat.
+          <Translate id="homepage.favorites.gettingStarted.description.v2" description="Description for Getting Started guide">
+            Learn the basics of Kaia and how to get started.
           </Translate>
         )}
         {favorite.type === 'metamask' && (
