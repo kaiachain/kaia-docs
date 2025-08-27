@@ -234,6 +234,7 @@ const config = {
         createRedirects, // dynamic folder-wide redirects
       },
     ],
+    "docusaurus-plugin-copy-page-button"
   ],
 
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
