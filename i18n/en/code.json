@@ -798,5 +798,9 @@
   },
   "getStarted.step7.description": {
     "message": "Integrate Web3 features into platforms like LINE."
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "Learn the basics of Kaia and how to get started.",
+    "description": "Description for Getting Started guide"
   }
 }
