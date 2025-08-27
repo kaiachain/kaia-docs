@@ -4,7 +4,7 @@ Get a high-level overview of Kaia and the essentials to begin building.
 
 ## Quick Overview
 
-Kaia is an EVM-compatible blockchain designed for speed, security, and scalability. It uses the Kaia Virtual Machine (KVM), which is fully compatible with Ethereum tools and supports Solidity smart contracts. If you're coming from Ethereum, you'll find the transition straightforward--most of your existing code and workflows will work with minimal changes.
+Kaia is an EVM-compatible blockchain designed for speed, security, and scalability. It uses the Kaia Virtual Machine (KVM), which is fully compatible with Ethereum tools and supports Solidity smart contracts. If you're coming from Ethereum, you'll find the transition straightforward--most of your existing code and workflows will work with [minimal changes](../tutorials/migrating-ethereum-app-to-kaia.mdx).
 
 For more details on Kaia's architecture, check out [Why Build on Kaia](../../learn/why-kaia.md) and [Consensus Mechanism](../../learn/consensus-mechanism.md).
 
