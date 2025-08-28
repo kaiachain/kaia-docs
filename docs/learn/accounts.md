@@ -181,7 +181,7 @@ In order for a transaction to be valid for an account associated with AccountKey
 
 :::note
 
-The following multiSig validation logic has been added with the [IstanbulEVM](../misc/klaytn-history.md#istanbul-evm) hardfork.
+The following multiSig validation logic has been added with the [IstanbulEVM](https://docs.klaytn.foundation/docs/misc/klaytn-history/#istanbul-evm-) hardfork.
 
 * The invalid signature should not be included in the transaction.
 * The number of signed public keys should be less than the number of weightedPublicKeys.
