@@ -5,7 +5,7 @@ This page shows all the hard forks to the Kaia blockchain.
 :::note
 
 - For more details on Kaia releases, see the [Kaia Release Notes on GitHub](https://github.com/kaiachain/kaia/releases).
-- For hard forks prior to the Kaia transition, refer to the [Klaytn Hard Fork History](https://docs.klaytn.foundation/docs/misc/klaytn-history/).
+- For hard forks prior to the Kaia transition, refer to the [Klaytn Hard Fork History](klaytn-history.md).
 
 :::
 
