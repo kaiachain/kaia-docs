@@ -18,7 +18,7 @@ const commonSidebar = [
       'misc/operation/aws-ami',
     ],
   },
-  //  'misc/klaytn-history',
+  'misc/kaia-history',
   {
     type: 'category',
     label: 'Finschia to Kaia',
