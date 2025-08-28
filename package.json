@@ -27,6 +27,7 @@
     "@feelback/react": "^0.3.4",
     "@kaiachain/kaia-chat-ui": "^0.0.11",
     "clsx": "^1.2.1",
+    "docusaurus-plugin-copy-page-button": "^0.3.2",
     "docusaurus-plugin-openapi-docs": "4.0.1",
     "docusaurus-theme-openapi-docs": "4.0.1",
     "dotenv": "^16.5.0",
