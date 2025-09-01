@@ -16,10 +16,10 @@
 内在气体成本 = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
 
- - PayloadGas "根据 tx 中数据字段的大小计算。
- - 当事务注册新键时，会计算 `KeyCreationGas` 值。 仅适用于 "账户更新 "事务。
- - KeyValidationGas "根据签名数量计算。
- - TxTypedGas "是根据交易类型定义的。
+- PayloadGas "根据 tx 中数据字段的大小计算。
+- 当事务注册新键时，会计算 `KeyCreationGas` 值。 仅适用于 "账户更新 "事务。
+- KeyValidationGas "根据签名数量计算。
+- TxTypedGas "是根据交易类型定义的。
 
 在了解细节之前，请记住并非所有键类型都应用了 keyGas（"KeyCreationGas "和 "KeyValidationGas"）。
 
@@ -60,24 +60,24 @@ klaytn 有三种交易类型："基本"、"费用委托 "和 "费用委托与费
 
 例如
 
- - TxTypeValueTransfer 是 valueTransaction 事务的 "基本 "类型。
- - TxTypeFeeDelegatedValueTransfer 是 valueTransfer 交易的 "feeDelegated "类型。
- - TxTypeFeeDelegatedValueTransferWithRatio 是valueTransfer 交易的 "feeDelegatedWithRatio "类型。
+- TxTypeValueTransfer 是 valueTransaction 事务的 "基本 "类型。
+- TxTypeFeeDelegatedValueTransfer 是 valueTransfer 交易的 "feeDelegated "类型。
+- TxTypeFeeDelegatedValueTransferWithRatio 是valueTransfer 交易的 "feeDelegatedWithRatio "类型。
 
 这在计算 TxTypedGas 时非常重要：
 
- - 首先，检查 TxType 是否为 "feeDelegated "或 "feeDelegatedWithFeeRatio"。
-     - 如果 TxType 为 "委托收费"，则在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
-     - 如果 TxType 为 "feeDelegatedWithFeeRatio"，则在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
- - 第二，检查交易是否创建了合同。
-     - 如果交易创建了合同，则在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
-     - 否则，在 TxTypedGas 中添加 `TxGas (21000)`。
+- 首先，检查 TxType 是否为 "feeDelegated "或 "feeDelegatedWithFeeRatio"。
+  - 如果 TxType 为 "委托收费"，则在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
+  - 如果 TxType 为 "feeDelegatedWithFeeRatio"，则在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
+- 第二，检查交易是否创建了合同。
+  - 如果交易创建了合同，则在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
+  - 否则，在 TxTypedGas 中添加 `TxGas (21000)`。
 
 例如
 
- - 如果是 legacyTransaction 并创建了合约，TxTypedGas 将是 `0 + TxGasContractCreation(53000)`。
- - 如果是 TxTypeFeeDelegatedValueTransfer，TxTypedGas 将是 `TxGasFeeDelegated(10000) + TxGas (21000)`
- - 如果是 TxTypeFeeDelegatedSmartContractDeployWithRatio，则 TxTypedGas 将是 `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)` 。
+- 如果是 legacyTransaction 并创建了合约，TxTypedGas 将是 `0 + TxGasContractCreation(53000)`。
+- 如果是 TxTypeFeeDelegatedValueTransfer，TxTypedGas 将是 `TxGasFeeDelegated(10000) + TxGas (21000)`
+- 如果是 TxTypeFeeDelegatedSmartContractDeployWithRatio，则 TxTypedGas 将是 `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)` 。
 
 ## 硬叉变化
 
