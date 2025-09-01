@@ -10,8 +10,8 @@
 
 1. 활성 CN의 `nodekey`의 백업을 생성합니다.
 2. 대기 CN을 설치합니다. 구성은 활성 CN과 동일합니다:
-    - 스탠바이에서는 다른 `nodekey`를 사용해야 합니다.
-    - PN의 주소를 `$DATA_DIR/static-nodes.json`에 추가합니다.
+   - 스탠바이에서는 다른 `nodekey`를 사용해야 합니다.
+   - PN의 주소를 `$DATA_DIR/static-nodes.json`에 추가합니다.
 
 ### 장애 조치 <a id="failover"></a>
 
