@@ -4,10 +4,10 @@ Survey Mini dApp là ứng dụng phi tập trung (dApp) tập trung vào quyề
 
 Hướng dẫn toàn diện này bao gồm:
 
- - Ứng dụng này có chức năng gì và mục tiêu của nó.
- - Các công cụ và điều kiện tiên quyết cần thiết.
- - Thiết lập môi trường phát triển hợp đồng thông minh.
- - Tích hợp và triển khai giao diện người dùng.
+- Ứng dụng này có chức năng gì và mục tiêu của nó.
+- Các công cụ và điều kiện tiên quyết cần thiết.
+- Thiết lập môi trường phát triển hợp đồng thông minh.
+- Tích hợp và triển khai giao diện người dùng.
 
 Để bắt đầu nhanh chóng, bạn sẽ tìm thấy toàn bộ mã cho hướng dẫn này trên [Github](https://github.com/kjeom/ExampleMiniDapp). Bằng cách này, bạn có thể khám phá cách thức hoạt động bên trong của ứng dụng khi thực hiện theo.
 
@@ -16,15 +16,15 @@ Hướng dẫn toàn diện này bao gồm:
 Để xây dựng ứng dụng này, hãy đảm bảo bạn có những điều sau:
 
 1. Kiến thức kỹ thuật
-    - Hiểu rõ về [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
-    - Thành thạo [JavaScript](https://www.w3schools.com/js/default.asp) và [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
-    - Quen thuộc với các công cụ phát triển hợp đồng thông minh như Hardhat.
+   - Hiểu rõ về [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
+   - Thành thạo [JavaScript](https://www.w3schools.com/js/default.asp) và [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
+   - Quen thuộc với các công cụ phát triển hợp đồng thông minh như Hardhat.
 2. Tài khoản và Công cụ
-    - [Tài khoản nhà phát triển LINE](https://developers.line.biz/en/).
-    - [Thiết lập giao thức Semaphore](https://docs.semaphore.pse.dev/getting-started).
-    - Nhận được ID máy khách Mini Dapp SDK từ nhóm Dapp Portal.
+   - [Tài khoản nhà phát triển LINE](https://developers.line.biz/en/).
+   - [Thiết lập giao thức Semaphore](https://docs.semaphore.pse.dev/getting-started).
+   - Nhận được ID máy khách Mini Dapp SDK từ nhóm Dapp Portal.
 3. Các phụ thuộc đã cài đặt
-    - [Node.js và npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+   - [Node.js và npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ## Thiết lập và cài đặt dự án <a id="project-setup-installation"></a>
 
