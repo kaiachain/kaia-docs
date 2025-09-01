@@ -369,6 +369,15 @@ const sidebars = {
             'build/tools/oracles/witnet',
           ],
         },
+              {
+          type: 'category',
+          label: 'Gaming SDKs',
+          link: { type: 'doc', id: 'build/tools/gaming-sdks/gaming-sdks' },
+          items: [
+            'build/tools/gaming-sdks/chainsafe',
+            'build/tools/gaming-sdks/reown',
+          ],
+        },
         {
           type: 'category',
           label: 'Indexers',
