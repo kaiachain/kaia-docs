@@ -115,7 +115,7 @@ Bạn có thể tra cứu hợp đồng đã xác minh [tại đây](https://kai
 
 ## Liên kết hữu ích
 
- - [Cấu hình cho Foundry Verify trên Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
+- [Cấu hình cho Foundry Verify trên Kaiascan](https://docs.kaiascan.io/smart-contract-verification/foundry-verify)
 
 
 
