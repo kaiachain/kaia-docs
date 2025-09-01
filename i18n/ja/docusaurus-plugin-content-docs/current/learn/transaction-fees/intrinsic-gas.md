@@ -16,10 +16,10 @@ Intrinsicガスに関連するハードフォークの変更は、このペー�
 IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 ```
 
- - `PayloadGas`はtxのデータフィールドのサイズに基づいて計算される。
- - `KeyCreationGas`はトランザクションが新しいキーを登録するときに計算される。 `accountUpdate`トランザクションでのみ適用できる。
- - `KeyValidationGas`は署名数に基づいて計算される。
- - `TxTypedGas`はトランザクションタイプに基づいて定義される。
+- `PayloadGas`はtxのデータフィールドのサイズに基づいて計算される。
+- `KeyCreationGas`はトランザクションが新しいキーを登録するときに計算される。 `accountUpdate`トランザクションでのみ適用できる。
+- `KeyValidationGas`は署名数に基づいて計算される。
+- `TxTypedGas`はトランザクションタイプに基づいて定義される。
 
 詳細に入る前に、すべてのキータイプにキーガス（`KeyCreationGas`と`KeyValidationGas`）が適用されるわけではないことを覚えておいてほしい。
 
@@ -63,24 +63,24 @@ klaytnのトランザクションには、`base`、`feeDelegated`、`feeDelegate
 
 例えば、こうだ、
 
- - TxTypeValueTransferはvalueTransactionトランザクションの`ベース`タイプである。
- - `TxTypeFeeDelegatedValueTransferはvalueTransferトランザクションの`feeDelegated\`タイプである。
- - `TxTypeFeeDelegatedValueTransferWithRatio は、valueTransfer トランザクションの `feeDelegatedWithRatio\` タイプである。
+- TxTypeValueTransferはvalueTransactionトランザクションの`ベース`タイプである。
+- `TxTypeFeeDelegatedValueTransferはvalueTransferトランザクションの`feeDelegated\`タイプである。
+- `TxTypeFeeDelegatedValueTransferWithRatio は、valueTransfer トランザクションの `feeDelegatedWithRatio\` タイプである。
 
 これはTxTypedGasを計算する際に重要である：
 
- - まず、TxType が `feeDelegated` または `feeDelegatedWithFeeRatio` であることを確認する。
-     - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
-     - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
- - 次に、取引が契約を結ぶかどうかをチェックする。
-     - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
-     - そうでなければ、TxTypedGasに`TxGas (21000)`を加える。
+- まず、TxType が `feeDelegated` または `feeDelegatedWithFeeRatio` であることを確認する。
+  - `TxTypeが`feeDelegated`の場合、TxTypedGasに`TxGasFeeDelegated(10000)\`を追加する。
+  - TxTypeが`feeDelegatedWithFeeRatio`の場合、TxTypedGasに`TxGasFeeDelegatedWithRatio (15000)`を追加する。
+- 次に、取引が契約を結ぶかどうかをチェックする。
+  - トランザクションがコントラクトを作成する場合、TxTypedGas に `TxGasContractCreation (53000)` を追加する。
+  - そうでなければ、TxTypedGasに`TxGas (21000)`を加える。
 
 例えば、こうだ、
 
- - レガシー・トランザクションでコントラクトを作成する場合、TxTypedGasは `0 + TxGasContractCreation(53000)` となります。
- - TxTypeFeeDelegatedValueTransferであれば、TxTypedGasは`TxGasFeeDelegated(10000) + TxGas (21000)`となる。
- - TxTypeFeeDelegatedSmartContractDeployWithRatioであれば、TxTypedGasは `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)` となる。
+- レガシー・トランザクションでコントラクトを作成する場合、TxTypedGasは `0 + TxGasContractCreation(53000)` となります。
+- TxTypeFeeDelegatedValueTransferであれば、TxTypedGasは`TxGasFeeDelegated(10000) + TxGas (21000)`となる。
+- TxTypeFeeDelegatedSmartContractDeployWithRatioであれば、TxTypedGasは `TxGasFeeDelegatedWithRatio (15000) + TxGasContractCreation (53000)` となる。
 
 ## ハードフォークの変更
 
