@@ -58,8 +58,8 @@ contract MyFirstPythContract {
 
 Pyth Network 智能合约可在以下地址获取：
 
- - 主网：[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
- - Kairos Testnet：[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+- 主网：[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
+- Kairos Testnet：[0x2880ab155794e7179c9ee2e38200202908c17b43](https://kairos.kaiascan.io/account/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
 此外，单击可访问 [Pyth 价格-进价 ID](https://pyth.network/developers/price-feed-ids)。
 
@@ -73,10 +73,10 @@ Pyth 网络为开发人员提供了更多工具，如 [TradingView Integration](
 
 查看以下链接，开始使用 Pyth。
 
- - [Pyth EVM 集成指南](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
- - [Pyth文档](https://docs.pyth.network/home)
- - [Pyth API 参考](https://api-reference.pyth.network/price-feeds/evm/getPrice)
- - [Pyth 示例](https://github.com/pyth-network/pyth-examples)
- - [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
- - [Website](https://pyth.network/)
- - [Twitter](https://x.com/PythNetwork)
+- [Pyth EVM 集成指南](https://docs.pyth.network/price-feeds/use-real-time-data/evm)
+- [Pyth文档](https://docs.pyth.network/home)
+- [Pyth API 参考](https://api-reference.pyth.network/price-feeds/evm/getPrice)
+- [Pyth 示例](https://github.com/pyth-network/pyth-examples)
+- [Pyth Price Feed Ids](https://pyth.network/developers/price-feed-ids)
+- [Website](https://pyth.network/)
+- [Twitter](https://x.com/PythNetwork)
