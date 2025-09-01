@@ -6,19 +6,19 @@ Kaia Agent Kit 集成了多个流行的人工智能框架，使您能够使用�
 
 ## 先决条件
 
- - 已安装 [Node.js](https://nodejs.org/en/download) 和 [pnpm](https://pnpm.io/installation)
- - 已准备好私钥的 [Kaia 钱包](https://www.kaiawallet.io/)
- - [Google Generative API key](https://ai.google.dev/gemini-api/docs/api-key)
- - Kaia 网络的[RPC Provider](https://docs.kaia.io/references/public-en/)
- - [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
+- 已安装 [Node.js](https://nodejs.org/en/download) 和 [pnpm](https://pnpm.io/installation)
+- 已准备好私钥的 [Kaia 钱包](https://www.kaiawallet.io/)
+- [Google Generative API key](https://ai.google.dev/gemini-api/docs/api-key)
+- Kaia 网络的[RPC Provider](https://docs.kaia.io/references/public-en/)
+- [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
 
 ## 开始使用
 
 在本指南中，我们将使用 LangChain 和 Kaia Agent Kit 构建一个人工智能代理，它可以：
 
- - 发送本地代币、可互换代币 (FT) 和 NFT。
- - 检查本地代币、FT 和 NFT 的余额。
- - 获取区块链数据 Kaiascan API 可检索网络摘要、Kaia 的价格、地址的代币余额等。
+- 发送本地代币、可互换代币 (FT) 和 NFT。
+- 检查本地代币、FT 和 NFT 的余额。
+- 获取区块链数据 Kaiascan API 可检索网络摘要、Kaia 的价格、地址的代币余额等。
 
 ### 了解人工智能代理堆栈
 
@@ -182,20 +182,20 @@ const walletClient = createWalletClient({
 
 让我们来看看代码的核心工作原理：
 
- - **LangChain 组件：**
-     - 聊天谷歌生成式人工智能：谷歌生成式人工智能的界面
-     - 记忆保存器在交互之间存储对话状态
-     - HumanMessage：构建来自用户的输入信息
-     - createReactAgent：创建一个遵循 ReAct 模式的代理
- - **区块链库：**
-     - viem：与区块链交互的 EVM 库
-     - kairos： Kairos 网络的链式配置
- - **工具和代理初始化：**
-     - getOnChainTools：将区块链函数转换为 LangChain 工具
-     - Kaia：Kaia 专用区块链交互插件
-     - 包含 Kaia 插件和 API 密钥，可进行高级区块链查询
- - **LLM 配置：**
-     - 使用谷歌 Gemini 1.5 Pro 模型作为代理的智能系统
+- **LangChain 组件：**
+  - 聊天谷歌生成式人工智能：谷歌生成式人工智能的界面
+  - 记忆保存器在交互之间存储对话状态
+  - HumanMessage：构建来自用户的输入信息
+  - createReactAgent：创建一个遵循 ReAct 模式的代理
+- **区块链库：**
+  - viem：与区块链交互的 EVM 库
+  - kairos： Kairos 网络的链式配置
+- **工具和代理初始化：**
+  - getOnChainTools：将区块链函数转换为 LangChain 工具
+  - Kaia：Kaia 专用区块链交互插件
+  - 包含 Kaia 插件和 API 密钥，可进行高级区块链查询
+- **LLM 配置：**
+  - 使用谷歌 Gemini 1.5 Pro 模型作为代理的智能系统
 
 ## 运行代理
 
@@ -226,9 +226,9 @@ Send 1 FM NFT (0x61eaee91759adc35b4665fc589b95f885f685dab) with token id 1 to th
 
 ## 其他资源
 
- - [多重代理系统](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
- - [LangGraph快速入门指南](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
- - [预构建的 LangChain 工具](https://js.langchain.com/docs/integrations/tools/)
+- [多重代理系统](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
+- [LangGraph快速入门指南](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+- [预构建的 LangChain 工具](https://js.langchain.com/docs/integrations/tools/)
 
 
 
