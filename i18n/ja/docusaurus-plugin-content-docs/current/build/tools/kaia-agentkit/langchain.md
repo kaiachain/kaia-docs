@@ -6,19 +6,19 @@
 
 ## 前提条件
 
- - [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation) インストール済み
- - 秘密鍵が準備された[カイア・ウォレット](https://www.kaiawallet.io/)
- - [Google Generative APIキー](https://ai.google.dev/gemini-api/docs/api-key)
- - カイアネットワークの[RPCプロバイダー](https://docs.kaia.io/references/public-en/)
- - [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
+- [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation) インストール済み
+- 秘密鍵が準備された[カイア・ウォレット](https://www.kaiawallet.io/)
+- [Google Generative APIキー](https://ai.google.dev/gemini-api/docs/api-key)
+- カイアネットワークの[RPCプロバイダー](https://docs.kaia.io/references/public-en/)
+- [Kaiascan API Key](https://docs.kaiascan.io/account-creation)
 
 ## はじめに
 
 このガイドでは、LangChainとKaia Agent Kitを使って、AIエージェントを構築します：
 
- - ネイティブトークン、ファンジブルトークン（FT）、NFTを送信する。
- - ネイティブトークン、FT、NFTの残高を確認する。
- - ブロックチェーンデータを取得 Kaiascan APIは、ネットワークサマリー、カイアの価格、アドレスのトークン残高などを取得します。
+- ネイティブトークン、ファンジブルトークン（FT）、NFTを送信する。
+- ネイティブトークン、FT、NFTの残高を確認する。
+- ブロックチェーンデータを取得 Kaiascan APIは、ネットワークサマリー、カイアの価格、アドレスのトークン残高などを取得します。
 
 ### AIエージェントスタックを理解する
 
@@ -182,20 +182,20 @@ const walletClient = createWalletClient({
 
 コードの核となる部分を見てみよう：
 
- - **LangChain Components:**
-     - ChatGoogleGenerativeAI：グーグルのジェネレーティブAIへのインターフェース
-     - メモリーセーバー：インタラクション間の会話状態を保存
-     - HumanMessage：ユーザーからの入力メッセージを構造化
-     - createReactAgent：ReActパターンに従ったエージェントを作成します。
- - \*\*ブロックチェーン・ライブラリ
-     - viem：ブロックチェーンと対話するためのEVMライブラリ
-     - カイロス：カイロス・ネットワークのチェーン構成
- - \*\*ツールおよびエージェントの初期化。
-     - getOnChainTools：ブロックチェーン関数をLangChainツールに変換する
-     - カイアKaia特有のブロックチェーンインタラクション用プラグイン
-     - 高度なブロックチェーンクエリのためのAPIキー付きKaiaプラグインを組み込む
- - \*\*LLMコンフィギュレーション
-     - エージェントのインテリジェンスとしてGoogleのGemini 1.5 Proモデルを使用
+- **LangChain Components:**
+  - ChatGoogleGenerativeAI：グーグルのジェネレーティブAIへのインターフェース
+  - メモリーセーバー：インタラクション間の会話状態を保存
+  - HumanMessage：ユーザーからの入力メッセージを構造化
+  - createReactAgent：ReActパターンに従ったエージェントを作成します。
+- \*\*ブロックチェーン・ライブラリ
+  - viem：ブロックチェーンと対話するためのEVMライブラリ
+  - カイロス：カイロス・ネットワークのチェーン構成
+- \*\*ツールおよびエージェントの初期化。
+  - getOnChainTools：ブロックチェーン関数をLangChainツールに変換する
+  - カイアKaia特有のブロックチェーンインタラクション用プラグイン
+  - 高度なブロックチェーンクエリのためのAPIキー付きKaiaプラグインを組み込む
+- \*\*LLMコンフィギュレーション
+  - エージェントのインテリジェンスとしてGoogleのGemini 1.5 Proモデルを使用
 
 ## エージェントの実行
 
@@ -226,9 +226,9 @@ Send 1 FM NFT (0x61eaee91759adc35b4665fc589b95f885f685dab) with token id 1 to th
 
 ## その他のリソース
 
- - [複数のエージェントシステム](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
- - [LangGraphクイックスタートガイド](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
- - [組み込み済みLangChainツール](https://js.langchain.com/docs/integrations/tools/)
+- [複数のエージェントシステム](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
+- [LangGraphクイックスタートガイド](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+- [組み込み済みLangChainツール](https://js.langchain.com/docs/integrations/tools/)
 
 
 
