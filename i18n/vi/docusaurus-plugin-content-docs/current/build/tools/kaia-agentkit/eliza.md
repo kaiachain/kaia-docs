@@ -10,10 +10,10 @@ Plugin Kaia Eliza sử dụng Kaia Agent Kit ở bên dưới. Điều này có 
 
 **Đặc điểm chính**
 
- - **Chuyển mã thông báo**: Gửi mã thông báo KAIA giữa các ví một cách dễ dàng.
- - **Truy vấn ví**: Truy xuất số dư ví và dữ liệu giá KAIA theo thời gian thực.
- - **Quản lý mạng**: Tương tác liền mạch với blockchain Kaia.
- - **Thông tin về khối và giao dịch**: Truy cập thông tin chi tiết về các giao dịch và khối trên mạng.
+- **Chuyển mã thông báo**: Gửi mã thông báo KAIA giữa các ví một cách dễ dàng.
+- **Truy vấn ví**: Truy xuất số dư ví và dữ liệu giá KAIA theo thời gian thực.
+- **Quản lý mạng**: Tương tác liền mạch với blockchain Kaia.
+- **Thông tin về khối và giao dịch**: Truy cập thông tin chi tiết về các giao dịch và khối trên mạng.
 
 ## Bắt đầu
 
@@ -65,9 +65,9 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 
 Cung cấp giá trị cho:
 
- - **KAIA_EVM_PRIVATE_KEY**: Cần thiết cho các giao dịch trên chuỗi.
- - **KAIA_KAIASCAN_API_KEY**: Có thể lấy từ [KaiaScan](https://kaiascan.io).
- - **KAIA_FAUCET_AMOUNT**: Chỉ định số lượng mã thông báo sẽ phân phối theo yêu cầu.
+- **KAIA_EVM_PRIVATE_KEY**: Cần thiết cho các giao dịch trên chuỗi.
+- **KAIA_KAIASCAN_API_KEY**: Có thể lấy từ [KaiaScan](https://kaiascan.io).
+- **KAIA_FAUCET_AMOUNT**: Chỉ định số lượng mã thông báo sẽ phân phối theo yêu cầu.
 
 **Ví dụ về cấu hình**
 
@@ -203,11 +203,11 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 Chúng tôi hoan nghênh những đóng góp từ cộng đồng nhà phát triển. Để tìm hiểu thêm về blockchain Kaia, hãy truy cập:
 
- - [Tài liệu Kaia](https://docs.kaia.io/)
- - [Cổng thông tin dành cho nhà phát triển Kaia](https://www.kaia.io/developers)
- - [Trình khám phá KaiaScan](https://kaiascan.io)
- - [Tài liệu API của KaiaScan](https://docs.kaiascan.io/)
- - [Kho lưu trữ Github của Kaia](https://github.com/kaiachain)
+- [Tài liệu Kaia](https://docs.kaia.io/)
+- [Cổng thông tin dành cho nhà phát triển Kaia](https://www.kaia.io/developers)
+- [Trình khám phá KaiaScan](https://kaiascan.io)
+- [Tài liệu API của KaiaScan](https://docs.kaiascan.io/)
+- [Kho lưu trữ Github của Kaia](https://github.com/kaiachain)
 
 ## Phần kết luận
 
