@@ -10,10 +10,10 @@ Kaia Eliza PluginはKaia Agent Kitを使用しています。 つまり、トー
 
 **主な特徴**
 
- - **トークンの転送**：KAIAトークンをウォレット間で簡単に送信できます。
- - \*\*ウォレットクエリーウォレットの残高とリアルタイムのKAIA価格データを取得します。
- - **ネットワーク管理**：Kaiaブロックチェーンとシームレスに相互作用する。
- - **ブロックと取引情報**：ネットワーク上の取引とブロックに関する詳細な情報にアクセスできます。
+- **トークンの転送**：KAIAトークンをウォレット間で簡単に送信できます。
+- \*\*ウォレットクエリーウォレットの残高とリアルタイムのKAIA価格データを取得します。
+- **ネットワーク管理**：Kaiaブロックチェーンとシームレスに相互作用する。
+- **ブロックと取引情報**：ネットワーク上の取引とブロックに関する詳細な情報にアクセスできます。
 
 ## はじめに
 
@@ -65,9 +65,9 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 
 の値を提供する：
 
- - **kaia_evm_private_key**：オンチェーン・トランザクションに必要。
- - **kaia_kaiascan_api_key**：KaiaScan](https://kaiascan.io)から取得可能。
- - **kaia_faucet_amount**：リクエスト時に配布するトークンの量を指定します。
+- **kaia_evm_private_key**：オンチェーン・トランザクションに必要。
+- **kaia_kaiascan_api_key**：KaiaScan](https://kaiascan.io)から取得可能。
+- **kaia_faucet_amount**：リクエスト時に配布するトークンの量を指定します。
 
 \*\*構成例
 
@@ -203,11 +203,11 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 開発者コミュニティからの貢献を歓迎する。 カイア・ブロックチェーンの詳細については、こちらをご覧ください：
 
- - [カイア・ドキュメンテーション](https://docs.kaia.io/)
- - [カイア開発者ポータル](https://www.kaia.io/developers)
- - [カイアスキャンエクスプローラー](https://kaiascan.io)
- - [カイアスキャンAPIドキュメント](https://docs.kaiascan.io/)
- - [カイアGithubリポジトリ](https://github.com/kaiachain)
+- [カイア・ドキュメンテーション](https://docs.kaia.io/)
+- [カイア開発者ポータル](https://www.kaia.io/developers)
+- [カイアスキャンエクスプローラー](https://kaiascan.io)
+- [カイアスキャンAPIドキュメント](https://docs.kaiascan.io/)
+- [カイアGithubリポジトリ](https://github.com/kaiachain)
 
 ## 結論
 
