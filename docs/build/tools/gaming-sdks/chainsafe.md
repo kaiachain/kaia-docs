@@ -1,7 +1,5 @@
 # Chainsafe Gaming
 
-<!-- ![](/img/banners/kaia-witnet.png) -->
-
 ## Introduction
 
 [ChainSafe Gaming](https://docs.gaming.chainsafe.io/) is a comprehensive toolkit of Web3 gaming products and services designed for studios, developers, and players. It includes the Web3.unity SDK, an NFT minter, marketplaces, and lootboxes.
