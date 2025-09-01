@@ -8,9 +8,9 @@ Kaia prioritizes providing a seamless developer experience, which is the driving
 
 In this guide you will:
 
- - Understand the basic functionality of Kaia Contracts Wizard.
- - Generate and customize smart contract code using Kaia Contracts Wizard.
- - Deploy Kaia contracts to the Kaia Network (Kairos) using Foundry Scripting System.
+- Understand the basic functionality of Kaia Contracts Wizard.
+- Generate and customize smart contract code using Kaia Contracts Wizard.
+- Deploy Kaia contracts to the Kaia Network (Kairos) using Foundry Scripting System.
 
 ## Exploring Kaia Contracts Wizard
 
@@ -18,27 +18,27 @@ Kaia Contracts Wizard posits itself as the fastest and easiest way to write your
 
 As it is, the Kaia contracts wizard supports the following token standards:
 
- - [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
- - [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
- - [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) — This is a fungible token standard for Kaia. Fungible means that all tokens are divisible and interchangeable, that is, have the same value. One typical example of fungible tokens is fiat currencies, where each equal-denomination bill has the same value.
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) — This is a non-fungible token standard for Kaia. Non-fungible means that each token is indivisible, and therefore, unique. A KIP17 token can represent ownership of a unique item, whether physical property or virtual collectibles — like a picture, item in a game, real estate, and so on.
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) — This is known as the multi-token standard for Kaia, because it can represent both fungible and non-fungible tokens in a single smart contract.
 
 In line with our [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9) support, Kaia contracts wizard also supports [ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/), [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/).
 
 Kaia Contracts Wizard is comprised of the following sections:
 
- - **Token standard section**: This tab comprises all the different token standards supported by the Kaia contracts wizard.
+- **Token standard section**: This tab comprises all the different token standards supported by the Kaia contracts wizard.
 
- - **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
+- **Settings section**: This section provides the preliminary settings for each token standard, such as token name, symbol, pre-mint (token supply when the contract is deployed), and URI (for non-fungible tokens).
 
- - **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
+- **Features section**: comprises all features available for each token standard. You can find more information about the different extensions available for each tokens in the following links:
 
-     - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-     - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-     - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
- - **Access Control section**: comprises all the available access control mechanisms for each token standard.
+- **Access Control section**: comprises all the available access control mechanisms for each token standard.
 
- - **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
+- **Interactive code display section**: this displays the smart contract code generated with the configuration as set by the user.
 
 ![](/img/build/tools/kcw-image.png)
 
@@ -54,11 +54,11 @@ Let’s get started!
 
 To follow along in this tutorial, the prerequisites are highlighted below:
 
- - Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
- - Sao chép mã [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit).
- - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): được sử dụng để triển khai hợp đồng thông minh, ký giao dịch và tương tác với các hợp đồng thông minh.
- - Điểm cuối RPC: Bạn có thể lấy thông tin này từ một trong các nhà cung cấp điểm cuối được hỗ trợ [endpoint providers](../../../references/public-en.md).
- - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed.
+- Sao chép mã [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit).
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): được sử dụng để triển khai hợp đồng thông minh, ký giao dịch và tương tác với các hợp đồng thông minh.
+- Điểm cuối RPC: Bạn có thể lấy thông tin này từ một trong các nhà cung cấp điểm cuối được hỗ trợ [endpoint providers](../../../references/public-en.md).
+- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
 
 ### Getting Started
 
@@ -456,5 +456,5 @@ In this tutorial, you learned about the Kaia contracts wizard, its functionality
 
 Further, we deployed the generated contracts to Kaia Kairos Testnet using Foundry solidity scripting. You can make use of Remix IDE or any smart contract development environment to deploy smart contract derived or customized using from Kaia Contracts Wizard. You can find corresponding tutorials in the following links:
 
- - [Kết nối với Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
- - [Triển khai hợp đồng thông minh bằng Hardhat](../../get-started/hardhat.md)
+- [Kết nối với Remix](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [Triển khai hợp đồng thông minh bằng Hardhat](../../get-started/hardhat.md)
