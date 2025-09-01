@@ -21,12 +21,12 @@
 ## トップレベルのコア技術と開発の利便性
 
 1. **高性能**：
-    - メインチェーンは少なくとも4,000TPSを処理し、トランザクションは即座に完了し、ブロック生成時間は1秒である。
-    - <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>ソリューションとして、カスタマイズ可能で展開が容易な[サービスチェーン](scaling-solutions.md#service-chain)による拡張性。
+   - メインチェーンは少なくとも4,000TPSを処理し、トランザクションは即座に完了し、ブロック生成時間は1秒である。
+   - <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>ソリューションとして、カスタマイズ可能で展開が容易な[サービスチェーン](scaling-solutions.md#service-chain)による拡張性。
 
 2. **イーサリアム互換性**：
-    - 100％の互換性により、EVMベースのdAppを変更することなく搭載できる。
-    - 開発ツール、EVM、APIはイーサリアムと同等であり、シームレスな統合と両エコシステムの相互利益を可能にする。 Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md)、[Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)を参照。
+   - 100％の互換性により、EVMベースのdAppを変更することなく搭載できる。
+   - 開発ツール、EVM、APIはイーサリアムと同等であり、シームレスな統合と両エコシステムの相互利益を可能にする。 Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md)、[Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)を参照。
 
 3. **便利なアカウントモデル**：アカウントに様々なキーを割り当てることができ、セキュリティを強化し、ユーザーエクスペリエンスを向上させます。
 
