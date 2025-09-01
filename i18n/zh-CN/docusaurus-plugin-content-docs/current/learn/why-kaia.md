@@ -21,12 +21,12 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 ## 一流的核心技术和开发便利性
 
 1. **高性能**：
-    - 主链处理至少 4,000 TPS，交易即时完成，区块生成时间仅为一秒。
-    - 通过可定制且易于部署的 [服务链](scaling-solutions.md#service-chain) 作为<LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>解决方案实现可扩展性。
+   - 主链处理至少 4,000 TPS，交易即时完成，区块生成时间仅为一秒。
+   - 通过可定制且易于部署的 [服务链](scaling-solutions.md#service-chain) 作为<LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip>解决方案实现可扩展性。
 
 2. **以太坊兼容性**：
-    - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
-    - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。 参见 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
+   - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
+   - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。 参见 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
 
 3. **方便的账户模式**：可为账户分配各种密钥，加强安全性并改善用户体验。
 
