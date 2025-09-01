@@ -77,8 +77,8 @@ Tiếp theo là nhập tài khoản để ký giao dịch. Bạn có thể xuấ
 
 6. Thiết lập Giới hạn gas và Giá trị cần gửi.
 
- - Nếu bạn triển khai một hợp đồng phức tạp hơn, bạn có thể cần thiết lập Giới hạn gas cao hơn. Bạn có thể để nguyên giá trị hiện tại trong ví dụ này.
- - Đặt `Value` là 0 trừ khi bạn muốn gửi `KAIA` đến hợp đồng vào thời điểm triển khai.
+- Nếu bạn triển khai một hợp đồng phức tạp hơn, bạn có thể cần thiết lập Giới hạn gas cao hơn. Bạn có thể để nguyên giá trị hiện tại trong ví dụ này.
+- Đặt `Value` là 0 trừ khi bạn muốn gửi `KAIA` đến hợp đồng vào thời điểm triển khai.
 
 7. Nhấp vào nút **Triển khai**
 
@@ -96,4 +96,4 @@ Các hàm được đại diện bằng các nút có màu sắc khác nhau. Cá
 
 Xin chúc mừng nếu bạn đã đọc hết hướng dẫn này. Nếu bạn có bất kỳ câu hỏi nào, hãy truy cập [Diễn đàn Kaia](https://devforum.kaia.io/). Tuy nhiên, dưới đây là danh sách các tài nguyên hữu ích mà bạn có thể cần khi tiếp tục xây dựng với Remix IDE trên Kaia.
 
- - [Tài liệu phối lại](https://remix-ide.readthedocs.io/en/latest/)
+- [Tài liệu phối lại](https://remix-ide.readthedocs.io/en/latest/)
