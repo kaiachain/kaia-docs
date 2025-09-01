@@ -10,10 +10,10 @@ Kaia 엘리자 플러그인은 내부적으로 Kaia 에이전트 키트를 사�
 
 **주요 기능**
 
- - **토큰 전송**: 지갑 간에 KAIA 토큰을 손쉽게 전송할 수 있습니다.
- - **지갑 쿼리**: 지갑 잔액과 실시간 KAIA 가격 데이터를 검색합니다.
- - **네트워크 관리**: Kaia 블록체인과 원활하게 상호작용하세요.
- - **블록 및 트랜잭션 정보**: 네트워크의 트랜잭션과 블록에 대한 자세한 인사이트에 액세스하세요.
+- **토큰 전송**: 지갑 간에 KAIA 토큰을 손쉽게 전송할 수 있습니다.
+- **지갑 쿼리**: 지갑 잔액과 실시간 KAIA 가격 데이터를 검색합니다.
+- **네트워크 관리**: Kaia 블록체인과 원활하게 상호작용하세요.
+- **블록 및 트랜잭션 정보**: 네트워크의 트랜잭션과 블록에 대한 자세한 인사이트에 액세스하세요.
 
 ## 시작하기
 
@@ -65,9 +65,9 @@ LLM 공급자\*\*를 사용하려면 '.env'에서 관련 API 키를 구성하세
 
 값을 입력합니다:
 
- - **Kaia_evm_개인키**: 온체인 트랜잭션에 필요합니다.
- - **Kaia_KaiaScan_API_키**: KaiaScan](https://kaiascan.io)에서 얻을 수 있습니다.
- - **Kaia_수전_금액**: 요청 시 배포할 토큰 금액을 지정합니다.
+- **Kaia_evm_개인키**: 온체인 트랜잭션에 필요합니다.
+- **Kaia_KaiaScan_API_키**: KaiaScan](https://kaiascan.io)에서 얻을 수 있습니다.
+- **Kaia_수전_금액**: 요청 시 배포할 토큰 금액을 지정합니다.
 
 **구성 예제**
 
@@ -203,11 +203,11 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 개발자 커뮤니티의 기여를 환영합니다. Kaia 블록체인에 대해 자세히 알아보려면 여기를 방문하세요:
 
- - [Kaia 문서](https://docs.kaia.io/)
- - [Kaia 개발자 포털](https://www.kaia.io/developers)
- - [KaiaScan 익스플로러](https://kaiascan.io)
- - [KaiaScan API 문서](https://docs.kaiascan.io/)
- - [Kaia 깃허브 리포지토리](https://github.com/kaiachain)
+- [Kaia 문서](https://docs.kaia.io/)
+- [Kaia 개발자 포털](https://www.kaia.io/developers)
+- [KaiaScan 익스플로러](https://kaiascan.io)
+- [KaiaScan API 문서](https://docs.kaiascan.io/)
+- [Kaia 깃허브 리포지토리](https://github.com/kaiachain)
 
 ## 결론
 
