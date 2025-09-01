@@ -166,7 +166,7 @@ const sidebars = {
           },
           items: [
             'build/wallets/wallet-libraries/web3Auth',
-            'build/wallets/wallet-libraries/web3Modal',
+            'build/wallets/wallet-libraries/reown',
             'build/wallets/wallet-libraries/web3Onboard',
             'build/wallets/wallet-libraries/particle',
             'build/wallets/wallet-libraries/privy',
