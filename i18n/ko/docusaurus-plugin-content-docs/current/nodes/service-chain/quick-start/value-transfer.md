@@ -6,10 +6,10 @@
 
 ## 전제 조건 <a id="prerequisites"></a>
 
- - 서비스체인을 설치하고, [Kairos에 연결하기](en-scn-connection.md)의 지침에 따라 서비스체인을 Kairos EN에 연결했다고 가정합니다.
- - 리파지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
- - `Node.js`(v14) 및 `npm`을 설치합니다([설치 방법](https://nodejs.org/en/download/package-manager/)).
-     - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
+- 서비스체인을 설치하고, [Kairos에 연결하기](en-scn-connection.md)의 지침에 따라 서비스체인을 Kairos EN에 연결했다고 가정합니다.
+- 리파지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+- `Node.js`(v14) 및 `npm`을 설치합니다([설치 방법](https://nodejs.org/en/download/package-manager/)).
+  - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
 
 ## ERC-20 토큰 전송(원스텝) <a id="erc-20-token-transfer-onestep"></a>
 
@@ -61,8 +61,8 @@ True
 
 ### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
- - SCN에 연결하고 컨트랙트 배포를 위한 노드 환경을 준비합니다.
-    리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+- SCN에 연결하고 컨트랙트 배포를 위한 노드 환경을 준비합니다.
+  리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
 
 ![](/img/nodes/sc-vt-deploy.png)
 
@@ -78,12 +78,12 @@ $ cd erc20
 
 텍스트 편집기에서 아래와 같이 `bridge_info.json`을 편집합니다.
 
- - `child` 섹션의 `url`(서비스체인 네트워크의 SCN 노드)을 `kscnd.conf`의 `RPC_PORT`에서 SCN 노드 IP와 적절한 포트 번호로 바꿉니다.
- - `child.key`를 `homi`가 생성한 `testkey1`로 바꿉니다.
- - `child.operator`를 이전 단계에서 살펴본 `subbridge.childOperator` 주소로 설정합니다.
- - `parent` 섹션(Kairos 네트워크의 EN 노드)의 `url`을 EN 노드 IP로 바꾸고 `kend.conf`의 `RPC_PORT`에서 적절한 포트 번호로 바꿉니다.
- - 부모.key\`를 이전 단계에서 [Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 바꿉니다.
- - `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
+- `child` 섹션의 `url`(서비스체인 네트워크의 SCN 노드)을 `kscnd.conf`의 `RPC_PORT`에서 SCN 노드 IP와 적절한 포트 번호로 바꿉니다.
+- `child.key`를 `homi`가 생성한 `testkey1`로 바꿉니다.
+- `child.operator`를 이전 단계에서 살펴본 `subbridge.childOperator` 주소로 설정합니다.
+- `parent` 섹션(Kairos 네트워크의 EN 노드)의 `url`을 EN 노드 IP로 바꾸고 `kend.conf`의 `RPC_PORT`에서 적절한 포트 번호로 바꿉니다.
+- 부모.key\`를 이전 단계에서 [Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 바꿉니다.
+- `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
 
 ```
 {
