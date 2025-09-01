@@ -10,10 +10,10 @@
 
 ## 前提条件
 
- - [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
- - [Remix IDE](https://remix.ethereum.org/)
- - [KaiaプラグインをRemixで](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
- - [Faucet](https://faucet.kaia.io)からKAIAをテストする。
+- [カイア・ウォレット](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+- [Remix IDE](https://remix.ethereum.org/)
+- [KaiaプラグインをRemixで](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- [Faucet](https://faucet.kaia.io)からKAIAをテストする。
 
 ## はじめに
 
@@ -66,14 +66,14 @@ return price;
 
 **Remix IDE**
 
- - Remix IDE](https://remix.ethereum.org/) に移動する。
- - ファイルエクスプローラタブをクリックし、contractsフォルダに`demoSupraPriceFeed.sol`という新しいファイルを作成する。
- - 新しく作成したファイルに以下のコードを貼り付けます。
- - Remixで、**Compile contract**をクリックします。
- - プラグインをインストールしたら、左側のKaiaタブをクリックします。
- - **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
- - **Contract**で、契約を選択します。 例えば、ISupraSValueFeedExample。
- - **Deploy**をクリックします。
+- Remix IDE](https://remix.ethereum.org/) に移動する。
+- ファイルエクスプローラタブをクリックし、contractsフォルダに`demoSupraPriceFeed.sol`という新しいファイルを作成する。
+- 新しく作成したファイルに以下のコードを貼り付けます。
+- Remixで、**Compile contract**をクリックします。
+- プラグインをインストールしたら、左側のKaiaタブをクリックします。
+- **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
+- **Contract**で、契約を選択します。 例えば、ISupraSValueFeedExample。
+- **Deploy**をクリックします。
 
 **サンプルコード**
 
