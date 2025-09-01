@@ -2,8 +2,8 @@
 
 Kaia 的 Viem Extension 提供：
 
- - 支援 Ethereum 和 kaia 交易類型。
- - 可與 MetaMask (`window.ethereum`)和 Kaikas (`window.klaytn`)搭配使用
+- 支援 Ethereum 和 kaia 交易類型。
+- 可與 MetaMask (`window.ethereum`)和 Kaikas (`window.klaytn`)搭配使用
 
 ## 安裝
 
@@ -12,26 +12,26 @@ Kaia 的 Viem Extension 提供：
 
 ### Node.js
 
- - 安裝
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
- - ESM 或 TypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
- - CommonJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+- 安裝
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
+- ESM 或 TypeScript
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
+- CommonJS
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## 使用方式
 
