@@ -8,11 +8,11 @@ Kaia의 토큰 이코노미는 생태계, 성장 이니셔티브, 전략적 투�
 
 Kaia의 자금 구조는 Kaia 네트워크의 블록 생성과 함께 지속적으로 운영됩니다. 새로운 블록이 생성될 때마다 새로 발행된 KAIA와 해당 블록에서 사용된 트랜잭션 수수료의 합계(통칭하여 "블록 보상"이라 함)가 합산되어 미리 정해진 비율에 따라 다음 세 개의 대상 계좌에 분배됩니다:
 
- - 검증자 및 커뮤니티: 50%
-     - 블록 제안자 보상: 50%의 20%(총 10%)
-     - 스테이킹 보상: 50%의 80%(총 40%)
- - Kaia Ecosystem Fund (KEF): 25%
- - Kaia Infrastructure Fund (KIF): 25%
+- 검증자 및 커뮤니티: 50%
+  - 블록 제안자 보상: 50%의 20%(총 10%)
+  - 스테이킹 보상: 50%의 80%(총 40%)
+- Kaia Ecosystem Fund (KEF): 25%
+- Kaia Infrastructure Fund (KIF): 25%
 
 새로운 블록이 생성될 때마다 9.6 KAIA가 발행됩니다. This implies that approximately 300 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). 거래 수수료는 미리 정해진 수수료 표에 따라 부과되고 정산됩니다. 거래 수수료에 대한 자세한 내용은 [거래 수수료](../transaction-fees/transaction-fees.md)를 참조하시기 바랍니다.
 
@@ -34,13 +34,13 @@ Kaia 블록체인의 각 블록마다 Kaia 거버넌스 카운슬(GC)에서 무�
 
 Safety Failure 야기:
 
- - 제안자로 선정된 카운슬 멤버는 동일한 높이의 블록을 두 개 이상 생성할 수 없습니다.
- - 제안자로 선정된 카운슬 멤버는 특정 거래를 의도적으로 생략할 수 없습니다.
+- 제안자로 선정된 카운슬 멤버는 동일한 높이의 블록을 두 개 이상 생성할 수 없습니다.
+- 제안자로 선정된 카운슬 멤버는 특정 거래를 의도적으로 생략할 수 없습니다.
 
 Liveness Failure 야기:
 
- - 제안자로 선정된 카운슬 멤버는 유효한 블록을 생성해야 합니다.
- - 검증자로 선정된 카운슬 멤버는 제안자가 제안한 블록의 유효성을 검사해야 합니다.
+- 제안자로 선정된 카운슬 멤버는 유효한 블록을 생성해야 합니다.
+- 검증자로 선정된 카운슬 멤버는 제안자가 제안한 블록의 유효성을 검사해야 합니다.
 
 ## Kaia Ecosystem Fund <a id="kaia-ecosystem-fund"></a>
 
