@@ -8,9 +8,9 @@
 
 このガイドでは、次のことを学ぶ：
 
- - カイヤコントラクトウィザードの基本機能を理解する。
- - Kaiaコントラクトウィザードを使用してスマートコントラクトコードを生成し、カスタマイズします。
- - Foundry Scripting Systemを使用して、KaiaコントラクトをKaia Network (Kairos)にデプロイする。
+- カイヤコントラクトウィザードの基本機能を理解する。
+- Kaiaコントラクトウィザードを使用してスマートコントラクトコードを生成し、カスタマイズします。
+- Foundry Scripting Systemを使用して、KaiaコントラクトをKaia Network (Kairos)にデプロイする。
 
 ## カイアのコントラクトウィザードを探る
 
@@ -18,27 +18,27 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 現状では、カイアのコントラクトウィザードは以下のトークン標準をサポートしています：
 
- - [KIP-7](https://kips.kaia.io/KIPs/kip-7) - カイアのFungibleトークン規格。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつがフィアット通過で、同額紙幣はそれぞれ同じ価値を持つ。
- - [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアのNon-fungibleトークン規格である。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
- - [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでfungibleトークンとNon-fungibleトークンの両方を表現できるからだ。
+- [KIP-7](https://kips.kaia.io/KIPs/kip-7) - カイアのFungibleトークン規格。 Fungibleとは、すべてのトークンが分割可能で交換可能、つまり同じ価値を持つことを意味する。 カジタブル・トークンの典型的な例のひとつがフィアット通過で、同額紙幣はそれぞれ同じ価値を持つ。
+- [KIP-17](https://kips.kaia.io/KIPs/kip-17) - これはカイアのNon-fungibleトークン規格である。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。 Non-fungibleとは、各トークンが分割不可能であり、したがって一意であることを意味する。 KIP17トークンは、写真、ゲーム内のアイテム、不動産など、物理的な所有物であれ、仮想的な収集物であれ、ユニークなアイテムの所有権を表すことができる。
+- [KIP-37](https://kips.kaia.io/KIPs/kip-37) - これはKaiaのマルチ・トークン標準として知られている。なぜなら、1つのスマート・コントラクトでfungibleトークンとNon-fungibleトークンの両方を表現できるからだ。
 
 [Ethereum Equivalence](https://medium.com/klaytn/toward-ethereum-equivalence-1-introducing-klaytn-v1-8-0-971911be7ff9)のサポートに伴い、Kaiaコントラクトウィザードは[ERC20](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)、[ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/)、[ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/)もサポートしています。
 
 カイアコントラクトウィザードは以下のセクションで構成されています：
 
- - **トークン標準セクション**：このタブは、カイアのコントラクトウィザードでサポートされているすべての異なるトークン標準から構成されています。
+- **トークン標準セクション**：このタブは、カイアのコントラクトウィザードでサポートされているすべての異なるトークン標準から構成されています。
 
- - **設定セクション**：このセクションでは、トークン名、シンボル、プレミント（コントラクトがデプロイされたときにトークンが供給される）、URI（Non-fungibleトークンの場合）など、各トークン標準の事前設定を提供します。
+- **設定セクション**：このセクションでは、トークン名、シンボル、プレミント（コントラクトがデプロイされたときにトークンが供給される）、URI（Non-fungibleトークンの場合）など、各トークン標準の事前設定を提供します。
 
- - **特徴セクション**：各トークン規格で利用可能なすべての特徴から構成されています。 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください： 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください：
+- **特徴セクション**：各トークン規格で利用可能なすべての特徴から構成されています。 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください： 各トークンで利用可能なさまざまなエクステンションの詳細については、以下のリンクを参照してください：
 
-     - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-     - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-     - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
- - **アクセス制御セクション**：各トークン規格で利用可能なすべてのアクセス制御メカニズムから構成される。
+- **アクセス制御セクション**：各トークン規格で利用可能なすべてのアクセス制御メカニズムから構成される。
 
- - **インタラクティブ・コード表示セクション**：ユーザーが設定したコンフィギュレーションで生成されたスマート・コントラクト・コードが表示されます。
+- **インタラクティブ・コード表示セクション**：ユーザーが設定したコンフィギュレーションで生成されたスマート・コントラクト・コードが表示されます。
 
 ![](/img/build/tools/kcw-image.png)
 
@@ -54,11 +54,11 @@ Kaiaコントラクトウィザードは、Kaiaコントラクトを使用して
 
 このチュートリアルに沿って進むために、前提条件を以下に示します：
 
- - 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
- - kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit)のコードをクローンする。
- - [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
- - RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
- - [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
+- 必ず[foundry](https://book.getfoundry.sh/getting-started/installation)をインストールしてください。
+- kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit)のコードをクローンする。
+- [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask)：コントラクトのデプロイ、トランザクションへの署名、コントラクトとの対話に使用される。
+- RPCエンドポイント：サポートされている[エンドポイント・プロバイダー](../../../references/public-en.md)の1つから取得できます。
+- [Faucet](https://faucet.kaia.io)からKAIAをテスト: 口座に十分なKAIAを入金してください。
 
 ### はじめに
 
@@ -456,5 +456,5 @@ forge script script/KIP37MultiToken.s.sol:KIP37MultiTokenDeployScript --rpc-url 
 
 さらに、Foundry solidityスクリプトを使用して、生成されたコントラクトをKaia Kairos Testnetにデプロイしました。 Remix IDEやその他のスマートコントラクト開発環境を利用して、Kaiaコントラクトウィザードから派生またはカスタマイズしたスマートコントラクトをデプロイできます。 対応するチュートリアルは以下のリンクからご覧いただけます：
 
- - [リミックスにつなげる](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
- - [Hardhatを使用したスマートコントラクトのデプロイ](../../get-started/hardhat.md)
+- [リミックスにつなげる](../../tutorials/connecting-remix.md#connecting-kaia-remix-using-metamask)
+- [Hardhatを使用したスマートコントラクトのデプロイ](../../get-started/hardhat.md)
