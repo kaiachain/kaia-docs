@@ -21,9 +21,9 @@
 
 1. 在 Web3UI 上按一下滑鼠右鍵，然後選擇「建立空」。
 2. 建立並重新命名這些面板：
-    - StatusPanel - 您的 dApp 資訊顯示器
-    - ButtonPanel - 用於使用者互動
-    - MintPanel - 用於代幣鑄造功能
+   - StatusPanel - 您的 dApp 資訊顯示器
+   - ButtonPanel - 用於使用者互動
+   - MintPanel - 用於代幣鑄造功能
 
 ## 建立面板元件
 
@@ -31,7 +31,7 @@
 
 此面板顯示您所有重要的 Web3 資訊：
 
- - 在 StatusPanel 上按一下滑鼠右鍵，然後按一下 UI → Text - TextMeshPro，再重新命名為 StatusText。 確保填入檢閱器窗格中的 「文字輸入 」欄位，例如 「狀態...」
+- 在 StatusPanel 上按一下滑鼠右鍵，然後按一下 UI → Text - TextMeshPro，再重新命名為 StatusText。 確保填入檢閱器窗格中的 「文字輸入 」欄位，例如 「狀態...」
 
 :::note
 **TextMeshPro (TMP) 設定**
@@ -43,8 +43,8 @@
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
- - 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → Text - TextMeshPro，然後將其重新命名為 AddressText。 請務必填入文字物件，例如：「地址文字......」
- - 在 StatusPanel 點選滑鼠右鍵，點選 UI → Text - TextMeshPro，然後重新命名為 TokenBalanceText。 確保填入文字物件，例如 "0.0000 ET"
+- 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → Text - TextMeshPro，然後將其重新命名為 AddressText。 請務必填入文字物件，例如：「地址文字......」
+- 在 StatusPanel 點選滑鼠右鍵，點選 UI → Text - TextMeshPro，然後重新命名為 TokenBalanceText。 確保填入文字物件，例如 "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@
 
 您的主要互動按鈕：
 
- - 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 ConnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Connect Wallet」。
+- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 ConnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Connect Wallet」。
 
- - 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 DisconnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Disconnect Wallet」。
+- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 DisconnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Disconnect Wallet」。
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 代幣鑄造介面：
 
- - 在 MintPanel 上按一下滑鼠右鍵，按一下 UI → 輸入欄位 → TextMeshPro，然後將其重新命名為 MintAmountInput。 請務必在占位符物件中填入 「輸入金額…」
- - 在 MintPanel 上按一下滑鼠右鍵，然後按一下 UI → Button → TextMeshPro，再重新命名為 MintButton。 確保文字物件填上 "Mint" 字樣
+- 在 MintPanel 上按一下滑鼠右鍵，按一下 UI → 輸入欄位 → TextMeshPro，然後將其重新命名為 MintAmountInput。 請務必在占位符物件中填入 「輸入金額…」
+- 在 MintPanel 上按一下滑鼠右鍵，然後按一下 UI → Button → TextMeshPro，再重新命名為 MintButton。 確保文字物件填上 "Mint" 字樣
 
 ```code
 MintPanel
