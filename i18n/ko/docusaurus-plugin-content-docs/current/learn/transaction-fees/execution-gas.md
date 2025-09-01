@@ -12,9 +12,9 @@ Execution gas related hardfork changes can be found at the bottom of this page. 
 
 Execution gas is charged during executing a contract under three distinct circumstances. Sometimes, some policies may be omitted.
 
- - The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
- - Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
- - Finally, gas may be charged due to an increase in memory usage.
+- The first and most common is the `constantGas`. It's a fee intrinsic to the computation of the operation.
+- Second, gas may be deducted to form the payment for a subordinate message call or contract creation; this forms part of the payment for `CREATE`, `CALL` and `CALLCODE`.
+- Finally, gas may be charged due to an increase in memory usage.
 
 Over an account's execution, the total fee payable for memory-usage payable is proportional to the smallest multiple of 32 bytes that are required to include all memory indices (whether for read or write) in the range. This fee is paid on a just-in-time basis; consequently, referencing an area of memory at least 32 bytes greater than any previously indexed memory will result in an additional memory usage fee. Due to this fee, it is highly unlikely that addresses will ever exceed the 32-bit bounds. That said, implementations must be able to manage this eventuality.
 
@@ -96,43 +96,43 @@ The gas cost of one transaction is calculated through the methods described belo
 
 Here, I will briefly explain the gas calculation logic during contract execution using the fee schedule variables defined above. As this explanation assumes a general situation, the unusual situations such as revert appears is not considered.
 
- - add `constantGas` defined in each opcode to gas
-     - e.g. if an opcode is `MUL`, add `G_low` to gas
-     - e.g. if an opcode is `CREATE2`, add `G_create` to gas
- - add the gas which is calculated through additionally defined gas calculation method
-     - For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
-     - For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
-     - For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
-     - For `EXTCODECOPY`,
-         - add `wordSize(stack.back(3)) x G_copy` to gas
-         - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
-     - For `EXTCODESIZE` or `EXTCODEHASH` or `BALANCE`,
-         - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
-     - For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
-     - For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
-     - For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
-     - For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
-     - For `SSTORE`,
-         - [**_eip2929_**]  If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-         - If it just reads the slot (no-op), add `G_warmStorageReadCost` to gas
-         - If it creates a new slot, add `G_sset` to gas
-         - If it deletes the slot, add `G_sreset-G_coldSloadCost` to gas and add `R_sclear` to refund
-         - If it recreates the slot once exists before, add `G_warmStorageReadCost` to gas and subtract `R_sclear` from refund
-         - If it deletes the slot once exists before, add `R_sclear` to refund
-         - If it resets to the original inexistent slot, add `G_warmStorageReadCost` to gas and add `G_sset - G_warmStorageReadCost` to refund
-         - IF it resets to the original existing slot, add `G_warmStorageReadCost` to gas and add `G_sreset - G_coldSloadCost - G_warmStorageReadCost` to refund
-     - For `SLOAD`,
-         - [**_eip2929_**] If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-         - [**_eip2929_**] If a slot(contractAddr, slot) is in AccessList, add `G_warmStorageReadCost` to gas
-     - For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
-         - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-         - if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
-         - if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
-         - if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
-         - add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
-     - For `SELFDESTRUCT`,
-         - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
-         - if it transfers value and if is a new account, add `G_newaccount` to gas
+- add `constantGas` defined in each opcode to gas
+  - e.g. if an opcode is `MUL`, add `G_low` to gas
+  - e.g. if an opcode is `CREATE2`, add `G_create` to gas
+- add the gas which is calculated through additionally defined gas calculation method
+  - For `LOG'N'`, where N is [0,1,2,3,4], add `G_log + memoryGasCost * g_logdata + N x G_logtopic` to gas
+  - For `EXP`, add `G_exp + byteSize(stack.back(1)) x G_expbyte` to gas
+  - For `CALLDATACOPY` or `CODECOPY` or `RETURNDATACOPY`, add `wordSize(stack.back(2)) x G_copy` to gas
+  - For `EXTCODECOPY`,
+    - add `wordSize(stack.back(3)) x G_copy` to gas
+    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
+  - For `EXTCODESIZE` or `EXTCODEHASH` or `BALANCE`,
+    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost - G_warmStorageReadCost` to gas
+  - For `SHA3`, add `G_sha3 + wordSize(stack.back(1)) x G_sha3word` to gas
+  - For `RETURN`, `REVERT`, `MLoad`, `MStore8`, `MStore`, add `memoryGasCost` to gas
+  - For `CREATE`, add `memoryGasCost + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
+  - For `CREATE2`, add `memoryGasCost + size(data) x G_sha3word + size(contract.code) x G_codedeposit + wordsize(initcode) x G_InitCodeWord` to gas
+  - For `SSTORE`,
+    - [**_eip2929_**]  If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    - If it just reads the slot (no-op), add `G_warmStorageReadCost` to gas
+    - If it creates a new slot, add `G_sset` to gas
+    - If it deletes the slot, add `G_sreset-G_coldSloadCost` to gas and add `R_sclear` to refund
+    - If it recreates the slot once exists before, add `G_warmStorageReadCost` to gas and subtract `R_sclear` from refund
+    - If it deletes the slot once exists before, add `R_sclear` to refund
+    - If it resets to the original inexistent slot, add `G_warmStorageReadCost` to gas and add `G_sset - G_warmStorageReadCost` to refund
+    - IF it resets to the original existing slot, add `G_warmStorageReadCost` to gas and add `G_sreset - G_coldSloadCost - G_warmStorageReadCost` to refund
+  - For `SLOAD`,
+    - [**_eip2929_**] If a slot(contractAddr, slot) is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    - [**_eip2929_**] If a slot(contractAddr, slot) is in AccessList, add `G_warmStorageReadCost` to gas
+  - For `CALL`, `CALLCODE`, `DELEGATECALL`, `STATICCALL`,
+    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    - if it is `CALL` and `CALLCODE` and if it transfers value, add `G_callvalue` to gas
+    - if it is `CALL` and if it transfers value and if it is a new account, add `G_newaccount` to gas
+    - if the callee contract is precompiled contracts, calculate precompiled contract gas cost and add it to gas
+    - add `memoryGasCost + availableGas - availableGas/64, where availableGas = contract.Gas - gas` to gas
+  - For `SELFDESTRUCT`,
+    - [**_eip2929_**] If an address is not in AccessList, add it to accessList and add `G_coldSloadCost` to gas
+    - if it transfers value and if is a new account, add `G_newaccount` to gas
 
 ## Hardfork changes
 
