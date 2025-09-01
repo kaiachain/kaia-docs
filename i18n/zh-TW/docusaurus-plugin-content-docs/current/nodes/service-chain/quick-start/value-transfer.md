@@ -6,10 +6,10 @@
 
 ## 先決條件<a id="prerequisites"></a>
 
- - 我們假定您已安裝了 ServiceChain，並按照[連接至 Kairos](en-scn-connection.md)中的說明將 ServiceChain 連接至 Kairos EN。
- - 克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
- - 安裝 `Node.js` (v14) 和 `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
-     - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
+- 我們假定您已安裝了 ServiceChain，並按照[連接至 Kairos](en-scn-connection.md)中的說明將 ServiceChain 連接至 Kairos EN。
+- 克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+- 安裝 `Node.js` (v14) 和 `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
+  - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
 
 ## ERC-20 代幣轉讓（一步式）<a id="erc-20-token-transfer-onestep"></a>
 
@@ -61,8 +61,8 @@ True
 
 ### 步驟 2：部署合同<a id="step-2-deploy-contracts"></a>
 
- - 連接 SCN 併為合同部署準備節點環境。
-    克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+- 連接 SCN 併為合同部署準備節點環境。
+  克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 
 ![](/img/nodes/sc-vt-deploy.png)
 
@@ -78,12 +78,12 @@ $ cd erc20
 
 用文本編輯器編輯 `bridge_info.json` 如下。
 
- - 將 `child` 部分（ServiceChain 網絡上的 SCN 節點）中的 `url` 替換為 SCN 節點 IP 和 `kscnd.conf` 中 `RPC_PORT` 的正確端口號。
- - 用`homi`生成的`testkey1`替換`child.key`。
- - 將 `child.operator` 設置為我們在上一步中查看的 `subbridge.childOperator` 地址。
- - 將 "父節點 "部分（Kairos 網絡上的 EN 節點）中的 "url "替換為 EN 節點 IP 和 "kend.conf "中 "RPC_PORT "的正確端口號。
- - 將 `parent.key` 改為上一步中使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立的測試帳號的私密金鑰。
- - 將 `parent.operator` 設置為上一步的 \`subbridge.parentOperator'。
+- 將 `child` 部分（ServiceChain 網絡上的 SCN 節點）中的 `url` 替換為 SCN 節點 IP 和 `kscnd.conf` 中 `RPC_PORT` 的正確端口號。
+- 用`homi`生成的`testkey1`替換`child.key`。
+- 將 `child.operator` 設置為我們在上一步中查看的 `subbridge.childOperator` 地址。
+- 將 "父節點 "部分（Kairos 網絡上的 EN 節點）中的 "url "替換為 EN 節點 IP 和 "kend.conf "中 "RPC_PORT "的正確端口號。
+- 將 `parent.key` 改為上一步中使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立的測試帳號的私密金鑰。
+- 將 `parent.operator` 設置為上一步的 \`subbridge.parentOperator'。
 
 ```
 {
