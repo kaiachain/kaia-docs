@@ -25,22 +25,22 @@ contract KaiaGreeter {
 
 ## RemixオンラインIDEを使ってKaiaGreeterをデプロイする<a href="#deploying-kaiagreeter-using-kaia-ide" id="deploying-kaiagreeter-using-kaia-ide"></a>
 
- - Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、\`KaiaGreeter.sol\`コントラクトを作成してください。
+- Kaia Plugin for Remix](https://ide.kaia.io)にアクセスし、\`KaiaGreeter.sol\`コントラクトを作成してください。
 
- - 上記のコードをコピーして、新しく作成したファイルに貼り付ける：KaiaGreeter.sol\`。
+- 上記のコードをコピーして、新しく作成したファイルに貼り付ける：KaiaGreeter.sol\`。
 
-    ![](/img/build/smart-contracts/kg-v2-create.png)
+  ![](/img/build/smart-contracts/kg-v2-create.png)
 
- - まだテストKAIAをお持ちでない方は、[蛇口](https://faucet.kaia.io)からテストKAIAを入手してください。
+- まだテストKAIAをお持ちでない方は、[蛇口](https://faucet.kaia.io)からテストKAIAを入手してください。
 
- - 初期パラメータである挨拶メッセージを持つコントラクトをデプロイする。
+- 初期パラメータである挨拶メッセージを持つコントラクトをデプロイする。
 
- - デプロイ後、IDEから`greet`を呼び出すことができる。
+- デプロイ後、IDEから`greet`を呼び出すことができる。
 
-    ![](/img/build/smart-contracts/kg-v2-deployed.png)
+  ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 参考文献<a href="#references" id="references"></a>
 
 契約展開の詳細およびRemix Online IDE利用ガイドラインについては、以下のドキュメントをご参照ください。
 
- - [Remix Online IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
+- [Remix Online IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
