@@ -4,9 +4,9 @@
 
 ### 設置 Java
 
- - 使用 java 版本： 11 `<=` v `<=` 18
- - 請造訪 https://adoptopenjdk.net 網站
- - 下載 OpenJDK
+- 使用 java 版本： 11 `<=` v `<=` 18
+- 請造訪 https://adoptopenjdk.net 網站
+- 下載 OpenJDK
 
 ## 安裝 Web3j kaia 擴展
 
