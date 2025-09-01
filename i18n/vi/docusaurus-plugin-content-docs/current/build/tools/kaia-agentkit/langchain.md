@@ -6,19 +6,19 @@ Kaia Agent Kit tích hợp với một số khuôn khổ AI phổ biến, cho ph
 
 ## Điều kiện tiên quyết
 
- - Đã cài đặt [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation)
- - [Ví Kaia](https://www.kaiawallet.io/) có khóa riêng tư đã sẵn sàng
- - [Khóa API tạo ra của Google](https://ai.google.dev/gemini-api/docs/api-key)
- - [Nhà cung cấp RPC](https://docs.kaia.io/references/public-en/) cho mạng Kaia
- - [Khóa API Kaiascan](https://docs.kaiascan.io/account-creation)
+- Đã cài đặt [Node.js](https://nodejs.org/en/download) & [pnpm](https://pnpm.io/installation)
+- [Ví Kaia](https://www.kaiawallet.io/) có khóa riêng tư đã sẵn sàng
+- [Khóa API tạo ra của Google](https://ai.google.dev/gemini-api/docs/api-key)
+- [Nhà cung cấp RPC](https://docs.kaia.io/references/public-en/) cho mạng Kaia
+- [Khóa API Kaiascan](https://docs.kaiascan.io/account-creation)
 
 ## Bắt đầu
 
 Trong hướng dẫn này, chúng tôi sẽ xây dựng một tác nhân AI sử dụng LangChain và Kaia Agent Kit có thể:
 
- - Gửi token gốc, token có thể thay thế (FT) và NFT.
- - Kiểm tra số dư của token gốc, FT và NFT.
- - Lấy dữ liệu blockchain API Kaiascan để lấy tóm tắt mạng, giá Kaia, số dư mã thông báo cho một địa chỉ, v.v.
+- Gửi token gốc, token có thể thay thế (FT) và NFT.
+- Kiểm tra số dư của token gốc, FT và NFT.
+- Lấy dữ liệu blockchain API Kaiascan để lấy tóm tắt mạng, giá Kaia, số dư mã thông báo cho một địa chỉ, v.v.
 
 ### Hiểu về AI Agent Stack
 
@@ -182,20 +182,20 @@ const walletClient = createWalletClient({
 
 Chúng ta hãy xem xét hoạt động cốt lõi của mã này:
 
- - **Thành phần LangChain:**
-     - ChatGoogleGenerativeAI: Giao diện với AI tạo sinh của Google
-     - MemorySaver: Lưu trữ trạng thái hội thoại giữa các tương tác
-     - HumanMessage: Cấu trúc tin nhắn đầu vào từ người dùng
-     - createReactAgent: Tạo một tác nhân theo mẫu ReAct
- - **Thư viện Blockchain:**
-     - viem: Thư viện EVM để tương tác với blockchain
-     - kairos: Cấu hình chuỗi cho mạng Kairos
- - **Khởi tạo công cụ và tác nhân:**
-     - getOnChainTools: Chuyển đổi các chức năng blockchain thành các công cụ LangChain
-     - Kaia: Plugin cho các tương tác blockchain dành riêng cho Kaia
-     - Kết hợp plugin Kaia với khóa API cho các truy vấn blockchain nâng cao
- - **Cấu hình LLM:**
-     - Sử dụng mô hình Gemini 1.5 Pro của Google làm trí thông minh của tác nhân
+- **Thành phần LangChain:**
+  - ChatGoogleGenerativeAI: Giao diện với AI tạo sinh của Google
+  - MemorySaver: Lưu trữ trạng thái hội thoại giữa các tương tác
+  - HumanMessage: Cấu trúc tin nhắn đầu vào từ người dùng
+  - createReactAgent: Tạo một tác nhân theo mẫu ReAct
+- **Thư viện Blockchain:**
+  - viem: Thư viện EVM để tương tác với blockchain
+  - kairos: Cấu hình chuỗi cho mạng Kairos
+- **Khởi tạo công cụ và tác nhân:**
+  - getOnChainTools: Chuyển đổi các chức năng blockchain thành các công cụ LangChain
+  - Kaia: Plugin cho các tương tác blockchain dành riêng cho Kaia
+  - Kết hợp plugin Kaia với khóa API cho các truy vấn blockchain nâng cao
+- **Cấu hình LLM:**
+  - Sử dụng mô hình Gemini 1.5 Pro của Google làm trí thông minh của tác nhân
 
 ## Chạy Agent
 
@@ -226,9 +226,9 @@ Send 1 FM NFT (0x61eaee91759adc35b4665fc589b95f885f685dab) with token id 1 to th
 
 ## Tài nguyên bổ sung
 
- - [Hệ thống nhiều tác nhân](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
- - [Hướng dẫn bắt đầu nhanh LangGraph](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
- - [Công cụ LangChain được xây dựng sẵn](https://js.langchain.com/docs/integrations/tools/)
+- [Hệ thống nhiều tác nhân](https://langchain-ai.github.io/langgraphjs/tutorials/multi_agent/multi_agent_collaboration/)
+- [Hướng dẫn bắt đầu nhanh LangGraph](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
+- [Công cụ LangChain được xây dựng sẵn](https://js.langchain.com/docs/integrations/tools/)
 
 
 
