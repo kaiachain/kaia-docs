@@ -8,11 +8,11 @@ Kaia’s token economy is designed to create sustainable funding structures for 
 
 Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KAIA and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
- - Validators and Community: 50%
-     - Block proposer rewards: 20% of the 50% (10% of total)
-     - Staking rewards: 80% of the 50% (40% of total)
- - Kaia Ecosystem Fund (KEF): 25%
- - Kaia Infrastructure Fund (KIF): 25%
+- Validators and Community: 50%
+  - Block proposer rewards: 20% of the 50% (10% of total)
+  - Staking rewards: 80% of the 50% (40% of total)
+- Kaia Ecosystem Fund (KEF): 25%
+- Kaia Infrastructure Fund (KIF): 25%
 
 9.6 KAIA will be minted for every new block. This implies that approximately 300 million KAIA will be minted annually, which is equivalent to 5.2% annual inflation against the total KAIA tokens in the market (the annual inflation rate is subject to change through the Kaia Governance Process). Transaction fee is charged and metered according to the pre-determined fee tables. For detailed information about the transaction fees, please refer to [Transaction Fees](../transaction-fees/transaction-fees.md).
 
@@ -34,13 +34,13 @@ A Council member may be subject to penalties for conducting misbehaviors defined
 
 Causing Safety Failure:
 
- - A Council member selected as Proposer may not create more than one block in the same height
- - A Council member selected as Proposer may not intentionally omit certain transactions
+- A Council member selected as Proposer may not create more than one block in the same height
+- A Council member selected as Proposer may not intentionally omit certain transactions
 
 Causing Liveness Failure:
 
- - A Council member selected as Proposer must create a valid block
- - A Council member selected as Validator must validate the block proposed by the Proposer
+- A Council member selected as Proposer must create a valid block
+- A Council member selected as Validator must validate the block proposed by the Proposer
 
 ## Kaia Ecosystem Fund <a id="kaia-ecosystem-fund"></a>
 
