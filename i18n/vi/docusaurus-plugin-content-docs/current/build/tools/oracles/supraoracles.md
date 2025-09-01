@@ -10,10 +10,10 @@ With SupraOracles, your smart contract can get access to price data feeds to bui
 
 ## Prerequisites
 
- - [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
- - [Remix IDE](https://remix.ethereum.org/)
- - [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
- - Test KAIA from [Faucet](https://faucet.kaia.io)
+- [Kaia Wallet](https://chromewebstore.google.com/detail/kaia-wallet/jblndlipeogpafnldhgmapagcccfchpi)
+- [Remix IDE](https://remix.ethereum.org/)
+- [Kaia Plugin on Remix](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
+- Test KAIA from [Faucet](https://faucet.kaia.io)
 
 ## Getting Started
 
@@ -66,14 +66,14 @@ In the example below, we will be deploying the S-Value Price Feed Contract and a
 
 **Remix IDE**
 
- - Navigate to [Remix IDE](https://remix.ethereum.org/)
- - Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
- - Paste the code below in your newly created file
- - In Remix, click **Compile contract**.
- - Click the Kaia tab on your left having installed the plugin
- - Select **Environment** > **Injected Provider** - **Kaia Wallet**.
- - In **Contract**, select your contract. For example, ISupraSValueFeedExample.
- - Click **Deploy**.
+- Navigate to [Remix IDE](https://remix.ethereum.org/)
+- Click on File Explorer tab, create a new file named `demoSupraPriceFeed.sol` in the contracts folder
+- Paste the code below in your newly created file
+- In Remix, click **Compile contract**.
+- Click the Kaia tab on your left having installed the plugin
+- Select **Environment** > **Injected Provider** - **Kaia Wallet**.
+- In **Contract**, select your contract. For example, ISupraSValueFeedExample.
+- Click **Deploy**.
 
 **Sample Code**
 
