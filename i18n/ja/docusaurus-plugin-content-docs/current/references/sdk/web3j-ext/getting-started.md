@@ -4,9 +4,9 @@
 
 ### Javaの設定
 
- - Javaバージョン: 11 `<=` v `<=` 18
- - https://adoptopenjdk.net。
- - OpenJDKのダウンロード
+- Javaバージョン: 11 `<=` v `<=` 18
+- https://adoptopenjdk.net。
+- OpenJDKのダウンロード
 
 ## Web3j kaiaエクステンションをインストールする
 
