@@ -2,8 +2,8 @@
 
 Tiện ích mở rộng Viem dành cho Kaia cung cấp:
 
- - Hỗ trợ cả loại giao dịch Ethereum và kaia.
- - Làm việc với cả MetaMask (`window.ethereum`) và Kaikas (`window.klaytn`)
+- Hỗ trợ cả loại giao dịch Ethereum và kaia.
+- Làm việc với cả MetaMask (`window.ethereum`) và Kaikas (`window.klaytn`)
 
 ## Cài đặt
 
@@ -12,26 +12,26 @@ Tiện ích mở rộng Viem dành cho Kaia cung cấp:
 
 ### Node.js
 
- - Cài đặt
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
- - ESM hoặc TypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
- - ChungJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+- Cài đặt
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
+- ESM hoặc TypeScript
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
+- ChungJS
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## Cách sử dụng
 
