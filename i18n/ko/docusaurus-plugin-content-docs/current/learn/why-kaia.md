@@ -21,12 +21,12 @@ Kaia 블록체인은 다양한 규모의 프로젝트에 강력한 인프라를 
 ## 핵심 기술과 개발 편의성
 
 1. **고성능**:
-    - 메인체인은 즉각적인 트랜잭션 완결성과 1초의 블록 생성 시간으로 최소 4,000 TPS를 처리합니다.
-    - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
+   - 메인체인은 즉각적인 트랜잭션 완결성과 1초의 블록 생성 시간으로 최소 4,000 TPS를 처리합니다.
+   - Scalability through customizable and easily deployable [Service Chains](scaling-solutions.md#service-chain) as <LinkWithTooltip tooltip="L2 (layer 2) blockchains act as an additional<br />  layer that helps the main blockchain handle<br />  more transactions more efficiently.">L2</LinkWithTooltip> solutions.
 
 2. **이더리움 호환성**:
-    - 100% 호환성을 지원하므로 EVM 기반 dApp을 수정 없이 온보딩할 수 있습니다.
-    - 개발 도구, EVM, API는 이더리움과 동일하므로 두 생태계의 원활한 통합과 상호 이익이 가능합니다. 솔리디티-스마트 컨트랙트 언어](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 및 [이더리움 앱을 카이아로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)를 참조하세요.
+   - 100% 호환성을 지원하므로 EVM 기반 dApp을 수정 없이 온보딩할 수 있습니다.
+   - 개발 도구, EVM, API는 이더리움과 동일하므로 두 생태계의 원활한 통합과 상호 이익이 가능합니다. 솔리디티-스마트 컨트랙트 언어](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 및 [이더리움 앱을 카이아로 마이그레이션하기](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)를 참조하세요.
 
 3. **편리한 계정 모델**: 계정에 다양한 키를 할당하여 보안을 강화하고 사용자 경험을 개선할 수 있습니다.
 
