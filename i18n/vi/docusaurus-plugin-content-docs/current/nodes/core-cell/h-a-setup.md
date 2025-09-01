@@ -10,8 +10,8 @@ In this configuration, two CN nodes are installed in active-standby configuratio
 
 1. Create a backup of the active CN's `nodekey`.
 2. Install a standby CN. The configuration is the same as the active CN except:
-    - The standby should use a different `nodekey`
-    - Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
+   - The standby should use a different `nodekey`
+   - Add the addresses of the PNs to `$DATA_DIR/static-nodes.json`
 
 ### Failover <a id="failover"></a>
 
