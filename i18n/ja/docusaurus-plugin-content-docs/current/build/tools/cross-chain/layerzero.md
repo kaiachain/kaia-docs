@@ -14,11 +14,11 @@ LayerzeroはKaia MainnetとKairos Testnetの両方をサポートしています
 | ----------------------- | ------------------------------------------ | ------------------------------------------ |
 | チェーンID                  | 8217                                       | 1001                                       |
 | エンドポイントID               | 30150                                      | 40150                                      |
-| エンドポイントV2               | 0x1a44076050125825900e736c501f859c50fE728c | 0x6EDCE65403992e310A62460808c4b910D972f10f |
-| sendUln302\`。           | 0x9714Ccf1dedeF14BaB5013625DB92746C1358cb4 | 0x6bd925aA58325fba65Ea7d4412DDB2E5D2D9427d |
-| recvUln302\`            | 0x937AbA873827BF883CeD83CA557697427eAA46Ee | 0xFc4eA96c3de3Ba60516976390fA4E945a0b8817B |
-| 実行者                     | 0xe149187a987F129FD3d397ED04a60b0b89D1669f | 0xddF3266fEAa899ACcf805F4379E5137144cb0A7D |
-| blockedMessageLib\`。    | 0x1ccbf0db9c192d969de57e25b3ff09a25bb1d862 | 0xAe0549FeF1B77d2D187C867Ad9a5432A9e8381C9 |
+| `endpointV2`            | 0x1a44076050125825900e736c501f859c50fE728c | 0x6EDCE65403992e310A62460808c4b910D972f10f |
+| `sendUln302`            | 0x9714Ccf1dedeF14BaB5013625DB92746C1358cb4 | 0x6bd925aA58325fba65Ea7d4412DDB2E5D2D9427d |
+| `recvUln302`            | 0x937AbA873827BF883CeD83CA557697427eAA46Ee | 0xFc4eA96c3de3Ba60516976390fA4E945a0b8817B |
+| `executor`              | 0xe149187a987F129FD3d397ED04a60b0b89D1669f | 0xddF3266fEAa899ACcf805F4379E5137144cb0A7D |
+| `blockedMessageLib`     | 0x1ccbf0db9c192d969de57e25b3ff09a25bb1d862 | 0xAe0549FeF1B77d2D187C867Ad9a5432A9e8381C9 |
 | DVNアドレス（Layerzero Labs） | 0xc80233ad8251e668becbc3b0415707fc7075501e | 0xe4fe9782b809b7d66f0dcd10157275d2c4e4898d |
 
 サポートされているネットワークの全リストを見るには、[LayerZero documentation](https://docs.layerzero.network/v2/deployments/chains/klaytn)を参照してください。
