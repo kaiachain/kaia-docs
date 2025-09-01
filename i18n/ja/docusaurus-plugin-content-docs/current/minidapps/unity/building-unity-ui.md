@@ -21,9 +21,9 @@ Web3UIの中に、3つのパネルオブジェクトを作成します：
 
 1. Web3UIを右クリックし、"Create Empty "を選択する。
 2. これらのパネルを作成し、名前を変更する：
-    - StatusPanel - dAppの情報表示
-    - ButtonPanel - ユーザーとのインタラクション用
-    - MintPanel - トークン造幣機能用
+   - StatusPanel - dAppの情報表示
+   - ButtonPanel - ユーザーとのインタラクション用
+   - MintPanel - トークン造幣機能用
 
 ## パネル・コンポーネントの作成
 
@@ -31,7 +31,7 @@ Web3UIの中に、3つのパネルオブジェクトを作成します：
 
 このパネルには、Web3の重要な情報がすべて表示されます：
 
- - StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、StatusTextにリネームする。 インスペクタペインの "テキスト入力 "フィールド（例："Status..."）に必ず入力してください。
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、StatusTextにリネームする。 インスペクタペインの "テキスト入力 "フィールド（例："Status..."）に必ず入力してください。
 
 :::note
 **テキストメッシュプロ(TMP)のセットアップ**について
@@ -43,8 +43,8 @@ TextMeshProエレメントを初めて作成するとき（UI - Text - TextMeshP
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
- - StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、AddressTextにリネームする。 テキスト・オブジェクトを必ず入力してください（例："Address Text..."）。
- - StatusPanel を右クリックし、UI → Text - TextMeshPro をクリックし、TokenBalanceText にリネームする。 テキストオブジェクトを必ず入力してください。例："0.0000 ET"
+- StatusPanelを右クリックし、UI → Text - TextMeshProをクリックし、AddressTextにリネームする。 テキスト・オブジェクトを必ず入力してください（例："Address Text..."）。
+- StatusPanel を右クリックし、UI → Text - TextMeshPro をクリックし、TokenBalanceText にリネームする。 テキストオブジェクトを必ず入力してください。例："0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@ TextMeshProエレメントを初めて作成するとき（UI - Text - TextMeshP
 
 あなたの主な対話ボタン
 
- - ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、ConnectWalletButtonに名前を変更します。 インスペクタペインの "テキスト入力 "フィールドに "Connect Wallet "と入力してください。
+- ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、ConnectWalletButtonに名前を変更します。 インスペクタペインの "テキスト入力 "フィールドに "Connect Wallet "と入力してください。
 
- - ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、名前をDisconnectWalletButtonに変更します。 インスペクタペインの "テキスト入力 "フィールドに "Disconnect Wallet "と入力してください。
+- ButtonPanelを右クリックし、UI → Button - TextMeshProをクリックし、名前をDisconnectWalletButtonに変更します。 インスペクタペインの "テキスト入力 "フィールドに "Disconnect Wallet "と入力してください。
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 トークンの造幣インターフェース：
 
- - MintPanelを右クリックし、UI → Input Field → TextMeshProをクリックし、MintAmountInputにリネームする。 プレースホルダー・オブジェクトを必ず "Enter Amount…" で埋めてください。
- - MintPanelを右クリックし、UI → Button → TextMeshProをクリックし、MintButtonにリネームする。 テキスト・オブジェクトは必ず "Mint "で埋めてください。
+- MintPanelを右クリックし、UI → Input Field → TextMeshProをクリックし、MintAmountInputにリネームする。 プレースホルダー・オブジェクトを必ず "Enter Amount…" で埋めてください。
+- MintPanelを右クリックし、UI → Button → TextMeshProをクリックし、MintButtonにリネームする。 テキスト・オブジェクトは必ず "Mint "で埋めてください。
 
 ```code
 MintPanel
