@@ -798,5 +798,9 @@
   },
   "getStarted.step7.description": {
     "message": "Tích hợp các tính năng Web3 vào các nền tảng như LINE."
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "Học những kiến thức cơ bản về Kaia và cách bắt đầu.",
+    "description": "Description for Getting Started guide"
   }
 }
