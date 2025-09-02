@@ -4,7 +4,7 @@
 
 ## 快速概述
 
-Kaia 是 EVM 相容的區塊鏈，專為速度、安全性和可擴展性而設計。 它使用 Kaia 虛擬機器 (KVM)，與 Ethereum 工具完全相容，並支援 Solidity 智慧型契約。 如果您來自 Ethereum，您會發現轉換過程非常簡單 - 您現有的程式碼和工作流程只需極少的變更即可運作。
+Kaia 是 EVM 相容的區塊鏈，專為速度、安全性和可擴展性而設計。 它使用 Kaia 虛擬機器 (KVM)，與 Ethereum 工具完全相容，並支援 Solidity 智慧型契約。 如果您來自 Ethereum，您會發現過渡很簡單--您現有的程式碼和工作流程大部分都能正常運作，只需要 [最少的變更](../tutorials/migrating-ethereum-app-to-kaia.mdx)。
 
 關於 Kaia 架構的詳細資訊，請參閱 [Why Build on Kaia](../../learn/why-kaia.md) 及 [Consensus Mechanism](../../learn/consensus-mechanism.md) 。
 
