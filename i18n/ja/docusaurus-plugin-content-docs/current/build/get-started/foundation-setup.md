@@ -4,7 +4,7 @@
 
 ## 概要
 
-Kaiaは、スピード、セキュリティ、スケーラビリティのために設計されたEVM互換ブロックチェーンである。 Ethereumツールと完全な互換性を持ち、SolidityスマートコントラクトをサポートするKaia Virtual Machine（KVM）を使用している。 イーサリアムからの移行であれば、既存のコードやワークフローのほとんどを最小限の変更で動作させることができる。
+Kaiaは、スピード、セキュリティ、スケーラビリティのために設計されたEVM互換ブロックチェーンである。 Ethereumツールと完全な互換性を持ち、SolidityスマートコントラクトをサポートするKaia Virtual Machine（KVM）を使用している。 イーサリアムからの移行であれば、既存のコードやワークフローのほとんどが[最小限の変更](../tutorials/migrating-ethereum-app-to-kaia.mdx)で動作する。
 
 カイアのアーキテクチャの詳細については、[カイアでビルドする理由](../../learn/why-kaia.md)と[コンセンサス・メカニズム](../../learn/consensus-mechanism.md)をご覧ください。
 
