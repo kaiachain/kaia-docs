@@ -31,7 +31,7 @@ $ kscnd start
 
 ## ハードフォーク<a href="#hard-fork" id="hard-fork"></a>
 
-このセクションでは、カイアの[ハードフォーク](../../misc/klaytn-history.md)をServiceChainに適用する手順について説明します。
+このセクションでは、カイアの[ハードフォーク](../../misc/kaia-history.md)をServiceChainに適用する手順について説明します。
 
 ServiceChainにハードフォークを適用するには、次のことが必要だ：
 
@@ -122,7 +122,7 @@ ServiceChainのバイナリを希望するハードフォークをサポート�
 }
 ```
 
-Kaiaのハードフォークの歴史は[Kaia Docs](../../misc/klaytn-history.md)にあります。
+Kaiaのハードフォークの歴史は[Kaia Docs](../../misc/kaia-history.md)にあります。
 
 ハードフォークを使用して `genesis.json` を更新した場合は、チェーン設定を再初期化して変更を適用します。
 
