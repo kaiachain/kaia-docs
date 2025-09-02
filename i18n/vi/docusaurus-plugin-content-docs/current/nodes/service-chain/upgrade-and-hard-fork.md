@@ -31,7 +31,7 @@ $ kscnd start
 
 ## Hard Fork <a href="#hard-fork" id="hard-fork"></a>
 
-This section describes the steps for applying Kaia [hard forks](../../misc/klaytn-history.md) to ServiceChain.
+Phần này mô tả các bước để áp dụng Kaia [hard forks](../../misc/kaia-history.md) vào ServiceChain.
 
 To apply the hard fork to the ServiceChain, you need to:
 
@@ -122,7 +122,7 @@ You have to add `ethTxTypeCompatibleBlock` too, when you add `magmaCompatibleBlo
 }
 ```
 
-You can find the history of Kaia hard forks in the [Kaia Docs](../../misc/klaytn-history.md).
+Bạn có thể tìm thấy lịch sử các nhánh cứng (hard forks) của Kaia trong [Kaia Docs](../../misc/kaia-history.md).
 
 If you have updated your `genesis.json` with desired hard forks, re-initialize the chain config and apply your change.
 
