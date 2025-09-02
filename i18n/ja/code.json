@@ -798,5 +798,9 @@
   },
   "getStarted.step7.description": {
     "message": "Web3の機能をLINEのようなプラットフォームに統合する。"
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "カイアの基礎と始め方を学ぶ。",
+    "description": "Description for Getting Started guide"
   }
 }
