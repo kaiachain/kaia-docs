@@ -798,5 +798,9 @@
   },
   "getStarted.step7.description": {
     "message": "LINE과 같은 플랫폼에 Web3 기능을 통합합니다."
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "Kaia의 기본 사항과 시작 방법을 알아보세요.",
+    "description": "Description for Getting Started guide"
   }
 }
