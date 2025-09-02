@@ -798,5 +798,9 @@
   },
   "getStarted.step7.description": {
     "message": "将 Web3 功能整合到 LINE 等平台中。"
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "了解 Kaia 的基础知识和入门方法。",
+    "description": "Description for Getting Started guide"
   }
 }
