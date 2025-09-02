@@ -4,7 +4,7 @@ Nhận cái nhìn tổng quan về Kaia và những kiến thức cơ bản đ�
 
 ## Tổng quan nhanh
 
-Kaia là một blockchain tương thích với EVM, được thiết kế để đạt được tốc độ, bảo mật và khả năng mở rộng. Nó sử dụng Máy ảo Kaia (KVM), hoàn toàn tương thích với các công cụ Ethereum và hỗ trợ hợp đồng thông minh Solidity. Nếu bạn đang chuyển từ Ethereum, quá trình chuyển đổi sẽ rất đơn giản--hầu hết mã nguồn và quy trình làm việc hiện tại của bạn sẽ hoạt động mà chỉ cần điều chỉnh nhỏ.
+Kaia là một blockchain tương thích với EVM, được thiết kế để đạt được tốc độ, bảo mật và khả năng mở rộng. Nó sử dụng Máy ảo Kaia (KVM), hoàn toàn tương thích với các công cụ Ethereum và hỗ trợ hợp đồng thông minh Solidity. Nếu bạn đang chuyển từ Ethereum sang, quá trình chuyển đổi sẽ rất đơn giản -- hầu hết mã nguồn và quy trình làm việc hiện tại của bạn sẽ hoạt động với [những thay đổi tối thiểu](../tutorials/migrating-ethereum-app-to-kaia.mdx).
 
 Để biết thêm chi tiết về kiến trúc của Kaia, vui lòng tham khảo [Tại sao nên xây dựng trên Kaia](../../learn/why-kaia.md) và [Cơ chế đồng thuận](../../learn/consensus-mechanism.md).
 
