@@ -4,7 +4,7 @@
 
 ## 快速概览
 
-Kaia 是一种与 EVM 兼容的区块链，设计用于提高速度、安全性和可扩展性。 它使用 Kaia 虚拟机（KVM），与以太坊工具完全兼容，并支持 Solidity 智能合约。 如果您来自以太坊，您会发现过渡非常简单--您现有的大部分代码和工作流程只需极少的改动即可正常工作。
+Kaia 是一种与 EVM 兼容的区块链，设计用于提高速度、安全性和可扩展性。 它使用 Kaia 虚拟机（KVM），与以太坊工具完全兼容，并支持 Solidity 智能合约。 如果你来自以太坊，你会发现过渡非常简单--你现有的大部分代码和工作流程只需[最小的改动](../tutorials/migrating-ethereum-app-to-kaia.mdx)就能正常工作。
 
 有关 Kaia 架构的更多详情，请查阅 [Why Build on Kaia](../../learn/why-kaia.md) 和 [Consensus Mechanism](../../learn/consensus-mechanism.md) 。
 
