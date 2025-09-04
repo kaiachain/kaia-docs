@@ -541,7 +541,7 @@ APIを呼び出す際、**API KEY**が必要な場合は、DAppバックエン�
 **A:** はい、1つのDAppに対して複数のコントラクトと送信者アドレスをホワイトリストに登録できます。
 
 **Q: 残高がなくなったらどうなりますか？ \*\*\
-**A:** サービスを継続してご利用いただくには、カイアチームにご連絡いただき、残高の追加をご依頼いただく必要があります。 ただし、**/api/balance?address=${address}\`\*\* APIを呼び出して、十分な残高があるかどうかを確認し、ダッシュボードからも確認することもできます [**https://fee-delegation.kaia.io/rank**](https://fee-delegation.kaia.io/rank)
+**A:** サービスを継続してご利用いただくには、カイアチームにご連絡いただき、残高の追加をご依頼いただく必要があります。 ただし、**`/api/balance?address=${address}`\*\* APIを呼び出して、十分な残高があるかどうかを確認し、ダッシュボードからも確認することもできます [**https://fee-delegation.kaia.io/rank**](https://fee-delegation.kaia.io/rank)
 
 \*\*\
 **A:** API Keyについては、**/api/signAsFeePayer\`** APIを呼び出す際に、"Authorization "ヘッダーに "Bearer your_api_key "で追加する必要があります。 しかし、APIキーなしでアドレスのホワイトリストのみを行うのであれば、コードの変更は必要ない。
