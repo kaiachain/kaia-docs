@@ -2,6 +2,12 @@
 
 This page shows all the hard forks to the Klaytn blockchain.
 
+:::info
+
+This document lists hard forks that occurred before the Kaia transition. For hard forks after the transition, refer to the [Kaia Hard Fork History](kaia-history.md).
+
+:::
+
 ## Randao
 | ` ` | Baobab                        | Cypress                       |
 | --------------- |-------------------------------|-------------------------------|
