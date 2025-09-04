@@ -2,6 +2,12 @@
 
 Trang này hiển thị tất cả các hard fork của blockchain Klaytn.
 
+:::info
+
+Tài liệu này liệt kê các hard fork đã xảy ra trước khi chuyển đổi Kaia. Đối với các hard fork sau quá trình chuyển đổi, vui lòng tham khảo [Lịch sử hard fork Kaia](kaia-history.md).
+
+:::
+
 ## Randao
 
 | ` `     | Cây baobab                                                                 | Cây bách                                                    |
