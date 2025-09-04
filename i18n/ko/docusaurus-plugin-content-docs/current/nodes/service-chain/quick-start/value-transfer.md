@@ -25,7 +25,7 @@ $ kscn attach --datadir ~/data
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
-![](/img/nodes/sc-vt-add-klay.png)
+![](/img/nodes/sc-vt-add-kaia.png)
 
 `subbridge.parentOperator`와 `subbridge.childOperator`는 트랜잭션을 전송하기에 충분한 KAIA를 가지고 있어야 합니다. `subbridge.parentOperator`는 Kairos 네트워크의 계정이고, `subbridge.childOperator`는 서비스체인 네트워크의 계정이라는 점에 유의하세요.
 Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 테스트 계정을 생성하고 [Faucet](https://faucet.kaia.io/)에서 테스트 Kaia를 받으세요. 그런 다음 `parentOperator`에게 KAIA를 전송합니다. childOperator`는 `homi\\`가 생성한 테스트 계정에서 KAIA를 가져와야 합니다([EN 설정 및 SCN 연결 가이드](en-scn-connection.md) 참조).
