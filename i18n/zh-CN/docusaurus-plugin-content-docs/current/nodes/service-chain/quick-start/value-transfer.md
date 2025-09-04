@@ -25,7 +25,7 @@ $ kscn attach --datadir ~/data
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
-![](/img/nodes/sc-vt-add-klay.png)
+![](/img/nodes/sc-vt-add-kaia.png)
 
 `subbridge.parentOperator` 和 `subbridge.childOperator` 必须有足够的 KAIA 来发送事务。 请注意，"subbridge.parentOperator "是 Kairos 网络上的账户，而 "subbridge.childOperator "是 ServiceChain 网络上的账户。
 使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建测试账户，并从 [the faucet](https://faucet.kaia.io/) 获取测试 KAIA。 然后向`parentOperator`发送一些 KAIA。 childOperator "必须从 "homi "生成的测试账户获取 KAIA（[请参阅《EN 设置和 SCN 连接指南》](en-scn-connection.md)）。
