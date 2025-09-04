@@ -113,7 +113,7 @@ import 秘密鍵を新しいアカウントにインポートする
 ...
 ```
 
-ken account<command> --help\`でサブコマンドの情報を得ることができる。
+`ken account<command> --help`でサブコマンドの情報を得ることができる。
 
 ```bash
 $ ken account list --help
@@ -257,7 +257,7 @@ attach`コマンドは実行中のノードに接続し、`console\`コマンド
 
 ### データディレクトリ
 
-アカウントを作成すると、キーストア・ファイルは`<DATADIR>/keystore`に保存される。 <DATADIR>`は`kend.conf`で設定した`DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home\`でなければならない。
+アカウントを作成すると、キーストア・ファイルは`<DATADIR>/keystore`に保存される。 `<DATADIR>` は `kend.conf` で設定した `DATA_DIR` である。 クイックスタートガイドの例に従えば、`~/kend_home`でなければならない。
 
 ### コンソールコマンド
 
