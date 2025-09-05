@@ -67,11 +67,11 @@ klaytn 有三種交易類型："基本"、"費用委託 "和 "費用委託與費
 這在計算 TxTypedGas 時非常重要：
 
 - 首先，檢查 TxType 是否為 "feeDelegated "或 "feeDelegatedWithFeeRatio"。
-    - 如果 TxType 為 "委託收費"，則在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
-    - 如果 TxType 為 "feeDelegatedWithFeeRatio"，則在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
+  - 如果 TxType 為 "委託收費"，則在 TxTypedGas 中添加 "TxGasFeeDelegated(10000)"。
+  - 如果 TxType 為 "feeDelegatedWithFeeRatio"，則在 TxTypedGas 中添加 "TxGasFeeDelegatedWithRatio (15000)"。
 - 第二，檢查交易是否創建了合同。
-    - 如果交易創建了合同，則在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
-    - 否則，在 TxTypedGas 中添加 `TxGas (21000)`。
+  - 如果交易創建了合同，則在 TxTypedGas 中添加 `TxGasContractCreation (53000)`。
+  - 否則，在 TxTypedGas 中添加 `TxGas (21000)`。
 
 例如
 

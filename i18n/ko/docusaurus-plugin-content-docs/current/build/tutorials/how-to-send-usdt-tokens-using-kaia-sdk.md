@@ -9,7 +9,7 @@
 ## 전제 조건
 
 - 메타마스크](https://metamask.io/download) 계정(이 예제에서는 개발자 계정이 사용됨)
-- 수도꼭지](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
+- [Faucet](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
 
 ## 1단계: 프로젝트 설정 및 ethers-ext 및 ethers.js 설치하기
 

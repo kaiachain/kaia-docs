@@ -9,7 +9,7 @@
 - 我們假定您已安裝了 ServiceChain，並按照[連接至 Kairos](en-scn-connection.md)中的說明將 ServiceChain 連接至 Kairos EN。
 - 克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 - 安裝 `Node.js` (v14) 和 `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
-    - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
+  - 本示例使用了兩個軟件包：axios 和 caver-js，它們都支持 v14。
 
 ## ERC-20 代幣轉讓（一步式）<a id="erc-20-token-transfer-onestep"></a>
 
@@ -25,7 +25,7 @@ $ kscn attach --datadir ~/data
 "0x3ce216beeafc62d20547376396e89528e1d778ca"
 ```
 
-![](/img/nodes/sc-vt-add-klay.png)
+![](/img/nodes/sc-vt-add-kaia.png)
 
 `subbridge.parentOperator` 和 `subbridge.childOperator` 必須有足夠的 KAIA 來發送事務。 請注意，"subbridge.parentOperator "是 Kairos 網絡上的賬戶，而 "subbridge.childOperator "是 ServiceChain 網絡上的賬戶。
 使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 建立測試帳號，並從 [the faucet](https://faucet.kaia.io/) 取得測試 KAIA。 然後向`parentOperator`發送一些 KAIA。 childOperator "必須從 "homi "生成的測試賬戶獲取 KAIA（[請參閱《EN 設置和 SCN 連接指南》](en-scn-connection.md)）。
@@ -62,7 +62,7 @@ True
 ### 步驟 2：部署合同<a id="step-2-deploy-contracts"></a>
 
 - 連接 SCN 併為合同部署準備節點環境。
-    克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+  克隆存儲庫 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 
 ![](/img/nodes/sc-vt-deploy.png)
 

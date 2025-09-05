@@ -183,19 +183,19 @@ const walletClient = createWalletClient({
 讓我們來看看程式碼的核心運作：
 
 - **LangChain 元件：**
-    - 聊天GoogleGenerativeAI：Google 的 Generative AI 介面
-    - MemorySaver：在互動之間儲存對話狀態
-    - HumanMessage：結構化使用者輸入的訊息
-    - createReactAgent：建立一個遵循 ReAct 模式的代理程式
+  - 聊天GoogleGenerativeAI：Google 的 Generative AI 介面
+  - MemorySaver：在互動之間儲存對話狀態
+  - HumanMessage：結構化使用者輸入的訊息
+  - createReactAgent：建立一個遵循 ReAct 模式的代理程式
 - \*\* 區塊鏈程式庫：\*\*
-    - viem：與區塊鏈互動的 EVM 函式庫
-    - kairos：Kairos 網路的連鎖組態
+  - viem：與區塊鏈互動的 EVM 函式庫
+  - kairos：Kairos 網路的連鎖組態
 - **工具與代理程式初始化：**
-    - getOnChainTools：將區塊鏈函數轉換為 LangChain 工具
-    - Kaia：Kaia 特定區塊鏈互動的外掛程式
-    - 結合 Kaia 外掛程式與 API 金鑰，進行進階區塊鏈查詢
+  - getOnChainTools：將區塊鏈函數轉換為 LangChain 工具
+  - Kaia：Kaia 特定區塊鏈互動的外掛程式
+  - 結合 Kaia 外掛程式與 API 金鑰，進行進階區塊鏈查詢
 - **LLM 配置：**
-    - 使用 Google 的 Gemini 1.5 Pro 模型作為代理的智慧功能
+  - 使用 Google 的 Gemini 1.5 Pro 模型作為代理的智慧功能
 
 ## 執行代理程式
 

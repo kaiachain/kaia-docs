@@ -29,7 +29,7 @@ contract KaiaGreeter {
 
 - 将上述代码复制并粘贴到新创建的文件中：KaiaGreeter.sol\`。
 
-    ![](/img/build/smart-contracts/kg-v2-create.png)
+  ![](/img/build/smart-contracts/kg-v2-create.png)
 
 - 如果您还没有测试 KAIA，请从 [水龙头](https://faucet.kaia.io) 获取一些测试 KAIA。
 
@@ -37,7 +37,7 @@ contract KaiaGreeter {
 
 - 部署完成后，可以在集成开发环境中调用 `greet`。
 
-    ![](/img/build/smart-contracts/kg-v2-deployed.png)
+  ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 参考资料<a href="#references" id="references"></a>
 

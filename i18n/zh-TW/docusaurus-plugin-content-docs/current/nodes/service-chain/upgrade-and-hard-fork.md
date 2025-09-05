@@ -31,7 +31,7 @@ $ kscnd start
 
 ## 硬分叉<a href="#hard-fork" id="hard-fork"></a>
 
-本節介紹將 Kaia [hard fork](../../misc/klaytn-history.md) 應用於 ServiceChain 的步驟。
+本節說明在 ServiceChain 應用 Kaia [hard fork](../../misc/kaia-history.md) 的步驟。
 
 要將硬分叉應用於 ServiceChain，您需要
 
@@ -122,7 +122,7 @@ instance：Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 }
 ```
 
-你可以在 [Kaia 文檔] (../../misc/klaytn-history.md) 中找到 Kaia 硬分叉的歷史。
+您可以在 [Kaia Docs](../../misc/kaia-history.md) 中找到 Kaia 硬分叉的歷史。
 
 如果您已使用所需的硬分叉更新了您的 `genesis.json`，請重新初始化鏈配置並應用您的更改。
 

@@ -13,25 +13,25 @@
 ### Node.js
 
 - インストール
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
 - ESMまたはTypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 - コモンJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## 使用方法
 

@@ -9,8 +9,8 @@ Kaia’s token economy is designed to create sustainable funding structures for 
 Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KAIA and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
 - Validators and Community: 50%
-    - Block proposer rewards: 20% of the 50% (10% of total)
-    - Staking rewards: 80% of the 50% (40% of total)
+  - Block proposer rewards: 20% of the 50% (10% of total)
+  - Staking rewards: 80% of the 50% (40% of total)
 - Kaia Ecosystem Fund (KEF): 25%
 - Kaia Infrastructure Fund (KIF): 25%
 

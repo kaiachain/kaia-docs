@@ -32,9 +32,9 @@ Kaia 合同向导由以下部分组成：
 
 - **功能部分**：包括每个令牌标准的所有功能。 您可以在以下链接中找到更多关于每种令牌可用的不同扩展名的信息：
 
-    - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
-    - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
-    - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
+  - [KIP7](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP7/extensions)
+  - [KIP17](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP17/extensions)
+  - [KIP37](https://github.com/kaiachain/kaia-contracts/tree/master/contracts/KIP/token/KIP37/extensions)
 
 - **访问控制部分**：包括每个令牌标准的所有可用访问控制机制。
 

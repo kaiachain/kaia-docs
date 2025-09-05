@@ -13,25 +13,25 @@ Kaia 的 Viem Extension 提供：
 ### Node.js
 
 - 安裝
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
 - ESM 或 TypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 - CommonJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## 使用方式
 

@@ -756,5 +756,51 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "折疊下拉式",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "步驟 1：地基設定"
+  },
+  "getStarted.step1.description": {
+    "message": "熟悉 Kaia 網路、工具和開發環境。"
+  },
+  "getStarted.step2.title": {
+    "message": "步驟 2：設定錢包與網路"
+  },
+  "getStarted.step2.description": {
+    "message": "為 Kaia 網路設定您的錢包並建立帳戶。"
+  },
+  "getStarted.step3.title": {
+    "message": "步驟 3：取得測試 KAIA"
+  },
+  "getStarted.step3.description": {
+    "message": "從水龍頭為您的錢包注入 testnet KAIA 資金。"
+  },
+  "getStarted.step4.title": {
+    "message": "步驟 4：使用 Remix 的 Hello World"
+  },
+  "getStarted.step4.description": {
+    "message": "使用 Remix IDE 部署您的第一份智慧型契約。"
+  },
+  "getStarted.step5.title": {
+    "message": "步驟 5：建立您的第一個代用幣"
+  },
+  "getStarted.step5.description": {
+    "message": "使用 Hardhat 建立並部署靈魂令牌。"
+  },
+  "getStarted.step6.title": {
+    "message": "步驟 6：建立您的第一個 dApp"
+  },
+  "getStarted.step6.description": {
+    "message": "建立全堆疊分散式應用程式。"
+  },
+  "getStarted.step7.title": {
+    "message": "步驟 7：建立迷你 dApp"
+  },
+  "getStarted.step7.description": {
+    "message": "將 Web3 功能整合至 LINE 等平台。"
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "學習 Kaia 的基本知識以及如何開始使用。",
+    "description": "Description for Getting Started guide"
   }
 }

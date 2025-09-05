@@ -16,15 +16,15 @@ Survey Mini dAppはプライバシーに焦点を当てた分散型アプリケ�
 このアプリケーションをビルドするには、以下のものを用意してください：
 
 1. 技術的知識
-    - Solidity](https://www.tutorialspoint.com/solidity/index.htm)を理解していること。
-    - JavaScript】(https://www.w3schools.com/js/default.asp)、【React/Next.js】(https://www.w3schools.com/REACT/DEFAULT.ASP)に精通していること。
-    - Hardhatのようなスマートコントラクト開発ツールに精通していること。
+   - Solidity](https://www.tutorialspoint.com/solidity/index.htm)を理解していること。
+   - JavaScript】(https://www.w3schools.com/js/default.asp)、【React/Next.js】(https://www.w3schools.com/REACT/DEFAULT.ASP)に精通していること。
+   - Hardhatのようなスマートコントラクト開発ツールに精通していること。
 2. アカウントとツール
-    - [LINEデベロッパーアカウント](https://developers.line.biz/en/)。
-    - [セマフォ・プロトコルのセットアップ](https://docs.semaphore.pse.dev/getting-started)。
-    - Dapp PortalチームからMini Dapp SDKクライアントIDを受け取りました。
+   - [LINEデベロッパーアカウント](https://developers.line.biz/en/)。
+   - [セマフォ・プロトコルのセットアップ](https://docs.semaphore.pse.dev/getting-started)。
+   - Dapp PortalチームからMini Dapp SDKクライアントIDを受け取りました。
 3. インストールされている依存関係
-    - [Node.jsとnpm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
+   - [Node.jsとnpm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 
 ## プロジェクトのセットアップとインストール<a id="project-setup-installation"></a>
 

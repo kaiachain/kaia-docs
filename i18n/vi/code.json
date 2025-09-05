@@ -756,5 +756,51 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "Thu gọn danh sách thả xuống",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "Bước 1: Thiết lập nền tảng"
+  },
+  "getStarted.step1.description": {
+    "message": "Làm quen với mạng lưới, công cụ và môi trường phát triển của Kaia."
+  },
+  "getStarted.step2.title": {
+    "message": "Bước 2: Cài đặt ví và mạng"
+  },
+  "getStarted.step2.description": {
+    "message": "Cấu hình ví của bạn cho mạng Kaia và tạo tài khoản."
+  },
+  "getStarted.step3.title": {
+    "message": "Bước 3: Nhận bài kiểm tra KAIA"
+  },
+  "getStarted.step3.description": {
+    "message": "Nạp tiền vào ví của bạn bằng KAIA từ faucet."
+  },
+  "getStarted.step4.title": {
+    "message": "Bước 4: Chào thế giới với Remix"
+  },
+  "getStarted.step4.description": {
+    "message": "Triển khai hợp đồng thông minh đầu tiên của bạn bằng Remix IDE."
+  },
+  "getStarted.step5.title": {
+    "message": "Bước 5: Tạo Token đầu tiên của bạn"
+  },
+  "getStarted.step5.description": {
+    "message": "Tạo và triển khai một token gắn liền với tài khoản bằng Hardhat."
+  },
+  "getStarted.step6.title": {
+    "message": "Bước 6: Xây dựng ứng dụng phi tập trung (dApp) đầu tiên của bạn"
+  },
+  "getStarted.step6.description": {
+    "message": "Tạo một ứng dụng phi tập trung (decentralized) toàn diện."
+  },
+  "getStarted.step7.title": {
+    "message": "Bước 7: Xây dựng một ứng dụng dApp nhỏ"
+  },
+  "getStarted.step7.description": {
+    "message": "Tích hợp các tính năng Web3 vào các nền tảng như LINE."
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "Học những kiến thức cơ bản về Kaia và cách bắt đầu.",
+    "description": "Description for Getting Started guide"
   }
 }

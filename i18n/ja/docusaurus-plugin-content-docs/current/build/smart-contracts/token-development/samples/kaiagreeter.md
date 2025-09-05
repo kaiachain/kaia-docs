@@ -29,7 +29,7 @@ contract KaiaGreeter {
 
 - 上記のコードをコピーして、新しく作成したファイルに貼り付ける：KaiaGreeter.sol\`。
 
-    ![](/img/build/smart-contracts/kg-v2-create.png)
+  ![](/img/build/smart-contracts/kg-v2-create.png)
 
 - まだテストKAIAをお持ちでない方は、[蛇口](https://faucet.kaia.io)からテストKAIAを入手してください。
 
@@ -37,7 +37,7 @@ contract KaiaGreeter {
 
 - デプロイ後、IDEから`greet`を呼び出すことができる。
 
-    ![](/img/build/smart-contracts/kg-v2-deployed.png)
+  ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 参考文献<a href="#references" id="references"></a>
 

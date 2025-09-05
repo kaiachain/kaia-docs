@@ -72,10 +72,10 @@ To connect to Kaia plugin on Remix IDE, you can either use this [Kaia Plugin for
 - Nhấp vào plugin Kaia.
 - Select the appropriate [Environment].
 - You can select Kairos, Mainnet, Injected Provider - Kaia Wallet, Injected Provider - MetaMask
-    - [Kairos]: Connects to the Kairos network
-    - [Mainnet]: Connects to the Mainnet
-    - [Injected Provider - Kaia Wallet]: Connects to Kaia Wallet
-    - [Injected Provider - MetaMask ]: Connects to Metamask
+  - [Kairos]: Connects to the Kairos network
+  - [Mainnet]: Connects to the Mainnet
+  - [Injected Provider - Kaia Wallet]: Connects to Kaia Wallet
+  - [Injected Provider - MetaMask ]: Connects to Metamask
 
 ![](/img/build/smart-contracts/kg-remix-env.png)
 

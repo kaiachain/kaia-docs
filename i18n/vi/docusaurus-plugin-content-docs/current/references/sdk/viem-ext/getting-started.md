@@ -13,25 +13,25 @@ Tiện ích mở rộng Viem dành cho Kaia cung cấp:
 ### Node.js
 
 - Cài đặt
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
 - ESM hoặc TypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 - ChungJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## Cách sử dụng
 

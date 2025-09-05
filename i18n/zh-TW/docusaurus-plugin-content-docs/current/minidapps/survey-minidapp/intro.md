@@ -16,15 +16,15 @@ Survey Mini dApp 是專注於隱私權的分散式應用程式 (dApp)，可讓�
 若要建立此應用程式，請確保您擁有下列內容：
 
 1. 技術知識
-    - 紮實了解 [Solidity](https://www.tutorialspoint.com/solidity/index.htm)。
-    - 精通 [JavaScript](https://www.w3schools.com/js/default.asp) 和 [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP)。
-    - 熟悉智慧型契約開發工具，例如 Hardhat。
+   - 紮實了解 [Solidity](https://www.tutorialspoint.com/solidity/index.htm)。
+   - 精通 [JavaScript](https://www.w3schools.com/js/default.asp) 和 [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP)。
+   - 熟悉智慧型契約開發工具，例如 Hardhat。
 2. 帳戶和工具
-    - [LINE Developer Account](https://developers.line.biz/en/)。
-    - [Semaphore Protocol setup](https://docs.semaphore.pse.dev/getting-started)。
-    - 從 Dapp Portal 團隊收到的 Mini Dapp SDK 客戶 ID。
+   - [LINE Developer Account](https://developers.line.biz/en/)。
+   - [Semaphore Protocol setup](https://docs.semaphore.pse.dev/getting-started)。
+   - 從 Dapp Portal 團隊收到的 Mini Dapp SDK 客戶 ID。
 3. 已安裝的相依性
-    - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
+   - [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 
 ## 專案設定與安裝<a id="project-setup-installation"></a>
 

@@ -266,25 +266,25 @@ SurveyFactory 合约是用于部署新调查合约的工厂模式实现。
 **主要功能：**
 
 1. **集团管理**
-  - _createGroup()_：创建新组，可选择管理员和持续时间
-  - _更新组管理员()_：更改组管理员
-  - _acceptGroupAdmin()_：接受组的管理员角色
+   - _createGroup()_：创建新组，可选择管理员和持续时间
+   - _更新组管理员()_：更改组管理员
+   - _acceptGroupAdmin()_：接受组的管理员角色
 2. **会员管理**
-  - _addMember()_：向组中添加单个成员
-  - _addMembers()_：一次添加多个成员
-  - _updateMember()_：更新成员的身份承诺
-  - _删除成员()_：从组中删除成员
+   - _addMember()_：向组中添加单个成员
+   - _addMembers()_：一次添加多个成员
+   - _updateMember()_：更新成员的身份承诺
+   - _删除成员()_：从组中删除成员
 3. **验证**
-  - validateProof()：验证零知识证明，防止重复发信号
-  - verifyProof()：在不改变状态的情况下验证证明的有效性
+   - validateProof()：验证零知识证明，防止重复发信号
+   - verifyProof()：在不改变状态的情况下验证证明的有效性
 4. **配置**
-  - _groupCounter()_：返回创建的组总数
-  - _updateGroupMerkleTreeDuration()_：更新梅克尔树持续时间
+   - _groupCounter()_：返回创建的组总数
+   - _updateGroupMerkleTreeDuration()_：更新梅克尔树持续时间
 5. **活动**：
-  - _GroupMerkleTreeDurationUpdated_：记录梅克尔树持续时间的变化
-  - _ProofValidated_：记录已验证的证明详细信息
+   - _GroupMerkleTreeDurationUpdated_：记录梅克尔树持续时间的变化
+   - _ProofValidated_：记录已验证的证明详细信息
 6. **错误处理**：
-  - 针对无效证明、重复无效证明、空组等自定义错误。
+   - 针对无效证明、重复无效证明、空组等自定义错误。
 
 该接口为调查系统中的隐私保护组管理和零知识证明验证奠定了基础。
 

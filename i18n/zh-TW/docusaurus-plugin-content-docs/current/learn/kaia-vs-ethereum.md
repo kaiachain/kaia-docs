@@ -74,14 +74,14 @@ sidebar_label: Kaia vs. Ethereum
 ## 建商的下一步
 
 1. \*\* 配置您的環境\*\*\
-  配置您現有的 Ethereum 工具以與 Kaia 搭配使用：
+   配置您現有的 Ethereum 工具以與 Kaia 搭配使用：
 
 - [Mainnet RPC](https://docs.kaia.io/references/public-en/#mainnet-public-json-rpc-endpoints): https://public-en.node.kaia.io ( [Chain ID](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/#properties-)：8217\)
 - 測試網路：用於測試的 Kairos 測試網路 ( [取得免費代用幣](https://docs.kaia.io/build/get-started/getting-kaia/) 來自 [龍頭](https://www.kaia.io/faucet))
 - 工具：Hardhat、Foundry 和 MetaMask 無需修改即可運作
 
 2. \*\* 部署與測試\*\*\
-  由於與 EVM 完全相容，您的 Solidity 合約部署時不會有任何改變。 在 Kairos 測試網進行測試，以驗證 Kaia 動態收費模式下的瓦斯使用模式。
+   由於與 EVM 完全相容，您的 Solidity 合約部署時不會有任何改變。 在 Kairos 測試網進行測試，以驗證 Kaia 動態收費模式下的瓦斯使用模式。
 
 3. **發揮 Kaia 的優勢**
 

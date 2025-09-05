@@ -183,19 +183,19 @@ const walletClient = createWalletClient({
 让我们来看看代码的核心工作原理：
 
 - **LangChain 组件：**
-    - 聊天谷歌生成式人工智能：谷歌生成式人工智能的界面
-    - 记忆保存器在交互之间存储对话状态
-    - HumanMessage：构建来自用户的输入信息
-    - createReactAgent：创建一个遵循 ReAct 模式的代理
+  - 聊天谷歌生成式人工智能：谷歌生成式人工智能的界面
+  - 记忆保存器在交互之间存储对话状态
+  - HumanMessage：构建来自用户的输入信息
+  - createReactAgent：创建一个遵循 ReAct 模式的代理
 - **区块链库：**
-    - viem：与区块链交互的 EVM 库
-    - kairos： Kairos 网络的链式配置
+  - viem：与区块链交互的 EVM 库
+  - kairos： Kairos 网络的链式配置
 - **工具和代理初始化：**
-    - getOnChainTools：将区块链函数转换为 LangChain 工具
-    - Kaia：Kaia 专用区块链交互插件
-    - 包含 Kaia 插件和 API 密钥，可进行高级区块链查询
+  - getOnChainTools：将区块链函数转换为 LangChain 工具
+  - Kaia：Kaia 专用区块链交互插件
+  - 包含 Kaia 插件和 API 密钥，可进行高级区块链查询
 - **LLM 配置：**
-    - 使用谷歌 Gemini 1.5 Pro 模型作为代理的智能系统
+  - 使用谷歌 Gemini 1.5 Pro 模型作为代理的智能系统
 
 ## 运行代理
 

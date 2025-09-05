@@ -16,15 +16,15 @@
 이 애플리케이션을 빌드하려면 다음이 필요합니다:
 
 1. 기술 지식
-    - 솔리디티]에 대한 확실한 이해(https://www.tutorialspoint.com/solidity/index.htm).
-    - JavaScript](https://www.w3schools.com/js/default.asp) 및 [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP) 숙련도.
-    - 하드햇과 같은 스마트 컨트랙트 개발 도구에 익숙합니다.
+   - 솔리디티]에 대한 확실한 이해(https://www.tutorialspoint.com/solidity/index.htm).
+   - JavaScript](https://www.w3schools.com/js/default.asp) 및 [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP) 숙련도.
+   - 하드햇과 같은 스마트 컨트랙트 개발 도구에 익숙합니다.
 2. 계정 및 도구
-    - [LINE 개발자 계정](https://developers.line.biz/en/).
-    - [세마포어 프로토콜 설정](https://docs.semaphore.pse.dev/getting-started).
-    - 디앱 포털 팀으로부터 받은 미니 디앱 SDK 클라이언트 ID.
+   - [LINE 개발자 계정](https://developers.line.biz/en/).
+   - [세마포어 프로토콜 설정](https://docs.semaphore.pse.dev/getting-started).
+   - 디앱 포털 팀으로부터 받은 미니 디앱 SDK 클라이언트 ID.
 3. 설치된 종속성
-    - [Node.js 및 npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+   - [Node.js 및 npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ## 프로젝트 설정 및 설치 <a id="project-setup-installation"></a>
 

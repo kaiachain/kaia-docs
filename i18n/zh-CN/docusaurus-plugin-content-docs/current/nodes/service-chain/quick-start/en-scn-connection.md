@@ -9,14 +9,14 @@
 
 - 1 台用于 EN 的 Linux 或 MacOS 服务器
 - 测试的最低硬件要求
-   - 中央处理器4 核（英特尔至强或同级），内存：16GB，硬盘：50GB
-   - 请参阅 [系统要求](../system-requirements.md) 了解更多信息。
+  - 中央处理器4 核（英特尔至强或同级），内存：16GB，硬盘：50GB
+  - 请参阅 [系统要求](../system-requirements.md) 了解更多信息。
 - 下载 Kairos EN 可执行文件。 有关可下载二进制文件的完整列表，请参阅 [下载](../../downloads/downloads.md)。
 - 假设和限制
-   - 已安装并运行 ServiceChain 网络。 请参阅 [设置 4 节点服务链](4nodes-setup-guide.md) 设置网络。
-   - A Kairos EN.
-   - 一个 EN 只能连接一个 SCN，因为只支持一对一连接。
-   - 每个 SCN 都不必连接 EN。
+  - 已安装并运行 ServiceChain 网络。 请参阅 [设置 4 节点服务链](4nodes-setup-guide.md) 设置网络。
+  - A Kairos EN.
+  - 一个 EN 只能连接一个 SCN，因为只支持一对一连接。
+  - 每个 SCN 都不必连接 EN。
 
 ## 步骤 0：安装 Kairos EN<a id="install-kairos-en"></a>
 

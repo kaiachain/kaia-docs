@@ -183,19 +183,19 @@ const walletClient = createWalletClient({
 코드의 핵심 작동 방식을 살펴보겠습니다:
 
 - **랭체인 구성요소:**
-    - ChatGoogleGenerativeAI: Google의 제너레이티브 AI 인터페이스
-    - 메모리세이버: 상호 작용 간의 대화 상태 저장
-    - 휴먼메시지: 사용자의 입력 메시지를 구조화합니다.
-    - createReactAgent: ReAct 패턴을 따르는 에이전트를 생성합니다.
+  - ChatGoogleGenerativeAI: Google의 제너레이티브 AI 인터페이스
+  - 메모리세이버: 상호 작용 간의 대화 상태 저장
+  - 휴먼메시지: 사용자의 입력 메시지를 구조화합니다.
+  - createReactAgent: ReAct 패턴을 따르는 에이전트를 생성합니다.
 - **블록체인 라이브러리:**
-    - viem: 블록체인과 상호 작용하기 위한 EVM 라이브러리
-    - Kairos: Kairos 네트워크의 체인 구성
+  - viem: 블록체인과 상호 작용하기 위한 EVM 라이브러리
+  - Kairos: Kairos 네트워크의 체인 구성
 - **도구 및 에이전트 초기화:**
-    - 겟온체인툴: 블록체인 기능을 LangChain 도구로 변환합니다.
-    - Kaia: Kaia: Kaia 전용 블록체인 상호작용을 위한 플러그인
-    - 고급 블록체인 쿼리를 위한 API 키와 Kaia 플러그인 통합
+  - 겟온체인툴: 블록체인 기능을 LangChain 도구로 변환합니다.
+  - Kaia: Kaia: Kaia 전용 블록체인 상호작용을 위한 플러그인
+  - 고급 블록체인 쿼리를 위한 API 키와 Kaia 플러그인 통합
 - **LLM 구성:**
-    - 상담원의 인텔리전스로 Google의 Gemini 1.5 Pro 모델 사용
+  - 상담원의 인텔리전스로 Google의 Gemini 1.5 Pro 모델 사용
 
 ## 에이전트 실행
 

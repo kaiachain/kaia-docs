@@ -74,14 +74,14 @@ sidebar_label: Kaia 与以太坊
 ## 建设者的下一步行动
 
 1. \*\* 配置你的环境\*\*\
-  配置你现有的以太坊工具，以便与 Kaia 协同工作：
+   配置你现有的以太坊工具，以便与 Kaia 协同工作：
 
 - [Mainnet RPC](https://docs.kaia.io/references/public-en/#mainnet-public-json-rpc-endpoints): https://public-en.node.kaia.io ( [Chain ID](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/#properties-)：8217\)
 - 测试网：用于测试的 Kairos 测试网（[获取免费代币](https://docs.kaia.io/build/get-started/getting-kaia/) 来自[龙头](https://www.kaia.io/faucet))
 - 工具Hardhat、Foundry 和 MetaMask 无需修改即可使用
 
 2. \*\* 部署和测试\*\*\
-  由于与 EVM 完全兼容，您的 Solidity 合同在部署时保持不变。 在 Kairos 测试网上进行测试，以验证 Kaia 动态收费模式下的天然气使用模式。
+   由于与 EVM 完全兼容，您的 Solidity 合同在部署时保持不变。 在 Kairos 测试网上进行测试，以验证 Kaia 动态收费模式下的天然气使用模式。
 
 3. **利用卡娅的优势**
 

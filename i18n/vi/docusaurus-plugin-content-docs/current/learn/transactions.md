@@ -7,12 +7,12 @@ Transactions are the core mechanism for state changes on the Kaia blockchain. Th
 - **Atomic Operations:** Each transaction is treated as a single, indivisible unit. Either the entire transaction succeeds, applying all changes, or it fails, leaving the blockchain state unchanged. This ensures data integrity and prevents partial updates.
 
 - **Components:** Kaia transactions share core components with other blockchains but also have unique elements due to its decoupling of key pairs and addresses. This decoupling enhances flexibility but requires explicit sender information within the transaction. Typical components include:
-    - **Sender:** The originating account (`from` field).  This is explicitly included in Kaia transactions because addresses and key pairs are not directly linked.
-    - **Recipient:** The destination account (`to` field, for value transfers and smart contract interactions).
-    - **Value:** The amount of KAIA being transferred (`value` field, in `kei`).
-    - **Data:**  Additional information (`input` field), often used as input for smart contract execution.
-    - **Fees:** Calculated based on `gas` (maximum gas allowed) \* `gasPrice` (price per unit of gas).  Fees are paid in KAIA (unit: `kei`, see [link to KAIA units documentation]).
-    - **Signature (`v`, `r`, `s` fields):** Cryptographic proof authorizing the transaction.
+  - **Sender:** The originating account (`from` field).  This is explicitly included in Kaia transactions because addresses and key pairs are not directly linked.
+  - **Recipient:** The destination account (`to` field, for value transfers and smart contract interactions).
+  - **Value:** The amount of KAIA being transferred (`value` field, in `kei`).
+  - **Data:**  Additional information (`input` field), often used as input for smart contract execution.
+  - **Fees:** Calculated based on `gas` (maximum gas allowed) \* `gasPrice` (price per unit of gas).  Fees are paid in KAIA (unit: `kei`, see [link to KAIA units documentation]).
+  - **Signature (`v`, `r`, `s` fields):** Cryptographic proof authorizing the transaction.
 
 - **Transaction Types:** Kaia offers a variety of transaction types to support different use cases, from basic value transfers to complex smart contract interactions and fee delegation. This flexibility caters to diverse needs and optimizes performance. See the [Implementing Transactions](../build/transactions/transactions.md#transaction-types) page for details on each type.
 

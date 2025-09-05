@@ -183,19 +183,19 @@ const walletClient = createWalletClient({
 コードの核となる部分を見てみよう：
 
 - **LangChain Components:**
-    - ChatGoogleGenerativeAI：グーグルのジェネレーティブAIへのインターフェース
-    - メモリーセーバー：インタラクション間の会話状態を保存
-    - HumanMessage：ユーザーからの入力メッセージを構造化
-    - createReactAgent：ReActパターンに従ったエージェントを作成します。
+  - ChatGoogleGenerativeAI：グーグルのジェネレーティブAIへのインターフェース
+  - メモリーセーバー：インタラクション間の会話状態を保存
+  - HumanMessage：ユーザーからの入力メッセージを構造化
+  - createReactAgent：ReActパターンに従ったエージェントを作成します。
 - \*\*ブロックチェーン・ライブラリ
-    - viem：ブロックチェーンと対話するためのEVMライブラリ
-    - カイロス：カイロス・ネットワークのチェーン構成
+  - viem：ブロックチェーンと対話するためのEVMライブラリ
+  - カイロス：カイロス・ネットワークのチェーン構成
 - \*\*ツールおよびエージェントの初期化。
-    - getOnChainTools：ブロックチェーン関数をLangChainツールに変換する
-    - カイアKaia特有のブロックチェーンインタラクション用プラグイン
-    - 高度なブロックチェーンクエリのためのAPIキー付きKaiaプラグインを組み込む
+  - getOnChainTools：ブロックチェーン関数をLangChainツールに変換する
+  - カイアKaia特有のブロックチェーンインタラクション用プラグイン
+  - 高度なブロックチェーンクエリのためのAPIキー付きKaiaプラグインを組み込む
 - \*\*LLMコンフィギュレーション
-    - エージェントのインテリジェンスとしてGoogleのGemini 1.5 Proモデルを使用
+  - エージェントのインテリジェンスとしてGoogleのGemini 1.5 Proモデルを使用
 
 ## エージェントの実行
 

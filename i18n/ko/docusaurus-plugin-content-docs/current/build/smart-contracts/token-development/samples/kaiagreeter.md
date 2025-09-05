@@ -29,15 +29,15 @@ contract KaiaGreeter {
 
 - 위의 코드를 복사하여 새로 만든 파일에 붙여넣습니다: `KaiaGreeter.sol`.
 
-    ![](/img/build/smart-contracts/kg-v2-create.png)
+  ![](/img/build/smart-contracts/kg-v2-create.png)
 
-- 아직 테스트 KAIA가 없는 경우 [수도꼭지](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
+- 아직 테스트 KAIA가 없는 경우 [Faucet](https://faucet.kaia.io)에서 테스트 KAIA를 받으세요.
 
 - 초기 파라미터인 인사말 메시지와 함께 컨트랙트를 배포합니다.
 
 - 배포 후, IDE에서 `greet`를 호출할 수 있습니다.
 
-    ![](/img/build/smart-contracts/kg-v2-deployed.png)
+  ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## 참조 <a href="#references" id="references"></a>
 

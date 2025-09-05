@@ -29,7 +29,7 @@ contract KaiaGreeter {
 
 - Sao chép và dán mã ở trên vào tệp bạn vừa tạo: `KaiaGreeter.sol`.
 
-    ![](/img/build/smart-contracts/kg-v2-create.png)
+  ![](/img/build/smart-contracts/kg-v2-create.png)
 
 - Nhận một số KAIA thử nghiệm từ [vòi](https://faucet.kaia.io) nếu bạn chưa có KAIA thử nghiệm.
 
@@ -37,7 +37,7 @@ contract KaiaGreeter {
 
 - After deploying, you can invoke `greet` from the IDE.
 
-    ![](/img/build/smart-contracts/kg-v2-deployed.png)
+  ![](/img/build/smart-contracts/kg-v2-deployed.png)
 
 ## References <a href="#references" id="references"></a>
 

@@ -13,25 +13,25 @@ Kaia용 Viem 확장 프로그램 제공:
 ### Node.js
 
 - 설치
-    ```sh
-    npm install --save @kaiachain/viem-ext
-    ```
+  ```sh
+  npm install --save @kaiachain/viem-ext
+  ```
 - ESM 또는 TypeScript
-    ```ts
-    import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```ts
+  import { http, createPublicClient, kairos } from "@kaiachain/viem-ext";
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 - CommonJS
-    ```js
-    const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
-    const publicClient = createPublicClient({
-        chain: kairos,
-        transport: http(),
-    })
-    ```
+  ```js
+  const { http, createPublicClient, kairos } = require("@kaiachain/viem-ext");
+  const publicClient = createPublicClient({
+      chain: kairos,
+      transport: http(),
+  })
+  ```
 
 ## 사용법
 

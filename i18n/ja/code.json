@@ -756,5 +756,51 @@
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
     "message": "ドロップダウンを折りたたむ",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "getStarted.step1.title": {
+    "message": "ステップ1：ファンデーションのセットアップ"
+  },
+  "getStarted.step1.description": {
+    "message": "カイアのネットワーク、ツール、開発環境について理解する。"
+  },
+  "getStarted.step2.title": {
+    "message": "ステップ2：ウォレットとネットワークのセットアップ"
+  },
+  "getStarted.step2.description": {
+    "message": "カイアネットワーク用のウォレットを設定し、アカウントを作成します。"
+  },
+  "getStarted.step3.title": {
+    "message": "ステップ3：KAIAテストを受ける"
+  },
+  "getStarted.step3.description": {
+    "message": "蛇口からテストネットKAIAであなたの財布に資金を供給する。"
+  },
+  "getStarted.step4.title": {
+    "message": "ステップ4：リミックスでハローワールド"
+  },
+  "getStarted.step4.description": {
+    "message": "Remix IDEを使って最初のスマートコントラクトをデプロイする。"
+  },
+  "getStarted.step5.title": {
+    "message": "ステップ5：最初のトークンを作成する"
+  },
+  "getStarted.step5.description": {
+    "message": "Hardhatを使ってソウルバウンド・トークンを構築し、配備する。"
+  },
+  "getStarted.step6.title": {
+    "message": "ステップ6：最初のdAppを作る"
+  },
+  "getStarted.step6.description": {
+    "message": "フルスタックの分散型アプリケーションを作成する。"
+  },
+  "getStarted.step7.title": {
+    "message": "ステップ7：ミニdAppの構築"
+  },
+  "getStarted.step7.description": {
+    "message": "Web3の機能をLINEのようなプラットフォームに統合する。"
+  },
+  "homepage.favorites.gettingStarted.description.v2": {
+    "message": "カイアの基礎と始め方を学ぶ。",
+    "description": "Description for Getting Started guide"
   }
 }

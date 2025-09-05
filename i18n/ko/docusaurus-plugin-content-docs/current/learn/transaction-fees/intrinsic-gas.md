@@ -69,11 +69,11 @@ For example,
 This is important when calculating TxTypedGas:
 
 - First, check the TxType is `feeDelegated` or `feeDelegatedWithFeeRatio`.
-    - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
-    - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
+  - If the TxType is `feeDelegated`, add `TxGasFeeDelegated(10000)` to TxTypedGas
+  - If the TxType is `feeDelegatedWithFeeRatio`, add `TxGasFeeDelegatedWithRatio (15000)` to TxTypedGas
 - Second, check the transaction creates contract or not.
-    - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
-    - Otherwise, add `TxGas (21000)` to TxTypedGas.
+  - If the transaction creates contract, add `TxGasContractCreation (53000)` to TxTypedGas.
+  - Otherwise, add `TxGas (21000)` to TxTypedGas.
 
 For example,
 

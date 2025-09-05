@@ -16,15 +16,15 @@ Hướng dẫn toàn diện này bao gồm:
 Để xây dựng ứng dụng này, hãy đảm bảo bạn có những điều sau:
 
 1. Kiến thức kỹ thuật
-    - Hiểu rõ về [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
-    - Thành thạo [JavaScript](https://www.w3schools.com/js/default.asp) và [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
-    - Quen thuộc với các công cụ phát triển hợp đồng thông minh như Hardhat.
+   - Hiểu rõ về [Solidity](https://www.tutorialspoint.com/solidity/index.htm).
+   - Thành thạo [JavaScript](https://www.w3schools.com/js/default.asp) và [React/Next.js](https://www.w3schools.com/REACT/DEFAULT.ASP).
+   - Quen thuộc với các công cụ phát triển hợp đồng thông minh như Hardhat.
 2. Tài khoản và Công cụ
-    - [Tài khoản nhà phát triển LINE](https://developers.line.biz/en/).
-    - [Thiết lập giao thức Semaphore](https://docs.semaphore.pse.dev/getting-started).
-    - Nhận được ID máy khách Mini Dapp SDK từ nhóm Dapp Portal.
+   - [Tài khoản nhà phát triển LINE](https://developers.line.biz/en/).
+   - [Thiết lập giao thức Semaphore](https://docs.semaphore.pse.dev/getting-started).
+   - Nhận được ID máy khách Mini Dapp SDK từ nhóm Dapp Portal.
 3. Các phụ thuộc đã cài đặt
-    - [Node.js và npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+   - [Node.js và npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
 ## Thiết lập và cài đặt dự án <a id="project-setup-installation"></a>
 

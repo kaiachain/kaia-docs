@@ -31,7 +31,7 @@ $ kscnd start
 
 ## 하드 포크 <a href="#hard-fork" id="hard-fork"></a>
 
-이 섹션에서는 Kaia [하드포크](../../misc/klaytn-history.md)를 서비스체인에 적용하는 단계를 설명합니다.
+이 섹션에서는 카이아 [하드포크](../../misc/kaia-history.md)를 서비스체인에 적용하는 단계에 대해 설명합니다.
 
 서비스체인에 하드포크를 적용하려면 다음을 수행해야 합니다:
 
@@ -122,7 +122,7 @@ instance: Kaia/vX.X.X/XXXX-XXXX/goX.X.X
 }
 ```
 
-Kaia 하드포크의 역사는 [Kaia Docs](../../misc/klaytn-history.md)에서 확인할 수 있습니다.
+카이아 하드포크의 역사는 [카이아 문서](../../misc/kaia-history.md)에서 확인할 수 있습니다.
 
 원하는 하드포크로 `genesis.json`을 업데이트한 경우 체인 구성을 다시 초기화하고 변경 사항을 적용합니다.
 

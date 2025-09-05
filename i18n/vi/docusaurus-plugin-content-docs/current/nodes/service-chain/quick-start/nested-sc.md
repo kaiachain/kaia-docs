@@ -8,9 +8,9 @@ This chapter explains how to build ServiceChain networks in a hierarchical struc
 
 - Assume that you have progressed to the ServiceChain configuration and Kairos EN described in [Nested ServiceChain](nested-sc.md). So we will briefly explain what was explained in the previous section.
 - Assumptions and Limitations
-   - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
-   - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
-   - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Kairos and L2.
+  - One EN can bridge one-to-one to one of the SCNs of the ServiceChain L2. Similarly, one SCN in L2 of the ServiceChain can bridge one-to-one to one of the SCNs in L3.
+  - An SCN node can have a main bridge and a sub bridge at the same time. However, the port numbers of the main bridge and the sub bridge must be set differently. (eg main-bridge: 50505, sub-bridge:50506)
+  - Not all SCNs in L2 need to be bridged to EN, and likewise SCNs in L3 need not all be bridged to L2. However, for high availability, it is recommended that there are two or more main-bridge and sub-bridge pairs between chains. In this chapter, only one pair will be connected between L2 and L3, and the high availability between L2 and L3 is same to the HA between Kairos and L2.
 
 ## Step 1: Create and update Homi data for L3 <a id="step-1-create-and-update-homi"></a>
 

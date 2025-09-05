@@ -183,19 +183,19 @@ const walletClient = createWalletClient({
 Chúng ta hãy xem xét hoạt động cốt lõi của mã này:
 
 - **Thành phần LangChain:**
-    - ChatGoogleGenerativeAI: Giao diện với AI tạo sinh của Google
-    - MemorySaver: Lưu trữ trạng thái hội thoại giữa các tương tác
-    - HumanMessage: Cấu trúc tin nhắn đầu vào từ người dùng
-    - createReactAgent: Tạo một tác nhân theo mẫu ReAct
+  - ChatGoogleGenerativeAI: Giao diện với AI tạo sinh của Google
+  - MemorySaver: Lưu trữ trạng thái hội thoại giữa các tương tác
+  - HumanMessage: Cấu trúc tin nhắn đầu vào từ người dùng
+  - createReactAgent: Tạo một tác nhân theo mẫu ReAct
 - **Thư viện Blockchain:**
-    - viem: Thư viện EVM để tương tác với blockchain
-    - kairos: Cấu hình chuỗi cho mạng Kairos
+  - viem: Thư viện EVM để tương tác với blockchain
+  - kairos: Cấu hình chuỗi cho mạng Kairos
 - **Khởi tạo công cụ và tác nhân:**
-    - getOnChainTools: Chuyển đổi các chức năng blockchain thành các công cụ LangChain
-    - Kaia: Plugin cho các tương tác blockchain dành riêng cho Kaia
-    - Kết hợp plugin Kaia với khóa API cho các truy vấn blockchain nâng cao
+  - getOnChainTools: Chuyển đổi các chức năng blockchain thành các công cụ LangChain
+  - Kaia: Plugin cho các tương tác blockchain dành riêng cho Kaia
+  - Kết hợp plugin Kaia với khóa API cho các truy vấn blockchain nâng cao
 - **Cấu hình LLM:**
-    - Sử dụng mô hình Gemini 1.5 Pro của Google làm trí thông minh của tác nhân
+  - Sử dụng mô hình Gemini 1.5 Pro của Google làm trí thông minh của tác nhân
 
 ## Chạy Agent
 

@@ -9,14 +9,14 @@ You will set up a Kairos EN and connect the EN with one of your SCNs. Then you w
 
 - 1 Linux or MacOS server for EN
 - Minimum hardware requirements for testing
-   - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
-   - Please refer to the [System Requirements](../system-requirements.md) for more explanation.
+  - CPU: 4-core (Intel Xeon or equivalent), RAM: 16GB, HDD: 50GB
+  - Please refer to the [System Requirements](../system-requirements.md) for more explanation.
 - Download the Kairos EN executable. For the full list of downloadable binaries, see [Download](../../downloads/downloads.md).
 - Assumptions and Limitations
-   - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
-   - A Kairos EN.
-   - One EN can only connect to one SCN since only one-to-one connection is supported.
-   - Every SCN does not have to connect to the EN.
+  - A ServiceChain network is installed and running. Please refer to [Setting up a 4-node Service Chain](4nodes-setup-guide.md) to setup a network.
+  - A Kairos EN.
+  - One EN can only connect to one SCN since only one-to-one connection is supported.
+  - Every SCN does not have to connect to the EN.
 
 ## Step 0: Install Kairos EN <a id="install-kairos-en"></a>
 

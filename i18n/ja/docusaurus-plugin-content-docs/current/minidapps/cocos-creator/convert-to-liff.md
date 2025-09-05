@@ -10,19 +10,19 @@
 
 1. LINE Developers コンソールのセットアップ：
 
-  - LINEデベロッパーズコンソールをご覧ください。
-  - プロバイダを作成します（すでにプロバイダをお持ちの場合はスキップしてください）。
+   - LINEデベロッパーズコンソールをご覧ください。
+   - プロバイダを作成します（すでにプロバイダをお持ちの場合はスキップしてください）。
 
-  ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
+   ![](/img/minidapps/cocos-creator/cocos-liff-create.png)
 
-  - 新しいLINEログインチャンネルを作成する。
+   - 新しいLINEログインチャンネルを作成する。
 
-  ![](/img/minidapps/unity-minidapp/line-login-lc.png)
+   ![](/img/minidapps/unity-minidapp/line-login-lc.png)
 
-  - LIFFタブに移動する
-  - LIFFアプリを追加」をクリック
+   - LIFFタブに移動する
+   - LIFFアプリを追加」をクリック
 
-  ![](/img/minidapps/unity-minidapp/line-liff-add.png)
+   ![](/img/minidapps/unity-minidapp/line-liff-add.png)
 
 2. LIFFの設定を行う：
 
@@ -190,10 +190,10 @@ build/
 ## ステップ6：最終設定とテスト<a id="final-configuration-and-testing"></a>
 
 1. LIFFエンドポイントを更新する：
-  - LINEデベロッパーズコンソールに戻る
-  - LIFFアプリを探す
-  - 編集」をクリックする
-  - 配備したサイトのURLを更新する。
+   - LINEデベロッパーズコンソールに戻る
+   - LIFFアプリを探す
+   - 編集」をクリックする
+   - 配備したサイトのURLを更新する。
 
 これでミニdAppがすぐに利用できるようになるはずだ。
 

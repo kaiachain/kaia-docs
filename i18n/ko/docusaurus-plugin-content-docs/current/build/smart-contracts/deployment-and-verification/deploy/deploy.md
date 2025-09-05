@@ -72,7 +72,7 @@ contract CoinFlip {
 ![](/img/build/smart-contracts/d-remix-import-account.png)
 
 :::note
-계정에 스마트 컨트랙트를 배포하는 거래에 대한 비용을 지불하기에 충분한 KAIA가 있는지 확인하세요. 아직 테스트 KAIA가 없는 경우 [수도꼭지](https://faucet.kaia.io/)에서 테스트 KAIA를 받으세요.
+계정에 스마트 컨트랙트를 배포하는 거래에 대한 비용을 지불하기에 충분한 KAIA가 있는지 확인하세요. 아직 테스트 KAIA가 없는 경우 [Faucet](https://faucet.kaia.io/)에서 테스트 KAIA를 받으세요.
 :::
 
 6. 가스 한도 및 전송할 값을 설정합니다.

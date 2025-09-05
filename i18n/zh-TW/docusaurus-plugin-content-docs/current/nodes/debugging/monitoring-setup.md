@@ -185,20 +185,20 @@ brew services start grafana
 
 3. 新增 Prometheus 為資料來源。
 
-  - 導覽到 \*\* 設定\*\* -> \*\* 資料來源\*\*。
-  - 按一下 \*\* 新增資料來源\*\*。
-  - 選擇 **Prometheus** 為類型。
-  - 將 **URL** 設為 `http://localhost:9090` (如果 Prometheus 位於不同的伺服器上，請修改)。
-  - 按一下 **Save & Test** 以驗證連線。
+   - 導覽到 \*\* 設定\*\* -> \*\* 資料來源\*\*。
+   - 按一下 \*\* 新增資料來源\*\*。
+   - 選擇 **Prometheus** 為類型。
+   - 將 **URL** 設為 `http://localhost:9090` (如果 Prometheus 位於不同的伺服器上，請修改)。
+   - 按一下 **Save & Test** 以驗證連線。
 
 4. 新增 Kaia 面板，並新增面板可視化 Kaia 區塊號碼。
-  - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) 或導航到現有的儀表板。
-  - 按一下右上角的 **編輯**，按一下儀表板標題中的 **新增**，然後在下拉式選單中選擇 **可視化**，以新增面板。
-  - 在**查詢**下：
-    1. 選擇您的 Prometheus 作為 **資料來源**。
-    2. 在 **Metric** 欄位中輸入 `klaytn_blockchain_head_blocknumber`。
-    3. 在 **選項**中，從 **圖例**下拉選單中選擇 **自訂**，然後輸入 `{{instance}}` 作為自訂圖例格式。
-  - 按一下 \*\* 應用\*\*，將面板儲存到您的儀表板。
+   - [Create a new dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) 或導航到現有的儀表板。
+   - 按一下右上角的 **編輯**，按一下儀表板標題中的 **新增**，然後在下拉式選單中選擇 **可視化**，以新增面板。
+   - 在**查詢**下：
+     1. 選擇您的 Prometheus 作為 **資料來源**。
+     2. 在 **Metric** 欄位中輸入 `klaytn_blockchain_head_blocknumber`。
+     3. 在 **選項**中，從 **圖例**下拉選單中選擇 **自訂**，然後輸入 `{{instance}}` 作為自訂圖例格式。
+   - 按一下 \*\* 應用\*\*，將面板儲存到您的儀表板。
 
 :::note[Additional Kaia 控制面板]
 
