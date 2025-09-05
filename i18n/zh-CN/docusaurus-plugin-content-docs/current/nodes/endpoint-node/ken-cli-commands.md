@@ -78,7 +78,7 @@ Kaia 为开发人员提供了两个方便的命令行工具："ken "和 "JavaScr
 
 ### 数据目录
 
-密钥存储文件存储在<DATADIR>/keystore`下。 您可以按如下方式指定数据目录。 强烈建议在执行 "ken account "命令时使用"--datadir "选项。 让数据目录指向在`kend.conf`中设置的`DATA_DIR\`，以便与端点节点无缝共享账户。
+密钥存储文件存储在`<DATADIR>/keystore`下。 您可以按如下方式指定数据目录。 强烈建议在执行 "ken account "命令时使用"--datadir "选项。 让数据目录指向在`kend.conf`中设置的`DATA_DIR`，以便与端点节点无缝共享账户。
 
 ```bash
 $ ken account new --datadir<DATADIR>
@@ -257,7 +257,7 @@ attach "命令连接运行中的节点，而 "console "命令启动节点并连�
 
 ### 数据目录
 
-创建账户时，密钥存储文件存储在<DATADIR>/keystore`下。 <DATADIR>"是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是`~/kend_home\`。
+创建账户时，密钥存储文件存储在`<DATADIR>/keystore` 下。 <DATADIR>"是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是 `~/kend_home`。
 
 ### 控制台命令
 
