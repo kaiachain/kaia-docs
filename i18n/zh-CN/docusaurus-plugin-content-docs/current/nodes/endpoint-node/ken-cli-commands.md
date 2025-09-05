@@ -257,7 +257,7 @@ attach "命令连接运行中的节点，而 "console "命令启动节点并连�
 
 ### 数据目录
 
-创建账户时，密钥存储文件存储在`<DATADIR>/keystore` 下。 <DATADIR>"是在 "kend.conf "中设置的 "DATA_DIR"。 如果按照快速入门指南中的示例，则必须是 `~/kend_home`。
+创建账户时，密钥存储文件存储在`<DATADIR>/keystore` 下。 `<DATADIR>"是在 `kend.conf`中设置的 `DATA_DIR`。 如果按照快速入门指南中的示例，则必须是 `~/kend_home\`。
 
 ### 控制台命令
 
