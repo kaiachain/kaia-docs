@@ -257,7 +257,7 @@ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:
 
 ### 資料目錄
 
-建立帳戶時，keystore 檔案會儲存在 `<DATADIR>/keystore`。 <DATADIR>`是在`kend.conf`中設定的`DATA_DIR`。 如果您依照快速入門指南所給的範例，則必須是 `~/kend_home\`。
+建立帳戶時，keystore 檔案會儲存在 `<DATADIR>/keystore`。 `<DATADIR>` 是在 `kend.conf` 中設定的 `DATA_DIR`。 如果您依照快速入門指南所給的範例，則必須是 `~/kend_home`。
 
 ### 控制台指令
 
