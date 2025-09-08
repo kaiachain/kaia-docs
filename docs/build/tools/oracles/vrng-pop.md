@@ -1,8 +1,12 @@
 # Verified Random Number Generator (vRNG)
 
+![](/img/banners/kaia-pop.png)
+
 This document serves as an overview of the Verified Random Number Generator (vRNG) guide by [Proof of Play](https://proofofplay.com), designed for integration with Kaia provided. The vRNG system leverages the [drand](https://drand.love/) randomness beacon to deliver secure and verifiable random numbers to smart contracts on the Kaia blockchain.
 
 The Verified Random Number Generator (vRNG) is optimized for low-latency delivery of random numbers to minimize application lag. It is designed with a strong emphasis on reliability and scalability. 
+
+![](/img/build/tools/pop-vrng-overview.png)
 
 ## Registration
 
