@@ -167,7 +167,7 @@ We can see here the random number in hex is `ebdcbfe855d10c56db22455fa5a18963c1f
 
 :::info
 
-**This feature is in preview**. Please contact the [Proof of Play team](https://discord.gg/proofofplay) or [Kaia team](https://discord.gg/kaia) if you wish to use this.
+**This feature is in preview**. Please contact the Kaia team if you wish to use this.
 
 :::
 
