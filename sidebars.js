@@ -367,6 +367,7 @@ const sidebars = {
             'build/tools/oracles/pyth-network',
             'build/tools/oracles/supraoracles',
             'build/tools/oracles/witnet',
+            { type: 'doc', label: 'Proof of Play vRNG', id: 'build/tools/oracles/vrng-pop' },
           ],
         },
         {
