@@ -166,7 +166,7 @@ const sidebars = {
           },
           items: [
             'build/wallets/wallet-libraries/web3Auth',
-            'build/wallets/wallet-libraries/web3Modal',
+            'build/wallets/wallet-libraries/reown',
             'build/wallets/wallet-libraries/web3Onboard',
             'build/wallets/wallet-libraries/particle',
             'build/wallets/wallet-libraries/privy',
@@ -367,6 +367,15 @@ const sidebars = {
             'build/tools/oracles/pyth-network',
             'build/tools/oracles/supraoracles',
             'build/tools/oracles/witnet',
+          ],
+        },
+              {
+          type: 'category',
+          label: 'Gaming SDKs',
+          link: { type: 'doc', id: 'build/tools/gaming-sdks/gaming-sdks' },
+          items: [
+            'build/tools/gaming-sdks/chainsafe',
+            'build/tools/gaming-sdks/reown',
           ],
         },
         {
