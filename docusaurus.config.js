@@ -396,7 +396,7 @@ const config = {
             to: "minidapps",
             position: 'left',
             sidebarid: 'miniDappSidebar',
-            label: 'Mini dApps',
+            label: 'Mini DApps',
             items: [
               {
                 to: "minidapps/unity/quick-start",
