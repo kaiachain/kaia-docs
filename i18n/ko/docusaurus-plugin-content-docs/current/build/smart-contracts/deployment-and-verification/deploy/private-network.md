@@ -1,8 +1,8 @@
-# Deploying smart contract using Private Network
+# 사설 네트워크를 통해 스마트 계약 배포하기
 
 <!-- ![](/img/banners/kaia-ken.png) -->
 
-## Introduction <a id="introduction"></a>
+## 소개 <a id="introduction"></a>
 
 In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
 

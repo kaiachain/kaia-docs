@@ -120,9 +120,9 @@ contract Counter {
 }
 ```
 
-**Code Walkthrough**
+**코드 설명**
 
-This is your smart contract. **Line 1** shows it uses the Solidity version 0.8.13 or greater. From **lines 4-12**, a smart contract `Counter` is created. This contract simply stores a new number using the **setNumber** function and increments it by calling the **increment** function.
+이것은 당신의 스마트 컨트랙트입니다. **Line 1** shows it uses the Solidity version 0.8.13 or greater. From **lines 4-12**, a smart contract `Counter` is created. This contract simply stores a new number using the **setNumber** function and increments it by calling the **increment** function.
 
 ## Testing smart contract
 

@@ -25,7 +25,7 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
+- 코드 편집기: [VS Code](https://code.visualstudio.com/download) 같은 소스 코드 편집기.
 - [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 - RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
 - Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
