@@ -4,15 +4,15 @@
 
 ## 소개 <a id="introduction"></a>
 
-In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
+이 가이드에서는 [Kaia Hardhat Utils]를 사용하여 프라이빗 Kaia 네트워크에 Greeter 계약을 배포하는 과정을 안내해 드리겠습니다(https://github.com/ayo-klaytn/hardhat-utils). 이 가이드를 따름으로써, 당신은 방법을 배울 것입니다:
 
-- Set up a Hardhat project.
-- Launch a private network simulating the Kairos Testnet.
-- Utilize Hardhat utils to deploy smart contracts on this private network.
+- Hardhat 프로젝트 설정
+- Kairos 테스트넷을 시뮬레이팅하는 개인 네트워크 시작합니다.
+- 이 프라이빗 네트워크에 스마트 계약을 배포하기 위해 Hardhat 유틸리티를 활용하십시오.
 
-## Prerequisite <a id="prerequisites"></a>
+## 필수조건 <a id="prerequisites"></a>
 
-To follow this tutorial, the following are the prerequisites:
+이 듀토리얼을 따르기 위해서, 필수조건은 다음과 같습니다.
 
 - Code editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
 - Docker: if you don’t have docker installed, kindly install using this [link](https://docs.docker.com/desktop/)
