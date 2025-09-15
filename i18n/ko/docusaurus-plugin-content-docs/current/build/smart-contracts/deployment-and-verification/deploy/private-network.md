@@ -14,36 +14,36 @@
 
 이 듀토리얼을 따르기 위해서, 필수조건은 다음과 같습니다.
 
-- Code editor: a source-code editor such as [VS Code](https://code.visualstudio.com/download).
-- Docker: if you don’t have docker installed, kindly install using this [link](https://docs.docker.com/desktop/)
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node version 18 and above.
+- 코드 편집기: [VS Code](https://code.visualstudio.com/download) 같은 소스 코드 편집기.
+- 도커: 도커가 설치되어 있지 않다면, 이 [링크](https://docs.docker.com/desktop/)를 통해 설치해 주세요.
+- [Node.js와 npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Node 버전 18 그리고 이상 버전.
 
-## Setting Up your Development Environment <a id="setting-up-dev-environment"></a>
+## 개발 환경 설정하기 <a id="setting-up-dev-environment"></a>
 
-In this section, we will install hardhat, Kaia hardhat utils and other necessary dependencies needed for bootstrapping our project.
+이 섹션에서는 프로젝트 부트스트랩에 필요한 Hardhat, Kaia hardhat 유틸리티 및 기타 필수 종속성을 설치합니다.
 
-**Step 1: Create a project directory**
+**1단계: 프로젝트 디렉터리 만들기**
 
 ```js
 mkdir $HOME/kaia-greeter
 cd kaia-greeter 
 ```
 
-**Step 2: Initialize an npm project**
+**2단계: npm 프로젝트 초기화하기**
 
 ```js
 npm init -y
 ```
 
-**Step 3: Install hardhat, hardhat-utils and other dependencies**
+**3단계: hardhat, hardhat-유틸리티 그리고 다른 종속성 설치하기**
 
-- Copy and paste the code below in your terminal to install hardhat and hardhat-utils
+- hardhat과 hardhat-유틸리티를 설치하기 위해 터미널에 아래 코드를 복사 후 붙여넣으세요.
 
 ```js
 npm i hardhat @klaytn/hardhat-utils
 ```
 
-- Copy and paste the code below to install other dependencies
+- 다른 종속성을 설치하기 위해 터미널에 아래 코드를 복사 후 붙여넣으세요.
 
 ```js
 npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
@@ -51,7 +51,7 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-The hardhat-utils plugin depends on  [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) and [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) plugin.  Make sure to require or import them in your `hardhat.config.js` or `hardhat.config.ts`.
+hardhat-유틸리티 플러그인은 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 및 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 플러그인에 의존합니다.  `hardhat.config.js` 또는 `hardhat.config.ts`에서 해당 패키지를 요구하거나 임포트해야 합니다.
 
 :::
 
