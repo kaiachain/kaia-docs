@@ -57,7 +57,7 @@ hardhat-유틸리티 플러그인은 [hardhat-ethers](https://www.npmjs.com/pack
 
 :::info
 
-(Recommended) Install hardhat shorthand. But you can still use the tasks with npx hardhat.
+(권장) hardhat 간편 설치 하지만 npx hardhat을 사용해 작업을 계속 사용할 수 있습니다.
 
 ```js
 npm install hardhat-shorthand --save
@@ -65,15 +65,15 @@ npm install hardhat-shorthand --save
 
 :::
 
-**Step 4: Initialize a hardhat project**
+**4단계: hardhat 프로젝트 초기화하기**
 
-Run the command below to initiate an hardhat project:
+hardhat 프로젝트 초기화를 위해 아래 명령어를 실행하세요:
 
 ```js
 npx hardhat init 
 ```
 
-For this guide, you'll be selecting "create an empty hardhat.config.js" project as seen below:
+이 가이드에서는 아래와 같이 “빈 hardhat.config.js 생성” 프로젝트를 선택하게 됩니다:
 
 ```js
 888    888                      888 888               888
