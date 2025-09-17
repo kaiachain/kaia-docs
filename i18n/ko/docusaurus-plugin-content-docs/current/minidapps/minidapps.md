@@ -1,15 +1,70 @@
-# 유니티와 함께하는 LINE 미니 디앱
+# 카이아에서 미니 디앱 구축하기
 
-## Introduction
+미니 디앱은 LINE 메신저 내에서 바로 사용할 수 있는 블록체인 기반의 소형 앱입니다. 사람들이 이미 알고 있는 채팅 앱을 벗어나지 않고도 Web3 기능을 쉽게 사용할 수 있습니다.
 
-LINE serves as a comprehensive communication and lifestyle platform with over 200 million active users. By integrating Web3 capabilities into LINE through mini dApps, developers can leverage LINE's vast user base to facilitate mainstream adoption of blockchain technologies. This integration allows users to interact with decentralized applications directly within their familiar LINE interface, eliminating the need to switch between multiple platforms.
+## 미니 디앱이란 무엇인가요?
 
-This tutorial guides you through building mini dApps on the LINE platform using Unity WebGL and Kaia's infrastructure. Mini dApps allow developers to integrate Web3 functionality directly into LINE, leveraging its extensive user base.
+미니 디앱은 카이아 블록체인에 구축된 간단한 도구나 게임이라고 생각하시면 됩니다. 주로 일본, 대만, 태국, 인도네시아에서 월 2억 명 이상의 사용자를 보유한 인기 메시징 앱인 LINE에서 실행됩니다. 개발자들은 이러한 앱을 만들어 보안 결제, 보상 또는 토큰 거래와 같은 유용한 블록체인 기능을 일상적인 채팅에 바로 추가할 수 있습니다.
 
-You will learn how to create a mini dApp that enables users to connect their wallets, check token balances, and mint tokens. This guide caters to both experienced blockchain developers and those new to Web3 development. By the end of this tutorial, you will have the skills to build and deploy your own LINE mini dApp.
+사용자 입장에서는 간단합니다. 추가 앱을 다운로드하거나 까다로운 블록체인을 배울 필요가 없습니다. LINE을 열고 Dapp 포털(내장된 검색 허브)을 통해 미니 디앱을 찾아서 사용하기만 하면 됩니다. 예를 들어 로열티 포인트 적립, 토큰 교환, 대체 불가능한 토큰 구매, 빠른 게임 플레이 등이 있습니다. 모든 것이 한 곳에서 이루어집니다.
 
-## Getting Started
+카이아는 이 모든 것을 뒤에서 지원합니다. 트랜잭션 기록이나 스마트 컨트랙트 실행과 같은 보안 부분을 처리하는 빠르고 저렴한 블록체인(클레이튼과 핀치아의 합병으로 탄생)입니다. 카이아의 지갑과 같은 도구는 LINE과 긴밀하게 연동되어 있어 디지털 자산 관리가 자연스럽게 느껴집니다. 또한 요금 위임과 같은 기능을 사용하면 사용자가 가스 요금을 직접 지불하지 않는 경우가 많습니다.
 
-Ready to build your first LINE mini dApp? We'll walk through creating a dApp using Unity WebGL, transform it into a LIFF (LINE Front-end Framework) app, and add some exciting token minting capabilities. If you're unfamiliar with some of these terms, each concept will be explained thoroughly.
+진정한 강점은 미니 디앱이 대량 사용의 문을 열어준다는 점입니다. 웹3.0과 신뢰할 수 있는 앱을 결합하여 블록체인을 접하지 못했던 사람들에게 다가갑니다. 기업은 보상 시스템을 구축할 수 있습니다. 개발자는 대화형 경험을 만들 수 있습니다. 탈중앙화 기술을 실용적이고 지역별로 맞춤화하면서 전 세계를 연결하는 것이 핵심입니다.
 
-![](/img/minidapps/unity-minidapp/unity-minidapp-banner.png)
+## 미니 디앱 구축을 위한 주요 SDK
+
+미니 디앱을 구축하려면 몇 가지 주요 SDK를 사용해야 합니다. 블록체인 기초, 사용자 검색, LINE 통합 등 각각 다른 부분을 담당하고 있습니다. 다음은 추가 세부 정보로 연결되는 링크와 함께 간결한 개요를 제공합니다.
+
+### 카이아 SDK(핵심 블록체인 도구)
+
+이 SDK는 Kaia 네트워크에 연결하기 위한 기본 사항을 제공합니다. 스마트 컨트랙트 작성, 트랜잭션 전송, 지갑 관리 등의 작업을 위한 라이브러리 세트입니다.
+
+용도: 주로 백엔드에서 사용하세요. 예를 들어, 미니 디앱에서 토큰을 발행하거나 결제를 처리하기 위해 컨트랙트를 배포해야 하는 경우, 일반적으로 이 SDK를 사용하게 됩니다. Ethers.js 또는 Web3.js와 같은 익숙한 도구를 기반으로 하며, 자바스크립트용 이더스엑스트와 같은 추가 기능이 포함되어 있습니다.
+
+주요 기능으로는 트랜잭션 제출, 계약 데이터 읽기, 확장 가능한 앱 구축 등이 있습니다. 미니 디앱에서는 토큰 채굴이나 대체 불가능한 토큰(NFT) 거래와 같은 작업을 지원하는 경우가 많습니다.
+
+자세한 내용은 문서에서 [Kaia SDK 참조](../references/sdk/sdk.md)를 확인하세요. 계약서를 설정하는 경우 계약서에 잘 설명되어 있으므로 이 부분부터 시작하세요.
+
+### Dapp 포털 SDK(디스커버리 허브에 연결)
+
+디앱 포털은 LINE의 미니 디앱을 발굴하고 홍보하는 공간입니다. 이 JavaScript SDK는 앱에 연결하여 지갑 로그인이나 거래와 같은 Web3 작업을 처리합니다.
+
+용도: 사용자가 미니 디앱 내에서 카이아 지갑(LINE과 연동)을 연결하고, 토큰을 발행하고, 잔액을 확인하고, 보상과 마켓플레이스에 액세스할 수 있습니다. 사용자 대면 블록체인 상호작용을 위한 다리라고 생각하시면 됩니다.
+
+프론트엔드 코드에 HTML 또는 스크립트로 추가합니다. 예를 들어 Unity 또는 Cocos 튜토리얼에서는 지갑 연결 및 토큰 기능에 사용됩니다. 주요 방법으로는 SDK 초기화, 계정 요청, 트랜잭션 전송 등이 있습니다.
+
+API 세부 정보 및 설정은 [Dapp 포털 문서](https://docs.dappportal.io/)를 참조하세요. 보안을 위해 개발 중에 `localhost:3000`에서 테스트하는 것이 좋습니다.
+
+### LIFF SDK (LINE 메신저에 임베딩)
+
+LIFF는 LINE 프론트엔드 프레임워크의 약자입니다. 메신저 내에서 원활하게 실행되는 웹 앱을 구축할 수 있는 LINE의 도구입니다.
+
+용도: LINE 계정을 통한 사용자 로그인, LINE 브라우저에 앱 표시 등 프론트엔드 측면을 처리합니다. 온보딩이 간소화되어 추가 비밀번호가 필요하지 않습니다. LINE 개발자 콘솔에서 LIFF 앱을 설정하고 사이즈(전체 화면 또는 컴팩트)를 선택한 후 권한을 추가합니다.
+
+워크플로에서는 여기에서 인터페이스를 구축한 다음 다른 SDK를 레이어링하는 경우가 많습니다. 예를 들어, 튜토리얼에서는 Unity WebGL 빌드용 LIFF를 포함하도록 index.html을 수정하는 방법을 보여줍니다.
+
+자세한 내용은 [LINE의 LIFF 문서](https://developers.line.biz/en/docs/liff/overview/)에서 확인하실 수 있습니다. 외부에 있지만 미니 디앱에 필수적인 기능입니다.
+
+## 이러한 SDK를 함께 사용하는 방법
+
+미니 디앱을 구축하는 것은 흐름을 보면 그리 복잡하지 않습니다. LIFF로 시작하여 LINE 로그인과 기본 보기에서 앱을 설정하세요. 그런 다음 스마트 컨트랙트 배포와 같은 백엔드 블록체인 작업에는 Kaia SDK를 사용하세요. 마지막으로, 지갑을 연결하고 토큰 발행 또는 보상과 같은 기능을 사용하려면 Dapp 포털 SDK를 추가하세요.
+
+![](/img/minidapps/sdk-overview.png)
+
+간단한 예를 들어보겠습니다: 플레이어가 토큰을 획득하는 게임. LINE의 게임 화면에는 LIFF를 사용합니다. Dapp 포털 SDK는 지갑을 연결하고 보상을 분배합니다. 카이아 SDK는 카이아에 토큰 컨트랙트를 배포합니다.
+이 설정은 안전하고 사용자 친화적인 환경을 유지합니다. 실습 가이드는 [Unity](https://docs.kaia.io/minidapps/unity/quick-start/), [Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator/quick-start/) 또는 [Survey Mini dApp](https://docs.kaia.io/minidapps/survey-minidapp/intro/)의 튜토리얼을 참조하세요.
+
+## 미니 디앱 개발 시작하기
+
+미니 디앱 개발을 시작하려면 다음 단계를 따르세요:
+
+1. 여기](https://tally.so/r/w4Y5BB)에서 미니 디앱 SDK에 대한 액세스 권한을 신청하고 승인을 기다립니다.
+2. 카이아 수도꼭지](https://faucet.kaia.io/)에서 테스트 토큰을 받으세요.
+3. Unity](./unity/quick-start.md), [Cocos Creator](./cocos-creator/quick-start.md) 또는 [Survey Mini dApp](./survey-minidapp/intro.md)의 튜토리얼을 따라 개발 환경을 설정합니다.
+
+구현 및 통합에 대한 종합적인 가이드를 제공하는 [Dapp 포털 SDK 문서](https://developers.dappportal.io/sdk)에서 미니 디앱 SDK에 대해 자세히 알아보세요.
+
+Kaia를 처음 사용하는 경우 [Kaia 시작하기](../build/get-started/get-started.mdx) 페이지에서 기초 지식을 확인하세요.
+
+질문 및 커뮤니티 지원은 [카이아 개발자 포럼](https://devforum.kaia.io/)을 참조하세요.
