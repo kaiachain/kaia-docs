@@ -105,7 +105,7 @@ Configuration File Location:
 
 #### Add Data Directory  <a id="add-data-directory"></a>
 
-You should update the the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
+You should update the data directory environment variable `$DATA_DIR` on the configuration file `kend.conf`.
 
 ```text
 DATA_DIR=/var/kend/data
