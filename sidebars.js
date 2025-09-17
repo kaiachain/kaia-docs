@@ -274,10 +274,6 @@ const sidebars = {
             {
               type: 'category',
               label: 'Deploy Smart Contracts',
-              link: {
-                type: 'doc',
-                id: 'build/smart-contracts/token-development/samples/samples',
-              },
               items: [
                 'build/smart-contracts/deployment-and-verification/deploy/foundry',
                 'build/smart-contracts/deployment-and-verification/deploy/thirdweb',
@@ -287,10 +283,6 @@ const sidebars = {
             {
               type: 'category',
               label: 'Verify Smart Contracts',
-              link: {
-                type: 'doc',
-                id: 'build/smart-contracts/token-development/samples/samples',
-              },
               items: [
                 'build/smart-contracts/deployment-and-verification/verify/block-explorers',
                 'build/smart-contracts/deployment-and-verification/verify/foundry',

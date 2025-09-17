@@ -2,83 +2,279 @@
 
 > Documentation for Kaia, the most efficient EVM-based blockchain & Asia's super app chain.
 
-## Learn
-
-[Why Kaia](https://docs.kaia.io/learn/why-kaia): Learn about why you should choose Kaia Chain
-[Accounts](https://docs.kaia.io/learn/accounts): Explains account structures, key management, and security features in the Kaia chain.
-[Transactions](https://docs.kaia.io/learn/transactions): Guide for understanding transaction on Kaia Chain
-[Transaction Fees](https://docs.kaia.io/learn/transaction-fees): Explain transaction fees on Kaia Chain
-[Smart Contracts](https://docs.kaia.io/learn/smart-contracts): Guide for understanding smart contracts and Kaia Virtual Machine
-[Precompiled Contracts](https://docs.kaia.io/learn/smart-contracts/precompiled-contracts): Explains Precompile contracts on Kaia Chain
-[Kaia Consensus Mechanism](https://docs.kaia.io/learn/consensus-mechanism): Explains Kaia's consensus mechanism for efficient and secure blockchain transactions.
-[Kaia Network Identifier](https://docs.kaia.io/learn/kni): Guide for Kaia Network Identifier.
-[Kaia Native Coin](https://docs.kaia.io/learn/token-economics/kaia-native-token): Provides information about Kaia Coin
-[Token Economy](https://docs.kaia.io/learn/token-economics/token-economy):Explains Kaia's token economy and funding structures for its blockchain ecosystem and growth initiatives.
-[Governance](https://docs.kaia.io/learn/governance/governance-by-kip): Provide information about various implementation for governance system.
-
 ## Build
 
-[Getting Started](https://docs.kaia.io/build/get-started/before-you-start): Provide information about what is needed to get started building on Kaia
-[Deploy smart contract using Hardhat](https://docs.kaia.io/build/get-started/hardhat): Guide for deploying Soulbound Tokens on Kaia using Hardhat.
-[Get Kaia](https://docs.kaia.io/build/get-started/getting-kaia): Guide for obtaining KAIA via Faucets and Exchanges
-[Fee Delegation](https://docs.kaia.io/build/transactions/fee-delegation): Provide information about fee delegation
-[Partial Fee Delegation](https://docs.kaia.io/build/transactions/partial-fee-delegation): Provide information about partial fee delegation
-[IDE and Tools](https://docs.kaia.io/build/smart-contracts/ide-and-tools): Guide for list of development tools that is available to help smart contract development on Kaia.
-[Deploy smart contract using Foundry](https://docs.kaia.io/build/smart-contracts/deploy/foundry): Guide for deploying smart contract on Kaia using Foundry.
-[Deploy smart contract using Thirdweb](https://docs.kaia.io/build/smart-contracts/deploy/thirdweb): Guide for deploying smart contract on Kaia using Thirdweb.
-[Deploy smart contract using Private Network](https://docs.kaia.io/build/smart-contracts/deploy/private-network): Guide for deploying smart contract on Kaia using Private network.
-[Verify smart contract using Block Explorers](https://docs.kaia.io/build/smart-contracts/verify/block-explorers): Guide for verifying smart contract on Kaia using Block Explorer.
-[Verify smart contract using Hardhat](https://docs.kaia.io/build/smart-contracts/verify/hardhat): Guide for verifying smart contract on Kaia using Hardhat.
-[Verify smart contract using Sourcify](https://docs.kaia.io/build/smart-contracts/verify/sourcify): Guide for verifying smart contract on Kaia using Sourcify.
-[Kaia Compatible Tokens](https://docs.kaia.io/build/smart-contracts/token-standard): Provide information for Kaia Compatible Tokens
-[Build Fee Delegation Example](https://docs.kaia.io/build/tutorials/fee-delegation-example): Guide for building fee delegation example
-[Build a dApp using Scaffold-ETH 2](https://docs.kaia.io/build/tutorials/scaffold-eth): Guide for building a dApp using Scaffold-ETH 2
-[Build a Buy-Me-A-Coffee DApp](https://docs.kaia.io/build/tutorials/buy-me-a-coffee) : Guide for building a Buy-Me-A-COffee DApp
-[Connecting MetaMask to Kaia](https://docs.kaia.io/build/tutorials/connecting-metamask): Guide for connecting MetMask to Kaia
-[Connect Remix to Kaia](https://docs.kaia.io/build/tutorials/connecting-remix): Guide for connecting Remix IDE with Kaia for deploying smart contracts.
-[Kaia Eliza Plugin](https://docs.kaia.io/build/tutorials/eliza-plugin-guide): Guide for building ai agents on Kaia using ElizaOS
-[Migrate Ethereum App to Kaia](https://docs.kaia.io/build/tutorials/migrating-ethereum-app-to-kaia): Guide for migrating Ethereum dapp to Kaia chain
-[Kaia Online Toolkit](https://docs.kaia.io/build/tools/kaia-online-toolkit): provides code examples to help you to utilize the Kaia SDK(caver-js) easily and demo page for developers to use simple online tools.
-[Wallets](https://docs.kaia.io/build/tools/wallets): Provides information about supported wallets on Kaia
-[Oracles](https://docs.kaia.io/build/tools/oracles): Provides information and guide about decentralized oracle providers on Kaia
-[Indexers](https://docs.kaia.io/build/tools/indexers): Provides information and guide about indexers on Kaia
-[Crosschain](https://docs.kaia.io/build/tools/cross-chain): Provides information and guide about cross chain protocols supported by Kaia
-[Block Explorer](https://docs.kaia.io/build/tools/block-explorers): Guide on the various block explorers on Kaia.
-[Token Management](https://docs.kaia.io/build/tools/token-management): Guide on token management services on Kaia
-[Kaia Contract Wizard](https://docs.kaia.io/build/tools/kaia-contracts-wizard): Guide on using Kaia Contract Wizard
+### [Getting Started](https://docs.kaia.io/build/get-started/)
+
+Step-by-step guides to set up your development environment and deploy your first smart contract or dApp on Kaia.
+
+- [Foundation Setup](https://docs.kaia.io/build/get-started/foundation-setup): Guide for understanding Kaia's architecture, networks, and essential development tools.
+- [Set Up Wallet & Network](https://docs.kaia.io/build/wallets/wallet-config/configure-wallet-for-kaia-networks): Guide for setting up your wallet and connecting to Kaia networks.
+- [Get KAIA](https://docs.kaia.io/build/get-started/getting-kaia): Guide for obtaining KAIA via Faucets and Exchanges
+- [Deploy Hello World Contract with Remix](https://docs.kaia.io/build/smart-contracts/token-development/samples/kaiagreeter): Guide for deploying a simple "Hello World" contract using Remix IDE on Kaia.
+- [Deploy your First Token Contract using Hardhat](https://docs.kaia.io/build/get-started/hardhat): Guide for deploying Soulbound Tokens on Kaia using Hardhat.
+- [Build your First dApp on Kaia](https://docs.kaia.io/build/tutorials/scaffold-eth): Guide for building a dApp using Scaffold-ETH 2
+- [Build your Mini dApp on Kaia](https://docs.kaia.io/build/minidapps): Guide for building mini dApps on LINE with Web3 integration using Unity WebGL and Kaia's infrastructure.
+
+### [Wallets](https://docs.kaia.io/build/wallets)
+
+Information about supported wallets on Kaia and how to configure them.
+
+- [Kaia Wallet](https://docs.kaia.io/build/wallets/overview/kaia-wallet): Guide for using Kaia Wallet
+- Wallet Configuration for Kaia Networks
+  - [How to Configure Your Wallet for Kaia Networks](https://docs.kaia.io/build/wallets/wallet-config/configure-wallet-for-kaia-networks): Guide for configuring popular wallets to connect to Kaia networks.
+  - [Secure Wallet Management on Kaia Chain: A Developer's Cookbook](https://docs.kaia.io/build/wallets/wallet-config/create-and-manage-wallets-securely/): Guide for creating and managing wallets securely on Kaia Chain.
+- Wallet Operations
+  - [How to send tokens from your Kaia Compatible Wallet](https://docs.kaia.io/build/wallets/wallet-ops/send-tokens-from-your-kaia-compatible-wallet/): Guide for sending tokens from your Kaia Compatible Wallet.
+  - [How to estimate gas limits and prices on Kaia Wallet and MetaMask](https://docs.kaia.io/build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask/): Guide for estimating gas limits and prices on Kaia Wallet and MetaMask.
+- dApp Integration
+  - [Kaia Wallet DApp Integration](https://docs.kaia.io/build/wallets/dapp-integration/integrate-dapp-with-kaiawallet/): Guide for integrating Kaia Wallet with dApps.
+  - [How to integrate Fee Delegation features into wallets](https://docs.kaia.io/build/wallets/dapp-integration/how-to-integrate-fee-delegation-features-into-wallets/): Guide for integrating Fee Delegation features into wallets.
+- Wallet Libraries
+  - [Integrate Web3Auth into a dApp](https://docs.kaia.io/build/wallets/wallet-libraries/web3Auth/): Guide for integrating Web3Auth into a dApp
+  - [Integrate Reown into a dApp](https://docs.kaia.io/build/wallets/wallet-libraries/reown/): Guide for integrating Reown into a dApp
+  - [Integrate Web3-Onboard into a dApp](https://docs.kaia.io/build/wallets/wallet-libraries/web3Onboard/): Guide for using Web3-Onboard
+  - [Integrate Particle Network into a dApp](https://docs.kaia.io/build/wallets/wallet-libraries/particle/): Guide for using Particle Network
+  - [Integrate Privy into a dApp](https://docs.kaia.io/build/wallets/wallet-libraries/privy/): Guide for using Privy
+- Hardware Wallets
+  - [D'cent Biometric Wallet](https://docs.kaia.io/build/wallets/hardware-wallets/dcent/): Guide for using D'cent Biometric Wallet with Kaia.
+  - [SafePal S1](https://docs.kaia.io/build/wallets/hardware-wallets/safepal-s1/): Guide for using SafePal S1 with Kaia.
+- [Kaia Safe](https://docs.kaia.io/build/wallets/kaia-safe): Guide for using Kaia Safe, a multi-signature wallet solution on Kaia.
+  - Kaia Safe Design: Explains the design and features of Kaia Safe.
+  - Use Kaia Safe: Guide for creating a Safe, adding assets, and managing transactions.
+  - Interact with Contracts: Guide for interacting with smart contracts using Kaia Safe.
+  - Use Transaction Builder: Guide for batching transactions using the Transaction Builder app in Kaia Safe.
+  - Use CSV Airdrop: Guide for performing batch token transfers using CSV files in Kaia Safe.
+  - Frequently Asked Questions: Provides answers to common questions about Kaia Safe.
+  - Kaia Safe API Kit: Guide for using the Kaia Safe API Kit for programmatic access to Safe functionalities.
+
+### Transactions
+
+- [Implementing Transactions](https://docs.kaia.io/build/transactions/): Overview of implementing transactions on the Kaia network, covering various transaction types, encoding, signing, and network interaction.
+  - [Basic Transactions](https://docs.kaia.io/build/transactions/basic): List of basic transaction types on Kaia.
+  - [Ethereum Compatibility](https://docs.kaia.io/build/transactions/ethereum/): List of Ethereum-compatible transaction types on Kaia.
+  - [Fee Delegation](https://docs.kaia.io/build/transactions/fee-delegation): Provide information about fee delegation
+  - [Partial Fee Delegation](https://docs.kaia.io/build/transactions/partial-fee-delegation): Provide information about partial fee delegation
+- Cookbooks
+  - [How to optimize gas fees in Solidity smart contract](https://docs.kaia.io/build/transactions/cookbooks/how-to-optimize-gas-fees/): Guide for optimizing gas fees in Solidity smart contracts on Kaia.
+
+### [Smart Contracts](https://docs.kaia.io/build/smart-contracts/)
+
+- Fundamentals
+  - [Solidity - Smart Contract Language](https://docs.kaia.io/build/smart-contracts/fundamentals/solidity-smart-contract-language/): Guide for understanding Solidity, the primary language for writing smart contracts on Kaia.
+  - [Import Ethereum Contracts](https://docs.kaia.io/build/smart-contracts/fundamentals/porting-ethereum-contract/): Guide for importing Ethereum contracts to Kaia.
+  - [Smart Contract Security Best Practices](https://docs.kaia.io/build/smart-contracts/fundamentals/best-practices-for-smart-contract-security/): Guide for best practices to ensure the security of smart contracts on Kaia.
+
+- Tools
+  - [IDE and Tools](https://docs.kaia.io/build/smart-contracts/ide-and-tools): Guide for list of development tools that is available to help smart contract development on Kaia.
+  - [Kaia Contract Wizard](https://docs.kaia.io/build/tools/kaia-contracts-wizard): Guide on using Kaia Contract Wizard
+
+- Token Development
+  - [Kaia Compatible Tokens (KCTs)](https://docs.kaia.io/build/smart-contracts/token-development/token-standard/): Guide for understanding Kaia Compatible Tokens (KCTs) and their standards.
+  - [Canonical WKAIA](https://docs.kaia.io/build/smart-contracts/token-development/canonical-wkaia/): Guide for understanding Canonical WKAIA, the wrapped version of KAIA token.
+  - Sample Token Contracts
+    - [Kaiagreeter](https://docs.kaia.io/build/smart-contracts/token-development/samples/kaiagreeter): Guide for deploying a simple "Hello World" contract using Remix IDE on Kaia.
+    - [ERC-20](https://docs.kaia.io/build/smart-contracts/token-development/samples/erc-20): Guide for deploying an ERC-20 token contract on Kaia.
+    - [ERC-721](https://docs.kaia.io/build/smart-contracts/token-development/samples/erc-721): Guide for deploying an ERC-721 NFT contract on Kaia
+- Deployment and Verification
+  - Deploy Smart Contracts
+    - [Deploy smart contract using Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/foundry): Guide for deploying smart contract on Kaia using Foundry.
+    - [Deploy smart contract using Thirdweb](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/thirdweb): Guide for deploying smart contract on Kaia using Thirdweb.
+    - [Deploy smart contract using Private Network](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/private-network): Guide for deploying smart contract on Kaia using Private network.
+  - Verify Smart Contracts
+    - [Verify smart contract using Block Explorers](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/verify/block-explorers): Guide for verifying smart contract on Kaia using Block Explorer.
+    - [Verify smart contract using Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/verify/foundry): Guide for verifying smart contract on Kaia using Foundry.
+    - [Verify smart contract using Hardhat](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/verify/hardhat): Guide for verifying smart contract on Kaia using Hardhat.
+    - [Verify smart contract using Sourcify](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/verify/sourcify): Guide for verifying smart contract on Kaia using Sourcify.
+
+### Tutorials
+
+- [Integrate Gas Abstraction (GA)](https://docs.kaia.io/build/tutorials/ga-tutorial/): Guide for integrating Gas Abstraction (GA) into your dApp on Kaia.
+  - [Introduction to Gas Abstraction](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-intro/): Overview of Gas Abstraction (GA) and its benefits for dApp developers and users.
+  - [How GA Works: Technical Deep Dive](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-inside/): Detailed technical overview of how Gas Abstraction operates within the Kaia network, including transaction bundling, atomicity, and the roles of key components.
+  - [Supported Tokens](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-tokens/): Information about tokens supported for gasless transactions on Kaia.
+  - [Integrate Gas Abstraction into Your dApp or Wallet](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-integration/): Step-by-step guide for integrating Gas Abstraction into your dApp or wallet using Kaia SDKs.
+  - [API & SDK Reference](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-sdk/): Reference for Kaia SDKs and JSON-RPC APIs related to Gas Abstraction.
+  - [Advanced Topics & FAQ](https://docs.kaia.io/build/tutorials/ga-tutorial/ga-advanced/): Advanced integration techniques, best practices, troubleshooting tips, and frequently asked questions about Kaia's Gas Abstraction (GA) feature.
+- [Integrate Kaia Fee Delegation Service](https://docs.kaia.io/build/tutorials/integrate-fee-delegation-service/): Guide for integrating Kaia Fee Delegation Service into your dApp on Kaia.
+- [How to Send ERC-20 Tokens Using the Kaia SDK (USDT Example)](https://docs.kaia.io/build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk): Guide for sending ERC-20 tokens using the Kaia SDK with USDT as an example.
+- [Build Fee Delegation Example](https://docs.kaia.io/build/tutorials/fee-delegation-example): Guide for building fee delegation example
+- [Build a dApp using Scaffold-ETH 2](https://docs.kaia.io/build/tutorials/scaffold-eth): Guide for building a dApp using Scaffold-ETH 2
+- [Build a Buy-Me-A-Coffee DApp](https://docs.kaia.io/build/tutorials/buy-me-a-coffee) : Guide for building a Buy-Me-A-COffee DApp
+- [Connecting MetaMask to Kaia](https://docs.kaia.io/build/tutorials/connecting-metamask): Guide for connecting MetMask to Kaia
+- [Connect Remix to Kaia](https://docs.kaia.io/build/tutorials/connecting-remix): Guide for connecting Remix IDE with Kaia for deploying smart contracts.
+- [Migrate Ethereum App to Kaia](https://docs.kaia.io/build/tutorials/migrating-ethereum-app-to-kaia): Guide for migrating Ethereum dapp to Kaia chain
+
+### Tools
+
+- [Kaia Toolkit](https://docs.kaia.io/build/tools/kaia-online-toolkit/): Provides developer-friendly code samples and interactive web tools to simplify integration with the Kaia blockchain. It serves as both a learning resource and practical utility suite for building decentralized applications.
+- [Kaia Agent Kit](https://docs.kaia.io/build/tools/kaia-agentkit): Guide for integrating Kaia Agent Kit with various AI frameworks to build autonomous AI agents that can interact with the Kaia blockchain.
+  - [Vercel AI SDK Integration Guide](https://docs.kaia.io/build/tools/kaia-agentkit/vercel-ai-guide): Step-by-step guide for integrating Kaia Agent Kit with Vercel AI SDK to build AI agents that can interact with the Kaia blockchain.
+  - [Elize](https://docs.kaia.io/build/tools/kaia-agentkit/eliza): Step-by-step guide for integrating Kaia Agent Kit with Eliza framework to build AI agents that can interact with the Kaia blockchain.
+  - [LangChain](https://docs.kaia.io/build/tools/kaia-agentkit/langchain): Step-by-step guide for integrating Kaia Agent Kit with LangChain framework to build AI agents that can interact with the Kaia blockchain.
+  - [Model Context Protocol (MCP)](https://docs.kaia.io/build/tools/kaia-agentkit/mcp): Step-by-step guide for integrating Kaia Agent Kit with Model Context Protocol (MCP) server to build AI agents that can interact with the Kaia blockchain.
+- [Oracles](https://docs.kaia.io/build/tools/oracles): Provides information and guide about decentralized oracle providers on Kaia
+  - [Orakl Network](https://docs.kaia.io/build/tools/oracles/orakl-network): Guide for using Orakl Network, a decentralized oracle solution on Kaia.
+  - [Pyth Network](https://docs.kaia.io/build/tools/oracles/pyth-network): Guide for using Pyth Network, a decentralized oracle solution on Kaia.
+  - [SupraOracles](https://docs.kaia.io/build/tools/oracles/supraoracles): Guide for using SupraOracles, a decentralized oracle solution on Kaia.
+  - [Witnet](https://docs.kaia.io/build/tools/oracles/witnet): Guide for using Witnet, a decentralized oracle solution on Kaia.
+- [Gaming SDKs](https://docs.kaia.io/build/tools/gaming-sdks): Provides information and guide about gaming SDKs on Kaia.
+  - [Chainsafe Gaming](https://docs.kaia.io/build/tools/gaming-sdks/chainsafe): Guide for using Chainsafe Gaming SDK to build blockchain-enabled games on Kaia.
+  - [Reown AppKit](https://docs.kaia.io/build/tools/gaming-sdks/reown): Guide for using Reown AppKit to build blockchain-enabled games on Kaia.
+- [Indexers](https://docs.kaia.io/build/tools/indexers): Provides information and guide about indexers on Kaia
+  - [The Graph](https://docs.kaia.io/build/tools/indexers/thegraph): Guide for using The Graph, a decentralized indexing protocol on Kaia.
+  - [SubQuery](https://docs.kaia.io/build/tools/indexers/subquery): Guide for using SubQuery, a multi-chain indexing protocol on Kaia.
+- [Crosschain](https://docs.kaia.io/build/tools/cross-chain): Provides information and guide about cross chain protocols supported by Kaia
+  - [Layerzero](https://docs.kaia.io/build/tools/cross-chain/layerzero): LayerZero lets users build cross-chain apps for data, calls, and tokens with censorship resistance and permissionless smart contract support.
+  - [Wormhole](https://docs.kaia.io/build/tools/cross-chain/wormhole): Users can use Wormhole to transfer tokens and data between 30+ linked chains, including Kaia, for cross-chain app building.
+  - [Stargate](https://docs.kaia.io/build/tools/cross-chain/stargate): Easily swap native assets like ETH or KAIA across chains in one transaction using Stargate’s LayerZero-powered bridge.
+- Block Explorers: The list of explorers supported by Kaia
+  - [KaiaScan](https://docs.kaia.io/build/tools/block-explorers/kaiascan): KaiaScan is the official block explorer for the Kaia network, providing users with a real-time and historical view of all on-chain activity.
+  - [OKX Kaia Explorer](https://docs.kaia.io/build/tools/block-explorers/okx-kaia-explorer): Search addresses, transactions, tokens, and blocks; compare contracts for security, monitor large transfers, and track real-time market insights with OKX Kaia Explorer.
+- [Token Management](https://docs.kaia.io/build/tools/token-management): Kaia token management enables secure, compliant token issuance, distribution, and community engagement for reliable project launch and sustainable user adoption. List of token management service providers
+  - [Team Finance](https://docs.kaia.io/build/tools/token-management/team-finance): Introduction to Team Finance tool
+    - [Liquidity Locks](https://docs.kaia.io/build/tools/token-management/team-finance/liquidity-locks): Lock your LP tokens securely on Kaia via Team Finance: specify lock period, confirm details, and ensure safe fund withdrawal after expiry.
+    - [Team Token Locks](https://docs.kaia.io/build/tools/token-management/team-finance/team-token-locks): Securely lock team tokens with Team Finance: connect wallet, set KAIA token, lock amount, duration—trustless vesting and transparent schedule achieved.
+    - [Token Vesting](https://docs.kaia.io/build/tools/token-management/team-finance/token-vesting): Automate token vesting with Team Finance: set custom schedules, add beneficiaries, require wallet sign-off, and track locked tokens securely on Kaia.
+    - [Token Creation](https://docs.kaia.io/build/tools/token-management/team-finance/token-creation): Quickly create custom Kaia tokens without coding: connect wallet, select options, confirm, sign—get secure, mintable, burnable tokens for your project.
+    - [NFT Locks](https://docs.kaia.io/build/tools/token-management/team-finance/nft-locks): Lock your Kaia NFTs via Team Finance’s vault by setting duration, authorizing transfer—build trust and manage funds securely with your wallet.
+    - [Multisender](https://docs.kaia.io/build/tools/token-management/team-finance/multisender): Quickly send KAIA or tokens to many addresses at once using Team Finance’s multisender—upload CSV or enter details; confirm and pay fee.
 
 ## Node
 
-[About Kaia Nodes](https://docs.kaia.io/nodes): Explains the types of nodes on Kaia Chain
-[Endpoint Node](https://docs.kaia.io/nodes/endpoint-node): Provide information and guide on setting up Endpoint node
-[Core Cell Overview](https://docs.kaia.io/nodes/core-cell): Explains the structure and components of Core Cells in the Kaia blockchain network.
-[Service Chain](https://docs.kaia.io/nodes/service-chain): Provide information and guide on Service chain on Kaia
-[Node Package Download](https://docs.kaia.io/nodes/downloads): Guide on how to download the latest stable release of Kaia
+- [About Kaia Nodes](https://docs.kaia.io/nodes/): Explains the types of nodes on Kaia Chain
+
+### [Endpoint Node](https://docs.kaia.io/nodes/endpoint-node)
+
+- [System Requirements](https://docs.kaia.io/nodes/endpoint-node/system-requirements): System Requirements to run an Endpoint Node
+- [Install Endpoint Nodes](https://docs.kaia.io/nodes/endpoint-node/install-endpoint-nodes/): Install and configure Endpoint Nodes on your server
+- [Run EN using docker](https://docs.kaia.io/nodes/endpoint-node/docker-setup/): Guide for running Endpoint Node using Docker
+- [ken CLI Commands](https://docs.kaia.io/nodes/endpoint-node/ken-cli-commands/): List CLI commands for ken (Kaia Endpoint Node binary)
+- [JSON-RPC APIs](https://docs.kaia.io/nodes/endpoint-node/json-rpc-apis/): Endpoint Node exposes JSON-RPC APIs. Enable, disable, or query Kaia JSON-RPC APIs for HTTP, WebSocket, IPC, and secure unsafe access via flags or config.
+
+### [Core Cell](https://docs.kaia.io/nodes/core-cell)
+
+- [System Requirements](https://docs.kaia.io/nodes/core-cell/system-requirements): System Requirements to run CN and PN
+- [Network Configuration](https://docs.kaia.io/nodes/core-cell/network-configuration): Set up Core Cell subnets securely: CN, PN, Mgmt layers with defined, opened ports for node access and effective management.
+- Install Core Cell: 
+  - [Before You Install](https://docs.kaia.io/nodes/core-cell/install/before-you-install): Prerequisites and initial setup steps before installing Core Cell nodes.
+  - [Install Consensus Nodes](https://docs.kaia.io/nodes/core-cell/install/install-consensus-nodes): To install Consensus Nodes (CNs), download the latest Kaia release, extract it, configure the kscnd.conf file with network settings, and start the node using the kscnd binary.
+  - [Install Proxy Nodes](https://docs.kaia.io/nodes/core-cell/install/install-proxy-nodes): To install Proxy Nodes (PNs), download the latest Kaia release, extract it, configure the kscnd.conf file with network settings, and start the node using the kscnd binary.
+- [Monitor Core Cell](https://docs.kaia.io/nodes/core-cell/monitoring-setup): To monitor Core Cell nodes, install and configure Telegraf on each node, then view metrics at the official Kaia monitoring site.
+- [Configure High Availability](https://docs.kaia.io/nodes/core-cell/h-a-setup/): To ensure continuous Core Cell operation, set up active-standby CNs for bare-metal (manual failover), or use cloud snapshots for rapid, automatic node replacement.
+- [Node Security](https://docs.kaia.io/nodes/core-cell/node-security): (Best Practice) Secure your node: update software, use strong access controls, limit open ports, and safeguard cryptographic keys—follow best practices to prevent compromise.
+
+### [Service Chain](https://docs.kaia.io/nodes/service-chain)
+
+- [System Requirements](https://docs.kaia.io/nodes/service-chain/system-requirements): System Requirements to run a SCN
+- [Quick Start](https://docs.kaia.io/nodes/service-chain/quick-start): Quick start guide to set up a Kaia Service Chain node
+  - [Install a 4-node service chain](https://docs.kaia.io/nodes/service-chain/quick-start/4nodes-setup-guide/): Step-by-step guide to install a 4-node Kaia Service Chain network
+  - [Connect to Kairos](https://docs.kaia.io/nodes/service-chain/quick-start/en-scn-connection/): how to connect your 4-node ServiceChain network to the Kairos network
+  - [Transfer cross-chain value](https://docs.kaia.io/nodes/service-chain/quick-start/value-transfer/): how to enable ERC-20 value transfer between Kairos network and your ServiceChain with the provided test code
+  - [Configure high availability](https://docs.kaia.io/nodes/service-chain/quick-start/ha-for-sc/): Enable high availability by connecting two or more bridge pairs between EN and SCN to ensure uninterrupted anchoring and value transfer.
+  - [Create nested service chain](https://docs.kaia.io/nodes/service-chain/quick-start/nested-sc/): Build multi-layer ServiceChain networks by configuring, connecting bridges between L2 and L3, and anchoring data for robust, scalable architecture.
+  - [Transfer value between sibling service chains](https://docs.kaia.io/nodes/service-chain/quick-start/value-transfer-between-sibling/): Directly transfer value between ServiceChains by setting a bridge; saves steps, boosts efficiency, and avoids indirect transfers via Kairos.
+- [Install Service Chain](https://docs.kaia.io/nodes/service-chain/install-service-chain): 
+- Configure Service Chain:
+  - [Connect to main chain](https://docs.kaia.io/nodes/service-chain/configure/bridge-configuration/): Configure main-bridge on EN, enable RPC/WS/mainbridge APIs, attach process, get KNI, then link SCN as sub-bridge using noted KNI.
+  - [Use Data Anchoring](https://docs.kaia.io/nodes/service-chain/configure/anchoring/): Once KAIA has been added, enable anchoring via SCN RPC to periodically anchor child chain data, securing service chain immutability. 
+  - [Use Data Anchoring with KAS](https://docs.kaia.io/nodes/service-chain/configure/kas-anchoring/): Enable KAS Anchoring: Sign up at KAS, get credentials, create operator, and update node config to anchor service chain data. 
+  - [Transfer Value](https://docs.kaia.io/nodes/service-chain/configure/value-transfer/): Enable cross-chain transfers of KAIA, ERC-20/721 tokens via bridge setup: operators, contracts, and registrations; use provided RPC APIs for control.
+  - [Configuration Files](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/): (Reference) Configure Kaia nodes via kscnd.conf in /conf; set network, port, sync, RPC, data, log paths; restart node to apply changes.
+  - [Genesis File](https://docs.kaia.io/nodes/service-chain/configure/genesis/): (Reference) To configure a Kaia service chain, define essential parameters in the genesis file: chainID, consensus, governance, rewards, and validators.
+- [Upgrade Service Chain](https://docs.kaia.io/nodes/service-chain/upgrade-and-hard-fork/): Upgrade ServiceChain binaries (may be irreversible), set hard fork numbers in genesis, then re-initialize and restart nodes—check config after.
+
+### [Debugging and Diagnostics](https://docs.kaia.io/nodes/debugging/)
+
+- [Configure Node Monitoring](https://docs.kaia.io/nodes/debugging/monitoring-setup/): how to set up Prometheus and Grafana to monitor your Kaia node
+- [Profile Node Data](https://docs.kaia.io/nodes/debugging/node-profiling/): This tutorial will guide you through various profiling techniques available for Kaia node operators,
+- [Node Log](https://docs.kaia.io/nodes/debugging/node-log/): (Reference) Details some important or frequently asked logs from Kaia nodes
+- [Analytics tool](https://docs.kaia.io/nodes/debugging/analytics-tool/): how to setup analytics tool to collect the diagnostics data.
+
+### Download Kaia
+
+- [Node Package Download](https://docs.kaia.io/nodes/downloads): Guide on how to download the latest stable release of Kaia
+
 ## References
-[Public JSON RPC References](https://docs.kaia.io/references/public-en): Provide access to public JSON-RPC endpoints for interacting with the Kaia network
-[RPC API Reference](https://docs.kaia.io/references/json-rpc/references): Provides information on all the RPC API Reference on Kaia
-[Kaia SDK References](https://docs.kaia.io/references/sdk): Provide API references and tutorials for interacting with kaia nodes and the kaia Network.
-[Ethers.js Extension Guide](https://docs.kaia.io/references/sdk/ethers-ext/getting-started): Guide for integrating Ethers.js Extension with Kaia SDK
-[Web3.js Extension Guide](https://docs.kaia.io/references/sdk/web3js-ext/getting-started): Guide for integrating Web3.js Extension with Kaia SDK
-[Web3.j Extension Guide](https://docs.kaia.io/references/sdk/web3j-ext/getting-started): Guide for integrating Web3.j Extension with Kaia SDK
-[Web3.py Extension Guide](https://docs.kaia.io/references/sdk/web3j-ext/getting-started): Guide for integrating Web3.py Extension with Kaia SDK
-[Message Signing Standards](https://docs.kaia.io/references/signed-message/): Explains message signing standards and practices for cryptographic actions in blockchain applications.
-[Transaction Error Codes](https://docs.kaia.io/references/transaction-error-codes): To provide developers with a reference for transaction error codes and their meanings in the Kaia platform.
-[Kaia Contract Addresses](https://docs.kaia.io/references/contract-addresses): Lists deployed addresses of notable system contracts for the Kaia blockchain.
+
+- [Public JSON RPC References](https://docs.kaia.io/references/public-en): Provide access to public JSON-RPC endpoints for interacting with the Kaia network
+- [RPC API Reference](https://docs.kaia.io/references/json-rpc/references): Provides information on all the RPC API Reference on Kaia
+- [Kaia SDK References](https://docs.kaia.io/references/sdk): Provide API references and tutorials for interacting with kaia nodes and the kaia Network.
+  - [Ethers.js Extension Guide](https://docs.kaia.io/references/sdk/ethers-ext/getting-started): Guide for integrating Ethers.js Extension with Kaia SDK
+  - [Web3.js Extension Guide](https://docs.kaia.io/references/sdk/web3js-ext/getting-started): Guide for integrating Web3.js Extension with Kaia SDK
+  - [Web3.j Extension Guide](https://docs.kaia.io/references/sdk/web3j-ext/getting-started): Guide for integrating Web3.j Extension with Kaia SDK
+  - [Web3.py Extension Guide](https://docs.kaia.io/references/sdk/web3py-ext/getting-started): Guide for integrating Web3.py Extension with Kaia SDK
+  - [Viem Extension Guide](https://docs.kaia.io/references/sdk/viem-ext/getting-started): Guide for integrating Viem Extension with Kaia SDK
+- [Message Signing Standards](https://docs.kaia.io/references/signed-message/): Explains message signing standards and practices for cryptographic actions in blockchain applications.
+- [Transaction Error Codes](https://docs.kaia.io/references/transaction-error-codes): To provide developers with a reference for transaction error codes and their meanings in the Kaia platform.
+- [Kaia Contract Addresses](https://docs.kaia.io/references/contract-addresses): Lists deployed addresses of notable system contracts for the Kaia blockchain.
+
+## Learn
+
+- [Kaia Overview](https://docs.kaia.io/learn/): Overview of Kaia, its features, and ecosystem.
+- [Why Build on Kaia](https://docs.kaia.io/learn/why-kaia): Learn about why you should choose Kaia Chain
+- [Kaia vs. Ethereum](https://docs.kaia.io/learn/kaia-vs-ethereum): This comprehensive comparison reveals the key differences and similarities between Kaia blockchain and Ethereum, providing developers and users with the essential information needed to understand migration requirements and opportunities.
+
+### Core Concepts
+
+- [Accounts](https://docs.kaia.io/learn/accounts): Explains account structures, key management, and security features in the Kaia chain.  
+- [Transactions](https://docs.kaia.io/learn/transactions): Guide for understanding transaction on Kaia Chain  
+- [Transaction Fees](https://docs.kaia.io/learn/transaction-fees): Explain transaction fees on Kaia Chain
+  - [Intrinsic Gas](https://docs.kaia.io/learn/transaction-fees/intrinsic-gas): Kaia intrinsic gas combines costs for key creation, key validation, payload size, and transaction type; details vary by transaction
+  - [Execution Gas](https://docs.kaia.io/learn/transaction-fees/execution-gas): Execution gas on Kaia is dynamically calculated during contract execution, based on opcode, memory, storage, and message call costs
+- [Kaia Smart Contracts](https://docs.kaia.io/learn/smart-contracts): Guide for understanding smart contracts and Kaia Virtual Machine 
+  - [Precompiled Contracts](https://docs.kaia.io/learn/smart-contracts/precompiled-contracts): Explains Precompile contracts on Kaia Chain
+- [Kaia Consensus Mechanism](https://docs.kaia.io/learn/consensus-mechanism): Explains Kaia's consensus mechanism for efficient and secure blockchain transactions.
+- [Kaia Network Identifier](https://docs.kaia.io/learn/kni/): Guide for Kaia Network Identifier.
+
+### Advanced Topics
+
+- [Transaction Execution](https://docs.kaia.io/learn/computation/): how transactions are processed, executed, and analyzed on the Kaia blockchain.
+  - [Execution Model](https://docs.kaia.io/learn/computation/execution-model/): the execution model, the data structures, and the life cycle of Kaia smart contracts.
+  - [Computation Cost](https://docs.kaia.io/learn/computation/computation-cost/): Kaia manages transaction execution time by limiting block execution time and transaction computation cost, not gas; computation modeled per opcode. Limits updated post-hardforks. Developers estimate costs using provided tools
+  - [Debug tracing](https://docs.kaia.io/learn/computation/debug-tracing/): Debug tracing extracts detailed transaction execution info for debugging failures or gas use, using tracers via APIs or Kafka
+- [Data Management](https://docs.kaia.io/learn/storage/): how Kaia nodes synchronize with the blockchain and manage the growing storage requirements associated with blockchain data.
+  - [Block Synchronization](https://docs.kaia.io/learn/storage/block-sync/): Block synchronization updates nodes with latest blockchain data using full or archive modes, chaindata snapshots, and configurable state persistence
+  - [Storage Optimization](https://docs.kaia.io/learn/storage/state-pruning/): Kaia uses batch and live state pruning to reduce blockchain storage, deleting obsolete states while maintaining recent, necessary data
+- [Scaling Solutions](https://docs.kaia.io/learn/scaling-solutions): Kaia scales with Service Chains—auxiliary blockchains—and multi-channel architecture, ensuring high throughput, data anchoring, and efficient network communication
+
+### [Token Economics](https://docs.kaia.io/learn/token-economics/)
+
+- [Kaia Native Coin](https://docs.kaia.io/learn/token-economics/kaia-native-token): Provides information about Kaia Coin
+- [Token Economy](https://docs.kaia.io/learn/token-economics/token-economy): Explains Kaia's token economy and funding structures for its blockchain ecosystem and growth initiatives.
+
+### Governance
+
+- [Governance](https://docs.kaia.io/learn/governance): Provide information about various implementation for governance system.
+- [Core Governance Changes by KIPs](https://docs.kaia.io/learn/governance/governance-by-kip/): Kaia governance evolves through KIPs, introducing stake-based voting, public delegation, treasury rebalancing, and standardized contract management for decentralization
 
 ## Mini dApps
 
-[Line Mini DApp with Unity](https://docs.kaia.io/minidapps): Guide for building mini dApps on LINE with Web3 integration using Unity WebGL and Kaia's infrastructure.
-[LINE Mini DApp with Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator): Guide for building mini dApps on LINE with Web3 integration using Cocos Creator Web Build and Kaia's infrastructure.
-[Survey Mini DApp](https://docs.kaia.io/minidapps/survey-minidapp/intro): Guide for building an example survey mini dApp
+- [Overview](https://docs.kaia.io/minidapps/): Overview of Mini dApps and its SDKs
+- [LINE Mini DApp with Unity](https://docs.kaia.io/minidapps/unity/): Guide for building mini dApps on LINE with Web3 integration using Unity WebGL and Kaia's infrastructure.
+- [LINE Mini DApp with Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator/): Guide for building mini dApps on LINE with Web3 integration using Cocos Creator Web Build and Kaia's infrastructure.
+- [Survey Mini DApp](https://docs.kaia.io/minidapps/survey-minidapp/intro/): Guide for building an example survey mini dApp
+
+
 
 ## Others
 
-[Kaia Node Setup Guide](https://docs.kaia.io/misc/operation/chaindata-snapshot): Instructions for using a chaindata snapshot to start a Kaia node efficiently.
-[Node Quick Reference](https://docs.kaia.io/misc/operation):  Guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes.
-[Kaia FAQ](https://docs.kaia.io/misc/faq): Provide FAQ information about Kaia blockchain and its development resources.
-[Glossary](https://docs.kaia.io/misc/glossary): Provides explanation on technical terms specific to the Kaia Blockchain
-[Open Source Kaia Development](https://docs.kaia.io/misc/opensource): Encouraging community involvement in the Kaia blockchain through open-source development and funding support.
-[Kaia Docs Localization Contribution](https://docs.kaia.io/misc/internationalization): Encourages contributions for translating and improving the localization of Kaia Docs
-[Kaia Transition](https://docs.kaia.io/misc/kaia-transition/): To inform users about the transition from Finschia and Klaytn blockchains to the Kaia blockchain and token swapping.
-[Kaia Brand Guidelines](https://docs.kaia.io/misc/brand): To provide branding guidelines for consistent logo and color usage for the Kaia project.
+- [Node Quick Reference](https://docs.kaia.io/misc/operation/): Guide serves as a handy quick reference for Node operators to efficiently configure, monitor, and troubleshoot their Kaia nodes.
+  - [Configuration](https://docs.kaia.io/misc/operation/configuration/): Configure Kaia node settings, locate config files, set recommended txpool, restart to apply changes—customize for private/mainnet needs.
+  - [Log operation](https://docs.kaia.io/misc/operation/log-management/): Enable log rotation for efficient management, set file size/backup/day limits, compress logs, and change log levels via flags or config.
+  - [Frequently Used Commands](https://docs.kaia.io/misc/operation/kaia-command/): Find Kaia directory via config; use kcn or kpn commands, check blockchain data, API info, or manage nodes via console. 
+  - [Troubleshooting](https://docs.kaia.io/misc/operation/troubleshooting/): Provides solutions for common Kaia node errors, log locations, and deployment issues with clear troubleshooting steps
+  - [Use Chaindata Snapshots](https://docs.kaia.io/misc/operation/chaindata-snapshot/): Start a new node or restore quickly by downloading, decompressing, and swapping a Kaia chaindata snapshot into your prepared data directory.
+  - [Configure Upstream Archive Node: Upstream EN](https://docs.kaia.io/misc/operation/upstream-en/): Run full nodes with archive RPC fallback via --upstream-en flag for cost-effective, reliable, archive-grade service access. 
+  - [Prune Node Data](https://docs.kaia.io/misc/operation/node-pruning/): how to delete historical block states to reduce the storage requirement.
+  - [Use AWS AMIs](https://docs.kaia.io/misc/operation/aws-ami/): Use Kaia's AWS AMIs to launch a node instantly and skip full sync—just wait to catch up to latest blocks.
+- [Kaia Hard Fork History](https://docs.kaia.io/misc/kaia-history/): Lists all Kaia hard forks, dates, and key changes.
+- [Finschia to Kaia](https://docs.kaia.io/misc/kaia-transition/): To inform users about the transition from Finschia and Klaytn blockchains to the Kaia blockchain and token swapping.
+  - [Transition FAQ](https://docs.kaia.io/misc/kaia-transition/faq-chain-transition/): Provides answers to frequently asked questions about the transition from Finschia and Klaytn to Kaia.
+  - [Kaiabridge](https://docs.kaia.io/misc/kaia-transition/kaibridge/): Guide for using Kaiabridge to swap Finschia and Klaytn tokens to Kaia tokens.
+  - [Finschia Archive](https://docs.kaia.io/misc/kaia-transition/finschia/): Provides access to Finschia documentation and resources for users during the transition to Kaia.
+- [Kaia FAQ](https://docs.kaia.io/misc/faq/): Provide FAQ information about Kaia blockchain and its development resources.
+- [Glossary](https://docs.kaia.io/misc/glossary/): Provides explanation on technical terms specific to the Kaia Blockchain
+- [Internationalization](https://docs.kaia.io/misc/internationalization/): Encourages contributions for translating and improving the localization of Kaia Docs
+- [Kaia Brand Guidelines](https://docs.kaia.io/misc/brand/): To provide branding guidelines for consistent logo and color usage for the Kaia project.
+- [Docs Updates](https://docs.kaia.io/misc/updates/): Information on the latest updates and changes to the Kaia documentation.
