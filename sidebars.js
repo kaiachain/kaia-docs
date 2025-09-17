@@ -576,10 +576,11 @@ const sidebars = {
     ...commonSidebar,
   ],
   miniDappSidebar: [
+    'minidapps/minidapps',
     {
       type: 'category',
       label: 'LINE Mini DApp with Unity',
-      link: { type: 'doc', id: 'minidapps/minidapps' },
+      link: { type: 'doc', id: 'minidapps/unity/unity' },
       items: [
         'minidapps/unity/quick-start',
         'minidapps/unity/building-unity-ui',
