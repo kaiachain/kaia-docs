@@ -55,6 +55,17 @@ Building a Mini dApp isn't complicated when you see the flow. Start with LIFF to
 Take a simple example: A game where players earn tokens. You'd use LIFF for the game screen in LINE. The Dapp Portal SDK connects the wallet and distributes rewards. The Kaia SDK deploys the token contract on Kaia.
 This setup keeps things secure and user-friendly. For hands-on guides, refer to our tutorials on [Unity](https://docs.kaia.io/minidapps/unity/quick-start/), [Cocos Creator](https://docs.kaia.io/minidapps/cocos-creator/quick-start/), or [Survey Mini dApp](https://docs.kaia.io/minidapps/survey-minidapp/intro/).
 
-You can start with obtaining test tokens from the [Kaia Faucet](https://faucet.kaia.io/) and request a Client ID from the Dapp Portal team. If you're new to building on Kaia, check out our [Get Started with Kaia](../build/get-started/get-started.mdx) page.
 
-For questions, consult the [Kaia Developer Forum](https://forum.kaia.io/).
+## Getting Started with Mini DApp Development
+
+To begin developing your Mini DApp, follow these steps:
+
+1. Apply for access to the Mini DApp SDK [here](https://tally.so/r/w4Y5BB) and wait for approval.
+2. Get test tokens from the [Kaia Faucet](https://faucet.kaia.io/).
+3. Set up your development environment by following the tutorials for [Unity](./unity/quick-start.md), [Cocos Creator](./cocos-creator/quick-start.md), or [Survey Mini dApp](./survey-minidapp/intro.md).
+
+Learn more about the Mini DApp SDKs at the [Dapp Portal SDK documentation](https://developers.dappportal.io/sdk), which provides comprehensive guidance on implementation and integration.
+
+If you're new to building on Kaia, check out our [Get Started with Kaia](../build/get-started/get-started.mdx) page for foundational knowledge.
+
+For questions and community support, consult the [Kaia Developer Forum](https://devforum.kaia.io/).
