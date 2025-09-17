@@ -1,6 +1,51 @@
 {
   "updates": [
     {
+      "version": "1.20.6",
+      "date": "2025-09-08",
+      "title": "Add vRNG integration guide",
+      "updateType": "NEW_CONTENT",
+      "summary": "Added Add vRNG integration guide by Proof of Play with Kaia network.",
+      "primaryDocLink": "/build/tools/oracles/vrng-pop",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/368"
+    },
+    {
+      "version": "1.20.5",
+      "date": "2025-09-03",
+      "title": "Revamped Kaia Governance Page",
+      "updateType": "UPDATE",
+      "summary": "Overhauled the Kaia Governance page to provide the most up-to-date information on Kaia's governance model, processes, and participation guidelines.",
+      "primaryDocLink": "/learn/governance",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/363"
+    },
+    {
+      "version": "1.20.4",
+      "date": "2025-09-10",
+      "title": "'Copy Page' for AI-Ready Content",
+      "updateType": "NEW_FEATURE",
+      "summary": "Easily copy page content with the new 'Copy Page' button, designed to facilitate AI interactions and content sharing.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/359"
+    },
+    {
+      "version": "1.20.3",
+      "date": "2025-09-01",
+      "title": "Powering Web3 Gaming with SDKs",
+      "updateType": "NEW_CONTENT",
+      "summary": "Discover how to integrate wallets, NFTs, and token economies into your games using Kaia-compatible SDKs to unlock seamless blockchain-powered gaming experiences.",
+      "primaryDocLink": "/build/tools/gaming-sdks",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/361",
+      "showInWhatsNew": true
+    },    
+    {
+      "version": "1.20.2",
+      "date": "2025-08-28",
+      "title": "Add Kaia Hard Fork History page",
+      "updateType": "NEW_CONTENT",
+      "summary": "Added a dedicated page for the Kaia Hard Fork History, detailing its significance and impact on the Kaia ecosystem.",
+      "primaryDocLink": "/misc/kaia-history",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/358"
+    },    
+    {
       "version": "1.20.1",
       "date": "2025-08-22",
       "title": "Add Canonical WKAIA page",
