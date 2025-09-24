@@ -16,6 +16,7 @@ Cross-chain interoperability is a comprehensive concept encompassing various tec
 Kaia network is currently compatibile with leading cross-chain solutions, enhancing its connectivity within the broader blockchain landscape. The following are currently supported on Kaia:
 
 ### Cross-Chain Messaging Protocols:
+- [Chainlink CCIP](https://docs.chain.link/ccip)
 - [LayerZero](https://layerzero.network/)
 - [Wormhole](https://wormhole.com/)
 
