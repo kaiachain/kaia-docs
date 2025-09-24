@@ -16,6 +16,7 @@ Kaia network is currently compatibile with leading cross-chain solutions, enhanc
 
 ### Cross-Chain Messaging Protocols:
 
+- [체인링크 CCIP](https://docs.chain.link/ccip)
 - [LayerZero](https://layerzero.network/)
 - [Wormhole](https://wormhole.com/)
 
