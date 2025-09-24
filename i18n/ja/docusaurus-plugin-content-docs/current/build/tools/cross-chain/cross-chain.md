@@ -16,6 +16,7 @@
 
 ### クロスチェーン・メッセージング・プロトコル
 
+- [チェーンリンクCCIP](https://docs.chain.link/ccip)
 - [レイヤーゼロ](https://layerzero.network/)
 - [ワームホール](https://wormhole.com/)
 
