@@ -40,4 +40,4 @@ contract KaiaGreeter  {
 
 For the details of contract deployment and the Remix Online IDE usage guideline, please refer to the following documents.
 
-* [Remix Online IDE](../../../smart-contracts/deployment-and-verification/deploy/deploy.md)
+* [Remix Online IDE](/build/smart-contracts/deployment-and-verification/deploy/deploy.md)

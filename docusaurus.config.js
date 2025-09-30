@@ -26,7 +26,8 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
+    locales: ['en', 'ko'],
+//    locales: ['en', 'ko', 'ja', 'zh-CN', 'zh-TW', 'vi'],
     path: 'i18n',
     localeConfigs: {
       'en': {
@@ -289,17 +290,17 @@ const config = {
                 label: 'Wallets',
               },
               {
+                to: "build/smart-contracts",
+                label: 'Smart Contracts',
+              },
+              {
                 to: "build/tutorials",
                 label: 'Tutorials',
               },              
               {
-                to: "build/transactions",
-                label: 'Transactions',
-              },
-              {
-                to: "build/smart-contracts",
-                label: 'Smart Contracts',
-              },
+                to: "build/cookbooks",
+                label: 'Cookbooks',
+              },              
               {
                 to: "build/tools",
                 label: 'Tools',

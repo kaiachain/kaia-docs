@@ -10,10 +10,10 @@ Welcome to the Kaia Secure Wallet Cookbook. This guide is written for developers
 
 This cookbook follows a progressive learning path:
 
-- **[Part 1](create-and-manage-wallets-securely.md#part-1-foundational-concepts--security-principles)** establishes the security fundamentals you need to understand.
-- **[Part 2](./create-and-manage-wallets-securely.md#part-2-practical-recipes-for-wallet-management)** provides hands-on recipes from basic to advanced scenarios.
+- **[Part 1](#part-1-foundational-concepts--security-principles)** establishes the security fundamentals you need to understand.
+- **[Part 2](#part-2-practical-recipes-for-wallet-management)** provides hands-on recipes from basic to advanced scenarios.
 
-Each recipe builds on concepts from previous sections. New to Web3 security? Start with [Chapter 1](./create-and-manage-wallets-securely.md#chapter-1-the-principles-of-private-key-security). Experienced developer? Jump to the recipes that match your use case
+Each recipe builds on concepts from previous sections. New to Web3 security? Start with [Chapter 1](#chapter-1-the-principles-of-private-key-security). Experienced developer? Jump to the recipes that match your use case
 
 ### Core Philosophy: Security First <a id="core-philosophy-security-first"></a>
 
@@ -68,7 +68,7 @@ A multi-signature (or "multi-sig") wallet is a smart contract that requires mult
 
 ## Part 2: Practical Recipes for Wallet Management
 
-Now that you understand the foundational security principles from [Part 1](./create-and-manage-wallets-securely.md#part-1-foundational-concepts--security-principles), it's time to put them into practice. This section provides step-by-step guides for real-world scenarios, starting with individual development setups and progressing to production-grade solutions.
+Now that you understand the foundational security principles from [Part 1](#part-1-foundational-concepts--security-principles), it's time to put them into practice. This section provides step-by-step guides for real-world scenarios, starting with individual development setups and progressing to production-grade solutions.
 
 **What You'll Build:**
 
@@ -82,7 +82,7 @@ This chapter provides hands-on guides for setting up and managing wallets during
 
 #### 3.1. Recipe: Your First Kaia Development Wallet
 
-If you are new to Kaia or setting up your Kaia Wallet for the first time, we recommend referring to  the [Getting Started with Wallets](./configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia) section. It covers essential steps such as installing a wallet, creating and backing up your account securely, adding additional accounts, and funding your wallet. 
+If you are new to Kaia or setting up your Kaia Wallet for the first time, we recommend referring to  the [Getting Started with Wallets](/build/wallets/wallet-config/configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia) section. It covers essential steps such as installing a wallet, creating and backing up your account securely, adding additional accounts, and funding your wallet. 
 
 #### 3.2. Recipe: Securely Managing Accounts in a Foundry Project
 
