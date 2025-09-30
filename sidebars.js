@@ -119,11 +119,11 @@ const sidebars = {
       link: { type: 'doc', id: 'build/get-started/get-started' },
       items: [
         { type: 'doc', label: 'Step 1: Foundation Setup', id: 'build/get-started/foundation-setup' },
-        { type: 'doc', label: 'Step 2: Set up Account and Networks', id: 'build/wallets/wallet-config/configure-wallet-for-kaia-networks' },
+        { type: 'doc', label: 'Step 2: Set up Account and Networks', id: 'build/get-started/wallet-config-get-started' },
         { type: 'doc', label: 'Step 3: Get KAIA', id: 'build/get-started/getting-kaia' },
-        { type: 'doc', label: 'Step 4: Deploy Hello World Contract', id: 'build/smart-contracts/token-development/samples/kaiagreeter' },
+        { type: 'doc', label: 'Step 4: Deploy Hello World Contract', id: 'build/get-started/kaiagreeter-get-started' },
         { type: 'doc', label: 'Step 5: Deploy your First Token Contract', id: 'build/get-started/hardhat' },
-        { type: 'doc', label: 'Step 6: Build your First dApp on Kaia', id: 'build/tutorials/scaffold-eth' },
+        { type: 'doc', label: 'Step 6: Build your First dApp on Kaia', id: 'build/get-started/scaffold-eth-get-started' },
         { type: 'doc', label: 'Step 7: Build your Mini dApp on Kaia', id: 'minidapps/minidapps' },
       ],
     },
@@ -204,24 +204,10 @@ const sidebars = {
       label: 'Transactions',
       link: { type: 'doc', id: 'build/transactions/transactions' },
       items: [
-        {
-          type: 'category',
-          label: 'Implementing Transactions',
-          items: [
-            'build/transactions/basic',
-            'build/transactions/ethereum',
-            'build/transactions/fee-delegation',
-            'build/transactions/partial-fee-delegation',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Cookbooks',
-          items: [
-            'build/transactions/cookbooks/how-to-optimize-gas-fees',
-            // 'build/transactions/cookbooks/how-to-delegate-gas-fees',
-          ],
-        },
+        'build/transactions/basic',
+        'build/transactions/ethereum',
+        'build/transactions/fee-delegation',
+        'build/transactions/partial-fee-delegation',
       ],
     },
     {
@@ -288,7 +274,6 @@ const sidebars = {
                 'build/smart-contracts/deployment-and-verification/verify/foundry',
                 'build/smart-contracts/deployment-and-verification/verify/hardhat',
                 'build/smart-contracts/deployment-and-verification/verify/sourcify',
-
               ],
             },
           ],
@@ -325,12 +310,22 @@ const sidebars = {
     {
       type: 'category',
       label: 'Cookbooks',
+      link: { type: 'doc', id: 'build/cookbooks/cookbooks' },
       items: [
-        'build/wallets/wallet-config/configure-wallet-for-kaia-networks',
-		    'build/wallets/wallet-config/create-and-manage-wallets-securely',
-        'build/wallets/wallet-ops/send-tokens-from-your-kaia-compatible-wallet',
-        'build/wallets/wallet-ops/estimate-gaslimits-prices-on-kaia-wallet-and-metamask',
-        'build/transactions/cookbooks/how-to-optimize-gas-fees',
+        'build/cookbooks/wallet-config-cookbook',
+		    'build/cookbooks/secure-wallet-cookbook',
+        'build/cookbooks/send-tokens-cookbook',
+        'build/cookbooks/estimate-gaslimits-prices-cookbook',
+        'build/cookbooks/how-to-optimize-gas-fees',
+        'build/cookbooks/integrate-fee-delegation-cookbook',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Best Practices',
+      link: { type: 'doc', id: 'build/best-practices/best-practices' },
+      items: [
+        'build/best-practices/smart-contract-security-best-practices',
       ],
     },
     {

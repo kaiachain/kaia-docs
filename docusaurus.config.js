@@ -289,17 +289,17 @@ const config = {
                 label: 'Wallets',
               },
               {
+                to: "build/smart-contracts",
+                label: 'Smart Contracts',
+              },
+              {
                 to: "build/tutorials",
                 label: 'Tutorials',
               },              
               {
-                to: "build/transactions",
-                label: 'Transactions',
-              },
-              {
-                to: "build/smart-contracts",
-                label: 'Smart Contracts',
-              },
+                to: "build/cookbooks",
+                label: 'Cookbooks',
+              },              
               {
                 to: "build/tools",
                 label: 'Tools',
