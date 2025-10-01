@@ -13,7 +13,7 @@ Với tính năng khóa thanh khoản, người nắm giữ mã thông báo có 
 - chuyển quyền sở hữu khóa sang ví khác.
 
 :::note
-Trong thời gian khóa, người nắm giữ token bị hạn chế truy cập vào token bị khóa của mình.\
+Trong thời gian khóa, người nắm giữ token bị hạn chế truy cập vào token bị khóa của mình.  
 :::
 
 Khi thời gian khóa kết thúc, người nắm giữ mã thông báo có thể lấy lại mã thông báo LP của mình thông qua bảng điều khiển '[Yêu cầu](https://www.team.finance/claim)'. Những token này sau đó có thể được trao đổi lấy các token được ghép nối trong nhóm thanh khoản trên các sàn giao dịch phi tập trung (DEX) như DragonSwap (ví dụ: WKLAY/USDT).
