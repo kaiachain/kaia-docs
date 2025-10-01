@@ -506,7 +506,7 @@ Authorization: Bearer <API_KEY> (optional - required for DApps with API keys)
 When sending multiple transactions (bulk or sequential transactions) from the same sender address, manage transaction order carefully to avoid nonce-related failures:
 
 1. **Wait for confirmation**: Ensure each transaction is confirmed (i.e., you’ve received the transaction receipt) before sending the next one.  
-2. **Ensure nonces are managed correctly:** ensuring transactions are submitted with the correct nonce and that any failed or older nonces are properly handled before new transactions proceed  
+2. **Ensure nonces are managed correctly:** ensuring transactions are submitted with the correct nonce and that any failed or older nonces are properly handled before new transactions proceed. For detailed strategies on nonce management in bulk transaction scenarios, see [How to Manage Nonces for Reliable Transactions](../cookbooks/how-to-manage-nonce.md).
 3. **Implement retry logic**: Build a retry mechanism to handle temporary failures, dropped transactions, or delayed confirmations.  
 4. **Frontend wallet users:** If using browser-based wallets (like Kaia Wallet, OKX Wallet, or Bitget) from the frontend, advise users to clear any pending or stuck transactions by using the wallet’s “Clear History” feature to prevent nonce conflicts.
 
@@ -549,3 +549,6 @@ For advanced or custom transaction whitelisting integrations beyond the standard
 **Q: Where should I use this API call?**  
 **A:** API calls **without an API key** can be used in both the **frontend and backend**, as they are subject to **stricter validation rules** (e.g., requiring whitelisted addresses).  
 However, when using **API keys**, we **strongly recommend** making those calls from the **backend** to ensure security, since API key usage typically involves **fewer validation checks** and exposes more privileges.
+
+**Q: I keep getting nonce errors or stuck transactions. How do I fix nonce issues on Kaia?**
+**A:** Nonce gaps or duplicates can block your transactions. Start by confirming the on‑chain transaction count for your account, then align your next nonce with it. For bulk or fee‑delegated flows, use an off‑chain nonce store with per‑account locking, and replace stuck transactions using the same nonce with a higher fee rather than sending new ones. For a complete set of patterns and recovery steps, see [How to Manage Nonces for Reliable Transactions](../cookbooks/how-to-manage-nonce.md).

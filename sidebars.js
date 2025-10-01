@@ -318,6 +318,7 @@ const sidebars = {
         'build/cookbooks/estimate-gaslimits-prices-cookbook',
         'build/cookbooks/how-to-optimize-gas-fees',
         'build/cookbooks/integrate-fee-delegation-cookbook',
+        'build/cookbooks/how-to-manage-nonce',
       ],
     },
     {
