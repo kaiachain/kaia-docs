@@ -34,7 +34,7 @@ Giao dịch SwapTx sẽ thất bại trên chuỗi, nhưng do tính năng **gói
 
 ### Làm thế nào để kiểm tra token nào và số lượng bao nhiêu đã được trao đổi để thanh toán gas?
 
-Mỗi lần gọi `swapForGas` thành công sẽ phát ra sự kiện **SwappedForGas** từ `GaslessSwapRouter`.\
+Mỗi lần gọi `swapForGas` thành công sẽ phát ra sự kiện **SwappedForGas** từ `GaslessSwapRouter`.  
 Bạn có thể:
 
 1. Tra cứu địa chỉ router (xem tài liệu contract-addresses) trên KaiaScan và mở tab **Sự kiện**.
