@@ -127,7 +127,7 @@ AccountKeyLegacy는 해당 키 쌍에서 파생된 주소를 가진 계정에 �
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-서명된 공개키의 개수는 가중된 공개키의 개수보다 작아야 합니다.\
+서명된 공개키의 개수는 가중된 공개키의 개수보다 작아야 합니다.  
 AccountKeyPublic은 공개 키가 하나뿐인 계정에 사용됩니다.\
 계정에 AccountKeyPublic 객체가 있는 경우 트랜잭션 유효성 검사 프로세스는 아래와 같이 수행됩니다:
 
