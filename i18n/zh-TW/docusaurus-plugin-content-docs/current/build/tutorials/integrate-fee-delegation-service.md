@@ -506,7 +506,7 @@ Authorization: Bearer <API_KEY> (optional - required for DApps with API keys)
 從同一寄件者位址傳送多個交易 (大量或連續交易) 時，請小心管理交易順序，以避免發生與 nonce 相關的故障：
 
 1. \*\* 等待確認\*\*：在傳送下一個交易之前，請確認已確認每個交易（即您已收到交易收據）。
-2. \*\* 確保正確管理 nonces：\*\* 確保交易以正確的 nonce 提交，並在進行新的交易之前，妥善處理任何失敗或較舊的 nonces。
+2. \*\* 確保非ce 得到正確管理：\*\* 確保交易以正確的非ce 提交，並在進行新交易之前，妥善處理任何失敗或較舊的非ce。 有關大量交易情況中的 nonce 管理詳細策略，請參閱 [How to Manage Nonces for Reliable Transactions](../cookbooks/how-to-manage-nonce.md)。
 3. \*\* 實作重試邏輯\*\*：建立重試機制，以處理暫時失敗、丟失的交易或延遲的確認。
 4. **前端錢包用戶：** 如果從前端使用基於瀏覽器的錢包（如 Kaia Wallet、OKX Wallet 或 Bitget），建議用戶使用錢包的 「清除歷史 」功能清除任何未完成或卡住的交易，以防止 nonce 衝突。
 
@@ -549,3 +549,6 @@ Authorization: Bearer <API_KEY> (optional - required for DApps with API keys)
 **問：我應該在何處使用此 API 呼叫？**  
 **答：**無 API 金鑰的 API 呼叫**可在**前端和後端**使用，因為它們受制於**更嚴格的驗證規則\*\*（例如，要求白名單地址）。  
 然而，當使用 **API 金鑰** 時，我們**強烈建議**從 **後端進行這些呼叫，以確保安全性，因為 API 金鑰的使用通常涉及**較少的驗證檢查\*\*，而且會暴露更多的權限。
+
+**問：我不斷收到 nonce 錯誤或卡住的交易。 我該如何修正 Kaia 上的 nonce 問題？**
+**A:** Nonce 缺口或重複會阻擋您的交易。 首先確認您帳戶的鏈上交易次數，然後對齊您的下一個 nonce。 對於大量或費用授權的流量，使用具有每個帳號鎖定功能的離線 nonce 儲存，並以較高的費用取代使用相同 nonce 的卡住交易，而不是傳送新的交易。 如需完整的模式和恢復步驟，請參閱 [如何管理 Nonces 以進行可靠的交易](../cookbooks/how-to-manage-nonce.md)。
