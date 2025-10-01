@@ -34,7 +34,7 @@ SwapTxはオンチェーンで失敗するが、**KIP-245のアトミックバ�
 
 ### どのトークンがどれだけガソリンと交換されたかを確認するにはどうすればよいですか？
 
-swapForGas` コールが成功するたびに、`GaslessSwapRouter\` から **SwappedForGas** イベントが発生する。\
+swapForGas` コールが成功するたびに、`GaslessSwapRouter\` から **SwappedForGas** イベントが発生する。  
 できる：
 
 1. KaiaScanでルーターアドレス（contract-addresses doc参照）を調べ、**Events**タブを開きます。
