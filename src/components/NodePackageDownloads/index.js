@@ -19,7 +19,7 @@ export default function NodePackageDownloads() {
   }, [])
 
   const fetchReleases = () => {
-    fetch('https://airdrop-api.klaytn.foundation/node/releases?start=' + start, {
+    fetch('https://api-homepage.kaia.io/node/releases?start=' + start, {
       method: 'GET',
     })
       .then((response) => response.json())
