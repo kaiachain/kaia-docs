@@ -34,12 +34,12 @@
 
 ## KeyCreationGas <a id="keycreationgas"></a>
 
-KeyCreationGas 的計算公式為 `（註冊密鑰數） x TxAccountCreationGasPerKey (20000)`。\
+KeyCreationGas 的計算公式為 `（註冊密鑰數） x TxAccountCreationGasPerKey (20000)`。  
 請注意，公鑰類型始終只有一個註冊密鑰，因此氣體始終為 20000。
 
 ## KeyValidationGas <a id="keyvalidationgas"></a>
 
-KeyValidationGas "的計算公式為"（簽名數 - 1）x TxValidationGasPerKey(15000)"。\
+KeyValidationGas "的計算公式為"（簽名數 - 1）x TxValidationGasPerKey(15000)"。  
 請記住，公鑰類型始終只有一個簽名密鑰，因此氣體始終為零。
 
 Kaia 交易也可以有一個付費者，因此總的 KeyValidationGas 是這樣的。

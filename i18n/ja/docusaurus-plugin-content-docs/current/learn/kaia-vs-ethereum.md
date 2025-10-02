@@ -73,14 +73,14 @@ sidebar_label: カイア対イーサリアム
 
 ## 建設業者のための次のステップ
 
-1. **Configure Your Environment**\
+1. **Configure Your Environment**  
    既存のEthereumツールをKaiaで動作するように設定する：
 
 - [Mainnet RPC](https://docs.kaia.io/references/public-en/#mainnet-public-json-rpc-endpoints): https://public-en.node.kaia.io ([Chain ID](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/#properties-)：8217\)
 - テストネットカイロス・テストネット（[蛇口](https://www.kaia.io/faucet)から[無料トークン](https://docs.kaia.io/build/get-started/getting-kaia/)を入手できます。）
 - ツール：Hardhat、Foundry、MetaMaskはそのまま使える。
 
-2. **デプロイとテスト**\
+2. **デプロイとテスト**  
    EVM との完全な互換性により、Solidity 契約は変更されずにデプロイされます。 Kairosテストネットでテストし、カイアのダイナミック料金モデルの下でのガス使用パターンを検証。
 
 3. \*\*カイアの長所を活かそう

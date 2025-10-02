@@ -123,7 +123,7 @@ NOTE: This section will be updated in the future.
 
 To eliminate security concerns and code quality issues from your smart contract, it is important to study and follow best practices in Solidity programming. Here, we show a reference for Solidity best practices.
 
-- [Các nguyên tắc bảo mật hợp đồng thông minh](best-practices-for-smart-contract-security.md)
+- [Các thực hành tốt nhất về bảo mật hợp đồng thông minh](./best-practices-for-smart-contract-security.mdx)
 - [Thực hành tốt nhất để viết mã hợp đồng thông minh an toàn](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## References <a id="references"></a>

@@ -116,7 +116,7 @@ $ cp nodekey /var/kcnd/data
 
 #### 데이터 디렉터리 추가 <a id="add-data-directory"></a>
 
-구성 파일 `kcnd.conf`에서 데이터 디렉터리 환경 변수 `$DATA_DIR`을 업데이트해야 합니다.
+구성 파일 `kcnd.conf`에서 데이터 디렉토리 환경 변수 `$DATA_DIR`를 업데이트해야 합니다.
 
 ```text
 ...

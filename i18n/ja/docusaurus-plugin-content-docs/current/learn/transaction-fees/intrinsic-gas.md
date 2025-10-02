@@ -36,13 +36,13 @@ IntrinsicGasCost = KeyCreationGas + KeyValidationGas + PayloadGas + TxTypedGas
 
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
-Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.\
+Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.  
 The KeyCreationGas is calculated as `(number of registering keys) x TxAccountCreationGasPerKey (20000)`.\
 Please keep in mind that Public key type always has only one registering key, so the gas would be always 20000.
 
 ## キーバリデーション・ガス<a id="keyvalidationgas"></a>
 
-KeyValidationGas`は`(署名数 - 1) x TxValidationGasPerKey(15000)\`として計算されます。\
+KeyValidationGas`は`(署名数 - 1) x TxValidationGasPerKey(15000)\`として計算されます。  
 公開鍵タイプは常に1つの署名鍵しか持たないので、ガスは常にゼロであることに留意してください。
 
 KaiaトランザクションはfeePayerを持つこともできるので、KeyValidationGasの合計はこのようになる。

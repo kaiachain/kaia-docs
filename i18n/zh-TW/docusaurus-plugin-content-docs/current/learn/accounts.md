@@ -127,7 +127,7 @@ AccountKeyLegacy 用於地址來源於相應密鑰對的賬戶。 如果賬戶�
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublic 用於有一個公鑰的賬戶。\
+AccountKeyPublic 用於有一個公鑰的賬戶。  
 如果賬戶有一個 AccountKeyPublic 對象，交易驗證過程如下：
 
 - 從 `ecrecover(txhash, txsig)` 獲取公鑰。

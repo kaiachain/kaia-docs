@@ -34,7 +34,7 @@ SwapTx 會在鏈上失敗，但由於 \*\*KIP-245 的原子捆綁 \*\*，整個�
 
 ### 我該如何檢查哪些代用幣以及有多少被換成瓦斯？
 
-每次成功的 `swapForGas` 呼叫都會從 `GaslessSwapRouter` 發出 **SwappedForGas** 事件。\
+每次成功的 `swapForGas` 呼叫都會從 `GaslessSwapRouter` 發出 **SwappedForGas** 事件。  
 您可以
 
 1. 在 KaiaScan 上尋找路由器位址 (請參閱 contract-addresses doc) 並開啟 **Events** 標籤。

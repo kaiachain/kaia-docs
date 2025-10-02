@@ -49,11 +49,11 @@ The information above is from [https://azure.microsoft.com/en-us/pricing/details
 
 #### Recommended Specification for GCP<a id="recommended-specification-for-gcp"></a>
 
-|                   Node Type                  |      Model     | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
-| :------------------------------------------: | :------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: |
-|                      CN                      | n2-standard-32 |  32  |                 128                 |     4,000 (Minimum)    |                     7500                    |                2.032486               |
-|                      PN                      | n2-standard-16 |  16  |                  64                 |     4,000 (Minimum)    |                     7500                    |                1.016243               |
-| PN (with Live Pruning DB) |  n2-standard-8 |   8  |                  32                 |     3,500 (Minimum)    |                     7500                    |                0.508121               |
+|                   Node Type                  |       Model      | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
+| :------------------------------------------: | :--------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: |
+|                      CN                      | c4-tiêu chuẩn-32 |  32  |                 120                 |     4,000 (Minimum)    |                     7500                    |               2.03078256              |
+|                      PN                      |  n2-standard-16  |  16  |                  64                 |     4,000 (Minimum)    |                     7500                    |                1.016243               |
+| PN (with Live Pruning DB) |   n2-standard-8  |   8  |                  32                 |     3,500 (Minimum)    |                     7500                    |                0.508121               |
 
 The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
 

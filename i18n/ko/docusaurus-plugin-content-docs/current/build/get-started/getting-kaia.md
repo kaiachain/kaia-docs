@@ -2,7 +2,7 @@
 
 ## Kairos 테스트넷 및 Faucet <a id="baobab-testnet-and-faucet"></a>
 
-**테스트넷 KAIA** Faucet은 Kairos 네트워크에서 실행됩니다. The faucet can be accessed from the [Kairos Kaia Faucet](https://faucet.kaia.io). 테스트넷 KAIA를 받으려면 유효한 Kaia 계정이 있어야 합니다.
+**테스트넷 KAIA** Faucet은 Kairos 네트워크에서 실행됩니다. faucet [Kairos Kaia faucet](https://faucet.kaia.io)에서 이 faucet에 접근할 수 있습니다. 테스트넷 KAIA를 받으려면 유효한 Kaia 계정이 있어야 합니다.
 
 - 계정 주소\*\* 입력란에 지갑 주소를 붙여넣습니다.
 - 'Faucet 실행' 버튼을 클릭하면 50개의 테스트넷 KAIA가 전송됩니다. 계정당 24시간에 한 번씩 Faucet를 실행할 수 있습니다.
