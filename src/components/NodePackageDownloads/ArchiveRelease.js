@@ -81,8 +81,14 @@ const ArchiveRelease = (props) => {
                           <AccordionIcon/>
                         </AccordionButton>
                         <AccordionPanel pb={4}>
-                          {tabConfig.config.map((_config, index) => {
-                            let binaryTitle = _config.binaryTitle
+                          {_release.tag_name === "v1.0.0" ? (
+                            <div className="stable-release-table-row">
+                              Only Linux executable files are available. Packages are not supported.
+                            </div>
+                          ) : (
+                            tabConfig.config.map((_config, index) => {
+                              let binaryTitle = _config.binaryTitle
+                            
                             return (
                               <>
                                 {_config.binaryNames &&
@@ -137,81 +143,126 @@ const ArchiveRelease = (props) => {
                                       binaryPrefixValue
                                     )
                                     
+                                    
                                     if (tabConfig.machineType === 'darwin') {
                                       // darwin supports only arm64
                                       return (
                                         <div className="stable-release-table-row">
                                           <a
-                                            href={baseUrl.replace('x86_64','arm64').replace('amd64','arm64')}
+                                            href={baseUrl.replace('{ARCH_TYPE}', 'darwin-arm64')}
                                             className="stable-release-table-row-item-release"
                                             target="_blank"
                                           >
-                                            {binaryFileformat.replace('x86_64','arm64').replace('amd64','arm64')}
+                                            {binaryFileformat.replace('{ARCH_TYPE}', 'darwin-arm64')}
                                           </a>
                                         </div>
                                       )
                                     }
                                     
                                     if (tabConfig.machineType === 'linux') {
-                                      // linux supports amd64, arm64
-                                      return (
-                                        <>
+                                      if (binaryPrefix === 'klaytn') {
+                                        return (
                                           <div className="stable-release-table-row">
                                             <a
-                                              href={baseUrl}
+                                              href={baseUrl.replace('{ARCH_TYPE}', 'linux-amd64')}
                                               className="stable-release-table-row-item-release"
                                               target="_blank"
                                             >
-                                              {binaryFileformat}
+                                              {binaryFileformat.replace('{ARCH_TYPE}', 'linux-amd64')}
                                             </a>
                                           </div>
+                                        )
+                                      } else if (compareVersions(tagName, 'v1.0.3') >= 0) {
+                                        return (
+                                          <>
+                                            <div className="stable-release-table-row">
+                                              <a
+                                                href={baseUrl.replace('{ARCH_TYPE}', 'linux-amd64')}
+                                                className="stable-release-table-row-item-release"
+                                                target="_blank"
+                                              >
+                                                {binaryFileformat.replace('{ARCH_TYPE}', 'linux-amd64')}
+                                              </a>
+                                            </div>
+                                            <div className="stable-release-table-row">
+                                              <a
+                                                href={baseUrl.replace('{ARCH_TYPE}', 'linux-arm64')}
+                                                className="stable-release-table-row-item-release"
+                                                target="_blank"
+                                              >
+                                                {binaryFileformat.replace('{ARCH_TYPE}', 'linux-arm64')}
+                                              </a>
+                                            </div>
+                                          </>
+                                        )
+                                      } else {
+                                        return (
                                           <div className="stable-release-table-row">
                                             <a
-                                              href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                              href={baseUrl.replace('{ARCH_TYPE}', 'linux-amd64')}
                                               className="stable-release-table-row-item-release"
                                               target="_blank"
                                             >
-                                              {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
+                                              {binaryFileformat.replace('{ARCH_TYPE}', 'linux-amd64')}
                                             </a>
                                           </div>
-                                        </>
-                                      )
+                                        )
+                                      }
                                     }
                                     
-                                    if (tabConfig.machineType === 'rpm' && compareVersions(tagName, 'v2.0.0') >= 0) {
+                                    if (tabConfig.machineType === 'rpm') {
                                       const el7Format = binaryFileformat;
-                                      const el9Format = binaryFileformat.replace('el7', 'el9');
                                       const el7Url = baseUrl;
-                                      const el9Url = baseUrl.replace('el7', 'el9');
                                       
-                                      return (
-                                        <>
-                                          <div className="stable-release-table-row">
-                                            <a href={el7Url} className="stable-release-table-row-item-release" target="_blank">{el7Format}</a>
-                                          </div>
-                                          <div className="stable-release-table-row">
-                                            <a href={el7Url.replace('x86_64','aarch64').replace('amd64','arm64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('x86_64','aarch64').replace('amd64','arm64')}</a>
-                                          </div>
-                                          <div className="stable-release-table-row">
-                                            <a href={el9Url} className="stable-release-table-row-item-release" target="_blank">{el9Format}</a>
-                                          </div>
-                                          <div className="stable-release-table-row">
-                                            <a href={el9Url.replace('x86_64','aarch64').replace('amd64','arm64')} className="stable-release-table-row-item-release" target="_blank">{el9Format.replace('x86_64','aarch64').replace('amd64','arm64')}</a>
-                                          </div>
-                                        </>
-                                      )
+                                      if (compareVersions(tagName, 'v2.0.0') >= 0) {
+                                        const el9Format = binaryFileformat.replace('el7', 'el9');
+                                        const el9Url = baseUrl.replace('el7', 'el9');
+                                        
+                                        return (
+                                          <>
+                                            <div className="stable-release-table-row">
+                                              <a href={el7Url.replace('{ARCH_TYPE}', 'x86_64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'x86_64')}</a>
+                                            </div>
+                                            <div className="stable-release-table-row">
+                                              <a href={el7Url.replace('{ARCH_TYPE}', 'aarch64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'aarch64')}</a>
+                                            </div>
+                                            <div className="stable-release-table-row">
+                                              <a href={el9Url.replace('{ARCH_TYPE}', 'x86_64')} className="stable-release-table-row-item-release" target="_blank">{el9Format.replace('{ARCH_TYPE}', 'x86_64')}</a>
+                                            </div>
+                                            <div className="stable-release-table-row">
+                                              <a href={el9Url.replace('{ARCH_TYPE}', 'aarch64')} className="stable-release-table-row-item-release" target="_blank">{el9Format.replace('{ARCH_TYPE}', 'aarch64')}</a>
+                                            </div>
+                                          </>
+                                        )
+                                      } else {
+                                        if (binaryPrefix === 'klaytn') {
+                                          return (
+                                            <div className="stable-release-table-row">
+                                              <a href={el7Url.replace('{ARCH_TYPE}', 'x86_64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'x86_64')}</a>
+                                            </div>
+                                          )
+                                        } else if (compareVersions(tagName, 'v1.0.3') >= 0) {
+                                          return (
+                                            <>
+                                              <div className="stable-release-table-row">
+                                                <a href={el7Url.replace('{ARCH_TYPE}', 'x86_64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'x86_64')}</a>
+                                              </div>
+                                              <div className="stable-release-table-row">
+                                                <a href={el7Url.replace('{ARCH_TYPE}', 'aarch64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'aarch64')}</a>
+                                              </div>
+                                            </>
+                                          )
+                                        } else {
+                                          return (
+                                            <div className="stable-release-table-row">
+                                              <a href={el7Url.replace('{ARCH_TYPE}', 'x86_64')} className="stable-release-table-row-item-release" target="_blank">{el7Format.replace('{ARCH_TYPE}', 'x86_64')}</a>
+                                            </div>
+                                          )
+                                        }
+                                      }
                                     }
                                     
                                     if (tagName === "v1.0.0") {
-                                      if (tabConfig.machineType !== "linux") {
-                                        //console.log(tabConfig.machineType, _binaryName)
-                                        if (_binaryName === "homi" || _binaryName === "docker") {
-                                          return ( <div className="stable-release-table-row">
-                                            Only linux executable file is available. Packages are not supported.</div> )
-                                        } else {
-                                          return;
-                                        }
-                                      }
                                       if (tabConfig.machineType === "linux") {
                                         if (binaryTitle === "FOR KAIA MAINNET" && (_binaryName === "kcn" || _binaryName === "kpn" || _binaryName === "ken")) {
                                           baseUrl = "https://packages.klaytn.net/baobab/kaia-v1.0.0/" + _binaryName + "-v1.0.0-linux-amd64"
@@ -222,18 +273,20 @@ const ArchiveRelease = (props) => {
                                       }
                                     }
                                     if (baseUrl) {
-                                      const armUrl = baseUrl.replace('amd64','arm64').replace('x86_64','aarch64');
-                                      const armLabel = binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64');
-                                      if (binaryFileformat !== armLabel) {
+                                      const amd64Url = baseUrl.replace('{ARCH_TYPE}', 'amd64');
+                                      const amd64Label = binaryFileformat.replace('{ARCH_TYPE}', 'amd64');
+                                      const armUrl = baseUrl.replace('{ARCH_TYPE}', 'arm64');
+                                      const armLabel = binaryFileformat.replace('{ARCH_TYPE}', 'arm64');
+                                      if (amd64Label !== armLabel) {
                                         return (
                                           <>
                                             <div className="stable-release-table-row">
                                               <a
-                                                href={baseUrl}
+                                                href={amd64Url}
                                                 className="stable-release-table-row-item-release"
                                                 target="_blank"
                                               >
-                                                {binaryFileformat}
+                                                {amd64Label}
                                               </a>
                                             </div>
                                             <div className="stable-release-table-row">
@@ -251,11 +304,11 @@ const ArchiveRelease = (props) => {
                                         return (
                                           <div className="stable-release-table-row">
                                             <a
-                                              href={baseUrl}
+                                              href={amd64Url}
                                               className="stable-release-table-row-item-release"
                                               target="_blank"
                                             >
-                                              {binaryFileformat}
+                                              {amd64Label}
                                             </a>
                                           </div>
                                         )
@@ -273,7 +326,8 @@ const ArchiveRelease = (props) => {
                                 )}
                               </>
                             )
-                          })}
+                          })
+                          )}
                         </AccordionPanel>
                       </AccordionItem>
                     </Accordion>

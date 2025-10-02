@@ -67,28 +67,67 @@ const CurrentRelease = (props) => {
                         '{BINARY_PREFIX}',
                         binaryPrefixValue
                       );
-                      console.log({
-                          releaseData,tabConfig,tagName
-                      })
-                      return (
+                      
+                      // Platform-specific architecture handling
+                      if (tabConfig.machineType === 'darwin') {
+                        // darwin supports only arm64
+                        return (
                           <>
-                              <a
-                                  target="_blank"
-                                  href={baseUrl}
-                                  className="current-release-binary-names-section-binary-name"
-                              >
-                                  {binaryFileformat}
-                              </a>
-                              {isAddArm(releaseData.binaryPrefix,tabConfig.machineType,tagName) &&
-                                  <a
-                                      target="_blank"
-                                      href={baseUrl.replace('amd64','arm64').replace('x86_64','aarch64')}
-                                      className="current-release-binary-names-section-binary-name"
-                                  >
-                                  {binaryFileformat.replace('amd64','arm64').replace('x86_64','aarch64')}
-                              </a>
-                              }
+                            <a
+                              target="_blank"
+                              href={baseUrl.replace('{ARCH_TYPE}', 'darwin-arm64')}
+                              className="current-release-binary-names-section-binary-name"
+                            >
+                              {binaryFileformat.replace('{ARCH_TYPE}', 'darwin-arm64')}
+                            </a>
                           </>
+                        )
+                      }
+                      
+                      if (tabConfig.machineType === 'linux') {
+                        // linux supports amd64, arm64
+                        return (
+                          <>
+                            <a
+                              target="_blank"
+                              href={baseUrl.replace('{ARCH_TYPE}', 'linux-amd64')}
+                              className="current-release-binary-names-section-binary-name"
+                            >
+                              {binaryFileformat.replace('{ARCH_TYPE}', 'linux-amd64')}
+                            </a>
+                            {isAddArm(releaseData.binaryPrefix,tabConfig.machineType,tagName) &&
+                              <a
+                                target="_blank"
+                                href={baseUrl.replace('{ARCH_TYPE}', 'linux-arm64')}
+                                className="current-release-binary-names-section-binary-name"
+                              >
+                                {binaryFileformat.replace('{ARCH_TYPE}', 'linux-arm64')}
+                              </a>
+                            }
+                          </>
+                        )
+                      }
+                      
+                      // Default case (rpm, etc.)
+                      return (
+                        <>
+                          <a
+                            target="_blank"
+                            href={baseUrl.replace('{ARCH_TYPE}', 'x86_64')}
+                            className="current-release-binary-names-section-binary-name"
+                          >
+                            {binaryFileformat.replace('{ARCH_TYPE}', 'x86_64')}
+                          </a>
+                          {isAddArm(releaseData.binaryPrefix,tabConfig.machineType,tagName) &&
+                            <a
+                              target="_blank"
+                              href={baseUrl.replace('{ARCH_TYPE}', 'aarch64')}
+                              className="current-release-binary-names-section-binary-name"
+                            >
+                              {binaryFileformat.replace('{ARCH_TYPE}', 'aarch64')}
+                            </a>
+                          }
+                        </>
                       )
                     })}
                 </div>
