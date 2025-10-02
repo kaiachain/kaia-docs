@@ -52,7 +52,7 @@ The information above is from [https://azure.microsoft.com/en-us/pricing/details
 
 | Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| CN | n2-standard-32 | 32 | 128 | 4,000 (Minimum) | 7500 | 2.032486 |
+| CN | c4-standard-32 | 32 | 120 | 4,000 (Minimum) | 7500 | 2.03078256 |
 | PN | n2-standard-16 | 16 | 64 | 4,000 (Minimum) | 7500 | 1.016243 |
 | PN (with Live Pruning DB) | n2-standard-8 | 8 | 32 | 3,500 (Minimum) | 7500 | 0.508121 |
 
