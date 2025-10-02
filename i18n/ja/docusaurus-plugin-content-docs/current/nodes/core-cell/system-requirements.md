@@ -49,11 +49,11 @@
 
 #### GCPの推奨仕様<a id="recommended-specification-for-gcp"></a>
 
-|     ノードタイプ    |     モデル     | ブイシーピーユー | Memory (GiB) | Storage type (GiB) | Storage speed (IOPS) | Price (asia-northeast3, USD/h) |
-| :-----------: | :---------: | :------: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :-----------------------------------------------: |
-|       CN      |  N2スタンダード32 |    32    |               128               |              4,000ドル（最低額）             |                   7500                  |              2.032486             |
-|       名詞      | N2スタンダード-16 |    16    |                64               |              4,000ドル（最低額）             |                   7500                  |              1.016243             |
-| PN（ライブ剪定DB付き） | n2-スタンダード-8 |     8    |                32               |              3,500ドル（最低額）             |                   7500                  |              0.508121             |
+|     ノードタイプ    |       モデル      | ブイシーピーユー | Memory (GiB) | Storage type (GiB) | Storage speed (IOPS) | Price (asia-northeast3, USD/h) |
+| :-----------: | :------------: | :------: | :-----------------------------: | :-----------------------------------: | :-------------------------------------: | :-----------------------------------------------: |
+|       CN      | c4-standard-32 |    32    |               120               |              4,000ドル（最低額）             |                   7500                  |             2.03078256            |
+|       名詞      |   N2スタンダード-16  |    16    |                64               |              4,000ドル（最低額）             |                   7500                  |              1.016243             |
+| PN（ライブ剪定DB付き） |   n2-スタンダード-8  |     8    |                32               |              3,500ドル（最低額）             |                   7500                  |              0.508121             |
 
 上記の情報は[https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) と[https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) のもので、Googleによって変更されている可能性があります。
 
