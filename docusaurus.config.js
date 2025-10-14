@@ -10,11 +10,13 @@ import 'dotenv/config';
 const config = {
   title: 'Kaia Docs',
   tagline: 'Welcome to the Kaia Docs',
-
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
   onBrokenLinks: 'ignore',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   baseUrl: '/',
   url: 'https://docs.kaia.io',
@@ -255,6 +257,12 @@ const config = {
             appId: process.env.ALGOLIA_APP_ID,
             apiKey: process.env.ALGOLIA_API_KEY,
             indexName: 'klaytn',
+            askAi: {
+              indexName: 'kaia-docs-md-index',
+              appId: process.env.ALGOLIA_APP_ID,
+              apiKey: process.env.ALGOLIA_API_KEY,
+              assistantId: process.env.ALGOLIA_ASSISTANT_ID,
+            }
           }
         : undefined,
      /**announcementBar: {

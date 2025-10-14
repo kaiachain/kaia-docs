@@ -3,14 +3,16 @@ export const sidebar = {
     label: 'web3j-ext',
     link: {type: 'doc', id: 'references/sdk/web3j-ext/getting-started'},
     items: [
-        {type: 'doc', label: 'Getting-Started', id: 'references/sdk/web3j-ext/getting-started'},
+        {type: 'doc', label: 'Getting-Started', key: 'getting-started-web3j', id: 'references/sdk/web3j-ext/getting-started'},
         {
             type: 'category', 
             label: 'Account Management',
+            key: 'account-management-web3j',
             items: [
                 {
                     type: 'category', 
                     label: 'Account Key',
+                    key: 'account-key-web3j',
                     items: [
                         'references/sdk/web3j-ext/account-management/account-key/legacy',
                         'references/sdk/web3j-ext/account-management/account-key/public',
@@ -21,6 +23,7 @@ export const sidebar = {
                 {
                     type: 'category', 
                     label: 'Sign Transaction',
+                    key: 'sign-transaction-web3j',
                     items: [
                         'references/sdk/web3j-ext/account-management/send-transaction/legacy-recover-tx',
                         'references/sdk/web3j-ext/account-management/send-transaction/public-recover-tx',
@@ -31,6 +34,7 @@ export const sidebar = {
                 {
                     type: 'category', 
                     label: 'Sign Message',
+                    key: 'sign-message-web3j',
                     items: [
                         'references/sdk/web3j-ext/account-management/sign-message/legacy-recover-msg',
                         'references/sdk/web3j-ext/account-management/sign-message/multisig-recover-msg',
@@ -41,6 +45,7 @@ export const sidebar = {
                 {
                     type: 'category', 
                     label: 'Keystore',
+                    key: 'keystore-web3j',
                     items: [
                         'references/sdk/web3j-ext/account-management/keystore/keystoreV3',
                         'references/sdk/web3j-ext/account-management/keystore/keystoreV4',
@@ -51,6 +56,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Basic Transaction',
+            key: 'basic-transaction-web3j',
             items: [
                 'references/sdk/web3j-ext/basic-transaction/legacy',
                 'references/sdk/web3j-ext/basic-transaction/value-transfer',
@@ -64,6 +70,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Fee Delegated Transaction',
+            key: 'fee-delegated-transaction-web3j',
             items: [
                 'references/sdk/web3j-ext/fee-delegated-transaction/value-transfer',
                 'references/sdk/web3j-ext/fee-delegated-transaction/value-transfer-memo',
@@ -76,6 +83,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Smart Contract',
+            key: 'smart-contract-web3j',
             items: [
                 'references/sdk/web3j-ext/smart-contract/deploy',
                 'references/sdk/web3j-ext/smart-contract/read',
@@ -87,6 +95,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Utils',
+            key: 'utils-web3j',
             items: [
               'references/sdk/web3j-ext/utils/address',
               'references/sdk/web3j-ext/utils/signature',
