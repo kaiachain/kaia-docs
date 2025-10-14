@@ -48,8 +48,6 @@ jobs:
       - name: Build static files
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          AGENT_ID: ${{ secrets.AGENT_ID }}
           UMAMI_SRC: ${{ secrets.UMAMI_SRC }}
           UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}

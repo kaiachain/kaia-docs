@@ -568,8 +568,6 @@ const config = {
     }),
 
   customFields: {
-    apiBaseUrl: process.env.API_BASE_URL || null,
-    agentId: process.env.AGENT_ID || null,
     projectId: process.env.FEEDBACK_PROJECT_ID || null,
     contentSetId: process.env.RATING_CONTENT_SET_ID || null,
   },
