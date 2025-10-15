@@ -48,14 +48,13 @@ jobs:
       - name: Build static files
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
-          AGENT_ID: ${{ secrets.AGENT_ID }}
           UMAMI_SRC: ${{ secrets.UMAMI_SRC }}
           UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_ASSISTANT_ID: ${{ secrets.ALGOLIA_ASSISTANT_ID }}
           FEEDBACK_PROJECT_ID: ${{ secrets.FEEDBACK_PROJECT_ID }}
-          RATING_CONTENT_SET_ID: ${{ secrets.RATING_CONTENT_SET_ID }}          
+          RATING_CONTENT_SET_ID: ${{ secrets.RATING_CONTENT_SET_ID }}
         run: npm run build
 
       - name: Sync to S3 bucket and validation cloudfront

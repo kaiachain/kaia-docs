@@ -6,6 +6,7 @@ export const sidebar = {
     {
       type: 'doc',
       label: 'Getting-Started',
+      key: 'getting-started-ethers',
       id: 'references/sdk/ethers-ext/getting-started',
     },
     {
@@ -15,10 +16,12 @@ export const sidebar = {
         {
           type: 'category',
           label: 'Account Management',
+          key: 'account-management-v5',
           items: [
             {
               type: 'category',
               label: 'Account Key',
+              key: 'account-key-v5',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/account-key/legacy',
                 'references/sdk/ethers-ext/v5/account-management/account-key/public',
@@ -29,6 +32,7 @@ export const sidebar = {
             {
               type: 'category',
               label: 'Sign Transaction',
+              key: 'sign-transaction-v5',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/send-transaction/legacy-recover-tx',
                 'references/sdk/ethers-ext/v5/account-management/send-transaction/public-recover-tx',
@@ -39,6 +43,7 @@ export const sidebar = {
             {
               type: 'category',
               label: 'Sign Message',
+              key: 'sign-message-v5',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/sign-message/legacy-recover-msg',
                 'references/sdk/ethers-ext/v5/account-management/sign-message/multisig-recover-msg',
@@ -49,6 +54,7 @@ export const sidebar = {
             {
               type: 'category',
               label: 'Keystore',
+              key: 'keystore-v5',
               items: [
                 'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV3',
                 'references/sdk/ethers-ext/v5/account-management/keystore/keystoreV4-single',
@@ -60,6 +66,7 @@ export const sidebar = {
         {
           type: 'category',
           label: 'Basic Transaction',
+          key: 'basic-transaction-v5',
           items: [
             'references/sdk/ethers-ext/v5/basic-transaction/legacy',
             'references/sdk/ethers-ext/v5/basic-transaction/value-transfer',
@@ -73,6 +80,7 @@ export const sidebar = {
         {
           type: 'category',
           label: 'Fee Delegated Transaction',
+          key: 'fee-delegated-transaction-v5',
           items: [
             'references/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer',
             'references/sdk/ethers-ext/v5/fee-delegated-transaction/value-transfer-memo',
@@ -85,6 +93,7 @@ export const sidebar = {
         {
           type: 'category',
           label: 'Smart Contract',
+          key: 'smart-contract-v5',
           items: [
             'references/sdk/ethers-ext/v5/smart-contract/deploy',
             'references/sdk/ethers-ext/v5/smart-contract/read',
@@ -96,6 +105,7 @@ export const sidebar = {
         {
           type: 'category',
           label: 'Utils',
+          key: 'utils-v5',
           items: [
             'references/sdk/ethers-ext/v5/utils/address',
             'references/sdk/ethers-ext/v5/utils/signature',
@@ -111,10 +121,12 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Account Management',
+            key: 'account-management-v6',
             items: [
               {
                 type: 'category',
                 label: 'Account Key',
+                key: 'account-key-v6',
                 items: [
                   'references/sdk/ethers-ext/v6/account-management/account-key/legacy',
                   'references/sdk/ethers-ext/v6/account-management/account-key/public',
@@ -125,6 +137,7 @@ export const sidebar = {
               {
                 type: 'category',
                 label: 'Sign Transaction',
+                key: 'sign-transaction-v6',
                 items: [
                   'references/sdk/ethers-ext/v6/account-management/send-transaction/legacy-recover-tx',
                   'references/sdk/ethers-ext/v6/account-management/send-transaction/public-recover-tx',
@@ -135,6 +148,7 @@ export const sidebar = {
               {
                 type: 'category',
                 label: 'Sign Message',
+                key: 'sign-message-v6',
                 items: [
                   'references/sdk/ethers-ext/v6/account-management/sign-message/legacy-recover-msg',
                   'references/sdk/ethers-ext/v6/account-management/sign-message/multisig-recover-msg',
@@ -145,6 +159,7 @@ export const sidebar = {
               {
                 type: 'category',
                 label: 'Keystore',
+                key: 'keystore-v6',
                 items: [
                   'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV3',
                   'references/sdk/ethers-ext/v6/account-management/keystore/keystoreV4-single',
@@ -156,6 +171,7 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Basic Transaction',
+            key: 'basic-transaction-v6',
             items: [
               'references/sdk/ethers-ext/v6/basic-transaction/legacy',
               'references/sdk/ethers-ext/v6/basic-transaction/value-transfer',
@@ -169,6 +185,7 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Fee Delegated Transaction',
+            key: 'fee-delegated-transaction-v6',
             items: [
               'references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer',
               'references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer-memo',
@@ -181,6 +198,7 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Gas Abstraction',
+            key: 'gas-abstraction-ethers',
             items: [
               'references/sdk/ethers-ext/v6/gas-abstraction/gasless',
             ],
@@ -188,6 +206,7 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Smart Contract',
+            key: 'smart-contract-v6',
             items: [
               'references/sdk/ethers-ext/v6/smart-contract/deploy',
               'references/sdk/ethers-ext/v6/smart-contract/read',
@@ -199,6 +218,7 @@ export const sidebar = {
           {
             type: 'category',
             label: 'Utils',
+            key: 'utils-v6',
             items: [
               'references/sdk/ethers-ext/v6/utils/address',
               'references/sdk/ethers-ext/v6/utils/signature',

@@ -227,6 +227,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Tools',
+          key: 'smart-contract-tools',
           items: [
             'build/smart-contracts/tools/ide-and-tools',
             'build/smart-contracts/tools/kaia-contracts-wizard',
@@ -333,6 +334,7 @@ const sidebars = {
       type: 'category',
       link: { type: 'doc', id: 'build/tools/tools' },
       label: 'Tools',
+      key: 'build-tools',
       items: [
         'build/tools/kaia-online-toolkit',
         {

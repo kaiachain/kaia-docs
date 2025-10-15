@@ -4,10 +4,11 @@ export const sidebar = {
     link: {type: 'doc', id: 'references/sdk/viem-ext/getting-started'},
     items: 
       [
-        {type: 'doc', label: 'Getting-Started', id: 'references/sdk/viem-ext/getting-started'},
+        {type: 'doc', label: 'Getting-Started', key: 'getting-started-viem', id: 'references/sdk/viem-ext/getting-started'},
         {
             type: 'category',
             label: 'Basic Transaction',
+            key: 'basic-transaction-viem',
             items: [
                 'references/sdk/viem-ext/basic-transaction/legacy',
                 'references/sdk/viem-ext/basic-transaction/value-transfer',
@@ -21,6 +22,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Fee Delegated Transaction',
+            key: 'fee-delegated-transaction-viem',
             items: [
                 'references/sdk/viem-ext/fee-delegated-transaction/value-transfer',
                 'references/sdk/viem-ext/fee-delegated-transaction/value-transfer-memo',
@@ -33,6 +35,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Smart Contract',
+            key: 'smart-contract-viem',
             items: [
                 'references/sdk/viem-ext/smart-contract/read',
                 'references/sdk/viem-ext/smart-contract/write',

@@ -3,14 +3,16 @@ export const sidebar = {
     label: 'ethers-ext < v1.0.1',
     link: {type: 'doc', id: 'references/sdk/ethers-ext-prior-v1-0-1/getting-started'},
     items: [
-        {type: 'doc', label: 'Getting-Started', id: 'references/sdk/ethers-ext-prior-v1-0-1/getting-started'},
+        {type: 'doc', label: 'Getting-Started', key: 'getting-started-ethers-v1', id: 'references/sdk/ethers-ext-prior-v1-0-1/getting-started'},
         {
             type: 'category', 
             label: 'Account Management',
+            key: 'account-management-v1',
             items: [
                 {
                     type: 'category', 
                     label: 'Account Key',
+                    key: 'account-key-v1',
                     items: [
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/legacy',
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/account-key/public',
@@ -21,6 +23,7 @@ export const sidebar = {
                 {
                     type: 'category', 
                     label: 'Sign Transaction',
+                    key: 'sign-transaction-v1',
                     items: [
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/send-transaction/legacy-recover-tx',
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/send-transaction/public-recover-tx',
@@ -31,6 +34,7 @@ export const sidebar = {
                 {
                     type: 'category', 
                     label: 'Sign Message',
+                    key: 'sign-message-v1',
                     items: [
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/sign-message/legacy-recover-msg',
                         'references/sdk/ethers-ext-prior-v1-0-1/account-management/sign-message/multisig-recover-msg',
@@ -50,6 +54,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Basic Transaction',
+            key: 'basic-transaction-v1',
             items: [
                 'references/sdk/ethers-ext-prior-v1-0-1/basic-transaction/legacy',
                 'references/sdk/ethers-ext-prior-v1-0-1/basic-transaction/value-transfer',
@@ -63,6 +68,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Fee Delegated Transaction',
+            key: 'fee-delegated-transaction-v1',
             items: [
                 'references/sdk/ethers-ext-prior-v1-0-1/fee-delegated-transaction/value-transfer',
                 'references/sdk/ethers-ext-prior-v1-0-1/fee-delegated-transaction/value-transfer-memo',
@@ -75,6 +81,7 @@ export const sidebar = {
         {
             type: 'category',
             label: 'Smart Contract',
+            key: 'smart-contract-v1',
             items: [
                 'references/sdk/ethers-ext-prior-v1-0-1/smart-contract/deploy',
                 'references/sdk/ethers-ext-prior-v1-0-1/smart-contract/read',
