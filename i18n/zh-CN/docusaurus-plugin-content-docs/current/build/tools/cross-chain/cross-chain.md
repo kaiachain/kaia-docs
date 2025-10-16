@@ -16,6 +16,7 @@ Kaia 网络目前与领先的跨链解决方案兼容，增强了其在更广泛
 
 ### 跨链消息传递协议
 
+- [Chainlink CCIP](https://docs.chain.link/ccip)
 - [LayerZero](https://layerzero.network/)
 - [虫洞](https://wormhole.com/)
 

@@ -123,7 +123,7 @@ solc --optimize --bin UserStorage.sol
 
 要消除智能合约中的安全问题和代码质量问题，必须学习并遵循 Solidity 编程的最佳实践。 在此，我们展示了 Solidity 最佳实践的参考资料。
 
-- [智能合约安全最佳实践](best-practices-for-smart-contract-security.md)
+- [智能合约安全最佳实践](./best-practices-for-smart-contract-security.mdx)
 - [编写安全智能合约代码的最佳实践](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 参考资料<a id="references"></a>

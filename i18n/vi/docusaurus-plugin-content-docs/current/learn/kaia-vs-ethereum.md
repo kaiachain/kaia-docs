@@ -73,14 +73,14 @@ So sánh toàn diện này cho thấy những điểm khác biệt và điểm t
 
 ## Các bước tiếp theo cho người xây dựng
 
-1. **Cấu hình môi trường của bạn**\
+1. **Cấu hình môi trường của bạn**  
    Cấu hình các công cụ Ethereum hiện có của bạn để hoạt động với Kaia:
 
 - [Mainnet RPC](https://docs.kaia.io/references/public-en/#mainnet-public-json-rpc-endpoints): https://public-en.node.kaia.io ([Chain ID](https://docs.kaia.io/nodes/service-chain/configure/configuration-files/#properties-): 8217\)
 - Testnet: Testnet Kairos để thử nghiệm ([nhận token miễn phí](https://docs.kaia.io/build/get-started/getting-kaia/) từ [vòi](https://www.kaia.io/faucet))
 - Công cụ: Hardhat, Foundry và MetaMask hoạt động mà không cần sửa đổi
 
-2. **Triển khai và kiểm tra**\
+2. **Triển khai và kiểm tra**  
    Các hợp đồng Solidity của bạn triển khai không thay đổi do tương thích hoàn toàn với EVM. Kiểm tra trên mạng thử nghiệm Kairos để xác minh mô hình sử dụng gas theo mô hình phí động của Kaia.
 
 3. **Tận dụng lợi thế của Kaia**

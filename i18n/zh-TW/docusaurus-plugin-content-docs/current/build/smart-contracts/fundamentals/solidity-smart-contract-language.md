@@ -123,7 +123,7 @@ solc --optimize --bin UserStorage.sol
 
 要消除智能合約中的安全問題和代碼質量問題，必須學習並遵循 Solidity 編程的最佳實踐。 在此，我們展示了 Solidity 最佳實踐的參考資料。
 
-- [Smart Contract Security Best Practices](best-practices-for-smart-contract-security.md)
+- [Smart Contract Security Best Practices](./best-practices-for-smart-contract-security.mdx)
 - [撰寫安全智慧契約程式碼的最佳實務](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 參考資料<a id="references"></a>

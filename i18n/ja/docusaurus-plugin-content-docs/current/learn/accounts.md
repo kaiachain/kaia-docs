@@ -127,7 +127,7 @@ AccountKeyLegacyは、対応するキー・ペアから派生したアドレス�
 
 ### AccountKeyPublic <a id="accountkeypublic"></a>
 
-AccountKeyPublicは、1つの公開鍵を持つアカウントに使用される。\
+AccountKeyPublicは、1つの公開鍵を持つアカウントに使用される。  
 アカウントにAccountKeyPublicオブジェクトがある場合、トランザクションの検証処理は以下のように行われる：
 
 - ecrecover(txhash, txsig)\`から公開鍵を取得する。

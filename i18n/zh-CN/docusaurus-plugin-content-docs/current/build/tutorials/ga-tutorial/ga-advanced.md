@@ -34,7 +34,7 @@ SwapTx 将在链上失败，但由于**KIP-245 的原子捆绑**，整个捆绑�
 
 ### 如何检查哪些代用券和多少钱被换成了汽油？
 
-每次成功的 "swapForGas "调用都会从 "GaslessSwapRouter "发出**SwappedForGas**事件。\
+每次成功的 "swapForGas "调用都会从 "GaslessSwapRouter "发出**SwappedForGas**事件。  
 你可以
 
 1. 在 KaiaScan 上查找路由器地址（参见合同地址文档），然后打开 "**事件**"选项卡。
