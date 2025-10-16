@@ -236,7 +236,12 @@ const config = {
         createRedirects, // dynamic folder-wide redirects
       },
     ],
-    "docusaurus-plugin-copy-page-button"
+    [
+      require.resolve("./plugins/copy-page-button-extension"),
+      {
+        llmsTxtUrl: "https://docs.kaia.io/llms.txt",
+      },
+    ],
   ],
 
   themes: ["docusaurus-theme-openapi-docs"], // export theme components
