@@ -18,12 +18,12 @@ const findCommonLabelPrefix = (sidebar, categories) => {
         category.items.map(item => {
             const tokens = item.label.split(" ")
             if (tokens.length === 2) {
-                const label = tokens[0].slice(1,-1)
+                const label = tokens[0].slice(1, -1)
                 if (!parentCategory.hasOwnProperty(tokens[0])) {
                     parentCategory[tokens[0]] = {
-                        type:"category",
-                        label:label,
-                        items:[]
+                        type: "category",
+                        label: label,
+                        items: []
                     }
                 }
                 item.label = tokens[1]
@@ -37,13 +37,46 @@ const findCommonLabelPrefix = (sidebar, categories) => {
                 })
             }
         })
-    });
-};
+    })
+}
+
+const injectKeys = (nodes, namespace) => {
+    if (!Array.isArray(nodes)) return
+    nodes.forEach((node, index) => {
+        if (!node || typeof node !== "object") return
+        if (node.type === "category") {
+            if (!node.key) {
+                const normalized = typeof node.label === "string"
+                    ? node.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+                    : ""
+                const slug = normalized || `group-${index}`
+                node.key = `${namespace}-${slug}`
+            }
+            injectKeys(node.items, namespace)
+        }
+    })
+}
 
 findCommonLabelPrefix(klaySidebar, klaySidebar.slice(1))
+injectKeys(klaySidebar, "klay")
+
 findCommonLabelPrefix(kaiaSidebar, kaiaSidebar.slice(1))
+injectKeys(kaiaSidebar, "kaia")
+
 findCommonLabelPrefix(ethSidebar, ethSidebar.slice(1))
+injectKeys(ethSidebar, "eth")
+
 findCommonLabelPrefix(debugSidebar, debugSidebar.slice(1))
+injectKeys(debugSidebar, "debug")
+
+injectKeys(governanceSidebar, "governance")
+injectKeys(adminSidebar, "admin")
+injectKeys(netSidebar, "net")
+injectKeys(txpoolSidebar, "txpool")
+injectKeys(personalSidebar, "personal")
+injectKeys(mainbridgeSidebar, "mainbridge")
+injectKeys(subbridgeSidebar, "subbridge")
+
 export const klaySidebarFormatted = klaySidebar.slice(1)
 export const kaiaSidebarFormatted = kaiaSidebar.slice(1)
 export const ethSidebarFormatted = ethSidebar.slice(1)
