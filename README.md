@@ -48,19 +48,51 @@ $ npm i
 
 ### Local Development
 
+#### Running in Development Mode
+By default, the development server runs with English locale only:
 ```
 $ npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+> [!NOTE]
+> In development mode (`npm start`), only one language is loaded at a time, so the language switcher in the UI will not work.
 
+#### Developing with Other Languages
+
+To develop with a specific language:
+```
+# Korean
+$ npm start -- --locale ko
+
+# Japanese  
+$ npm start -- --locale ja
+
+# Simplified Chinese
+$ npm start -- --locale zh-CN
+
+# Traditional Chinese
+$ npm start -- --locale zh-TW
+
+# Vietnamese
+$ npm start -- --locale vi
+```
+
+### Build
 ```
 $ npm run build
 ```
-
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+#### Testing All Languages
+To test the language switcher functionality (as it works on the live site), you need to build and serve the production version:
+```
+$ npm run build
+$ npm run serve
+```
+Then visit http://localhost:3000 and the language dropdown will work correctly with all available languages.
+
 
 ### Deployment
 
