@@ -23,10 +23,6 @@
     "message": "参考文献",
     "description": "Navbar item with label References"
   },
-  "item.label.Mini dApps": {
-    "message": "ミニdApps",
-    "description": "Navbar item with label Mini dApps"
-  },
   "item.label.Why Kaia": {
     "message": "なぜカイアなのか",
     "description": "Navbar item with label Why Kaia"
@@ -66,10 +62,6 @@
   "item.label.Get Started": {
     "message": "スタート",
     "description": "Navbar item with label Get Started"
-  },
-  "item.label.Transactions": {
-    "message": "トランザクション",
-    "description": "Navbar item with label Transactions"
   },
   "item.label.Smart Contracts": {
     "message": "スマートコントラクト",
@@ -122,5 +114,13 @@
   "item.label.Wallets": {
     "message": "財布",
     "description": "Navbar item with label Wallets"
+  },
+  "item.label.Mini DApps": {
+    "message": "ミニDApps",
+    "description": "Navbar item with label Mini DApps"
+  },
+  "item.label.Cookbooks": {
+    "message": "料理本",
+    "description": "Navbar item with label Cookbooks"
   }
 }
