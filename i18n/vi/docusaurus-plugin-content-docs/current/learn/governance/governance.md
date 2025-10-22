@@ -1,40 +1,149 @@
-# Governance
+# Quản trị Kaia
 
-## Quản trị Kaia: Phát triển hướng tới mô hình phi tập trung do cộng đồng điều hành
+Tài liệu này mô tả khung quản trị tổng thể của Kaia, bao gồm các thành phần, cấu trúc và quy trình hoạt động, tiêu chí tham gia, cơ chế thưởng, cũng như các thủ tục tiếp nhận và chấm dứt hợp tác.
 
-Hội đồng Quản trị Kaia (GC) chịu trách nhiệm về các quyết định quản trị quan trọng. Trong giai đoạn phát triển ban đầu và ổn định của nền tảng, việc phát triển thành viên tập trung vào các tổ chức đáng tin cậy để đảm bảo độ tin cậy và hiệu quả hoạt động. Vị trí hiện tại của Kaia phản ánh sự hợp tác giữa các thành viên Ban Quản trị (GC) của tổ chức và hoạt động ổn định của mạng chính Kaia (Kaia Mainnet).
+## Tổng quan
 
-Hệ thống quản trị của Kaia đang phát triển song song với việc áp dụng dựa trên tiện ích trên nền tảng LINE và Kakao, sự gia tăng của thanh toán trên chuỗi và stablecoin, cũng như vai trò ngày càng quan trọng của các nhà phát triển và DAOs trong việc cung cấp các sản phẩm thực tế (Mini Dapps, DeFi, thị trường NFT). Với khả năng tương thích EVM, bảo mật dựa trên PBFT và tích hợp sâu với hệ sinh thái Mini Dapp của LINE, cơ chế quản trị ưu tiên bảo vệ người dùng, khả năng mở rộng, kinh tế token bền vững và tính ứng dụng thực tế—bao gồm việc sử dụng USDT gốc mới được kích hoạt—đồng thời tăng cường tiếng nói của các đội ngũ và cộng đồng tích cực trong hệ sinh thái.
+Kaia Governance bao gồm ba thành phần chính:
 
-Để mở rộng sự tham gia, Kaia đang mở rộng các con đường tham gia thành viên GC cho các thực thể không truyền thống như DAOs, các đội ngũ phát triển giao thức và các nhà xây dựng hệ sinh thái, những đơn vị thúc đẩy việc sử dụng, thanh khoản và sự phát triển của nhà phát triển. Quản trị sẽ tiếp tục dựa trên cổ phần với các biện pháp bảo vệ ý kiến thiểu số, và sẽ mở rộng sự tham gia thông qua việc ủy quyền.
+- **Cộng đồng KAIA:** Các thành viên cộng đồng, bao gồm cả những người nắm giữ token KAIA, có quyền tham gia vào quá trình quản trị trên chuỗi và các quyết định quan trọng. Nó cũng bao gồm các nhà phát triển, nhà cung cấp dịch vụ và người dùng đóng góp vào hệ sinh thái tổng thể, đóng vai trò quan trọng không chỉ trong việc quản trị mà còn trong sự phát triển liên tục của hệ sinh thái.
+- **Hội đồng Quản trị Kaia (GC):** GC đại diện cho cộng đồng và tham gia vào các quyết định quản trị thông qua cả token được nắm giữ trực tiếp và quyền biểu quyết được ủy quyền từ các thành viên cộng đồng.
+- **Quỹ Kaia:** Quỹ hỗ trợ quá trình ra quyết định của Hội đồng Quản trị (GC) bằng cách tận dụng chuyên môn về công nghệ blockchain và Web3, đồng thời thực thi các quyết định được Hội đồng Quản trị (GC) đưa ra.
 
-Quyền ủy quyền công khai sẽ cho phép bất kỳ chủ sở hữu token nào ủy quyền quyền biểu quyết cho các đại diện có thể biểu quyết thay mặt họ, với tính linh hoạt để ủy quyền hoặc thu hồi quyền ủy quyền bất cứ lúc nào. Cách tiếp cận này củng cố tính đại diện đồng thời đảm bảo quá trình ra quyết định minh bạch và được thực hiện trên chuỗi.
+Kaia GC là cơ quan chính chịu trách nhiệm về việc ra quyết định chiến lược trong hệ sinh thái Kaia. Nó bao gồm một tập hợp đa dạng các thực thể, bao gồm các công ty truyền thống, DAOs, các nhóm phát triển giao thức và các nhà xây dựng cộng đồng.
 
-Khi hoạt động trên chuỗi, thanh toán và tích hợp tài sản thực tế ngày càng phát triển, Kaia hướng đến việc dần dần phân quyền tham gia cho các thực thể đa dạng — DAOs, đội ngũ giao thức và đại diện cộng đồng — để tiếng nói của các cộng đồng Kaia được phản ánh thông qua các cơ chế trên chuỗi minh bạch và có thể thi hành.
+Cấu trúc của GC được thiết kế theo mô hình phi tập trung để đảm bảo quản trị tập trung vào lợi ích của các bên liên quan. Quyền biểu quyết trong GC được xác định dựa trên số lượng KAIA đã được staking và ủy quyền, với một giới hạn tối đa để ngăn chặn việc độc quyền bởi một thực thể duy nhất. Thiết kế này đảm bảo hoạt động minh bạch và hiệu quả đồng thời đại diện cho lợi ích chung của cộng đồng.
 
-## Khung quản trị
+**Các trách nhiệm chính của GC bao gồm:**
 
-Hệ thống quản trị Kaia được xây dựng dựa trên ba thành phần cốt lõi hoạt động hài hòa với nhau để đảm bảo quá trình ra quyết định và thực thi hiệu quả. Cộng đồng Kaia bao gồm tất cả các chủ sở hữu KAIA có thể bày tỏ ý kiến của mình về hoạt động của mạng chính thông qua các diễn đàn quản trị và kênh truyền thông xã hội. Hội đồng Kaia đại diện cho cộng đồng và trực tiếp tham gia vào các quyết định quản trị dựa trên quyền sở hữu và quyền biểu quyết được ủy quyền từ cộng đồng. Quỹ Kaia cung cấp chuyên môn kỹ thuật về công nghệ blockchain và Web3, cung cấp phân tích dựa trên bằng chứng để hỗ trợ Hội đồng đưa ra quyết định có căn cứ và triển khai các đề xuất đã được phê duyệt.
+- **Chính sách kỹ thuật:** Giới thiệu công nghệ mới, bổ sung tính năng mới và nâng cấp hạ tầng blockchain.
+- **Chính sách kinh tế:** Phát hành và phân phối KAIA, điều chỉnh phí giao dịch và lập ngân sách hệ sinh thái.
+- **Quy tắc hoạt động:** Thiết lập và sửa đổi các quy trình quản trị và bỏ phiếu, cũng như xác định quyền và trách nhiệm của các bên tham gia quản trị.
 
-Hệ thống quản trị ủng hộ sự đa dạng bằng cách tích hợp nhiều mô hình quản trị khác nhau, cùng tồn tại, hợp tác và cạnh tranh trong hệ sinh thái. Cách tiếp cận toàn diện này dựa trên các hình thức quản trị thực tế khác nhau, bao gồm dân chủ đại diện, cấu trúc tổ chức tự trị phi tập trung và quy trình ra quyết định dựa trên các bên liên quan. Các tổ chức hoạt động dưới các hệ thống quản trị khác nhau tham gia vào quá trình ra quyết định. Các hệ thống thành công tự nhiên thu hút nhiều nhà đầu tư và tài sản hơn, từ đó dần dần gia tăng quyền quyết định theo thời gian.
+Các đề xuất quản trị được nộp thông qua [Kaia Governance Forum](https://govforum.kaia.io/), nơi chúng được thảo luận công khai trước khi tiến hành bỏ phiếu trên chuỗi. Mô hình GC được thiết kế để cho phép tất cả các chủ sở hữu KAIA tham gia và ảnh hưởng đến hệ sinh thái Kaia. Khi hệ sinh thái phát triển, Ban Quản lý (GC) tiếp tục điều chỉnh cấu trúc và hoạt động của mình cho phù hợp.
 
-Khi hệ sinh thái Kaia tiếp tục phát triển, khung quản trị điều chỉnh tốc độ và quy trình của mình để phù hợp với điều kiện thị trường và các giai đoạn phát triển. Hiện nay, hệ thống ưu tiên mô hình quản trị hướng đến sự phát triển, cho phép thảo luận và ra quyết định nhanh chóng để phản ứng hiệu quả với những thay đổi của môi trường thị trường và thúc đẩy sự phát triển của hệ sinh thái. Cách tiếp cận này đảm bảo rằng Kaia có thể duy trì lợi thế cạnh tranh của mình đồng thời xây dựng một cấu trúc quản trị bền vững và bao trùm cho tương lai.
+## Quản trị trên chuỗi
 
-## Chương trình hành động về quản trị
+Quản trị trên chuỗi (On-chain governance) tự động hóa và thực thi một cách minh bạch quá trình ra quyết định giữa các bên liên quan thông qua hợp đồng thông minh. Phương pháp này mang lại nhiều lợi ích:
 
-Các nội dung chính có thể được quyết định thông qua hệ thống quản trị bao gồm ba lĩnh vực sau đây, và các đề xuất yêu cầu quyết định bổ sung có thể được đưa ra trong cuộc họp thường kỳ hoặc cuộc họp tạm thời để xem xét. Hội đồng Quản trị Kaia phải đưa ra các quyết định tốt nhất cho sự phát triển của Kaia.
+- **Tính minh bạch:** Tất cả các hoạt động quản trị đều được ghi lại trên blockchain và có thể được xác minh bởi bất kỳ ai.
+- **Tính toàn vẹn:** Các phiếu bầu được xử lý bằng hợp đồng thông minh, đảm bảo không thể bị thay đổi hoặc gian lận.
+- **Không thể chối bỏ:** Các phiếu bầu đã ký được ghi lại vĩnh viễn trên chuỗi khối và không thể bị phủ nhận.
+- **Khả năng thi hành:** Kết quả được thực thi tự động, đảm bảo rằng các quyết định không thể bị phớt lờ.
 
-- **Công nghệ**
-  - Các vấn đề liên quan đến việc cập nhật kỹ thuật của nền tảng. Ở đây, các vấn đề liên quan đến cấu trúc cơ bản của blockchain (ví dụ: mô hình tài khoản), các tính năng mới (ví dụ: trình xác thực không cần phép hoặc giảm thiểu MEV) hoặc lịch trình cập nhật phần mềm được bao gồm.
-- **Kinh tế**
-  - Các vấn đề liên quan đến việc phát hành thêm KAIA và cấu trúc phân phối của nó, thay đổi phí giao dịch, và việc phê duyệt chi tiêu từ Quỹ Hệ sinh thái KAIA, v.v., được bao gồm trong danh mục này.
-- **Quy tắc quản lý**
-  - Các vấn đề và quy trình quản trị, cũng như các quy định về trách nhiệm và quyền hạn của các cơ quan quản lý, được bao gồm trong danh mục này.
+Blockchain Kaia triển khai hệ thống quản trị trên chuỗi với các đặc điểm sau. Quyền biểu quyết tỷ lệ thuận với số lượng KAIA được staking, với giới hạn trên được thiết lập để ngăn chặn sự tập trung quá mức. Các chủ sở hữu KAIA cũng có thể ủy quyền quyền biểu quyết của mình cho các thành viên GC.
 
-## Quy trình quản trị
+### Tính toán quyền biểu quyết
 
-Kaia Governance hoạt động thông qua một quy trình ba giai đoạn có hệ thống, được thiết kế để đảm bảo tính minh bạch và sự tham gia của cộng đồng. Quy trình bắt đầu bằng một cuộc thảo luận mở, trong đó tất cả các thành viên có thể tự do thảo luận và hoàn thiện các nội dung trong chương trình nghị sự thông qua các diễn đàn ngoài chuỗi và các kênh truyền thông xã hội. Sau giai đoạn thảo luận này, quá trình bỏ phiếu chính thức trên chuỗi khối sẽ diễn ra, trong đó các đề xuất đã đăng ký sẽ được các thành viên đủ điều kiện bỏ phiếu. Cuối cùng, khi các mục trong chương trình nghị sự được phê duyệt, kết quả sẽ được triển khai thông qua giai đoạn kích hoạt, có thể bao gồm việc thực thi tự động các giao dịch liên quan đối với một số loại đề xuất cụ thể.
+- Quyền biểu quyết của GC [quyền biểu quyết](https://square.kaia.io/Proposal?tab=LEADERBOARD) tỷ lệ thuận với số lượng KAIA được staking (1 phiếu bầu cho mỗi 5 triệu KAIA).
+- Thông qua cơ chế ủy quyền công khai, các chủ sở hữu KAIA không phải là thành viên GC có thể ủy quyền quyền biểu quyết của mình cho các thành viên GC.
+  - Các token được ủy quyền được gộp chung với số token mà GC sở hữu, và quyền biểu quyết được tính toán theo cùng tiêu chuẩn (1 phiếu bầu cho mỗi 5 triệu KAIA).
+- Một giới hạn được đặt ra để ngăn chặn bất kỳ thực thể nào chiếm ưu thế trong quyền biểu quyết.
+  - **Số phiếu tối đa:** Tổng số thành viên GC hợp lệ - 1 (ví dụ: nếu có 40 thành viên hợp lệ, giới hạn là 39 phiếu).
 
-Các tác vụ trên chuỗi được thực hiện qua các trạng thái được định nghĩa rõ ràng, từ giai đoạn đăng ký ban đầu đến giai đoạn thực thi cuối cùng. Các đề xuất sẽ ở trạng thái chờ sau khi đăng ký trong khi danh sách cử tri được xác định, sau đó chuyển sang trạng thái hoạt động trong thời gian bỏ phiếu khi quyền bỏ phiếu được xác định. Tùy thuộc vào kết quả, các nghị quyết hoặc được thông qua với sự ủng hộ đủ số phiếu, hoặc bị bác bỏ do không đạt được số phiếu tối thiểu cần thiết. Các chương trình nghị sự đã được phê duyệt sẽ trải qua giai đoạn chờ trong hàng đợi trước khi chuyển sang trạng thái đã thực hiện, nơi các thay đổi được triển khai đầy đủ.
+### Quy trình quản trị Kaia
 
-Hệ thống quản trị đảm bảo tính khả thi thông qua hợp đồng thông minh, đặc biệt là hợp đồng hệ thống GovParam quản lý các thông số mạng. Khi các đề xuất quản trị bao gồm việc thay đổi thông số, các sửa đổi được phê duyệt sẽ được áp dụng tự động tại các khối kích hoạt được chỉ định, đảm bảo việc triển khai phi tập trung và minh bạch các quyết định của cộng đồng.
+1. **Thảo luận:** Bất kỳ ai cũng có thể gửi đề xuất thông qua diễn đàn quản trị (<https://govforum.kaia.io>).
+2. **Đăng ký và bỏ phiếu trên chuỗi:** Khi một đề xuất nhận được ít nhất một phản hồi tích cực từ một thành viên GC trên diễn đàn quản trị, nó sẽ được đăng ký và mở ra để bỏ phiếu.
+3. **Thực hiện:** Các đề xuất được phê duyệt sẽ được thực hiện.
+
+![](/img/misc/gov-process.jpg)
+
+Các đề xuất được đăng ký trên chuỗi khối sẽ trải qua nhiều trạng thái khác nhau cho đến khi quá trình bỏ phiếu kết thúc:
+
+- **Đang chờ xử lý:** Sau khi đăng ký, đang chờ bắt đầu quá trình bỏ phiếu.
+- **Hoạt động:** Việc bỏ phiếu đang diễn ra.
+- **Đã thông qua:** Được thông qua bởi đa số phiếu và sự đồng thuận của đa số thành viên.
+- **Thất bại:** Không nhận được sự chấp thuận đủ.
+- **Đang chờ xử lý:** Đã được phê duyệt nhưng đang chờ thực hiện.
+- **Đã thực hiện:** Đề xuất đã được thực hiện hoàn toàn.
+
+![](/img/misc/gov-process-2.png)
+
+Thời gian bỏ phiếu tiêu chuẩn là bảy ngày, tuy nhiên một số đề xuất có thể yêu cầu các bước bổ sung.  
+Ví dụ, các đề xuất chỉ chứa văn bản ([ví dụ](https://square.kaia.io/Proposal/Detail?id=31)) sẽ kết thúc sau khi quá trình bỏ phiếu kết thúc. Tuy nhiên, các đề xuất thay đổi thông số ([ví dụ](https://square.kaia.io/Proposal/Detail?id=26)) không chỉ yêu cầu sự chấp thuận mà còn phải thực hiện một giao dịch liên quan sau một khoảng thời gian trì hoãn từ 2 đến 16 ngày.
+
+Để biết thêm chi tiết về việc thay đổi thông số, vui lòng tham khảo [KIP-81: Giới thiệu về bỏ phiếu quản trị trên chuỗi](https://kips.kaia.io/KIPs/kip-81). Trong trường hợp khẩn cấp, thời gian này có thể được rút ngắn.
+
+### Số lượng tối thiểu và Tiêu chí phê duyệt
+
+- **Số lượng tối thiểu cần thiết:** Hoặc Số lượng tối thiểu theo số lượng (sự tham gia của ít nhất một phần ba số thành viên Hội đồng Quản trị) hoặc Số lượng tối thiểu theo quyền biểu quyết (được biểu quyết bởi ít nhất một phần ba tổng số quyền biểu quyết).
+- **Phê duyệt:** Phần lớn số phiếu tham gia phải đồng ý.
+  - **Không bỏ phiếu:** được tính là tham gia bỏ phiếu, nhưng không được tính vào số phiếu ủng hộ và phản đối.
+
+### Phạt vắng mặt
+
+Chính sách xử phạt vắng mặt đã được ban hành và phê duyệt theo [KGP-31: Chính sách quản trị khuyến khích tham gia bỏ phiếu GC](https://govforum.kaia.io/t/kgp-31-governance-policy-to-encourage-gc-voting-participation/808). Thành viên nào không tham gia vào **ba cuộc bỏ phiếu liên tiếp** sẽ bị **loại khỏi phần thưởng khối trong vòng bảy ngày**.
+
+## Chứng chỉ, Trách nhiệm và Phần thưởng của GC
+
+### Chứng chỉ
+
+- Số lượng tối thiểu **5.000.000 KAIA được staking**
+- Vận hành **nút Kaia** (tham khảo [yêu cầu hệ thống](https://docs.kaia.io/nodes/core-cell/system-requirements/))
+- Sự tham gia tích cực vào quản trị
+  - Tham gia thảo luận và bỏ phiếu
+  - Sự tham dự các cuộc họp thường kỳ và đặc biệt
+
+### Trách nhiệm
+
+#### Hoạt động của nút mạng nhằm đảm bảo an ninh và ổn định của mạng.
+
+- Hoạt động của nút  
+  Duy trì hoạt động liên tục và an toàn của nút để hỗ trợ sự đồng thuận của mạng với độ khả dụng cao và thời gian ngừng hoạt động tối thiểu.
+- Giám sát & Cảnh báo  
+  Giám sát các mối đe dọa hoặc sự cố mạng và phản hồi kịp thời để đảm bảo tính ổn định của hệ sinh thái.
+
+#### Sự tham gia vào quản trị và giám sát của KEF
+
+- Các thành viên của GC xem xét và quyết định về các đề xuất từ GC hoặc cộng đồng rộng lớn hơn. Mặc dù chương trình nghị sự của GC không bao gồm các chi tiết kỹ thuật cụ thể hoặc phương pháp triển khai, nó vẫn bao gồm định hướng, quyết định chính sách và tokenomics. Các GCs phải tích cực tham gia vào quá trình bỏ phiếu quản trị trên chuỗi, bao gồm việc nộp đề xuất, thảo luận về chúng và thực hiện kết quả bỏ phiếu.
+  - Các cuộc họp của Ban Quản trị (GC) được tổ chức vào **thứ Tư thứ ba của mỗi tháng** và có thể được hoãn nếu không có nội dung nào trong chương trình nghị sự.
+  - Các cuộc họp đặc biệt có thể được triệu tập để giải quyết các vấn đề khẩn cấp.
+- **Quỹ Hệ sinh thái Kaia (KEF)** hỗ trợ tính bền vững của hệ sinh thái thông qua việc nâng cấp hạ tầng, hỗ trợ nhà phát triển và đầu tư gián tiếp. Ban Điều hành (GC) chịu trách nhiệm **phê duyệt ngân sách KEF** và **giám sát việc thực hiện quỹ**.
+
+#### Sự tham gia của cộng đồng & Minh bạch
+
+- Đại diện cho lợi ích của các bên liên quan đa dạng, duy trì tính liêm chính, ngăn chặn xung đột lợi ích và hành động vì lợi ích tốt nhất của hệ sinh thái Kaia.
+- Bảo đảm các kênh thông tin minh bạch và kịp thời, đồng thời công bố tóm tắt cuộc họp và các quyết định một cách rõ ràng.
+- Khuyến khích sự tham gia tích cực của các chủ sở hữu token KAIA thông qua việc ủy quyền.
+
+### Phần thưởng
+
+Cơ cấu thưởng hiện tại đã được đề xuất và phê duyệt theo [KIP-82](https://kips.kaia.io/KIPs/kip-82). Nó bao gồm **Phần thưởng cho người đề xuất** và **Phần thưởng staking**.
+
+- **Phần thưởng cho người đề xuất:**  
+  Tất cả thành viên GC đều đặt cược ít nhất 5 triệu KAIA, vận hành các nút CN/PN và tham gia bình đẳng vào quá trình sản xuất khối. Mỗi thành viên GC nhận được **0.96 KAIA cho mỗi khối được đề xuất**.
+- **Phần thưởng staking:**  
+  Các thành viên GC staking hơn 5 triệu KAIA sẽ nhận được phần thưởng tương ứng với số KAIA staking vượt quá 5 triệu. Từ **3.84 KAIA được phân phối cho mỗi khối**, phần thưởng được phân bổ dựa trên tỷ lệ phần trăm KAIA đã stake của từng thành viên so với tổng số KAIA đã stake.
+
+## Quy trình onboarding
+
+Quy trình onboarding bao gồm các giai đoạn sau:
+
+1. **Thể hiện sự quan tâm:**  
+   Các ứng viên thể hiện sự quan tâm tham gia vào GC thông qua [Diễn đàn Quản trị](https://govforum.kaia.io/) và [yêu cầu lời mời](https://docs.google.com/forms/d/e/1FAIpQLSdj-N63AAAWhzPh8GIJQGOUrKk_ppWtzDwUyflq532IdlQ3Jw/viewform) đến nền tảng giao tiếp Kaia.
+2. **Khảo sát trước khi nhập môn và phân phối công cụ:**  
+   Ứng viên hoàn thành một khảo sát trước khi nhập môn [khảo sát](https://docs.google.com/forms/d/1o1HUe3SNLRI_txqymSICGoP48Lq71HEz0PxIZZBynNo/preview) để đánh giá kinh nghiệm về hoạt động quản trị và khả năng vận hành. Quỹ cung cấp **Klaytool** và các hướng dẫn liên quan cho việc quản lý nút và ủy quyền công khai.
+3. **Quá trình triển khai mạng riêng/Testnet/Mainnet:**  
+   Quá trình triển khai bắt đầu từ môi trường mạng riêng và Testnet trước khi chuyển sang Mainnet. Quy trình này thường mất khoảng **ba tuần**, với lịch trình chi tiết được điều chỉnh theo nhu cầu.
+4. **Xác nhận cuối cùng và thông báo:**  
+   Sau khi hoàn thành, ứng viên chính thức trở thành thành viên của GC. Tình trạng onboarding có thể được xác minh trên [Kaia Square](https://square.kaia.io/GC?tab=HISTORY), và việc gia nhập sẽ được thông báo qua các kênh quản trị, với quyền biểu quyết được kích hoạt.
+
+## Quy trình chấm dứt hợp đồng lao động
+
+Quy trình ngừng hợp tác đảm bảo tính ổn định, tính toàn vẹn và tính minh bạch của mạng lưới đối với cộng đồng. Quy định này áp dụng trong trường hợp một thành viên **tự nguyện từ chức**, **bị sa thải do vi phạm kỷ luật** hoặc **không đáp ứng các yêu cầu tham gia**. Nếu nút không hoạt động đúng cách, điều này có thể dẫn đến các hình phạt hoặc **buộc ngừng hoạt động**.
+
+**Quy trình chấm dứt hợp đồng:**
+
+1. **Thông báo về việc từ chức hoặc sa thải:**  
+   Khi một thành viên Hội đồng Quản trị (GC) thông báo cho Quỹ về việc từ chức, Quỹ sẽ đăng thông báo trên [Diễn đàn Quản trị](https://govforum.kaia.io/) và khởi động quy trình chấm dứt hợp đồng chính thức.
+2. **Xử lý qua Kaia Square:**  
+   Một quản trị viên của [Kaia Square](http://square.kaia.io) sẽ chỉ định ngày từ chức, vô hiệu hóa vị trí GC của thành viên.
+3. **Kiểm tra tính hợp lệ, Danh bạ địa chỉ và Xóa BLS:**
+
+- Các nhà điều hành nút nền tảng loại bỏ thành viên khỏi danh sách Validator.
+- Đội ngũ Tài chính xóa hồ sơ của GC khỏi Sổ địa chỉ thông qua Quản lý Token (TM).
+- Đội ngũ Core đã xóa khóa BLS của GC.
+
+4. **Tắt nút và thông báo công khai:**  
+   Sau khi thực hiện các bước trên, nút của thành viên có thể được tắt an toàn. Việc chấm dứt hợp đồng được công bố công khai thông qua Diễn đàn Quản trị và các kênh thông tin chính thức.
