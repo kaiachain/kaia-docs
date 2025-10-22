@@ -90,7 +90,7 @@ Kaia 블록체인은 두 메인넷의 통합을 통해 아시아 최고의 블�
 
 블록체인 플랫폼의 토큰 경제 및 거버넌스 구조 설계는 복잡합니다. 첫째, 토큰 경제와 거버넌스 구조는 현실을 완전히 반영하지 못하는 통제된 환경에서 테스트됩니다. 따라서 모든 변수에 대비할 수 없습니다. 또한 블록체인 산업은 아직 초기 단계이며 장기적으로 운영되는 성공적인 시스템을 아직 보지 못했다는 점도 주목할 가치가 있습니다. Kaia 블록체인은 이러한 환경적 요인을 고려하여 단일한 특정 모델을 고수하기보다 외부 영향에 좌우되지 않는 내부 원칙을 정의했습니다. 세부적인 토큰 경제 및 거버넌스 구조는 시장 상황과 규제에 따라 유연하게 진화할 수 있습니다. 그러나 설계 원칙은 모든 생태계 참여자가 공유하는 핵심 가치로서 변함없이 유지될 것입니다.
 
-Kaia 블록체인의 토큰 설계 핵심 원칙은 다음과 같습니다:
+Kaia 블록체인의 토큰 설계 핵심 원칙은 다음과 같습니다.
 
 - **생태계 기여자 보상:** 블록체인 플랫폼이 지속 가능하고 사용자에게 큰 가치를 제공하기 위해서는 네트워크 유지만으로는 부족하며, 플랫폼 생태계의 성장 또한 매우 중요합니다. 따라서 Kaia 블록체인은 이러한 성장에 기여하는 주체를 식별하고 각 참여자의 기여도에 상응하는 보상과 지원을 제공할 것입니다. 이를 통해 블록 생성 및 검증 기여자뿐만 아니라 플랫폼 생태계 성장에 기여한 서비스 제공자들도 기여도에 비례한 합리적인 보상을 받게 되어 잠재적 외부 기여자들에게 매력적인 인센티브 역할을 할 것입니다.
 
@@ -112,7 +112,7 @@ KAIA는 Kaia 블록체인 플랫폼 운영의 핵심 요소이자 연료입니�
 
 #### Kaia 블록체인 인센티브 메커니즘
 
-Kaia 블록체인 인센티브 메커니즘은 다음과 같은 목표를 달성하고자 합니다:
+Kaia 블록체인 인센티브 메커니즘은 다음과 같은 목표를 달성하고자 합니다.
 
 - 장기적으로 충분한 경제적 안정성과 네트워크 유지 능력 확보
 
@@ -154,7 +154,7 @@ Kaia 블록체인 트랜잭션 수수료는 현재 동적 가스 수수료 모�
 
 ##### 블록 보상 분배
 
-각 블록에 대한 블록 보상은 블록 생성 시 발행된 Kaia와 트랜잭션 수수료의 합계로 결정됩니다. 이는 다음과 같이 분배됩니다. 다만, 블록 보상 분배의 구체적인 비율과 범주는 거버넌스를 통해 변경될 수 있습니다. However, the specific ratio and category of the block reward distribution may be changed by governance.
+각 블록에 대한 블록 보상은 블록 생성 시 발행된 Kaia와 트랜잭션 수수료의 합계로 결정됩니다. 이는 다음과 같이 분배됩니다. 다만, 블록 보상 분배의 구체적인 비율과 범주는 거버넌스를 통해 변경될 수 있습니다. 다만, 블록 보상 분배의 구체적인 비율과 범주는 거버넌스를 통해 변경될 수 있습니다.
 
 - 검증자 및 커뮤니티: 50%
   - 50% 중 20%는 블록 제안자 보상
@@ -208,7 +208,7 @@ Kaia 생태계 펀드(KEF)는 기본 생태계 인프라 강화, 개발자 지�
 
 ##### 사용처
 
-KEF의 용도는 다음과 같이 분류됩니다:
+KEF의 용도는 다음과 같이 분류됩니다.
 
 1. 서비스 기여 보상(SCR): 통합 생태계 내에서 활동하는 서비스 개발자 또는 사용자에게 생태계 가치 제고에 직접적 또는 간접적으로 기여한 것에 대한 보상으로 지급됩니다.
 
@@ -238,13 +238,13 @@ KEF는 거버넌스 위원회(GC)가 기금 사용을 검토하고 승인하는 
 
 ##### 정의
 
-Kaia 인프라 펀드(KIF)는 연구개발(R&D), 생태계 가속화, 재단 운영 등의 목적으로 사용되는 재정 자원입니다. For this purpose, 25% of the total KAIA issued when creating a block will be distributed to KIF.
+Kaia 인프라 펀드(KIF)는 연구개발(R&D), 생태계 가속화, 재단 운영 등의 목적으로 사용되는 재정 자원입니다. 이를 위해 블록 생성 시 발행되는 총 KAIA의 25%가 KIF에 배분됩니다.
 
 KIF는 재단이 각 세부 항목별 예산 계획을 사전 공고한 후 내부 통제 시스템을 통해 집행하며, 모든 집행 내역은 투명하게 공개됩니다.
 
 ##### 사용처
 
-KIF의 용도는 다음과 같이 분류됩니다:
+KIF의 용도는 다음과 같이 분류됩니다.
 
 1. 메인넷 및 핵심 인프라 연구개발: 메인넷 및 인프라 관련 최신 기술 선행 연구, 재단 주도 서비스 개발, 인프라 구축 등
 
@@ -262,7 +262,7 @@ KIF의 용도는 다음과 같이 분류됩니다:
 
 3. 재단의 내부 통제 시스템을 통한 자금 집행 후 세부 내역 공개
 
-### KAIA 발행/배분 계획
+### KAIA 발행/분배 계획
 
 Klaytn과 Finschia 생태계가 통합됨에 따라 각 생태계의 기반 코인이었던 KLAY와 FNSA도 KAIA로 통합됩니다. 이에 따라 KAIA의 발행 및 유통 계획은 KLAY와 FNSA의 계획을 계승하게 됩니다. 본 절에서는 KLAY와 FNSA의 과거 발행 및 유통 데이터를 검토하고, 이를 바탕으로 KAIA의 발행 및 유통 계획을 제시합니다.
 
@@ -270,13 +270,13 @@ Klaytn과 Finschia 생태계가 통합됨에 따라 각 생태계의 기반 코�
 
 ##### KLAY 발행 및 소각량
 
-2019년 6월 24일, Klaytn 블록체인의 메인넷 출시 시 제네시스 블록에서 총 100억 KLAY가 발행되었습니다. 메인넷 출시 후 제네시스 발행량을 기준으로 연간 3%의 인플레이션율이 적용되어 블록 1부터 각 블록마다 9.6 KLAY가 새로 발행되었습니다. 2022년 10월 [[KGP-3]](https://govforum.klaytn.foundation/t/kgp-3-reduction-of-klaytn-block-reward/117) 결의에 따라, 2022년 11월 13일(#106444801)부터 블록당 6.4 KLAY가 발행되고 있습니다. As for the KLAY burn volume, a portion of the genesis reserve was burned based on [[KGP-6]](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) of April 16, 2023, and a portion of circulating supply was burned based on the transaction fee burning and buyback burning. 그 결과, 2024년 6월 27일 통합 시점 기준 추정 총 공급량은 5,971M KLAY입니다.
+2019년 6월 24일, Klaytn 블록체인의 메인넷 출시 시 제네시스 블록에서 총 100억 KLAY가 발행되었습니다. 메인넷 출시 후 제네시스 발행량을 기준으로 연간 3%의 인플레이션율이 적용되어 블록 1부터 각 블록마다 9.6 KLAY가 새로 발행되었습니다. 2022년 10월 [[KGP-3]](https://govforum.klaytn.foundation/t/kgp-3-reduction-of-klaytn-block-reward/117) 결의에 따라, 2022년 11월 13일(#106444801)부터 블록당 6.4 KLAY가 발행되고 있습니다. KLAY 소각량과 관련하여, 2023년 4월 16일자 [[KGP-6]](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)에 따라 제네시스 리저브의 일부가 소각되었으며, 순환 공급량의 일부는 거래 수수료 소각 및 매입 소각을 통해 소각되었습니다. 그 결과, 2024년 6월 27일 통합 시점 기준 추정 총 공급량은 5,971M KLAY입니다.
 
 ##### KLAY 프라이빗 세일
 
 KLAY는 발행 후 ICO를 진행하지 않았으며 기관 투자자 대상 프라이빗 세일만 진행했습니다.
 
-The private sales were divided into ER (Early Round) and PR (Private Round) from 2018 to 2019. The quantity sold through the private sales was 1,624,251,988 KLAY. The funds were used as operating funds for the mainnet development and operation, and ecosystem expansion. Approximately 1.62 billion KLAY sold through private sales were all unlocked in March 2021 after a step-by-step vesting period, and are already included in the circulating supply.
+프라이빗 세일은 2018년부터 2019년까지 ER(얼리 라운드)과 PR(프라이빗 라운드)로 나뉘어 진행되었습니다. 프라이빗 세일을 통해 판매된 수량은 1,624,251,988 KLAY입니다. 자금은 메인넷 개발 및 운영, 생태계 확장을 위한 운영 자금으로 사용되었습니다. 프라이빗 세일을 통해 판매된 약 16억 2천만 KLAY는 단계적 베스팅 기간을 거쳐 2021년 3월에 모두 언락되었으며, 이미 유통 공급량에 포함되어 있습니다.
 
 ##### KLAY 유통 공급량
 
@@ -292,7 +292,7 @@ The private sales were divided into ER (Early Round) and PR (Private Round) from
 
 #### FNSA 발행 및 소각량
 
-FNSA of Finschia has been automatically issued in each block at an inflation rate of 15% per year on the current total supply according to the Issuance mechanism of the protocol. Initial total supply was 6,734,458 FNSA. The FNSA issued is distributed to the Network Contribution Reward, Service Contribution Reward, and Reserve at a corresponding ratio of 5:3:2 according to the distribution mechanism. No volume of FNSA was burned. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA.
+Finschia의 FNSA는 프로토콜의 발행 메커니즘에 따라 현재 총 공급량 기준 연간 15%의 인플레이션율로 각 블록마다 자동 발행되었습니다. 초기 총 공급량은 6,734,458 FNSA였습니다. 발행된 FNSA는 분배 메커니즘에 따라 네트워크 기여 보상, 서비스 기여 보상, 예비금에 각각 5:3:2의 비율로 배분됩니다. FNSA 소각량은 없습니다. 2024년 6월 24일(예상 통합일) 기준, 인플레이션을 통해 발행될 것으로 예상되는 FNSA 총량은 7.967M FNSA입니다.
 
 ##### FNSA 프라이빗 세일
 
@@ -300,11 +300,11 @@ FNSA는 프라이빗 세일을 실시하지 않았습니다.
 
 ##### FNSA 유통 공급량
 
-The total supply and circulating supply of FNSA are equal. In other words, there is no separate uncirculated volume. Additionally, FNSA will set the inflation to 0% and stop new issuance after prior notice before the integration to ensure smooth integration with KLAY. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA. The final confirmed total supply of FNSA will be included in the initial distribution of KAIA and inherited according to the agreed-upon exchange ratio.
+FNSA의 총 공급량과 유통 공급량은 동일합니다. 즉, 별도의 미유통 물량이 존재하지 않습니다. 또한 FNSA는 KLAY와의 원활한 통합을 위해 통합 전 사전 공지 후 신규 발행 중단 및 인플레이션율을 0%로 설정할 예정입니다. 2024년 6월 24일(예정된 통합일) 기준, 인플레이션을 통해 발행될 FNSA의 예상 총량은 7,967,000 FNSA입니다. 최종 확정된 FNSA 총 공급량은 KAIA 초기 분배에 포함되며, 합의된 교환 비율에 따라 상속됩니다.
 
-#### KAIA 발행/분배 계획
+#### KAIA 발행/배분 계획
 
-KAIA 토큰은 통합 시점에 기존 KLAY 토큰과 FNSA 토큰을 결합하여 생성됩니다. 통합 전 블록 보상의 인플레이션 및 소각을 통해 KLAY 및 FNSA 토큰의 유통 공급량에 약간의 변동이 있을 수 있습니다. 통합 시점의 기존 KLAY 및 FNSA 유통 공급량은 해당 환율에 따라 KAIA 유통 공급량에 포함됩니다. 자세한 사항은 재단의 별도 공지사항을 통해 안내될 예정입니다. 각 토큰의 KAIA 전환 비율은 다음과 같습니다:
+KAIA 토큰은 통합 시점에 기존 KLAY 토큰과 FNSA 토큰을 결합하여 생성됩니다. 통합 전 블록 보상의 인플레이션 및 소각을 통해 KLAY 및 FNSA 토큰의 유통 공급량에 약간의 변동이 있을 수 있습니다. 통합 시점의 기존 KLAY 및 FNSA 유통 공급량은 해당 환율에 따라 KAIA 유통 공급량에 포함됩니다. 자세한 사항은 재단의 별도 공지사항을 통해 안내될 예정입니다. 각 토큰의 KAIA 전환 비율은 다음과 같습니다.
 
 - KLAY: KAIA = 1:1
 
@@ -335,41 +335,41 @@ FNSA: KAIA = 148.079656:1
 - (+) 소각 후 잔여 미유통량 8을 유통량으로 전환[^8]
   - LINE NEXT 위임: 330M KAIA
   - KAIA 생태계 기금: 270M KAIA
-  - Kaia Infrastructure Fund: 200M KAIA
+  - KAIA 인프라 펀드: 200M KAIA
 
-Since the entire uncirculated amount gets burned at the time of KAIA conversion, the total supply and the circulating supply match. The estimated circulating supply at this time of integration is about 5,768M KAIA.
+KAIA 전환 시 미유통량 전량이 소각되므로 총 공급량과 유통 공급량이 일치합니다. 통합 시점의 예상 유통 공급량은 약 5,768M KAIA입니다.
 
 단, 상기 수치는 2024년 5월 14일 기준 GST 발행 및 유통량 추정치이며, Klaytn 및 Finschia의 인플레이션에 따라 최종 수치는 변동될 수 있습니다.
 
 토큰 병합 후 유통량은 [Kaia 블록체인 펀드](#kaia-blockchain-fund)에 명시된 조치에 따라 증가하거나 소각으로 인해 감소할 수 있습니다. 다만 관련 조항에 명시된 바와 같이 추가 공급은 사전 공지 또는 거버넌스 승인을 거쳐야 합니다.
 
-[^8]: Future circulation will only change due to inflation and new burning models. Incorporation of the circulation amount of the fund does not necessarily mean liquidation, and it will be executed transparently only within the scope of governance approval.
+[^8]: 향후 유통량은 인플레이션 및 새로운 소각 모델에 의해서만 변경됩니다. 기금의 유통량 편입은 반드시 청산을 의미하지 않으며, 거버넌스 승인 범위 내에서만 투명하게 실행됩니다.
 
 #### 재무 재조정 계획
 
 Kaia 블록체인 출시와 함께 토큰노믹스 섹션에서 언급된 새로운 토큰노믹스가 적용됩니다. 이는 기존 FNSA 및 KLAY 유통량의 KAIA 전환, 신규 자금 배분, 소각 토큰 등을 포함하는 대규모 토큰 조정을 수반합니다. 트레저리 재조정 이벤트는 Kaia 블록체인 출시 시점에 단 한 번만 발생하며, 체계적이고 투명하며 감사 가능한 핵심 프로세스입니다. 이를 보장하기 위해 모든 절차는 스마트 컨트랙트에 세밀하게 기록될 것입니다. 또한, 관련 토큰의 대량성을 고려할 때, 오류(예: 입력 오류)를 방지하고 보안 위험을 최소화하기 위해 다양한 기술을 적용하는 것이 중요합니다. 새로운 토큰 경제학의 적용은 여러 조건이 충족된 후에만 안전하게 진행되도록 설계되었습니다. 궁극적으로 새로운 토큰 경제학 상태는 블록체인에서 가능한 최고 수준의 보안을 바탕으로 검증자들의 합의를 통해 달성됩니다.
 
-거버넌스 프로세스 A contract named TreasuryRebalance is deployed, followed by the uploading of a rebalance configuration into this contract. All stakeholders whose balance will be altered must approve of the configuration. Once all stakeholders have approved, block validators check the validity of the contract at the hardfork block at which the rebalance event takes place. Provided all conditions are met, block validators execute the rebalance event and reach a consensus. After the event was successful, an execution receipt which block providers output will be uploaded to the contract so that anyone can view the rebalance result.
+전체 프로세스는 다음과 같습니다. TreasuryRebalance라는 컨트랙트가 배포된 후, 이 컨트랙트에 재조정 구성이 업로드됩니다. 잔액이 변경될 모든 이해관계자는 해당 구성을 승인해야 합니다. 모든 이해관계자의 승인이 완료되면, 블록 검증자들은 리밸런스 이벤트가 발생하는 하드포크 블록에서 컨트랙트의 유효성을 확인합니다. 모든 조건이 충족되면 블록 검증자들은 리밸런스 이벤트를 실행하고 합의를 도출합니다. 이벤트 성공 후, 블록 제공자들이 출력한 실행 영수증이 컨트랙트에 업로드되어 누구나 리밸런스 결과를 확인할 수 있습니다.
 
-TreasuryRebalance 컨트랙트는 유한 상태 기계로 구현되며 다음과 같은 상태를 가집니다:
+TreasuryRebalance 컨트랙트는 유한 상태 기계로 구현되며 다음과 같은 상태를 가집니다.
 
-- 통과됨: 정족수 이상의 찬성으로 의제가 통과된 상태. In this state, a list of addresses whose balance will be zeroed, namely “Zeroed”, and addresses whose balance will be allocated, namely “Allocated”, can be registered.
+- 초기화됨(Initialized): 배포 직후 상태. 이 상태에서는 잔액이 0으로 설정될 주소 목록("Zeroed")과 잔액이 할당될 주소 목록("Allocated")을 등록할 수 있습니다.
 
-- Registered: after all Zeroed and Allocated has been registered. In this state, there cannot be further registration. All owners of Zeroed must send a consent transaction, which indicates that they approve that their balance will be burnt.
+- 등록됨(Registered): 모든 Zeroed 및 Allocated 주소가 등록된 후 상태입니다. 이 상태에서는 추가 등록이 불가능합니다. Zeroed 주소의 모든 소유자는 잔액 소각을 승인한다는 의미의 동의 트랜잭션을 전송해야 합니다.
 
-- Approved: after all consents have been collected, the contract can enter Approved state. Any change in this contract is prohibited until the hardfork block passes.
+- 승인됨(Approved): 모든 동의가 수집된 후 컨트랙트는 승인됨 상태로 진입할 수 있습니다. 하드포크 블록이 통과될 때까지 이 컨트랙트의 변경은 금지됩니다.
 
-- Finalized: After the hardfork block, the rebalance result, namely “memo”, is recorded and the contract is finalized. The contract is rendered immutable.
+- 최종 확정(Finalized): 하드포크 블록 이후 재조정 결과(즉, "메모")가 기록되고 컨트랙트가 최종 확정됩니다. 컨트랙트는 변경 불가능한 상태가 됩니다.
 
-The state transition is only possible in the following order. However, there can be a “reset” where all data is deleted and the state goes back to initialized.
+상태 전환은 반드시 아래 순서대로만 가능합니다. 단, 모든 데이터가 삭제되고 상태가 초기화 상태로 돌아가는 "리셋"이 발생할 수 있습니다.
 
 ![](/img/misc/state-machine.jpg)
 
-All block validators validate the contract state at the hardfork block. The rebalance event takes place only in the Approved state where no further change can happen. Since this event depends on the consensus of all validators, it is ensured that all validators reach the same world state after this event.
+모든 블록 검증자는 하드포크 블록에서 컨트랙트 상태를 검증합니다. 재조정 이벤트는 추가 변경이 불가능한 승인된 상태에서만 발생합니다. 이 이벤트는 모든 검증자의 합의에 의존하므로, 이벤트 이후 모든 검증자가 동일한 세계 상태에 도달하도록 보장됩니다.
 
-All block validators produce the result of the rebalance event called memo in their validator log. The memo is uploaded to the TreasuryRebalance contract during Finalize. memory is a JSON-formatted string which contains information such as the balance of Zeroed before the rebalance, the balance of Allocated after the rebalance, and the burnt amount. The admin of treasury rebalance validates the consistency of the memo and uploads it to TreasuryRebalance contract. After finalization, the contract becomes immutable forever.
+모든 블록 검증자는 검증자 로그에 메모(memo)라 불리는 재조정 이벤트 결과를 생성합니다. 메모는 파이널라이즈(Finalize) 단계에서 TreasuryRebalance 컨트랙트에 업로드됩니다. 메모는 JSON 형식의 문자열로, 재조정 전 제로화(Zeroed) 잔액, 재조정 후 할당(Allocated) 잔액, 소각(burned) 금액 등의 정보를 포함합니다. 재무 재조정 관리자는 메모의 일관성을 검증한 후 TreasuryRebalance 컨트랙트에 업로드합니다. 최종화 후 컨트랙트는 영구적으로 불변 상태가 됩니다.
 
-## Governance
+## 거버넌스
 
 ### 거버넌스 핵심 구성 요소
 
@@ -397,17 +397,17 @@ Kaia 거버넌스는 암호화폐 시장의 변화와 Kaia 생태계의 발전 �
 
 Kaia 블록체인에는 세 가지 주요 기술적 목표가 있습니다.
 
-First, performance is paramount. The blockchain emphasizes rapid finality, ensuring that users receive immediate responses. It also aims to process a high volume of user requests quickly, enabling blockchain applications (dApps) on Kaia Blockchain to offer a user experience comparable to conventional mobile apps.
+첫째, 성능이 최우선입니다. 이 블록체인은 신속한 최종 확정을 강조하여 사용자가 즉각적인 응답을 받을 수 있도록 합니다. 또한 대량의 사용자 요청을 빠르게 처리하는 것을 목표로 하여, Kaia 블록체인 위의 블록체인 애플리케이션(dApp)이 기존 모바일 앱과 비교할 수 있는 사용자 경험을 제공할 수 있도록 합니다.
 
 둘째, 투명성이 핵심입니다. 레이어 1 프로토콜에서의 의사 결정은 생태계 전반에 광범위한 영향을 미칩니다. 따라서 온체인 거버넌스를 통해 투명하게 결정되어야 합니다. 또한 Kaia 블록체인은 블록체인 네트워크 운영과 관련된 모든 요소를 공개적으로 공개하여 누구나 완전히 검증할 수 있도록 할 계획입니다.
 
-Third, sustainability is essential. Operating a blockchain over the long term presents various challenges, such as the continuous increase in block data and the economics necessary to sustain network operations. Kaia Blockchain is designed to reduce operational costs and increase profitability, ensuring its long-term viability.
+셋째, 지속 가능성은 필수적입니다. 블록체인을 장기적으로 운영하려면 블록 데이터의 지속적인 증가와 네트워크 운영을 유지하기 위한 경제성 등 다양한 도전 과제가 존재합니다. Kaia 블록체인은 운영 비용을 절감하고 수익성을 높여 장기적인 생존 가능성을 보장하도록 설계되었습니다.
 
 앞으로 다룰 내용은 두 가지 주요 주제로 구성됩니다. 첫 번째는 Kaia 블록체인 탄생 배경으로, 합의 메커니즘, 스마트 컨트랙트, 온체인 거버넌스 등 적용된 기술들을 설명하며, 이는 목표 달성을 위해 고려된 광범위한 기술적 접근을 종합적으로 반영합니다. 두 번째 주제는 Kaia 블록체인 진화입니다. 가까운 미래에 계획된 다양한 신기술을 소개할 예정인데, 여기에는 허가 없이 누구나 검증자 노드를 운영할 수 있도록 하면서도 높은 성능을 유지하는 방안, 블록 트랜잭션 순서 지정의 투명성을 강화하여 최대 추출 가능 가치(MEV)의 부정적 영향을 완화하는 방안, 그리고 과거 블록을 신속하게 검증하기 위한 블록 아카이빙 기술 등이 포함됩니다. 이러한 혁신들은 Kaia 블록체인 차별화하여 그 독창성과 매력을 높일 것입니다.
 
 ### Kaia 블록체인 탄생
 
-Kaia 블록체인 펀드 구체적으로, 성능 목표는 합의 알고리즘과 네트워크 토폴로지를 통해 달성되며, 투명성과 지속 가능성은 스마트 컨트랙트와 온체인 거버넌스를 통해 실현됩니다. 다음은 필수 시스템 컨트랙트입니다:
+Kaia 블록체인 펀드 구체적으로, 성능 목표는 합의 알고리즘과 네트워크 토폴로지를 통해 달성되며, 투명성과 지속 가능성은 스마트 컨트랙트와 온체인 거버넌스를 통해 실현됩니다. 다음은 필수 시스템 컨트랙트입니다.
 
 - 초당 4,000건의 트랜잭션 처리(TPS)
 
@@ -417,13 +417,13 @@ Kaia 블록체인 펀드 구체적으로, 성능 목표는 합의 알고리즘�
 
 #### 합의 및 네트워킹
 
-Blockchains use a “distributed ledger,” which consists of a connected network between individuals with several network participants to record and manage the transaction information. Each blockchain adopts a consensus algorithm that is most suitable for it, with the aim of efficient and smooth consensus on transaction validation and block generation among network participants. These consensus algorithms help the system to reach a consensus on the correct state, even if there is a system failure or malicious attack on the network. They play an important role in ensuring the integrity and stability of the blockchain.
+블록체인은 트랜잭션 정보를 기록하고 관리하기 위해 여러 네트워크 참여자 간의 연결된 네트워크로 구성된 "분산 원장"을 사용합니다. 각 블록체인은 네트워크 참여자들 간 트랜잭션 검증 및 블록 생성에 대한 효율적이고 원활한 합의를 목표로, 자신에게 가장 적합한 합의 알고리즘을 채택합니다. 이러한 합의 알고리즘은 시스템 장애나 네트워크에 대한 악의적인 공격이 발생하더라도 시스템이 올바른 상태에 대한 합의를 도출할 수 있도록 돕습니다. 이는 블록체인의 무결성과 안정성을 보장하는 데 중요한 역할을 합니다.
 
 ##### IBFT (이스탄불 비잔틴 장애 허용)
 
 Kaia는 기업 지원 및 서비스 지향 플랫폼이 되는 것을 목표로 합니다. 따라서 네트워크가 다수의 노드가 참여할 수 있도록 하면서 최종성 문제를 해결해야 합니다. 이를 위해 Kaia는 블록체인 네트워크의 특성에 맞게 수정된 PBFT를 구현하는 최적화된 이스탄불 BFT 버전을 사용합니다.
 
-Kaia Blockchain has three types of nodes: Consensus Node(CN), Proxy Nodes(PN), and Endpoint Nodes (EN). CN is managed by a validator and is responsible for block creation. These blocks are verified by all the nodes within the network.
+Kaia 블록체인은 세 가지 유형의 노드, 즉, 합의 노드(CN), 프록시 노드(PN), 엔드포인트 노드(EN)로 구성되어 있습니다. CN은 검증자가 관리하며 블록 생성을 담당합니다. 이 블록들은 네트워크 내 모든 노드에 의해 검증됩니다.
 
 ![](/img/misc/kaia-nodes.jpg)
 
@@ -431,7 +431,7 @@ Kaia 블록체인은 신속한 최종성을 달성하기 위해 이스탄불 BFT
 
 ##### 다중 채널 브로드캐스트
 
-Network latency is greatly affected by network congestion. Assuming the throughput of the network is constant, network latency increases proportionally to the increase in the number of transactions. General users of mobile apps or web services do not tolerate response times longer than a few seconds, and there is no reason to assume that blockchain services will have greater user patience.
+네트워크 지연 시간은 네트워크 혼잡도에 크게 영향을 받습니다. 네트워크 처리량이 일정하다고 가정할 때, 네트워크 지연 시간은 트랜잭션 수 증가에 비례하여 증가합니다. 일반 모바일 앱이나 웹 서비스의 사용자들은 몇 초를 넘는 응답 시간을 용납하지 않으며, 블록체인 서비스라 하여 사용자가 더 큰 인내심을 가지리라 가정할 이유는 없습니다.
 
 Kaia 블록체인은 네트워크 혼잡을 해결하기 위해 다중 채널 방식을 채택합니다. 트랜잭션과 블록에 별도의 전파 채널을 할당함으로써, Kaia 네트워크는 트랜잭션 급증으로 인한 심각한 혼잡 상황에서도 새로 생성된 블록을 적시에 전파할 수 있습니다. 결과적으로 Kaia는 간헐적인 네트워크 트래픽 급증에도 불구하고 네트워크 상의 dApp이 최종 사용자 요청에 계속 응답할 수 있도록 보장합니다.
 
@@ -439,11 +439,11 @@ Kaia 블록체인은 네트워크 혼잡을 해결하기 위해 다중 채널 �
 
 합의 과정은 다음 세 단계로 구성됩니다:
 
-1. Election: The Committee is composed of Consensus Nodes (CNs) that participate in achieving consensus. This is a similar task to the leader election in a general distributed system. The proposer is randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
+1. 선출: 위원회는 합의 도달에 참여하는 합의 노드(CN)로 구성됩니다. 이는 일반 분산 시스템의 리더 선출과 유사한 작업입니다. 제안자는 VRF를 통해 무작위로 선정됩니다. 사전에 제안자를 알면 표적형 서비스 거부(DoS) 공격에 취약해질 수 있기 때문입니다.
 
-2. Block Generation: Elected proposers create a block and make a proposal to the committee. The block proposal made through the P2P network is sent to the committee.
+2. 블록 생성: 선출된 제안자는 블록을 생성하여 위원회에 제안합니다. P2P 네트워크를 통해 이루어진 블록 제안은 위원회에 전송됩니다.
 
-3. Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
+3. 블록 검증: 위원회는 제안자가 제안한 블록을 검증하고 서명합니다. 정족수 이상의 서명이 수집되면 블록이 완성됩니다.
 
 #### 계정 모델과 스마트 컨트랙트
 
@@ -459,13 +459,13 @@ Kaia 블록체인은 확장된 형태의 계정 모델을 지원합니다. EOA(�
 
 Kaia 가상 머신은 Kaia 네트워크에서 스마트 컨트랙트를 작성하고 실행하는 여러 방법을 제공합니다. Kaia는 솔리디티를 지원하며 리믹스, 하드햇, 트러플, 파운드리와 같은 이더리움 개발 툴킷과의 상호 운용성을 유지합니다. 솔리디티로 작성된 스마트 컨트랙트는 기존 솔리디티 컴파일러를 사용하여 컴파일할 수 있으며 추가 작업 없이 Kaia에서 실행할 수 있습니다. 솔리디티는 이더리움의 사실상의 표준 컨트랙트 프로그래밍 언어이며 활발한 커뮤니티의 지원을 받고 있습니다. 따라서 Kaia 블록체인 이더리움 dApp 개발자에게 가장 친숙한 개발 환경을 제공하기 위해 솔리디티 언어를 지원하며, 이를 통해 개발자들이 자신의 작업을 쉽게 이전할 수 있도록 합니다.
 
-##### System contracts
+##### 시스템 컨트랙트
 
 Kaia 블록체인에서는 프로토콜의 일부를 스마트 컨트랙트로 관리하며, 이를 시스템 컨트랙트라 부릅니다. 블록 검증자들은 시스템 컨트랙트와 직접적 또는 간접적으로 상호작용합니다. 시스템 컨트랙트는 투명하고 접근하기 쉬운 프로토콜 운영을 가능하게 합니다. 새로운 시스템 컨트랙트를 포함할 레지스트리 컨트랙트를 정의하는 사양이 존재합니다. 이는 REST API를 통해 조회할 수 있으므로 사용자는 지속적으로 시스템 컨트랙트를 확인하고 모니터링할 수 있습니다.
 
-Since system contracts can directly impact the blockchain protocol, they need to be managed in a highly secure manner. They are internally classified as the highest level of security, and thus they are managed as a multi-sig by default. Storing of keys and signing of transactions are performed in an isolated device which is never connected to online. In addition, there are internal manuals and tools for systematic management of system contracts.
+시스템 컨트랙트는 블록체인 프로토콜에 직접적인 영향을 미칠 수 있으므로 매우 안전한 방식으로 관리되어야 합니다. 내부적으로 최고 수준의 보안 등급으로 분류되어 기본적으로 다중 서명(multi-sig) 방식으로 관리됩니다. 키 저장 및 트랜잭션 서명은 온라인에 절대 연결되지 않는 격리된 장치에서 수행됩니다. 또한 시스템 컨트랙트의 체계적 관리를 위한 내부 매뉴얼과 도구가 마련되어 있습니다.
 
-These are essential system contracts:
+다음은 필수 시스템 컨트랙트입니다.
 
 - AddressBook: 검증자 목록을 관리하는 컨트랙트입니다.
 
@@ -473,15 +473,15 @@ These are essential system contracts:
 
 - SimpleBlsRegistry: 검증자를 위한 BLS 키 저장소입니다.
 
-#### On-Chain Governance
+#### 온체인 거버넌스
 
-On-chain governance is an on-chain decision-making system among stakeholders. On-chain governance is implemented in a structure including smart contracts and has several advantages over off-chain governance. The entire process of governance is transparently recorded, and anyone can check the progress of governance on-chain (transparency). Since the governance process proceeds solely according to the contract logic, the voting and results cannot be tampered with maliciously (integrity). Therefore, the intentions of the participants can be reflected without any distortion in the governance process. Also, it is impossible to deny a vote because no one except the voter can vote (non-repudiation). As a result, the voters become accountable for their voting behaviors. An environment where the voting results can be enforced compulsorily or automatically can be created (enforceability). Without enforceability, the implementer may ignore the voting results, which will eventually reduce the credibility of governance.
+온체인 거버넌스는 이해관계자 간의 온체인 의사결정 시스템입니다. 온체인 거버넌스는 스마트 컨트랙트를 포함한 구조로 구현되며 오프체인 거버넌스에 비해 몇 가지 장점이 있습니다. 거버넌스의 전 과정은 투명하게 기록되며, 누구나 온체인에서 거버넌스의 진행 상황을 확인할 수 있습니다(투명성). 거버넌스 프로세스는 오로지 컨트랙트 로직에 따라 진행되므로 투표와 결과를 악의적으로 조작할 수 없습니다(무결성). 따라서 거버넌스 프로세스에서 참여자의 의사가 왜곡 없이 반영될 수 있습니다. 또한 투표자 본인 외에는 투표할 수 없으므로 투표 결과를 부인할 수 없습니다(부인방지성). 결과적으로 투표자는 자신의 투표 행위에 대해 책임을 지게 됩니다. 투표 결과를 강제적으로 또는 자동으로 집행할 수 있는 환경을 조성할 수 있습니다(강제성). 강제성이 없다면 실행자가 투표 결과를 무시할 수 있으며, 이는 결국 거버넌스의 신뢰도를 떨어뜨릴 것입니다.
 
 Kaia 블록체인은 위 속성을 충족하는 온체인 거버넌스 시스템을 구현합니다. Kaia 블록체인의 온체인 거버넌스는 공정성을 보장하고 다양한 의견이 공유되도록 설계되었습니다. 투표 주체는 모든 의제에 투표할 수 있습니다. 투표권은 스테이킹 금액에 비례하여 계산됩니다. 다만 소수 의견이 무시되는 것을 방지하기 위해 투표권 상한선이 존재합니다. 사용자는 자신의 스테이킹 금액을 다른 투표자에게 위임할 수 있습니다.
 
-The voting process is transparent and open. Types of agendas include text agendas, parameter change agendas, and fund expense agendas. For some agendas, such as parameter change agendas, a transaction can be attached to the agenda. In this case, once the agenda is passed, the transaction will be automatically executed. This allows the mandatory performance of governance by automatically reflecting the changes in network parameters as well as executing funds through governance.
+투표 절차는 투명하고 공개적입니다. 안건 유형에는 텍스트 안건, 매개변수 변경 안건, 자금 지출 안건 등이 있습니다. 매개변수 변경 안건과 같은 일부 안건의 경우, 트랜잭션을 안건에 첨부할 수 있습니다. 이 경우 안건이 통과되면 트랜잭션이 자동으로 실행됩니다. 이를 통해 거버넌스를 통해 자금을 집행할 뿐만 아니라 네트워크 매개변수의 변경 사항을 자동으로 반영하여 거버넌스를 의무적으로 수행할 수 있습니다.
 
-Other than this, various detailed policy decisions, such as restrictions on voting rights, voting periods, and voter participation, are needed for a comprehensive and fair decision-making system. A highly reliable network will be built by establishing a governance system that harmoniously reflects the needs and expectations of various stakeholders.
+이 외에도 투표권 제한, 투표 기간, 투표자 참여 등 종합적이고 공정한 의사결정 시스템을 위해 다양한 세부 정책 결정이 필요합니다. 다양한 이해관계자의 요구와 기대를 조화롭게 반영하는 거버넌스 체계를 구축함으로써 높은 신뢰성을 지닌 네트워크가 구축될 것입니다.
 
 ##### 면책 조항
 
@@ -497,35 +497,35 @@ Kaia의 전반적인 거버넌스 프로세스는 다음과 같습니다:
 
 온체인에 등록된 안건은 투표가 완료될 때까지 여러 단계를 거칩니다.
 
-- 부결됨: 정족수 이상의 찬성표를 얻지 못해 의안이 기각된 상태. As the agenda is registered, the list of voters is determined.
+- 준비 중: 안건이 등록된 후 투표가 시작되기 전까지의 상태입니다. 안건이 등록되면 투표자 목록이 확정됩니다.
 
-- Active: Voting is in progress. The voting power of the voters gets fixed when voting begins.
+- 활성: 투표가 진행 중인 상태입니다. 투표 시작 시 투표자의 투표 권한이 확정됩니다.
 
-- Passed: Agenda passed with the approval of a quorum.
+- 통과됨: 정족수 이상의 찬성으로 의제가 통과된 상태.
 
-- Failed: Agenda rejected because it did not receive a quorum of approval votes.
+- 부결됨: 정족수 이상의 찬성표를 얻지 못해 의안이 기각된 상태.
 
-- 대기 중: 의안 통과 후 실행 전 대기 기간.
+- 대기 중: 안건 통과 후 실행 전 대기 기간.
 
-- 실행됨: 의제가 완전히 실행된 상태.
+- 실행됨: 안건이 완전히 실행된 상태.
 
 ![](/img/misc/gov-process-2.png)
 
 ##### 집행 가능성
 
-Kaia Blockchain is configurable via several network parameters, with which they can be altered by on-chain governance. An example of network parameters is “upperboundbasefee”, which defines the maximum value to which the dynamic gas fee can go up. There exists a system contract named GovParam, which enables the enforceability of the governance proposal. This contract is a key-value storage with an activation number for each key. A value of network parameter can be updated by submitting a tuple of (param as a key, new value, activation block number), which will be read by validators and be activated starting from the activation block.
+Kaia 블록체인에는 여러 네트워크 매개변수가 있으며, 이를 통해 온체인 거버넌스로 변경할 수 있습니다. 네트워크 매개변수의 예로는 "upperboundbasefee"가 있으며, 이는 동적 가스 수수료가 상승할 수 있는 최대값을 정의합니다. 거버넌스 제안의 강제 집행을 가능하게 하는 GovParam이라는 시스템 컨트랙트가 존재합니다. 이 컨트랙트는 각 키에 활성화 번호가 부여된 키-값 저장소입니다. 네트워크 매개변수의 값은 (키로서의 매개변수, 새 값, 활성화 블록 번호) 튜플을 제출하여 업데이트할 수 있으며, 이는 검증자에 의해 읽혀져 활성화 블록부터 적용됩니다.
 
 ![](/img/misc/enforceability.png)
 
-The above figure shows how network parameters are updated via on-chain governance. A governance proposal can contain a transaction, which will be executed once the proposal passes. When proposing, the proposer attaches a transaction which invokes GovParam. When the proposal passes, the secretary sends a transaction to execute the proposal, which will internally invoke the transaction contained in the proposal. Validators check GovParam every block and apply the new network parameter value at the activation block. In this way, the network parameters can be enforced in a decentralized manner.
+위 그림은 온체인 거버넌스를 통해 네트워크 매개변수가 업데이트되는 방식을 보여줍니다. 거버넌스 제안에는 제안이 통과되면 실행될 트랜잭션이 포함될 수 있습니다. 제안 시 제안자는 GovParam을 호출하는 트랜잭션을 첨부합니다. 제안이 통과되면 서기(Secretary)는 제안을 실행하기 위한 트랜잭션을 전송하며, 이는 내부적으로 제안에 포함된 트랜잭션을 호출합니다. 검증자들은 매 블록마다 GovParam을 확인하고 활성화 블록에서 새로운 네트워크 매개변수 값을 적용합니다. 이러한 방식으로 네트워크 매개변수를 탈중앙화된 방식으로 강제 적용할 수 있습니다.
 
 ### Kaia 진화
 
-네이티브 스테이블코인 출시 이러한 기술 중 일부는 가까운 시일 내에 개발 및 구현될 것으로 예상됩니다. 구체적으로 Kaia 블록체인이 채택할 신기술은 앞서 언급한 세 가지 목표를 개선할 수 있습니다: 고성능 비허가형 방식은 누구나 노드 검증자가 될 수 있게 하며, 투명한 트랜잭션 순서로 MEV의 부정적 영향을 완화하고, 검증 가능한 방식으로 오래된 블록을 보관하며, 공개 거버넌스 위임은 고성능, 투명성 및 지속 가능성을 촉진할 수 있습니다.
+네이티브 스테이블코인 출시 이러한 기술 중 일부는 가까운 시일 내에 개발 및 구현될 것으로 예상됩니다. 구체적으로 Kaia 블록체인이 채택할 신기술은 앞서 언급한 세 가지 목표를 개선할 수 있습니다. 고성능 비허가형 방식은 누구나 노드 검증자가 될 수 있게 하며, 투명한 트랜잭션 순서로 MEV의 부정적 영향을 완화하고, 검증 가능한 방식으로 오래된 블록을 보관하며, 공개 거버넌스 위임은 고성능, 투명성 및 지속 가능성을 촉진할 수 있습니다.
 
 #### 고성능 비허가 방식
 
-BFT형 합의 알고리즘은 일반적으로 검증자로 참여하는 과정에서 제한이 존재합니다. 이는 검증자가 자유롭게 참여할 경우 비정상 노드로 인해 전체 네트워크 성능이 저하되는 경향이 있기 때문입니다. 통합형 체인인 Kaia는 완전한 비허가형 네트워크를 추구하며, 고성능을 유지하면서도 누구나 블록 생성 노드로 참여할 수 있는 네트워크로 발전할 것입니다. 비허가형 네트워크 도입 후 특정 조건을 충족하는 노드에게 블록 생성 노드 역할을 부여합니다. 구체적으로 자동화된 자격 검증 프로세스를 도입하여 블록 생성 노드의 안정성 유지 자격을 점검합니다. 블록 생성 및 검증에 참여하는 합의 측면에서는 "후보"와 검증자가 있습니다. In terms of governance, there are Governance Council Members. 후보로 등록하고 특정 조건을 충족하면 검증자가 될 수 있습니다. 검증자는 블록 생성 합의 과정에 참여하여 보상을 받을 수 있습니다. 퍼미션리스 네트워크는 다음과 같은 요소들을 통해 구현됩니다:
+BFT형 합의 알고리즘은 일반적으로 검증자로 참여하는 과정에서 제한이 존재합니다. 이는 검증자가 자유롭게 참여할 경우 비정상 노드로 인해 전체 네트워크 성능이 저하되는 경향이 있기 때문입니다. 통합형 체인인 Kaia는 완전한 비허가형 네트워크를 추구하며, 고성능을 유지하면서도 누구나 블록 생성 노드로 참여할 수 있는 네트워크로 발전할 것입니다. 비허가형 네트워크 도입 후 특정 조건을 충족하는 노드에게 블록 생성 노드 역할을 부여합니다. 구체적으로 자동화된 자격 검증 프로세스를 도입하여 블록 생성 노드의 안정성 유지 자격을 점검합니다. 블록 생성 및 검증에 참여하는 합의 측면에서는 "후보"와 검증자가 있습니다. 거버넌스 측면에서는 거버넌스 위원회 구성원이 있습니다. 후보로 등록하고 특정 조건을 충족하면 검증자가 될 수 있습니다. 검증자는 블록 생성 합의 과정에 참여하여 보상을 받을 수 있습니다. 퍼미션리스 네트워크는 다음과 같은 요소들을 통해 구현됩니다:
 
 - _**예측 불가능한 제안자 선정 알고리즘:**_ 블록 제안자 선정 방식을 예측하기 어렵게 변경하여 DoS 공격에 대한 저항성을 강화하는 알고리즘
 
@@ -547,7 +547,7 @@ MEV(최대 추출 가능 가치)는 블록 내 트랜잭션 순서를 전략적�
 
   - 특정 블록 주기 또는 데이터 단위에서의 블록 데이터 정리
 
-  - 진술 및 보증 부재 This certificate is compressed and recorded as a Commitment using cryptography (such as KZG) or Proof using the recursion method of ZKP.
+  - 온체인에서 정리된 블록을 검증 가능한 인증서로 변환하여 온체인에 기록합니다. 이 인증서는 암호화(예: KZG)를 이용한 커밋(Commitment) 또는 ZKP의 재귀적 증명(Proof) 방식으로 압축 기록됩니다.
 
   - 온체인에서 인증서를 검증할 수 있는 검증 시스템을 지원합니다.
 
@@ -559,7 +559,7 @@ MEV(최대 추출 가능 가치)는 블록 내 트랜잭션 순서를 전략적�
 
 - **경량 블록 동기화:** 신규 노드 또는 검증자로 참여할 때 전체 블록 데이터를 동기화하는 대신 압축된 인증서와 후속 블록을 동기화하고 검증합니다.
 
-- **Support DA Layer:** Some users and dApps require a checkup on historical data. A DA Layer is provided to provide trusted data without faults.
+- **DA 레이어 지원:** 일부 사용자와 dApp은 과거 데이터에 대한 검증이 필요합니다. 오류 없는 신뢰할 수 있는 데이터를 제공하기 위해 DA 레이어가 제공됩니다.
 
 위 방법들로 검증 비용을 획기적으로 절감함으로써 신규 검증자들이 신속하게 참여할 수 있게 됩니다.
 
@@ -567,15 +567,15 @@ MEV(최대 추출 가능 가치)는 블록 내 트랜잭션 순서를 전략적�
 
 Kaia 블록체인은 검증자 운영자를 위임할 수 있는 기능을 제공합니다. 이 기능을 기본으로 제공하기 위해 Kaia 블록체인은 검증자 스테이킹 컨트랙트와 연계하여 공개 위임 기능을 제공하는 컨트랙트를 추가로 개발 및 제공할 예정입니다. 이를 통해 사용자는 향후 다른 투표자에게 토큰을 위임하여 자신의 의견을 대신 표현함으로써 투표자의 의결권을 확대하여 거버넌스에 참여할 수 있게 됩니다. 이러한 구조는 국민이 국회의원을 선출하고, 국회의원이 의회에서 의제를 통과시킬 때 투표하는 정치 형태인 대의민주주의와 유사합니다. 또한 사용자는 Kaia 블록체인 내에서 원할 때마다 위임을 하거나 취소할 수 있습니다. 이를 통해 일반 보유자들이 거버넌스에 자신의 의견을 반영할 수 있게 되며, 다양한 의견을 존중하는 거버넌스 시스템이 구축될 것입니다.
 
-## Roadmap
+## 로드맵
 
 Kaia 블록체인은 핀시아 재단과 클레이튼 재단의 통합으로 시작된 통합 메인넷 플랫폼입니다. 핵심 목표는 웹3 채택을 위한 인프라를 제공하는 것입니다. 이를 위해 Kaia 블록체인은 빌더 중심의 지원을 통해 블록체인 기반 프로젝트 개발을 촉진하고자 합니다. 이를 통해 웹3 기술의 새로운 잠재력이 탐구될 것입니다. Kaia 블록체인에는 개발자를 위해 필수적인 툴킷, SDK, IDE가 제공되어 프로젝트 개발의 모든 단계에서 혁신적이고 경쟁력 있는 솔루션을 쉽게 구현할 수 있도록 지원합니다.
 
 또한 카카오 및 LINE과의 협력을 통한 메신저 통합과 같은 전략은 Web2 사용자가 Web3로 쉽게 전환하는 데 도움이 될 것입니다. 이러한 접근 방식은 Web3 기술의 채택을 가속화하고 더 많은 사용자가 블록체인 기술의 혜택을 경험할 수 있도록 할 것입니다. 또한 Kaia 블록체인은 강력한 개발자 커뮤니티의 성장을 촉진하고, 다양한 인프라 자산과 KAIA 펀드에 대한 접근을 제공하며, 탈중앙화된 거버넌스와 허가 없이 참여할 수 있는 환경을 지원함으로써 블록체인 기술의 새로운 가능성을 모색할 것입니다.
 
-The roadmap of the integrated mainnet focuses on supporting developers and driving Web3 adoption at the same time. This will enable Kaia Blockchain to help both developers and general users build successful projects, adopt blockchain technology more broadly, and establish a solid foundation to explore the new possibilities of the Web3 world.
+통합 메인넷의 로드맵은 개발자 지원과 웹3 채택 촉진을 동시에 목표로 합니다. 이를 통해 Kaia 블록체인은 개발자와 일반 사용자 모두가 성공적인 프로젝트를 구축하고, 블록체인 기술을 보다 광범위하게 도입하며, 웹3 세계의 새로운 가능성을 탐구할 수 있는 견고한 기반을 마련할 수 있을 것입니다.
 
-### Short-term Initiatives
+### 단기 계획
 
 #### 2024년 1분기
 
@@ -605,7 +605,7 @@ The roadmap of the integrated mainnet focuses on supporting developers and drivi
 
 #### 기관 요구사항을 위한 인프라 구축
 
-- Establishment of integrated token, Fiat On/Off Ramp, for major Asian countries
+- 주요 아시아 국가를 위한 통합 토큰 및 법정화폐 입출금 서비스 구축
 - 기관 투자자의 접근성 향상을 위한 인프라 구축
 
 #### 대규모 디파이(DeFi) 인프라 강화
@@ -613,7 +613,7 @@ The roadmap of the integrated mainnet focuses on supporting developers and drivi
 - 통합 메인넷을 위한 새로운 디파이 생태계 구축
 - 실물자산(RWA) 연계 서비스 확대
 
-#### Launching of native stablecoins
+#### 네이티브 스테이블코인 출시
 
 - 통합 메인넷 기반 주요 스테이블코인 출시
 - 네이티브 스테이블코인 기반 서비스 확대
@@ -645,11 +645,11 @@ The roadmap of the integrated mainnet focuses on supporting developers and drivi
 
 ## 중요 참고 사항
 
-### Disclaimer of liability
+### 면책 조항
 
 관련 법률, 규정 및 규칙이 허용하는 최대 범위 내에서, Kaia 재단은 귀하가 본 백서 또는 그 일부를 수락하거나 이에 의존함으로써 발생하거나 이와 관련된 모든 간접적, 특별, 부수적, 결과적 또는 기타 모든 종류의 손해(불법행위, 계약 또는 기타 사유에 의한 것 포함, 수익, 소득 또는 이익의 손실, 사용 또는 데이터의 손실을 포함하되 이에 국한되지 않음)에 대해 책임을 지지 않습니다.
 
-### No representations and warranties
+### 진술 및 보증 부재
 
 Kaia 재단은 본 백서에 명시된 정보의 진실성, 정확성 및 완전성과 관련된 진술, 보증 또는 약속을 포함하여, 어떠한 형태로든 어떠한 단체 또는 개인에게도 어떠한 진술, 보증 또는 약속을 하지 않으며, 이를 명시적으로 부인합니다.
 
