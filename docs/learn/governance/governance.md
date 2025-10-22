@@ -43,7 +43,7 @@ The Kaia blockchain implements an on-chain governance system with these properti
 
 ### Kaia Governance Process
 
-1. **Discussion:** Anyone may submit proposals via the governance forum (<https://govforum.kaia.io>).
+1. **Discussion:** Anyone may submit proposals via the [governance forum](https://govforum.kaia.io).
 2. **On-chain Registration & Voting:** Once a proposal receives at least one positive feedback from a GC member on the governance forum, it is registered and opened for voting.
 3. **Execution:** Approved proposals are executed.
 
