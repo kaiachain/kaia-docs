@@ -43,7 +43,7 @@ Blockchain Kaia triển khai hệ thống quản trị trên chuỗi với các 
 
 ### Quy trình quản trị Kaia
 
-1. **Thảo luận:** Bất kỳ ai cũng có thể gửi đề xuất thông qua diễn đàn quản trị (<https://govforum.kaia.io>).
+1. **Thảo luận:** Bất kỳ ai cũng có thể gửi đề xuất thông qua diễn đàn quản trị [governance forum](https://govforum.kaia.io).
 2. **Đăng ký và bỏ phiếu trên chuỗi:** Khi một đề xuất nhận được ít nhất một phản hồi tích cực từ một thành viên GC trên diễn đàn quản trị, nó sẽ được đăng ký và mở ra để bỏ phiếu.
 3. **Thực hiện:** Các đề xuất được phê duyệt sẽ được thực hiện.
 
