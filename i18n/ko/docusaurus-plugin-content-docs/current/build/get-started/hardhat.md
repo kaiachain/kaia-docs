@@ -11,7 +11,7 @@ Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 - 스마트 컨트랙트 개발 및 컴파일.
 - 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
 
-Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBTs-Scalable Bitcoin Tokens-에 대해 더 알아보고, 작동 방식과 활용 사례를 확인하려면 Vitalik Buterin이 발표한 이 [참고 문서](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)를 살펴보실 수 있습니다.
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
@@ -25,10 +25,10 @@ Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니�
 
 이 튜토리얼을 따르기 위한 전제 조건은 다음과 같습니다:
 
-- Code editor: a source-code editor such [VS Code](https://code.visualstudio.com/download).
-- [Metamask](../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
-- RPC Endpoint: you can get this from one of the supported [Endpoint Providers](../../references/public-en.md).
-- Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
+- 코드 편집기: [VS Code](https://code.visualstudio.com/download) 같은 소스 코드 편집기.
+- [MetaMask](../tutorials/connecting-metamask.mdx#install-metamask): 계약을 배포하고, 트랜잭션에 서명하며, 계약과 상호작용하는 데 사용됩니다.
+- RPC 엔드포인트: 지원되는 [엔드포인트 공급자](../../references/public-en.md) 중 하나에서 이 정보를 얻을 수 있습니다.
+- [Faucet](https://faucet.kaia.io)에서 KAIA를 테스트하세요: 계정에 충분한 KAIA를 충전하세요.
 - [NodeJS 및 NPM](https://nodejs.org/en/)
 
 ## 개발 환경 설정하기
@@ -86,7 +86,7 @@ Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 
 
 **contracts/** - 이 폴더에는 스마트 컨트랙트 코드가 포함되어 있습니다.
 
-**ignition/modules/** – this folder contains code that deploys your contracts on the blockchain network.
+**ignition/modules/** – 이 폴더는 블록체인 네트워크에서 당신의 스마트 계약을 배포하는 코드를 포함합니다.
 
 **test/** - 이 폴더에는 스마트 컨트랙트를 테스트하는 모든 단위 테스트가 포함되어 있습니다.
 
@@ -105,8 +105,8 @@ touch .env
 - 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
 
 ```js
- KAIROS_TESTNET_URL= "Your Kairos RPC link"
- PRIVATE_KEY= "your private key copied from MetaMask wallet"
+ KAIROS_TESTNET_URL= "당신의 Kairos RPC 링크"
+ PRIVATE_KEY= "메타마스크 지갑에서 복사한 당신의 개인 키"
 ```
 
 > 참고: 하드햇에서 제공하는 [구성 변수](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 기능을 사용하여 코드 저장소에 포함되지 않아야 하는 변수를 구성할 수도 있습니다.
@@ -138,7 +138,7 @@ module.exports = {
 
 ## SBT 스마트 컨트랙트 생성
 
-In this section, you will use the [Kaia Contracts](https://github.com/kaiachain/kaia-contracts): a library for secure smart contract development built on a solid foundation of community-vetted code. 이는 오픈 제플린 컨트랙트의 포크입니다.
+이 섹션에서는 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)를 사용하게 됩니다: 커뮤니티 검증 코드의 단단한 기반 위에 구축된, 스마트 계약 개발을 위한 안전한 라이브러리입니다. 이는 오픈 제플린 컨트랙트의 포크입니다.
 
 > 참고: '개발 환경 설정' 섹션의 **3단계**에서 이미 이 라이브러리를 설치했습니다.
 
@@ -414,4 +414,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 출력은 16진수를 반환하며, 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 변환하면 `105701850`과 같아야 합니다.
 
-Hardhat에 대한 더 자세한 가이드는 [Hardhat 문서](https://hardhat.org/hardhat-runner/docs/getting-started)를 참조하세요. Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)
+Hardhat에 대한 더 자세한 가이드는 [Hardhat 문서](https://hardhat.org/hardhat-runner/docs/getting-started)를 참조하세요. 또한, 이 가이드의 전체 코드 구현은 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens)에서 확인할 수 있습니다.

@@ -90,12 +90,12 @@ const wallet = new Wallet(senderPriv, provider);
 ```
 
 :::note
-Các bước từ 2 đến 6 cùng nhau tạo thành một luồng thực thi hoàn chỉnh. Sao chép từng khối vào cùng một tệp theo thứ tự.\
+Các bước từ 2 đến 6 cùng nhau tạo thành một luồng thực thi hoàn chỉnh. Sao chép từng khối vào cùng một tệp theo thứ tự.  
 :::
 
 ## Bước 3: Cấu hình hợp đồng để ước tính phí yêu cầu và hỗ trợ token
 
-Trong bước này, chúng tôi ước tính chi phí thực hiện giao dịch Airdrop để có thể chi trả bằng cách hoán đổi token. Chi phí ước tính này được gọi là **AppTxFee** — số lượng KAIA (đơn vị wei) mà người gửi cần nhận được từ giao dịch hoán đổi để tài trợ cho giao dịch ứng dụng cấp cao hơn (trong trường hợp này là yêu cầu airdrop).\
+Trong bước này, chúng tôi ước tính chi phí thực hiện giao dịch Airdrop để có thể chi trả bằng cách hoán đổi token. Chi phí ước tính này được gọi là **AppTxFee** — số lượng KAIA (đơn vị wei) mà người gửi cần nhận được từ giao dịch hoán đổi để tài trợ cho giao dịch ứng dụng cấp cao hơn (trong trường hợp này là yêu cầu airdrop).  
 Chúng tôi cũng sẽ chuẩn bị và cấu hình tất cả các bản sao hợp đồng cần thiết để:
 
 - Xác minh rằng token ERC20 đã chọn được hỗ trợ bởi **GaslessSwapRouter**.
@@ -306,14 +306,14 @@ async function main() {
 
 Trong bước này, chúng ta chuẩn bị hai giao dịch quan trọng cho phép trừ gas thông qua việc chuyển đổi token:
 
-**ApproveTx**\
+**ApproveTx**  
 Trước khi một hợp đồng thông minh có thể chi tiêu các token ERC20 của người dùng, nó phải được cấp quyền thông qua quá trình phê duyệt. Ở đây, chúng tôi kiểm tra xem người gửi đã phê duyệt GaslessSwapRouter để chi tiêu token của họ hay chưa.
 
 - Nếu số dư là 0, chúng tôi tạo một giao dịch ApproveTx.
 - Nếu khoản trợ cấp đã tồn tại và đủ, chúng ta sẽ bỏ qua bước này để tiết kiệm nhiên liệu.
 
-**SwapTx**\
-Sau khi xử lý phê duyệt, chúng tôi chuẩn bị SwapTx. Đây là giao dịch chuyển đổi token ERC20 thành KAIA để thanh toán phí gas cho giao dịch yêu cầu cuối cùng.\
+**SwapTx**  
+Sau khi xử lý phê duyệt, chúng tôi chuẩn bị SwapTx. Đây là giao dịch chuyển đổi token ERC20 thành KAIA để thanh toán phí gas cho giao dịch yêu cầu cuối cùng.  
 Chúng tôi tính toán ba giá trị quan trọng:
 
 - **amountRepay** là số tiền chính xác của KAIA cần thiết để thanh toán toàn bộ các giao dịch liên quan, bao gồm cả giao dịch hoán đổi.

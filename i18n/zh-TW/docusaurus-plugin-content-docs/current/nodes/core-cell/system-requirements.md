@@ -49,11 +49,11 @@
 
 #### 建議的 GCP 規範<a id="recommended-specification-for-gcp"></a>
 
-|     節點類型     |     模型    | vCPU | 內存（GiB） | 存儲類型 （GiB\） | 存儲速度（IOPS） |     價格（亞洲-東北3，美元/小時）     |
-| :----------: | :-------: | :--: | :-----: | :---------: | :--------: | :----------------------: |
-|      CN      | n2- 標準-32 |  32  |   128   |  4,000（最少）  |    7500    | 2.032486 |
-|      PN      | n2- 標準-16 |  16  |    64   |  4,000（最少）  |    7500    | 1.016243 |
-| PN（帶即時修剪 DB） |  n2- 標準-8 |   8  |    32   |  3,500（最低）  |    7500    | 0.508121 |
+|     節點類型     |       模型       | vCPU | 內存（GiB） | 存儲類型 （GiB\） | 存儲速度（IOPS） |      價格（亞洲-東北3，美元/小時）      |
+| :----------: | :------------: | :--: | :-----: | :---------: | :--------: | :------------------------: |
+|      CN      | c4-standard-32 |  32  |   120   |  4,000（最少）  |    7500    | 2.03078256 |
+|      PN      |    n2- 標準-16   |  16  |    64   |  4,000（最少）  |    7500    |  1.016243  |
+| PN（帶即時修剪 DB） |    n2- 標準-8    |   8  |    32   |  3,500（最低）  |    7500    |  0.508121  |
 
 以上信息來自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 和 [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia)，谷歌可能會對其進行修改。
 

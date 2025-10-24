@@ -34,7 +34,7 @@ SwapTx가 온체인에서 실패하지만, **KIP-245의 원자적 번들링** �
 
 ### 가스로 스왑된 토큰과 금액을 어떻게 확인할 수 있나요?
 
-성공한 모든 `swapForGas` 호출은 `GaslessSwapRouter`에서 **SwappedForGas** 이벤트를 발생시킵니다.\
+성공한 모든 `swapForGas` 호출은 `GaslessSwapRouter`에서 **SwappedForGas** 이벤트를 발생시킵니다.  
 다음과 같이 할 수 있습니다:
 
 1. KaiaScan에서 라우터 주소(contract-addresses 문서 참조)를 조회하고 **Events** 탭을 엽니다.

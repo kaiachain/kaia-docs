@@ -93,10 +93,10 @@ Dịch vụ sử dụng hệ thống API Key & Địa chỉ được phép để
 
 ### Quy tắc xác thực giao dịch
 
-**Dành cho Testnet:**\
+**Dành cho Testnet:**  
 Tất cả các giao dịch đều được phép để thử nghiệm dễ dàng (không áp dụng xác thực)
 
-**Đối với Mainnet:**\
+**Đối với Mainnet:**  
 Giao dịch của bạn sẽ được phê duyệt khi các điều kiện sau được đáp ứng:
 
 1. **Với API Key**: Bạn cung cấp một API Key hợp lệ VÀ địa chỉ hợp đồng hoặc địa chỉ người gửi của bạn đã được thêm vào danh sách trắng (bất kỳ địa chỉ người gửi và địa chỉ hợp đồng nào cũng sẽ hoạt động với API Key hợp lệ nếu không có danh sách trắng được cấu hình)
@@ -506,7 +506,7 @@ Authorization: Bearer <API_KEY> (optional - required for DApps with API keys)
 Khi gửi nhiều giao dịch (giao dịch hàng loạt hoặc giao dịch liên tiếp) từ cùng một địa chỉ người gửi, hãy quản lý thứ tự giao dịch cẩn thận để tránh các lỗi liên quan đến nonce:
 
 1. **Chờ xác nhận**: Đảm bảo mỗi giao dịch đã được xác nhận (tức là bạn đã nhận được biên lai giao dịch) trước khi gửi giao dịch tiếp theo.
-2. **Đảm bảo quản lý nonces đúng cách:** đảm bảo các giao dịch được gửi đi với nonce chính xác và các nonce không thành công hoặc cũ hơn được xử lý đúng cách trước khi các giao dịch mới được thực hiện.
+2. **Đảm bảo quản lý nonces đúng cách:** đảm bảo các giao dịch được gửi đi với nonce chính xác và các nonces không thành công hoặc cũ hơn được xử lý đúng cách trước khi các giao dịch mới được thực hiện. Để biết chi tiết về các chiến lược quản lý nonce trong các giao dịch hàng loạt, xem [Cách quản lý nonce cho các giao dịch đáng tin cậy](../cookbooks/how-to-manage-nonce.md).
 3. **Thực hiện logic thử lại**: Xây dựng cơ chế thử lại để xử lý các lỗi tạm thời, giao dịch bị hủy hoặc xác nhận bị trì hoãn.
 4. **Người dùng ví tiền điện tử trên giao diện người dùng (frontend):** Nếu sử dụng ví tiền điện tử dựa trên trình duyệt (như Kaia Wallet, OKX Wallet hoặc Bitget) từ giao diện người dùng, hãy khuyến nghị người dùng xóa các giao dịch đang chờ xử lý hoặc bị kẹt bằng cách sử dụng tính năng “Xóa lịch sử” của ví để tránh xung đột nonce.
 
@@ -528,24 +528,27 @@ Khi gọi API, nếu yêu cầu **API KEY**, chúng tôi khuyến nghị sử d�
 
 ## 9. Câu hỏi thường gặp
 
-**Q: Sự khác biệt giữa việc ủy quyền phí có hoặc không có Dịch vụ Ủy quyền Phí Kaia là gì?**\
+**Q: Sự khác biệt giữa việc ủy quyền phí có hoặc không có Dịch vụ Ủy quyền Phí Kaia là gì?**  
 **A:** Dịch vụ Ủy quyền Phí Kaia hoạt động như một dịch vụ quản lý để tích hợp các ứng dụng phi tập trung (DApps) và cung cấp trải nghiệm ủy quyền phí mượt mà hơn. Lưu ý rằng tính năng ủy quyền phí đã được tích hợp sẵn trong chuỗi Kaia, và người dùng có thể ủy quyền phí cho người dùng của mình bằng cách tự thiết lập hạ tầng.
 
-**Q: Sự khác biệt giữa danh sách trắng hợp đồng và danh sách trắng người gửi là gì?**\
+**Q: Sự khác biệt giữa danh sách trắng hợp đồng và danh sách trắng người gửi là gì?**  
 **A:** Danh sách trắng hợp đồng cho phép bất kỳ người dùng nào tương tác với các hợp đồng thông minh cụ thể thông qua ứng dụng DApp của bạn. Danh sách trắng người gửi cho phép các địa chỉ ví cụ thể thực hiện bất kỳ giao dịch nào. Bạn có thể sử dụng cả hai cùng lúc.
 
-**Q: Nếu số dư của tôi hết thì sao?**\
+**Q: Nếu số dư của tôi hết thì sao?**  
 **A:** Giao dịch sẽ bị từ chối với thông báo "Số dư không đủ". Chúng tôi sẽ gửi email thông báo cho bạn trước khi số dư của bạn xuống quá thấp (nếu đã được cấu hình).
 
-**Q: Tôi có thể thêm nhiều hợp đồng vào danh sách trắng cho một DApp không?**\
+**Q: Tôi có thể thêm nhiều hợp đồng vào danh sách trắng cho một DApp không?**  
 **A:** Có, bạn có thể thêm nhiều hợp đồng và địa chỉ người gửi vào danh sách trắng cho một DApp duy nhất.
 
-**Q: Khi số dư hết, sẽ xảy ra điều gì?**\
+**Q: Khi số dư hết, sẽ xảy ra điều gì?**  
 **A:** Để tiếp tục sử dụng dịch vụ, bạn cần liên hệ với đội ngũ Kaia để nạp tiền hoặc yêu cầu thêm số dư. Tuy nhiên, bạn cũng có thể gọi API **`/api/balance?address=${address}`** để kiểm tra xem tài khoản của bạn có đủ số dư hay không và kiểm tra từ bảng điều khiển [**https://fee-delegation.kaia.io/rank**](https://fee-delegation.kaia.io/rank)
 
-**Q: Sau khi đã thêm danh sách trắng hoặc khóa API, liệu có cần thay đổi mã nguồn trên DApp hoặc phần backend của DApp không?**\
+**Q: Sau khi đã thêm danh sách trắng hoặc khóa API, liệu có cần thay đổi mã nguồn trên DApp hoặc phần backend của DApp không?**  
 **A:** Đối với khóa API, bạn cần thêm nó vào tiêu đề "Authorization" với định dạng “Bearer your_api_key” khi gọi API **`/api/signAsFeePayer`**. Tuy nhiên, nếu chỉ là danh sách trắng địa chỉ mà không cần API Key, không cần thay đổi mã nguồn.
 
-**Q: Nên sử dụng lệnh gọi API này ở đâu?**\
-**A:** Các lệnh gọi API **không có khóa API** có thể được sử dụng cả trong **frontend và backend**, vì chúng tuân theo các **quy tắc xác thực nghiêm ngặt hơn** (ví dụ: yêu cầu địa chỉ được phép).\
+**Q: Nên sử dụng lệnh gọi API này ở đâu?**  
+**A:** Các lệnh gọi API **không có khóa API** có thể được sử dụng cả trong **frontend và backend**, vì chúng tuân theo các **quy tắc xác thực nghiêm ngặt hơn** (ví dụ: yêu cầu địa chỉ được phép).  
 Tuy nhiên, khi sử dụng **API keys**, chúng tôi **khuyến nghị mạnh mẽ** rằng các yêu cầu này nên được thực hiện từ **backend** để đảm bảo an toàn, vì việc sử dụng API keys thường ít kiểm tra xác thực hơn và có thể tiết lộ nhiều quyền truy cập hơn.
+
+**Câu hỏi: Tôi liên tục gặp lỗi nonce hoặc giao dịch bị kẹt. Làm thế nào để khắc phục vấn đề nonce trên Kaia?**
+**A:** Khoảng trống hoặc trùng lặp nonce có thể chặn giao dịch của bạn. Bắt đầu bằng cách xác nhận số lượng giao dịch trên chuỗi cho tài khoản của bạn, sau đó điều chỉnh nonce tiếp theo của bạn cho phù hợp với nó. Đối với các giao dịch khối lượng lớn hoặc giao dịch được ủy quyền bằng phí, hãy sử dụng kho lưu trữ nonce ngoài chuỗi với tính năng khóa theo tài khoản, và thay thế các giao dịch bị kẹt sử dụng cùng nonce bằng một phí cao hơn thay vì gửi các giao dịch mới. Để xem đầy đủ các mẫu và các bước khôi phục, hãy tham khảo [Hướng dẫn Quản lý Nonces cho Giao dịch Đáng tin cậy](../cookbooks/how-to-manage-nonce.md).

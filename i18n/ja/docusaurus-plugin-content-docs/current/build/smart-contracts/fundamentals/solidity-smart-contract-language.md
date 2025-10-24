@@ -125,7 +125,7 @@ Solidity のコードをデバッグするのは、他のプログラミング�
 
 スマートコントラクトからセキュリティの懸念とコード品質の問題を取り除くには、Solidityプログラミングのベストプラクティスを学び、それに従うことが重要です。 ここでは、Solidityのベストプラクティスのリファレンスを示します。 ここでは、Solidityのベストプラクティスのリファレンスを示します。
 
-- [スマート・コントラクト・セキュリティのベスト・プラクティス](best-practices-for-smart-contract-security.md)
+- [スマート・コントラクト・セキュリティのベスト・プラクティス](./best-practices-for-smart-contract-security.mdx)
 - [安全なスマート・コントラクト・コードを書くためのベスト・プラクティス](https://www.nethermind.io/blog/best-practices-for-writing-secure-smart-contract-code)
 
 ## 参考文献<a id="references"></a>

@@ -107,7 +107,7 @@ $ sudo mkdir -p /var/kend/data
 
 #### 添加數據目錄 <a id="add-data-directory"></a>
 
-您應更新配置文件 `kend.conf` 中的數據目錄環境變量 `$DATA_DIR`。
+您應該更新設定檔 `kend.conf` 上的資料目錄環境變數 `$DATA_DIR`。
 
 ```text
 DATA_DIR=/var/kend/data

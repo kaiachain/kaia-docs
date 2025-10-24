@@ -30,7 +30,7 @@ Block states, or StateDB stores on-chain accounts and contracts in a trie data s
 
 Previously the State Migration has mitigated this problem by deleting old states by selectively copying the recent states and deleting the rest. This can reduce the full node size to less than 5TB.
 
-Nonetheless, the State Migration has its own drawbacks. It suffers from from high overhead of traversing the entire state trie which could take a few days. Also the state migration has to be manually triggered. To overcome these limitations, Live Pruning technique was introduced.
+Nonetheless, the State Migration has its own drawbacks. 전체 주 트라이를 통과하는 데 며칠이 걸릴 수 있는 높은 오버헤드가 발생합니다. Also the state migration has to be manually triggered. To overcome these limitations, Live Pruning technique was introduced.
 
 ### Concept
 

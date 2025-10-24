@@ -23,10 +23,6 @@
     "message": "參考資料",
     "description": "Navbar item with label References"
   },
-  "item.label.Mini dApps": {
-    "message": "迷你dApps",
-    "description": "Navbar item with label Mini dApps"
-  },
   "item.label.Why Kaia": {
     "message": "為什麼選擇 Kaia",
     "description": "Navbar item with label Why Kaia"
@@ -66,10 +62,6 @@
   "item.label.Get Started": {
     "message": "開始使用",
     "description": "Navbar item with label Get Started"
-  },
-  "item.label.Transactions": {
-    "message": "交易",
-    "description": "Navbar item with label Transactions"
   },
   "item.label.Smart Contracts": {
     "message": "智慧型契約",
@@ -122,5 +114,13 @@
   "item.label.Wallets": {
     "message": "皮夾",
     "description": "Navbar item with label Wallets"
+  },
+  "item.label.Mini DApps": {
+    "message": "迷你 DApps",
+    "description": "Navbar item with label Mini DApps"
+  },
+  "item.label.Cookbooks": {
+    "message": "烹飪書籍",
+    "description": "Navbar item with label Cookbooks"
   }
 }
