@@ -302,6 +302,7 @@ const sidebars = {
         'build/tutorials/integrate-fee-delegation-service',
         'build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk',
         'build/tutorials/fee-delegation-example',
+        'build/tutorials/cross-chain-nft',
         'build/tutorials/scaffold-eth',
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-remix',
