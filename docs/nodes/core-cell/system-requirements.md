@@ -10,14 +10,20 @@ The following sections show the recommended specifications for both CNs and PNs.
 
 ### Bare-metal Server <a id="bare-metal-server"></a>
 
-| Category | Specification |
+#### General Requirements (All Node Types)
+| Category | Specifications | 
 | :--- | :--- |
-| Server | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html) |
-| CPU | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\) |
-| Memory | 128GB \(32GB \* 4\) |
-| Storage | 4TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Kaia Team for more information.) |
+| CPU | 2.6 GHz base – 3.4 GHz max frequency or higher (e.g., 3rd Gen Intel® Xeon® Scalable Processors) |
+| Storage | ≥ 4 TB SSD (adjust according to chain data size; please consult the Kaia Team for guidance) |
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+
+#### Recommended Specifications by Node Type
+| Node Type | Core/Thread | Memory |
+| :--- | :--- | :--- |
+| CN | 16 core / 32 threads | 128GB |
+| PN | 8 core / 16 threads | 64 GB |
+| PN (with Live Pruning DB) | 4 core / 8 threads | 32 GB | 
 
 You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
 
