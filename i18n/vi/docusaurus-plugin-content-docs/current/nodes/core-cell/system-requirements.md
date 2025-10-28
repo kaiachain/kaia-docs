@@ -10,14 +10,22 @@ The following sections show the recommended specifications for both CNs and PNs.
 
 ### Bare-metal Server <a id="bare-metal-server"></a>
 
-| Category | Specification                                                                                                                                                                                                                                   |
-| :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Server   | Intel® Server System [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html)                                                                                            |
-| CPU      | Intel® Xeon 8358 2.60 GHz \(32-core/64-thread\)                                                                                                                                                            |
-| Memory   | 128GB \(32GB \* 4\)                                                                                                                                                                                                        |
-| Storage  | 4TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. Please consult the Kaia Team for more information.) |
+#### Yêu cầu chung (Tất cả các loại nút)
 
-Note that this is a recommended hardware specification for CNs and PNs, not an exact requirement. Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+| Category | Thông số kỹ thuật                                                                                                                                  |
+| :------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CPU      | Tần số cơ bản 2,6 GHz – Tần số tối đa 3,4 GHz hoặc cao hơn (ví dụ: Bộ xử lý Intel® Xeon® Scalable thế hệ thứ 3) |
+| Storage  | ≥ 4 TB SSD (điều chỉnh theo kích thước dữ liệu chuỗi; vui lòng liên hệ với Đội ngũ Kaia để được hướng dẫn)                      |
+
+Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+
+#### Các thông số kỹ thuật được khuyến nghị theo loại nút
+
+| Node Type                                    | Lõi/Luồng          | Memory       |
+| :------------------------------------------- | :----------------- | :----------- |
+| CN                                           | 16 nhân / 32 luồng | 128 gigabyte |
+| PN                                           | 8 nhân / 16 luồng  | 64 gigabyte  |
+| PN (with Live Pruning DB) | 4 nhân / 8 luồng   | 32 gigabyte  |
 
 You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
 
@@ -49,11 +57,11 @@ The information above is from [https://azure.microsoft.com/en-us/pricing/details
 
 #### Recommended Specification for GCP<a id="recommended-specification-for-gcp"></a>
 
-|                   Node Type                  |       Model      | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
-| :------------------------------------------: | :--------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: |
-|                      CN                      | c4-tiêu chuẩn-32 |  32  |                 120                 |     4,000 (Minimum)    |                     7500                    |               2.03078256              |
-|                      PN                      |  n2-standard-16  |  16  |                  64                 |     4,000 (Minimum)    |                     7500                    |                1.016243               |
-| PN (with Live Pruning DB) |   n2-standard-8  |   8  |                  32                 |     3,500 (Minimum)    |                     7500                    |                0.508121               |
+|                           Loại nút                          |       Model      | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
+| :---------------------------------------------------------: | :--------------: | :--: | :---------------------------------: | :---------------------------------------: | :-----------------------------------------: | :---------------------------------------------------: |
+|                              CN                             | c4-tiêu chuẩn-32 |  32  |                 120                 |     4,000 (Minimum)    |                     7500                    |               2.03078256              |
+|                              PN                             |  n2-standard-16  |  16  |                  64                 |     4,000 (Minimum)    |                     7500                    |                1.016243               |
+| PN (với cơ sở dữ liệu cắt tỉa trực tiếp) |   n2-standard-8  |   8  |                  32                 |     3,500 (Minimum)    |                     7500                    |                0.508121               |
 
 The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
 
