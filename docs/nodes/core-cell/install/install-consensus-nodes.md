@@ -158,7 +158,7 @@ Keep in mind that the keystore and the password that you created is significantl
 
 ### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
+Syncing from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
 
 ## Startup the CN <a id="startup-the-cn"></a>
 
