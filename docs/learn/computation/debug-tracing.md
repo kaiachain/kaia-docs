@@ -34,7 +34,7 @@ To get traces with the debug API, you first need to decide what kind of informat
 
 Kaia's `callTracer` output format is identical to go-ethereum except for following:
 
-- For revered transactions, both fields are provided.
+- For reversed transactions, both fields are provided.
   - `result.revertReason`: revert reason string, if any.
   - `result.reverted.contract`: the address of the reverted contract.
   - `result.reverted.message`: same as revertReason
