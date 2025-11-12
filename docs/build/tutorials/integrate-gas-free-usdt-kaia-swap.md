@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 This guide provides an overview of the Gas-Free USDT to KAIA Swap feature, including its purpose, prerequisites, integration steps, and API references. It is designed to help developers integrate gas-free swap capabilities into their decentralized applications (DApps) on the Kaia network.
 
-## Overview
+## Introduction
 
 A `gasFreeSwapKaia` API was introduced to enable users to perform gasless ERC20 token swaps (currently limited  to  USDT ) on the Kaia network without needing to hold KAIA tokens for gas fees, or even when covering transaction costs on behalf of users. The API specifically supports swapping USDT to KAIA using ERC20 permit signatures for a completely gasless user experience.
 
