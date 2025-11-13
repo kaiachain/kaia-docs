@@ -300,6 +300,7 @@ const sidebars = {
           ],
         },        
         'build/tutorials/integrate-fee-delegation-service',
+        'build/tutorials/integrate-gas-free-usdt-kaia-swap',
         'build/tutorials/how-to-send-usdt-tokens-using-kaia-sdk',
         'build/tutorials/fee-delegation-example',
         'build/tutorials/cross-chain-nft',
