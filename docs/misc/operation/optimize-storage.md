@@ -251,7 +251,7 @@ FlatTrie uses different resource profiles compared to traditional state storage:
 - Lower CPU usage
 - Higher memory usage (~30GB)
 - Higher goroutine count (~900-1000)
-- Slower block finalization time (300-500ms vs <100ms)
+- Slower block finalization time
 
 Monitor these metrics via your node's Prometheus metrics endpoint or Grafana dashboard.
 
