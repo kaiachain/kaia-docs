@@ -57,6 +57,7 @@ const redirects = [
   { from: '/build/tools/wallets/kaia-wallet', to: '/build/wallets/overview/kaia-wallet' },
   { from: ['/build/get-started/account', '/build/get-started/account/creating-accounts', '/build/get-started/account/managing-accounts'], to: '/nodes/endpoint-node/ken-cli-commands' },
   { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
+  { from: '/learn/storage/state-pruning', to: '/learn/storage/storage-optimization' },
 ];
 
 // Folder-wide mappings (oldBase -> newBase)
