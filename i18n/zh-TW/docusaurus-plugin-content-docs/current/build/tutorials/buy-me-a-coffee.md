@@ -887,4 +887,4 @@ Fleek 是一種基礎設施，使我們能夠在 IPFS 上構建現代網站和�
 
 在此基礎上，您還可以在前臺探索一些其他選項，比如除了靜態發送 1 KAIA 咖啡外，還可以添加一個新的輸入字段，用於輸入要發送的咖啡量。 您可以訪問 [github](https://github.com/ayo-klaytn/buy-me-a-coffee) 上的完整代碼庫，也可以使用 [link](https://spring-fog-0605.on.fleek.co/) 測試網站。
 
-如果您想了解更多信息，請訪問 [Kaia 文檔](https://docs.klaytn.foundation/)、[Web3Onboard 文檔](https://onboard.blocknative.com/docs/modules/react) 和 [Fleek 文檔](https://docs.fleek.co/tutorials/hosting/)。 如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
+如果您想瞭解更多資訊，請造訪 [Kaia Docs](https://docs.kaia.io)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react) 和 [Fleek Docs](https://docs.fleek.co/tutorials/hosting/)。 如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/)。
