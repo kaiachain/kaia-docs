@@ -39,8 +39,8 @@ const redirects = [
   { from: '/learn/token-economy', to: '/learn/token-economics/token-economy' },
   { from: '/misc/operation/chaindata-change', to: '/misc/operation/chaindata-snapshot' },
   { from: '/misc/operation/chaindata-migration', to: '/misc/operation/node-pruning/#how-to-perform-batch-pruning' },
-  { from: '/learn/storage/live-pruning', to: '/learn/storage/state-pruning/#state-live-pruning' },
-  { from: '/learn/storage/state-migration', to: '/learn/storage/state-pruning/#state-batch-pruning-state-migration' },
+  { from: '/learn/storage/live-pruning', to: '/learn/storage/storage-optimization/#state-live-pruning' },
+  { from: '/learn/storage/state-migration', to: '/learn/storage/storage-optimization/#state-batch-pruning-state-migration' },
   { from: '/learn/storage/upstream-en', to: '/misc/operation/upstream-en' },
   { from: '/learn/storage/chaindata-snapshot', to: '/misc/operation/chaindata-snapshot' },
   { from: '/build/smart-contracts/deploy/ken', to: '/build/smart-contracts/deployment-and-verification/deploy/private-network' },
@@ -57,6 +57,7 @@ const redirects = [
   { from: '/build/tools/wallets/kaia-wallet', to: '/build/wallets/overview/kaia-wallet' },
   { from: ['/build/get-started/account', '/build/get-started/account/creating-accounts', '/build/get-started/account/managing-accounts'], to: '/nodes/endpoint-node/ken-cli-commands' },
   { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
+  { from: '/learn/storage/state-pruning', to: '/learn/storage/storage-optimization' },
 ];
 
 // Folder-wide mappings (oldBase -> newBase)

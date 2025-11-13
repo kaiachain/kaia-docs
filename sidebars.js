@@ -88,7 +88,7 @@ const sidebars = {
           type: 'category',
           label: 'Data Management',
           link: { type: 'doc', id: 'learn/storage/storage' },
-          items: ['learn/storage/block-sync', 'learn/storage/state-pruning'],
+          items: ['learn/storage/block-sync', 'learn/storage/storage-optimization'],
         },
         'learn/scaling-solutions',
       ],
