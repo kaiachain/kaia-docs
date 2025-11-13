@@ -887,4 +887,4 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
 
-より詳細な情報をお知りになりたい方は、[Kaia Docs](https://docs.klaytn.foundation/)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。
+より詳しい情報は、[Kaia Docs](https://docs.kaia.io)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。 ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。
