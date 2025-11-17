@@ -2,8 +2,8 @@
 
 このページでは、過去のブロック状態を削除してストレージの必要量を減らす方法を説明します。 カイアはブロック状態を刈り込むために2つのアプローチを提供している：
 
-- [ライブ・プルーニング](../../learn/storage/state-pruning.md#state-live-pruning)：ライブ・プルーニング機能を有効にすると、一定の保存期間を超えたブロック状態は自動的に削除されます。
-- [バッチ・プルーニング：ステート・マイグレーション](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration)：あるブロック番号より前のブロック状態が利用可能になることを意味する。
+- [ライブ・プルーニング](../../learn/storage/storage-optimization.md#state-live-pruning)：ライブ・プルーニング機能を有効にすると、一定の保存期間を超えたブロック状態は自動的に削除されます。
+- [バッチ・プルーニング：ステート・マイグレーション](../../learn/storage/storage-optimization.md#state-batch-pruning-state-migration)：あるブロック番号より前のブロック状態が利用可能になることを意味する。
 
 ## 剪定の影響を理解する
 
