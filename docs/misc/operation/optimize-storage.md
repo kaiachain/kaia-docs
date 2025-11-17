@@ -155,7 +155,7 @@ Look for log entries showing `compressionType=snappy` for non-state-trie tables.
 **Check disk usage reduction:**
 
 ```bash
-du -h --max-depth=1 /var/kend/data/
+du -h --max-depth=1 /var/kend/data/klay/chaindata
 ```
 
 Compare before and after compaction. You should see significant storage reductions in the directories containing block bodies and receipts.
