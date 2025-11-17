@@ -101,7 +101,7 @@ Download a compressed file to the new directory. URLs can be found at the bottom
 
 ## Downloads
 
-For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Storage Optimization](../../learn/storage/state-pruning.md) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
+For efficiency, only batch pruned (state migrated) or live pruned database are provided. Đọc [Tối ưu hóa lưu trữ](../../learn/storage/storage-optimization.md) để tìm hiểu về các khái niệm của họ. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
 
 | network | sync options   | download                                                                                            |
 | ------- | -------------- | --------------------------------------------------------------------------------------------------- |
