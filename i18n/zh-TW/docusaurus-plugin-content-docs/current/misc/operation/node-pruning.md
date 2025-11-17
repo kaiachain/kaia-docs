@@ -2,8 +2,8 @@
 
 本頁介紹如何刪除歷史塊狀態以減少存儲需求。 Kaia 提供了兩種修剪塊狀態的方法：
 
-- [即時修剪](../../learn/storage/state-pruning.md#state-live-pruning)：啟用即時修剪功能後，超過一定保留期限的塊狀態將被自動刪除。
-- [批量剪枝：狀態遷移](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration)：區塊狀態可以進行狀態遷移，也就是說，在某個區塊編號之前的區塊狀態都是可用的。
+- [Live Pruning](../../learn/storage/storage-optimization.md#state-live-pruning)：啟用即時修剪功能後，超過一定保留期限的區塊狀態會被自動刪除。
+- [Batch Pruning: State Migration](../../learn/storage/storage-optimization.md#state-batch-pruning-state-migration)：區塊狀態可以進行狀態遷移，也就是在某個區塊號碼之前的區塊狀態變得可用。
 
 ## 瞭解修剪的影響
 
