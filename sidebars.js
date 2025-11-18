@@ -15,6 +15,7 @@ const commonSidebar = [
       'misc/operation/chaindata-snapshot',
       'misc/operation/upstream-en',
       'misc/operation/node-pruning',
+      'misc/operation/optimize-storage',		
       'misc/operation/aws-ami',
     ],
   },
