@@ -4,7 +4,7 @@
 
 :::info
 
-This guide uses Kairos testnet endpoints and contract addresses. The mainnet launch is scheduled at the beginning of December 2025. When deploying to mainnet, update all endpoints and contract addresses accordingly.
+This guide uses Kairos testnet endpoints and contract addresses. The mainnet launch is scheduled for mid-December 2025. When deploying to mainnet, update all endpoints and contract addresses accordingly.
 
 :::
 
@@ -24,7 +24,7 @@ For detailed technical background, see [KIP-249](https://kips.kaia.io/KIPs/kip-2
 Before starting, ensure you have:
 
 - A funded wallet with KAIA tokens for deposits
-- [Go](https://golang.org/) installed (version 1.21+) for SDK examples
+- [Go](https://golang.org/) installed (version 1.25+) for SDK examples
 - Access to Kaia network endpoints (this guide uses Kairos testnet)
 - (Optional) [Foundry](https://getfoundry.sh/) installed (for `cast` commands)
 
@@ -46,7 +46,7 @@ For mainnet contract addresses (available after mainnet launch), check [Contract
 Searchers can identify profitable transactions by:
 
 - **Subscribing to the Auctioneer's pending transaction API**: This API streams transactions directly from Consensus Nodes, allowing you to detect MEV opportunities in real-time. See the [Subscribe Pending Transactions](#step-3-subscribe-to-pending-transactions) section below.
-- **Monitoring the network mempool independently**: Implement your own MEV opportunity detection logic by connecting directly to Kaia nodes.
+- **Monitoring the network mempool independently**: Implement your own MEV opportunity detection logic by subscribing pending tx.
 
 :::
 
@@ -153,7 +153,7 @@ go run example/submitbid.go
 
 The Auctioneer, Proposer, and Smart Contract each perform specific validation checks on bids. Key validation rules include:
 
-- **Block number**: Must be in range `[currentBlockNumber + 1, currentBlockNumber + allowFutureBlock]` (typically `allowFutureBlock = 2`)
+- **Block number**: Must be currentBlockNumber + 1 or currentBlockNumber + 2
 - **Bid amount**: Must be greater than 0 and less than or equal to your available deposit balance
 - **Call data size**: Must not exceed `BidTxMaxDataSize` (64KB)
 - **Call gas limit**: Must not exceed `BidTxMaxCallGasLimit` (10,000,000)
@@ -203,7 +203,7 @@ The execution process consists of three phases:
 
 1. **Validation Phase**: Contract validates block number, signatures, nonce, and bid amount
 2. **Bid Payment Phase**: Bid amount deducted from your deposit and sent to ecosystem fund
-3. **Execution Phase**: Your backrun calldata executes (bid payment occurs regardless of execution outcome)
+3. **Execution Phase**: Your backrun is executed by the EntryPoint contract (bid payment occurs regardless of execution outcome)
 
 **Key Security Features:**
 
@@ -283,7 +283,7 @@ The Auctioneer provides two primary APIs for searchers:
 
 **Q: How many concurrent connections are allowed per searcher?**
 
-A: Pending transaction subscriptions are limited to two connections per searcher address.
+A: Only one pending transaction subscription connection is allowed per searcher address.
 
 **Q: How long do subscription connections remain active?**
 
@@ -301,7 +301,7 @@ A: To prevent being blocked by the Auctioneer API server, do not send the `ping`
 
 **Q: Does geographic location affect latency?**
 
-A: Yes. The Auctioneer server is running in the GCP KR (Korea) region. You are recommended to host your infrastructure in a geographically close region to minimize latency and reduce geographic delay.
+A: Yes. The Auctioneer server is running in the GCP KR (Seoul) region. You are recommended to host your infrastructure in a geographically close region to minimize latency and reduce geographic delay.
 
 ### Bid Timing and Block Targeting
 
