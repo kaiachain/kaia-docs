@@ -511,6 +511,10 @@ const config = {
                 label: 'Kaia Square',
                 href: 'https://square.kaia.io/Home',
               },
+              {
+                label: 'KIPs',
+                href: 'https://kips.kaia.io/',
+              },              
             ],
           },
           {
@@ -534,10 +538,6 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'KIPs',
-                href: 'https://kips.kaia.io/',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/kaiachain',
               },
@@ -545,6 +545,10 @@ const config = {
                 label: 'White Paper',
                 href: 'https://docs.kaia.io/kaiatech/kaia-white-paper/',
               },
+              {
+                label: 'White Paper (MiCA version)',
+                href: 'https://docs.kaia.io/files/MiCA_whitepaper_final_kaia_v1.0.pdf',
+              },              
             ],
           },
           {
