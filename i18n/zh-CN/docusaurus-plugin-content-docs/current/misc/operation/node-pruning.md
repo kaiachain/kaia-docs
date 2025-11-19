@@ -2,8 +2,8 @@
 
 本页介绍如何删除历史块状态以减少存储需求。 Kaia 提供了两种修剪块状态的方法：
 
-- [实时修剪](../../learn/storage/state-pruning.md#state-live-pruning)：启用实时修剪功能后，超过一定保留期限的块状态将被自动删除。
-- [批量剪枝：状态迁移](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration)：区块状态可以进行状态迁移，也就是说，在某个区块编号之前的区块状态都是可用的。
+- [实时修剪](../../learn/storage/storage-optimization.md#state-live-pruning)：启用实时修剪功能后，超过一定保留期限的块状态将被自动删除。
+- [批量剪枝：状态迁移](../../learn/storage/storage-optimization.md#state-batch-pruning-state-migration)：区块状态可以进行状态迁移，即某个区块编号之前的区块状态可以使用。
 
 ## 了解修剪的影响
 
