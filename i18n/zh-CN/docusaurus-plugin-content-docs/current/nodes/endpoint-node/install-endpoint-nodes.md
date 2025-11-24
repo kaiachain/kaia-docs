@@ -115,7 +115,7 @@ DATA_DIR=/var/kend/data
 
 ### (可选）下载 Chaindata 快照
 
-从创世区块进行同步操作非常耗时。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../learn/storage/block-sync.md#full-sync) 过程。
+从创世区块进行同步非常耗时。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../learn/storage/block-sync.md#full-sync) 过程。
 
 ## 启动 EN<a id="startup-the-en"></a>
 
