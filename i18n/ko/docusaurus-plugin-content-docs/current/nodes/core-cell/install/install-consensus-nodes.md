@@ -159,7 +159,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 ### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
+제네시스 블록에서 동기화하는 데는 시간이 많이 걸립니다. You may use [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../../learn/storage/block-sync.md#full-sync) process.
 
 ## CN 시작하기 <a id="startup-the-cn"></a>
 
