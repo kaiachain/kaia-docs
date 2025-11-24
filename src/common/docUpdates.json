@@ -1,6 +1,106 @@
 {
   "updates": [
     {
+      "version": "1.21.6",
+      "date": "2025-11-17",
+      "title": "Searcher's Guide to Kaia v2.1 MEV Auction SDK",
+      "updateType": "NEW_CONTENT",
+      "summary": "Use the Kaia v2.1 MEV Auction SDK to deposit funds, submit sealed bids, and participate in MEV opportunity auctions on the Kaia network.",
+      "primaryDocLink": "/build/tutorials/mev-auction-sdk-guide",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/392",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.21.5",
+      "date": "2025-11-13",
+      "title": "Node Storage Optimization in Kaia v2.1",
+      "updateType": "NEW_CONTENT",
+      "summary": "Explore data compression and FlatTrie features to effectively optimize node storage introduced in Kaia v2.1.",
+      "primaryDocLink": "/misc/operation/optimize-storage",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/391",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.21.4",
+      "date": "2025-11-12",
+      "title": "Gas-Free USDT to KAIA Swaps",
+      "updateType": "NEW_CONTENT",
+      "summary": "Integrate the gasFreeSwapKaia API into your DApp to allow users to swap USDT for KAIA without requiring native tokens for gas fees.",
+      "primaryDocLink": "/build/tutorials/integrate-gas-free-usdt-kaia-swap",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/390"
+    },
+    {
+      "version": "1.21.3",
+      "date": "2025-10-24",
+      "title": "Building Cross-Chain NFTs with Kaia and Chainlink CCIP",
+      "updateType": "NEW_CONTENT",
+      "summary": "Implement a burn-and-mint mechanism to transfer NFTs between Kaia and Ethereum Sepolia using the secure Chainlink CCIP protocol.",
+      "primaryDocLink": "/build/tutorials/cross-chain-nft",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/386"
+    },
+    {
+      "version": "1.21.2",
+      "date": "2025-10-22",
+      "title": "Update Governance Council Policy",
+      "updateType": "UPDATE",
+      "summary": "Updated Governance Council Policy.",
+      "primaryDocLink": "/learn/governance",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/385"
+    },
+    {
+      "version": "1.21.1",
+      "date": "2025-10-16",
+      "title": "Enhancing Copy Page with LLM Context File Option",
+      "updateType": "UPDATE",
+      "summary": "Add a 'View llms.txt' option to the copy menu to help users easily discover the LLM-optimized documentation context.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/384"
+    },
+    {
+      "version": "1.21.0",
+      "date": "2025-10-15",
+      "title": "New AI-Powered Search is Live on Kaia Docs!",
+      "updateType": "NEW_FEATURE",
+      "summary": "Integrate an AI search tool for documentation to provide automatically trained answers and built-in analytics.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/380",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.20.10",
+      "date": "2025-10-01",
+      "title": "Managing Nonces for Reliable Transaction Sequencing",
+      "updateType": "NEW_CONTENT",
+      "summary": "Master nonce management techniques for high-throughput and bulk transactions to prevent failures and ensure correct execution order.",
+      "primaryDocLink": "/build/cookbooks/how-to-manage-nonce",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/376"
+    },
+    {
+      "version": "1.20.9",
+      "date": "2025-10-01",
+      "title": "Preserving User Context with Shared Content Wrappers",
+      "updateType": "NEW_FEATURE",
+      "summary": "Implement a shared-content wrapper approach to prevent context loss and maintain consistent, non-duplicative documentation for users.",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/375"
+    },
+    {
+      "version": "1.20.8",
+      "date": "2025-09-24",
+      "title": "Implementing Bidirectional Chainlink CCIP Messaging",
+      "updateType": "NEW_CONTENT",
+      "summary": "Learn to send and receive cross-chain messages between Kaia and Ethereum Sepolia using Chainlink CCIP in this guide.",
+      "primaryDocLink": "/build/tools/cross-chain/chainlink-ccip",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/374",
+      "showInWhatsNew": true
+    },
+    {
+      "version": "1.20.7",
+      "date": "2025-09-17",
+      "title": "Add Mini DApp SDK introduction",
+      "updateType": "NEW_CONTENT",
+      "summary": "Add introductory page for Mini-DApps and Mini-DApp SDKs to provide a high-level overview before getting into individual Tutorials.",
+      "primaryDocLink": "/minidapps",
+      "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/370"
+    },
+    {
       "version": "1.20.6",
       "date": "2025-09-08",
       "title": "Add vRNG integration guide",
