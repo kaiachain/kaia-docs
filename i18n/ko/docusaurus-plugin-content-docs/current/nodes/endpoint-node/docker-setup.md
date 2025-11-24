@@ -27,7 +27,7 @@ echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 
 ### (Optional) Download Chaindata Snapshot
 
-제네시스 블록에서 동기화하는 것은 시간이 많이 걸립니다. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
+제네시스 블록에서 동기화하는 데는 시간이 많이 걸립니다. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process. Download and decompress the chaindata snapshot. Then mount the decompressed directory to the container.
 
 ## 컨테이너 시작
 
