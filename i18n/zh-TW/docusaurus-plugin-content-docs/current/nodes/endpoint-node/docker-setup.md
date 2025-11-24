@@ -27,7 +27,7 @@ echo "LOG_DIR=/var/kend/logs" >> conf/kend.conf
 
 ### (可選）下載 Chaindata 快照
 
-從創世區塊進行同步操作非常耗時。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳過 [Full Sync](../../learn/storage/block-sync.md#full-sync) 過程。 下載並解壓 chaindata 快照。 然後將解壓後的目錄掛載到容器中。
+從 genesis 區塊進行同步處理非常耗時。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳過 [Full Sync](../../learn/storage/block-sync.md#full-sync) 過程。 下載並解壓 chaindata 快照。 然後將解壓後的目錄掛載到容器中。
 
 ## 啟動容器
 
