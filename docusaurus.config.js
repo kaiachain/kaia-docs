@@ -545,10 +545,10 @@ const config = {
                 label: 'White Paper',
                 href: 'https://docs.kaia.io/kaiatech/kaia-white-paper/',
               },
-              {
+              /**{
                 label: 'White Paper (MiCA version)',
                 href: 'https://docs.kaia.io/files/MiCA_whitepaper_final_kaia_v1.0.pdf',
-              },              
+              },*/              
             ],
           },
           {
