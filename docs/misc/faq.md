@@ -3,6 +3,7 @@
 - [FAQ](#faq)
   - [What is Kaia? ](#what-is-kaia-)
   - [How does Kaia support Ethereum equivalence? ](#how-does-kaia-support-ethereum-equivalence-)
+  - [What is Kaia’s versioning policy? ](#what-is-kaias-versioning-policy-)
   - [What is Kaia’s gas policy? ](#what-is-kaias-gas-policy-)
   - [What is special about Kaia’s account structure? ](#what-is-special-about-kaias-account-structure-)
   - [Where can I start dApp development with Kaia? ](#where-can-i-start-dapp-development-with-kaia-)
@@ -29,6 +30,10 @@ Kaia is a high-performance Layer 1 blockchain designed for the mass adoption of 
 ## How does Kaia support Ethereum equivalence? <a id="how-ethereum-equivalence"></a>
 
 Kaia is EVM-compatible and supports all Ethereum Cancun EVM features except EIP-4844 blob transactions. It provides the `eth` namespace RPC API, allowing seamless use of Ethereum SDKs and tools. Kaia-specific transaction types are represented as Type 0 legacy transactions within the eth namespace APIs, so Ethereum SDKs do not need to be aware of them.
+
+## What is Kaia’s versioning policy? <a id="kaia-versioning-policy"></a>
+
+You can check out from [github](https://github.com/kaiachain/kaia/blob/dev/CONTRIBUTING.md#versioning-policy).
 
 ## What is Kaia’s gas policy? <a id="kaia-gas-policy"></a>
 
