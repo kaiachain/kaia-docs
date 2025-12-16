@@ -15,6 +15,7 @@ Some Kaia features rely on the special smart contracts called _system contracts_
 | KIP-113 SimpleBlsRegistry   | proxy 0x3e80e75975bdb8e04B800485DD28BebeC6d97679 <br/> logic 0xb5ed8d6edd437a0d6ae828580c0aef5678d87f1a | proxy 0x4BEed0651C46aE5a7CB3b7737345d2ee733789e6 <br/> logic 0x6751096fe72d835307d7e635aed51296948b93c5 |
 | KIP-247 GaslessSwapRouter   | 0xCf658F786bf4AC62D66d70Dd26B5c1395dA22c63                                                              | 0x4b41783732810b731569E4d944F59372F411BEa2                                                              |
 | KIP-226 CLRegistry          | 0x25F4044c655Fc7B23c62bbC78ceF3B4EBFb4e478                                                              | 0x25F4044c655Fc7B23c62bbC78ceF3B4EBFb4e478                                                              |
+| KIP-249 Điểm vào đấu giá    | 0xFc5c1C92d8DE06F7143f71FeA209e04042dcff82                                                              | 0x2fF66A8b9f133ca4774bEAd723b8a92fA1e28480                                                              |
 
 Some contracts are not directly read by Kaia nodes but play crucial roles in operating the Kaia blockchain and its ecosystem. They include treasury, governance, and KAIA token bridge contracts.
 
@@ -37,3 +38,5 @@ Some contracts are not directly read by Kaia nodes but play crucial roles in ope
 | Bộ định tuyến KIP-226 CLDEX                                                       | 0x21d3c567058277b19324FE22c8e4Bb3D2AE0D4C3 | 0x41F135a084897e4145CC2032e8701726af795e3a |
 | KIP-226 StakingTrackerV2                                                          | 0xF45c37c265f148894D6d9A4c066aFaAB00557c9c | 0x9b015Ab5916EE53e52Ef60f31E978b4001908c43 |
 | [WKAIA Chính thức](../build/smart-contracts/token-development/canonical-wkaia.md) | 0x19Aac5f612f524B754CA7e7c41cbFa2E981A4432 | 0x043c471bEe060e00A56CcD02c0Ca286808a5A436 |
+| KIP-249 Kho lưu trữ tiền đặt cọc đấu giá                                          | 0x0E66b62273Cc99BC519DD4dD0C0Cf689dd7b9876 | 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc |
+| KIP-249 Kho phí đấu giá                                                           | 0x303BB9c9FF4Aa656ac4c8e9f99F8E4C133FDa665 | 0xE4e7d880786c53b6EA6cfA848Eb3a05eE97b2aCC |
