@@ -3,6 +3,7 @@
 - [よくある質問](#faq)
   - [カイアとは？ ](#what-is-kaia-)
   - [カイアはイーサリアムの等価性をどのようにサポートしていますか？ ](#how-does-kaia-support-ethereum-equivalence-)
+  - [カイアのバージョン管理ポリシーは？ ](#what-is-kaias-versioning-policy-)
   - [カイアのガス政策は？ ](#what-is-kaias-gas-policy-)
   - [カイアの口座構成は特別ですか？ ](#what-is-special-about-kaias-account-structure-)
   - [カイアのdApp開発はどこから始められますか？ ](#where-can-i-start-dapp-development-with-kaia-)
@@ -29,6 +30,10 @@ Kaiaは、特にアジアにおけるWeb3の大量導入のために設計され
 ## Kaiaはイーサリアム等価性をどのようにサポートしていますか？ <a id="how-ethereum-equivalence"></a>
 
 KaiaはEVM互換であり、EIP-4844 blobトランザクションを除くすべてのEthereum Cancun EVM機能をサポートしている。 これは `eth` 名前空間 RPC API を提供し、Ethereum SDK やツールをシームレスに使用できるようにします。 Kaia固有のトランザクションタイプはeth名前空間API内でタイプ0のレガシートランザクションとして表現されるため、イーサリアムSDKはそれらを認識する必要はない。
+
+## カイアのバージョン管理ポリシーは？ <a id="kaia-versioning-policy"></a>
+
+github](https://github.com/kaiachain/kaia/blob/dev/CONTRIBUTING.md#versioning-policy)からチェックできる。
 
 ## カイアのガス政策とは？ <a id="kaia-gas-policy"></a>
 
