@@ -28,6 +28,16 @@
 - 访问 Kaia 网络端点（本指南使用 Kairos 测试网）
 - (可选）已安装 [Foundry](https://getfoundry.sh/) （用于 `cast` 命令）
 
+**拍卖人终端：**
+
+- Kairos (testnet)：`https://auctioneer-kairos.kaia.io`.
+- 主网：`https://auctioneer.kaia.io`
+
+**探索者终端：**
+
+- Kairos (testnet)：`https://mev-kairos.kaia.io`.
+- 主网：`https://mev.kaia.io`
+
 **网络终端：**
 
 - Kairos (testnet)：`https://public-en-kairos.node.kaia.io`.
