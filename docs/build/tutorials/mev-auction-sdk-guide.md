@@ -33,6 +33,11 @@ Before starting, ensure you have:
 - Kairos (testnet): `https://auctioneer-kairos.kaia.io`
 - Mainnet: `https://auctioneer.kaia.io`
 
+**Explorer Endpoint:**
+
+- Kairos (testnet): `https://mev-kairos.kaia.io`
+- Mainnet: `https://mev.kaia.io`
+
 **Network Endpoints:**
 
 - Kairos (testnet): `https://public-en-kairos.node.kaia.io`
