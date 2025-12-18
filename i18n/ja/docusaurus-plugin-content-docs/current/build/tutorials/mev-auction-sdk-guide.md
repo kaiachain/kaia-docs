@@ -28,6 +28,16 @@
 - Kaiaネットワークエンドポイントへのアクセス（本ガイドではKairos testnetを使用）
 - (オプション) [Foundry](https://getfoundry.sh/) インストール済み (`cast` コマンド用)
 
+**オークショニア・エンドポイント：**\*。
+
+- カイロス（テストネット）：https://auctioneer-kairos.kaia.io\`
+- メインネットhttps://auctioneer.kaia.io\`
+
+\*\*エクスプローラー・エンドポイント
+
+- カイロス（テストネット）：https://mev-kairos.kaia.io\`
+- メインネットhttps://mev.kaia.io\`
+
 **ネットワーク・エンドポイント：**\*。
 
 - カイロス（テストネット）：https://public-en-kairos.node.kaia.io\`
