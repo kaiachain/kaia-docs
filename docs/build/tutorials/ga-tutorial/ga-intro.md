@@ -45,4 +45,4 @@ Unlike solutions that rely on centralized "paymaster" services, Kaia's GA is ful
 
 ## 1.4 Relationship with Consensus Liquidity (CL)
 
-GA was originally designed to increase utility for [Consensus Liquidity tokens](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19), allowing users to pay gas with CL tokens (e.g., BORA, Swapscanner). However, the feature can support other ERC-20 tokens as well, including stablecoins.
+GA was originally designed to increase utility for [Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/), allowing users to pay gas with CL tokens (e.g., BORA, Swapscanner). However, the feature can support other ERC-20 tokens as well, including stablecoins.

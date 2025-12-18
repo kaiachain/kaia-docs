@@ -69,7 +69,7 @@ For existing nodes, manually triggering database compaction rewrites old uncompr
 
 **Results:** Mainnet full nodes see approximately 50% total storage reduction (~2TB savings), with most gains in the body and receipts tables. The process takes about 10 hours and can run concurrently with normal block processing.
 
-Read this blog article for more technical details: [How Kaia v2.1 Reclaimed 2TB Through Compression]().
+Read this blog article for more technical details: [How Kaia v2.1 Reclaimed 2TB Through Compression](https://blog.kaia.io/cutting-blockchain-storage-in-half/).
 
 For how to enable compression, see the [Optimize Node Storage guide](../../misc/operation/optimize-storage.md#database-compression).
 
@@ -101,6 +101,6 @@ This approach eliminates the persistent storage of historical intermediate nodes
 
 **Limitations:** The experimental v2.1.0 implementation does not support block rewinding (`debug_setHead` API), Merkle proof generation (`eth_getProof` API), or state pruning features. These restrictions stem from FlatTrie's design choice to discard historical branch nodes.
 
-Read this blog article for more technical details: [Kaia’s Experimental FlatTrie for Archive Nodes](#).
+Read this blog article for more technical details: [Kaia’s Experimental FlatTrie for Archive Nodes](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 For how to enable FlatTrie, see the [Optimize Node Storage guide](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental).

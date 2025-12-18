@@ -79,5 +79,5 @@ You can view them on the Kairos testnet explorer. These blocks show the full bun
 
 **Educational Content:**
 
-- [What if you could pay gas fees with stablecoins?](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [Kaia Consensus Liquidity Announcement](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)
+- [What if you could pay gas fees with stablecoins?](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [Kaia Consensus Liquidity Announcement](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)
