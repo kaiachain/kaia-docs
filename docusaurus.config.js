@@ -129,6 +129,10 @@ const config = {
     },
   ],
 
+  clientModules: [
+    require.resolve('./src/common/umamiCodeCopy.js'),
+  ],
+
   plugins: [
     [
       'docusaurus-plugin-openapi-docs',
