@@ -28,6 +28,16 @@
 - 存取 Kaia 網路端點 (本指南使用 Kairos testnet)
 - (可選）已安裝 [Foundry](https://getfoundry.sh/) (用於 `cast` 指令)
 
+**拍賣者端點：**
+
+- Kairos (testnet)：`https://auctioneer-kairos.kaia.io`
+- 主網絡：`https://auctioneer.kaia.io`
+
+**探索者端點：**
+
+- Kairos (testnet)：`https://mev-kairos.kaia.io`
+- 主網絡：`https://mev.kaia.io`
+
 **網路端點：**
 
 - Kairos (testnet)：`https://public-en-kairos.node.kaia.io`
