@@ -28,6 +28,11 @@ Before starting, ensure you have:
 - Access to Kaia network endpoints (this guide uses Kairos testnet)
 - (Optional) [Foundry](https://getfoundry.sh/) installed (for `cast` commands)
 
+**Auctioneer Endpoint:**
+
+- Kairos (testnet): `https://auctioneer-kairos.kaia.io`
+- Mainnet: `https://auctioneer.kaia.io`
+
 **Network Endpoints:**
 
 - Kairos (testnet): `https://public-en-kairos.node.kaia.io`
