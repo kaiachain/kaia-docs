@@ -28,6 +28,16 @@ Trước khi bắt đầu, hãy đảm bảo rằng bạn đã có:
 - Quyền truy cập vào các điểm cuối mạng Kaia (hướng dẫn này sử dụng mạng thử nghiệm Kairos)
 - (Tùy chọn) [Foundry](https://getfoundry.sh/) đã được cài đặt (để sử dụng các lệnh `cast`)
 
+**Điểm cuối của người đấu giá:**
+
+- Kairos (mạng thử nghiệm): `https://auctioneer-kairos.kaia.io`
+- Mainnet: `https://auctioneer.kaia.io`
+
+**Điểm cuối Explorer:**
+
+- Kairos (mạng thử nghiệm): `https://mev-kairos.kaia.io`
+- Mainnet: `https://mev.kaia.io`
+
 **Điểm cuối mạng:**
 
 - Kairos (mạng thử nghiệm): `https://public-en-kairos.node.kaia.io`
