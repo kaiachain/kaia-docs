@@ -28,6 +28,16 @@
 - Kaia 네트워크 엔드포인트에 액세스(이 가이드에서는 카이로스 테스트넷 사용)
 - (선택 사항) [파운드리](https://getfoundry.sh/) 설치(`cast` 명령용)
 
+**경매인 엔드포인트:**
+
+- 카이로스(테스트넷): `https://auctioneer-kairos.kaia.io`
+- 메인넷: `https://auctioneer.kaia.io`
+
+**익스플로러 엔드포인트:**
+
+- 카이로스(테스트넷): `https://mev-kairos.kaia.io`
+- 메인넷: `https://mev.kaia.io`
+
 **네트워크 엔드포인트:**
 
 - 카이로스(테스트넷): `https://public-en-kairos.node.kaia.io`
