@@ -29,7 +29,7 @@ export default function useUmamiScroll() {
         if (percent >= threshold && !triggeredRef.current[threshold]) {
           triggeredRef.current[threshold] = true;
           
-          window.umami.track(`read_${threshold}%`);
+          window.umami.track(`read_${threshold}%`, { path: location.pathname });
         }
       });
 

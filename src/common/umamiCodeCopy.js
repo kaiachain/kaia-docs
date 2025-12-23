@@ -23,7 +23,7 @@ function handleCopyClick(event) {
 
   window.umami.track('code-copy', {
     language,
-    page: window.location.pathname,
+    path: window.location.pathname,
   });
 }
 
