@@ -70,7 +70,7 @@ Kaia v2.1.0 啟動 LevelDB 的 Snappy 壓縮演算法，並選擇性地應用於
 
 **結果：** Mainnet 完整節點的總儲存空間減少約 50% (~2TB 節省空間)，大部分的增益在正文和收據資料表。 此過程約需 10 小時，可與一般區塊處理同時進行。
 
-閱讀這篇部落格文章，瞭解更多技術細節：Kaia v2.1 如何透過壓縮回收 2 TB。
+閱讀這篇部落格文章，瞭解更多技術細節：[Kaia v2.1 如何透過壓縮回收 2TB](https://blog.kaia.io/cutting-blockchain-storage-in-half/).
 
 有關啟用壓縮的方法，請參閱 [優化節點儲存指南](../../misc/operation/optimize-storage.md#database-compression)。
 
@@ -102,6 +102,6 @@ FlatTrie 是一個實驗性的狀態儲存方案，改編自 [Erigon Ethereum cl
 
 \*\* 限制：\*\* 試驗性 v2.1.0 實作不支援區塊回卷 (`debug_setHead` API)、Merkle 證明生成 (`eth_getProof` API) 或狀態修剪功能。 這些限制源自 FlatTrie 捨棄歷史分支節點的設計選擇。
 
-閱讀這篇部落格文章，瞭解更多技術細節：[Kaia's Experimental FlatTrie for Archive Nodes](#).
+閱讀這篇部落格文章，瞭解更多技術細節：[Kaia's Experimental FlatTrie for Archive Nodes](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 有關如何啟用 FlatTrie，請參閱 [優化節點儲存指南](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental)。
