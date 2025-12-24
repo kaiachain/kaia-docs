@@ -10,5 +10,5 @@
 
 Web3.unity SDK 目前支持 Kaia 主网和 Kairos 测试网。 要开始在 Kaia 上构建支持区块链的游戏，请查看以下指南：
 
-- [Kaia上的Unity游戏开发：使用ChainSafe铸造可流通代币](https://medium.com/kaiachain/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe-beea9022c42d)
-- [如何在 Kaia 上使用 Chainsafe 和 Thirdweb 对 Unity 游戏进行代币门](https://medium.com/kaiachain/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia-93c574519da2)
+- [Kaia上的Unity游戏开发：使用ChainSafe铸造可流通代币](https://blog.kaia.io/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe/)
+- [如何在 Kaia 上使用 Chainsafe 和 Thirdweb 对 Unity 游戏进行代币门](https://blog.kaia.io/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia/)
