@@ -79,5 +79,5 @@ Kairos testnet explorerで見ることができます。 これらのブロッ�
 
 \*\*教育内容
 
-- [ガス料金を安定コインで支払えるとしたら？](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [カイア・コンセンサス流動性発表】(https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)
+- [ガス料金を安定コインで支払えるとしたら？](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [カイア・コンセンサス流動性発表】(https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)
