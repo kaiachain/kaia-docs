@@ -70,7 +70,7 @@ Kaia v2.1.0 激活了 LevelDB 的 Snappy 压缩算法，可选择性地应用于
 
 **结果：** 主网全节点的总存储量减少了约 50%（节省约 2TB 的存储空间），其中正文和收据表的存储空间增加最多。 这一过程大约需要 10 个小时，可与正常的区块处理同时进行。
 
-阅读本博客文章，了解更多技术细节：Kaia v2.1 如何通过压缩回收 2TB.
+阅读这篇博客文章，了解更多技术细节：[Kaia v2.1 如何通过压缩回收 2TB](https://blog.kaia.io/cutting-blockchain-storage-in-half/).
 
 有关启用压缩的方法，请参阅 [优化节点存储指南](../../misc/operation/optimize-storage.md#database-compression)。
 
@@ -102,6 +102,6 @@ FlatTrie 是一种实验性的状态存储方案，改编自[Erigon 以太坊客
 
 **限制：** 实验性 v2.1.0 实现不支持块回卷（`debug_setHead` API）、默克尔证明生成（`eth_getProof` API）或状态剪枝功能。 这些限制源于 FlatTrie 丢弃历史分支节点的设计选择。
 
-阅读这篇博客文章，了解更多技术细节：[Kaia 的存档节点 FlatTrie 实验](#).
+阅读这篇博客文章，了解更多技术细节：[Kaia 的存档节点 FlatTrie 实验](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 有关启用 FlatTrie 的方法，请参阅 [优化节点存储指南](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental)。
