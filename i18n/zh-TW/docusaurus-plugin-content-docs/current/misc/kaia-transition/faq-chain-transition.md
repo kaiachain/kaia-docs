@@ -43,7 +43,7 @@ Please note that most of the information provided in this FAQ reflects a transit
 
 ### Klaytn和Finschia <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-Klaytn 和 Finschia 通過管理決策合併為 Kaia。 您可以查看投票結果 [此處](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a)。 兩條鏈（KLAY 和 FNSA）的實用代幣轉換為 KAIA 代幣。 您可以在 [此處] 找到這兩種代幣的匯率(../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)。
+Klaytn 和 Finschia 通過管理決策合併為 Kaia。 您可以檢視投票結果 [這裡](https://blog.kaia.io/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem/)。 兩條鏈（KLAY 和 FNSA）的實用代幣轉換為 KAIA 代幣。 您可以在 [此處] 找到這兩種代幣的匯率(../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)。
 
 ### KLAY 和 FNSA 會怎麼樣？ <a id="what-happens-to-klay-and-fnsa-"></a>
 
@@ -142,8 +142,8 @@ Kaia 是 Klaytn 鏈的硬分叉，鏈 ID 保持不變。 之前的測試網絡 "
 以下是鏈合併的主要信息：
 
 - [治理建議](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
-- [合併背後的願景](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
-- [製作 Kaia DeFi 的核心](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
-- [回應機構需求](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
-- [補充數據和見解](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
-- [Kaia品牌故事](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
+- [合併背後的願景](https://blog.kaia.io/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-no-1-blockchain-ecosystem/)
+- [Crafting the core of Kaia DeFi](https://blog.kaia.io/crafting-the-core-of-project-dragons-defi-ecosystem/)
+- [回應機構需求](https://blog.kaia.io/project-dragon-responding-to-institutional-demand/)
+- [Supplementary data and insights](https://blog.kaia.io/project-dragon-supplementary-data-and-insights/)
+- [Kaia品牌故事](https://blog.kaia.io/say-hello-to-kaia/)
