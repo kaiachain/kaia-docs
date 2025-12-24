@@ -70,7 +70,7 @@ Kaia v2.1.0 kích hoạt thuật toán nén Snappy của LevelDB với việc á
 
 **Kết quả:** Các nút chính thức trên mạng chính (Mainnet) ghi nhận giảm khoảng 50% dung lượng lưu trữ tổng thể (~2TB tiết kiệm), với phần lớn lợi ích tập trung vào các bảng dữ liệu chính và bảng giao dịch. Quá trình này mất khoảng 10 giờ và có thể được thực hiện đồng thời với quá trình xử lý khối thông thường.
 
-Đọc bài viết blog này để biết thêm chi tiết kỹ thuật: Cách Kaia v2.1 thu hồi 2TB thông qua nén.
+Đọc bài viết blog này để biết thêm chi tiết kỹ thuật: [Cách Kaia v2.1 thu hồi 2TB thông qua nén](https://blog.kaia.io/cutting-blockchain-storage-in-half/).
 
 Để biết cách kích hoạt nén, hãy tham khảo hướng dẫn [Optimize Node Storage](../../misc/operation/optimize-storage.md#database-compression).
 
@@ -102,6 +102,6 @@ Phương pháp này loại bỏ việc lưu trữ lâu dài các nút trung gian
 
 **Hạn chế:** Phiên bản thử nghiệm v2.1.0 không hỗ trợ tính năng quay lại khối (API `debug_setHead`), tạo bằng chứng Merkle (API `eth_getProof`) hoặc tính năng cắt giảm trạng thái. Những hạn chế này xuất phát từ lựa chọn thiết kế của FlatTrie trong việc loại bỏ các nút nhánh lịch sử.
 
-Đọc bài viết blog này để biết thêm chi tiết kỹ thuật: [Kaia’s Experimental FlatTrie for Archive Nodes](#).
+Đọc bài viết blog này để biết thêm chi tiết kỹ thuật: [Kaia’s Experimental FlatTrie for Archive Nodes](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 Để biết cách kích hoạt FlatTrie, hãy tham khảo hướng dẫn [Optimize Node Storage](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental).
