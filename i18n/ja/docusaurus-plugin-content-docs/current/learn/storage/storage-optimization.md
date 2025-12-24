@@ -70,7 +70,7 @@ Kaia v2.1.0は、LevelDBのSnappy圧縮アルゴリズムをデータベース�
 
 \*\*結果:\*\*メインネットのフル・ノードでは、ストレージの総量が約50%削減され（~2TBの節約）、特にボディ・テーブルとレシート・テーブルで大きな効果が得られました。 この処理には約10時間かかり、通常のブロック処理と同時に実行できる。
 
-技術的な詳細については、このブログ記事をお読みください：カイアv2.1が圧縮によって2TBを取り戻すまで.
+技術的な詳細については、このブログ記事をお読みください：[カイアv2.1が圧縮によって2TBを取り戻すまで](https://blog.kaia.io/cutting-blockchain-storage-in-half/)。
 
 圧縮を有効にする方法については、[ノードストレージの最適化ガイド](../../misc/operation/optimize-storage.md#database-compression)を参照してください。
 
@@ -102,6 +102,6 @@ FlatTrieは、[Erigon Ethereumクライアント](https://github.com/erigontech/
 
 **制限事項:** 実験的な v2.1.0 の実装では、ブロックの巻き戻し (`debug_setHead` API) や Merkle 証明の生成 (`eth_getProof` API) や状態の刈り込み機能はサポートされていない。 これらの制限は、FlatTrieが過去のブランチノードを破棄するという設計上の選択に由来する。
 
-技術的な詳細については、このブログ記事をお読みください：[カイアの実験的FlatTrie for Archive Nodes](#).
+技術的な詳細については、このブログ記事をお読みください：[カイアの実験的FlatTrie for Archive Nodes](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 FlatTrieを有効にする方法については、[ノード・ストレージの最適化ガイド](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental)を参照してください。
