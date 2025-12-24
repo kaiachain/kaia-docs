@@ -79,5 +79,5 @@ SwapTx 會在鏈上失敗，但由於 \*\*KIP-245 的原子捆綁 \*\*，整個�
 
 **教育內容：**
 
-- [如果可以用穩定幣支付瓦斯費呢？](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [Kaia Consensus 流動資金公告](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)
+- [如果可以用穩定幣支付瓦斯費呢？](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [Kaia Consensus 流動資金公告](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)
