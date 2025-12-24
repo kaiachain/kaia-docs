@@ -70,7 +70,7 @@ Kaia v2.1.0은 데이터베이스 테이블에 선택적으로 적용하여 Leve
 
 \*\*결과: 메인넷 전체 노드에서 총 스토리지가 약 50% 감소(약 2TB 절감)했으며, 본체와 영수증 테이블에서 대부분 증가했습니다. 이 프로세스는 약 10시간이 소요되며 일반 블록 처리와 동시에 실행할 수 있습니다.
 
-자세한 기술적인 내용은 이 블로그 글을 참조하세요: Kaia v2.1이 압축을 통해 2TB를 회수한 방법.
+자세한 기술적인 내용은 이 블로그 글을 참조하세요: [Kaia v2.1이 압축을 통해 2TB를 회수한 방법](https://blog.kaia.io/cutting-blockchain-storage-in-half/).
 
 압축을 활성화하는 방법은 [노드 스토리지 최적화 가이드](../../misc/operation/optimize-storage.md#database-compression)를 참조하세요.
 
@@ -102,6 +102,6 @@ FlatTrie는 과거 계정 상태 저장 방식을 재구성하여 아카이브 �
 
 **제한 사항:** 실험적인 v2.1.0 구현은 블록 되돌리기(`debug_setHead` API), 머클 증명 생성(`eth_getProof` API), 상태 가지치기 기능을 지원하지 않습니다. 이러한 제한은 과거 브랜치 노드를 버리기로 한 FlatTrie의 설계 선택에서 비롯된 것입니다.
 
-자세한 기술적 내용은 이 블로그 글을 참조하세요: [카이아의 아카이브 노드를 위한 실험적 FlatTrie](#).
+자세한 기술적 내용은 이 블로그 글을 참조하세요: [카이아의 아카이브 노드를 위한 실험적 FlatTrie](https://blog.kaia.io/flatten-the-state-shrink-the-disk/).
 
 FlatTrie를 활성화하는 방법은 [노드 스토리지 최적화 가이드](../../misc/operation/optimize-storage.md#flattrie-state-scheme-experimental)를 참조하세요.
