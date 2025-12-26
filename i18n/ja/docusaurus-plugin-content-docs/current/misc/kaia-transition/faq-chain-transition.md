@@ -43,7 +43,7 @@
 
 ### クレイトンとフィンシャに何が起こったのか？ <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-KlaytnとFinschiaは、両チェーンによるガバナンスの決定によって合併し、Kaiaとなった。 投票結果は[こちら](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a)からご覧いただけます。 2つのチェーン（KLAYとFNSA）のユーティリティ・トークンはKAIAトークンに変換される。 両トークンの為替レートは[こちら](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)で確認できる。
+KlaytnとFinschiaは、両チェーンによるガバナンスの決定によって合併し、Kaiaとなった。 投票結果は[こちら](https://blog.kaia.io/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem/)からご覧いただけます。 2つのチェーン（KLAYとFNSA）のユーティリティ・トークンはKAIAトークンに変換される。 両トークンの為替レートは[こちら](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status)で確認できる。
 
 ### KLAYとFNSAはどうなるのか？ <a id="what-happens-to-klay-and-fnsa-"></a>
 
@@ -142,8 +142,8 @@ KaiaはKlaytnチェーンのハードフォークであり、チェーンIDは�
 チェーン・マージの主な情報源は以下の通り：
 
 - [ガバナンス提案](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
-- [合併に隠されたビジョン](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
-- [カイア・デフィのコアを作る](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
-- [機関の需要に応える](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
-- [補足データと考察](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
-- [カイア・ブランド・ストーリー](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
+- [合併に隠されたビジョン](https://blog.kaia.io/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-no-1-blockchain-ecosystem/)
+- [カイア・デフィのコアを作る](https://blog.kaia.io/crafting-the-core-of-project-dragons-defi-ecosystem/)
+- [機関の需要に応える】(https://blog.kaia.io/project-dragon-responding-to-institutional-demand/)
+- [補足データと考察](https://blog.kaia.io/project-dragon-supplementary-data-and-insights/)
+- [カイア・ブランド・ストーリー](https://blog.kaia.io/say-hello-to-kaia/)

@@ -79,5 +79,5 @@ Kairos 테스트넷 익스플로러에서 볼 수 있습니다. 다음 블록들
 
 **교육 콘텐츠:**
 
-- [스테이블코인으로 가스비 지불이 가능하다면?](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [Kaia Consensus Liquidity 발표](https://medium.com/kaiachain/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EC%9C%A0%EB%8F%99%EC%84%B1-%EA%B3%B5%EA%B8%89%EC%9D%98-%EC%83%88%EB%A1%9C%EC%9A%B4-%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84%EC%9D%84-%EC%A0%9C%EC%8B%9C%ED%95%A9%EB%8B%88%EB%8B%A4-kaia-consensus-liquidity-ff6ed20a155f)
+- [스테이블코인으로 가스 요금을 지불할 수 있다면 어떨까요?](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [카이아 컨센서스 유동성 발표](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)

@@ -2,8 +2,8 @@
 
 This page explains how to delete historical block states to reduce the storage requirement. Kaia offers two approaches for pruning block states:
 
-- [Live Pruning](../../learn/storage/state-pruning.md#state-live-pruning): With the live pruning feature enabled, the block states beyond a certain retention period will be automatically deleted.
-- [Batch Pruning: State Migration](../../learn/storage/state-pruning.md#state-batch-pruning-state-migration): The block states can be state-migrated, meaning the block states before a certain block number become available.
+- [Cắt tỉa trực tiếp](../../learn/storage/storage-optimization.md#state-live-pruning): Khi tính năng cắt tỉa trực tiếp được kích hoạt, các trạng thái khối vượt quá khoảng thời gian lưu trữ nhất định sẽ được tự động xóa.
+- [Cắt lọc theo lô: Di chuyển trạng thái](../../learn/storage/storage-optimization.md#state-batch-pruning-state-migration): Các trạng thái khối có thể được di chuyển trạng thái, nghĩa là các trạng thái khối trước một số khối nhất định sẽ trở nên khả dụng.
 
 ## Understanding Pruning Impacts
 

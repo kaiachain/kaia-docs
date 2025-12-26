@@ -45,4 +45,4 @@ Kaia 的新人在以下情况下往往会遇到困难：
 
 ## 1.4 与共识流动性 (CL) 的关系
 
-GA 最初是为了提高[共识流动性代币](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)的效用而设计的，允许用户使用 CL 代币（如 BORA、Swapscanner）支付天然气。 不过，该功能也可以支持其他 ERC-20 代币，包括稳定币。
+GA 最初是为了提高[共识流动性代币](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)的效用而设计的，允许用户使用 CL 代币（如 BORA、Swapscanner）支付天然气。 不过，该功能也可以支持其他 ERC-20 代币，包括稳定币。

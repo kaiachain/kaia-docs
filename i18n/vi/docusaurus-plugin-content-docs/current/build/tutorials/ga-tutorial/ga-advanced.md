@@ -79,5 +79,5 @@ Bạn có thể xem chúng trên trình khám phá mạng thử nghiệm Kairos.
 
 **Nội dung giáo dục:**
 
-- [Nếu bạn có thể thanh toán phí gas bằng stablecoin thì sao?](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [Thông báo về tính thanh khoản của Kaia Consensus](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)
+- [Nếu bạn có thể thanh toán phí gas bằng stablecoin thì sao?](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [Thông báo về thanh khoản của Kaia Consensus](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)

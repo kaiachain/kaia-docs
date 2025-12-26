@@ -115,7 +115,7 @@ DATA_DIR=/var/kend/data
 
 ### (Optional) Download Chaindata Snapshot
 
-Synching from the genesis block is time-consuming. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process.
+Việc đồng bộ hóa từ khối genesis mất nhiều thời gian. You may use [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) to skip the [Full Sync](../../learn/storage/block-sync.md#full-sync) process.
 
 ## Startup the EN <a id="startup-the-en"></a>
 

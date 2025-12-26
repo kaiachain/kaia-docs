@@ -10,5 +10,5 @@
 
 Web3.unity SDK는 현재 카이아 메인넷과 카이로스 테스트넷을 모두 지원합니다. 카이아에서 블록체인 지원 게임 개발을 시작하려면 다음 가이드를 확인하세요:
 
-- [카이아를 활용한 유니티 게임 개발: 체인세이프를 통한 대체 가능한 토큰 발행](https://medium.com/kaiachain/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe-beea9022c42d)
-- [카이아에서 체인세이프와 써드웹을 사용하여 유니티 게임을 토큰 게이트하는 방법](https://medium.com/kaiachain/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia-93c574519da2)
+- [카이아를 활용한 유니티 게임 개발: 체인세이프를 통한 대체 가능한 토큰 발행](https://blog.kaia.io/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe/)
+- [카이아에서 체인세이프와 써드웹을 사용하여 유니티 게임을 토큰 게이트하는 방법](https://blog.kaia.io/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia/)

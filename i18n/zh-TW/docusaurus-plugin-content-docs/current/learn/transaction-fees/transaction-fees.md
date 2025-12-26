@@ -62,7 +62,7 @@
   - 基本費用上限：基本費用的最大值
   - 基本費用下限值：基本費用的最小值
 
-以下是基礎費用計算的簡化版本。 從本質上講，基本費用的變化與 GAS_TARGET 和 PREVIOUS_BLOCK_GAS_USED 之間的差額成正比，其他參數控制著基本費用的變化速度或界限。 準確公式請參閱 [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)。
+以下是基礎費用計算的簡化版本。 就其本質而言，基本費用的變化與 GAS_TARGET 和 PREVIOUS_BLOCK_GAS_USED 之間的差異成正比，其他參數則控制基本費用的變化速度或界線。 準確公式請參閱 [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)。
 
 ```
               min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET
