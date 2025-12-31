@@ -3,6 +3,7 @@
 - [FAQ](#faq)
   - [Kaia란 무엇인가요? ](#what-is-kaia-)
   - [Kaia는 어떻게 이더리움 동등성을 지원하나요? ](#how-does-kaia-support-ethereum-equivalence-)
+  - [카이아의 버전 관리 정책은 무엇인가요? ](#what-is-kaias-versioning-policy-)
   - [Kaia의 가스 정책은 무엇인가요? ](#what-is-kaias-gas-policy-)
   - [Kaia 계정 구조의 특별한 점은 무엇인가요? ](#what-is-special-about-kaias-account-structure-)
   - [Kaia로 디앱 개발은 어디서 시작할 수 있나요? ](#where-can-i-start-dapp-development-with-kaia-)
@@ -29,6 +30,10 @@ Kaia is a high-performance Layer 1 blockchain designed for the mass adoption of 
 ## Kaia는 어떻게 이더리움과 동등성을 지원하나요? <a id="how-ethereum-equivalence"></a>
 
 Kaia is EVM-compatible and supports all Ethereum Cancun EVM features except EIP-4844 blob transactions. It provides the `eth` namespace RPC API, allowing seamless use of Ethereum SDKs and tools. Kaia-specific transaction types are represented as Type 0 legacy transactions within the eth namespace APIs, so Ethereum SDKs do not need to be aware of them.
+
+## Kaia의 버전 관리 정책은 무엇인가요? <a id="kaia-versioning-policy"></a>
+
+github](https://github.com/kaiachain/kaia/blob/dev/CONTRIBUTING.md#versioning-policy)에서 확인할 수 있습니다.
 
 ## Kaia의 가스 정책은 무엇인가요? <a id="klaytn-gas-policy"></a>
 

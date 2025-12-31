@@ -43,7 +43,7 @@ This FAQ addresses common questions and concerns for CEXs, node providers, walle
 
 ### What happened to Klaytn and Finschia? <a id="what-happened-to-klaytn-and-finschia-"></a>
 
-Klaytn and Finschia merged to form Kaia through governance decisions made by both chains. You can view the voting results [here](https://medium.com/kaiachain/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem-7af570eb069a). The utility tokens of the two chains (KLAY and FNSA) are converted to the KAIA token. You can find the exchange rates for both tokens [here](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status).
+Klaytn and Finschia merged to form Kaia through governance decisions made by both chains. 투표 결과는 여기에서 확인할 수 있습니다(https://blog.kaia.io/klaytn-and-finschia-merge-proposal-passes-creating-asias-largest-blockchain-ecosystem/). The utility tokens of the two chains (KLAY and FNSA) are converted to the KAIA token. You can find the exchange rates for both tokens [here](../../kaiatech/kaia-white-paper.md#fnsa-issuancedistribution-status).
 
 ### What happens to KLAY and FNSA? <a id="what-happens-to-klay-and-fnsa-"></a>
 
@@ -142,8 +142,8 @@ Kaia is a hard fork of the Klaytn chain, and the chain ID remains unchanged. The
 Here are the main information sources for the chain merge:
 
 - [Governance proposal](https://govforum.klaytn.foundation/t/kgp-25-klaytn-finschia-mainnet-merge/719)
-- [Our vision behind the merge](https://medium.com/klaytn/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-1-blockchain-ecosystem-7de1588e28c0)
-- [Crafting the core of Kaia DeFi](https://medium.com/klaytn/crafting-the-core-of-project-dragons-defi-ecosystem-0fa561e02f56)
-- [Responding to institutional demand](https://medium.com/klaytn/project-dragon-responding-to-institutional-demand-bd36e2e1e2a6)
-- [Supplementary data and insights](https://medium.com/klaytn/project-dragon-supplementary-data-and-insights-d36abd25ca0f)
-- [The Kaia brand story](https://medium.com/klaytn/say-hello-to-kaia-4182ccafe456)
+- [합병의 비전](https://blog.kaia.io/finschia-klaytn-chain-merge-proposal-our-vision-for-asias-no-1-blockchain-ecosystem/)
+- [카이아 디파이의 핵심 만들기](https://blog.kaia.io/crafting-the-core-of-project-dragons-defi-ecosystem/)
+- [기관 수요에 대한 대응](https://blog.kaia.io/project-dragon-responding-to-institutional-demand/)
+- [보충 데이터 및 인사이트](https://blog.kaia.io/project-dragon-supplementary-data-and-insights/)
+- [카이아 브랜드 스토리](https://blog.kaia.io/say-hello-to-kaia/)

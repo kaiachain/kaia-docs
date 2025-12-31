@@ -45,4 +45,4 @@ Kaia 新來者在下列情況下經常會遇到困難：
 
 ## 1.4 與 Consensus Liquidity (CL) 的關係
 
-GA 原本是為了增加 [Consensus Liquidity tokens](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19) 的效用而設計，讓使用者可以使用 CL tokens (例如 BORA、Swapscanner) 支付瓦斯。 不過，該功能也可以支援其他 ERC-20 代幣，包括穩定幣。
+GA 原本是為了增加 [Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/) 的效用而設計，讓使用者可以使用 CL tokens (例如 BORA、Swapscanner) 支付瓦斯。 不過，該功能也可以支援其他 ERC-20 代幣，包括穩定幣。

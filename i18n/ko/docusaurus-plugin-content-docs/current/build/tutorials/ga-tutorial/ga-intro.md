@@ -45,4 +45,4 @@ Kaia 신규 사용자들은 다음과 같은 상황에서 어려움을 겪는 �
 
 ## 1.4 컨센서스 리퀴디티(CL)와의 관계
 
-GA는 원래 [컨센서스 리퀴디티 토큰](https://medium.com/kaiachain/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EC%9C%A0%EB%8F%99%EC%84%B1-%EA%B3%B5%EA%B8%89%EC%9D%98-%EC%83%88%EB%A1%9C%EC%9A%B4-%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84%EC%9D%84-%EC%A0%9C%EC%8B%9C%ED%95%A9%EB%8B%88%EB%8B%A4-kaia-consensus-liquidity-ff6ed20a155f)의 활용을 촉진시키기 위해 설계되었고, 이 때 가스비 지불은 CL 토큰(예: BORA, Swapscanner)으로 가능했습니다. 하지만 이 기능은 스테이블코인을 포함한 다른 ERC-20 토큰도 지원할 수 있습니다.
+GA는 원래 [컨센서스 유동성 토큰](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)의 활용도를 높이기 위해 설계되었으며, 사용자가 CL 토큰(예: BORA, 스왑스캐너)으로 가스를 결제할 수 있도록 합니다. 하지만 이 기능은 스테이블코인을 포함한 다른 ERC-20 토큰도 지원할 수 있습니다.

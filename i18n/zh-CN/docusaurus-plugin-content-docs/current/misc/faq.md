@@ -3,6 +3,7 @@
 - [常见问题](#faq)
   - [Kaia 是什么？ ](#what-is-kaia-)
   - [Kaia 如何支持以太坊等价交换？ ](#how-does-kaia-support-ethereum-equivalence-)
+  - [Kaia 的版本管理策略是什么？ ](#what-is-kaias-versioning-policy-)
   - [凯亚的天然气政策是什么？ ](#what-is-kaias-gas-policy-)
   - [Kaia 的账户结构有什么特别之处？ ](#what-is-special-about-kaias-account-structure-)
   - [在哪里可以开始使用 Kaia 开发 dApp？ ](#where-can-i-start-dapp-development-with-kaia-)
@@ -29,6 +30,10 @@ Kaia 是高性能的第 1 层区块链，专为 Web3 的大规模应用（尤其
 ## Kaia 如何支持以太坊等价交换？ <a id="how-ethereum-equivalence"></a>
 
 Kaia 与 EVM 兼容，支持除 EIP-4844 blob 交易之外的所有以太坊坎昆 EVM 功能。 它提供 `eth` 命名空间 RPC API，允许无缝使用以太坊 SDK 和工具。 Kaia 特有的交易类型在以太坊命名空间 API 中表示为 0 型传统交易，因此以太坊 SDK 无需了解这些类型。
+
+## Kaia 的版本管理策略是什么？ <a id="kaia-versioning-policy"></a>
+
+您可以在 [github](https://github.com/kaiachain/kaia/blob/dev/CONTRIBUTING.md#versioning-policy) 上查看。
 
 ## Kaia 的天然气政策是什么？ <a id="kaia-gas-policy"></a>
 

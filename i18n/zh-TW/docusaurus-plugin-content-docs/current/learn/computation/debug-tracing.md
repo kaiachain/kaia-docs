@@ -34,7 +34,7 @@
 
 Kaia 的 `callTracer` 輸出格式與 go-ethereum 完全相同，但以下內容除外：
 
-- 對於受尊敬的交易，這兩個字段都會提供。
+- 對於反向交易，兩個欄位都會提供。
   - result.revertReason\`：還原原因字符串（如果有）。
   - result.revoted.contract\`：已還原合同的地址。
   - result.revted.message：與 revertReason 相同
