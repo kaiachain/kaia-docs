@@ -34,8 +34,8 @@
 | Kaiabridge Judge                                                            | 0x64c91d6517b8f2fd7f4157c32DE4acfe1AeA2611 | 0x3735Ba95cca5DEd47Fa5b202a2Bbda4c63c0B1DD |
 | Kaiabridge Guardian                                                         | 0xE49D152E5FA576caFC18D2775AF4E58C135a6851 | 0xc9e8342C1da4c89A423258d9030414331b4761Cf |
 | KIP-163 PublicDelegationFactory                                             | 0x29C8cc53d22F79D4024ecB67DB1a09b37bCdE415 | 0x98c47c2cda854cbb025d47de72149a7ec238ec33 |
-| KIP-226 CLDEXFactory                                                        | 0x2A4C5eCaafB26460F17d509EA4d15741AF5F5f0a | 0x537D58BdBC98c690bE5d3e3F638d4B93754B15Fd |
-| KIP-226 CLDEXルーター                                                           | 0x21d3c567058277b19324FE22c8e4Bb3D2AE0D4C3 | 0x41F135a084897e4145CC2032e8701726af795e3a |
+| KIP-226 CLDEXFactory                                                        | 0x93fa0E1deE99ac4158a617a6EC79cB941bD9a39F | 0x666a9a72D2f708062a20e7Ca94f6dd5Ce6B33eA4 |
+| KIP-226 CLDEXルーター                                                           | 0x5086273d9C8a79B7d2466aaCc52a6E43E22152A5 | 0x2871e95eaBFF0E71e4e4b706D7F1F3D24811673b |
 | KIP-226 ステーキングトラッカーV2                                                       | 0xF45c37c265f148894D6d9A4c066aFaAB00557c9c | 0x9b015Ab5916EE53e52Ef60f31E978b4001908c43 |
 | [カノニカルWKAIA](../build/smart-contracts/token-development/canonical-wkaia.md) | 0x19Aac5f612f524B754CA7e7c41cbFa2E981A4432 | 0x043c471bEe060e00A56CcD02c0Ca286808a5A436 |
 | KIP-249 オークション・デポジット・ボールト                                                   | 0x0E66b62273Cc99BC519DD4dD0C0Cf689dd7b9876 | 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc |
