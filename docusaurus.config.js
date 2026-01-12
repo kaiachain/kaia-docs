@@ -529,8 +529,8 @@ const config = {
                 href: 'https://devforum.kaia.io/',
               },
               {
-                label: 'Medium',
-                href: 'https://medium.com/kaiachain',
+                label: 'Blog',
+                href: 'https://blog.kaia.io/',
               },
               {
                 label: 'X (formerly Twitter)',

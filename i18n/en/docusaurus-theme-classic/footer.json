@@ -56,7 +56,11 @@
     "description": "The label of footer link with label=Open Source linking to https://docs.kaia.io/misc/opensource/"
   },
   "copyright": {
-    "message": "© Kaia DLT Foundation 2025. All rights reserved.",
+    "message": "© Kaia DLT Foundation 2026. All rights reserved.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to https://blog.kaia.io/"
   }
 }
