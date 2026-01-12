@@ -43,7 +43,7 @@ KLAY를 전송한 후 아래와 같이 잔액을 확인할 수 있습니다.
 ```
 
 이후 아래와 같이 RPC API인 `subbridge.anchoring`을 통해 앵커링을 활성화할 수 있습니다.
-자세한 내용은 [subbridge API](../.../../references/json-rpc/subbridge/anchoring)를 참조하세요.
+자세한 내용은 [subbridge API](../../../references/json-rpc/subbridge/anchoring)를 참조하세요.
 
 ```
 > subbridge.anchoring(true)
@@ -58,7 +58,7 @@ true
 ### 하위 브리지 <a id="sub-bridge"></a>
 
 서브 브리지에서는 아래와 같이 최신 앵커 블록 번호를 확인할 수 있습니다.
-자세한 내용은 [subbridge API](../.../../references/json-rpc/subbridge/latest-anchored-block-number)를 참조하세요.
+자세한 내용은 [subbridge API](../../../references/json-rpc/subbridge/latest-anchored-block-number)를 참조하세요.
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
