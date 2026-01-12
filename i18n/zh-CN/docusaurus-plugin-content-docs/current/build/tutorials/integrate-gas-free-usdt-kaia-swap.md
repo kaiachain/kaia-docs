@@ -1,5 +1,5 @@
 ---
-id: integrate-gas-free-usdt-kaia-swap
+id: ""
 title: 将天然气自由美元兑美元纳入 KAIA 掉期交易
 ---
 
