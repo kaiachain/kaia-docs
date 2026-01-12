@@ -1,10 +1,9 @@
 ---
-id: Tích hợp giao dịch không cần gas USDT trên Kaia Swap
+id: ""
 title: Tích hợp USDT không cần gas vào KAIA Swaps
 ---
 
-Nhập Tabs từ '@theme/Tabs';
-Nhập TabItem từ '@theme/TabItem';
+
 
 # Tích hợp USDT không cần gas vào KAIA Swaps
 
