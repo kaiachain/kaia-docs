@@ -1,5 +1,5 @@
 ---
-id: インテグレート・ガス・フリー・ユーズド・ケア・スワップ
+id: ""
 title: ガスフリーUSDTをKAIAスワップに統合
 ---
 
@@ -433,7 +433,7 @@ APIは過剰なコストを防ぐため、ガス価格が50gweiを超えると�
 
 <Tabs>
   <TabItem value="kaia-mainnet" label="Kaia Mainnet">
-
+   ```
    0x45bD04d5f14DD9AB908109cFEa816F758FaE6709
    ```
   </TabItem>
