@@ -1,5 +1,5 @@
 ---
-id: integrate-gas-free-usdt-kaia-swap
+id: ""
 title: 將無瓦斯 USDT 整合至 KAIA 掉期
 ---
 
@@ -433,7 +433,7 @@ API 會在瓦斯價格超過 50 gwei 時拒絕交易，以防止成本過高。 
 
 <Tabs>
   <TabItem value="kaia-mainnet" label="Kaia Mainnet">
-
+   ```
    0x45bD04d5f14DD9AB908109cFEa816F758FaE6709
    ```
   </TabItem>
