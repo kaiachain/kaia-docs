@@ -85,7 +85,7 @@ $ curl -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"rp
 
 활성화된 API는 다음과 같습니다:
 
-- [VM Tracing](../.../../references/json-rpc/debug/trace-bad-block) API를 사용할 수 있지만 기능이 제한되어 있습니다([사전 정의된 tracer](../.../references/json-rpc/debug/trace-bad-block)만 허용됩니다. params/tracingOptions을 참고하세요.)
+- [VM Tracing](../../../references/json-rpc/debug/trace-bad-block) API를 사용할 수 있지만 기능이 제한되어 있습니다([사전 정의된 tracer](../../references/json-rpc/debug/trace-bad-block)만 허용됩니다. params/tracingOptions을 참고하세요.)
 - debug_dumpBlock, debug_dumpStateTrie, debug_getBlockRlp, debug_getModifiedAccountsByHash, debug_getModifiedAccountsByNumber, debug_getBadBlocks, debug_getModifiedStorageNodesByNumber
 - debug_metrics
 
