@@ -431,7 +431,11 @@ API는 과도한 비용을 방지하기 위해 가스 가격이 50GWI를 초과�
 ### 가스리스ERC20퍼밋스왑 컨트랙트 주소
 
 <Tabs>
-  <TabItem value="kaia-mainnet" label="Kaia Mainnet"></TabItem>
+  <TabItem value="kaia-mainnet" label="Kaia Mainnet">
+   ```
+   0x45bD04d5f14DD9AB908109cFEa816F758FaE6709
+   ```
+  </TabItem>
 
  <TabItem value="kairos-testnet" label="Kairos Testnet">
     ```
