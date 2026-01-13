@@ -1,5 +1,5 @@
 ---
-id: ""
+id: integrate-gas-free-usdt-kaia-swap
 title: 가스 없는 USDT와 KAIA 스왑 통합
 ---
 
