@@ -1,5 +1,5 @@
 ---
-id: ""
+id: integrate-gas-free-usdt-kaia-swap
 title: 將無瓦斯 USDT 整合至 KAIA 掉期
 ---
 
