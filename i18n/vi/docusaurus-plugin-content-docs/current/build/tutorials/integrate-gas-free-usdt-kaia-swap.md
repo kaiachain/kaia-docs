@@ -3,7 +3,8 @@ id: integrate-gas-free-usdt-kaia-swap
 title: Tích hợp USDT không cần gas vào KAIA Swaps
 ---
 
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Tích hợp USDT không cần gas vào KAIA Swaps
 
