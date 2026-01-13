@@ -4,7 +4,7 @@ title: 將無瓦斯 USDT 整合至 KAIA 掉期
 ---
 
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem'；
+import TabItem from '@theme/TabItem';
 
 # 將無瓦斯 USDT 整合至 KAIA 掉期
 
