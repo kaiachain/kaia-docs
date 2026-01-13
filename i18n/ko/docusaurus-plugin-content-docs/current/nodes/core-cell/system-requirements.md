@@ -10,14 +10,22 @@
 
 ### 베어메탈 머신 <a id="bare-metal-machine"></a>
 
-| 카테고리 | 사양                                                                                                                                                                                                                       |
-| :--- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 서버   | 인텔® 서버 시스템 [M50CYP1UR212](https://www.intel.sg/content/www/xa/en/products/sku/214842/intel-server-system-m50cyp1ur212/specifications.html)                                                                               |
-| CPU  | 인텔® 제온 8358 2.60GHz (32코어/64스레드)                                                                                                                                                      |
-| 메모리  | 128GB (32GB \* 4)                                                                                                                                                                                     |
-| 스토리지 | 4TB (or larger size) SSD (The preferred storage size and configuration could differ depending on the chain data size. 자세한 내용은 Kaia 팀에 문의하시기 바랍니다.) |
+#### 일반 요구 사항(모든 노드 유형)
 
-이는 CN과 PN에 권장되는 하드웨어 사양이며, 정확한 요구 사항은 아닙니다. 유사한 하드웨어 구성을 가진 모든 물리적 컴퓨터는 CN 또는 PN을 작동하기에 충분합니다.
+| 카테고리 | 사양                                                                                                                         |
+| :--- | :------------------------------------------------------------------------------------------------------------------------- |
+| CPU  | 2.6GHz 기본 - 3.4GHz 최대 주파수 이상(예: 3세대 인텔® 제온® 스케일러블 프로세서) |
+| 스토리지 | ≥ 4TB 이상의 SSD(체인 데이터 크기에 따라 조정, 지침은 Kaia 팀에 문의)                                                         |
+
+유사한 하드웨어 구성을 가진 모든 물리적 컴퓨터는 CN 또는 PN을 작동하기에 충분합니다.
+
+#### 노드 유형별 권장 사양
+
+| Node Type                                    | 코어/스레드     | 메모리   |
+| :------------------------------------------- | :--------- | :---- |
+| CN                                           | 16코어/32스레드 | 128GB |
+| PN                                           | 8코어/16스레드  | 64GB  |
+| PN (with Live Pruning DB) | 4코어/8스레드   | 32GB  |
 
 You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
 
@@ -25,7 +33,7 @@ You can use and apply a live-pruning option to use live-pruning DB. For more det
 
 #### 권장 사양 <a id="recommended-specification-based-on-aws"></a>
 
-|                   Node Type                  |            Model            | vCPU | 네트워크 대역폭(Gbps) |  디스크 대역폭(Mbps)  | Storage speed (IOPS) | 가격 (서울 지역, USD/h) |
+|                     노드 유형                    |            Model            | vCPU | 네트워크 대역폭(Gbps) |  디스크 대역폭(Mbps)  | Storage speed (IOPS) | 가격 (서울 지역, USD/h) |
 | :------------------------------------------: | :-------------------------: | :--: | :-------------------------------: | :--------------------------------: | :-------------------------------------: | :----------------------------------: |
 |                      CN                      | m6i.8xlarge |  32  |                128                | 4,000 (Minimum) |                  9,000                  |         1.888        |
 |                      PN                      | m6i.4xlarge |  16  |                 64                | 4,000 (Minimum) |                  9,000                  |         0.944        |
@@ -49,11 +57,11 @@ You can use and apply a live-pruning option to use live-pruning DB. For more det
 
 #### EN의 경우 다음 사양을 권장합니다.
 
-|                     노드 유형                    |       모델       | vCPU | 메모리(GiB) |    스토리지(GiB)    | 스토리지 속도 (IOPS) | Price (asia-northeast3, USD/h) |
-| :------------------------------------------: | :------------: | :--: | :-------------------------: | :--------------------------------: | :-------------------------------: | :-----------------------------------------------: |
-|                      CN                      | c4-standard-32 |  32  |             120             |               > 4,000              |                7500               |             2.03078256            |
-|                      PN                      | n2-standard-16 |  16  |              64             | 4,000 (Minimum) |                7500               |              1.016243             |
-| PN (with Live Pruning DB) |  n2-standard-8 |   8  |              32             | 3,500 (Minimum) |                7500               |              0.508121             |
+|                 노드 유형                 |       모델       | vCPU | 메모리(GiB) |    스토리지(GiB)    | 스토리지 속도 (IOPS) | Price (asia-northeast3, USD/h) |
+| :-----------------------------------: | :------------: | :--: | :-------------------------: | :--------------------------------: | :-------------------------------: | :-----------------------------------------------: |
+|                   CN                  | c4-standard-32 |  32  |             120             |               > 4,000              |                7500               |             2.03078256            |
+|                   PN                  | n2-standard-16 |  16  |              64             | 4,000 (Minimum) |                7500               |              1.016243             |
+| PN(라이브 가지치기 DB 포함) |  n2-standard-8 |   8  |              32             | 3,500 (Minimum) |                7500               |              0.508121             |
 
 The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
 

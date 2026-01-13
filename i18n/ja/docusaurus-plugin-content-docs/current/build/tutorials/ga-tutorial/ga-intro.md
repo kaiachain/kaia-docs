@@ -45,4 +45,4 @@
 
 ## 1.4 コンセンサス流動性（CL）との関係
 
-GAはもともと、[Consensus Liquidity tokens](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)の実用性を高めるために設計されたもので、ユーザーはCLトークン（BORA、Swapscannerなど）でガスを支払うことができる。 しかし、この機能はstablecoinを含む他のERC-20トークンもサポートすることができる。
+GAはもともと、[Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)の実用性を高めるために設計されたもので、ユーザーはCLトークン（BORA、Swapscannerなど）でガスを支払うことができる。 しかし、この機能はstablecoinを含む他のERC-20トークンもサポートすることができる。

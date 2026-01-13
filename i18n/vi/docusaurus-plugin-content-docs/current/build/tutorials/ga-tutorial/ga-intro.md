@@ -45,4 +45,4 @@ Khác với các giải pháp dựa vào dịch vụ "người thanh toán trung
 
 ## 1.4 Mối quan hệ với Thanh khoản đồng thuận (CL)
 
-GA ban đầu được thiết kế để tăng tính tiện ích cho [Consensus Liquidity tokens](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19), cho phép người dùng thanh toán phí gas bằng CL tokens (ví dụ: BORA, Swapscanner). Tuy nhiên, tính năng này cũng hỗ trợ các token ERC-20 khác, bao gồm cả stablecoin.
+GA ban đầu được thiết kế để tăng tính tiện ích cho [Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/), cho phép người dùng thanh toán phí gas bằng các token CL (ví dụ: BORA, Swapscanner). Tuy nhiên, tính năng này cũng hỗ trợ các token ERC-20 khác, bao gồm cả stablecoin.

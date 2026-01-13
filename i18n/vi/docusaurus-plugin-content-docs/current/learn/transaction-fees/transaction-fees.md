@@ -62,7 +62,7 @@ The baseFee calculation depends on following parameters:
   - UPPER_BOUND_BASE_FEE: The maximum value for the base fee
   - LOWER_BOUND_BASE_FEE: The minimum value for the base fee
 
-Below is an oversimplified version of the baseFee calculation. In its essense, the base fee change is proportional to the difference between GAS_TARGET and PREVIOUS_BLOCK_GAS_USED, and other parameters controls the change speed or bounds the baseFee. Refer to [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for the exact formula.
+Below is an oversimplified version of the baseFee calculation. Về bản chất, sự thay đổi phí cơ bản tỷ lệ thuận với sự chênh lệch giữa GAS_TARGET và PREVIOUS_BLOCK_GAS_USED, và các thông số khác điều chỉnh tốc độ thay đổi hoặc giới hạn phí cơ bản. Refer to [KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md) for the exact formula.
 
 ```
               min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET

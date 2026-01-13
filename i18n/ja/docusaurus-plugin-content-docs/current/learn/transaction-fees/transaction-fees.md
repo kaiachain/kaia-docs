@@ -62,7 +62,7 @@ Magmaのハードフォーク以降、ネットワークはブロックごとに
   - UPPER_BOUND_BASE_FEE: The maximum value for the base fee (750 ston at the moment, can be changed later by governance)
   - LOWER_BOUND_BASE_FEE: The minimum value for the base fee (25 ston at the moment, can be changed later by governance)
 
-以下は、基本料金の計算を簡略化したものである。 その本質において、基本料金の変化はGAS_TARGETとPREVIOUS_BLOCK_GAS_USEDの差に比例し、他のパラメータは基本料金の変化速度または境界を制御する。 正確な計算式は[KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)を参照。
+以下は、基本料金の計算を簡略化したものである。 要するに、基本料金の変化はGAS_TARGETとPREVIOUS_BLOCK_GAS_USEDの差に比例し、他のパラメータは基本料金の変化速度や境界を制御する。 正確な計算式は[KIP-71](https://github.com/kaiachain/kips/blob/main/KIPs/kip-71.md)を参照。
 
 ```
               min(PREVIOUS_BLOCK_GAS_USED, MAX_BLOCK_GAS_USED_FOR_BASE_FEE) - GAS_TARGET

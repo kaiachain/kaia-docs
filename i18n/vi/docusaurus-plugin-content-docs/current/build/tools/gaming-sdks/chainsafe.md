@@ -10,5 +10,5 @@ Với SDK Web3.unity, các nhà phát triển có thể dễ dàng xây dựng c
 
 SDK Web3.unity hiện tại hỗ trợ cả mạng chính Kaia (Kaia Mainnet) và mạng thử nghiệm Kairos (Kairos Testnet). Để bắt đầu phát triển các trò chơi tích hợp blockchain trên Kaia, hãy tham khảo các hướng dẫn sau:
 
-- [Phát triển trò chơi Unity trên Kaia: Tạo token có thể thay thế (Fungible Tokens) với ChainSafe](https://medium.com/kaiachain/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe-beea9022c42d)
-- [Cách áp dụng cơ chế Token-Gate cho trò chơi Unity bằng Chainsafe và Thirdweb trên Kaia](https://medium.com/kaiachain/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia-93c574519da2)
+- [Phát triển trò chơi Unity trên Kaia: Tạo token có thể thay thế (Fungible Tokens) với ChainSafe](https://blog.kaia.io/unity-game-development-on-kaia-minting-fungible-tokens-with-chainsafe/)
+- [Cách áp dụng cơ chế Token-Gate cho trò chơi Unity bằng Chainsafe và Thirdweb trên Kaia](https://blog.kaia.io/how-to-token-gate-a-unity-game-using-chainsafe-and-thirdweb-on-kaia/)

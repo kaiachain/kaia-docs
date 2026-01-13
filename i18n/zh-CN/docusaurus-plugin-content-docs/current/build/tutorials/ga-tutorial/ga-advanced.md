@@ -79,5 +79,5 @@ SwapTx 将在链上失败，但由于**KIP-245 的原子捆绑**，整个捆绑�
 
 **教育内容：**
 
-- [如果用稳定币支付汽油费会怎样？](https://medium.com/kaiachain/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction-d670355a096b)
-- [凯亚共识流动性公告](https://medium.com/kaiachain/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity-7c8a7393cd19)
+- [如果用稳定币支付汽油费会怎样？](https://blog.kaia.io/pay-for-gas-fees-with-any-token-a-deep-dive-into-kaias-trustless-gas-abstraction/)
+- [凯亚共识流动性公告](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/)

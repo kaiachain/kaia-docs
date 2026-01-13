@@ -159,7 +159,7 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 
 ### (可选）下载 Chaindata 快照
 
-从创世区块进行同步操作非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
+从创世区块进行同步非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
 
 ## 启动 CN<a id="startup-the-cn"></a>
 

@@ -34,7 +34,7 @@
 
 Kaiaの`callTracer`出力フォーマットは、以下を除いてgo-ethereumと同じである：
 
-- Reverted取引では、両方のフィールドが提供される。
+- 逆取引の場合、両方のフィールドが提供される。
   - `result.revertReason`: もしあれば、復帰理由の文字列。
   - `result.reverted.contract`: 元に戻した契約のアドレス。
   - `result.reverted.message`: revertReasonと同じ。
