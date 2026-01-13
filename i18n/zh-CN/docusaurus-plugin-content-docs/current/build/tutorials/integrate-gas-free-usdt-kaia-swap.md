@@ -4,7 +4,7 @@ title: 将天然气自由美元兑美元纳入 KAIA 掉期交易
 ---
 
 import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem'；
+import TabItem from '@theme/TabItem';
 
 # 将天然气自由美元兑美元纳入 KAIA 掉期交易
 
