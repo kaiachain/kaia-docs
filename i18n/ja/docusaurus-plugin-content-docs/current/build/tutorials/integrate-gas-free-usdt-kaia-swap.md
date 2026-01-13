@@ -1,5 +1,5 @@
 ---
-id: ""
+id: integrate-gas-free-usdt-kaia-swap
 title: ガスフリーUSDTをKAIAスワップに統合
 ---
 
