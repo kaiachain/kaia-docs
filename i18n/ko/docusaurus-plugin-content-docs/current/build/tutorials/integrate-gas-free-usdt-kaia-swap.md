@@ -3,7 +3,8 @@ id: integrate-gas-free-usdt-kaia-swap
 title: 가스 없는 USDT와 KAIA 스왑 통합
 ---
 
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # 가스 없는 USDT와 KAIA 스왑 통합
 
