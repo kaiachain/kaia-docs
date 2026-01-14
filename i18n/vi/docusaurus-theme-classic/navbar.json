@@ -116,7 +116,7 @@
     "description": "Navbar item with label Wallets"
   },
   "item.label.Mini DApps": {
-    "message": "Ứng dụng nhỏ (Mini DApps)",
+    "message": "Mini DApps",
     "description": "Navbar item with label Mini DApps"
   },
   "item.label.Cookbooks": {
