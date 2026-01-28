@@ -69,7 +69,7 @@ npm install dotenv @kaiachain/contracts
 **Step 4**: Initialise a hardhat project:
 
 :::note
-This guide uses Hardhat v2. If you prefer to use Hardhat v3, please refer to the [setup guide](https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project) for configuration instructions
+This guide uses Hardhat v2. If you prefer to use Hardhat v3, please refer to this <a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">setup guide </a> for configuration instructions
 :::
 
 Run the command below to initiate an hardhat project
