@@ -169,11 +169,7 @@ Congratulations. You have successfully configured encrypted secrets in Foundry a
 
 #### 3.3. Recipe: Securely Managing Accounts in a Hardhat Project
 
-[Hardhat 3](https://hardhat.org/hardhat3-alpha) (currently in alpha) introduces encrypted secrets via a built-in secrets manager. This feature supports securely storing any sensitive string-based secret like private keys or RPC URLs, with API keys that shouldn’t be committed to version control. 
-
-:::note
-Hardhat 3 is in alpha and may not be fully stable. Use it with care until a stable version is officially released
-:::
+[Hardhat 3](https://hardhat.org/docs/getting-started) (currently in beta) introduces encrypted secrets via a built-in secrets manager. This feature supports securely storing any sensitive string-based secret like private keys or RPC URLs, with API keys that shouldn’t be committed to version control. 
 
 ##### Step 1: Create a New Hardhat Project
 
@@ -182,12 +178,8 @@ Run the following commands in your terminal to create a new Hardhat project.
 ```bash
 mkdir hardhat-encrypted && cd hardhat-encrypted
 npm init -y
-npx hardhat@next --init
+npx hardhat --init
 ```
-
-:::note
-Adding @next to the npx command fetches the most recent tagged pre-release of Hardhat, which is `3.0.0-next.20` at the time of writing.
-:::
 
 Accept default answers to the prompts. Then run the Hardhat version to verify the project version:
 
