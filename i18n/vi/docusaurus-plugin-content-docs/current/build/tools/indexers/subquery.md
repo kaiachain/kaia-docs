@@ -2,7 +2,11 @@
 sidebar_label: SubQuery
 ---
 
-# SubQuery Multi-Chain Indexer
+# Phương thức con
+
+![](/img/banners/kaia-subquery.png)
+
+## Giới thiệu
 
 SubQuery is a leading blockchain data indexer that provides developers with fast, flexible, universal, open source and decentralized APIs for web3 projects. The SubQuery SDK allows developers to get rich indexed data and build intuitive and immersive decentralized applications in a faster and more efficient way. SubQuery supports 100+ ecosystems including Kaia's EVM, Cosmos, Ethereum, Polygon, Polkadot, Algorand, NEAR, and Avalanche.
 
