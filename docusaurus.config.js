@@ -582,7 +582,6 @@ const config = {
 
   customFields: {
     projectId: process.env.FEEDBACK_PROJECT_ID || null,
-    contentSetId: process.env.RATING_CONTENT_SET_ID || null,
   },
 }
 
