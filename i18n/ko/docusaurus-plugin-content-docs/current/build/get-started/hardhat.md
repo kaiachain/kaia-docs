@@ -11,12 +11,12 @@ Hardhat은 여러분을 도와줄 스마트 컨트랙트 개발 환경입니다:
 - 스마트 컨트랙트 개발 및 컴파일.
 - 스마트 컨트랙트 및 dApp 디버깅, 테스트, 배포.
 
-Soul-bound token(SBT)은 양도할 수 없는 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBTs-Scalable Bitcoin Tokens-에 대해 더 알아보고, 작동 방식과 활용 사례를 확인하려면 Vitalik Buterin이 발표한 이 [참고 문서](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)를 살펴보실 수 있습니다.
+소울바운드 토큰(SBT)은 양도 불가능한 대체 불가능한 토큰입니다. 즉, 한 번 획득하면 다른 사용자에게 판매하거나 양도할 수 없습니다. SBTs-Scalable Bitcoin Tokens-에 대해 더 알아보고, 작동 방식과 활용 사례를 확인하려면 Vitalik Buterin이 발표한 이 [참고 문서](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)를 살펴보실 수 있습니다.
 
 이 가이드가 끝나면 여러분은 다음을 할 수 있을 것입니다:
 
 - Kaia에서 Hardhat 프로젝트를 설정합니다.
-- 간단한 Soul-bound token 생성하기.
+- 간단한 소울바운드 토큰을 생성합니다.
 - [Verifying contracts using Hardhat on Klaytnscope](https://klaytn.foundation/verifying-contracts-using-hardhat-on-klaytnscope)
 - This guide allows you to automatically verify your smart contracts' source code on Klaytnscope straight from your CLI using the Hardhat Verify Plugin.
 - Hardhat 포크 기능 살펴보기.
@@ -64,23 +64,27 @@ npm install --save-dev hardhat
 npm install dotenv @kaiachain/contracts
 ```
 
-> 참고: 이 프로젝트에 필요한 `hardhat`, `klaytn/contract`, `dotenv` 등의 기타 종속성을 설치합니다.
+> 참고: 이 프로젝트에 필요한 `하드햇`, `카이아체인/컨트랙트`, `도텐브이` 등 다른 종속성을 설치합니다.
 
 **4단계**: Hardhat 프로젝트를 초기화합니다:
+
+:::note
+이 가이드는 Hardhat v2를 사용합니다. Hardhat v3를 사용하는 경우 이 <a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">설정 가이드에서 </a> 구성 지침을 참조하세요.
+:::
 
 아래 명령을 실행하여 Hardhat 프로젝트를 시작하세요.
 
 ```bash
-npx hardhat
+npx 하드햇 --init
 ```
 
-이 가이드에서는 아래와 같이 TypeScript 프로젝트를 선택하겠습니다:
+![](/img/build/get-started/hh2-cli.png)
 
-![](/img/build/get-started/hardhat-init.png)
+이 가이드에서는 아래와 같이 모카와 이더를 사용하는 자바스크립트 프로젝트를 선택하겠습니다:
 
-![](/img/build/get-started/hardhat-init-ii.png)
+![](/img/build/get-started/hh2-cli-ii.png)
 
-> 참고: 프로젝트를 초기화하는 동안 'hardhat-toolbox' 플러그인을 설치하라는 메시지가 표시됩니다. 이 플러그인에는 일반적으로 사용되는 모든 패키지와 Hardhat으로 개발을 시작하는 데 권장되는 Hardhat 플러그인이 번들로 제공됩니다.
+메시지에 대한 기본 답변을 수락합니다.
 
 Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 포함되어야 합니다:
 
@@ -90,23 +94,23 @@ Hardhat 프로젝트를 초기화한 후에는 현재 디렉터리에 다음이 
 
 **test/** - 이 폴더에는 스마트 컨트랙트를 테스트하는 모든 단위 테스트가 포함되어 있습니다.
 
-**hardhat.config.js** - 이 파일에는 Hardhat의 작업과 Soul-bound token 배포에 중요한 구성이 포함되어 있습니다.
+**hardhat.config.js** - 이 파일에는 하드햇의 작업과 소울바운드 토큰 배포에 중요한 구성이 포함되어 있습니다.
 
-**5단계**: .env 파일 만들기
+**5단계**: .env\` 파일 만들기
 
-이제 프로젝트 폴더에 .env 파일을 생성합니다. 이 파일은 .env 파일에서 프로세스.env로 환경 변수를 로드하는 데 도움이 됩니다.
+이제 프로젝트 폴더에 '.env' 파일을 만듭니다. 이 파일은 '.env' 파일에서 process.env로 환경 변수를 로드하는 데 도움이 됩니다.
 
-- 터미널에 다음 명령을 붙여넣어 .env 파일을 생성합니다.
+- 터미널에 이 명령을 붙여넣어 '.env' 파일을 만듭니다.
 
 ```bash
 touch .env
 ```
 
-- 파일을 생성한 후 다음과 같이 .env 파일을 구성해 보겠습니다:
+- 파일을 생성한 후 '.env' 파일을 다음과 같이 구성해 보겠습니다:
 
 ```js
- KAIROS_TESTNET_URL= "당신의 Kairos RPC 링크"
- PRIVATE_KEY= "메타마스크 지갑에서 복사한 당신의 개인 키"
+ KAIROS_TESTNET_URL= "귀하의 카이로스 RPC URL"
+ PRIVATE_KEY= "메타마스크 지갑에서 복사한 개인 키"
 ```
 
 > 참고: 하드햇에서 제공하는 [구성 변수](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 기능을 사용하여 코드 저장소에 포함되지 않아야 하는 변수를 구성할 수도 있습니다.
@@ -134,7 +138,7 @@ module.exports = {
 
 ```
 
-이제 개발 환경이 모두 준비되었으니, 이제 Soul-bound token 스마트 컨트랙트를 작성해 보겠습니다.
+이제 개발 환경이 모두 준비되었으니, 이제 소울 바운드 토큰 스마트 컨트랙트를 작성해 보겠습니다.
 
 ## SBT 스마트 컨트랙트 생성
 
@@ -293,60 +297,46 @@ describe("Token contract", function () {
 npx hardhat test test/sbtTest.js 
 ```
 
-![](/img/build/get-started/sbtTest.png)
+![](/img/build/get-started/hh2-run-test.png)
 
 테스트에 대한 자세한 안내는 [Hardhat 테스트](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)를 참조하세요.
 
 ## 스마트 컨트랙트 배포하기
 
-스크립트는 블록체인 네트워크에 컨트랙트를 배포하는 데 도움이 되는 JavaScripts/Typescript 파일입니다. 이 섹션에서는 스마트 컨트랙트를 위한 스크립트를 생성합니다.
+이그니션 모듈은 블록체인 네트워크에 컨트랙트를 배포하는 데 도움이 되는 자바스크립트/타입스크립트 파일입니다. 이 섹션에서는 스마트 컨트랙트용 모듈을 생성합니다.
 
-**1단계**: 탐색기 창에서 "scripts" 폴더를 선택하고 새 파일 버튼을 클릭하여 `sbtDeploy.js`라는 이름의 새 파일을 만듭니다.
+**1단계**: 탐색기 창에서 **점화/모듈** 폴더를 선택하고 새 파일 버튼을 클릭하여 `sbtDeploy.js`라는 새 파일을 생성합니다.
 
 **2단계**: 파일 안에 다음 코드를 복사하여 붙여넣습니다.
 
-> 참고: '배포자 주소' 변수에 MetaMask 지갑 주소를 입력하세요.
+```javascript
+// 이 설정은 하드햇 이그니션을 사용하여 스마트 컨트랙트 배포를 관리합니다.
+https://hardhat.org/ignition
 
-```js
-const { ethers } = require("hardhat");
-
-async function main() {
-
-  const deployerAddr = "귀하의 메타마스크 지갑 주소";
-  const deployer = await ethers.getSigner(deployerAddr);
-
-  console.log(`계정으로 컨트랙트 배포 중: ${deployer.address}`);
-  console.log(`계정 잔액: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-  const sbtContract = await ethers.deployContract("SoulBoundToken");
-  await sbtContract.waitForDeployment();
+module.exports = buildModule("SBTModule", (m) => {
 
-console.log(`Congratulations! 방금 소울 바운드 토큰을 성공적으로 배포했습니다.`);
-console.log(`SBT 컨트랙트 주소는 ${sbtContract.target}입니다. https://kairos.kaiascan.io/account/${sbtContract.target}`);
-}
+  const sbt = m.contract("SoulBoundToken", []);
 
-
-//
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  return { sbt };
 });
 ```
 
-**3단계**: 터미널에서 다음 명령을 실행하여 Hardhat에 SBT 토큰을 Kaia 테스트 네트워크(Kairos)에 배포하도록 지시합니다.
+**3단계**: 터미널에서 다음 명령을 실행하여 하드햇이 카이아 카이로스 테스트넷에 SBT 토큰을 배포하도록 지시합니다.
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+npx 하드햇 점화 배포 ./ignition/modules/sbtDeploy.js --네트워크 카이로스
 ```
 
-![](/img/build/get-started/sbtDeploy.png)
+![](/img/build/get-started/hh-deploy.png)
 
 **4단계**: KaiaScan](https://kairos.kaiascan.io/)을 열어 SBT 토큰이 성공적으로 배포되었는지 확인합니다.
 
 **5단계**: 검색 필드에 배포된 컨트랙트 주소를 복사하여 붙여넣고 Enter 키를 누릅니다. 최근에 배포된 계약이 표시됩니다.
 
-![](/img/build/get-started/sbtKS.png)
+![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## Using Hardhat
 
@@ -378,7 +368,7 @@ networks: {
 
 **출력**
 
-![](/img/build/get-started/hardhat-fork.png)
+![](/img/build/get-started/hh2-fork-instance.png)
 
 이 명령을 성공적으로 실행하면 터미널이 위 이미지와 같이 표시됩니다.  10,000개의 테스트 토큰이 사전 충전된 20개의 개발 계정을 갖게 됩니다.
 
@@ -390,7 +380,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **출력**
 
-![](/img/build/get-started/hardhat-fork-bn.png)
+![](/img/build/get-started/hh2-forked-ins-i.png)
 
 출력은 위와 같이 16진수입니다. 16진수에서 블록 번호를 얻으려면 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 16진수를 10진수로 변환합니다. 네트워크를 포크한 시점의 최신 블록 번호를 얻어야 합니다. KaiaScan](https://kaiascan.io/)에서 블록 번호를 확인할 수 있습니다.
 
@@ -410,7 +400,7 @@ npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 1057
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-![](/img/build/get-started/hardhat-fork-bnII.png)
+![](/img/build/get-started/hh2-forked-ins-ii.png)
 
 출력은 16진수를 반환하며, 이 [도구](https://www.rapidtables.com/convert/number/hex-to-decimal.html)를 사용하여 변환하면 `105701850`과 같아야 합니다.
 
