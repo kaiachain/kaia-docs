@@ -168,11 +168,7 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 
 #### 3.3. レシピハードハットプロジェクトにおけるアカウントの安全な管理
 
-[Hardhat 3](https://hardhat.org/hardhat3-alpha)(現在アルファ版)では、内蔵のシークレットマネージャを使った暗号化されたシークレットを導入しています。 この機能は、秘密鍵やRPC URLのような機密性の高い文字列ベースの秘密や、バージョン管理にコミットされるべきではないAPIキーを安全に保存することをサポートする。
-
-:::note
-ハードハット3はアルファ版であり、完全には安定していない可能性がある。 安定版が正式にリリースされるまでは、注意して使用してください。
-:::
+[Hardhat 3](https://hardhat.org/docs/getting-started) (現在ベータ版)では、ビルトインのシークレットマネージャによって暗号化されたシークレットを導入しています。 この機能は、秘密鍵やRPC URLのような機密性の高い文字列ベースの秘密や、バージョン管理にコミットされるべきではないAPIキーを安全に保存することをサポートする。
 
 ##### ステップ1：新しいハードハット・プロジェクトの作成
 
@@ -181,12 +177,8 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 ```bash
 mkdir hardhat-encrypted && cd hardhat-encrypted
 npm init -y
-npx hardhat@next --init
+npx hardhat --init
 ```
-
-:::note
-npxコマンドに@nextを追加すると、Hardhatの最新のタグ付きプレリリースがフェッチされます。
-:::
 
 プロンプトに対するデフォルトの答えを受け入れる。 その後、プロジェクトのバージョンを確認するためにHardhatバージョンを実行する：
 
