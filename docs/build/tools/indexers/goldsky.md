@@ -1,10 +1,11 @@
 ---
 sidebar_label: Goldsky
 ---
+# Goldsky
 
 ![](/img/banners/kaia-goldsky.png)
 
-# Introduction 
+## Introduction 
 
 [Goldsky](https://goldsky.com) is a high-performance data indexer designed to simplify the extraction, transformation, and loading (ETL) of on-chain data. It enables developers to build and ship real-time analytics and blockchain-integrated applications faster.
 
