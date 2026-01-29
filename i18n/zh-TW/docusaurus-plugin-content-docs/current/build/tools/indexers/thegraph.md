@@ -4,6 +4,10 @@ sidebar_label: The Graph
 
 # The Graph
 
+![](/img/banners/kaia-thegraph.png)
+
+## 導言
+
 在構建 dapp 時，獲取智能合約的歷史數據可能會令人沮喪。 [The Graph](https://thegraph.com/) 通過被稱為子圖的應用程序接口，提供了一種查詢智能合約數據的簡便方法。 圖形的基礎設施依賴於索引器的去中心化網絡，使您的 dapp 真正實現去中心化。
 
 Kaia Mainnet 和 Testnet 均由 The Graph 提供支持。
