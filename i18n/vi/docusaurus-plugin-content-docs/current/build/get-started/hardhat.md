@@ -11,12 +11,12 @@ Hardhat is a smart-contract development environment that will help you:
 - Develop and compile smart contracts.
 - Debug, test, and deploy smart contracts and dApps.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soulbound tokens (SBTs) là các NFT không thể chuyển nhượng. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 By the end of this guide you will be able to:
 
 - Set up a Hardhat project on Kaia.
-- Create a simple soul-bound token.
+- Tạo một token gắn liền với linh hồn đơn giản.
 - Compile your smart contract using Hardhat.
 - Test, deploy, and interact with your smart contract using Hardhat.
 - Explore Hardhat forking feature.
@@ -64,23 +64,27 @@ npm install --save-dev hardhat
 npm install dotenv @kaiachain/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al.
+> Lưu ý: Việc cài đặt này sẽ cài đặt các phụ thuộc khác cần thiết cho dự án này, bao gồm `hardhat`, `kaiachain/contract`, `dotenv` và các thành phần khác.
 
 **Step 4**: Initialise a hardhat project:
+
+:::note
+Hướng dẫn này sử dụng Hardhat phiên bản 2. Nếu bạn muốn sử dụng Hardhat v3, vui lòng tham khảo <a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">hướng dẫn cài đặt </a> này <a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">để </a> biết các bước cấu hình.
+:::
 
 Run the command below to initiate an hardhat project
 
 ```bash
-npx hardhat
+npx hardhat --init
 ```
 
-For this guide, you'll be selecting a typescript project as seen below:
+![](/img/build/get-started/hh2-cli.png)
 
-![](/img/build/get-started/hardhat-init.png)
+Trong hướng dẫn này, bạn sẽ chọn một dự án JavaScript sử dụng Mocha và Ethers như sau:
 
-![](/img/build/get-started/hardhat-init-ii.png)
+![](/img/build/get-started/hh2-cli-ii.png)
 
-> Note: While initializing the project, you will get a prompt to install `hardhat-toolbox` plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+Chấp nhận các câu trả lời mặc định cho các câu hỏi.
 
 After initializing a hardhat project, your current directory should include:
 
@@ -90,23 +94,23 @@ After initializing a hardhat project, your current directory should include:
 
 **test/** – this folder contains all unit tests that test your smart contract.
 
-**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.js** – tệp này chứa các cấu hình quan trọng cho hoạt động của Hardhat và việc triển khai token soulbound.
 
-**Step 5**: Create a .env file
+**Bước 5**: Tạo tệp `.env`
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env.
+Bây giờ hãy tạo tệp `.env` trong thư mục dự án. Tệp này giúp chúng ta tải các biến môi trường từ tệp `.env` vào `process.env`.
 
-- Paste this command in your terminal to create a .env file
+- Dán lệnh này vào terminal của bạn để tạo tệp `.env`.
 
 ```bash
 touch .env
 ```
 
-- After creating our file, let's configure our .env file to look like this:
+- Sau khi tạo tệp của chúng ta, hãy cấu hình tệp `.env` để trông như sau:
 
 ```js
- KAIROS_TESTNET_URL= "Your Kairos RPC link"
- PRIVATE_KEY= "your private key copied from MetaMask wallet"
+ KAIROS_TESTNET_URL= "Địa chỉ RPC của Kairos"
+ PRIVATE_KEY= "Khóa riêng tư của bạn được sao chép từ ví MetaMask"
 ```
 
 > Note: You can also choose to use the [configuration variable](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) functionality provided by hardhat to configure variables that shouldn't be included in the code repository.
@@ -134,7 +138,7 @@ module.exports = {
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+Bây giờ khi môi trường phát triển của chúng ta đã sẵn sàng, hãy bắt tay vào việc viết hợp đồng thông minh cho token soulbound.
 
 ## Creating SBT Smart Contract
 
@@ -293,60 +297,46 @@ The tests above check the following:
 npx hardhat test test/sbtTest.js 
 ```
 
-![](/img/build/get-started/sbtTest.png)
+![](/img/build/get-started/hh2-run-test.png)
 
 For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts).
 
 ## Deploying the smart contract
 
-Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
+Các mô-đun khởi tạo là các tệp JavaScript/TypeScript giúp bạn triển khai hợp đồng thông minh lên mạng blockchain. Trong phần này, bạn sẽ tạo một mô-đun cho hợp đồng thông minh.
 
-**Step 1**: In the Explorer pane, select the "scripts" folder and click the New File button to create a new file named `sbtDeploy.js`.
+**Bước 1**: Trong cửa sổ Explorer, chọn thư mục **ignition/module** và nhấp vào nút Tạo tệp mới để tạo một tệp mới có tên `sbtDeploy.js`.
 
 **Step 2**: Copy and paste the following code inside the file.
 
-> Note: input your MetaMask wallet address in the `deployerAddr` variable.
+```javascript
+// Cài đặt này sử dụng Hardhat Ignition để quản lý việc triển khai hợp đồng thông minh.
+// Tìm hiểu thêm tại https://hardhat.org/ignition
 
-```js
-const { ethers } = require("hardhat");
-
-hàm async main() {
-
-  const deployerAddr = "Địa chỉ ví Metamask của bạn";
-  const deployer = await ethers.getSigner(deployerAddr);
-
-  console.log(`Đang triển khai hợp đồng với tài khoản: ${deployer.address}`);
-  console.log(`Số dư tài khoản: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-  const sbtContract = await ethers.deployContract("SoulBoundToken");
-  await sbtContract.waitForDeployment();
+module.exports = buildModule("SBTModule", (m) => {
 
-console.log(`Xin chúc mừng! Bạn vừa triển khai thành công các token liên kết linh hồn của mình.`);
-console.log(`Địa chỉ hợp đồng SBT là ${sbtContract.target}. Bạn có thể xác minh trên https://kairos.kaiascan.io/account/${sbtContract.target}`);
-}
+  const sbt = m.contract("SoulBoundToken", []);
 
-// Chúng tôi khuyên bạn nên sử dụng mẫu này để có thể sử dụng async/await ở mọi nơi
-// và xử lý lỗi đúng cách.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  return { sbt };
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Kairos)
+**Bước 3**: Trong terminal, chạy lệnh sau để Hardhat triển khai token SBT của bạn trên mạng thử nghiệm Kaia Kairos.
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+Chạy lệnh npx hardhat ignition deploy ./ignition/modules/sbtDeploy.js --network kairos
 ```
 
-![](/img/build/get-started/sbtDeploy.png)
+![](/img/build/get-started/hh-deploy.png)
 
 **Bước 4**: Mở [KaiaScan](https://kairos.kaiascan.io/) để kiểm tra xem token SBT đã được triển khai thành công hay chưa.
 
 **Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
 
-![](/img/build/get-started/sbtKS.png)
+![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## Hardhat Forking
 
@@ -378,7 +368,7 @@ networks: {
 
 **Output**
 
-![](/img/build/get-started/hardhat-fork.png)
+![](/img/build/get-started/hh2-fork-instance.png)
 
 After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
 
@@ -390,7 +380,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **Output**
 
-![](/img/build/get-started/hardhat-fork-bn.png)
+![](/img/build/get-started/hh2-forked-ins-i.png)
 
 The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. Bạn có thể xác nhận số khối trên [KaiaScan](https://kaiascan.io/).
 
@@ -410,7 +400,7 @@ To confirm the forked chain at the stated block, open a new terminal window and 
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-![](/img/build/get-started/hardhat-fork-bnII.png)
+![](/img/build/get-started/hh2-forked-ins-ii.png)
 
 The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
 
