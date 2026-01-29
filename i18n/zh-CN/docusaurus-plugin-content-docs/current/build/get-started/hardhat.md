@@ -11,7 +11,7 @@ Hardhat 是一个智能合约开发环境，它将为您提供帮助：
 - 开发和编译智能合约。
 - 调试、测试和部署智能合约和 dApp。
 
-灵魂绑定令牌（SBT）是不可转让的 NFT。 也就是说，一旦获得，就不得出售或转让给其他用户。 要了解有关 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 发表的这篇 [参考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
+灵魂代币（SBT）是不可转让的 NFT。 也就是说，一旦获得，就不得出售或转让给其他用户。 要了解有关 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 发表的这篇 [参考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
 
 完成本指南后，您将能够
 
@@ -64,23 +64,27 @@ npm install --save-dev hardhat
 npm install dotenv @kaiachain/contracts
 ```
 
-> 注意：这将安装本项目所需的其他依赖项，包括 `hardhat`、`klaytn/contract`、`dotenv` 等。
+> 注意：这将安装本项目所需的其他依赖项，包括 `hardhat`、`kaiachain/contract`、`dotenv` 等。
 
 **第 4 步**：初始化硬头盔项目：
+
+:::note
+本指南使用 Hardhat v2。 如果您希望使用 Hardhat v3，请参阅本<a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">设置指南 </a>获取配置说明
+:::
 
 运行以下命令启动硬头盔项目
 
 ```bash
-npx hardhat
+npx hardhat --init
 ```
 
-在本指南中，您将选择一个排版脚本项目，如下所示：
+![](/img/build/get-started/hh2-cli.png)
 
-![](/img/build/get-started/hardhat-init.png)
+在本指南中，您将选择一个使用 Mocha 和 Ethers 的 Javascript 项目，如下所示：
 
-![](/img/build/get-started/hardhat-init-ii.png)
+![](/img/build/get-started/hh2-cli-ii.png)
 
-> 注意：初始化项目时，系统会提示安装 `hardhat-toolbox` 插件。 该插件捆绑了所有常用软件包和 Hardhat 插件，建议在开始使用 Hardhat 进行开发时使用。
+接受提示的默认答案。
 
 初始化硬帽项目后，当前目录应包括
 
@@ -90,23 +94,23 @@ npx hardhat
 
 **test/** - 该文件夹包含测试智能合约的所有单元测试。
 
-**hardhat.config.js** - 该文件包含对 Hardhat 工作和部署灵魂绑定令牌非常重要的配置。
+**hardhat.config.js**--该文件包含对 Hardhat 工作和部署 soulbound 令牌非常重要的配置。
 
-**第 5** 步创建 .env 文件
+**第 5** 步创建`.env`文件
 
-现在，在项目文件夹中创建 .env 文件。 该文件可帮助我们将 .env 文件中的环境变量加载到 process.env 文件中。
+现在在项目文件夹中创建 `.env` 文件。 该文件可帮助我们将环境变量从 `.env` 文件加载到 process.env 文件中。
 
-- 在终端中粘贴此命令以创建 .env 文件
+- 在终端中粘贴此命令以创建 `.env` 文件
 
 ```bash
 touch .env
 ```
 
-- 创建文件后，让我们将 .env 文件配置为如下所示：
+- 创建文件后，让我们把 `.env` 文件配置成这样：
 
 ```js
- KAIROS_TESTNET_URL= "您的 Kairos RPC 链接"
- PRIVATE_KEY= "从 MetaMask 钱包复制的您的私人密钥"
+ KAIROS_TESTNET_URL= "Kairos RPC URL"
+ PRIVATE_KEY= "从 MetaMask 钱包复制的私人密钥"
 ```
 
 > 注：你也可以选择使用 hardhat 提供的[配置变量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能来配置不应包含在代码库中的变量。
@@ -134,7 +138,7 @@ module.exports = {
 
 ```
 
-现在，我们的开发环境已经准备就绪，让我们开始编写我们的灵魂绑定令牌智能合约吧。
+现在，我们的开发环境已经准备就绪，让我们开始编写灵魂代币智能合约吧。
 
 ## 创建 SBT 智能合约
 
@@ -293,60 +297,46 @@ describe("Token contract", function () {
 npx 硬帽测试 test/sbtTest.js 
 ```
 
-![](/img/build/get-started/sbtTest.png)
+![](/img/build/get-started/hh2-run-test.png)
 
 如需更深入的测试指南，请查看 [Hardhat 测试](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)。
 
 ## 部署智能合约
 
-脚本是 JavaScript/Typescript 文件，可帮助您将合约部署到区块链网络。 在本节中，您将为智能合约创建一个脚本。
+Ignition 模块是 JavaScript/Typescript 文件，可帮助您将合约部署到区块链网络。 在本节中，您将为智能合约创建一个模块。
 
-**步骤 1**：在资源管理器窗格中，选择 "scripts "文件夹，然后单击 "新建文件 "按钮，创建一个名为 "sbtDeploy.js "的新文件。
+**步骤 1**：在资源管理器窗格中，选择**ignition/module**文件夹，然后单击 "新建文件 "按钮，创建一个名为 "sbtDeploy.js "的新文件。
 
 **第 2**步将以下代码复制并粘贴到文件中。
 
-> 注意：在 `deployerAddr` 变量中输入您的 MetaMask 钱包地址。
+```javascript
+// 此设置使用 Hardhat Ignition 管理智能合约部署。
+// Learn more about it at https://hardhat.org/ignition
 
-```js
-const { ethers } = require("hardhat");
-
-async function main() {
-
-  const deployerAddr = "Your Metamask wallet address";
-  const deployer = await ethers.getSigner(deployerAddr);
-
-  console.log(`Deploying contracts with the account: ${deployer.address}`);
-  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-  const sbtContract = await ethers.deployContract("SoulBoundToken");
-  await sbtContract.waitForDeployment();
+module.exports = buildModule("SBTModule", (m) => {
 
-console.log(`Congratulations！您刚刚成功部署了灵魂绑定令牌。`);
-console.log(`SBT 合约地址是 ${sbtContract.target}。您可以在 https://kairos.kaiascan.io/account/${sbtContract.target}` 上验证）;
-}
+  const sbt = m.contract("SoulBoundToken", []);
 
-
-//
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  return { sbt };
 })；
 ```
 
-\*\*第 3 步在终端运行以下命令，让 Hardhat 在 Kaia 测试网络 (Kairos) 上部署 SBT 令牌
+**第 3 步**：在终端运行以下命令，让 Hardhat 在 Kaia Kairos 测试网上部署 SBT 令牌。
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+npx hardhat ignition deploy ./ignition/modules/sbtDeploy.js --network kairos
 ```
 
-![](/img/build/get-started/sbtDeploy.png)
+![](/img/build/get-started/hh-deploy.png)
 
 **第 4 步**：打开 [KaiaScan](https://kairos.kaiascan.io/) 检查 SBT 令牌是否已成功部署。
 
 **第 5 步**：在搜索栏中复制并粘贴部署的合同地址，然后按 Enter 键。 您应该能看到最近部署的合同。
 
-![](/img/build/get-started/sbtKS.png)
+![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## 硬帽叉
 
@@ -378,7 +368,7 @@ networks: {
 
 **输出**
 
-![](/img/build/get-started/hardhat-fork.png)
+![](/img/build/get-started/hh2-fork-instance.png)
 
 成功运行该命令后，您的终端看起来就像上图一样。  您将拥有 20 个开发账户，这些账户预存了 10,000 个测试代币。
 
@@ -390,7 +380,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **输出**
 
-![](/img/build/get-started/hardhat-fork-bn.png)
+![](/img/build/get-started/hh2-forked-ins-i.png)
 
 输出结果为十六进制，如上图所示。 要从十六进制中获取块编号，请使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 将十六进制转换为十进制。 您应该从分叉网络时获得最新的区块编号。 您可以在 [KaiaScan](https://kaiascan.io/) 上确认区块编号。
 
@@ -410,7 +400,7 @@ npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 1057
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-![](/img/build/get-started/hardhat-fork-bnII.png)
+![](/img/build/get-started/hh2-forked-ins-ii.png)
 
 输出返回十六进制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 转换后应等于 `105701850`。
 
