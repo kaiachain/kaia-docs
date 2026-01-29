@@ -10,11 +10,11 @@ Hardhat is a smart-contract development environment that will help you:
 * Develop and compile smart contracts.
 * Debug, test, and deploy smart contracts and dApps.
 
-Soul-bound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
+Soulbound tokens(SBTs) are non-transferable NFTs. Meaning once acquired, they cannot be sold or transferred to another user. To learn more about SBTs, how it works and their use case, you can check out this [reference article](https://vitalik.eth.limo/general/2022/01/26/soulbound.html) published by Vitalik Buterin.
 
 By the end of this guide you will be able to: 
 * Set up a Hardhat project on Kaia.
-* Create a simple soul-bound token.
+* Create a simple soulbound token.
 * Compile your smart contract using Hardhat.
 * Test, deploy, and interact with your smart contract using Hardhat.
 * Explore Hardhat forking feature.
@@ -63,23 +63,28 @@ npm install --save-dev hardhat
 npm install dotenv @kaiachain/contracts
 ```
 
-> Note: This installs other dependencies needed for this project ranging from `hardhat`, `klaytn/contract`, `dotenv` et al. 
+> Note: This installs other dependencies needed for this project ranging from `hardhat`, `kaiachain/contract`, `dotenv` et al. 
 
 
 **Step 4**: Initialise a hardhat project:
 
+:::note
+This guide uses Hardhat v2. If you prefer to use Hardhat v3, please refer to this <a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">setup guide </a> for configuration instructions
+:::
+
 Run the command below to initiate an hardhat project
 
 ```bash
-npx hardhat
+npx hardhat --init
 ```
-For this guide, you'll be selecting a typescript project as seen below:
+![](/img/build/get-started/hh2-cli.png) 
 
-![](/img/build/get-started/hardhat-init.png) 
 
-![](/img/build/get-started/hardhat-init-ii.png)
+For this guide, you'll be selecting a Javascript project using Mocha and Ethers as seen below:
 
-> Note: While initializing the project, you will get a prompt to install `hardhat-toolbox` plugin. The plugin bundles all the commonly used packages and Hardhat plugins recommended to start developing with Hardhat.
+![](/img/build/get-started/hh2-cli-ii.png) 
+
+Accept default answers to the prompts.
 
 After initializing a hardhat project, your current directory should include:
 
@@ -89,22 +94,22 @@ After initializing a hardhat project, your current directory should include:
 
 **test/** – this folder contains all unit tests that test your smart contract.
 
-**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soul-bound token.
+**hardhat.config.js** – this file contains configurations important for the work of Hardhat and the deployment of the soulbound token.
 
-**Step 5**: Create a .env file
+**Step 5**: Create a `.env` file
 
-Now create your .env file in the project folder. This file helps us load environment variables from an .env file into process.env. 
+Now create your `.env` file in the project folder. This file helps us load environment variables from an `.env` file into process.env. 
 
-* Paste this command in your terminal to create a .env file
+* Paste this command in your terminal to create a `.env` file
 
 ```bash
 touch .env
 ```
 
-* After creating our file, let's configure our .env file to look like this:
+* After creating our file, let's configure our `.env` file to look like this:
 
 ```js
- KAIROS_TESTNET_URL= "Your Kairos RPC link"
+ KAIROS_TESTNET_URL= "Your Kairos RPC URL"
  PRIVATE_KEY= "your private key copied from MetaMask wallet"
 ```
 
@@ -133,7 +138,7 @@ module.exports = {
 
 ```
 
-Now that we have our development environment all set, let's get into writing our soul-bound token  smart contract.
+Now that we have our development environment all set, let's get into writing our soulbound token  smart contract.
 
 ## Creating SBT Smart Contract
 
@@ -292,60 +297,46 @@ The tests above check the following:
 npx hardhat test test/sbtTest.js 
 ```
 
-![](/img/build/get-started/sbtTest.png)
+![](/img/build/get-started/hh2-run-test.png)
 
 For more in-depth guide on testing, please check [Hardhat testing](https://hardhat.org/hardhat-runner/docs/guides/test-contracts). 
 
 ## Deploying the smart contract
 
-Scripts are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a script for the smart contract.
+Ignition modules are JavaScript/Typescript files that help you deploy contracts to the blockchain network. In this section, you will create a module for the smart contract.
 
-**Step 1**: In the Explorer pane, select the "scripts" folder and click the New File button to create a new file named `sbtDeploy.js`.
+**Step 1**: In the Explorer pane, select the **ignition/module** folder and click the New File button to create a new file named `sbtDeploy.js`.
 
 **Step 2**: Copy and paste the following code inside the file.
 
-> Note: input your MetaMask wallet address in the `deployerAddr` variable.
+```javascript
+// This setup uses Hardhat Ignition to manage smart contract deployments.
+// Learn more about it at https://hardhat.org/ignition
 
-```js
-const { ethers } = require("hardhat");
-
-async function main() {
-
-  const deployerAddr = "Your Metamask wallet address";
-  const deployer = await ethers.getSigner(deployerAddr);
-
-  console.log(`Deploying contracts with the account: ${deployer.address}`);
-  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-  const sbtContract = await ethers.deployContract("SoulBoundToken");
-  await sbtContract.waitForDeployment();
+module.exports = buildModule("SBTModule", (m) => {
 
-console.log(`Congratulations! You have just successfully deployed your soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}. You can verify on https://kairos.kaiascan.io/account/${sbtContract.target}`);
-}
+  const sbt = m.contract("SoulBoundToken", []);
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  return { sbt };
 });
 ```
 
-**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Test Network (Kairos) 
+**Step 3**: In the terminal, run the following command which tells Hardhat to deploy your SBT token on the Kaia Kairos Testnet.
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+npx hardhat ignition deploy ./ignition/modules/sbtDeploy.js --network kairos
 ```
 
-![](/img/build/get-started/sbtDeploy.png)
+![](/img/build/get-started/hh-deploy.png)
 
 **Step 4**: Open [KaiaScan](https://kairos.kaiascan.io/) to check if the SBT token has been deployed successfully.
 
 **Step 5**: Copy and paste the deployed contract address in the search field and press Enter. You should see the recently deployed contract.
 
-![](/img/build/get-started/sbtKS.png)
+![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## Hardhat Forking
 
@@ -377,7 +368,7 @@ networks: {
 
 **Output**
 
-![](/img/build/get-started/hardhat-fork.png)
+![](/img/build/get-started/hh2-fork-instance.png)
 
 After successfully running this command, your terminal looks like the above image.  You'll have 20 development accounts that are pre-funded with 10,000 test tokens.
 
@@ -390,7 +381,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **Output**
 
-![](/img/build/get-started/hardhat-fork-bn.png)
+![](/img/build/get-started/hh2-forked-ins-i.png)
 
 The output is an hexadecimal as seen above. To get the block number from the hex, convert the hex to a decimal using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html). You should get the latest block number from the time you forked the network. You can confirm the block number on [KaiaScan](https://kaiascan.io/).
 
@@ -410,7 +401,7 @@ To confirm the forked chain at the stated block, open a new terminal window and 
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-![](/img/build/get-started/hardhat-fork-bnII.png)
+![](/img/build/get-started/hh2-forked-ins-ii.png)
 
 The output returns hexadecimal which when converted using this [tool](https://www.rapidtables.com/convert/number/hex-to-decimal.html) should be equal to `105701850`.
 
