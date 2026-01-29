@@ -381,6 +381,7 @@ const sidebars = {
           items: [
             'build/tools/indexers/thegraph',
             'build/tools/indexers/subquery',
+            'build/tools/indexers/goldsky',
           ],
         },
         {
