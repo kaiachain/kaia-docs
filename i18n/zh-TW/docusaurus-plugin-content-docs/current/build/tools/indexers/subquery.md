@@ -2,7 +2,11 @@
 sidebar_label: SubQuery
 ---
 
-# SubQuery多鏈索引器
+# 子查詢
+
+![](/img/banners/kaia-subquery.png)
+
+## 導言
 
 SubQuery 是領先的區塊鏈數據索引器，為開發人員的 Web3 項目提供快速、靈活、通用、開源和去中心化的 API。 SubQuery SDK 允許開發人員獲取豐富的索引數據，並以更快、更高效的方式構建直觀、身臨其境的去中心化應用程序。 SubQuery 支持 100 多個生態系統，包括 Kaia 的 EVM、Cosmos、以太坊、Polygon、Polkadot、Algorand、NEAR 和 Avalanche。
 
