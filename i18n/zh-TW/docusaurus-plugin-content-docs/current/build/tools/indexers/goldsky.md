@@ -136,7 +136,7 @@ Goldsky 支援三種部署子圖的方法：
 
 設定檔準備好之後，就是部署子圖的時候了。
 
-使用命令部署子圖：`goldsky subgraph deploy name/version --from-abi<path-to-config-file>`，然後傳入您建立的設定檔路徑。
+使用命令部署子圖：`goldsky subgraph deploy name/version --from-abi <path-to-config-file>`，然後傳入您建立的設定檔路徑。
 
 範例：
 
