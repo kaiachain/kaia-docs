@@ -139,7 +139,7 @@ Goldskyは、サブグラフを展開するための3つの方法をサポート
 
 コンフィギュレーション・ファイルの準備ができたら、いよいよサブグラフをデプロイします。
 
-コマンドを使用してサブグラフをデプロイします：goldsky subgraph deploy name/version --from-abi<path-to-config-file>\` を使用してサブグラフをデプロイし、作成した設定ファイルのパスを渡します。
+コマンドを使用してサブグラフをデプロイします：`goldsky subgraph deploy name/version --from-abi <path-to-config-file>` を使用してサブグラフをデプロイし、作成した設定ファイルのパスを渡します。
 
 例
 
