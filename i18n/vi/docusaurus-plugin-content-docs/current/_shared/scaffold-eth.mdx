@@ -1,0 +1,288 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Xây dựng một ứng dụng phi tập trung (dApp) bằng Scaffold-ETH 2
+
+![](/img/banners/kaia-scaffold.png)
+
+## Giới thiệu <a href="#introduction" id="introduction" />
+
+Scaffold-ETH 2 là một bộ công cụ mã nguồn mở để phát triển các ứng dụng phi tập trung (dApps) trên Ethereum và các blockchain tương thích với EVM khác, như Kaia. Nhờ Scaffold-ETH 2, các nhà phát triển có thể dễ dàng triển khai hợp đồng thông minh Solidity và khởi chạy một ứng dụng phi tập trung (dApp) với giao diện người dùng React.
+
+Bộ công cụ Scaffold-ETH 2 được phát triển bằng cách sử dụng Next.js, RainbowKit, Hardhat, Foundry, Wagmi và TypeScript. Các nhà phát triển có thể dễ dàng tạo, kiểm thử và triển khai hợp đồng thông minh bằng Hardhat hoặc Foundry, cũng như xây dựng giao diện người dùng React bằng Next.js.
+
+Trong hướng dẫn này, bạn sẽ học cách triển khai, chạy hợp đồng và xây dựng ứng dụng phi tập trung (dApp) trên Kaia bằng Scaffold-ETH 2.
+
+## Điều kiện tiên quyết <a href="#prerequisites" id="prerequisites" />
+
+Để bắt đầu với hướng dẫn này, bạn sẽ cần:
+
+* [Node (>= v18.17)](https://nodejs.org/en/download/)
+* Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) hoặc [v2+](https://yarnpkg.com/getting-started/install))
+* Sự quen thuộc với các khái niệm cơ bản của JavaScript và React, bao gồm hooks.
+* [Ví Metamask](https://metamask.io/download/)
+* Kiểm tra KAIA từ [Faucet](https://faucet.kaia.io)
+* Điểm cuối RPC: Bạn có thể lấy thông tin này từ một trong các nhà cung cấp điểm cuối được hỗ trợ [endpoint providers](https://docs.kaia.io/references/public-en/)
+
+## Cài đặt môi trường phát triển <a href="#setting-up-dev-environment" id="setting-up-dev-environment" />
+
+Để cài đặt Scaffold-ETH 2, bạn có hai lựa chọn: hoặc cài đặt bằng cách sao chép kho lưu trữ Scaffold-ETH 2 (https://github.com/scaffold-eth/scaffold-eth-2) hoặc sử dụng lệnh `npx create-eth@latest`.
+
+Để mục đích của hướng dẫn này, chúng ta sẽ sử dụng phương pháp npx để khởi tạo dự án Scaffold-ETH 2 của mình.
+
+Khởi tạo một dự án Scaffold-ETH 2 bằng cách chạy lệnh sau:
+
+```bash
+npx create-eth@latest
+```
+
+Bạn sẽ được hiển thị một loạt các hướng dẫn:
+
+**Tên dự án**: Nhập tên dự án của bạn: Nhập tên cho dự án của bạn, ví dụ: kaia-scaffold-example.
+
+**Khung Solidity**; Bạn muốn sử dụng khung Solidity nào?: Chọn khung Solidity ưa thích của bạn (Hardhat, Foundry). Trong hướng dẫn này, chúng ta sẽ sử dụng khung **Hardhat**.
+
+**Cài đặt gói phần mềm?**: Nhấn Enter để đồng ý (tùy chọn mặc định) hoặc nhập n và nhấn Enter để từ chối
+Sau khi quá trình cài đặt hoàn tất, hãy điều hướng đến thư mục dự án.
+
+```bash
+cd project-name
+// e.g  cd kaia-scaffold-example
+```
+
+![Cài đặt Scaffold-ETH](/img/build/tutorials/scaffold-1.png)
+
+## Điểm nhấn của quá trình phát triển với Scaffold-ETH 2 <a href="#highlight-of-dev-environment" id="highlight-of-dev-environment" />
+
+Quy trình phát triển dự án với Scaffold-ETH 2 có thể được tóm tắt như sau:
+
+1. Cập nhật cấu hình mạng cho Hardhat để nhắm mục tiêu Kaia trong tệp **packages/hardhat/hardhat.config.ts**.
+2. Thêm các hợp đồng thông minh của bạn vào thư mục **packages/hardhat/contracts**
+3. Chỉnh sửa các tập lệnh triển khai của bạn trong thư mục **packages/hardhat/deploy**.
+4. Triển khai hợp đồng thông minh của bạn lên Kaia
+5. Xác minh hợp đồng thông minh của bạn bằng plugin Hardhat Verify.
+6. Cấu hình giao diện người dùng (frontend) để nhắm mục tiêu Kaia trong tệp **packages/nextjs/scaffold.config.ts**.
+7. Chỉnh sửa giao diện người dùng (frontend) theo nhu cầu trong thư mục **packages/nextjs/pages**.
+
+Để mục đích của hướng dẫn này, chúng ta sẽ sử dụng hợp đồng mẫu và giao diện người dùng mặc định có sẵn sau khi cài đặt Scaffold-ETH 2. Tất cả những gì cần làm là điều chỉnh các thành phần này cho Kaia. Trong trường hợp đó, chúng ta sẽ chia các cấu hình thành **Hardhat** và **Next.js**.
+
+## Cấu hình mũ bảo hộ
+
+Trong phần này, bạn sẽ điều chỉnh các cấu hình mạng trong tệp cấu hình Hardhat để nhắm mục tiêu đến Kaia trong thư mục **packages/hardhat**.
+
+### Cấu hình Hardhat cho Kaia
+
+**Bước 1: Cấu hình mạng của bạn**
+
+Điều đầu tiên chúng ta muốn làm là cấu hình `hardhat.config.ts` để hỗ trợ mạng Kaia. Đi đến `packages/hardhat/hardhat.config.ts` và thêm các mạng Kaia của bạn vào đối tượng networks.
+
+<Tabs>
+  <TabItem value="Kaia" label="Mạng chính Kaia" default>
+    ```javascript
+      networks: {
+        // … other networks
+        kaia: {
+          chainId: 8217,
+          url: "https://public-en.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      }
+    ```
+  </TabItem>
+
+  <TabItem value="Kairos" label="Mạng thử nghiệm Kairos">
+    ```javascript
+      networks: {
+        // … other networks
+        kairos: {
+          chainId: 1001,
+          url: "https://public-en-kairos.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      } 
+    ```
+  </TabItem>
+</Tabs>
+
+Bước 2: Tạo tài khoản mới hoặc thêm tài khoản để triển khai hợp đồng (các hợp đồng) từ
+
+Bước tiếp theo bạn cần làm là cấu hình tài khoản của mình.  Bạn có thể tạo một tài khoản ngẫu nhiên / khóa riêng bằng cách chạy:
+
+```bash
+yarn generate 
+```
+
+Nó sẽ tự động thêm khóa riêng tư đã được mã hóa (DEPLOYER_PRIVATE_KEY_ENCRYPTED) vào tệp `.env` của bạn.
+
+:::note
+Bạn sẽ được yêu cầu nhập mật khẩu, mật khẩu này sẽ được sử dụng để mã hóa khóa riêng tư của bạn. Đừng quên mật khẩu này vì bạn sẽ cần nó cho các lần triển khai trong tương lai và các truy vấn tài khoản.
+:::
+
+Nếu bạn muốn nhập khóa riêng tư của mình, hãy chạy:
+
+```bash
+yarn account:import
+```
+
+Bạn sẽ được yêu cầu dán khóa riêng tư của mình và đặt mật khẩu mã hóa. Nó sẽ lưu trữ khóa riêng tư đã được mã hóa của bạn trong tệp `.env`.
+
+Bạn có thể kiểm tra tài khoản và số dư đã được cấu hình (được tạo hoặc nhập) bằng cách:
+
+```bash
+yarn account
+```
+
+Để thực hiện bước này, bạn cần nhập mật khẩu của mình để giải mã khóa riêng tư và xem thông tin tài khoản và số dư.
+
+### Triển khai hợp đồng lên Kaia
+
+Sau khi cấu hình Hardhat để hỗ trợ mạng Kaia, bước tiếp theo là biên dịch và triển khai hợp đồng mẫu.
+
+Đầu tiên, bạn có thể biên dịch hợp đồng của mình bằng cách chạy:
+
+```bash
+yarn compile
+```
+
+Tiếp theo, để triển khai hợp đồng của bạn, bạn có hai lựa chọn:
+
+**Tùy chọn 1: Thiết lập mạng mặc định**
+
+Cấu hình trường **defaultNetwork** trong tệp `hardhat.config.ts` của bạn thành kaia hoặc kairos.
+
+Khi bạn chạy `yarn deploy`, hợp đồng thông minh sẽ được triển khai lên mạng mặc định đã chỉ định.
+
+**Tùy chọn 2: Chỉ định mạng một cách rõ ràng**
+
+Để triển khai vào một mạng cụ thể, hãy sử dụng flag `--network` khi chạy lệnh triển khai:
+
+```bash
+yarn deploy --network network_name
+```
+
+Ví dụ: `yarn deploy --network kairos`
+
+**Kết quả**:
+
+```bash
+% yarn deploy
+
+✔ Enter password to decrypt private key:
+Nothing to compile
+No need to generate any newer typings.
+deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278499ca5da70affbbb)...: deployed at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 with 534186 gas
+👋 Initial greeting: Building Unstoppable Apps!!!
+📝 Updated TypeScript contract definition file on ../nextjs/contracts/deployedContracts.ts
+```
+
+### Xác minh hợp đồng đã triển khai <a href="#verify-deployed-contract" id="verify-deployed-contract" />
+
+Để xác minh hợp đồng đã được triển khai của chúng ta, chúng ta sẽ sử dụng plugin hardhat verify. Tất cả những gì cần làm là thêm cấu hình sau vào tệp **hardhat.config.ts** của bạn dưới đối tượng cấu hình harhdat-verify etherscan.
+
+<Tabs>
+  <TabItem value="Kaia" label="Mạng chính Kaia" default>
+    ```js
+      etherscan: {
+        apiKey: {
+          kaia: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kaia",
+            chainId: 8217,
+            urls: {
+              apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+
+  <TabItem value="Kairos" label="Mạng thử nghiệm Kairos">
+    ```js
+      etherscan: {
+        apiKey: {
+          kairos: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kairos",
+            chainId: 1001,
+            urls: {
+              apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kairos.kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+</Tabs>
+
+Tiếp theo, hãy sao chép và dán lệnh sau vào terminal của bạn để xác minh hợp đồng thông minh:
+
+Ví dụ
+
+```bash
+yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
+```
+
+Thực tế
+
+```bash
+yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+ "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+```
+
+Như bạn có thể thấy ở trên, để xác minh hợp đồng của mình, bạn cần cung cấp tên mạng, địa chỉ hợp đồng và các tham số của hàm tạo (nếu có). Sau một thời gian chờ đợi ngắn, bảng điều khiển sẽ hiển thị kết quả xác minh và, nếu thành công, URL của hợp đồng đã được xác minh trên KaiaScan sẽ được cung cấp.
+
+**Kết quả**:
+
+```bash
+% yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+
+Successfully submitted source code for contract
+contracts/YourContract.sol:YourContract at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract YourContract on the block explorer.
+https://kairos.kaiascan.io/address/0xb1ea8476debb6d3021cC3a179B9eC21e01742d82#code
+```
+
+![Xác minh khung giàn](/img/build/tutorials/scaffold-3.png)
+
+Để biết thêm thông tin về việc xác minh hợp đồng thông minh trên Kaia bằng plugin Hardhat Verify, vui lòng tham khảo [Hướng dẫn plugin Hardhat Verify](https://docs.kaia.io/build/smart-contracts/verify/hardhat/).
+
+## Cấu hình Next.js <a href="#nextjs-configuration" id="nextjs-configuration" />
+
+Trong phần này, bạn sẽ điều chỉnh cấu hình Next.js để nhắm mục tiêu đến Kairos Testnet (nơi hợp đồng thông minh đã được triển khai) trong thư mục **packages/nextjs**. Trong thư mục này, chúng tôi dự định sửa đổi mảng **targetNetwork** trong đối tượng scaffoldConfig trong tệp **scaffold.config.ts**.
+
+### Chỉnh sửa mảng targetNetwork <a href="#modify-targetnetwork-array" id="modify-targetnetwork-array" />
+
+```js
+targetNetworks: [chains.kaia, chains.kairos],
+```
+
+Đó là tất cả những gì cần thiết để cấu hình Next.js! Tiếp theo, bạn cần khởi chạy ứng dụng dApp trên máy chủ cục bộ (localhost).
+
+### Khởi chạy ứng dụng dApp trên máy chủ cục bộ (Localhost) <a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost" />
+
+Sau khi hoàn tất tất cả các cấu hình cần thiết, bạn có thể khởi chạy ứng dụng dApp mẫu trên máy chủ cục bộ của mình.
+
+Để thực hiện điều này, hãy chạy:
+
+```bash
+yarn start
+```
+
+Bây giờ bạn có thể truy cập giao diện người dùng (frontend) của ứng dụng dApp dựa trên React tại http://localhost:3000/. Bạn có thể tương tác với ứng dụng phi tập trung (dApp) bằng cách kết nối ví của mình hoặc truy cập trang gỡ lỗi hợp đồng.
+
+![Scaffold dApp](/img/build/tutorials/scaffold-5.png)
+
+## Kết luận
+
+Chúc mừng! Bạn đã thành công trong việc sử dụng Scaffold-ETH 2 để triển khai hợp đồng thông minh và chạy ứng dụng phi tập trung (dApp) trên Kaia. Bây giờ khi bạn đã hiểu cách hoạt động của Scaffold-ETH 2, hãy thoải mái tạo và triển khai các hợp đồng thông minh của riêng bạn, đồng thời tùy chỉnh giao diện người dùng để phù hợp với nhu cầu của ứng dụng phi tập trung (dApp) của bạn!
+
+Tham khảo [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) để biết thêm thông tin và [Kaia Forum](https://devforum.kaia.io/) nếu bạn có bất kỳ câu hỏi nào.
