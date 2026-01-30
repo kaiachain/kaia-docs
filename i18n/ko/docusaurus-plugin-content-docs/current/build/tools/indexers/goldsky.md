@@ -139,7 +139,7 @@ Goldsky는 두 가지 핵심 제품을 제공합니다:
 
 구성 파일이 준비되었으면 이제 하위 그래프를 배포할 차례입니다.
 
-다음 명령을 사용하여 하위 그래프를 배포합니다: `goldsky subgraph deploy name/version --from-abi`를 실행한 다음 생성한 구성 파일의 경로를 전달합니다.
+다음 명령을 사용하여 하위 그래프를 배포합니다: `goldsky subgraph deploy name/version --from-abi <path-to-config-file>`를 실행한 다음 생성한 구성 파일의 경로를 전달합니다.
 
 예시:
 
