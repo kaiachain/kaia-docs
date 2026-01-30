@@ -123,10 +123,6 @@ const config = {
       async: true,
       'data-website-id': process.env.UMAMI_WEBSITE_ID,
     }] : []),
-    {
-      src: '/js/formbricks-loader.js',
-      async: true,
-    },
   ],
 
   clientModules: [
