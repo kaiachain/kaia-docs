@@ -2,7 +2,11 @@
 sidebar_label: SubQuery
 ---
 
-# SubQuery 멀티체인 인덱서
+# 하위 쿼리
+
+![](/img/banners/kaia-subquery.png)
+
+## 소개
 
 SubQuery는 개발자에게 웹 3.0 프로젝트를 위한 빠르고 유연하며 범용적인 오픈 소스 및 탈중앙화 API를 제공하는 선도적인 블록체인 데이터 인덱서입니다. SubQuery SDK를 통해 개발자는 풍부한 인덱싱 데이터를 얻고 직관적이고 몰입도 높은 탈중앙화 애플리케이션을 더 빠르고 효율적으로 구축할 수 있습니다. SubQuery는 Kaia의 EVM, Cosmos, Ethereum, Polygon, Polkadot, Algorand, NEAR, Avalanche를 포함한 100개 이상의 생태계를 지원합니다.
 

@@ -1,0 +1,288 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# 스캐폴드-ETH를 사용하여 dApp 구축하기 2
+
+![](/img/banners/kaia-scaffold.png)
+
+## 소개 <a href="#introduction" id="introduction" />
+
+Scaffold-ETH 2는 이더리움 및 카이아와 같은 기타 EVM 호환 블록체인에서 탈중앙화 애플리케이션(dApp)을 구축하기 위한 오픈소스 툴킷입니다. 개발자는 Scaffold-ETH 2를 통해 솔리디티 스마트 컨트랙트를 쉽게 배포하고 React 프론트엔드로 dApp을 시작할 수 있습니다.
+
+스캐폴드-ETH 2 툴킷은 Next.js, RainbowKit, 하드햇, 파운드리, 와그미, 타입스크립트를 사용하여 빌드되었습니다. 개발자는 Hardhat 또는 Foundry를 사용하여 스마트 계약을 쉽게 생성, 테스트 및 배포할 수 있을 뿐만 아니라 Next.js를 사용하여 React 프론트엔드를 구축할 수 있습니다.
+
+이 튜토리얼에서는 스캐폴드-ETH 2를 사용하여 카이아에서 컨트랙트를 배포하고, 실행하고, 디앱을 구축하는 방법을 배우게 됩니다.
+
+## 전제 조건 <a href="#prerequisites" id="prerequisites" />
+
+이 가이드에서 시작하려면 다음이 필요합니다:
+
+* [노드 (>= v18.17)](https://nodejs.org/en/download/)
+* 원사 ([v1](https://classic.yarnpkg.com/en/docs/install/) 또는 [v2+](https://yarnpkg.com/getting-started/install))
+* 후크와 같은 자바스크립트 및 React 기본 사항에 익숙함
+* [메타마스크 지갑](https://metamask.io/download/)
+* 수도꼭지](https://faucet.kaia.io)에서 KAIA를 테스트하세요.
+* RPC 엔드포인트: 지원되는 [엔드포인트 제공업체] 중 하나에서 얻을 수 있습니다(https://docs.kaia.io/references/public-en/).
+
+## 개발 환경 설정 <a href="#setting-up-dev-environment" id="setting-up-dev-environment" />
+
+스캐폴드-ETH 2를 설치하려면, [스캐폴드-ETH 2 저장소](https://github.com/scaffold-eth/scaffold-eth-2)를 복제하여 설치하거나 `npx create-eth@latest`를 사용하여 설치하는 두 가지 옵션이 있습니다.
+
+이 가이드에서는 npx 메서드를 사용하여 스캐폴드-ETH 2 프로젝트를 부트스트랩하겠습니다.
+
+아래 명령을 실행하여 Scaffold-ETH 2 프로젝트를 부트스트랩합니다:
+
+```bash
+npx create-eth@latest
+```
+
+일련의 프롬프트가 표시됩니다:
+
+**프로젝트 이름**: 프로젝트 이름 입력: 프로젝트의 이름을 입력합니다(예: kaia-scaffold-example).
+
+**솔리디티 프레임워크**; 어떤 솔리디티 프레임워크를 사용하시겠습니까? 선호하는 솔리디티 프레임워크(하드햇, 파운드리)를 선택합니다. 이 가이드에서는 **Hardhat** 프레임워크를 사용합니다.
+
+\*\*패키지를 설치하시겠습니까? 예(기본 옵션)를 선택하려면 Enter 키를 누르거나 아니요를 선택하려면 n을 입력하고 Enter 키를 누릅니다.
+설정이 완료되면 프로젝트 디렉터리로 이동합니다.
+
+```bash
+cd project-name
+// e.g  cd kaia-scaffold-example
+```
+
+![스캐폴드-ETH 설정](/img/build/tutorials/scaffold-1.png)
+
+## 스캐폴드-ETH 2를 사용한 개발 과정의 하이라이트 <a href="#highlight-of-dev-environment" id="highlight-of-dev-environment" />
+
+스캐폴드-ETH 2로 프로젝트를 개발하는 프로세스는 다음과 같이 설명할 수 있습니다:
+
+1. 패키지의 **packages/hardhat/hardhat.config.ts** 파일에서 Kaia를 대상으로 하도록 하드햇의 네트워크 구성을 업데이트합니다.
+2. 패키지/하드햇/컨트랙트\*\*에 스마트 컨트랙트를 추가하세요.
+3. 패키지의 **packages/hardhat/deploy**에서 배포 스크립트를 편집하세요.
+4. 카이아에 스마트 컨트랙트 배포
+5. 하드햇 검증 플러그인으로 스마트 컨트랙트 검증하기
+6. 패키지의 **packages/nextjs/scaffold.config.ts** 파일에서 Kaia를 타겟팅하도록 프론트엔드를 구성하세요.
+7. 패키지의 **packages/nextjs/pages** 디렉토리에서 필요에 따라 프론트엔드를 편집하세요.
+
+이 가이드에서는 Scaffold-ETH 2 설치 후 제공되는 기본 샘플 컨트랙트와 프론트엔드를 사용하겠습니다. 카이아에 맞게 이러한 구성 요소를 수정하기만 하면 됩니다. 이 경우 구성을 **Hardhat** 및 **Next.js** 구성으로 분할합니다.
+
+## 하드햇 구성
+
+이 섹션에서는 하드햇 구성 파일의 네트워크 구성을 수정하여 **packages/hardhat** 폴더 아래에 있는 Kaia를 대상으로 합니다.
+
+### Kaia용 하드햇 구성
+
+**1단계: 네트워크 구성하기**
+
+가장 먼저 해야 할 일은 Kaia 네트워크를 지원하도록 `hardhat.config.ts`를 구성하는 것입니다. 패키지로 이동하여 '패키징/하드햇/하드햇.config.ts'를 열고 네트워크 객체에 Kaia 네트워크를 추가하세요.
+
+<Tabs>
+  <TabItem value="카이아" label="카이아 메인넷" default>
+    ```javascript
+      networks: {
+        // … other networks
+        kaia: {
+          chainId: 8217,
+          url: "https://public-en.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      }
+    ```
+  </TabItem>
+
+  <TabItem value="카이로스" label="카이로스 테스트넷">
+    ```javascript
+      networks: {
+        // … other networks
+        kairos: {
+          chainId: 1001,
+          url: "https://public-en-kairos.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      } 
+    ```
+  </TabItem>
+</Tabs>
+
+**2단계: 새 계정을 생성하거나 계정을 추가하여 컨트랙트를 배포**합니다.
+
+다음으로 할 일은 계정을 구성하는 것입니다.  실행하여 임의의 계정/비밀키를 생성할 수 있습니다:
+
+```bash
+yarn generate 
+```
+
+.env\` 파일에 암호화된 개인 키(DEPLOYER_PRIVATE_KEY_ENCRYPTED)가 자동으로 추가됩니다.
+
+:::note
+개인 키를 암호화하는 데 사용할 비밀번호를 입력하라는 메시지가 표시됩니다. 이 비밀번호는 향후 배포 및 계정 조회에 필요하므로 잊지 마세요.
+:::
+
+개인 키를 가져오려면 실행하세요:
+
+```bash
+yarn account:import
+```
+
+개인 키를 붙여넣고 암호화 비밀번호를 설정하라는 메시지가 표시됩니다. 암호화된 개인 키를 '.env' 파일에 저장합니다.
+
+구성된(생성 또는 가져온) 계정과 잔액을 확인할 수 있습니다:
+
+```bash
+yarn account
+```
+
+이 단계에서는 개인 키를 해독하고 계정 정보 및 잔액을 보려면 비밀번호도 입력해야 합니다.
+
+### 카이아에 계약 배포
+
+Kaia 네트워크를 지원하도록 하드햇을 구성한 후 다음 단계는 샘플 컨트랙트를 컴파일하고 배포하는 것입니다.
+
+먼저 실행하여 계약을 컴파일할 수 있습니다:
+
+```bash
+yarn compile
+```
+
+다음으로, 계약을 배포하려면 두 가지 옵션이 있습니다:
+
+**옵션 1: 기본 네트워크 설정**
+
+하드햇.config.ts\` 파일의 **defaultNetwork** 필드를 카이아 또는 카이로스로 구성합니다.
+
+'yarn deploy'를 실행하면 컨트랙트가 지정된 기본 네트워크에 배포됩니다.
+
+**옵션 2: 명시적으로 네트워크 지정**
+
+특정 네트워크에 배포하려면 배포 명령을 실행할 때 `--네트워크` 플래그를 사용하세요:
+
+```bash
+yarn deploy --network network_name
+```
+
+예: `yarn deploy --네트워크 카이로스`
+
+**출력**:
+
+```bash
+% yarn deploy
+
+✔ Enter password to decrypt private key:
+Nothing to compile
+No need to generate any newer typings.
+deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278499ca5da70affbbb)...: deployed at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 with 534186 gas
+👋 Initial greeting: Building Unstoppable Apps!!!
+📝 Updated TypeScript contract definition file on ../nextjs/contracts/deployedContracts.ts
+```
+
+### 배포된 계약 확인 <a href="#verify-deployed-contract" id="verify-deployed-contract" />
+
+이미 배포된 컨트랙트를 확인하기 위해 하드햇 검증 플러그인을 사용하겠습니다. harhdat-verify etherscan 구성 개체 아래의 **hardhat.config.ts**에 다음 구성을 추가하기만 하면 됩니다.
+
+<Tabs>
+  <TabItem value="카이아" label="카이아 메인넷" default>
+    ```js
+      etherscan: {
+        apiKey: {
+          kaia: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kaia",
+            chainId: 8217,
+            urls: {
+              apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+
+  <TabItem value="카이로스" label="카이로스 테스트넷">
+    ```js
+      etherscan: {
+        apiKey: {
+          kairos: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kairos",
+            chainId: 1001,
+            urls: {
+              apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kairos.kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+</Tabs>
+
+다음으로 터미널에 다음 명령을 복사하여 붙여넣어 스마트 컨트랙트를 확인합니다:
+
+예
+
+```bash
+yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
+```
+
+실제
+
+```bash
+yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+ "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+```
+
+위에서 볼 수 있듯이 컨트랙트를 확인하려면 네트워크 이름, 컨트랙트 주소, 생성자 인자(있는 경우)를 전달해야 합니다. 잠시 기다리면 콘솔에 인증 결과가 표시되고, 성공하면 KaiaScan에서 인증된 계약의 URL이 제공됩니다.
+
+**출력**:
+
+```bash
+% yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+
+Successfully submitted source code for contract
+contracts/YourContract.sol:YourContract at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract YourContract on the block explorer.
+https://kairos.kaiascan.io/address/0xb1ea8476debb6d3021cC3a179B9eC21e01742d82#code
+```
+
+![스캐폴드 확인](/img/build/tutorials/scaffold-3.png)
+
+하드햇 검증 플러그인을 사용하여 카이아에서 스마트 컨트랙트를 검증하는 방법에 대한 자세한 내용은 [하드햇 검증 플러그인 가이드](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)를 참조하시기 바랍니다.
+
+## Next.js 구성 <a href="#nextjs-configuration" id="nextjs-configuration" />
+
+이 섹션에서는 **packages/nextjs** 폴더 아래의 카이로스 테스트넷(스마트 컨트랙트가 배포된 곳)을 대상으로 Next.js 구성을 수정합니다. 이 폴더에서 **scaffold.config.ts** 파일에 있는 scaffoldConfig 객체의 **targetNetwork** 배열을 수정하려고 합니다.
+
+### 대상 네트워크 배열 수정 <a href="#modify-targetnetwork-array" id="modify-targetnetwork-array" />
+
+```js
+targetNetworks: [chains.kaia, chains.kairos],
+```
+
+Next.js를 구성하는 데 필요한 모든 것이 완료되었습니다! 다음으로 로컬 호스트에서 dApp을 실행합니다.
+
+### 로컬 호스트에서 dApp 실행 <a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost" />
+
+필요한 모든 구성을 완료했으면 이제 로컬 호스트에서 예제 dApp을 시작할 수 있습니다.
+
+그렇게 하려면 실행하세요:
+
+```bash
+yarn start
+```
+
+이제 http://localhost:3000/ 에서 React 기반 dApp 프론트엔드에 액세스할 수 있습니다. 지갑을 연결하거나 컨트랙트 디버거 페이지를 확인하여 디앱과 자유롭게 상호작용해 보세요.
+
+![스캐폴드 디앱](/img/build/tutorials/scaffold-5.png)
+
+## 결론
+
+축하합니다! Scaffold-ETH 2를 사용하여 컨트랙트를 배포하고 카이아에서 dApp을 실행하는 데 성공했습니다. 이제 스캐폴드-ETH 2의 작동 방식을 이해하셨으니, 여러분만의 스마트 컨트랙트를 생성 및 배포하고 여러분의 디앱의 필요에 맞게 프론트엔드를 수정해 보세요!
+
+자세한 내용은 [Scaffold-ETH 2 문서](https://docs.scaffoldeth.io/)를, 궁금한 점이 있으면 [카이아 포럼](https://devforum.kaia.io/)을 참조하세요.

@@ -167,11 +167,7 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 
 #### 3.3. 레시피: 하드햇 프로젝트에서 안전하게 계정 관리하기
 
-[하드햇 3](https://hardhat.org/hardhat3-alpha)(현재 알파 버전)은 내장된 비밀 관리자를 통해 암호화된 비밀을 도입합니다. 이 기능은 버전 관리에 커밋되어서는 안 되는 API 키를 사용하여 개인 키 또는 RPC URL과 같은 민감한 문자열 기반 비밀을 안전하게 저장할 수 있도록 지원합니다.
-
-:::note
-하드햇 3는 알파 버전이며 완전히 안정적이지 않을 수 있습니다. 안정적인 버전이 공식 출시될 때까지 주의해서 사용하세요.
-:::
+[하드햇 3](https://hardhat.org/docs/getting-started)(현재 베타 버전)은 내장된 비밀 관리자를 통해 암호화된 비밀을 도입합니다. 이 기능은 버전 관리에 커밋되어서는 안 되는 API 키를 사용하여 개인 키 또는 RPC URL과 같은 민감한 문자열 기반 비밀을 안전하게 저장할 수 있도록 지원합니다.
 
 ##### 1단계: 새 하드햇 프로젝트 만들기
 
@@ -180,12 +176,8 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 ```bash
 mkdir hardhat-encrypted && cd hardhat-encrypted
 npm init -y
-npx hardhat@next --init
+npx hardhat --init
 ```
-
-:::note
-npx 명령에 @next를 추가하면 이 글을 쓰는 시점에서 `3.0.0-next.20`이라는 태그가 지정된 가장 최신 버전의 하드햇 프리 릴리스를 가져옵니다.
-:::
 
 메시지에 대한 기본 답변을 수락합니다. 그런 다음 하드햇 버전을 실행하여 프로젝트 버전을 확인합니다:
 

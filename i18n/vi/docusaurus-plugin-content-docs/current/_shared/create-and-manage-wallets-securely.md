@@ -168,11 +168,7 @@ Chúc mừng. Bạn đã cấu hình thành công các bí mật được mã h�
 
 #### 3.3. Hướng dẫn: Quản lý tài khoản an toàn trong dự án Hardhat
 
-[Hardhat 3](https://hardhat.org/hardhat3-alpha) (hiện đang ở giai đoạn alpha) giới thiệu tính năng quản lý bí mật được mã hóa thông qua một trình quản lý bí mật tích hợp sẵn. Tính năng này cho phép lưu trữ an toàn các thông tin nhạy cảm dạng chuỗi ký tự như khóa riêng tư hoặc URL RPC, cùng với các khóa API không nên được lưu trữ trong hệ thống kiểm soát phiên bản.
-
-:::note
-Hardhat 3 đang ở giai đoạn alpha và có thể chưa hoàn toàn ổn định. Sử dụng với sự cẩn thận cho đến khi phiên bản ổn định được phát hành chính thức.
-:::
+[Hardhat 3](https://hardhat.org/docs/getting-started) (hiện đang ở giai đoạn beta) giới thiệu tính năng quản lý bí mật được mã hóa thông qua trình quản lý bí mật tích hợp sẵn. Tính năng này cho phép lưu trữ an toàn các thông tin nhạy cảm dạng chuỗi ký tự như khóa riêng tư hoặc URL RPC, cùng với các khóa API không nên được lưu trữ trong hệ thống kiểm soát phiên bản.
 
 ##### Bước 1: Tạo dự án Hardhat mới
 
@@ -181,12 +177,8 @@ Chạy các lệnh sau trong terminal của bạn để tạo một dự án Har
 ```bash
 mkdir hardhat-encrypted && cd hardhat-encrypted
 npm init -y
-npx hardhat@next --init
+npx hardhat --init
 ```
-
-:::note
-Thêm @next vào lệnh npx sẽ tải xuống phiên bản pre-release mới nhất có thẻ của Hardhat, hiện tại là `3.0.0-next.20` tại thời điểm viết bài.
-:::
 
 Chấp nhận câu trả lời mặc định cho các câu hỏi. Sau đó, chạy phiên bản Hardhat để xác minh phiên bản dự án:
 

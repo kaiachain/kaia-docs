@@ -2,7 +2,11 @@
 sidebar_label: SubQuery
 ---
 
-# サブクエリー・マルチチェーン・インデクサー
+# サブクエリ
+
+![](/img/banners/kaia-subquery.png)
+
+## はじめに
 
 SubQueryはブロックチェーンデータインデクサーのリーディングカンパニーであり、開発者にWeb3プロジェクト用の高速で柔軟、普遍的、オープンソース、分散型APIを提供します。 SubQuery SDKにより、開発者はリッチなインデックス付きデータを取得し、直感的で没入感のある分散型アプリケーションをより迅速かつ効率的に構築することができる。 SubQueryは、KaiaのEVM、Cosmos、Ethereum、Polygon、Polkadot、Algorand、NEAR、Avalancheを含む100以上のエコシステムをサポートしています。 SubQuery SDKにより、開発者はリッチなインデックス付きデータを取得し、直感的で没入感のある分散型アプリケーションをより迅速かつ効率的に構築することができる。 SubQueryは、KaiaのEVM、Cosmos、Ethereum、Polygon、Polkadot、Algorand、NEAR、Avalancheを含む100以上のエコシステムをサポートしています。
 

@@ -1,0 +1,288 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# 使用 Scaffold-ETH 2 建立 dApp
+
+![](/img/banners/kaia-scaffold.png)
+
+## 簡介<a href="#introduction" id="introduction" />
+
+Scaffold-ETH 2 是在 Ethereum 和其他 EVM 相容的區塊鏈 (如 Kaia) 上建立分散式應用程式 (dApp) 的開放原始碼工具包。 透過 Scaffold-ETH 2，開發人員可以輕鬆部署 Solidity 智慧型契約，並使用 React 前端啟動 dApp。
+
+Scaffold-ETH 2 工具包使用 Next.js、RainbowKit、Hardhat、Foundry、Wagmi 和 TypeScript 建立。 開發人員可以使用 Hardhat 或 Foundry 輕鬆建立、測試和部署智慧型契約，以及使用 Next.js 建立 React 前端。
+
+在本教程中，您將學習如何使用 Scaffold-ETH 2 在 Kaia 上部署、執行契約並建立 dApp。
+
+## 先決條件<a href="#prerequisites" id="prerequisites" />
+
+要開始使用本指南，您將需要：
+
+* [Node (>= v18.17)](https://nodejs.org/en/download/)
+* 紗線 ([v1](https://classic.yarnpkg.com/en/docs/install/) 或 [v2+](https://yarnpkg.com/getting-started/install))
+* 熟悉 Javascript 和 React 基礎，例如鉤子
+* [Metamask Wallet](https://metamask.io/download/)
+* 從 [水龍頭] 測試 KAIA(https://faucet.kaia.io)
+* RPC 端點：您可以從其中一個支援的 [端點提供者](https://docs.kaia.io/references/public-en/) 取得。
+
+## 設定開發環境<a href="#setting-up-dev-environment" id="setting-up-dev-environment" />
+
+要安裝 Scaffold-ETH 2，您有兩個選擇，一是克隆 [Scaffold-ETH 2 儲存庫](https://github.com/scaffold-eth/scaffold-eth-2) 安裝，二是使用 `npx create-eth@latest` 安裝。
+
+在本指南中，我們將使用 npx 方法來啟動 Scaffold-ETH 2 專案。
+
+執行下列指令，啟動 Scaffold-ETH 2 專案：
+
+```bash
+npx create-eth@latest
+```
+
+您會看到一系列提示：
+
+\*\* 專案名稱\*\*：輸入專案名稱：輸入專案名稱，例如：kaia-scaffold-example。
+
+**Solidity Framework**；您想使用何種 solidity 框架？選擇您偏好的 solidity 框架 (Hardhat, Foundry)。 在本指南中，我們將使用 **Hardhat** 架構。
+
+\*\* 安裝套件？\*\*：按 Enter 表示 yes（預設選項），或鍵入 n 並按 Enter 表示 no
+安裝完成後，導航到專案目錄。
+
+```bash
+cd project-name
+// e.g  cd kaia-scaffold-example
+```
+
+![Scaffold-ETH setup](/img/build/tutorials/scaffold-1.png)
+
+## Scaffold-ETH 2 開發過程的亮點<a href="#highlight-of-dev-environment" id="highlight-of-dev-environment" />
+
+使用 Scaffold-ETH 2 開發專案的流程可概述如下：
+
+1. 在 **packages/hardhat/hardhat.config.ts** 檔案中更新 Hardhat 的網路設定，以 Kaia 為目標
+2. 將您的智慧型契約加入 **packages/hardhat/contracts**
+3. 編輯 **packages/hardhat/deploy** 中的部署指令碼
+4. 將您的智慧型契約部署到 Kaia
+5. 使用硬帽驗證外掛程式驗證您的智慧型契約
+6. 在 **packages/nextjs/scaffold.config.ts** 檔案中設定您的前端以 Kaia 為目標
+7. 根據需要在 **packages/nextjs/pages** 目錄中編輯您的前台
+
+在本指南中，我們將使用 Scaffold-ETH 2 安裝後可用的預設範例契約和前端。 只要為 Kaia 修改這些元件即可。 在這種情況下，我們會將組態分割成 **Hardhat** 和 **Next.js** 組態。
+
+## 硬帽配置
+
+在本節中，您將修改 Hardhat 設定檔中的網路設定，以 **packages/hardhat** 資料夾下的 Kaia 為目標。
+
+### 為 Kaia 設定 Hardhat
+
+**第 1 步：配置您的網路**
+
+我們要做的第一件事就是設定 `hardhat.config.ts` 以支援 Kaia 網路。 移至 `packages/hardhat/hardhat.config.ts` 並將您的 Kaia 網路新增至 networks 物件。
+
+<Tabs>
+  <TabItem value="Kaia" label="Kaia Mainnet" default>
+    ```javascript
+      networks: {
+        // … other networks
+        kaia: {
+          chainId: 8217,
+          url: "https://public-en.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      }
+    ```
+  </TabItem>
+
+  <TabItem value="啟動" label="啟動測試網路">
+    ```javascript
+      networks: {
+        // … other networks
+        kairos: {
+          chainId: 1001,
+          url: "https://public-en-kairos.node.kaia.io",
+          accounts: [deployerPrivateKey],
+        },
+      } 
+    ```
+  </TabItem>
+</Tabs>
+
+**步驟 2：產生一個新帳戶或新增一個帳戶，以從中部署合約**
+
+接下來您要做的就是設定您的帳戶。  您可以執行以下步驟產生隨機帳號/私人密碼匙：
+
+```bash
+yarn generate 
+```
+
+它會自動在您的「.env」檔案中加入加密私密金鑰 (DEPLOYER_PRIVATE_KEY_ENCRYPTED)。
+
+:::note
+系統會提示您輸入密碼，該密碼將用於加密您的私人密碼匙。 請勿忘記這個密碼，因為您在未來部署和帳戶查詢時會用到它。
+:::
+
+如果您偏好匯入私人密碼匙，請執行：
+
+```bash
+yarn account:import
+```
+
+系統會提示您貼上私人密碼匙，並設定加密密碼。 它會將經加密的私人密碼匙儲存在您的 `.env` 檔案中。
+
+您可以用以下方式檢查已設定（產生或匯入）的帳戶和餘額：
+
+```bash
+yarn account
+```
+
+在此步驟中，您還需要輸入密碼來解密私人密碼匙，並檢視帳戶資訊和餘額。
+
+### 向 Kaia 部署合同
+
+配置 Hardhat 以支持 Kaia 網絡後，下一步就是編譯和部署合同樣本。
+
+首先，您可以通過運行
+
+```bash
+yarn compile
+```
+
+接下來，要部署您的合約，您有兩個選擇：
+
+\*\* 選項 1：設定預設網路\*\*
+
+在您的「hardhat.config.ts」檔案中，將 **defaultNetwork** 欄位設定為 kaia 或 kairos。
+
+執行 `yarn deploy` 時，合約會部署到指定的預設網路。
+
+\*\* 選項 2：明確指定網路\*\*
+
+若要部署到特定網路，請在執行部署指令時使用 `--network` 標記：
+
+```bash
+yarn deploy --network network_name
+```
+
+例如： `yarn deploy --network kairos`
+
+\*\* 輸出\*\*：
+
+```bash
+% yarn deploy
+
+✔ Enter password to decrypt private key:
+Nothing to compile
+No need to generate any newer typings.
+deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278499ca5da70affbbb)...: deployed at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 with 534186 gas
+👋 Initial greeting: Building Unstoppable Apps!!!
+📝 Updated TypeScript contract definition file on ../nextjs/contracts/deployedContracts.ts
+```
+
+### 驗證您已部署的合約<a href="#verify-deployed-contract" id="verify-deployed-contract" />
+
+要驗證已部署的合約，我們會使用硬帽驗證外掛程式。 您只需要在 harhdat-verify etherscan 配置物件下的 **hardhat.config.ts** 中加入下列配置。
+
+<Tabs>
+  <TabItem value="Kaia" label="Kaia Mainnet" default>
+    ```js
+      etherscan: {
+        apiKey: {
+          kaia: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kaia",
+            chainId: 8217,
+            urls: {
+              apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+
+  <TabItem value="啟動" label="啟動測試網路">
+    ```js
+      etherscan: {
+        apiKey: {
+          kairos: "unnecessary",
+        },
+        customChains: [
+          {
+            network: "kairos",
+            chainId: 1001,
+            urls: {
+              apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+              browserURL: "https://kairos.kaiascan.io",
+            },
+          },
+        ],
+      },
+    ```
+  </TabItem>
+</Tabs>
+
+接下來就是在您的終端機複製並貼上以下指令，以驗證智慧型契約：
+
+範例
+
+```bash
+yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
+```
+
+實際
+
+```bash
+yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+ "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+```
+
+如上所示，要驗證您的契約，您必須傳入網路名稱、契約位址和建構器參數 (如果有)。 稍候之後，主控台會顯示驗證結果，如果成功的話，會提供 KaiaScan 上已驗證的合約的 URL。
+
+\*\* 輸出\*\*：
+
+```bash
+% yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82 "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
+
+Successfully submitted source code for contract
+contracts/YourContract.sol:YourContract at 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract YourContract on the block explorer.
+https://kairos.kaiascan.io/address/0xb1ea8476debb6d3021cC3a179B9eC21e01742d82#code
+```
+
+![Scaffold Verification](/img/build/tutorials/scaffold-3.png)
+
+有關在 Kaia 上使用 Hardhat Verify 外掛程式驗證智慧契約的詳細資訊，請參考 [Hardhat Verify Plugin guide](https://docs.kaia.io/build/smart-contracts/verify/hardhat/)。
+
+## Next.js 設定<a href="#nextjs-configuration" id="nextjs-configuration" />
+
+在本節中，您將修改 Next.js 配置，以針對**packages/nextjs**資料夾下的 Kairos Testnet (智慧型契約部署至此)。 在此資料夾中，我們打算修改 **scaffold.config.ts** 檔案中 ScaffoldConfig 物件的 **targetNetwork** 陣列。
+
+### 修改 targetNetwork 陣列<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array" />
+
+```js
+targetNetworks: [chains.kaia, chains.kairos],
+```
+
+這是設定 Next.js 所需的全部步驟！ 接下來，在您的 localhost 中啟動 dApp。
+
+### 在您的 Localhost 中啟動 dApp<a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost" />
+
+完成所有必要的設定後，您就可以在您的 localhost 上啟動範例 dApp。
+
+若要執行，請執行：
+
+```bash
+yarn start
+```
+
+現在您應該可以在 http://localhost:3000/ 存取基於 React 的 dApp 前端。 請隨時透過連接您的錢包或查看合約調試器頁面與 dApp 進行互動。
+
+![Scaffold dApp](/img/build/tutorials/scaffold-5.png)
+
+## 總結
+
+恭喜您 您已成功使用 Scaffold-ETH 2 在 Kaia 上部署合約並執行 dApp。 現在您已瞭解 Scaffold-ETH 2 的運作方式，請隨意建立和部署您自己的智慧契約，並修改前端以符合您 dApp 的需求！
+
+請造訪 [Scaffold-ETH 2 Docs](https://docs.scaffoldeth.io/) 以取得更多資訊，如果您有任何問題，請造訪 [Kaia Forum](https://devforum.kaia.io/) 。

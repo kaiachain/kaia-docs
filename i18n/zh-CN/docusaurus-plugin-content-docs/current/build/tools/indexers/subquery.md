@@ -2,7 +2,11 @@
 sidebar_label: SubQuery
 ---
 
-# SubQuery多链索引器
+# 子查询
+
+![](/img/banners/kaia-subquery.png)
+
+## 导言
 
 SubQuery 是领先的区块链数据索引器，为开发人员的 Web3 项目提供快速、灵活、通用、开源和去中心化的 API。 SubQuery SDK 允许开发人员获取丰富的索引数据，并以更快、更高效的方式构建直观、身临其境的去中心化应用程序。 SubQuery 支持 100 多个生态系统，包括 Kaia 的 EVM、Cosmos、以太坊、Polygon、Polkadot、Algorand、NEAR 和 Avalanche。
 

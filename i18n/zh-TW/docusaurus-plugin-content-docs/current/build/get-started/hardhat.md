@@ -11,12 +11,12 @@ Hardhat 是一個智能合約開發環境，它將為您提供幫助：
 - 開發和編譯智能合約。
 - 調試、測試和部署智能合約和 dApp。
 
-靈魂綁定令牌（SBT）是不可轉讓的 NFT。 也就是說，一旦獲得，就不得出售或轉讓給其他用戶。 要了解有關 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 發表的這篇 [參考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
+Soulbound tokens(SBTs) 是不可轉讓的 NFT。 也就是說，一旦獲得，就不得出售或轉讓給其他用戶。 要了解有關 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 發表的這篇 [參考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
 
 完成本指南後，您將能夠
 
 - 在 Kaia 上建立一個 "Hardhat "項目。
-- 創建一個簡單的靈魂綁定令牌。
+- 建立一個簡單的靈界信物。
 - 使用 Hardhat 編譯智能合約。
 - 使用 Hardhat 測試、部署智能合約並與之交互。
 - 探索 Hardhat 分叉功能。
@@ -64,23 +64,27 @@ npm install --save-dev hardhat
 npm install dotenv @kaiachain/contracts
 ```
 
-> 注意：這將安裝本項目所需的其他依賴項，包括 `hardhat`、`klaytn/contract`、`dotenv` 等。
+> 注意: 這會安裝本專案所需的其他相依性，包括 `hardhat`、`kaiachain/contract`、`dotenv` 等。
 
 **第 4 步**：初始化硬頭盔項目：
+
+:::note
+本指南使用 Hardhat v2。 如果您偏好使用 Hardhat v3，請參考此<a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">設定指南 </a>的設定指示
+:::
 
 運行以下命令啟動硬頭盔項目
 
 ```bash
-npx hardhat
+npx hardhat --init
 ```
 
-在本指南中，您將選擇一個排版腳本項目，如下所示：
+![](/img/build/get-started/hh2-cli.png)
 
-![](/img/build/get-started/hardhat-init.png)
+在本指南中，您將選擇一個使用 Mocha 和 Ethers 的 Javascript 專案，如下所示：
 
-![](/img/build/get-started/hardhat-init-ii.png)
+![](/img/build/get-started/hh2-cli-ii.png)
 
-> 注意：初始化項目時，系統會提示安裝 `hardhat-toolbox` 插件。 該插件捆綁了所有常用軟件包和 Hardhat 插件，建議在開始使用 Hardhat 進行開發時使用。
+接受提示的預設答案。
 
 初始化硬帽項目後，當前目錄應包括
 
@@ -90,23 +94,23 @@ npx hardhat
 
 **test/** - 該文件夾包含測試智能合約的所有單元測試。
 
-**hardhat.config.js** - 該文件包含對 Hardhat 工作和部署靈魂綁定令牌非常重要的配置。
+**hardhat.config.js** - 此檔案包含對 Hardhat 工作和部署 soulbound 令牌很重要的設定。
 
-**第 5** 步創建 .env 文件
+**步驟 5**：建立`.env`檔案
 
-現在，在項目文件夾中創建 .env 文件。 該文件可幫助我們將 .env 文件中的環境變量加載到 process.env 文件中。
+現在在專案資料夾中建立您的 `.env` 檔案。 此檔案可協助我們將 `.env` 檔案中的環境變數載入 process.env。
 
-- 在終端中粘貼此命令以創建 .env 文件
+- 在終端機中貼上此指令以建立`.env`檔案
 
 ```bash
 touch .env
 ```
 
-- 創建文件後，讓我們將 .env 文件配置為如下所示：
+- 建立檔案後，讓我們將 `.env` 檔案設定成這樣：
 
 ```js
- KAIROS_TESTNET_URL= "您的 Kairos RPC 鏈接"
- PRIVATE_KEY= "從 MetaMask 錢包複製的您的私人密鑰"
+ KAIROS_TESTNET_URL= 「您的 Kairos RPC URL」
+ PRIVATE_KEY= 「您從 MetaMask 皮夾複製的私密金鑰」
 ```
 
 > 注：你也可以選擇使用 hardhat 提供的[配置變量](https://hardhat.org/hardhat-runner/docs/guides/configuration-variables) 功能來配置不應包含在代碼庫中的變量。
@@ -134,7 +138,7 @@ module.exports = {
 
 ```
 
-現在，我們的開發環境已經準備就緒，讓我們開始編寫我們的靈魂綁定令牌智能合約吧。
+現在我們的開發環境都已準備就緒，讓我們開始撰寫我們的 soulbound 代幣智慧型契約。
 
 ## 創建 SBT 智能合約
 
@@ -293,60 +297,46 @@ describe("Token contract", function () {
 npx 硬帽測試 test/sbtTest.js 
 ```
 
-![](/img/build/get-started/sbtTest.png)
+![](/img/build/get-started/hh2-run-test.png)
 
 如需更深入的測試指南，請查看 [Hardhat 測試](https://hardhat.org/hardhat-runner/docs/guides/test-contracts)。
 
 ## 部署智能合約
 
-腳本是 JavaScript/Typescript 文件，可幫助您將合約部署到區塊鏈網絡。 在本節中，您將為智能合約創建一個腳本。
+Ignition 模組是 JavaScript/Typescript 檔案，可協助您將契約部署到區塊鏈網路。 在本節中，您將為智慧契約建立一個模組。
 
-**步驟 1**：在資源管理器窗格中，選擇 "scripts "文件夾，然後單擊 "新建文件 "按鈕，創建一個名為 "sbtDeploy.js "的新文件。
+**步驟 1**：在資源總管窗格中，選擇 **ignition/module** 資料夾，然後按一下「新增檔案」按鈕，建立一個名為 `sbtDeploy.js` 的新檔案。
 
 **第 2**步將以下代碼複製並粘貼到文件中。
 
-> 注意：在 `deployerAddr` 變量中輸入您的 MetaMask 錢包地址。
+```javascript
+// 此設定使用 Hardhat Ignition 管理智慧契約部署。
+// Learn more about it at https://hardhat.org/ignition
 
-```js
-const { ethers } = require("hardhat");
-
-async function main() {
-
-  const deployerAddr = "Your Metamask wallet address";
-  const deployer = await ethers.getSigner(deployerAddr);
-
-  console.log(`Deploying contracts with the account: ${deployer.address}`);
-  console.log(`Account balance: ${(await deployer.provider.getBalance(deployerAddr)).toString()}`);
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-  const sbtContract = await ethers.deployContract("SoulBoundToken");
-  await sbtContract.waitForDeployment();
+module.exports = buildModule("SBTModule", (m) => {
 
-console.log(`Congratulations！您剛剛成功部署了您的 Soul bound tokens.`);
-console.log(`SBT contract address is ${sbtContract.target}.您可以在 https://kairos.kaiascan.io/account/ 上驗證${sbtContract.target}`);
-}
+  const sbt = m.contract("SoulBoundToken", []);
 
-
-//
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  return { sbt };
 })；
 ```
 
-\*\*第 3 步在終端運行以下命令，讓 Hardhat 在 Kaia 測試網絡 (Kairos) 上部署 SBT 令牌
+**步驟 3**：在終端機執行下列指令，告訴 Hardhat 在 Kaia Kairos Testnet 上部署您的 SBT 令牌。
 
 ```bash
-npx hardhat run ignition/modules/sbtDeploy.js --network kairos
+npx hardhat ignition deploy ./ignition/modules/sbtDeploy.js --network kairos
 ```
 
-![](/img/build/get-started/sbtDeploy.png)
+![](/img/build/get-started/hh-deploy.png)
 
 **步驟 4**：開啟 [KaiaScan](https://kairos.kaiascan.io/) 檢查 SBT 令牌是否已成功部署。
 
 **第 5 步**：在搜索欄中複製並粘貼部署的合同地址，然後按 Enter 鍵。 您應該能看到最近部署的合同。
 
-![](/img/build/get-started/sbtKS.png)
+![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## 硬帽叉
 
@@ -378,7 +368,7 @@ networks: {
 
 **輸出**
 
-![](/img/build/get-started/hardhat-fork.png)
+![](/img/build/get-started/hh2-fork-instance.png)
 
 成功運行該命令後，您的終端看起來就像上圖一樣。  您將擁有 20 個開發賬戶，這些賬戶預存了 10,000 個測試代幣。
 
@@ -390,7 +380,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 **輸出**
 
-![](/img/build/get-started/hardhat-fork-bn.png)
+![](/img/build/get-started/hh2-forked-ins-i.png)
 
 輸出結果為十六進制，如上圖所示。 要從十六進制中獲取塊編號，請使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 將十六進制轉換為十進制。 您應該從分叉網絡時獲得最新的區塊編號。 您可以在 [KaiaScan](https://kaiascan.io/) 上確認區塊號碼。
 
@@ -410,7 +400,7 @@ npx hardhat node --fork https://archive-en.node.kaia.io --fork-block-number 1057
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
 ```
 
-![](/img/build/get-started/hardhat-fork-bnII.png)
+![](/img/build/get-started/hh2-forked-ins-ii.png)
 
 輸出返回十六進制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 轉換後應等於 `105701850`。
 
