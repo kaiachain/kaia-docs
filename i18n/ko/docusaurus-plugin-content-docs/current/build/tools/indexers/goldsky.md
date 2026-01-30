@@ -1,14 +1,14 @@
 ---
-sidebar_label: 골드스키
+sidebar_label: Goldsky
 ---
 
-# 골드스키
+# Goldsky
 
 ![](/img/banners/kaia-goldsky.png)
 
 ## 소개
 
-[골드스키](https://goldsky.com)는 온체인 데이터의 추출, 변환, 로딩(ETL)을 간소화하도록 설계된 고성능 데이터 인덱서입니다. 이를 통해 개발자는 실시간 분석 및 블록체인 통합 애플리케이션을 더 빠르게 빌드하고 출시할 수 있습니다.
+[Goldsky](https://goldsky.com)는 온체인 데이터의 추출, 변환, 로딩(ETL)을 간소화하도록 설계된 고성능 데이터 인덱서입니다. 이를 통해 개발자는 실시간 분석 및 블록체인 통합 애플리케이션을 더 빠르게 빌드하고 출시할 수 있습니다.
 
 Goldsky는 두 가지 핵심 제품을 제공합니다:
 
@@ -139,7 +139,7 @@ Goldsky는 두 가지 핵심 제품을 제공합니다:
 
 구성 파일이 준비되었으면 이제 하위 그래프를 배포할 차례입니다.
 
-다음 명령을 사용하여 하위 그래프를 배포합니다: 'goldsky subgraph 배포 이름/버전 --from-abi <path-to-config-file>\`를 실행한 다음 생성한 구성 파일의 경로를 전달합니다.
+다음 명령을 사용하여 하위 그래프를 배포합니다: `goldsky subgraph deploy name/version --from-abi`를 실행한 다음 생성한 구성 파일의 경로를 전달합니다.
 
 예시:
 
