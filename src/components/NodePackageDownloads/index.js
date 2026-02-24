@@ -27,6 +27,12 @@ export default function NodePackageDownloads() {
         let releasesData = response.data.releases
         let machineTypes = response.data.machineTypes.filter(item => item.machineType !== "windows")
         let config = response.data.config
+
+        // v2.2.1 is skipped due to a technical issue; will be superseded by v2.2.2
+        const SKIPPED_VERSIONS = ['v2.2.1']
+        releasesData = releasesData.filter(
+          (release) => !SKIPPED_VERSIONS.includes(release.tag_name)
+        )
         setReleases([...releases, ...releasesData])
 
         let resultFirstRecord
