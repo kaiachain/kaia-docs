@@ -270,13 +270,13 @@ const config = {
             }
           }
         : undefined,
-     /**announcementBar: {
-        id: 'kaiascope_termination',
-        content: '<div style="font-size: 15px; font-weight: bold;">📢 Urgent: Kaiascope will be discontinued on July 2, 2025. Please switch to <a target="_blank" href="https://kaiascan.io/">KaiaScan</a> immediately as the main block explorer for the Kaia blockchain. 🙏🏻</div>',
-        backgroundColor: '#abd908',
-        textColor: '#191919',
+      announcementBar: {
+        id: 'hardfork_v2.2.2',
+        content: '<div style="font-size: 15px; font-weight: bold;">⚠️ Breaking Change: Hard fork at block #213,333,000 (estimated: Apr 7, 2026 10:03 UTC+9). Contract code at address(0) will be removed. Please check the <a target="_blank" href="https://blog.kaia.io/breaking-change-v2-2-2-hardfork-upgrade-removal-of-bytecode-at-address-0-2/">blog post</a> for migration details.</div>',
+        backgroundColor: '#ff6b35',
+        textColor: '#ffffff',
         isCloseable: true,
-      },*/
+      },
       navbar: {
         title: 'Kaia Docs',
         logo: {
