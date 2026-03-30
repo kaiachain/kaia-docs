@@ -611,6 +611,15 @@ const sidebars = {
     },
     ...commonSidebar,
   ],
+  krwStablecoinSidebar: [
+    'krw-stablecoin/overview',
+    {
+      type: 'link',
+      label: 'Full Document',
+      href: 'pathname:///files/krw-stablecoin-architecture-proposal.pdf',
+    },
+    ...commonSidebar,
+  ],
 }
 
 module.exports = sidebars
