@@ -407,6 +407,23 @@ const config = {
             ],
           },
           {
+            type: 'dropdown',
+            to: "krw-stablecoin/overview",
+            position: 'left',
+            sidebarid: 'krwStablecoinSidebar',
+            label: 'KRW Stablecoin',
+            items: [
+              {
+                to: "krw-stablecoin/overview",
+                label: 'Overview',
+              },
+              {
+                href: 'pathname:///files/krw-stablecoin-architecture-proposal.pdf',
+                label: 'Full Document',
+              },
+            ],
+          },
+          {
             to: "minidapps",
             position: 'left',
             sidebarid: 'miniDappSidebar',
