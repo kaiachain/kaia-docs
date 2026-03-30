@@ -15,48 +15,48 @@ Kaia에서 계약을 확인하려면 `hardhat.config.js`에 다음 구성을 추
 ## Kaiascan
 
 <Tabs>
-  <TabItem value="Kaia 메인넷" label="메인넷">
-    ```js
-    module.exports = {
-      etherscan: {
-          apiKey: {
-            kaia: "unnecessary",
-          },
-          customChains: [
-            {
-              network: "kaia",
-              chainId: 8217,
-              urls: {
-                apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
-                browserURL: "https://kaiascan.io",
-              }
-            },
-          ]
+    <TabItem value="Kaia 메인넷" label="메인넷">
+        ```js
+        module.exports = {
+          etherscan: {
+              apiKey: {
+                kaia: "unnecessary",
+              },
+              customChains: [
+                {
+                  network: "kaia",
+                  chainId: 8217,
+                  urls: {
+                    apiURL: "https://mainnet-api.kaiascan.io/hardhat-verify",
+                    browserURL: "https://kaiascan.io",
+                  }
+                },
+              ]
+            }
         }
-    }
-    ```
-  </TabItem>
+        ```
+    </TabItem>
 
   <TabItem value="Kairos 테스트넷" label="Kairos">
-    ```js
-    module.exports = {
-      etherscan: {
-          apiKey: {
-            kairos: "unnecessary",
-          },
-          customChains: [
-            {
-              network: "kairos",
-              chainId: 1001,
-              urls: {
-                apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
-                browserURL: "https://kairos.kaiascan.io",
-              }
+      ```js
+      module.exports = {
+        etherscan: {
+            apiKey: {
+              kairos: "unnecessary",
             },
-          ]
-        }
-    }
-    ```
+            customChains: [
+              {
+                network: "kairos",
+                chainId: 1001,
+                urls: {
+                  apiURL: "https://kairos-api.kaiascan.io/hardhat-verify",
+                  browserURL: "https://kairos.kaiascan.io",
+                }
+              },
+            ]
+          }
+      }
+      ```
   </TabItem>
 </Tabs>
 
