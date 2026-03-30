@@ -3,70 +3,71 @@
 単位変換のために、Kaia-sdkは kaia、Gkei、および kei の変換をサポートするユーティリティを提供しています。 対応ユニット](https://docs.kaia.io/learn/kaia-native-token/#units-of-kaia-)を参照。
 
 <CH.Spotlight>
-  <CH.Code>
-    ```java UnitConvertExample.java
-    package org.web3j.example.utils;
+<CH.Code>
 
-    import org.web3j.utils.KaiaConvert;
+```java UnitConvertExample.java
+package org.web3j.example.utils;
 
-    public class UnitConvertExample {
-        public static void main(String[] args) {
-            System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
-            System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
+import org.web3j.utils.KaiaConvert;
 
-            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
-            System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
-        }
+public class UnitConvertExample {
+    public static void main(String[] args) {
+        System.out.println("Convert from kei to kaia " + KaiaConvert.fromKei("1000000000000000000", KaiaConvert.Unit.KAIA));
+        System.out.println("Convert from Gkei to kaia " + KaiaConvert.fromKei("1000000000", KaiaConvert.Unit.GKEI));
+
+        System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.KAIA));
+        System.out.println("Convert from kaia to kei " + KaiaConvert.toKei("1", KaiaConvert.Unit.GKEI));
     }
-    ```
+}
+```
 
-    ---
+---
 
-    ```zsh output
-    ❯ java UnitConvertExample.java
-    Convert from kei to kaia 1
-    Convert from Gkei to kaia 1
-    Convert from kaia to kei 1000000000000000000
-    ```
-  </CH.Code>
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kei to kaia 1
+Convert from Gkei to kaia 1
+Convert from kaia to kei 1000000000000000000
+```
 
-  ---
+</CH.Code>
 
-  **org.web3j.utils.KaiaConvert** パッケージから `KaiaConvert` をインポートする。
+---
 
-  ```java UnitConvertExample.java focus=1:3
-  ```
+**org.web3j.utils.KaiaConvert** パッケージから `KaiaConvert` をインポートする。
 
-  ---
+```java UnitConvertExample.java focus=1:3
+```
 
-  他の単位をKaiaに変換するには、`KaiaConvert.fromKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
+---
 
-  <CH.Code>
-    ```java UnitConvertExample.java focus=7:8
-    ```
+他の単位をKaiaに変換するには、`KaiaConvert.fromKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
 
-    ---
+<CH.Code>
 
-    ```zsh output
-    ❯ java UnitConvertExample.java
-    Convert from kei to kaia 1
-    Convert from Gkei to kaia 1
-    ```
-  </CH.Code>
+```java UnitConvertExample.java focus=7:8
+```
 
-  ---
+---
 
-  他の単位をkeiに変換するには、`KaiaConvert.toKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kei to kaia 1
+Convert from Gkei to kaia 1
+```
 
-  <CH.Code>
-    ```java UnitConvertExample.java focus=10:11
-    ```
+</CH.Code>
+---
+他の単位をkeiに変換するには、`KaiaConvert.toKei`を使う。 最初のパラメータは値、2番目のパラメータは `kei/Gkei/kaia` の単位型である。
 
-    ---
+<CH.Code>
+```java UnitConvertExample.java focus=10:11
+```
+---
+```zsh output
+❯ java UnitConvertExample.java
+Convert from kaia to kei 1000000000000000000
+```
 
-    ```zsh output
-    ❯ java UnitConvertExample.java
-    Convert from kaia to kei 1000000000000000000
-    ```
-  </CH.Code>
+</CH.Code>
 </CH.Spotlight>
