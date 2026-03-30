@@ -36,336 +36,340 @@ npm install --save ethers
 必要なライブラリのインストールに成功したら、次は Web3Auth インスタンスを初期化する。Web3Auth **provider** インスタンスを `useState()` フックに設定し、`init()` 関数を `useEffect()` フックに設定する。
 
 <CH.Spotlight>
-  <CH.Code>
-    ```js App.tsx
-    import {
-      CHAIN_NAMESPACES,
-      IProvider,
-      IAdapter,
-      WEB3AUTH_NETWORK,
-    } from '@web3auth/base'
-    import { EthereumPrivateKeyProvider } from '@web3auth/ethereum-provider'
-    import { Web3Auth, Web3AuthOptions } from '@web3auth/modal'
-    import { getDefaultExternalAdapters } from '@web3auth/default-evm-adapter'
 
-    import './App.css'
+<CH.Code>
 
-    import { useEffect, useState } from 'react'
-    import RPC from './etherRPC'
+```js App.tsx
+import {
+  CHAIN_NAMESPACES,
+  IProvider,
+  IAdapter,
+  WEB3AUTH_NETWORK,
+} from '@web3auth/base'
+import { EthereumPrivateKeyProvider } from '@web3auth/ethereum-provider'
+import { Web3Auth, Web3AuthOptions } from '@web3auth/modal'
+import { getDefaultExternalAdapters } from '@web3auth/default-evm-adapter'
 
-    const clientId =
-      'BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ'
+import './App.css'
 
-    const chainConfig = {
-      chainNamespace: CHAIN_NAMESPACES.EIP155,
-      chainId: '0x3e9', // Kairos Testnet
-      rpcTarget: 'https://public-en-kairos.node.kaia.io',
-      displayName: 'Kairos Testnet',
-      blockExplorerUrl: 'https://kairos.kaiascan.io',
-      ticker: 'KLAY',
-      tickerName: 'KLAY',
-    }
+import { useEffect, useState } from 'react'
+import RPC from './etherRPC'
 
-    const privateKeyProvider = new EthereumPrivateKeyProvider({
-      config: { chainConfig },
-    })
+const clientId =
+  'BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ'
 
-    const web3AuthOptions: Web3AuthOptions = {
-      clientId,
-      web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
-      privateKeyProvider,
-    }
+const chainConfig = {
+  chainNamespace: CHAIN_NAMESPACES.EIP155,
+  chainId: '0x3e9', // Kairos Testnet
+  rpcTarget: 'https://public-en-kairos.node.kaia.io',
+  displayName: 'Kairos Testnet',
+  blockExplorerUrl: 'https://kairos.kaiascan.io',
+  ticker: 'KLAY',
+  tickerName: 'KLAY',
+}
 
-    const web3auth = new Web3Auth(web3AuthOptions)
+const privateKeyProvider = new EthereumPrivateKeyProvider({
+  config: { chainConfig },
+})
 
-    const adapters = await getDefaultExternalAdapters({ options: web3AuthOptions })
-    adapters.forEach((adapter: IAdapter<unknown>) => {
-      web3auth.configureAdapter(adapter)
-    })
+const web3AuthOptions: Web3AuthOptions = {
+  clientId,
+  web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
+  privateKeyProvider,
+}
 
-    interface UserInfo {
-      email: string;
-      name: string;
-      profileImage: string;
-      [key: string]: unknown;
-    }
+const web3auth = new Web3Auth(web3AuthOptions)
 
-    function App() {
+const adapters = await getDefaultExternalAdapters({ options: web3AuthOptions })
+adapters.forEach((adapter: IAdapter<unknown>) => {
+  web3auth.configureAdapter(adapter)
+})
 
-      const [provider, setProvider] = useState<IProvider | null>(null);
-      const [loggedIn, setLoggedIn] = useState<boolean>(false);
-      const [loading, setLoading] = useState<boolean>(true);
-      const [address, setAddress] = useState<string>("");
-      const [balance, setBalance] = useState<string>("");
-      const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+interface UserInfo {
+  email: string;
+  name: string;
+  profileImage: string;
+  [key: string]: unknown;
+}
 
-      useEffect(() => {
-        const init = async () => {
-          try {
-            await web3auth.initModal()
-            setProvider(web3auth.provider)
+function App() {
 
-            if (web3auth.connected) {
-              setLoggedIn(true)
-              await updateUserInfo()
-            }
-          } catch (error) {
-            console.error(error)
-          } finally {
-            setLoading(false)
-          }
+  const [provider, setProvider] = useState<IProvider | null>(null);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [address, setAddress] = useState<string>("");
+  const [balance, setBalance] = useState<string>("");
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+
+  useEffect(() => {
+    const init = async () => {
+      try {
+        await web3auth.initModal()
+        setProvider(web3auth.provider)
+
+        if (web3auth.connected) {
+          setLoggedIn(true)
+          await updateUserInfo()
         }
-
-        init()
-      }, [])
-
-      const updateUserInfo = async () => {
-        if (web3auth.provider) {
-          const user = await web3auth.getUserInfo()
-          // @ts-ignore
-          setUserInfo(user)
-          const accounts = await RPC.getAccounts(web3auth.provider)
-          setAddress(accounts)
-          const balance = await RPC.getBalance(web3auth.provider)
-          setBalance(balance)
-        }
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
-    ```
 
-    ```js etherRPC.ts
-    /*
-     * etherRPC.ts
-     * 
-     * This file contains utility functions for lower-level blockchain interactions
-     * using the provider object from ethers.js. It abstracts Ethereum RPC calls
-     * for common operations like getting account info, sending transactions,
-     * and interacting with smart contracts.
-     */
+    init()
+  }, [])
 
-    import type { IProvider } from "@web3auth/base";
-    import { ethers } from "ethers";
-
-    import { contractAddress, contractABI } from "./constants";
-    import { AddressLike } from "ethers";
-
-    const getChainId = async (provider: IProvider): Promise<string> => {
-      try {
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const networkDetails = await ethersProvider.getNetwork();
-        return networkDetails.chainId.toString();
-      } catch (error) {
-        return error as string;
-      }
-    };
-
-    const getAccounts = async (provider: IProvider): Promise<string> => {
-      try {
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const signer = await ethersProvider.getSigner();
-        const address = await signer.getAddress();
-        return address;
-      } catch (error) {
-        return error as string;
-      }
-    };
-
-    const getBalance = async (provider: IProvider): Promise<string> => {
-      try {
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const signer = await ethersProvider.getSigner();
-        const address = await signer.getAddress();
-        const balance = ethers.formatEther(await ethersProvider.getBalance(address));
-        return balance;
-      } catch (error) {
-        return error as string;
-      }
-    };
-
-    const sendKaiaTx = async (provider: IProvider, destination : AddressLike, amount : any): Promise<any> => {
-      try {
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const signer = await ethersProvider.getSigner();
-
-        const amountToSend = ethers.parseEther(amount);
-            
-        const tx = await signer.sendTransaction({
-          to: destination,
-          value: amountToSend,
-        });
-        const receipt = await tx.wait();
-        return receipt;
-      } catch (error) {
-        return error as string;
-      }
-    };
-
-    const signMessage = async (provider: IProvider, originalMessage : string): Promise<string> => {
-      try {
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const signer = await ethersProvider.getSigner();
-
-        const signedMessage = await signer.signMessage(originalMessage);
-        return signedMessage;
-      } catch (error) {
-        return error as string;
-      }
-    };
-
-    const getContractValue = async (provider: IProvider): Promise<string> => {
-      try {
-
-        const ethersProvider = new ethers.BrowserProvider(provider);
-
-        const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
-      
-        // Read message from smart contract
-
-        const contractMessage = await contract.retrieve();
-        console.log(contractMessage.toString());
-        return contractMessage.toString();
-      } catch (error) {
-        return error as string;
-      }
-
-    } 
-
-    const setContractValue = async (provider: IProvider, value : string): Promise<any> => {
-      try {
-
-        const ethersProvider = new ethers.BrowserProvider(provider);
-        const signer = await ethersProvider.getSigner();
-
-        const contract = new ethers.Contract(contractAddress, contractABI, signer);
-      
-        // Read message from smart contract
-
-        const contractTx = await contract.store(value);
-        console.log(contractTx);
-        return contractTx;
-      } catch (error) {
-        return error as string;
-      }
-
-    } 
-
-    export default { getChainId, getAccounts, getBalance, sendKaiaTx, signMessage, getContractValue, setContractValue };
-
-    ```
-
-    ```js package.json
-    {
-      "name"："kaia-web3Auth-react-vite",
-      "private": true,
-      "version"："0.0.0",
-      "type"：「module",
-      "scripts"：{
-        "dev"："vite",
-        "build"："tsc && vite build",
-        "lint"："eslint .--ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview"："vite preview"
-      },
-      "dependencies"：{
-        "@web3auth/base"："^9.0.2",
-        "@web3auth/default-evm-adapter"："^9.0.2",
-        "@web3auth/ethereum-provider"："^9.0.2",
-        "@web3auth/modal"："^9.0.2",
-        "ethers"："^6.13.2",
-        "react"："^18.2.0",
-        "react-dom"："^18.2.0"
-      },
-      "devDependencies"：{
-        "@types/react"："^18.2.15",
-        "@types/react-dom"："^18.2.7",
-        "@typescript-eslint/eslint-plugin"："^6.0.0",
-        "@typescript-eslint/parser"："^6.0.0",
-        "@vitejs/plugin-react"："^4.0.3",
-        "autoprefixer"："^10.4.14",
-        "eslint"："^8.45.0",
-        "eslint-plugin-react-hooks"："^4.6.0",
-        "eslint-plugin-react-refresh"："^0.4.3",
-        "postcss"："^8.4.27",
-        "tailwindcss"："^3.3.3",
-        "typescript"："^5.0.2"、
-        "vite"："^4.4.5",
-        "vite-plugin-node-polyfills"："^0.9.0"
-      }.
+  const updateUserInfo = async () => {
+    if (web3auth.provider) {
+      const user = await web3auth.getUserInfo()
+      // @ts-ignore
+      setUserInfo(user)
+      const accounts = await RPC.getAccounts(web3auth.provider)
+      setAddress(accounts)
+      const balance = await RPC.getBalance(web3auth.provider)
+      setBalance(balance)
     }
+  }
+}
+```
 
-    ```
+```js etherRPC.ts
+/*
+ * etherRPC.ts
+ * 
+ * This file contains utility functions for lower-level blockchain interactions
+ * using the provider object from ethers.js. It abstracts Ethereum RPC calls
+ * for common operations like getting account info, sending transactions,
+ * and interacting with smart contracts.
+ */
 
-    ```js vite.config.ts
-    import { defineConfig } from 'vite'
-    import react from '@vitejs/plugin-react'
-    import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import type { IProvider } from "@web3auth/base";
+import { ethers } from "ethers";
 
-    export default defineConfig({
-      plugins：[
-        react(),
-        nodePolyfills({
-          globals: {
-            Buffer: true,
-            global: true,
-            process: true,
-          },
-          protocolImports: true,
-        }),
-      ],
-      define：{
-        'process.env'：{},
-        global: 'globalThis',
+import { contractAddress, contractABI } from "./constants";
+import { AddressLike } from "ethers";
+
+const getChainId = async (provider: IProvider): Promise<string> => {
+  try {
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const networkDetails = await ethersProvider.getNetwork();
+    return networkDetails.chainId.toString();
+  } catch (error) {
+    return error as string;
+  }
+};
+
+const getAccounts = async (provider: IProvider): Promise<string> => {
+  try {
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const signer = await ethersProvider.getSigner();
+    const address = await signer.getAddress();
+    return address;
+  } catch (error) {
+    return error as string;
+  }
+};
+
+const getBalance = async (provider: IProvider): Promise<string> => {
+  try {
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const signer = await ethersProvider.getSigner();
+    const address = await signer.getAddress();
+    const balance = ethers.formatEther(await ethersProvider.getBalance(address));
+    return balance;
+  } catch (error) {
+    return error as string;
+  }
+};
+
+const sendKaiaTx = async (provider: IProvider, destination : AddressLike, amount : any): Promise<any> => {
+  try {
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const signer = await ethersProvider.getSigner();
+
+    const amountToSend = ethers.parseEther(amount);
+        
+    const tx = await signer.sendTransaction({
+      to: destination,
+      value: amountToSend,
+    });
+    const receipt = await tx.wait();
+    return receipt;
+  } catch (error) {
+    return error as string;
+  }
+};
+
+const signMessage = async (provider: IProvider, originalMessage : string): Promise<string> => {
+  try {
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const signer = await ethersProvider.getSigner();
+
+    const signedMessage = await signer.signMessage(originalMessage);
+    return signedMessage;
+  } catch (error) {
+    return error as string;
+  }
+};
+
+const getContractValue = async (provider: IProvider): Promise<string> => {
+  try {
+
+    const ethersProvider = new ethers.BrowserProvider(provider);
+
+    const contract = new ethers.Contract(contractAddress, contractABI, ethersProvider)
+  
+    // Read message from smart contract
+
+    const contractMessage = await contract.retrieve();
+    console.log(contractMessage.toString());
+    return contractMessage.toString();
+  } catch (error) {
+    return error as string;
+  }
+
+} 
+
+const setContractValue = async (provider: IProvider, value : string): Promise<any> => {
+  try {
+
+    const ethersProvider = new ethers.BrowserProvider(provider);
+    const signer = await ethersProvider.getSigner();
+
+    const contract = new ethers.Contract(contractAddress, contractABI, signer);
+  
+    // Read message from smart contract
+
+    const contractTx = await contract.store(value);
+    console.log(contractTx);
+    return contractTx;
+  } catch (error) {
+    return error as string;
+  }
+
+} 
+
+export default { getChainId, getAccounts, getBalance, sendKaiaTx, signMessage, getContractValue, setContractValue };
+
+```
+
+```js package.json
+{
+  "name"："kaia-web3Auth-react-vite",
+  "private": true,
+  "version"："0.0.0",
+  "type"：「module",
+  "scripts"：{
+    "dev"："vite",
+    "build"："tsc && vite build",
+    "lint"："eslint .--ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview"："vite preview"
+  },
+  "dependencies"：{
+    "@web3auth/base"："^9.0.2",
+    "@web3auth/default-evm-adapter"："^9.0.2",
+    "@web3auth/ethereum-provider"："^9.0.2",
+    "@web3auth/modal"："^9.0.2",
+    "ethers"："^6.13.2",
+    "react"："^18.2.0",
+    "react-dom"："^18.2.0"
+  },
+  "devDependencies"：{
+    "@types/react"："^18.2.15",
+    "@types/react-dom"："^18.2.7",
+    "@typescript-eslint/eslint-plugin"："^6.0.0",
+    "@typescript-eslint/parser"："^6.0.0",
+    "@vitejs/plugin-react"："^4.0.3",
+    "autoprefixer"："^10.4.14",
+    "eslint"："^8.45.0",
+    "eslint-plugin-react-hooks"："^4.6.0",
+    "eslint-plugin-react-refresh"："^0.4.3",
+    "postcss"："^8.4.27",
+    "tailwindcss"："^3.3.3",
+    "typescript"："^5.0.2"、
+    "vite"："^4.4.5",
+    "vite-plugin-node-polyfills"："^0.9.0"
+  }.
+}
+
+```
+
+```js vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
+
+export default defineConfig({
+  plugins：[
+    react(),
+    nodePolyfills({
+      globals: {
+        Buffer: true,
+        global: true,
+        process: true,
       },
-    })
+      protocolImports: true,
+    }),
+  ],
+  define：{
+    'process.env'：{},
+    global: 'globalThis',
+  },
+})
 
-    ```
-  </CH.Code>
+```
 
-  ---
+</CH.Code>
 
-  Web3Authとその他の依存パッケージをインポートする。
+---
 
-  ```js App.tsx focus=1:10
-  ```
+Web3Authとその他の依存パッケージをインポートする。
 
-  ---
+```js App.tsx focus=1:10
+```
 
-  Reactフック（useStateとuseEffect）とユーティリティ関数をインポートする：
+---
 
-  * `useState`と `useEffect`：状態管理と副作用のための React フック。
-  * `RPC`：ethers.js を使用したイーサリアム互換ブロックチェーンとのインタラクションのための `etherRPC.ts` からのカスタムユーティリティ関数。
+Reactフック（useStateとuseEffect）とユーティリティ関数をインポートする：
 
-  ```js App.tsx focus=13:15
-  ```
+* `useState`と `useEffect`：状態管理と副作用のための React フック。
+* `RPC`：ethers.js を使用したイーサリアム互換ブロックチェーンとのインタラクションのための `etherRPC.ts` からのカスタムユーティリティ関数。
 
-  ---
+```js App.tsx focus=13:15
+```
 
-  Web3Authダッシュボードから**クライアントID**を貼り付けます。
+---
 
-  ```js App.tsx focus=16:17
-  ```
+Web3Authダッシュボードから**クライアントID**を貼り付けます。
 
-  ---
+```js App.tsx focus=16:17
+```
 
-  チェーンコンフィグを設定するWeb3Authを使用するには、選択したチェーン（Kaia）のチェーン設定を行う必要があります。
+---
 
-  ```js App.tsx focus=18:27
-  ```
+チェーンコンフィグを設定するWeb3Authを使用するには、選択したチェーン（Kaia）のチェーン設定を行う必要があります。
 
-  ---
+```js App.tsx focus=18:27
+```
 
-  コンストラクタを使用して Web3Auth を初期化し、Web3Auth のすべての設定を渡します。
+---
 
-  ```js App.tsx focus=27:44
-  ```
+コンストラクタを使用して Web3Auth を初期化し、Web3Auth のすべての設定を渡します。
 
-  ---
+```js App.tsx focus=27:44
+```
 
-  `UseState()` フックに Web3Auth の **provider** インスタンス、**userInfo** を設定し、`useEffect()` フックに `init()` 関数を設定する。
+---
 
-  ```js App.tsx focus=53:95 
-  ```
+`UseState()` フックに Web3Auth の **provider** インスタンス、**userInfo** を設定し、`useEffect()` フックに `init()` 関数を設定する。
 
-  ---
+```js App.tsx focus=53:95 
+```
+
+---
+
 </CH.Spotlight>
 
 ## ウォレットを接続する
