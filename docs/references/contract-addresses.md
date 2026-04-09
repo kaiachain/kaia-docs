@@ -40,3 +40,6 @@ Some contracts are not directly read by Kaia nodes but play crucial roles in ope
 | [Canonical WKAIA](../build/smart-contracts/token-development/canonical-wkaia.md)           | 0x19Aac5f612f524B754CA7e7c41cbFa2E981A4432 | 0x043c471bEe060e00A56CcD02c0Ca286808a5A436 |
 | KIP-249 AuctionDepositVault     | 0x0E66b62273Cc99BC519DD4dD0C0Cf689dd7b9876 | 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc |
 | KIP-249 AuctionFeeVault         | 0x303BB9c9FF4Aa656ac4c8e9f99F8E4C133FDa665 | 0xE4e7d880786c53b6EA6cfA848Eb3a05eE97b2aCC |
+| KIP-277 CnStakingV3MultiSigFactory | 0x5565540D147f075524a4b32bf9d075B1C75b95E1 | 0xAfF533BA8C31B014374d1847b4c1E421Fa4934ae |
+| KIP-277 PublicDelegationFactory    | 0x95f628Ef81a0f1aa63E1b4D915aC665D2127bB93 | 0xda9027715c7A66530EDa4862d33493baA63aD839 |
+| KIP-277 ValidatorManager           | proxy 0xf276d44f5b00AE1134B2dC39ee3A2C16F627F716 logic 0xf9bccb0cc56a6c6236860aaf80dee8c3e52213e3 | proxy 0x73862bfEFf98828EAe3a8DF799242c38Edc515a8 logic 0x3d402ae61f448877210209bf71adab920c87c644 |
