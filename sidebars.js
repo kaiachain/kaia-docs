@@ -457,6 +457,17 @@ const sidebars = {
       link: { type: 'doc', id: 'nodes/core-cell/core-cell' },
       items: [
         'nodes/core-cell/system-requirements',
+        {
+          type: 'category',
+          label: 'Become a Validator',
+          link: { type: 'doc', id: 'nodes/core-cell/become-a-validator/become-a-validator' },
+          items: [
+            'nodes/core-cell/become-a-validator/prerequisites',
+            'nodes/core-cell/become-a-validator/onboarding',
+            'nodes/core-cell/become-a-validator/manage-staking',
+            'nodes/core-cell/become-a-validator/manage-validator',
+          ],
+        },
         'nodes/core-cell/network-configuration',
         {
           type: 'category',

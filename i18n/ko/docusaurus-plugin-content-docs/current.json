@@ -59,6 +59,10 @@
     "message": "코어 셀",
     "description": "The label for category 'Core Cell' in sidebar 'nodeSidebar'"
   },
+  "sidebar.nodeSidebar.category.Become a Validator": {
+    "message": "밸리데이터 등록 및 관리",
+    "description": "The label for category 'Become a Validator' in sidebar 'nodeSidebar'"
+  },
   "sidebar.nodeSidebar.category.Install Core Cell": {
     "message": "코어 셀 설치",
     "description": "The label for category 'Install Core Cell' in sidebar 'nodeSidebar'"
