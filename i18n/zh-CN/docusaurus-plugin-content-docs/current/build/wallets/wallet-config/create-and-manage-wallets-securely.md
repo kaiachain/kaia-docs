@@ -523,7 +523,7 @@ const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+  txServiceUrl: "https://docs-safe.kaia.io/txs-kairos/api",
 });
 const protocolKitOwner1 = await Safe.default.init({
   provider: RPC_URL,
@@ -609,7 +609,7 @@ const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+  txServiceUrl: "https://docs-safe.kaia.io/txs-kairos/api",
 });
 
 const protocolKitOwner1 = await Safe.default.init({

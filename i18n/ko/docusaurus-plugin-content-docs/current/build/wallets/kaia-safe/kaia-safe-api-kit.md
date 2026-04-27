@@ -97,7 +97,7 @@ To initialize API Kit, we need to create an instance of the API Kit.
 ```js
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
-  txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
+  txServiceUrl: 'https://docs-safe.kaia.io/txs-kairos/api'
 })
 
 ```
@@ -208,7 +208,7 @@ const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 
 const TO_ADDRESS = OWNER_1_ADDRESS; // 1 위를 받는 샘플 트랜잭션의 수신자 주소
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
-  txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
+  txServiceUrl: 'https://docs-safe.kaia.io/txs-kairos/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
   provider: RPC_URL,

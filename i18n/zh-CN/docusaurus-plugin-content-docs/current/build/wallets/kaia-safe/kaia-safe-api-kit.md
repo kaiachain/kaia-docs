@@ -97,7 +97,7 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction wh
 ```js
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
-  txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
+  txServiceUrl: 'https://docs-safe.kaia.io/txs-kairos/api'
 })
 
 ```
@@ -208,7 +208,7 @@ const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"；// OWNER
 const TO_ADDRESS = OWNER_1_ADDRESS; // 接收 1 Wei 的示例交易的接收地址
 const apiKit = new SafeApiKit.default({
   chainId：1001n,
-  txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
+  txServiceUrl: 'https://docs-safe.kaia.io/txs-kairos/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
   provider: RPC_URL,
