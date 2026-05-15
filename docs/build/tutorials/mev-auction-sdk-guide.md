@@ -2,9 +2,11 @@
 
 [Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) introduced the MEV Auction system, enabling searchers to participate in fair, transparent auctions for MEV opportunities. This guide provides a comprehensive walkthrough of the searcher workflow using the Kaia MEV Auction SDK.
 
-:::info
+:::warning Service Notice — MEV Auction Infrastructure Temporarily Paused
 
-This guide uses Kairos testnet endpoints and contract addresses. The mainnet launch is scheduled for mid-December 2025. When deploying to mainnet, update all endpoints and contract addresses accordingly.
+As part of an operational optimization aligned with current usage patterns, the MEV Auction infrastructure — including the **Auctioneer** and **MEV Explorer** — has been temporarily paused on **both Mainnet and Kairos**. The Auctioneer endpoints (`auctioneer.kaia.io`, `auctioneer-kairos.kaia.io`) and MEV Explorer endpoints (`mev.kaia.io`, `mev-kairos.kaia.io`) are not currently available.
+
+This pause does **not** terminate Kaia's MEV framework or the searcher ecosystem. CN-level MEV functionality remains **enabled**. The infrastructure will be brought back online when ecosystem conditions and searcher demand call for resuming active MEV Auction operations. A resumption date has not been set.
 
 :::
 
