@@ -5,6 +5,7 @@ Blockchain indexers are tools used in the context of blockchain technology to im
 The following providers have integrated with Kaia to deliver blockchain indexing services:
 
 * [Envio](https://envio.dev/?utm_source=kaia&utm_medium=partner-docs)
+  * [Benchmarks](https://docs.envio.dev/docs/HyperIndex/benchmarking?utm_source=kaia&utm_medium=partner-docs) - see Envio's indexing performance
 * [The Graph](https://thegraph.com/)
 * [SubQuery Network](https://academy.subquery.network/)
 
