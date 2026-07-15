@@ -1,37 +1,55 @@
-# Kaia Safe
+---
+title: Safe Wallet
+sidebar_label: Safe Wallet
+---
 
-In a typical blockchain platform like Kaia, most users are familiar with single key wallet systems such as Kaia Wallet and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure. 
+# Safe Wallet
 
-This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost. 
+:::caution Sunset notice
 
-This is where multisig wallets like Kaia Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe accounts will be automatically compatible with Safe Wallet.
 
-## What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
+:::
 
-As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
+## Introduction
 
-For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+[Safe](https://safe.global) (Safe Global) provides the industry-standard multisig smart account stack for EVM networks. **Safe Wallet** is Safe’s web app for creating and managing those accounts—available at [app.safe.global](https://app.safe.global).
 
-Here are the main benefits of multisig wallets:
+Kaia Mainnet and Kairos Testnet are supported in Safe Wallet. Connect an owner wallet, select **Kaia** or **Kairos**, then create or open a Safe.
 
-* **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
+In a typical setup on Kaia, most users start with single-key wallets such as Kaia Wallet or MetaMask (externally owned accounts, or EOAs). Those accounts rely on one key pair and create a single point of failure—unsuitable for organisational treasuries, as in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-), where $162.5 million was lost.
 
-* **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
+Safe Wallet removes that single point of failure: multiple owners must sign according to a confirmation threshold before a transaction executes.
 
-* **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+For product behaviour, architecture, and APIs, use Safe’s own docs:
 
-Next, we will dive into Kaia Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
+* [What is Safe?](https://docs.safe.global/home/what-is-safe)
+* [Safe documentation](https://docs.safe.global)
+* [Help Center](https://help.safe.global)
 
-## What is Kaia Safe? <a id="What is Kaia Safe"></a>
+## What are multi-sig wallets? <a id="What are Multisig Wallets"></a>
 
-Kaia Safe is a multisig wallet for the Kaia ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/). 
+A multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
 
-## Benefits <a id="Benefits of Kaia Safe"></a>
+For example, you can imagine a multi-signature wallet as a vault with three locks. The three keys are held by three different individuals, so their joint consent is required to open it.
 
-* **Store and transfer KAIA and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KAIA) and tokens (fungible or non-fungible).
- 
-* **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
+Main benefits of multisig wallets:
 
-* **Safe apps:** Kaia Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
+* **Store assets securely:** Companies and protocols can store funds without relying on a single private key or a single actor moving funds without authorization.
+* **Enable decentralised decision making:** Teams can make on-chain decisions about which transactions to execute.
+* **Shared control:** Only parties with the necessary keys can approve and execute transactions according to the configured threshold.
 
-* **Account recovery:** In the event of lost keys, Kaia Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
+## Benefits on Kaia <a id="Benefits of Kaia Safe"></a>
+
+* **Store and transfer KAIA and tokens:** Deposit and transfer native KAIA and fungible or non-fungible tokens (for example ERC-20 / KIP-7 and ERC-721 / KIP-17).
+* **Owners and threshold:** Configure multiple owners and a confirmation threshold for flexible, secure control.
+* **Safe Apps:** Extend Safe Wallet with apps for batching, contract calls, and other workflows—for example **Transaction Builder** and CSV-based airdrops when available in the Apps catalog.
+* **Transactions and confirmations:** Propose, collect signatures, and execute transactions according to your threshold.
+* **Account recovery:** If a key is lost, remaining owners who meet the threshold can still manage the account (for example by replacing a lost owner).
+
+Existing accounts created on the former Kaia-hosted Safe UI remain compatible with Safe Wallet at [app.safe.global](https://app.safe.global).
+
+## Next steps
+
+* [Use Safe Wallet on Kaia](./use-kaia-safe.md) — create a Safe, add assets, and send transactions
+* [Overview](./overview.md) — networks, migration notes, and Safe Global resources

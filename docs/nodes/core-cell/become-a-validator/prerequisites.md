@@ -2,11 +2,17 @@
 
 Before you can onboard a validator, you must register a **validator manager** account that holds overall management authority. Because this account can modify most of the critical information related to the validator, we **strongly recommend** using a multisig wallet—or a wallet with equivalent security guarantees—as the validator manager.
 
-In general, we recommend using a multisig wallet created via [Kaia Safe](http://safe.kaia.io) as the validator manager. The rest of this guide assumes you are using Kaia Safe.
+In general, we recommend using a multisig wallet created via [Safe Wallet](https://app.safe.global) (from [Safe](https://safe.global) / Safe Global) as the validator manager. The rest of this guide assumes you are using Safe Wallet on Kaia.
+
+:::caution Sunset notice
+
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
+
+:::
 
 ## Connecting a Safe Wallet <a id="connecting-a-safe-wallet"></a>
 
-First, follow the [Kaia Safe user guide](../../../build/wallets/kaia-safe/kaia-safe.md) to create a Safe account. Then register the Validator Management Portal as a Safe custom app.
+First, follow the [Safe Wallet user guide](../../../build/wallets/kaia-safe/kaia-safe.md) to create a Safe account. Then register the Validator Management Portal as a Safe custom app.
 
 ![Add custom Safe App](/img/nodes/become-a-validator/image02.png)
 

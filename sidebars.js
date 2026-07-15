@@ -183,7 +183,7 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Kaia Safe',
+          label: 'Safe Wallet',
           link: {
             type: 'doc',
             id: 'build/wallets/kaia-safe/kaia-safe',
@@ -360,6 +360,7 @@ const sidebars = {
           items: [
             'build/tools/oracles/orakl-network',
             'build/tools/oracles/pyth-network',
+            'build/tools/oracles/redstone',
             'build/tools/oracles/supraoracles',
             'build/tools/oracles/witnet',
             { type: 'doc', label: 'Proof of Play vRNG', id: 'build/tools/oracles/vrng-pop' },

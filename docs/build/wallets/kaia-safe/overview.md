@@ -1,15 +1,36 @@
-# Kaia Safe Design
+---
+title: Safe Wallet overview
+sidebar_label: Safe Wallet overview
+---
 
-Currently, Kaia Safe is a collection of tools to create and manage multi-signature wallets, viz:
+# Safe Wallet overview
 
-* **Safe React:** This is a react web app to create and interact with a multi-sig wallet.
+:::caution Sunset notice
 
-* **Safe Transaction Service:** This keeps track of transactions sent via safe contracts and listens to events from recent blocks in Mainnet and Kairos. Transactions can also be sent to the service to allow off-chain collecting of signatures or to inform the owners about a transaction that is pending to be sent to the blockchain.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe accounts will be automatically compatible with Safe Wallet.
 
-* **Safe Config Service:** This provides configuration information of the Kaia Safe clients environment, e.g configs of all chain details and APIs.
+:::
 
-* **Safe Client Gateway:** This is a gateway between the Kaia Safe client and the backend services (transaction service and Kaia Nodes)
+Safe Wallet is the [Safe](https://safe.global) (Safe Global) web interface for [Safe smart accounts](https://docs.safe.global/home/what-is-safe) on Kaia. You manage owners, thresholds, assets, and transactions through [app.safe.global](https://app.safe.global), with Kaia Mainnet and Kairos available when you select the network in the UI.
 
-* **Safe Infrastructure:** This is a  cluster setup to deploy the backend services (Safe-Transaction, Safe-Config, Safe-Client gateway). 
+## Product and documentation
 
-Please refer to this [link](https://github.com/kaiachain/kaia-safe-infrastructure) to get more information.
+For architecture, smart account behaviour, and backend services (Transaction Service, Client Gateway, and related APIs), use the official Safe Global resources:
+
+* [What is Safe?](https://docs.safe.global/home/what-is-safe)
+* [Safe Wallet Help Center](https://help.safe.global)
+* [Safe documentation](https://docs.safe.global)
+* [Safe Transaction Service overview](https://docs.safe.global/core-api/transaction-service-overview)
+
+## Kaia networks
+
+| Network | Chain ID |
+| --- | --- |
+| Kaia Mainnet | 8217 |
+| Kairos Testnet | 1001 |
+
+When using the [API Kit](./kaia-safe-api-kit.md) or other Safe SDK tooling, pass the correct Kaia chain ID. Service endpoints may change as `safe.kaia.io` sunsets; prefer Safe Global Transaction Service documentation for supported chains and configuration.
+
+## Historical note
+
+Kaia previously operated a Kaia-hosted Safe stack (UI and infrastructure). That stack is being retired in favour of Safe Wallet at [app.safe.global](https://app.safe.global). Legacy repository references such as [kaia-safe-infrastructure](https://github.com/kaiachain/kaia-safe-infrastructure) describe the older deployment model and are not the primary path for new integrations.
