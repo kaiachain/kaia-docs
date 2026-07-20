@@ -1,8 +1,10 @@
-# Kaia Blockchain White Paper v1.2
+# Kaia Blockchain White Paper v1.3
 
 ## Important Notice
 
-Project Kaia[^1] Digital Tokens (hereinafter referred to as “KAIA” with the ticker symbol KAIA) are not intended to constitute a regulated product such as securities, fiat tokens or e-money, accepted virtual assets or specified investments each as defined under the Financial Services and Markets Regulations 2015 of the Abu Dhabi Global Market (the “FSMR”), or its equivalent or any other regulated products in any jurisdiction.
+Project Kaia Digital Tokens (hereinafter referred to as “KAIA” with the ticker symbol KAIA) are not intended to constitute a regulated product such as securities, fiat tokens or e-money, accepted virtual assets or specified investments each as defined under the Financial Services and Markets Regulations 2015 of the Abu Dhabi Global Market (the “FSMR”), or its equivalent or any other regulated products in any jurisdiction.
+
+The Foundation is presently not required to be licensed by the Financial Services Regulatory Authority (“FSRA”) of Abu Dhabi Global Market (“ADGM”) as KAIA does not constitute a regulated product in the ADGM. The Foundation does not provide any regulated services nor carry on any regulated activities in the ADGM or in any jurisdiction.
 
 Please note that you may not be able to recover any monies paid for KAIA in the event that the KAIA Token Economy fails to materialize or where the vision or objects of the Foundation fails.
 
@@ -14,8 +16,7 @@ No person is bound to enter into any contract or binding legal commitment in rel
 
 Any agreement between the Foundation and you as a recipient or purchaser, and in relation to any airdrop, sale or purchase of KAIA is to be governed by a separate document setting out the terms and conditions (the “T&Cs”) of such agreement. In the event of any inconsistencies between the T&Cs and this Whitepaper, the T&Cs shall prevail. Your eligibility to receive, purchase or sell KAIA on any digital token trading platform or exchange is subject to your compliance with their respective terms and conditions.
 
-No regulatory authority has approved any of the information set out in this Whitepaper. No such action has been or will be taken under the laws, regulatory requirements or rules of any jurisdiction. The publication, distribution or dissemination of this Whitepaper does not imply that the applicable laws, regulatory requirements or rules have
-been complied with.
+No regulatory authority has approved any of the information set out in this Whitepaper. No such action has been or will be taken under the laws, regulatory requirements or rules of any jurisdiction. The publication, distribution or dissemination of this Whitepaper does not imply that the applicable laws, regulatory requirements or rules have been complied with.
 
 This Whitepaper, any part thereof and any copy thereof must not be taken or transmitted to any country where distribution or dissemination of this Whitepaper is prohibited or restricted.
 
@@ -25,20 +26,15 @@ No part of this Whitepaper is to be reproduced, distributed or disseminated with
 
 **IF YOU ARE IN ANY DOUBT AS TO THE ACTION YOU SHOULD TAKE, YOU SHOULD CONSULT YOUR LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S).**
 
-[^1]: Kaia is a temporary name for the integrated blockchain project of Klaytn and Finschia, and may be changed in the future.
-
 ## Introduction
 
 ### Our Origin
 
-The Finschia blockchain, based on the LINE Blockchain initiated by the global messaging company LINE in 2018, and the Klaytn blockchain, established in 2019 on the foundation of Kakao, South Korea's leading software company, have merged their blockchain and ecosystems under the shared goal of achieving mass adoption of blockchain technology to
-create the Kaia Blockchain.
+The Finschia blockchain, based on the LINE Blockchain initiated by the global messaging company LINE in 2018, and the Klaytn blockchain, established in 2019 on the foundation of Kakao, South Korea's leading software company, have merged their blockchain and ecosystems under the shared goal of achieving mass adoption of blockchain technology to create the Kaia Blockchain.
 
-Kaia Blockchain is a Layer 1 blockchain based on EVM (Ethereum Virtual Machine) and has been designed with scalability, convenience, and reliability as top priorities. Kaia Blockchain focuses on transformative changes that will empower not only technology and business but also individuals in the Web 3.0 era. Kaia Foundation[^2] and ecosystem participants aim for easier accessibility of blockchain technology and let more people participate in the Web 3.0 revolution. Kaia Blockchain will settle as a trusted stratum that connects people from different backgrounds all over the world.
+Kaia Blockchain is a Layer 1 blockchain based on EVM (Ethereum Virtual Machine) and has been designed with scalability, convenience, and reliability as top priorities. Kaia Blockchain focuses on transformative changes that will empower not only technology and business but also individuals in the Web 3.0 era. Kaia DLT Foundation and ecosystem participants aim for easier accessibility of blockchain technology and let more people participate in the Web 3.0 revolution. Kaia Blockchain will settle as a trusted stratum that connects people from different backgrounds all over the world.
 
 To build the infrastructure for the collaborative Web 3.0 playground, Kaia Blockchain will combine powerful integrated community and infrastructure technologies to discover new opportunities and accelerate innovation.
-
-[^2]: It refers to the temporary foundation name of Project Kaia
 
 ### Mission
 
@@ -50,33 +46,25 @@ The core vision of Kaia Blockchain is to integrate a broad user base, vast on-ch
 
 ## Value Proposition
 
-Kaia Blockchain aims to create Asia's \#1 blockchain through the integration of the two mainnets and lead the adoption of Web3, which was the common goal of the two blockchains. This vision can be achieved by helping builders create ideas, grow, and successfully build projects through a wide user base, abundant on-chain assets, and
-technology leadership as below. Kaia Blockchain provides a robust infrastructure for Web3 projects of all sizes, creating an ideal environment for builders looking to bring innovative ideas to life.
+Kaia Blockchain aims to create Asia's #1 blockchain through the integration of the two mainnets and lead the adoption of Web3, which was the common goal of the two blockchains. This vision can be achieved by helping builders create ideas, grow, and successfully build projects through a wide user base, abundant on-chain assets, and technology leadership as below. Kaia Blockchain provides a robust infrastructure for Web3 projects of all sizes, creating an ideal environment for builders looking to bring innovative ideas to life.
 
 ### Wide User Base
 
 1. **Web2 User Accessibility**: One of the biggest problems facing Web3 projects is attracting Web2 users. Kaia Blockchain provides easy access to existing Web2 users through a messenger-integrated wallet through collaboration with Kakao with 50 million Korean users and LINE with 200 million users in Japan, Taiwan, Indonesia, and Thailand.
-
 2. **Web3 User Accessibility**: In addition to Web2 users, it helps attract Web3 users quickly and easily to the project by providing more than 1.2 million wallet active addresses and an interface connecting the users and the project.
-
-3. **Community Building Support**: It helps users gather and build projects through joint marketing with Kaia Foundation and provides an environment with easy access and usage for users from various chains.
+3. **Community Building Support**: It helps users gather and build projects through joint marketing with Kaia DLT Foundation and provides an environment with easy access and usage for users from various chains.
 
 ### Abundant Liquidity Support
 
 1. **Real World Asset (RWA) Linkage**: Real world assets such as gold, ships, and real estate already exist on Kaia Blockchain. Beyond this, real world assets such as various fiat-backed stablecoins and bonds will be on-chained, allowing developers to utilize a wider range of assets.
-
 2. **Large-Scale Ecosystem Fund (Kaia Ecosystem Fund):** A large-scale ecosystem fund can be created based on KAIA and support various sectors requiring liquidity such as Defi and Gamefi.
-
 3. **Chain Native Yield**: Built-in MEV (Maximal Extractable Value) extraction allows KAIA Stakers to automatically earn MEV profits on the chain. This results in an increase in the chain liquidity and simultaneously provides a method for burning tokens.
 
 ### Top-Level Core Technology and Development Convenience
 
 1. **Top-Level Transaction Finality**: Provides higher TPS and decentralization while maintaining the 1-second transaction finality.
-
 2. **Ethereum Compatibility:** EVM-based dApps can be onboarded without any modifications with the provision of 100% Ethereum compatibility.
-
 3. **Convenient Account Model:** The account model of Kaia Blockchain enables the assigning of various keys to accounts, which strengthens account security and improves user experience.
-
 4. **Permissionless and Decentralized Structure**: Kaia Blockchain is converting into a permissionless validator structure while also increasing the network’s decentralization.
 
 ## Token Economy
@@ -96,13 +84,10 @@ Designing the token economy and governance structure of a blockchain platform is
 The core design principles of the token design of Kaia Blockchain are:
 
 - **Rewarding Ecosystem Contributors:** For a blockchain platform to be sustainable and provide great value to users, simply maintaining the network is not enough; the growth of the platform ecosystem is also very important. Therefore, Kaia Blockchain will identify the entities contributing to this growth and provide rewards and support commensurate with the contribution of each participant. This will result in not only contributors to block creation and verification but also service providers who have contributed to the growth of the platform ecosystem receiving reasonable compensation in proportion to their contribution, acting as an attractive incentive for potential external contributors.
-
+- **Contribution Rewards:** A concrete implementation of this principle. Through a contribution-based distribution mechanism, network participants including validators and community members who actively contribute to the defined contribution metrics receive rewards commensurate with their level of contribution, while unearned rewards are burned reducing effective net issuance.
 - **Elastic Token Economy:** The token economy has numerous active participants with different interests and is greatly affected by various internal and external changes. Therefore, the token economy will be flexible to external variables based on consistent core principles rather than maintaining a single model. Based on these core principles, the token economy of Kaia Blockchain can respond quickly and flexibly to external changes. At the same time, it can support the ecosystem participants to operate stably and align the direction to promote overall growth.
-
 - **Sustainable Growth:** Blockchain platforms must maintain continuous growth. In other words, it must retain the existing and new participants within the ecosystem based on a reasonable incentive model and a system that can flexibly respond to the needs and impacts of rapidly changing markets within and outside the ecosystem. In return, Kaia Blockchain will be able to achieve balanced and stable growth based solely on the contributions of ecosystem participants without any artificial value expansion.
-
 - **Simplicity:** Kaia Blockchain will be explainable simply and clearly. This will allow for quick optimizations and fixes in the future. Its simplicity will allow everyone involved to easily understand the functionality.
-
 - **Experiment and Optimize with Data:** How high should inflation be? What types of rewards should be given for what actions? These questions are difficult to answer without testing and verification. Kaia Blockchain will transparently analyze data obtained and managed on the blockchain, optimize the platform by testing various hypotheses, and transparently share the results through technical reports.
 
 ### Kaia Blockchain Tokenomics
@@ -118,7 +103,6 @@ KAIA is an essential element and fuel for operating the Kaia Blockchain platform
 The incentive mechanism of Kaia Blockchain seeks to achieve the following goals:
 
 - Ability to maintain sufficient economic security and network over the long term.
-
 - Support for entities promoting economic activity
 
 In general, incentives in public blockchains are used to maintain the network and ensure economic security. Maintaining a blockchain requires someone to continuously store block data and process new transactions. Due to this, blockchains such as Bitcoin or Ethereum provide block rewards to miners processing block creation. Incentives are also closely related to economic security. Simply put, economic security is proportional to the cost required to carry out an attack on a blockchain. This cost typically becomes higher as the potential profit of the block creator increases during the block creation process.
@@ -133,23 +117,21 @@ Kaia Blockchain provides incentives through the issuance of new KAIA and transac
 
 ##### Minting
 
-On the Kaia Blockchain mainnet, a certain amount of KAIA is issued whenever a new block is created. Each time a new block is created, a certain amount of KAIA will be newly issued, and the target initial annual inflation rate (amount of KAIA newly issued per year / total KAIA token in the market) of Kaia Blockchain will be set at 5.2%[^3]. The number of newly issued KAIA per block at this point is not permanently set; it can be changed through governance voting. By default, the inflation rate of KAIA reflects the economic growth rate of Kaia Blockchain. Although the goal is a lower value, the exact value will be determined through the governance. In the mid to long term, the inflation rate and new issuance quantity per block can be automatically calculated and applied based on the inflation algorithm inherent in the chain.
+On the Kaia Blockchain mainnet, a certain amount of KAIA is issued whenever a new block is created. Each time a new block is created, a certain amount of KAIA will be newly issued, and the target initial annual inflation rate (amount of KAIA newly issued per year / total KAIA token in the market) of Kaia Blockchain will be set at 5.2%[^1]. The number of newly issued KAIA per block at this point is not permanently set; it can be changed through governance voting. By default, the inflation rate of KAIA reflects the economic growth rate of Kaia Blockchain. Although the goal is a lower value, the exact value will be determined through the governance. In the mid to long term, the inflation rate and new issuance quantity per block can be automatically calculated and applied based on the inflation algorithm inherent in the chain.
 
-[^3]: Specific figures are subject to change upon further review and governance approval.
+It should be noted that while the gross inflation rate and per-block issuance quantity remain unchanged, the effective net inflation may be lower than the nominal rate. This is because unearned contribution rewards allocations are burned according to the governance-approved contribution rewards mechanism, reducing the actual volume of newly issued KAIA entering circulation. In other words, additional deflation pressure through unearned contribution rewards is introduced on top of the existing burn structure. The extent of this reduction depends on the aggregate contribution levels of active validators in any given period. For further details, see the Contribution-Based Burning section under the 4-Layer Burn Model.
 
 ##### Transaction Fee
 
 Kaia Blockchain has determined its transaction fee policy to maximize service orientation, user-centricity, and enterprise-friendliness while maintaining network stability. The transaction fee policy takes into account the following points pursued by Kaia Blockchain.
 
 - Improved User Experience
-  - We aim to minimize complicated or unnecessary procedures when users pay transaction fees. This will allow users not familiar with blockchain technology to easily use Kaia Blockchain. For example, tasks such as manually entering gas prices should be minimized. The volatility of the transaction fee should also be minimized so that users can use Kaia Blockchain comfortably.
-
+    - We aim to minimize complicated or unnecessary procedures when users pay transaction fees. This will allow users not familiar with blockchain technology to easily use Kaia Blockchain. For example, tasks such as manually entering gas prices should be minimized. The volatility of the transaction fee should also be minimized so that users can use Kaia Blockchain comfortably.
 - Improved Operational Processes for Service Providers
-  - Service providers can pay for the transaction fees on behalf of users through the unique account model in Kaia Blockchain. Therefore, business convenience for dApp service providers is also a major consideration in fee policy.
-  - The basic elements to reduce the burden on service providers are low transaction fees and low volatility fee policies. The low fee is to assist in the expansion of services using the fee delegation feature in the Kaia account model, while the low volatility is to help predict business costs due to the payment fee.
-
+    - Service providers can pay for the transaction fees on behalf of users through the unique account model in Kaia Blockchain. Therefore, business convenience for dApp service providers is also a major consideration in fee policy.
+    - The basic elements to reduce the burden on service providers are low transaction fees and low volatility fee policies. The low fee is to assist in the expansion of services using the fee delegation feature in the Kaia account model, while the low volatility is to help predict business costs due to the payment fee.
 - Protection against Network Attacks
-  - Blockchain data storage and computation incur costs. Without transaction fees, attackers may DDoS or spam attack the blockchain by sending meaningless transactions. To prevent meaningless transactions, a reasonable fee will be imposed on transactions.
+    - Blockchain data storage and computation incur costs. Without transaction fees, attackers may DDoS or spam attack the blockchain by sending meaningless transactions. To prevent meaningless transactions, a reasonable fee will be imposed on transactions.
 
 Kaia Blockchain applies a dynamic gas fee model to the network to achieve the above goals. In the dynamic gas fee model of Kaia Blockchain, a low fee is applied in general cases where there are not many transactions on the network. However, in special situations such as a rapid increase in transactions on the network or a DDoS or spam attack, the gas fee increases. This results in a reduction of meaningless transactions. The dynamic gas fee model could change the gas fee per block unit dynamically depending on the transaction congestion within the network, but the range of change is predictable to some extent. Transactions entered into a block have transaction fees calculated with an identical block gas fee (baseFee), and only transactions with a gas fee greater than or equal to the block gas fee can be entered into the block. Block gas fees automatically increase or decrease depending on the gas usage of the previous block with the current maximum fluctuation set to 5%. A portion of the transaction fee used in each block is set to be automatically burned. Various parameters of the dynamic gas fee model can be changed via the governance function.
 
@@ -160,14 +142,16 @@ The transaction fees for Kaia Blockchain are currently determined by applying a 
 The block reward for each block is determined by the sum of the KAIA issued at the time of block creation and the transaction fee. This is distributed as follows. However, the specific ratio and category of the block reward distribution may be changed by governance.
 
 - Validators and Community: 50%
-  - Of the 50%, 20% is block proposer rewards
-  - Of the 50%, 80% is staking rewards
+    - Of the 50%, 20% is contribution rewards
+    - Of the 50%, 80% is staking rewards
 - KEF (Kaia Ecosystem Fund): 25%
 - KIF (Kaia Infrastructure Fund): 25%
 
+*The allocation designated for contribution rewards is accumulated into the Kaia Performance Fund (KPF), a dedicated reward pool for Contribution Rewards, upon each block creation, and may subsequently be distributed or burned in accordance with the governance-approved Contribution Rewards framework.*
+
 ##### Burning
 
-The method for maintaining or enhancing the KAIA value is an essential element of any incentive structure based on KAIA. In Kaia Blockchain’s ecosystem growth stage, the additional issuance of the KAIA motivates the ecosystem members to participate. However, a method to control the circulation volume is necessary for it to operate as a long-term sustainable incentive. Kaia Blockchain 3-Layer Burn Model prevents excessive inflation. The 3-Layer Burn Model is an extensive concept that includes not only the inherent burning function of Kaia Blockchain but also the burning concept that can occur through relationships with ecosystem projects. This extensive burn model will effectively regulate circulation volume and provide stable value incentives to the network participants when the Kaia Blockchain ecosystem reaches maturity. The description of each Layer is as follows.
+The method for maintaining or enhancing the KAIA value is an essential element of any incentive structure based on KAIA. In Kaia Blockchain’s ecosystem growth stage, the additional issuance of the KAIA motivates the ecosystem members to participate. However, a method to control the circulation volume is necessary for it to operate as a long-term sustainable incentive. Kaia Blockchain 4-Layer Burn Model prevents excessive inflation. The 4-Layer Burn Model is an extensive concept that includes not only the inherent burning function of Kaia Blockchain but also the burning concept that can occur through validator contribution mechanisms and relationships with ecosystem projects. This extensive burn model will effectively regulate circulation volume and provide stable value incentives to the network participants when the Kaia Blockchain ecosystem reaches maturity. The description of each Layer is as follows.
 
 1. Transaction-Based Burning
 
@@ -181,19 +165,36 @@ A validator may receive additional profits (e.g. maximal extractable value) by t
 
 Business-based burning is not an inherent function of Kaia Blockchain. Rather it is implemented through the ecosystem services and business relationships. Ecosystem services can receive support from protocols such as Kaia Ecosystem Fund to initially accelerate growth. Additionally, the value of KAIA or the activation of Kaia Blockchain affects the activation of services considering services utilize blockchain functions. Kaia Blockchain encourages the ecosystem services to install the concept of burning KAIA within the service to ensure that the service and blockchain maintain the value of KAIA under the same goal.
 
+4. Contribution-Based Burning
+
+Under the contribution rewards mechanism, a portion of the validator reward allocation is distributed only to validators who meet defined on-chain contribution thresholds. When validators do not fully meet these thresholds, the unearned portion of the contribution rewards allocation is not distributed but is burned. This creates a direct link between network participation and token supply. Burn amounts are determined deterministically from on-chain contribution data and are executed periodically by the Foundation under the governance-approved Contribution Rewards framework, without requiring a separate governance vote for each burn.
+
 ### Validator Incentives
 
 Validators are operators in Kaia Blockchain who are responsible for block creation and verification based on the consensus algorithm. Validators are required to stake at least 5 million KAIA on the nodes they operate. In addition, validators participate in the on-chain vote of Kaia Blockchain and have the qualifications of GC (Governance Council), which makes key decisions in the ecosystem. In the future, the concepts of validator participating in block creation and GC participating in decision-making will be separated, so that anyone meeting certain conditions could participate in block creation and verification even if they are not a GC. Research and development of building this permissionless network is in progress.
 
-Two types of incentives are provided to encourage validators to operate nodes: block proposer rewards and staking rewards.
+Two types of incentives are provided to encourage governance council validators to contribute to network security and growth: contribution rewards and staking rewards.
 
-- Block proposer rewards are for the act of participating in block creation and verification. At the time of block creation, an identical amount of KAIA will be distributed to all validators activated on the network. 10% (20% of the 50% Validator and Community Rewards) of the total annual inflation issued will be allocated as block proposer rewards. However, the size of the reward in a specific block may vary depending on the number of validators active at a specific time.
-
-- Staking rewards are for staking KAIAs and contributing to the network stability and economic stability of Kaia Blockchain. The size of the reward is determined in proportion to the amount staked by a specific validator to the total amount of KAIA staked by all validators. However, the 5 million KAIA staked by each validator as an obligation is not reflected in determining the staking reward size. 40% of the total inflation will be allocated as staking rewards. The size of the rewards in a specific block may vary depending on the number of the total KAIA staked by the validators active at a specific time.
+- Contribution rewards incentivize validators to actively contribute to network growth beyond block creation and verification. 10% (20% of the 50% Validator and Community Rewards) of the total annual inflation issued is allocated to the contribution rewards pool and is distributed in proportion to each validator's measurable on-chain contributions. Any portion of the allocation that remains unearned, because validators do not meet the defined contribution thresholds, is burned, thereby reducing the effective inflation rate. This ensures that token issuance is tied to realized network growth rather than unconditional distribution. The contribution metrics and operational parameters are defined and disclosed by the Foundation under the governance-approved Contribution Rewards framework and may be adjusted.
+- Staking rewards are for staking KAIAs and contributing to the network stability and economic stability of Kaia Blockchain. The size of the reward is determined in proportion to the amount staked by a specific validator to the total amount of KAIA staked by all validators. 40% of the total inflation will be allocated as staking rewards. The size of the rewards in a specific block may vary depending on the number of the total KAIA staked by the validators active at a specific time.
 
 #### Kaia Blockchain Validator Reward Mechanism
 
-Every block will have a committee made up of randomly selected validators. Each committee will have one member to act as a proposer, and all other committee members will act as verifiers. When a block is successfully created and added to Kaia Blockchain, the proposer of that block will be rewarded with 10% (20% of the 50% Validator and Community Rewards) of the total annual inflation issued and additional transaction fees. With regard to transaction fees, if the total amount of transaction fees incurred in one block is less than the block reward, the fees will be burned. If the transaction fee exceeds the block reward, half of the exceeded amount will be burned and the remaining half will be rewarded to the block proposer. Staking rewards equivalent to 40% (80% of the 50% Validator and Community Rewards) of the total annual inflation issued are shared among the validators in proportion to their staking amount. As long as the Kaia Blockchain validators meet the minimum 5 million KAIA staking requirement, they are free to stake or unstake their KAIA. Staking information changed within the staking update cycle will have a final update in the last block of each cycle. Another cycle is required for the updated information to be reflected in the block incentive. For example, staking information added at block 80,000 will be last updated at block 86,400 and reflected in incentives starting at block 172,800. A one-week delay is required to withdraw the staked KAIA to prevent any immediate withdrawals by malicious members.
+Every block will have a committee made up of randomly selected validators. Each committee will have one member to act as a proposer, and all other committee members will act as verifiers.
+
+**Contribution rewards distribution:**
+10% of the total annual inflation issued (equivalent to 20% of the 50% Validator and Community Rewards allocation) is allocated to contribution rewards and distributed based on validators’ measurable on-chain contributions. The contribution rewards earned by each validator are calculated and distributed according to contribution metrics assessed at regular intervals.
+
+If a validator fails to sufficiently contribute to the evaluated contribution metrics, the validator will not receive contribution rewards for that period, and the portion of KAIA tokens corresponding to the unmet contribution threshold will be burned. The detailed parameters governing contribution rewards distribution, including contribution thresholds, assessment intervals, and eligible protocols, will be publicly disclosed and may be periodically adjusted.
+
+**Transaction fee distribution:**
+
+Regarding transaction fees, if the total transaction fees generated in a block are less than the block proposer reward, those fees are burned. If the transaction fees exceed the block proposer reward, half of the excess amount is burned, and the remaining half is paid to the block proposer as a reward.
+
+The rule itself has not changed. However, with the introduction of Contribution Rewards, the proposer reward becomes zero. As a result, half of the transaction fees are always burned, and the other half is always paid to the block proposer.
+
+**Staking rewards distribution:**
+Staking rewards equivalent to 40% (80% of the 50% Validator and Community Rewards) of the total annual inflation issued are shared among the validators in proportion to their staking amount. As long as the Kaia Blockchain validators meet the minimum 5 million KAIA staking requirement, they are free to stake or unstake their KAIA. A one-week delay is required to withdraw the staked KAIA to prevent any immediate withdrawals by malicious members.
 
 ### Kaia Blockchain Fund
 
@@ -212,15 +213,10 @@ Kaia Ecosystem Fund (KEF) is a financial resource used to ensure the sustainabil
 The uses of KEF are categorized as follows:
 
 1. Service Contribution Reward (SCR): This reward is given to service developers or users operating on the integrated ecosystem, as compensation for directly or indirectly contributing to the enhancement of the ecosystem's value.
-
 2. Developer Community Development: This includes support for various hackathons, operation of development education programs, collaborative research with academia, and collaborations with various DAOs.
-
 3. Ecosystem Services and Infrastructure Development: This involves the development of services with clear utilities, support for marketing, and securing essential infrastructure for the ecosystem.
-
 4. KEF Indirect Investment: This involves medium to long-term investments carried out indirectly through delegation to professional crypto Venture Capitals. A portion of the profits generated from the recovery of investment amounts is either burned or returned to the Kaia Blockchain ecosystem.
-
 5. Governance Committee Budget: This budget is allocated for the operation of committees in specific sectors such as Gaming, DeFi, and Community. The committees aim to grow the Kaia Blockchain ecosystem in their respective sectors through expertise in investing, marketing, grants, and providing liquidity.
-
 6. Other ecosystem and community-building activities
 
 ##### Execution Method
@@ -228,9 +224,7 @@ The uses of KEF are categorized as follows:
 KEF operates under a system where the Governance Council (GC) reviews and approves the use of its funds. The budget executed through the foundation is managed through the following process:
 
 1. Each quarter, necessary budgets by category of expenditure are reported to and approved by the GC.
-
 2. Within the approved budget limits, specific expenditures are also approved individually by the GC.
-
 3. Details of the expenditures are transparently disclosed after their use.
 
 Even if not through the foundation, new proposals for the use of KEF can be made via the GC, and these specific proposals will also require individual approval by the GC. Plans are in place to develop and enhance a structure that allows more ecosystem participants to efficiently propose and participate in the use of KEF. Additionally, for some categories requiring more specialized and rapid decision-making, separate governance committees may operate.
@@ -248,19 +242,15 @@ KIF is executed by the foundation through an internal control system after a pri
 The uses of KIF are categorized as follows:
 
 1. Mainnet and Essential Infrastructure R&D: Advance research on the latest technologies related to mainnet and infrastructure, foundation-led service development, infrastructure establishment, etc.
-
 2. Ecosystem Acceleration: Token swap, financial support for small-scale Kaia Blockchain ecosystem partners, attraction of new GC, provision of market liquidity, etc.
-
-3. Operation of Kaia Foundation: Operating costs (various service costs such as development, accounting, legal affairs, as well as IT infrastructure operation costs, marketing costs, labor costs, etc.), financial management, fundraising, etc.
+3. Operation of Kaia DLT Foundation: Operating costs (various service costs such as development, accounting, legal affairs, as well as IT infrastructure operation costs, marketing costs, labor costs, etc.), financial management, fundraising, etc.
 
 ##### Execution Method
 
 The foundation directly establishes a budget plan and executes the funds accordingly for KIF. To ensure transparent execution, the foundation discloses the budget plans and execution details in advance and afterward.
 
 1. Establishment of the budget and fund execution plan by the foundation
-
 2. Disclosure of the budget plans by detailed category
-
 3. Disclosure of the execution details after executing the funds through an internal control system by the foundation
 
 ### KAIA Issuance/Distribution Plan
@@ -271,7 +261,7 @@ As the Klaytn and Finschia ecosystems merge, KLAY and FNSA, which were the base 
 
 ##### KLAY Issuance and Burning Volume
 
-On June 24, 2019, a total of 10 billion KLAY were issued on the genesis block at the launch of the mainnet of the Klaytn Blockchain. After the launch of the mainnet, a 3% annual inflation rate was applied based on the genesis issuance volume, newly issuing 9.6 KLAY in each block starting from block 1. Based on the decision of [[KGP-3]](https://govforum.klaytn.foundation/t/kgp-3-reduction-of-klaytn-block-reward/117) in October 2022, 6.4 KLAY have been issued for each block starting from November 13, 2022 (#106444801). As for the KLAY burn volume, a portion of the genesis reserve was burned based on [[KGP-6]](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) of April 16, 2023, and a portion of circulating supply was burned based on the transaction fee burning and buyback burning. As a result, the estimated total supply is 5,971M KLAY at the time of integration, as of June 27, 2024.
+On June 24, 2019, a total of 10 billion KLAY were issued on the genesis block at the launch of the mainnet of the Klaytn Blockchain. After the launch of the mainnet, a 3% annual inflation rate was applied based on the genesis issuance volume, newly issuing 9.6 KLAY in each block starting from block 1. Based on the decision of in October 2022, 6.4 KLAY have been issued for each block starting from November 13, 2022 (#106444801). As for the KLAY burn volume, a portion of the genesis reserve was burned based on of April 16, 2023, and a portion of circulating supply was burned based on the transaction fee burning and buyback burning. As a result, the estimated total supply is 5,971M KLAY at the time of integration, as of June 27, 2024.
 
 ##### KLAY Private Sale
 
@@ -281,17 +271,13 @@ The private sales were divided into ER (Early Round) and PR (Private Round) from
 
 ##### KLAY Circulating Supply
 
-The circulating supply of a cryptocurrency is the total currently tradable supply of the total issued volume of a specific existing cryptocurrency. In other words, it is the amount that is actually traded and distributed in the market. As of June 27, 2024, the expected integration date, the estimated total supply of Klaytn Blockchain will be 5,971M KLAY, excluding the not yet distributed Klaytn Community Fund (KCF)[^4] of 153M KLAY, Klaytn Foundation Fund (KFF)[^5] of 29M KLAY, and KLAY Value Creation Fund (KVCF)[^6] of 2,000M KLAY. These numbers are current estimates and may vary slightly due to block generation status, inflation, and governance proposal approvals. Considering that KVCF requires separate approval from the GC, the circulating supply increases when the execution of KCF or KFF is decided and executed. On the other hand, the circulating supply decreases when it is burned due to transaction fees or buybacks. Accordingly, as of June 27, 2024, the total issued supply is 5,971M KLAY while the circulating supply is 3,789M KLAY. There are no plans to use the KVCF until the time of the merger. The KLAY circulating supply will be inherited by the initial circulating supply of KAIA after the chain and token merger.
+The circulating supply of a cryptocurrency is the total currently tradable supply of the total issued volume of a specific existing cryptocurrency. In other words, it is the amount that is actually traded and distributed in the market. As of June 27, 2024, the expected integration date, the estimated total supply of Klaytn Blockchain will be 5,971M KLAY, excluding the not yet distributed Klaytn Community Fund (KCF)[^2] of 153M KLAY, Klaytn Foundation Fund (KFF)[^3] of 29M KLAY, and KLAY Value Creation Fund (KVCF)[^4] of 2,000M KLAY. These numbers are current estimates and may vary slightly due to block generation status, inflation, and governance proposal approvals. Considering that KVCF requires separate approval from the GC, the circulating supply increases when the execution of KCF or KFF is decided and executed. On the other hand, the circulating supply decreases when it is burned due to transaction fees or buybacks. Accordingly, as of June 27, 2024, the estimated total issued supply is 5,971M KLAY while the circulating supply is 3,789M KLAY. There are no plans to use the KVCF until the time of the merger. The KLAY circulating supply will be inherited by the initial circulating supply of KAIA after the chain and token merger.
 
-[^4]: A fund created to revitalize the Klaytn ecosystem and onboard developers, and expenditures are determined after governance approval.
-[^5]: A fund created to operate the existing Klaytn Foundation, and expenditures are also determined after governance approval.
-[^6]: A reserve created in preparation for the dramatic growth of the Klaytn blockchain.
+#### FNSA Issuance/Distribution Status
 
-### FNSA Issuance/Distribution Status
+##### FNSA Issuance and Burning Volume
 
-#### FNSA Issuance and Burning Volume
-
-FNSA of Finschia has been automatically issued in each block at an inflation rate of 15% per year on the current total supply according to the Issuance mechanism of the protocol. Initial total supply was 6,734,458 FNSA. The FNSA issued is distributed to the Network Contribution Reward, Service Contribution Reward, and Reserve at a corresponding ratio of 5:3:2 according to the distribution mechanism. No volume of FNSA was burned. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA.
+FNSA of Finschia has been automatically issued in each block at an inflation rate of 15% per year on the current total supply according to the Issuance mechanism of the protocol. Initial total supply was 6,734,458 FNSA. The FNSA issued is distributed to the Network Contribution Reward, Service Contribution Reward, and Reserve at a corresponding ratio of 5:3:2 according to the distribution mechanism. No volume of FNSA was burned. As of the end of June 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA.
 
 ##### FNSA Private Sale
 
@@ -299,49 +285,54 @@ FNSA did not conduct private sales.
 
 ##### FNSA Circulating Supply
 
-The total supply and circulating supply of FNSA are equal. In other words, there is no separate uncirculated volume. Additionally, FNSA will set the inflation to 0% and stop new issuance after prior notice before the integration to ensure smooth integration with KLAY. As of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA. The final confirmed total supply of FNSA will be included in the initial distribution of KAIA and inherited according to the agreed-upon exchange ratio.
+The total supply and circulating supply of FNSA are equal. In other words, there is no separate uncirculated volume. Additionally, FNSA will set the inflation to 0% and stop new issuance after prior notice before the integration to ensure smooth integration with KLAY. As of the end of June 24 2024, the expected integration date, the estimated total number of FNSA issued through inflation is 7.967M FNSA. The final confirmed total supply of FNSA will be included in the initial distribution of KAIA and inherited according to the agreed-upon exchange ratio.
 
 #### KAIA Issuance/Distribution Plan
 
 The KAIA token is created by combining the existing KLAY tokens and FNSA tokens at the time of integration. There may be slight changes in the circulating supply of KLAY and FNSA tokens before the integration through the inflation and burning of block rewards. The circulating supply of the existing KLAY and FNSA at the time of integration will be included in the KAIA circulating supply according to the corresponding exchange rate. Details will be guided through a separate post-announcement by the foundation. The exchange rate for each token to KAIA is as follows:
 
 - KLAY: KAIA = 1:1
-
-- FNSA: KAIA = 148.079656:1
+- FNSA: KAIA = 1:148.079656
 
 The estimated circulating supply at the time of integration and KAIA circulating supply can be explained separately as follows:
 
 ##### Estimated Supply of KLAY and FNSA
 
-- Estimated Circulating Supply[^7]
-  - KLAY: 3,789M KLAY
-  - FNSA: 7.967M FNSA
+- Estimated Circulating Supply[^5]
+    - KLAY: 3,789M KLAY
+    - FNSA: 7.967M FNSA
 - Estimated Uncirculated Volume
-  - Klaytn Value Creation Fund (KVCF): 2,000M KLAY
-  - Klaytn Community Fund (KCF): 153M KLAY
-  - Klaytn Foundation Fund (KFF): 29M KLAY
-
-[^7]: The circulating supply of the Klaytn and Finschia chain may change due to block rewards, etc. until the chain merger.
+    - Klaytn Value Creation Fund (KVCF): 2,000M KLAY
+    - Klaytn Community Fund (KCF): 153M KLAY
+    - Klaytn Foundation Fund (KFF): 29M KLAY
 
 ##### Estimated KAIA Issuance Volume
 
 - (+) Conversion of circulating supply (4,968M KAIA)
-  - Converted KLAY circulating supply: 3,789M \* 1 = 3,789M KAIA
-  - Converted FNSA circulating supply: 7.967M \* 148.079656 FNSA = 1,179M KAIA
-- (-) Burning of uncirculated volume
-  - KVCF + KCF + KFF = 2,182M KAIA = Burn 1,382M KAIA out of 2,182M KAIA
-- (+) Conversion[^8] of uncirculated volume remaining after burning into circulating supply
-  - LINE NEXT Delegation: 330M KAIA
-  - Kaia Ecosystem Fund: 270M KAIA
-  - Kaia Infrastructure Fund: 200M KAIA
+    - Converted KLAY circulating supply: 3,789M * 1 = 3,789M KAIA
+    - Converted FNSA circulating supply: 7.967M * 148.079656 FNSA = 1,179M KAIA
+- (-) Conversion and burning of uncirculated volume
+    - Conversion of estimated uncirculated volume: (Klaytn Value Creation Fund 2,000M KLAY + Klaytn Community Fund 153M KLAY + Klaytn Foundation Fund 29M KLAY) * 1 = 2,182M KAIA
+    - Burn 1,382M KAIA out of 2,182M KAIA, leaving 800M KAIA
+- (+) Conversion[^6] of uncirculated volume remaining after burning into circulating supply (800M KAIA)
+    - LINE NEXT Delegation: 330M KAIA
+    - Kaia Ecosystem Fund: 270M KAIA
+    - Kaia Infrastructure Fund: 200M KAIA
+
+| Category | Amount |
+| --- | --- |
+| KLAY Circulating Supply | 3,789M KAIA |
+| FNSA Circulating Supply | 1,179M KAIA |
+| LINE NEXT Delegation | 330M KAIA |
+| Kaia Ecosystem Fund | 270M KAIA |
+| Kaia Infrastructure Fund | 200M KAIA |
+| Total Supply | 5,768M KAIA |
 
 Since the entire uncirculated amount gets burned at the time of KAIA conversion, the total supply and the circulating supply match. The estimated circulating supply at this time of integration is about 5,768M KAIA.
 
-However, the mentioned numbers are based on the issuance and circulating supply estimation as of May 14, 2024, GST, and the final figures may change depending on the inflation of Klaytn and Finschia.
+However, the mentioned numbers are based on the issuance and circulating supply estimation as of May 14, 2024, GST, and the final figures may vary slightly due to block generation status, inflation, and governance proposal approvals of Klaytn and Finschia.
 
-The circulating supply after the token merge may increase according to the measures mentioned in [Kaia Blockchain Fund](#kaia-blockchain-fund) or decrease due to burning. However, as specified in the relevant section, any additional supply must be announced in advance or approved by governance.
-
-[^8]: Future circulation will only change due to inflation and new burning models. Incorporation of the circulation amount of the fund does not necessarily mean liquidation, and it will be executed transparently only within the scope of governance approval.
+The circulating supply after the token merge may increase according to the measures mentioned in “3.5. Kaia Blockchain Fund” or decrease due to burning. However, as specified in the relevant section, any additional supply must be announced in advance or approved by governance.
 
 #### Treasury Rebalance Plan
 
@@ -352,18 +343,15 @@ The overall process is as follows. A contract named TreasuryRebalance is deploye
 TreasuryRebalance contract is implemented as a finite state machine and has the following states:
 
 - Initialized: right after the deployment. In this state, a list of addresses whose balance will be zeroed, namely “Zeroed”, and addresses whose balance will be allocated, namely “Allocated”, can be registered.
-
 - Registered: after all Zeroed and Allocated has been registered. In this state, there cannot be further registration. All owners of Zeroed must send a consent transaction, which indicates that they approve that their balance will be burnt.
-
 - Approved: after all consents have been collected, the contract can enter Approved state. Any change in this contract is prohibited until the hardfork block passes.
-
 - Finalized: After the hardfork block, the rebalance result, namely “memo”, is recorded and the contract is finalized. The contract is rendered immutable.
 
 The state transition is only possible in the following order. However, there can be a “reset” where all data is deleted and the state goes back to initialized.
 
-![](/img/misc/state-machine.jpg)
+![](/img/misc/state-machine.png)
 
-All block validators validate the contract state at the hardfork block. The rebalance event takes place only in the Approved state where no further change can happen. Since this event depends on the consensus of all validators, it is ensured that all validators reach the same world state after this event. 
+All block validators validate the contract state at the hardfork block. The rebalance event takes place only in the Approved state where no further change can happen. Since this event depends on the consensus of all validators, it is ensured that all validators reach the same world state after this event.
 
 All block validators produce the result of the rebalance event called memo in their validator log. The memo is uploaded to the TreasuryRebalance contract during Finalize. memory is a JSON-formatted string which contains information such as the balance of Zeroed before the rebalance, the balance of Allocated after the rebalance, and the burnt amount. The admin of treasury rebalance validates the consistency of the memo and uploads it to TreasuryRebalance contract. After finalization, the contract becomes immutable forever.
 
@@ -371,7 +359,7 @@ All block validators produce the result of the rebalance event called memo in th
 
 ### Governance Core Components
 
-Kaia Governance operates based on three main components: Kaia Community, Kaia Council, and Kaia Foundation. Kaia Community encompasses all KAIA holders, who have the right to express their opinions on Kaia Mainnet operations via the governance forum and social channel. Kaia Council represents the community and directly participates in the governance decisions of the project based on the coins it holds and voting rights delegated from the community. Lastly, Kaia Foundation utilizes its expertise in blockchain and Web3 technology to provide evidence, based on professional knowledge and data that could assist Kaia Council in making decisions and implementing the decisions made through governance. Kaia Governance ensures effective decision-making and execution with this systematic structure and pursues transparent and fair community operation.
+Kaia Governance operates based on three main components: Kaia Community, Kaia Council, and Kaia DLT Foundation. Kaia Community encompasses all KAIA holders, who have the right to express their opinions on Kaia Mainnet operations via the governance forum and social channel. Kaia Council represents the community and directly participates in the governance decisions of the project based on the coins it holds and voting rights delegated from the community. Lastly, Kaia DLT Foundation utilizes its expertise in blockchain and Web3 technology to provide evidence, based on professional knowledge and data that could assist Kaia Council in making decisions and implementing the decisions made through governance. Kaia Governance ensures effective decision-making and execution with this systematic structure and pursues transparent and fair community operation.
 
 ### Governance System
 
@@ -405,12 +393,10 @@ The forthcoming content will cover two main topics. The first is the genesis of 
 
 ### Birth of Kaia Blockchain
 
-To achieve the aforementioned technical goal, Kaia Blockchain is launched with various technical features. Specifically, the performance goal is facilitated by consensus and network topology, and the transparency and the sustainability is facilitated by smart contracts and on-chain governance. The initial performance of Kaia Blockchain is as follows:
+To achieve the aforementioned technical goal, Kaia Blockchain is launched with various technical features. Specifically, the performance goal is facilitated by consensus and network topology, and the transparency and the sustainability is facilitated by smart contracts and on-chain governance. ​​The initial performance of Kaia Blockchain is as follows:
 
 - Process 4,000 transactions/sec (TPS)
-
 - Instant transaction finality
-
 - Creation time of 1 block/second
 
 #### Consensus and Networking
@@ -423,7 +409,7 @@ Kaia aims to become an enterprise-support and service-oriented platform. Therefo
 
 Kaia Blockchain has three types of nodes: Consensus Node(CN), Proxy Nodes(PN), and Endpoint Nodes (EN). CN is managed by a validator and is responsible for block creation. These blocks are verified by all the nodes within the network.
 
-![](/img/misc/kaia-nodes.jpg)
+![](/img/misc/kaia-nodes.png)
 
 Kaia Blockchain has adopted and enhanced Istanbul BFT to achieve rapid finality. Since validation and consensus occur with each block, there are no forks, and the finality of the blocks where consensus is reached is immediately guaranteed. Block proposers are selected in an unpredictable manner using a Verifiable Random Function (VRF), thereby offering high resistance to centralized Denial of Service (DoS) attacks. CN must deposit a certain amount of tokens, maintaining reasonable networking costs while enabling easy operation by any EN, thus enhancing the scalability of the blockchain network usage.
 
@@ -438,14 +424,12 @@ Kaia Blockchain adopts a multi-channel approach to deal with network congestion.
 The consensus process consists of the following three stages:
 
 1. Election: The Committee is composed of Consensus Nodes (CNs) that participate in achieving consensus. This is a similar task to the leader election in a general distributed system. The proposer is randomly selected through VRF since knowing them in advance can make them vulnerable to targeted DoS (denial of service).
-
 2. Block Generation: Elected proposers create a block and make a proposal to the committee. The block proposal made through the P2P network is sent to the committee.
-
 3. Block Verification: The committee verifies and signs the block proposed by the proposer. A block is complete when more than a quorum of signatures is collected.
 
 #### Account Model and Smart Contract
 
-Kaia Blockchain offers scalability in service development through its expanded account model and smart contract capabilities. Smart contracts on the blockchain enhance the efficiency of transactions and contracts between individuals through contract automation, and the use of smart contracts has had a significant impact on the blockchain and dApp ecosystem. Contract conditions can be coded into smart contracts and automatically executed, solving the trusted intermediary issue. Smart contracts have allowed the blockchain ecosystem to create new business models and economic systems by reducing the cost and time required to complete transactions. Kaia Blockchain supports a distributed virtual machine for executing smart contracts, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
+Kaia Blockchain offers scalability in service development through its expanded account model and smart contract capabilities. Smart contracts on the blockchain enhance the efficiency of transactions and contracts between individuals through contract automation, and the use of smart contracts has had a significant impact on the blockchain and dApp ecosystem. Contract conditions can be coded into smart contracts and automatically executed, solving the trusted intermediary issue. Smart contracts have allowed the blockchain ecosystem to create new business models and economic systems by reducing the cost and time required to complete transactions. Kaia Blockchain supports a KVM execution environment, which is designed to be fast and efficient, providing the best and swiftest development environment for dApp developers and projects.
 
 ##### Account Model
 
@@ -466,9 +450,7 @@ Since system contracts can directly impact the blockchain protocol, they need to
 These are essential system contracts:
 
 - AddressBook: a contract which manages a list of validators.
-
 - GovParam: a contract for on-chain governance on network parameters .
-
 - SimpleBlsRegistry: a BLS key storage for validators.
 
 #### On-Chain Governance
@@ -486,25 +468,18 @@ Other than this, various detailed policy decisions, such as restrictions on voti
 The overall governance process of Kaia is as follows:
 
 1. Discussion: Improve the agenda through free discussion among all participants off-chain.
-
 2. On-Chain Agenda Voting: Register the agenda on-chain and proceed with voting.
-
 3. Reflect Results (Activation): Implement when agenda items are approved.
 
-![](/img/misc/gov-process.jpg)
+![](/img/misc/gov-process.png)
 
 Agendas registered on-chain go through several states until the voting is complete.
 
 - Pending: Status after the agenda is registered and until voting takes place. As the agenda is registered, the list of voters is determined.
-
 - Active: Voting is in progress. The voting power of the voters gets fixed when voting begins.
-
 - Passed: Agenda passed with the approval of a quorum.
-
 - Failed: Agenda rejected because it did not receive a quorum of approval votes.
-
 - Queued: Waiting period after the passing of the agenda and before the execution.
-
 - Executed: Agenda fully executed.
 
 ![](/img/misc/gov-process-2.png)
@@ -525,13 +500,13 @@ The Kaia Blockchain is committed to continuously adopting new technologies to ac
 
 BFT-type consensus algorithms generally have restrictions in the process of participating as a validator. This is due to the tendency of the performance of the entire network to deteriorate caused by abnormal nodes when validators participate freely. As an integrated chain, Kaia pursues a completely permissionless network and will develop into a network where anyone can participate as a block creation node while maintaining high performance. After introducing the Permissionless Network, nodes meeting certain conditions will be given the role of block creation nodes. Specifically, an automated qualification verification process will be introduced to check whether the block creation node is qualified to maintain stability. In terms of consensus participating in the creation and verification of blocks, there are “candidates” and validators. In terms of governance, there are Governance Council Members. One can register as a candidate and meet specific conditions to become a validator. Validators can receive rewards by participating in the block creation consensus process. Permissionless Network is implemented through the following factors:
 
-- ***Unpredictable Proposer Selection Algorithm:*** An algorithm that strengthens resistance to DoS attacks by changing the block proposer selection method difficult to predict.
+● 	***Unpredictable Proposer Selection Algorithm:*** An algorithm that strengthens resistance to DoS attacks by changing the block proposer selection method difficult to predict.
 
-- ***VRank (Validator Reputation Evaluation Framework):*** A framework that evaluates the reputation of a validator.
+● 	***VRank (Validator Reputation Evaluation Framework):*** A framework that evaluates the reputation of a validator.
 
-- ***Autonomous Validator Slashing System:*** A system that penalizes erroneous or malicious actions of validators.
+● 	***Autonomous Validator Slashing System:*** A system that penalizes erroneous or malicious actions of validators.
 
-- ***System Transaction and Consensus Msg:*** A reflection of the latest consensus information in the contract for each block through a “system transaction” automatically generated by the block proposer.
+● 	***System Transaction and Consensus Msg:*** A reflection of the latest consensus information in the contract for each block through a “system transaction” automatically generated by the block proposer.
 
 #### Maximal Extraction Value
 
@@ -542,21 +517,13 @@ MEV (Maximal Extractable Value) is the potential benefit that can be gained by s
 Blockchain continuously has an increase in the blocks (data) stored over time due to transaction history and execution of smart contracts. The capacity of Kaia Blockchain is growing even faster due to its short block time and high transaction throughput (TPS). As a result, the cost of new validators participating in the network and verifying the blocks by synchronizing them is also increasing. The volume of data accumulated over the years is not small, and it takes a lot of resources to verify it. High verification costs work as a barrier for new validators to enter, which can reduce the reliability of the chain. To solve this issue, Kaia Blockchain will study how to reduce the verification cost of past blocks. The following methods will be considered and introduced as they compress or archive old blocks in a verifiable manner so that only the archived data can be quickly verified without each block having to be verified.
 
 - **Verifiable block data compression:** Compresses blocks in a verifiable manner.
-
-  - Block data pruning at a certain block cycle or data unit
-
-  - Convert the blocks pruned in on-chain into a verifiable certificate and record in on-chain. This certificate is compressed and recorded as a Commitment using cryptography (such as KZG) or Proof using the recursion method of ZKP.
-
-  - Support a verification system that can verify certificates in on-chain
-
-    - Verification system efficiently and constantly verifies certificates.
-
-    - At the time of compression, the certificate is verified and recorded in the block when the next block is created.
-
-    - Anyone can verify the corresponding certificate through a verification system.
-
+    - Block data pruning at a certain block cycle or data unit
+    - Convert the blocks pruned in on-chain into a verifiable certificate and record in on-chain. This certificate is compressed and recorded as a Commitment using cryptography (such as KZG) or Proof using the recursion method of ZKP.
+    - Support a verification system that can verify certificates in on-chain
+        - Verification system efficiently and constantly verifies certificates.
+        - At the time of compression, the certificate is verified and recorded in the block when the next block is created.
+        - Anyone can verify the corresponding certificate through a verification system.
 - **Lightweight block synchronization:** When participating as a new node or verifier, synchronize and verify the compressed certificates and subsequent blocks rather than synchronize the entire block data.
-
 - **Support DA Layer:** Some users and dApps require a checkup on historical data. A DA Layer is provided to provide trusted data without faults.
 
 By dramatically reducing the verification cost by the above methods, new validators will be able to onboard quickly.
@@ -573,109 +540,68 @@ In addition, strategies such as messenger integration through cooperation with K
 
 The roadmap of the integrated mainnet focuses on supporting developers and driving Web3 adoption at the same time. This will enable Kaia Blockchain to help both developers and general users build successful projects, adopt blockchain technology more broadly, and establish a solid foundation to explore the new possibilities of the Web3 world.
 
-### Short-term Initiatives
-
-#### 2024 Q1
-
-- Construction and operation of the Klaytn & Finschia integrated TF
-
-#### 2024 Q2
-
-- Establishment of a new integrated chain brand
-- Establishment of a joint marketing system and community integration
-- Preparation for ecosystem infrastructure, DApp, and service migration (~Q4)
-- Network support for integration and response to existing DApps and services (~Q4)
-- Preparation for new integrated tokens issuance and swap service provision
-- Establishment of the 1st integrated network (EVM)
-
-#### 2024 Q3
-
-- Issuance of new integrated tokens and provision of swap services
-- Strengthening of the node user/community delegation function
-- Introduction of a new burning model (~Q4)
-
-#### 2024 Q4
-
-- Reorganization of the integrated foundation and promotion of joint business initiatives
-- Establishment of the 2nd integrated network
-
 ### Long-term Initiatives
 
-#### Establishment of infrastructure for institutional needs
-
-- Establishment of integrated token, Fiat On/Off Ramp, for major Asian countries
-- Establishment of infrastructure for improved accessibility by institutional investors
-
-#### Strengthening of large-scale DeFi infrastructure
-
-- Establishment of a new De-fi ecosystem for the integrated mainnet
-- Expansion of RWA (Real World Asset) linked services
-
-#### Launching of native stablecoins
-
-- Launching of key stable coins based on the integrated mainnet
-- Expansion of native stable coin-based services
-
-#### Asian community boost-up
-
-- Re-establishment of developer and user communities in each Asian country
-- Expansion of governance and ecosystem partners in major countries
-
-#### Discovery of AI DApp categories
-
-- Establishment of new AI DApp categories and activation of onboarding
-- Discovery of generative AI-based content/avatar/game Dapps
-
-#### Large-scale on-chain tokenization of Web2 assets
-
-- Linking of Web2 digital items, memberships, and ticket markets
-- Discovery of large-scale item tokenization and mass adoption cases
-
-#### Onboarding of Asian SSS game companies
-
-- Interoperable game onboarding based on Brown Friends IP
-- Web3 game onboarding based on Japanese SSS-rated game company IP
-
-#### Cooperation in Global IP projects
-
-- Web3 project onboarding of large global IP companies
-- Strengthening of onboarding infrastructure for Web2 companies
+- **Establishment of infrastructure for institutional needs**
+    - Establishment of integrated token, Fiat On/Off Ramp, for major Asian countries
+    - Establishment of infrastructure for improved accessibility by institutional investors
+- **Strengthening of large-scale DeFi infrastructure**
+    - Establishment of a new De-fi ecosystem for the integrated mainnet
+    - Expansion of RWA (Real World Asset) linked services
+- **Launching of native stablecoins**
+    - Launching of key stable coins based on the integrated mainnet
+    - Expansion of native stable coin-based services
+- **Asian community boost-up**
+    - Re-establishment of developer and user communities in each Asian country
+    - Expansion of governance and ecosystem partners in major countries
+- **Discovery of AI DApp categories**
+    - Establishment of new AI DApp categories and activation of onboarding
+    - Discovery of generative AI-based content/avatar/game Dapps
+- **Large-scale on-chain tokenization of Web2 assets**
+    - Linking of Web2 digital items, memberships, and ticket markets
+    - Discovery of large-scale item tokenization and mass adoption cases
+- **Onboarding of Asian SSS game companies**
+    - Interoperable game onboarding based on Brown Friends IP
+    - Web3 game onboarding based on Japanese SSS-rated game company IP
+- **Cooperation in Global IP projects**
+    - Web3 project onboarding of large global IP companies
+    - Strengthening of onboarding infrastructure for Web2 companies
 
 ## Important Notes
 
 ### Disclaimer of liability
 
-To the maximum extent permitted by the applicable laws, regulations and rules, the Kaia Foundation shall not be liable for any indirect, special, incidental, consequential or other losses of any kind, in tort, contract or otherwise (including but not limited to loss of revenue, income or profits, and loss of use or data), arising out of or in connection with any acceptance of or reliance on this Whitepaper or any part thereof by you.
+To the maximum extent permitted by the applicable laws, regulations and rules, the Kaia DLT Foundation shall not be liable for any indirect, special, incidental, consequential or other losses of any kind, in tort, contract or otherwise (including but not limited to loss of revenue, income or profits, and loss of use or data), arising out of or in connection with any acceptance of or reliance on this Whitepaper or any part thereof by you.
 
 ### No representations and warranties
 
-The Kaia Foundation does not make or purport to make, and hereby disclaims, any representation, warranty or undertaking in any form whatsoever to any entity or person, including any representation, warranty or undertaking in relation to the truth, accuracy and completeness of any of the information set out in this Whitepaper.
+The Kaia DLT Foundation does not make or purport to make, and hereby disclaims, any representation, warranty or undertaking in any form whatsoever to any entity or person, including any representation, warranty or undertaking in relation to the truth, accuracy and completeness of any of the information set out in this Whitepaper.
 
-Nothing contained in this Whitepaper is or may be relied upon as a promise, representation or undertaking as to the future performance or policies of the Kaia Foundation. All information, features, issuances, distributions, and architectures are subject to change at any time, at the sole and absolute discretion of Foundation and/or Kaia Governance depending on the then current roadmap presented in this Whitepaper.
+Nothing contained in this Whitepaper is or may be relied upon as a promise, representation or undertaking as to the future performance or policies of the Kaia DLT Foundation. All information, features, issuances, distributions, and architectures are subject to change at any time, at the sole and absolute discretion of Foundation and/or Kaia Governance depending on the then current roadmap presented in this Whitepaper.
 
-Further, the Kaia Foundation disclaims any responsibility to update any forward-looking statements or publicly announce any revisions to those forward-looking statements to reflect future developments, events or circumstances, even if new information becomes available or other events occur in the future.
+Further, the Kaia DLT Foundation disclaims any responsibility to update any forward-looking statements or publicly announce any revisions to those forward-looking statements to reflect future developments, events or circumstances, even if new information becomes available or other events occur in the future.
 
-Please note that this Whitepaper is also only a work in progress and the information in this Whitepaper is current only as of the date on the cover hereof. The Kaia Foundation reserves the right to update the Whitepaper from time to time.
+Please note that this Whitepaper is also only a work in progress and the information in this Whitepaper is current only as of the date on the cover hereof. The Kaia DLT Foundation reserves the right to update the Whitepaper from time to time.
 
 ### Staking services
 
-If you choose to participate in the KAIA staking programme, any such service provided to you may be facilitated by the Kaia Foundation acting as a transaction validator on the Kaia and providing its private nodes for staking on your behalf. Any applicable Delegation Rewards will be determined by the protocols of the Kaia and will be credited .
+If you choose to participate in the KAIA staking programme, any such service provided to you may be facilitated by the Kaia DLT Foundation acting as a transaction validator on the Kaia and providing its private nodes for staking on your behalf. Any applicable Delegation Rewards will be determined by the protocols of the Kaia and will be credited .
 
-You acknowledge and understand that the Kaia Foundation does not guarantee that you will receive any Delegation Rewards and such staking services do not constitute a fixed deposit product or issuance of securities, which would fall under the regulatory scope of the FSMR.
+You acknowledge and understand that the Kaia DLT Foundation does not guarantee that you will receive any Delegation Rewards and such staking services do not constitute a fixed deposit product or issuance of securities, which would fall under the regulatory scope of the FSMR.
 
-Withdrawal of staked assets may be delayed as a result of protocol unstaking periods or network conditions, and the Kaia Foundation cannot guarantee the timing and amount of the distribution of the Network Contribution Rewards. The Kaia Mainnet and relevant interfaces used for the delivery of KAIA staking services have inherent risks and the market for KAIA tokens and rewards may be highly volatile due to factors that include but are not limited to adoption, speculation, technology, security, and regulations. You agree and acknowledge that the Kaia Foundation is not responsible or liable for any of these variables or risks.
+Withdrawal of staked assets may be delayed as a result of protocol unstaking periods or network conditions, and the Kaia DLT Foundation cannot guarantee the timing and amount of the distribution of the Network Contribution Rewards. The Kaia Mainnet and relevant interfaces used for the delivery of KAIA staking services have inherent risks and the market for KAIA tokens and rewards may be highly volatile due to factors that include but are not limited to adoption, speculation, technology, security, and regulations. You agree and acknowledge that the Kaia DLT Foundation is not responsible or liable for any of these variables or risks.
 
 ### No advice
 
-No information in this Whitepaper should be considered to be business, legal, financial or tax advice regarding the Kaia Foundation or KAIA. You should consult your own legal, financial, tax or other professional adviser regarding the Kaia Foundation and their businesses and operations, and KAIA. You should be aware that you may be required to bear the financial risk of any purchase of KAIA for an indefinite period of time.
+No information in this Whitepaper should be considered to be business, legal, financial or tax advice regarding the Kaia DLT Foundation or KAIA. You should consult your own legal, financial, tax or other professional adviser regarding the Kaia DLT Foundation and their businesses and operations, and KAIA. You should be aware that you may be required to bear the financial risk of any purchase of KAIA for an indefinite period of time.
 
 ### Restrictions on distribution and dissemination
 
-The distribution or dissemination of this Whitepaper or any part thereof may be prohibited or restricted by the laws, regulatory requirements and rules of any jurisdiction. In the case where any restriction applies, you are to inform yourself about, and to observe, any restrictions which are applicable to your possession of this Whitepaper or such part thereof (as the case may be) at your own expense and without liability to the Kaia Foundation. Persons who have been provided access to this Whitepaper or to whom a copy of this Whitepaper has been distributed or disseminated or who otherwise have the Whitepaper in their possession shall not circulate it to any other persons, reproduce or otherwise distribute this Whitepaper or any information contained herein for any purpose whatsoever nor permit or cause the same to occur.
+The distribution or dissemination of this Whitepaper or any part thereof may be prohibited or restricted by the laws, regulatory requirements and rules of any jurisdiction. In the case where any restriction applies, you are to inform yourself about, and to observe, any restrictions which are applicable to your possession of this Whitepaper or such part thereof (as the case may be) at your own expense and without liability to the Kaia DLT Foundation. Persons who have been provided access to this Whitepaper or to whom a copy of this Whitepaper has been distributed or disseminated or who otherwise have the Whitepaper in their possession shall not circulate it to any other persons, reproduce or otherwise distribute this Whitepaper or any information contained herein for any purpose whatsoever nor permit or cause the same to occur.
 
 ### Risks and uncertainties
 
-Prospective purchasers of KAIA should carefully consider and evaluate all risks and uncertainties associated with the Kaia Foundation, and its businesses and operations, and all information set out in this Whitepaper and the T&Cs, prior to any purchase of KAIA.
+Prospective purchasers of KAIA should carefully consider and evaluate all risks and uncertainties associated with the Kaia DLT Foundation, and its businesses and operations, and all information set out in this Whitepaper and the T&Cs, prior to any purchase of KAIA.
 
 You should not transact in KAIA if you are not familiar with digital tokens of this nature. Transacting in digital tokens may not be suitable for you if you are not familiar with the technology in which KAIA services will be provided.
 
@@ -685,43 +611,22 @@ As previously indicated, participating dApps will receive allocations of KAIA fr
 
 ### KAIA issuance costs
 
-The Kaia Foundation will, in any event, incur no costs in regard to any issuance or distribution of KAIA.
+The Kaia DLT Foundation will, in any event, incur no costs in regard to any issuance or distribution of KAIA.
 
-**THERE IS NO GUARANTEE THAT THE FUNCTIONALITIES OF KAIA, OR THAT THE KAIA TOKEN ECONOMY INFRASTRUCTURE, WILL BE DELIVERED OR REALISED. IF ANY OF SUCH RISKS AND UNCERTAINTIES DEVELOPS INTO ACTUAL EVENTS, THE BUSINESS, FINANCIAL CONDITION, RESULTS OF OPERATIONS AND PROSPECTS OF THE KAIA FOUNDATION COULD BE MATERIALLY AND ADVERSELY AFFECTED. IN SUCH CASES, YOU MAY LOSE ALL OR PART OF THE VALUE OF KAIA. IN THE EVENT THAT YOU HAVE PURCHASED KAIA, YOUR PURCHASE CANNOT BE REFUNDED OR EXCHANGED.**
+**THERE IS NO GUARANTEE THAT THE FUNCTIONALITIES OF KAIA, OR THAT THE KAIA TOKEN ECONOMY INFRASTRUCTURE, WILL BE DELIVERED OR REALISED. IF ANY OF SUCH RISKS AND UNCERTAINTIES DEVELOPS INTO ACTUAL EVENTS, THE BUSINESS, FINANCIAL CONDITION, RESULTS OF OPERATIONS AND PROSPECTS OF THE KAIA DLT FOUNDATION COULD BE MATERIALLY AND ADVERSELY AFFECTED. IN SUCH CASES, YOU MAY LOSE ALL OR PART OF THE VALUE OF KAIA. IN THE EVENT THAT YOU HAVE PURCHASED KAIA, YOUR PURCHASE CANNOT BE REFUNDED OR EXCHANGED.**
 
 **IF YOU ARE IN ANY DOUBT AS TO THE ACTION YOU SHOULD TAKE, YOU SHOULD CONSULT YOUR LEGAL, FINANCIAL, TAX OR OTHER PROFESSIONAL ADVISOR(S).**
 
-<!-- ## Appendix
+---
 
-### Ecosystem
+[^1]: Specific figures are subject to change upon further review and governance approval.
 
-1. Governance Council
-    - Kakao
-    - LINE
-    - LINE NEXT Corp
-    - Binance
-    - Softbank
-    - Animoca Brands
-    - Jump
-    - Netmarble(Marblex)
-    - Hashkey
-    - CertiK
-    - Crescendo
-    - Neopin
-    - AhnLab Blockchain Company
+[^2]: A fund created to revitalize the Klaytn ecosystem and onboard developers, and expenditures are determined after governance approval.
 
-2. Partners
-    - Opensea
-    - Dappradar
-    - SEGA
-    - Naver
-    - Shinsegae
-    - CJ ENM
-    - Double Jump
-    - YG Entertainment
-    - Messari
-    - Injective
+[^3]: A fund created to operate the existing Klaytn Foundation, and expenditures are also determined after governance approval.
 
-In addition, it includes a cryptocurrency wallet built into the LINE messenger, Klip, a cryptocurrency wallet that integrates with Kakao Messenger, and supports over 400 dApps and partners.
+[^4]: A reserve created in preparation for the dramatic growth of the Klaytn blockchain.
 
-![](/img/misc/partners.jpg) -->
+[^5]: The circulating supply of the Klaytn and Finschia chain may change due to block rewards, etc. until the chain merger.
+
+[^6]: Future circulation will only change due to inflation and new burning models. Incorporation of the circulation amount of the fund does not necessarily mean liquidation, and it will be executed transparently only within the scope of governance approval.
