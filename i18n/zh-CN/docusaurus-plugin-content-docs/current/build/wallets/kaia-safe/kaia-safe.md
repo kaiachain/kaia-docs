@@ -1,37 +1,55 @@
-# Kaia Safe
+---
+title: 安全钱包
+sidebar_label: 安全钱包
+---
 
-在 Kaia 这样的典型区块链平台中，大多数用户都熟悉单键钱包系统，如 Kaia Wallet 和 MetaMask，它们也被称为外部拥有账户（EOA）。 这些账户使用传统的密钥对，即公共密钥和私人密钥，这并不理想，因为私人密钥会造成单点故障。
+# 安全钱包
 
-这就使得 EOA 不适合组织使用，因为私钥泄露可能导致组织损失全部加密货币资金--例如在 [Wintermute 黑客攻击](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) 事件中，1.625 亿美元的资金损失。
+:::caution 日落通知
 
-这就是 Kaia Safe 等多 ID 钱包的用武之地。 与单密钥钱包不同，多签名钱包需要多方的私钥来签署和执行交易，从而消除了单点故障，为组织用例提供了更高的安全性。
+`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia 版 **Safe Wallet** 来管理您的账户。 您现有的 Safe 账户将自动与 Safe Wallet 兼容。
 
-## 什么是多重签名钱包？ <a id="What are Multisig Wallets"></a>
+:::
 
-顾名思义，多重签名钱包是一种需要两个、三个或更多不同来源的私钥来确认和执行加密交易的数字钱包。
+## 引言
 
-例如，你可以把多重签名钱包想象成一个有三把锁的保险箱。 打开保险箱所需的三把钥匙分别属于三个不同的人，因此需要他们共同同意才能打开。
+[Safe](https://safe.global)（Safe Global）为 EVM 网络提供符合行业标准的多签名智能合约账户解决方案。 **Safe Wallet** 是 Safe 推出的一款用于创建和管理此类账户的网页应用——可在 [app.safe.global](https://app.safe.global) 上使用。
 
-以下是多重签名钱包的主要优点：
+Safe Wallet 支持 Kaia 主网和 Kairos 测试网。 连接一个所有者钱包，选择 **Kaia** 或 **Kairos**，然后创建或打开一个保险箱。
 
-- **安全存储资产/资金：** 公司和协议可以安全地存储资金，而不必担心私钥泄露或某个坏人未经授权转移资金。
+在 Kaia 的典型配置中，大多数用户最初都会使用单密钥钱包，例如 Kaia Wallet 或 MetaMask（外部拥有账户，即 EOA）。 这些账户依赖一组密钥，从而形成了单点故障——这不适合组织财务部门使用，例如在[Wintermute黑客事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)中，该组织就因此损失了1.625亿美元。
 
-- \*\* 实现分散决策：\*\* 公司和企业高管可在链上决定执行哪些交易。
+Safe Wallet 消除了这一单点故障：交易执行前，必须由多名所有者根据确认阈值进行签名。
 
-- **双因素身份验证：** 在多重签名钱包的帮助下，企业和个人可以确保只有获得必要密钥的人才能执行交易。
+关于产品行为、架构和 API，请参考 Safe 自身的文档：
 
-接下来，我们将深入了解 Klatyn 的多 ID 钱包 Kaia Safe，以及如何使用它来管理您的资金和交易。
+- [什么是“安全”？](https://docs.safe.global/home/what-is-safe)
+- [安全文档](https://docs.safe.global)
+- [帮助中心](https://help.safe.global)
 
-## Kaia Safe 是什么？ <a id="What is Kaia Safe"></a>
+## 什么是多签名钱包？ <a id="What are Multisig Wallets"></a>
 
-Kaia Safe 是 Kaia 生态系统的多 ID 钱包。 它是著名的多重签名钱包 [Gnosis Safe](https://gnosis-safe.io/) 的一个分叉。
+多签名钱包是一种数字钱包，它需要来自不同来源的两把、三把或更多把私钥，才能确认并执行加密货币交易。
 
-## 益处<a id="Benefits of Kaia Safe"></a>
+例如，你可以把多签名钱包想象成一个带有三个锁的保险柜。 这三把钥匙分别由三个人保管，因此必须得到他们的共同同意才能打开它。
 
-- **存储和转移 KAIA 和 KCT（KIP7、KIP17）**：用户可以存入和转移加密货币（KAIA）和代币（可互换或不可互换）。
+多签名钱包的主要优势：
 
-- **灵活性和安全性：** 确认阈值可让用户更灵活地控制应执行哪些交易，并消除单点故障。
+- \*\*安全存储资产：\*\*企业和协议可以在无需依赖单一私钥，也无需担心任何单一主体未经授权转移资金的情况下存储资金。
+- **实现去中心化决策：** 团队可以就执行哪些交易在链上做出决策。
+- **共享控制：** 只有持有必要密钥的各方才能根据配置的阈值批准并执行交易。
 
-- **安全应用程序：** Kaia Safe 的功能通过添加自定义应用程序得到扩展，这些应用程序可进行批量交易并与其他 dApps 进行交互。 这种安全应用程序的一个例子是**交易生成器**，它可以将多个交易合并为一个批量交易执行。
+## Kaia上的福利<a id="Benefits of Kaia Safe"></a>
 
-- **账户恢复：** 在丢失密钥的情况下，只要剩余密钥仍能满足确认阈值，Kaia Safe 账户就可以恢复。
+- **存储和转账 KAIA 及代币：** 存入和转账原生 KAIA 以及可互换或不可互换代币（例如 ERC-20 / KIP-7 和 ERC-721 / KIP-17）。
+- **所有者和阈值：** 配置多个所有者和确认阈值，以实现灵活、安全的控制。
+- \*\*安全应用：\*\*通过批处理、合约调用及其他工作流相关应用扩展 Safe Wallet 的功能——例如，当 **Transaction Builder** 和基于 CSV 的空投应用在应用目录中可用时，即可使用这些应用。
+- **交易与确认：** 根据您的阈值提出交易、收集签名并执行交易。
+- \*\*账户恢复：\*\*如果丢失了一把密钥，符合阈值要求的剩余所有者仍可管理该账户（例如通过替换丢失密钥的所有者）。
+
+在原由 Kaia 托管的 Safe UI 上创建的现有账户，仍可与 [app.safe.global](https://app.safe.global) 上的 Safe Wallet 兼容。
+
+## 下一步
+
+- [在 Kaia 上使用 Safe 钱包](./use-kaia-safe.md) — 创建 Safe、添加资产并发起交易
+- [概述](./overview.md) — 网络、迁移说明以及 Safe Global 资源
