@@ -61,9 +61,9 @@ Ngay cả khi được tải từ một nguồn an toàn, khóa riêng tư vẫn
 
 Lưu trữ lạnh là việc lưu trữ các khóa riêng tư trên một thiết bị không kết nối với internet. Một **ví phần cứng** là một thiết bị vật lý được thiết kế riêng cho mục đích này. Nó ký các giao dịch bên trong mà không bao giờ tiết lộ khóa riêng tư cho máy tính kết nối. Điều này khiến chúng trở thành tiêu chuẩn vàng trong việc bảo vệ tài sản có giá trị cao. Hướng dẫn này sẽ tập trung vào các ví phần cứng được hỗ trợ chính thức [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) và [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1).
 
-#### 2.3. Ví đa chữ ký: Giới thiệu về Kaia Safe
+#### 2.3. Ví đa chữ ký: Giới thiệu về Safe Wallet
 
-Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. [Kaia Safe](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe) là giải pháp đa chữ ký chính trên mạng Kaia.
+Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. Trên Kaia, hãy sử dụng **Safe Wallet** từ [Safe](https://safe.global) (Safe Global) tại [app.safe.global](https://app.safe.global)—xem [hướng dẫn sử dụng Safe Wallet](/build/wallets/kaia-safe/use-kaia-safe). (`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**.)
 
 ## Phần 2: Các phương pháp thực tế để quản lý ví
 
@@ -340,51 +340,51 @@ Chúc mừng. Bạn đã thành công trong việc ký kết giao dịch, phát 
 
 Chương này trình bày các phương pháp bảo mật tài nguyên và tự động hóa các tác vụ trong môi trường sản xuất, nơi yêu cầu bảo mật là cao nhất.
 
-#### 4.1. Hướng dẫn: Thiết lập Kho bạc đa chữ ký với Kaia Safe
+#### 4.1. Hướng dẫn: Thiết lập kho tiền đa chữ ký với Safe Wallet
 
-Kaia Safe cho phép nhà phát triển tạo tài khoản có thể được quản lý bởi nhiều chủ sở hữu, từ đó nâng cao đáng kể tính bảo mật.
+**Safe Wallet** ([app.safe.global](https://app.safe.global)), do [Safe](https://safe.global) / Safe Global phát triển, cho phép các nhà phát triển tạo ra một tài khoản thông minh Safe do nhiều chủ sở hữu cùng quản lý, từ đó nâng cao đáng kể mức độ bảo mật.
 
 Bạn không bao giờ nên sử dụng ví thông thường để quản lý số tiền lớn, quyền truy cập vào giao thức hoặc kiểm soát quyền sở hữu. Quá nhiều dự án đã bị ảnh hưởng do các lỗ hổng bảo mật cơ bản của ví điện tử. Dù bạn đang phát triển giao thức DeFi tiếp theo, quản lý quỹ của một DAO, hay bảo vệ tài sản có giá trị, ví đa chữ ký là công cụ không thể thiếu.
 
-Trong hướng dẫn này, bạn sẽ học cách tạo một két sắt trên Kaia bằng Kaia Safe, cấu hình chủ sở hữu và ngưỡng phê duyệt, cũng như thực hiện một giao dịch cơ bản.
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách tạo một Safe trên Kaia bằng Safe Wallet, thiết lập chủ sở hữu và ngưỡng phê duyệt, cũng như thực hiện một giao dịch cơ bản.
 
 ##### Tạo ví an toàn
 
-1. Truy cập [Kaia Safe App](https://app.safe.global/welcome).
+1. Hãy truy cập [Safe Wallet](https://app.safe.global/welcome).
 
 ![](/img/build/wallets/ks-welcome-page-sw.png)
 
-2. **Kết nối ví của bạn**. Chọn loại ví mà bạn muốn kết nối với trang web Kaia Safe. Trong hướng dẫn này, chúng tôi sẽ sử dụng Kaia Wallet.
+2. **Kết nối ví của bạn**. Chọn loại ví mà bạn muốn kết nối. Hãy đảm bảo rằng **Kaia Mainnet** hoặc **Kairos Testnet** đã được chọn. Trong hướng dẫn này, chúng tôi sẽ sử dụng Kaia Wallet.
 
 ![](/img/build/wallets/ks-connect-wallet-sw.png)
 
-3. **Đặt tên cho két sắt của bạn**. Sau khi kết nối ví của bạn, nhấp vào **Tạo tài khoản** và đặt tên cho Kaia Safe của bạn.
+3. **Đặt tên cho két sắt của bạn**. Sau khi kết nối ví của bạn, hãy nhấp vào **Tạo tài khoản** và đặt tên cho Safe của bạn.
 
 ![](/img/build/wallets/ks-add-safe-name.png)
 
-4. **Cấu hình người ký**. Cấu hình số lượng xác nhận của người ký cần thiết để giao dịch trong tài khoản Kaia Safe của bạn được phê duyệt.  Thực hành tốt là sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ: _2 trong 3_, _3 trong 5_ v.v., như minh họa bên dưới.
+4. **Cấu hình người ký**. Cài đặt số lượng xác nhận của người ký cần thiết để một giao dịch trong tài khoản Safe của bạn được phê duyệt.  Thực hành tốt là sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ: _2 trong 3_, _3 trong 5_ v.v., như minh họa bên dưới.
 
 ![](/img/build/wallets/ks-add-signers-sw.png)
 
-5. **Kích hoạt tài khoản Kaia Safe của bạn**. Khi bạn đã hoàn toàn hài lòng với tất cả các thông số của Kaia Safe, hãy nhấp vào **Tạo** để gửi yêu cầu tạo tài khoản Kaia Safe của bạn.
+5. **Kích hoạt tài khoản Safe của bạn**. Khi bạn đã hoàn toàn hài lòng với tất cả các thông số của tài khoản Safe, hãy nhấp vào **Tạo** để gửi yêu cầu tạo tài khoản Safe của bạn.
 
 ![](/img/build/wallets/ks-review-create-safe-sw.png)
 
-6. **Sử dụng ví của bạn**. Nhấp vào nút **Bắt đầu sử dụng Ví KaiaSafe**.
+6. **Sử dụng ví của bạn**. Nhấp vào **Bắt đầu sử dụng Safe Wallet** (hoặc nút tương ứng trên giao diện người dùng).
 
 ![](/img/build/wallets/ks-start-using-wallet-sw.png)
 
-7. **Truy cập giao diện người dùng** của ví hợp đồng thông minh Kaia Safe như hình minh họa bên dưới.
+7. **Truy cập giao diện người dùng** của ví hợp đồng thông minh Safe của bạn như hình dưới đây.
 
 ![](/img/build/wallets/ks-safe-ui-sw.png)
 
-Chúc mừng bạn đã tạo thành công tài khoản Kaia Safe!
+Xin chúc mừng bạn đã tạo thành công tài khoản Safe!
 
 ##### Thực hiện giao dịch cơ bản (Gửi token gốc)
 
-Trong phần này, bạn sẽ học cách thực hiện một giao dịch cơ bản như gửi token gốc KAIA từ tài khoản Kaia Safe của bạn đến địa chỉ người nhận.
+Trong phần này, bạn sẽ tìm hiểu cách thực hiện một giao dịch cơ bản, chẳng hạn như gửi token gốc KAIA từ tài khoản Safe của bạn đến địa chỉ người nhận.
 
-Đảm bảo tài khoản Kaia Safe của bạn có đủ số dư. Bạn có thể tham khảo hướng dẫn này để biết cách [nạp tiền](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe/#add-assets) vào tài khoản Safe của mình.
+Hãy đảm bảo tài khoản Safe của bạn có đủ số dư. Bạn có thể tham khảo hướng dẫn này để biết cách [nạp tiền](/build/wallets/kaia-safe/use-kaia-safe#add-assets) vào tài khoản Safe của mình.
 
 Bước 1: Nhấp vào nút **Giao dịch mới** trong menu bên và chọn **Gửi token** để bắt đầu chuyển giao tài sản mới.
 
@@ -398,9 +398,9 @@ Bước 3: Kiểm tra và gửi giao dịch. Bạn cần ký giao dịch bằng 
 
 ![](/img/build/wallets/ks-review-send-tx-sw.gif)
 
-#### 4.2. Công thức: Tích hợp Kaia Safe cho các hành động hợp đồng thông minh quan trọng
+#### 4.2. Hướng dẫn: Tích hợp ví an toàn cho các thao tác quan trọng của hợp đồng thông minh
 
-Trong hướng dẫn này, bạn sẽ học cách chỉ định tài khoản Kaia Safe làm quản trị viên trong hợp đồng thông minh của mình. Bạn cũng sẽ thấy cách thực hiện các chức năng có quyền truy cập đặc quyền như **setTokenPrice()** và **pause()** bằng tài khoản Kaia Safe, đảm bảo rằng chỉ những người ký tên được phê duyệt mới có thể thực hiện các hành động có quyền truy cập đặc quyền.
+Trong hướng dẫn này, bạn sẽ tìm hiểu cách chỉ định một tài khoản Safe làm quản trị viên trong hợp đồng thông minh của mình. Bạn cũng sẽ tìm hiểu cách thực thi các hàm có đặc quyền như **setTokenPrice()** và **pause()** thông qua tài khoản Safe, nhằm đảm bảo rằng chỉ những người ký được phê duyệt mới có thể thực hiện các hành động có đặc quyền.
 
 ##### Điều kiện tiên quyết
 
@@ -412,11 +412,11 @@ Trong hướng dẫn này, bạn sẽ học cách chỉ định tài khoản Kai
 
 ##### Bước 2: Biên dịch và triển khai hợp đồng token mẫu
 
-Hợp đồng phải được triển khai trước khi bạn có thể tương tác với nó trong ví đa chữ ký của mình - gọi các hàm có quyền truy cập đặc quyền. Điều đầu tiên chúng ta cần làm là thiết lập tài khoản Kaia Safe vừa tạo làm **initialOwner** của hợp đồng token khi triển khai.
+Hợp đồng phải được triển khai trước khi bạn có thể tương tác với nó trong ví đa chữ ký của mình - gọi các hàm có quyền truy cập đặc quyền. Việc đầu tiên chúng ta muốn làm là thiết lập tài khoản Safe vừa tạo làm **initialOwner** của hợp đồng token tại thời điểm triển khai.
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-Hợp đồng token mẫu này bao gồm các chức năng đặc quyền như **setTokenPrice()**, **pause()**, chỉ có thể được gọi bởi tài khoản Kaia Safe. Bước tiếp theo, chúng ta cần thực hiện các hành động này theo đúng quy trình. Chúng ta có thể thực hiện điều này bằng cách sử dụng Trình tạo giao dịch (Transaction builder) hoặc lập trình trực tiếp thông qua bộ công cụ API Kaia Safe.
+Hợp đồng token mẫu này chứa các hàm đặc quyền như **setTokenPrice()**, **pause()**, chỉ có thể được gọi bởi tài khoản Safe. Bước tiếp theo, chúng ta cần thực hiện các hành động này theo đúng quy trình. Chúng ta có thể thực hiện việc này bằng cách sử dụng Transaction Builder hoặc thông qua lập trình bằng Safe API Kit.
 
 ##### Bước 3: Khởi tạo giao dịch mới
 
@@ -426,9 +426,9 @@ Hợp đồng token mẫu này bao gồm các chức năng đặc quyền như *
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
-###### Sử dụng bộ công cụ API Kaia Safe
+###### Sử dụng Safe API Kit
 
-Trong phần này, bạn sẽ sử dụng Kaia Safe API Kit để lập trình đề xuất một giao dịch gọi hàm **setTokenPrice**, thu thập chữ ký từ chủ sở hữu tài khoản Safe và thực thi giao dịch.
+Trong phần này, bạn sẽ sử dụng Safe API Kit để đề xuất một giao dịch thông qua lập trình nhằm gọi hàm **setTokenPrice**, thu thập chữ ký từ các chủ sở hữu tài khoản Safe và thực thi giao dịch đó.
 
 **Điều kiện tiên quyết**
 
@@ -683,7 +683,7 @@ Bạn nên thấy giá token (`tokenPrice`) được đặt thành 15 trên Remi
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-Chúc mừng! Bạn đã thực hiện thành công một chức năng đặc quyền từ tài khoản Kaia Safe của mình bằng cách sử dụng bộ công cụ API Kaia Safe.
+Chúc mừng! Bạn đã thực thi thành công một hàm đặc quyền từ tài khoản Safe của mình bằng cách sử dụng Bộ công cụ API Safe.
 
 ##### Bước 4: Kiểm tra và gửi giao dịch
 
