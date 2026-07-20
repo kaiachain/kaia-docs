@@ -1,111 +1,111 @@
 ---
-title: Use Safe Wallet on Kaia
-sidebar_label: Create and manage Safes
+title: KaiaでSafe Walletをご利用ください
+sidebar_label: セーフの作成と管理
 ---
 
-# Use Safe Wallet on Kaia
+# KaiaでSafe Walletをご利用ください
 
-:::caution Sunset notice
+:::caution 日没に関するお知らせ
 
-`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
+`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
 
 :::
 
 ## Safeを作る
 
-Here is how to create a Safe smart account on Kaia with Safe Wallet.
+ここでは、Safe Wallet を使用して Kaia で Safe スマートアカウントを作成する方法をご紹介します。
 
-**Step 1:** Open [Safe Wallet](https://app.safe.global/welcome) in your browser.
+**手順 1：** ブラウザで [Safe Wallet](https://app.safe.global/welcome) を開きます。
 
 ![](/img/build/wallets/ks-welcome-page-sw.png)
 
-**Step 2:** Connect your wallet. Safe Wallet supports wallets such as [Kaia Wallet](https://docs.kaiawallet.io/) and [MetaMask](../../tutorials/connecting-metamask.mdx). Ensure **Kaia Mainnet** or **Kairos Testnet** is selected in your wallet and in Safe Wallet.
+**ステップ2：** ウォレットを接続します。 Safe Wallet は、[Kaia Wallet](https://docs.kaiawallet.io/) や [MetaMask](../../tutorials/connecting-metamask.mdx) などのウォレットに対応しています。 ウォレットおよびSafe Walletで、**Kaiaメインネット**または**Kairosテストネット**が選択されていることを確認してください。
 
 ![](/img/build/wallets/ks-connect-wallet-sw.png)
 
-**Step 3:** Click **Create account** (or equivalent) and give your Safe a name.
+**手順 3：** **「アカウントを作成」**（または同等のリンク）をクリックし、Safe に名前を付けます。
 
 ![](/img/build/wallets/ks-add-safe-name.png)
 
-**Step 4:** Add owners/signers by entering the addresses that can submit and approve transactions. You can add as many owners as you need and change them later.
+**手順 4：** 取引の送信および承認ができるアドレスの入力により、所有者／署名者を追加します。 所有者は必要なだけ追加でき、後で変更することも可能です。
 
-**Step 5:** Choose how many owner confirmations a transaction needs. Prefer a threshold greater than 1. A common practice is about 51% of owners (for example 2 of 3, or 3 of 5).
+**ステップ 5：** 取引に必要な所有者の承認数を指定します。 しきい値は1より大きい値にすることを推奨します。 一般的な慣行として、所有者の約51％（例えば、3人のうち2人、あるいは5人のうち3人）が挙げられます。
 
 ![](/img/build/wallets/ks-add-signers-sw.png)
 
-**Step 6:** Review the parameters, then deploy the Safe and follow the on-screen prompts.
+**手順 6：** パラメータを確認し、Safe をデプロイして、画面上の指示に従ってください。
 
 ![](/img/build/wallets/ks-review-create-safe-sw.png)
 
-**Step 7:** After deployment, start using your Safe and open the account UI.
+**手順 7：** デプロイが完了したら、Safe の利用を開始し、アカウント UI を開いてください。
 
 ![](/img/build/wallets/ks-start-using-wallet-sw.png)
 
 ![](/img/build/wallets/ks-safe-ui-sw.png)
 
-Your Safe account is ready.
+Safeアカウントの準備が整いました。
 
 ## Kaia Safeのアカウント作成完了おめでとうございます！
 
-You can fund a Safe by sending KAIA, fungible tokens, or NFTs to the Safe address shown in the account dashboard.
+アカウントのダッシュボードに表示されているセーフのアドレスに、KAIA、代替可能トークン、またはNFTを送金することで、セーフに資金を投入することができます。
 
-### KAIA deposits
+### カイア鉱床
 
-1. Copy your Safe address from the account dashboard.
-2. From a wallet (for example MetaMask, a hardware wallet, or another funded account), send KAIA to that address.
-3. When the transfer confirms, the balance appears under **Assets** in Safe Wallet.
+1. アカウントのダッシュボードから、Safeのアドレスをコピーしてください。
+2. ウォレット（MetaMask、ハードウェアウォレット、または資金が入金済みのその他のアカウントなど）から、そのアドレス宛にKAIAを送金してください。
+3. 送金が確認されると、残高はSafe Walletの\*\*「資産」\*\*欄に表示されます。
 
-You can fund the Safe from any address that can transfer to Kaia accounts. For network setup in MetaMask, see [Connect MetaMask to Kaia](../../tutorials/connecting-metamask.mdx).
+Kaiaアカウントへの送金が可能であれば、どのアドレスからでも「Safe」に資金を入金できます。 MetaMaskでのネットワーク設定については、[MetaMaskをKaiaに接続する](../../tutorials/connecting-metamask.mdx)をご覧ください。
 
-### Fungible token deposits
+### 代替可能トークンの預入
 
-1. Copy your Safe address.
-2. In your wallet’s token list, select the token and send it to the Safe address.
-3. Confirm the transfer and verify the balance under **Assets** in Safe Wallet.
+1. Safeのアドレスをコピーしてください。
+2. ウォレットのトークン一覧から、そのトークンを選択し、Safeアドレスに送信してください。
+3. Safe Walletの\*\*「資産」\*\*で送金を確認し、残高を確認してください。
 
-### NFT deposits
+### NFTの預入
 
-Transfer NFTs to the Safe address from a marketplace or wallet that supports Kaia (Mainnet or Kairos). For example, on [OpenSea](https://opensea.io/), open the NFT, use transfer, and paste the Safe address. After confirmation, the NFT appears under **Assets** / NFTs in Safe Wallet. See OpenSea’s [transfer guide](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea) for product-specific steps.
+Kaia（メインネットまたはKairos）に対応しているマーケットプレイスやウォレットから、NFTを「Safe」アドレスに転送してください。 たとえば、[OpenSea](https://opensea.io/)でNFTを開き、「転送」を選択して、Safeのアドレスを貼り付けてください。 確認が完了すると、そのNFTはSafe Walletの\*\*「資産」\*\*／「NFT」の下に表示されます。 製品ごとの具体的な手順については、OpenSeaの[転送ガイド](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)をご覧ください。
 
 ## 資産を送る
 
-### Send KAIA and tokens
+### KAIAとトークンを送る
 
-**Step 1:** Click **New transaction** and select **Send tokens**.
+**手順 1：** **「新規取引」** をクリックし、**「トークンの送金」** を選択します。
 
 ![](/img/build/wallets/ks-new-tx-sw.gif)
 
-**Step 2:** Choose the asset, enter the recipient address and amount.
+**手順 2：** 資産を選択し、受取人のアドレスと金額を入力します。
 
 ![](/img/build/wallets/ks-send-details-sw.gif)
 
-**Step 3:** Review and submit. Sign with your owner wallet; the transaction executes once the confirmation threshold is reached.
+**ステップ3：** 内容を確認して送信する。 オーナーウォレットで署名してください。確認閾値に達すると、取引が実行されます。
 
 ![](/img/build/wallets/ks-review-send-tx-sw.gif)
 
-### Send NFTs
+### NFTを送信する
 
-1. Click **New transaction** and select **Send NFTs** (or the equivalent NFT transfer flow in Safe Wallet).
-2. Choose the NFT and recipient.
-3. Review, collect the required signatures, and execute.
+1. **「新規取引」**をクリックし、**「NFTを送信」**（またはSafe Walletにおける同等のNFT転送フロー）を選択してください。
+2. NFTと受取人を選択してください。
+3. 内容を確認し、必要な署名を集め、署名・捺印を行う。
 
-For UI details that change over time, see the [Safe Wallet Help Center](https://help.safe.global).
+時間の経過とともに変更されるUIの詳細については、[Safe Wallet ヘルプセンター](https://help.safe.global)をご覧ください。
 
-## Further notes
+## 補足
 
-### Transaction fees
+### 取引手数料
 
-Safe transactions (asset transfers or contract interactions) incur a network fee paid by the owner that **executes** the transaction (typically the last signer to reach the threshold).
+安全な取引（資産の移転や契約のやり取り）には、その取引を**実行**する所有者（通常は閾値に達した最後の署名者）が支払うネットワーク手数料が発生します。
 
-### Safe nonce
+### 安全なノンス
 
-For security, Safe transactions must be executed in order. Each transaction has a **nonce**. Only the transaction with nonce _last executed + 1_ can be executed; higher nonces remain queued until earlier ones complete and enough signatures are collected.
+セキュリティ上の理由から、セーフトランザクションは順序通りに実行する必要があります。 各トランザクションには**nonce**が割り当てられています。 nonce が _最後に実行された値 + 1_ であるトランザクションのみが実行可能です。それより大きい nonce のトランザクションは、それより前のトランザクションが完了し、十分な署名が集まるまでキューに残ります。
 
-### Chain-specific address prefixes
+### チェーン固有のアドレスプレフィックス
 
-When copying a Safe address from the dashboard, avoid including a chain name prefix if your destination wallet does not accept it—paste the bare address to prevent transfer errors.
+ダッシュボードから「セーフアドレス」をコピーする際、転送先のウォレットがチェーン名のプレフィックスを受け付けない場合は、プレフィックスを含めないようにしてください。転送エラーを防ぐため、プレフィックスなしのアドレスを貼り付けてください。
 
-## More help
+## その他のヘルプ
 
-- [Safe Wallet Help Center](https://help.safe.global)
-- [Safe documentation](https://docs.safe.global)
+- [Safe Wallet ヘルプセンター](https://help.safe.global)
+- [Safeのドキュメント](https://docs.safe.global)
