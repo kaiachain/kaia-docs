@@ -1,77 +1,46 @@
-# Transaction Builder 사용
+---
+title: 트랜잭션 빌더 사용
+sidebar_label: 트랜잭션 빌더
+---
 
-트랜잭션 일괄 처리를 담당하는 Kaia Safe의 커스텀 앱입니다. 즉, 트랜잭션을 하나씩 확인할 필요 없이 여러 트랜잭션을 함께 묶을 수 있습니다. 한 번만 확인하고 실행하면 됩니다.
+# 트랜잭션 빌더 사용
 
-Transaction Builder를 사용하면 토큰 전송부터 복잡한 컨트랙트 트랜잭션까지 트랜잭션을 구성하고 단일 트랜잭션으로 일괄 처리할 수 있습니다.
+:::caution 일몰 공고
 
-## KAIA 토큰 전송 <a id="token-transfer"></a>
+`safe.kaia.io`는 **2026년 8월 9일**에 서비스가 종료될 예정입니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
 
-You can perform token transfer using transaction builder by following the steps below:
+:::
 
-**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App
+**트랜잭션 빌더**는 여러 작업을 하나의 세이프 트랜잭션으로 묶어주는 세이프 앱입니다. 이체나 계약 요청을 하나씩 확인하는 대신, 일괄 처리를 구성한 다음 한 번에 확인하고 실행합니다.
 
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+안전한 앱의 이용 가능 여부는 통신사 및 앱 스토어에 따라 다를 수 있습니다. Safe Wallet에서 **앱**을 열고, **Transaction Builder**를 검색한 다음, Kaia 또는 Kairos Safe용 앱을 실행하세요.
 
-**Step 2:** Enter the recipient wallet address. 이 가이드에서는 KAIA 송금 거래를 실행하려고 하므로 ABI 필드는 건너뛰셔도 됩니다.
+최신 UI를 반영한 제품 관련 도움말은 [Safe Wallet 도움말 센터](https://help.safe.global)를 참조하세요.
 
-![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+## KAIA 토큰 이체 <a id="token-transfer"></a>
 
-\*\*3단계: \*\*전송하려는 KAIA 값을 입력합니다.
+**1단계:** Safe Wallet에서 **앱**을 열고 **거래 생성기**를 실행합니다.
 
-> 참고: 이 가이드에서는 KAIA 1개를 전송하므로 **KAIA 값** 입력란에 1을 입력했습니다. 금고의 KAIA 잔액에 따라 여기에 원하는 금액을 입력할 수 있습니다.
+**2단계:** 수신자 주소를 입력하세요. 간단한 KAIA 전송의 경우 ABI 필드를 비워 두어도 됩니다.
 
-![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+**3단계:** 전송할 KAIA 수치를 입력한 후(예: KAIA 1개일 경우 `1`), **거래 추가**를 클릭하세요.
 
-**Step 4:** Click Add transaction.
+**4단계:** 일괄 처리할 수신자마다 이 과정을 반복합니다.
 
-**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+**5단계:** 배치 처리가 완료되면 **배치 생성**을 클릭하고, 처리 내역을 확인한 후 **배치 전송**을 클릭한 다음, 다른 Safe 거래와 동일한 방식으로 필요한 Safe 서명을 수집합니다.
 
-**Step 6:** Once you added all operations to the batch click Create Batch.
+## 계약 상호작용 <a id="contract-interactions"></a>
 
-![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+단일 Safe 트랜잭션 내에서 유사한 계약 호출을 다수 수행해야 할 때(예: 동일한 토큰을 여러 주소로 전송하는 경우) 트랜잭션 빌더를 사용하십시오.
 
-**Step 7:** Review and submit transaction
+**1단계:** ‘안전한 앱’에서 **트랜잭션 빌더**를 엽니다.
 
-전체 배치를 검토할 수 있습니다. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+**2단계:** **토큰(또는 계약) 주소**와 **ABI**를 입력하세요.
 
-## Contract Interactions <a id="contract-interactions"></a>
+**3단계:** 메서드(예: `transfer`)를 선택하고 매개변수를 입력합니다.
 
-Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Transaction Builder는 금고 소유자가 일일이 확인하고 실행해야 하는 10개의 트랜잭션을 생성하는 대신, 이 모든 이체를 하나의 트랜잭션에 넣습니다.
+> 참고: 정수 금액은 일반적으로 토큰의 최소 단위로 표시됩니다(해당 필드에는 소수점이 없습니다). 18자리 소수점 토큰의 경우, `10` 토큰은 흔히 `10000000000000000000`으로 입력됩니다.
 
-이 가이드에서는 설명의 편의를 위해 세이프 주소로 DRIP 토큰을 발행했습니다.
+**4단계:** **거래 추가**를 클릭하고, 각 통화 건마다 이 과정을 반복한 다음, **배치 생성** → **배치 전송**을 선택하고 Safe 확인 절차를 완료합니다.
 
-Transaction Builder를 사용하여 이 예제를 시작해 보겠습니다!
-
-**1단계**: Safe Apps을 엽니다.
-
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
-
-**2단계**: Transaction Builder Safe 앱 열기
-
-![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
-
-**3단계**: 토큰 컨트랙트 주소와 ABI를 입력합니다.
-
-이 예시에서는 DRIP 컨트랙트 주소와 ABI가 사용됩니다. ABI를 복사하여 "Enter ABI" 필드에 붙여넣을 수 있습니다.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
-
-**4단계**: 방법을 선택하고 거래 정보를 입력합니다.
-
-드롭다운에서 방법을 선택할 수 있습니다. 이 경우 **transfer** 방법을 선택합니다. 이 단계를 완료하려면 **to(address)** 및 \*\*amount(uint256)\*\*과 같은 거래 정보를 입력해야 합니다.
-
-참고: 값은 소수점이 없는 부호 없는 정수입니다. 이 예시에서 DRIP 토큰은 소수점이 18입니다. So if you want to send 10 CCT, you have to enter 10000000000000000000.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
-
-**5단계**: **Add transaction**를 클릭합니다.
-
-**6단계**: 모든 수신자 주소에 대해 **4**, **5**, **6** 단계를 반복합니다.
-
-**7단계**: 배치에 모든 작업을 추가한 후 **Create Batch**을 클릭합니다.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
-
-**8단계**: 거래 검토 및 제출하기
-
-You'll be able to review the whole batch. 준비가 완료되면 **Send Batch**을 클릭해 다른 세이프 거래와 마찬가지로 거래를 제출하고 실행합니다.
+일괄 계약 및 이체를 신중하게 처리하십시오. 서명하는 모든 소유자는 실행 전에 일괄 내역을 모두 검토해야 합니다.
