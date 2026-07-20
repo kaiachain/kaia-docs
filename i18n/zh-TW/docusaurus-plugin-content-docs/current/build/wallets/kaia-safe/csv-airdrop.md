@@ -1,71 +1,55 @@
-# Use CSV Airdrop
+---
+title: 使用 CSV Airdrop
+sidebar_label: CSV 空投
+---
 
-This is a custom app in Kaia Safe that can be used to batch multiple transfers of ERC20, ERC721, ERC1155 and native tokens into a single transaction. It's as simple as uploading / copy & pasting a single CSV transfer file and hitting the submit button.
+# 使用 CSV Airdrop
 
-This single method saves gas ⛽ and a substantial amount of time ⌚ by requiring less signatures and transactions.
+:::caution 日落通知
 
-Let’s get started with an example using CSV Airdrop!
+`safe.kaia.io` 將於 **2026 年 8 月 9 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。 您現有的「安全帳戶」將自動與「安全錢包」相容。
 
-## Step 1: Login into your [KaiaSafe](https://safe.kaia.io/)  <a id="login-kaiasafe"></a>
+:::
 
-If you haven't created a Safe account yet, please refer to our [Create a Safe Guide](./use-kaia-safe.md#create-a-safe) and [Add Asset Guide](./use-kaia-safe.md#add-assets) to set up your account and add assets (KAIA, FT, NFT).
+**CSV 空投**（當列於「安全應用程式」下時）會將多筆 ERC-20、ERC-721、ERC-1155 及原生代幣的轉帳批次整合為單一筆「安全」交易。 您只需上傳或貼上轉帳的 CSV 檔案並提交一次——相較於逐筆發送轉帳，不僅需要較少的簽名， gas 費用也更低。
 
-## Step 2: Click apps, search CSV and select CSV Airdrop  <a id="search-CSV-airdrop"></a>
+Safe App 的可用性取決於 Kaia / Kairos 的 Safe Wallet Apps 目錄。 若您的網路未列出 CSV Airdrop 功能，請使用 [交易建立工具](./tx-builder.md) 或查閱 [說明中心](https://help.safe.global)。
 
-![](/img/build/tools/kaia-safe/search-csv-app.png)
+## 步驟 1：在 Safe Wallet 中開啟您的保險箱<a id="login-kaiasafe"></a>
 
-## Step 3: Prepare a Transfer CSV file <a id="prepare-CSV-airdrop"></a>
+請至 [app.safe.global](https://app.safe.global) 登入，並選擇您的 Kaia 或 Kairos Safe。 如果您還沒有帳號，請按照 [建立保險箱](./use-kaia-safe.md#create-a-safe) 及 [新增資產](./use-kaia-safe.md#add-assets) 的步驟操作。
 
-Transfer files are expected to be in CSV format with the following required columns:
+## 步驟 2：開啟 CSV Airdrop<a id="search-CSV-airdrop"></a>
 
-- _token_type_: The type of token that is being transferred. One of erc20,nft or native. NFT Tokens can be either ERC721 or ERC1155.
-- _token_address_: Ethereum address of ERC20 token to be transferred. This has to be left blank for native (ETH) transfers.
-- _receiver_: Ethereum address of transfer receiver.
-- _amount_: the amount of token to be transferred. This can be left blank for erc721 transfers.
-- _id_: The id of the collectible token (erc721 or erc1155) to transfer. This can be left blank for native and erc20 transfers.
+前往 **應用程式**，搜尋 **CSV**，並在您的網路支援的情況下開啟 **CSV Airdrop**。
+
+## 步驟 3：準備轉移用 CSV 檔案<a id="prepare-CSV-airdrop"></a>
+
+傳輸檔案應採用 CSV 格式，並包含以下欄位：
+
+- _token_type_：`erc20`、`nft` 或 `native`。 NFT 代幣可能是 ERC-721 或 ERC-1155 規格。
+- _token_address_：代幣合約地址。 若為原生（KAIA）轉帳，請留空。
+- _收件人_：收件人地址。
+- _金額_：欲轉帳的金額。 進行 ERC-721 轉帳時，此欄位可留空。
+- _id_：收藏品識別碼（ERC-721 或 ERC-1155）。 對於原生代幣及 ERC-20 轉帳，此欄位可留空。
 
 :::important
-The CSV file has to use "," as a separator and the header row always has to be provided as the first row and include the described column names.
-[Sample Transfer File](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
+請使用 `,` 作為分隔符。 標題列必須是第一行，且必須包含所述的欄位名稱。
+[範例傳輸檔案](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
 :::
 
-### Native Token Transfers <a id="native-token-trnasfers"></a>
+### 原生代幣轉帳<a id="native-token-trnasfers"></a>
 
-Since native tokens do not have a token address, you must leave the _token_address_ column blank for native transfers.
+若為原生轉帳，請將 _token_address_ 留空。 請確保保險箱內存放有足夠的 KAIA。
 
-![](/img/build/tools/kaia-safe/native-csv-app.png)
+### ERC-20 轉帳<a id="erc20-trnasfers"></a>
 
-:::note
-Make sure you have enough native tokens in the kaia safe wallet address.
-:::
+將 _token_type_ 設定為 `erc20`，並填寫其餘欄位。 請確保保險箱內存有足夠的該種代幣。
 
-### ERC-20 Transfers <a id="erc20-trnasfers"></a>
+### ERC-721 轉帳<a id="erc721-transfers"></a>
 
-Provide erc20 as _token_type_ for erc20 transfers and other respective fields accordingly.
+請為 NFT 轉讓設定 _token_type_，並依照應用程式的規定包含收藏品的 _id_。 請確認「The Safe」確實擁有這些 NFT。
 
-![](/img/build/tools/kaia-safe/erc20-csv-app.png)
+## 步驟 4：檢視並提交<a id="review-submit-transaction"></a>
 
-:::note
-Make sure you have enough erc20 tokens in the kaia safe wallet address.
-:::
-
-### ERC-721 Transfers <a id="erc721-transfers"></a>
-
-Provide erc721 as _token_type_ for erc721 transfers and other respective fields accordingly.
-
-![](/img/build/tools/kaia-safe/erc721-csv-app.png)
-
-:::note
-Make sure you have enough erc721 tokens in the kaia safe wallet address.
-:::
-
-### Illustration <a id="illustration"></a>
-
-For this illustration, we have 2 native transfers, 2 ERC20 transfers and 1 ERC721 transfers
-
-![](/img/build/tools/kaia-safe/rs-csv-app.png)
-
-## Step 4: Review and submit transaction <a id="review-submit-transaction"></a>
-
-You'll be able to review and confirm the transaction. Once ready, click Submit to execute the transaction just like any other Safe transaction.
-
+請在應用程式中檢視已解碼的轉帳紀錄，然後提交。 請以與其他「Safe」交易相同的方式完成「Safe」確認程序。
