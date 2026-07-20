@@ -1,169 +1,111 @@
-# Use Kaia Safe
+---
+title: Sử dụng Safe Wallet trên Kaia
+sidebar_label: Tạo và quản lý két sắt
+---
+
+# Sử dụng Safe Wallet trên Kaia
+
+:::caution Thông báo về hoàng hôn
+
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
+
+:::
 
 ## Create a Safe
 
-Here you will see how to create a Safe and evaluate its benefits on the Kaia Network.
+Dưới đây là hướng dẫn cách tạo tài khoản thông minh Safe trên Kaia bằng Safe Wallet.
 
-**Step 1:** Navigate to [Kaia Safe App](https://safe.kaia.io/). By navigating to the application on your web browser, you can explore the functionality of Kaia Safe.
+**Bước 1:** Mở [Safe Wallet](https://app.safe.global/welcome) trong trình duyệt của bạn.
 
-**Step 2:** Connect your [wallet](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/). Hiện tại, Kaia Safe hỗ trợ nhiều loại ví như [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../tutorials/connecting-metamask.mdx) và các ví khác.
+![](/img/build/wallets/ks-welcome-page-sw.png)
 
-For the sake of this guide, we will be using MetaMask. Đảm bảo rằng bạn đã thêm mạng Kaia ([Mainnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network) hoặc [Kairos Testnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)) vào ví MetaMask của mình để kết nối thành công.
+**Bước 2:** Kết nối ví của bạn. Safe Wallet hỗ trợ các ví như [Kaia Wallet](https://docs.kaiawallet.io/) và [MetaMask](../../tutorials/connecting-metamask.mdx). Hãy đảm bảo rằng **Kaia Mainnet** hoặc **Kairos Testnet** đã được chọn trong ví của bạn và trong Safe Wallet.
 
-![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
+![](/img/build/wallets/ks-connect-wallet-sw.png)
 
-**Step 3:**  Once your wallet is connected, click **Create Account** and give your new Safe a **name**. This name is linked to your safe account, which is a multi-signature wallet that holds and stores all of your funds.
+**Bước 3:** Nhấp vào **Tạo tài khoản** (hoặc tùy chọn tương đương) và đặt tên cho Safe của bạn.
 
-**Step 4:** Add owners/signers by inputting the addresses that have permission to submit and approve transactions. You can add as many signers as you want and remove or replace any of them at any time.
+![](/img/build/wallets/ks-add-safe-name.png)
 
-**Step 5:** Choose how many signer confirmations a transaction in your Safe account needs to be approved. It is important to note that by default our app allows one signer confirmation. But it is advisable to use a threshold higher than 1 to ensure a secured safe account. Good practice is to use a threshold of 51% of the total owners e.g, 2 out of 3, 3 out of 5 etc as shown below:
+**Bước 4:** Thêm chủ sở hữu/người ký bằng cách nhập các địa chỉ có quyền gửi và phê duyệt giao dịch. Bạn có thể thêm bao nhiêu chủ sở hữu tùy ý và thay đổi danh sách này sau này.
 
-![](/img/build/tools/kaia-safe/kaia-safe-create-acct.gif)
+**Bước 5:** Chọn số lần xác nhận của chủ sở hữu mà một giao dịch cần có. Nên chọn ngưỡng lớn hơn 1. Một quy định phổ biến là khoảng 51% chủ sở hữu (ví dụ: 2 trong 3, hoặc 3 trong 5).
 
-**Step 6:** Review and deploy Safe
+![](/img/build/wallets/ks-add-signers-sw.png)
 
-Once you are completely satisfied with all of your Safe parameters, you can submit the creation of your Safe account and proceed with the on-screen instructions to complete the account creation.
+**Bước 6:** Kiểm tra lại các thông số, sau đó triển khai Safe và làm theo các hướng dẫn hiển thị trên màn hình.
 
-![](/img/build/tools/kaia-safe/kaia-safe-create-review.gif)
+![](/img/build/wallets/ks-review-create-safe-sw.png)
 
-Congratulations on successfully creating your Kaia Safe account!
+**Bước 7:** Sau khi triển khai, hãy bắt đầu sử dụng Safe và mở giao diện người dùng tài khoản.
+
+![](/img/build/wallets/ks-start-using-wallet-sw.png)
+
+![](/img/build/wallets/ks-safe-ui-sw.png)
+
+Tài khoản Safe của bạn đã sẵn sàng.
 
 ## Add assets
 
-In this section, you will see how to add assets (KAIA, FT, NFT)  to your safe account and keep your funds safe.
+Bạn có thể nạp tiền vào Safe bằng cách gửi KAIA, các token có thể thay thế hoặc NFT đến địa chỉ Safe được hiển thị trên bảng điều khiển tài khoản.
 
-### KAIA Deposits
+### Các mỏ KAIA
 
-Below are the steps to add **KAIA** to your safe account
+1. Sao chép địa chỉ Safe của bạn từ trang tổng quan tài khoản.
+2. Từ ví (ví dụ: MetaMask, ví phần cứng hoặc tài khoản khác đã nạp tiền), hãy gửi KAIA đến địa chỉ đó.
+3. Khi giao dịch được xác nhận, số dư sẽ hiển thị trong mục **Tài sản** trên Safe Wallet.
 
-**Step 1:** Copy your Safe address from your account dashboard.
+Bạn có thể nạp tiền vào Safe từ bất kỳ địa chỉ nào có thể chuyển tiền vào tài khoản Kaia. Để thiết lập kết nối mạng trong MetaMask, hãy tham khảo [Kết nối MetaMask với Kaia](../../tutorials/connecting-metamask.mdx).
 
-![](/img/build/tools/kaia-safe/ks-deposit-copy-addr.png)
+### Tiền gửi bằng token có thể thay thế
 
-**Step 2:** Open your Metamask wallet and click **send** to send asset to your safe account.
+1. Sao chép địa chỉ Safe của bạn.
+2. Trong danh sách token của ví, hãy chọn token đó và gửi đến địa chỉ Safe.
+3. Xác nhận giao dịch chuyển khoản và kiểm tra số dư tại mục **Tài sản** trong Safe Wallet.
 
-Note that there are different ways to send assets to your Safe account. You can send from your [hardware wallet](https://www.ledger.com/academy/crypto-hardware-wallet), [web wallet](https://medium.com/arcana-network-blog/why-web-wallets-e77c776e4d5e), or even a smart contract. In this case, we're making use of a web wallet called MetaMask.
+### Tiền gửi NFT
 
-![](/img/build/tools/kaia-safe/ks-token-send-btn.png)
-
-**Step 3:** Paste your safe address in the search field as seen below.
-
-**Step 4:** Input **amount** and click **next**.
-
-![](/img/build/tools/kaia-safe/ks-token-send-details.png)
-
-**Step 5:** Confirm the transaction and check your asset dashboard. You can see the amount being transferred from your metamask account to your Kaia Safe account.
-
-![](/img/build/tools/kaia-safe/kaia-safe-klay-bal.png)
-
-### KIP-7 Deposits
-
-Now we will see how to deposit KIP7 (fungible tokens) to our safe by following the below steps.
-
-**Step 1:** Copy your Safe address from your account dashboard.
-
-![](/img/build/tools/kaia-safe/ks-deposit-ft-copy.png)
-
-**Step 2:** Open your Metamask Wallet and navigate to **assets** tab.
-
-**Step 3:** Select the token you will love to send and click **send**.
-
-![](/img/build/tools/kaia-safe/ks-ft-send-btn.png)
-
-**Step 4:** Repeat step **3**, **4**, **5** of **KAIA** Deposits above.
-
-![](/img/build/tools/kaia-safe/ks-ft-send-details.png)
-
-**Step 5:** View your assets dashboard, you can see the KIP7 tokens being transferred to your safe account. Similarly you can transfer any Fungible token to your safe account.
-
-![](/img/build/tools/kaia-safe/ks-ft-balance.png)
-
-### KIP-17 (NFTs) Deposits
-
-Now we  will see how to deposit KIP17 (Non Fungible tokens) to our safe by following the steps below.
-
-You can transfer your NFT’s to your safe account in many different ways. Here is an example on how to transfer NFT to the safe account using  [OpenSea](https://opensea.io/about).
-
-1. Navigate to your [OpenSea account](https://testnets.opensea.io/account) profile page
-2. Navigate to an NFT you ll love to transfer. Make sure to select a NFT on the Kaia Network(Mainnet or Kairos)
-3. On the next page, click on the transfer button.
-4. Paste the safe address in the text box and transfer to safe
-5. Under Assets section in Kaia Safe you can find NFT’s from OpenSea.
-
-![](/img/build/tools/kaia-safe/kaia-safe-trf-nft.gif)
-
-Please refer to this [guide](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea) from OpenSea for more details on transferring NFTs.
+Chuyển NFT sang địa chỉ Safe từ một sàn giao dịch hoặc ví hỗ trợ Kaia (Mainnet hoặc Kairos). Ví dụ: trên [OpenSea](https://opensea.io/), hãy mở NFT, chọn chức năng “Chuyển nhượng” và dán địa chỉ Safe vào. Sau khi xác nhận, NFT sẽ xuất hiện trong mục **Tài sản** / NFTs trên Safe Wallet. Xem [hướng dẫn chuyển nhượng](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea) của OpenSea để biết các bước cụ thể cho từng sản phẩm.
 
 ## Send assets
 
-In this section, you'll learn how to send KAIA and KIP-7 tokens from your Kaia Safe account.
+### Gửi KAIA và token
 
-### Send KAIA & KIP7 Tokens <a id="Send KAIA from Safe"></a>
+**Bước 1:** Nhấp vào **Giao dịch mới** và chọn **Gửi token**.
 
-**Step 1:** Click the **New Transaction** button in the side menu and select **Send tokens** to begin a new asset transfer.
+![](/img/build/wallets/ks-new-tx-sw.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-init-send-token.gif)
+**Bước 2:** Chọn tài sản, nhập địa chỉ người nhận và số tiền.
 
-**Step 2:** Choose assets to transfer.
+![](/img/build/wallets/ks-send-details-sw.gif)
 
-- **KAIA**
+**Bước 3:** Kiểm tra lại và gửi. Hãy ký xác nhận bằng ví chủ sở hữu của bạn; giao dịch sẽ được thực hiện ngay khi đạt đến ngưỡng xác nhận.
 
-> Lưu ý: Nhập **địa chỉ người nhận** và **số lượng KAIA** cần chuyển.
+![](/img/build/wallets/ks-review-send-tx-sw.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-send-token-details.gif)
+### Gửi NFT
 
-- **KIP-7 Tokens**
+1. Nhấp vào **Giao dịch mới** và chọn **Gửi NFT** (hoặc quy trình chuyển NFT tương ứng trong Safe Wallet).
+2. Chọn NFT và người nhận.
+3. Xem xét, thu thập các chữ ký cần thiết và ký kết.
 
-Select the tokens you want to send in the asset drop-down as seen in the image above.
+Để biết thêm chi tiết về giao diện người dùng (UI) có thể thay đổi theo thời gian, vui lòng tham khảo [Trung tâm Trợ giúp Safe Wallet](https://help.safe.global).
 
-> Lưu ý: Thêm **địa chỉ người nhận** và **số lượng token** cần chuyển.
+## Ghi chú bổ sung
 
-**Step 3:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+### Phí giao dịch
 
-![](/img/build/tools/kaia-safe/kaia-safe-review-send-tokens.gif)
+Các giao dịch an toàn (chuyển nhượng tài sản hoặc tương tác hợp đồng) sẽ phát sinh phí mạng do chủ sở hữu **thực hiện** giao dịch đó chi trả (thường là người ký cuối cùng đạt ngưỡng quy định).
 
-### Send NFTs <a id="Send NFTs from Safe"></a>
+### Nonce an toàn
 
-In this section, you'll learn how to send your non-fungible tokens from your Kaia Safe account.
+Vì lý do bảo mật, các giao dịch an toàn phải được thực hiện theo thứ tự. Mỗi giao dịch đều có một **nonce**. Chỉ giao dịch có giá trị nonce là _giao dịch được thực thi gần nhất + 1_ mới có thể được thực thi; các giá trị nonce cao hơn sẽ vẫn nằm trong hàng đợi cho đến khi các giao dịch trước đó hoàn tất và thu thập đủ số chữ ký.
 
-**Step 1:** Click the **New Transaction** button in the side menu and select **Send NFTs** to begin a new asset transfer.
+### Tiền tố địa chỉ dành riêng cho chuỗi
 
-![](/img/build/tools/kaia-safe/kaia-safe-init-send-nft.gif)
+Khi sao chép địa chỉ Safe từ trang tổng quan, hãy tránh thêm tiền tố tên chuỗi nếu ví đích của bạn không chấp nhận nó — hãy dán địa chỉ thuần túy để tránh lỗi chuyển tiền.
 
-**Step 2:** Choose assets to transfer.
+## Thêm trợ giúp
 
-![](/img/build/tools/kaia-safe/kaia-safe-send-nft-details.gif)
-
-**Step 3:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
-
-![](/img/build/tools/kaia-safe/kaia-safe-review-send-nft.gif)
-
-## Further Notes <a id="Points to Note"></a>
-
-The following are things you will want to keep in mind while using Kaia Safe:
-
-### Transaction Fees <a id="Transaction Fees"></a>
-
-Kaia Safe transactions, whether asset transfers or contract interactions, incur a fee that will be paid by the signer that executes the transaction (usually the last signer to reach the required threshold of signatures).
-
-### Safe Nonce <a id="Safe Nonce"></a>
-
-For security reasons, transactions made with Safe need to be executed in order. To achieve this, a number called **nonce** is assigned to a transaction to ensure that each transaction can be executed once.
-
-![](/img/build/tools/kaia-safe/ks-nounce.png)
-
-At any given time, only transactions with a nonce _last executed transaction +1_ can be executed. Transactions with a higher nonce are queued for execution. So, whenever a transaction is completed, the next transaction in the queue is made available for execution, provided it has accumulated enough signatures.
-
-![](/img/build/tools/kaia-safe/ks-pending-tx.png)
-
-### Chain-specific addresses <a id="Chain-specific addresses"></a>
-
-You can choose to copy address with chain prefix
-
-- Copy addresses with chain prefix:
-
-![](/img/build/tools/kaia-safe/ks-chain-spec-addr.png)
-
-When copying your safe address from your dashboard to paste in your wallet as seen above, you can either choose to add the chain name or not by clicking the checkbox. It is suggested that you leave it unchecked to avoid the error below.
-
-![](/img/build/tools/kaia-safe/ks-chain-addr-err.png)
+- [Trung tâm trợ giúp Safe Wallet](https://help.safe.global)
+- [Tài liệu hướng dẫn an toàn](https://docs.safe.global)
