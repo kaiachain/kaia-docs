@@ -33,13 +33,13 @@ All of the features above are also supported on testnet. We recommend performing
 
 The onboarding flow is covered in the following pages, in order:
 
-1. [Prerequisites](./prerequisites.md) — connect a validator manager wallet (Kaia Safe recommended) and prepare the required accounts.
+1. [Prerequisites](./prerequisites.md) — connect a validator manager wallet (Safe Wallet recommended) and prepare the required accounts.
 2. [Validator Onboarding](./onboarding.md) — deploy and initialize your staking contract, then submit an onboarding request.
 3. [Managing Staking Contracts](./manage-staking.md) — update admins, stake/unstake KAIA, change reward address, manage multisig, and more.
 4. [Managing Validator Information](./manage-validator.md) — transfer the manager account, request offboarding, and manage auxiliary staking contracts.
 
 ## Related Resources <a id="related-resources"></a>
 
-- [Kaia Safe User Guide](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Safe Wallet User Guide](../../../build/wallets/kaia-safe/kaia-safe.md)
 - [KIP-277: Self Validator Registration](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: Redelegation](https://kips.kaia.io/KIPs/kip-163)

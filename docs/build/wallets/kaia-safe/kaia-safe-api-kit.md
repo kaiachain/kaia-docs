@@ -1,47 +1,49 @@
 ---
 id: kaia-safe-api-kit
-title: Kaia Safe API-Kit
+title: Safe API Kit
+sidebar_label: API Kit
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Kaia Safe API Kit
+# Safe API Kit
 
-API-Kit is your go-to kit for securely interacting with the [Safe Transaction API](https://github.com/safe-global/safe-transaction-service). The core of this kit is to allow valid signers to propose and share transactions with the other signers of a Safe, send the signatures to the service to collect them, and get information about a Safe (like reading the transaction history, pending transactions, enabled Modules and Guards, etc.), among other features.
+:::caution Sunset notice
+
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
+
+:::
+
+API Kit helps you interact securely with the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview). Valid signers can propose and share transactions, collect signatures off-chain, and read Safe information (history, pending transactions, modules, guards, and more).
+
+Kaia chain IDs: **8217** (Mainnet), **1001** (Kairos). As `safe.kaia.io` sunsets, prefer Safe Global Transaction Service configuration for supported chains. If you still need a custom `txServiceUrl`, confirm the endpoint you use remains available after the migration.
 
 ## Quickstart <a id="Quickstart"></a>
 
-By the end of this guide, you will be able to propose transactions to the service and obtain the owners' signatures for execution.
+By the end of this guide, you will propose a transaction to the service and collect owner signatures for execution.
 
 ## Prerequisites <a id="Prerequisites"></a>
 
 1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-2. A Safe with several signers
+2. A Safe with several signers on Kairos (or Mainnet)
 
 ## Set up environment <a id="Setup-environment"></a>
 
-### Step 1: Create a project directory.
-
-Copy and paste this command in your terminal to create the project folder.
+### Step 1: Create a project directory
 
 ```js
 mkdir kaiasafe-api-kit
 cd kaiasafe-api-kit
 ```
 
-### Step 2: Initialize an npm project. 
-
-Copy and paste this command in your terminal to create a `package.json` file.
+### Step 2: Initialize an npm project
 
 ```js
 npm init -y
 ```
 
-### Step 3: Install dependencies. 
-
-Using API-Kit is as simple as running the installation command below: 
-
+### Step 3: Install dependencies
 
 <Tabs>
   <TabItem value="npm" label="npm">
@@ -57,11 +59,9 @@ Using API-Kit is as simple as running the installation command below:
  </TabItem>
 </Tabs>
 
-### Step 4: Import dependencies.
+### Step 4: Import dependencies
 
-Create a file named  `app.js`. This is where all our code snippets for this interaction would live. 
-
-Copy and paste these necessary imports at the top of the `app.js` file. 
+Create `app.js` and add:
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -71,11 +71,9 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 ```
 
-### Step 5: Configure Setup
+### Step 5: Configure setup
 
-To efficiently illustrate how API-Kit works, we will use a Safe account setup with two or more signers, and threshold two, so we have multiple signatures that need to be collected when executing a transaction.
-
-Copy and paste the following under the import statements in your `app.js` file: 
+Use a Safe with at least two owners and threshold two so multiple signatures are required.
 
 ```js
 // https://chainlist.org/?search=kaia&testnets=true
@@ -91,23 +89,20 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction wh
 
 ### Step 1: Initialize API Kit
 
-To initialize API Kit, we need to create an instance of the API Kit. 
-
-> In chains where the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) is supported, it's enough to specify the chainId property.
+On chains where the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) is supported, specifying `chainId` is often enough. You may still pass a custom `txServiceUrl` when using a dedicated endpoint (verify it remains valid after the Kaia UI sunset).
 
 ```js 
 const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
+  chainId: 1001n, // Kairos; use 8217n for Kaia Mainnet
+  // Custom URL if needed — confirm it remains valid after safe.kaia.io sunset
+  // Prefer Safe Global Transaction Service config when Kaia is listed:
+  // https://docs.safe.global/core-api/transaction-service-overview
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 
 ```
 
-As you can see above, we included custom service using the optional **txServiceUrl** property.
-
 ### Step 2: Initialize Protocol Kit
-
-To handle transactions and signatures, we need to create an instance of the Protocol Kit (a kit that enables developers to interact with  [Safe Smart Accounts](https://github.com/safe-global/safe-smart-account) using a TypeScript interface) with the provider, signer and safeAddress.
 
 ```js
 const protocolKitOwner1 = await Safe.default.init({
@@ -118,8 +113,6 @@ const protocolKitOwner1 = await Safe.default.init({
 ```
 
 ### Step 3: Propose a transaction to the service
-
-One of the core features of API Kit is to enable valid signers to share transactions with other signers. But before this is done,  any of the Safe signers needs to initiate the process by creating a proposal of a transaction. This transaction is then sent  to the service to make it accessible by the other owners so they can give their approval and sign the transaction as well.
 
 ```js
 const safeTransactionData = {
@@ -149,8 +142,6 @@ try {
 
 ### Step 4: Retrieve pending transaction
 
-API Kit provides us  different methods to retrieve pending transactions depending on the situation. For this guide, we will retrieve a transaction given the Safe transaction hash and other available methods commented out below:
-
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getPendingTransactions()
@@ -162,7 +153,7 @@ const transaction = await apiKit.getTransaction(safeTxHash)
 
 ## Step 5: Confirm the transaction
 
-The next thing to do is to sign the transaction with the Protocol Kit and submit the signature to the Safe Transaction Service using the [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction) method.
+Sign with Protocol Kit and submit the signature via [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction).
 
 ```js
 const protocolKitOwner2 = await Safe.default.init({
@@ -171,7 +162,6 @@ const protocolKitOwner2 = await Safe.default.init({
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Confirm the Safe transaction
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -180,18 +170,17 @@ const signatureResponse = await apiKit.confirmTransaction(
 
 ### Step 6: Execute the transaction
 
-The Safe transaction is now ready to be executed. This can be done using the [Safe Wallet Web](https://app.safe.global/) interface, the [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), the Safe CLI or any other tool that's available.
-
-For this last step, we executed the safe transaction using Protocol Kit.
+Execute via [Safe Wallet](https://app.safe.global/), the [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), the Safe CLI, or another compatible tool.
 
 ```js
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
 console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${hash}`)
+console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
-At the end, the full code in `app.js` should look like this:
+
+Full `app.js` example:
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -208,6 +197,7 @@ const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 
 const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
+  // Confirm endpoint after safe.kaia.io sunset; see Safe Global TX Service docs
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
@@ -241,11 +231,6 @@ try {
 }
 console.log("Transaction hash is "+safeTxHash)
 const transaction = await apiKit.getTransaction(safeTxHash)
-// const transactions = await service.getPendingTransactions()
-// const transactions = await service.getIncomingTransactions()
-// const transactions = await service.getMultisigTransactions()
-// const transactions = await service.getModuleTransactions()
-// const transactions = await service.getAllTransactions()
 // 3. Confirmation from Owner 2
 const protocolKitOwner2 = await Safe.default.init({
   provider: RPC_URL,
@@ -253,7 +238,6 @@ const protocolKitOwner2 = await Safe.default.init({
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Confirm the Safe transaction
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -267,5 +251,4 @@ console.log('Transaction executed:');
 console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
-
-Visit the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for more information, and navigate to [Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) to access the full source code for this guide.
+See the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) and [example snippets](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) for more detail.

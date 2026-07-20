@@ -62,9 +62,9 @@ Even when loaded from a secure source, a private key must exist in your applicat
 
 Cold storage refers to keeping private keys on a device that is not connected to the internet. A **hardware wallet** is a physical device built for this purpose. It signs transactions internally without ever exposing the private key to the connected computer. This makes them the gold standard for securing high-value assets. This guide will focus on the officially supported [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) and [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1) hardware wallets.
 
-#### 2.3. Multi-Signature Wallets: An Introduction to Kaia Safe
+#### 2.3. Multi-Signature Wallets: An Introduction to Safe Wallet
 
-A multi-signature (or "multi-sig") wallet is a smart contract that requires multiple private keys to approve a transaction before it can be executed. For example, a 2-of-3 multi-sig requires approval from two out of three designated owners. This is the standard for managing team funds, treasuries, and critical smart contract administration, as it prevents a single point of failure. [Kaia Safe](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe) is the primary multi-sig solution on the Kaia network.
+A multi-signature (or "multi-sig") wallet is a smart contract that requires multiple private keys to approve a transaction before it can be executed. For example, a 2-of-3 multi-sig requires approval from two out of three designated owners. This is the standard for managing team funds, treasuries, and critical smart contract administration, as it prevents a single point of failure. On Kaia, use **Safe Wallet** from [Safe](https://safe.global) (Safe Global) at [app.safe.global](https://app.safe.global)—see the [Safe Wallet guide](/build/wallets/kaia-safe/use-kaia-safe). (`safe.kaia.io` sunsets on **August 9, 2026**.)
 
 ## Part 2: Practical Recipes for Wallet Management
 
@@ -343,51 +343,51 @@ Congratulations. You have successfully signed a transaction, broadcasted the tra
 
 This chapter covers recipes for securing assets and automating actions in production environments, where security stakes are highest.
 
-#### 4.1. Recipe: Setting Up a Multi-Signature Treasury with Kaia Safe
+#### 4.1. Recipe: Setting Up a Multi-Signature Treasury with Safe Wallet
 
-Kaia Safe allows developers to create an account that can be controlled by multiple owners, significantly improving security.
+**Safe Wallet** ([app.safe.global](https://app.safe.global)), from [Safe](https://safe.global) / Safe Global, lets developers create a Safe smart account controlled by multiple owners, which significantly improves security.
 
 You should never use a regular wallet to manage large amounts of funds, protocol’s permissions or ownership control. Too many projects have been compromised by basic wallet security failures. Whether you are launching the next big DeFi protocol, managing a DAO treasury, or safeguarding valuable assets, a multi signature wallet is absolutely essential.
 
-In this guide, you will learn how to create a safe on Kaia using Kaia Safe, configure its owners and approval threshold, and execute a basic transaction.  
+In this guide, you will learn how to create a Safe on Kaia with Safe Wallet, configure its owners and approval threshold, and execute a basic transaction.  
 
 ##### Creating a Safe wallet
 
-1. Visit [Kaia Safe App](https://app.safe.global/welcome). 
+1. Visit [Safe Wallet](https://app.safe.global/welcome). 
 
 ![](/img/build/wallets/ks-welcome-page-sw.png)
 
-2. **Connect your wallet**. Select the wallet type you want to connect to the Kaia Safe website. For this guide, we will use Kaia Wallet. 
+2. **Connect your wallet**. Select the wallet type you want to connect. Ensure **Kaia Mainnet** or **Kairos Testnet** is selected. For this guide, we will use Kaia Wallet. 
 
 ![](/img/build/wallets/ks-connect-wallet-sw.png)
 
-3. **Name your Safe**. After connecting your wallet, click **Create Account**, and give your Kaia Safe a name.
+3. **Name your Safe**. After connecting your wallet, click **Create Account**, and give your Safe a name.
 
 ![](/img/build/wallets/ks-add-safe-name.png)
 
-4. **Configure signers**. Configure how many signer confirmations a transaction in your Kaia Safe account needs to be approved.  Good practice is to use a threshold of 51% of the total owners e.g., *2 out of 3*, *3 out of 5* etc as shown below.
+4. **Configure signers**. Configure how many signer confirmations a transaction in your Safe account needs to be approved.  Good practice is to use a threshold of 51% of the total owners e.g., *2 out of 3*, *3 out of 5* etc as shown below.
 
 ![](/img/build/wallets/ks-add-signers-sw.png)
 
-5. **Deploy your Kaia Safe account**. Once you are completely satisfied with all of your Kaia Safe parameters, click **Create** to submit the creation of your Kaia Safe account.
+5. **Deploy your Safe account**. Once you are completely satisfied with all of your Safe parameters, click **Create** to submit the creation of your Safe account.
 
 ![](/img/build/wallets/ks-review-create-safe-sw.png)
 
-6. **Use your wallet**. Click on the **Start using KaiaSafe Wallet** button.
+6. **Use your wallet**. Click **Start using Safe Wallet** (or the equivalent button in the UI).
 
 ![](/img/build/wallets/ks-start-using-wallet-sw.png)
 
-7. **Access the user interface** of your Kaia Safe smart contract wallet as shown below.
+7. **Access the user interface** of your Safe smart contract wallet as shown below.
 
 ![](/img/build/wallets/ks-safe-ui-sw.png)
 
-Congratulations on successfully creating your Kaia Safe account!
+Congratulations on successfully creating your Safe account!
 
 ##### Executing Basic Transaction (Send Native Tokens)
 
-In this section, you'll learn how to execute a basic transaction such as sending native tokens KAIA from your Kaia Safe account to a beneficiary address. 
+In this section, you'll learn how to execute a basic transaction such as sending native tokens KAIA from your Safe account to a beneficiary address. 
 
-Ensure your Kaia Safe account is sufficiently funded. You can refer to this guide for instructions on how to [deposit](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe/#add-assets) into your Safe account.
+Ensure your Safe account is sufficiently funded. You can refer to this guide for instructions on how to [deposit](/build/wallets/kaia-safe/use-kaia-safe#add-assets) into your Safe account.
 
 Step 1: Click the **New Transaction** button in the side menu and select **Send tokens** to begin a new asset transfer.
 
@@ -401,9 +401,9 @@ Step 3: Review and submit the transaction. You will need to sign the transaction
 
 ![](/img/build/wallets/ks-review-send-tx-sw.gif)
 
-#### 4.2. Recipe: Integrating Kaia Safe for Critical Smart Contract Actions
+#### 4.2. Recipe: Integrating Safe Wallet for Critical Smart Contract Actions
 
-In this guide, you will learn how to assign a Kaia Safe account as an administrator in your smart contract. You will also see how to execute privileged functions such as **setTokenPrice()** and **pause()** using the Kaia Safe account, ensuring that only approved signers can perform privilege actions.
+In this guide, you will learn how to assign a Safe account as an administrator in your smart contract. You will also see how to execute privileged functions such as **setTokenPrice()** and **pause()** using the Safe account, ensuring that only approved signers can perform privilege actions.
 
 ##### Prerequisite 
 
@@ -415,11 +415,11 @@ In this guide, you will learn how to assign a Kaia Safe account as an administra
 
 ##### Step 2: Compile and deploy the sample token contract
 
-The contract must first be deployed before you may interact with it in your multisig wallet - calling the privileged functions. The first thing we want to do is to set our newly created Kaia Safe account as the **initialOwner** of the token contract at deployment. 
+The contract must first be deployed before you may interact with it in your multisig wallet - calling the privileged functions. The first thing we want to do is to set our newly created Safe account as the **initialOwner** of the token contract at deployment. 
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-This sample token contract contains privilege functions such as **setTokenPrice()**, **pause()** which can only be called by the Kaia Safe account. The next thing we want to do is to execute these actions accordingly. We can either do this using the Transaction builder or programmatically using the Kaia Safe API Kit.
+This sample token contract contains privilege functions such as **setTokenPrice()**, **pause()** which can only be called by the Safe account. The next thing we want to do is to execute these actions accordingly. We can either do this using the Transaction Builder or programmatically using the Safe API Kit.
 
 ##### Step 3: Initiate a new transaction
 
@@ -429,9 +429,9 @@ To interact with a smart contract in your safe wallet, click **New Transaction**
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
-###### Using Kaia Safe API Kit 
+###### Using Safe API Kit 
 
-In this section, you will use the Kaia Safe API Kit to programmatically propose a transaction that calls the **setTokenPrice** function, collect signatures from the Safe account owners, and execute the transaction.
+In this section, you will use the Safe API Kit to programmatically propose a transaction that calls the **setTokenPrice** function, collect signatures from the Safe account owners, and execute the transaction.
 
 **Prerequisite**
 
@@ -684,7 +684,7 @@ You should now see your `tokenPrice` set to 15 on Remix IDE.
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-Congratulations! You have successfully executed a privilege function from your Kaia Safe Account using the Kaia Safe API-Kit. 
+Congratulations! You have successfully executed a privilege function from your Safe account using the Safe API Kit. 
 
 ##### Step 4: Review and submit the transaction
 

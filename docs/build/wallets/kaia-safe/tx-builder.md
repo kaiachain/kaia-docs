@@ -1,81 +1,46 @@
+---
+title: Use Transaction Builder
+sidebar_label: Transaction Builder
+---
+
 # Use Transaction Builder
 
-This is a custom app in Kaia Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+:::caution Sunset notice
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
 
+:::
 
-## KAIA Token Transfer <a id="token-transfer"></a>
-You can perform token transfer using transaction builder by following the steps below:
+**Transaction Builder** is a Safe App that batches several operations into one Safe transaction. Instead of confirming transfers or contract calls one by one, you build a batch, then confirm and execute once.
 
-**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App 
+Availability of Safe Apps can vary by network and catalog. In Safe Wallet, open **Apps**, search for **Transaction Builder**, and launch it for your Kaia or Kairos Safe.
 
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+For product help that tracks the latest UI, see the [Safe Wallet Help Center](https://help.safe.global).
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KAIA transfer transaction.
+## KAIA token transfer <a id="token-transfer"></a>
 
-![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+**Step 1:** In Safe Wallet, open **Apps** and launch **Transaction Builder**.
 
+**Step 2:** Enter the recipient address. For a simple KAIA transfer you can leave the ABI empty.
 
-**Step 3:** Enter the KAIA value you want to send. 
+**Step 3:** Enter the KAIA value to send (for example `1` for 1 KAIA), then click **Add transaction**.
 
-> Note: In this guide, we are sending 1 KAIA, so we entered 1 in the **KAIA value** input field. You can input any amount here, depending on your Safe's KAIA balance.
+**Step 4:** Repeat for each recipient you want in the batch.
 
-![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+**Step 5:** When the batch is complete, click **Create batch**, review the operations, then **Send batch** and collect the required Safe signatures the same way as any other Safe transaction.
 
-**Step 4:** Click Add transaction. 
+## Contract interactions <a id="contract-interactions"></a>
 
-**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+Use Transaction Builder when you need many similar contract calls—for example transferring the same token to several addresses—in a single Safe transaction.
 
-**Step 6:** Once you added all operations to the batch click Create Batch. 
+**Step 1:** Open **Transaction Builder** from Safe Apps.
 
-![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+**Step 2:** Enter the **token (or contract) address** and **ABI**.
 
+**Step 3:** Select a method (for example `transfer`) and fill in the parameters.
 
-**Step 7:** Review and submit transaction
+> Note: Integer amounts are typically in the token’s smallest unit (no decimals in the field). For an 18-decimal token, `10` tokens is often entered as `10000000000000000000`.
 
-You'll be able to review the whole batch. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+**Step 4:** Click **Add transaction**, repeat for each call, then **Create batch** → **Send batch** and complete Safe confirmations.
 
-
-## Contract Interactions <a id="contract-interactions"></a>
-
-Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
-
-In this guide, we have minted CCT tokens to the Safe address for illustrative purpose.
-
-Let’s get started with this example using Transaction Builder!
-
-**Step 1:** Open Safe Apps.
-
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
-
-**Step 2:** Open the Transaction Builder Safe app
-
-![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
-
-**Step 3:** Enter your **token contract address** and **ABI**. 
-
-In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
-
-**Step 4:** Select a method and fill the transaction information
-
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
-
-
-Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000. 
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
-
-**Step 5:** Click **Add transaction**
- 
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
- 
-**Step 7:** Once you added all operations to the batch click **Create Batch**
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
-
-**Step 8:** Review and submit transaction
-
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+Batch contracts and transfers carefully: every owner who signs should review the full batch before execution.

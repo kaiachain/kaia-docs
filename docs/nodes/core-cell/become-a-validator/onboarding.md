@@ -18,7 +18,7 @@ After registration, the validator's information is recorded in the **AddressBook
 
 Navigate to the **Deploy Staking Contract** menu to deploy a staking contract.
 
-Currently a single staking contract can have multiple admin accounts registered, but starting from **Permissionless Phase 2** only one admin account will be allowed per staking contract. For this reason, we recommend registering a single Kaia Safe account as the admin.
+Currently a single staking contract can have multiple admin accounts registered, but starting from **Permissionless Phase 2** only one admin account will be allowed per staking contract. For this reason, we recommend registering a single Safe Wallet account as the admin.
 
 Before deploying the staking contract, you also need an additional temporary account—on top of the admin—to perform the deployment. This account is called the **contract validator** and exists for backwards compatibility. Since the staking contract admin account and the validator manager account are typically kept separate, you may reuse the validator manager account as the contract validator.
 
@@ -39,7 +39,7 @@ The staking contract admin wallet and the temporary contract validator wallet mu
 ![Public Delegation section](/img/nodes/become-a-validator/image08.png)
 ![Public Delegation section (cont.)](/img/nodes/become-a-validator/image09.png)
 
-5. Enter the staking contract admin address(es) and the multisig threshold. If you enter the Kaia Safe wallet address as the **Admin address** and set the threshold to `1`, the multisig function will be handled by Kaia Safe. If you enter multiple admin addresses and set the threshold to an arbitrary value, the multisig function will be handled within the **Manage Staking** menu.
+5. Enter the staking contract admin address(es) and the multisig threshold. If you enter the Safe Wallet address as the **Admin address** and set the threshold to `1`, the multisig function will be handled by Safe. If you enter multiple admin addresses and set the threshold to an arbitrary value, the multisig function will be handled within the **Manage Staking** menu.
 
 ![Deploy Contract button](/img/nodes/become-a-validator/image10.png)
 

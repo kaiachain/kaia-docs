@@ -1,27 +1,41 @@
-# Interact with Contracts
+---
+title: Interact with contracts
+sidebar_label: Contract interaction
+---
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Kairos using our newly created multisig wallet. 
+# Interact with contracts
 
-**Pre-requisites**
+:::caution Sunset notice
 
-* [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../tutorials/connecting-metamask.mdx#send-klay)
-* [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-* Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+:::
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+In this section you interact with a simple contract on Kairos using a Safe account managed in Safe Wallet.
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint "number" variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+**Prerequisites**
 
-![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
+* [MetaMask](https://metamask.io/download/) configured for [Kaia / Kairos](../../tutorials/connecting-metamask.mdx)
+* [Remix](https://remix.ethereum.org/) (with Kaia network support as needed)
+* Test KAIA from the [Faucet](https://faucet.kaia.io)
+* A Safe account on Kairos ([create one](./use-kaia-safe.md#create-a-safe))
 
-**Step 3:** Initiate a new transaction. 
+**Step 1:** Open [Remix](https://remix.ethereum.org/).
 
-To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
+**Step 2:** Compile and deploy a sample storage contract (or your own contract).
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
+Deploy the contract before interacting with it from the Safe. A typical sample contract exposes a `uint` that you update with `store` and read with `retrieve`.
 
-**Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+![](/img/build/wallets/ks-succor-deploy.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
+**Step 3:** Initiate a new transaction in Safe Wallet.
+
+Click **New transaction**. Enter the deployed contract address and ABI so you can select the method and parameters.
+
+![](/img/build/wallets/ks-succor-init-tx.gif)
+
+**Step 4:** Review and submit. Sign with an owner wallet; the transaction executes once the confirmation threshold is reached.
+
+![](/img/build/wallets/ks-succor-review-tx.gif)
+
+You can also batch contract calls with the [Transaction Builder](./tx-builder.md) or propose them programmatically with the [API Kit](./kaia-safe-api-kit.md).

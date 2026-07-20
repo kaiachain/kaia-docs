@@ -1,72 +1,55 @@
+---
+title: Use CSV Airdrop
+sidebar_label: CSV Airdrop
+---
+
 # Use CSV Airdrop
 
-This is a custom app in Kaia Safe that can be used to batch multiple transfers of ERC20, ERC721, ERC1155 and native tokens into a single transaction. It's as simple as uploading / copy & pasting a single CSV transfer file and hitting the submit button.
+:::caution Sunset notice
 
-This single method saves gas ⛽ and a substantial amount of time ⌚ by requiring less signatures and transactions.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
 
-Let’s get started with an example using CSV Airdrop!
+:::
 
-## Step 1: Login into your [KaiaSafe](https://safe.kaia.io/)  <a id="login-kaiasafe"></a>
+**CSV Airdrop** (when listed under Safe Apps) batches multiple transfers of ERC-20, ERC-721, ERC-1155, and native tokens into a single Safe transaction. You upload or paste a CSV of transfers and submit once—fewer signatures and lower gas than sending each transfer separately.
 
-If you haven't created a Safe account yet, please refer to our [Create a Safe Guide](./use-kaia-safe.md#create-a-safe) and [Add Asset Guide](./use-kaia-safe.md#add-assets) to set up your account and add assets (KAIA, FT, NFT).
+Safe App availability depends on the Safe Wallet Apps catalog for Kaia / Kairos. If CSV Airdrop is not listed for your network, use [Transaction Builder](./tx-builder.md) or check the [Help Center](https://help.safe.global).
 
-## Step 2: Click apps, search CSV and select CSV Airdrop  <a id="search-CSV-airdrop"></a>
+## Step 1: Open your Safe in Safe Wallet <a id="login-kaiasafe"></a>
 
-![](/img/build/tools/kaia-safe/search-csv-app.png)
+Sign in at [app.safe.global](https://app.safe.global) and select your Kaia or Kairos Safe. If you do not have an account yet, follow [Create a Safe](./use-kaia-safe.md#create-a-safe) and [Add assets](./use-kaia-safe.md#add-assets).
 
-## Step 3: Prepare a Transfer CSV file <a id="prepare-CSV-airdrop"></a>
+## Step 2: Open CSV Airdrop <a id="search-CSV-airdrop"></a>
 
-Transfer files are expected to be in CSV format with the following required columns:
+Go to **Apps**, search for **CSV**, and open **CSV Airdrop** if it is available for your network.
 
-* *token_type*: The type of token that is being transferred. One of erc20,nft or native. NFT Tokens can be either ERC721 or ERC1155.
-* *token_address*: Ethereum address of ERC20 token to be transferred. This has to be left blank for native (ETH) transfers.
-* *receiver*: Ethereum address of transfer receiver.
-* *amount*: the amount of token to be transferred. This can be left blank for erc721 transfers.
-* *id*: The id of the collectible token (erc721 or erc1155) to transfer. This can be left blank for native and erc20 transfers.
+## Step 3: Prepare a transfer CSV <a id="prepare-CSV-airdrop"></a>
+
+Transfer files are expected in CSV format with columns such as:
+
+* *token_type*: `erc20`, `nft`, or `native`. NFT tokens may be ERC-721 or ERC-1155.
+* *token_address*: Token contract address. Leave blank for native (KAIA) transfers.
+* *receiver*: Recipient address.
+* *amount*: Amount to transfer. Can be blank for ERC-721 transfers.
+* *id*: Collectible id (ERC-721 or ERC-1155). Can be blank for native and ERC-20 transfers.
 
 :::important
-The CSV file has to use "," as a separator and the header row always has to be provided as the first row and include the described column names.
-[Sample Transfer File](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
+Use `,` as the separator. The header row must be the first row and must include the described column names.
+[Sample transfer file](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
 :::
 
+### Native token transfers <a id="native-token-trnasfers"></a>
 
-### Native Token Transfers <a id="native-token-trnasfers"></a>
+Leave *token_address* blank for native transfers. Ensure the Safe holds enough KAIA.
 
-Since native tokens do not have a token address, you must leave the *token_address* column blank for native transfers.
+### ERC-20 transfers <a id="erc20-trnasfers"></a>
 
-![](/img/build/tools/kaia-safe/native-csv-app.png)
+Set *token_type* to `erc20` and fill the other fields. Ensure the Safe holds enough of that token.
 
-:::note
-Make sure you have enough native tokens in the kaia safe wallet address.
-:::
+### ERC-721 transfers <a id="erc721-transfers"></a>
 
-### ERC-20 Transfers <a id="erc20-trnasfers"></a>
+Set *token_type* for NFT transfers and include the collectible *id* as required by the app. Ensure the Safe owns those NFTs.
 
-Provide erc20 as *token_type* for erc20 transfers and other respective fields accordingly.
+## Step 4: Review and submit <a id="review-submit-transaction"></a>
 
-![](/img/build/tools/kaia-safe/erc20-csv-app.png)
-
-:::note
-Make sure you have enough erc20 tokens in the kaia safe wallet address.
-:::
-
-### ERC-721 Transfers <a id="erc721-transfers"></a>
-
-Provide erc721 as *token_type* for erc721 transfers and other respective fields accordingly.
-
-![](/img/build/tools/kaia-safe/erc721-csv-app.png)
-
-:::note
-Make sure you have enough erc721 tokens in the kaia safe wallet address.
-:::
-
-### Illustration <a id="illustration"></a>
-
-For this illustration, we have 2 native transfers, 2 ERC20 transfers and 1 ERC721 transfers
-
-![](/img/build/tools/kaia-safe/rs-csv-app.png)
-
-## Step 4: Review and submit transaction <a id="review-submit-transaction"></a>
-
-You'll be able to review and confirm the transaction. Once ready, click Submit to execute the transaction just like any other Safe transaction.
-
+Review the decoded transfers in the app, then submit. Complete Safe confirmations the same way as any other Safe transaction.
