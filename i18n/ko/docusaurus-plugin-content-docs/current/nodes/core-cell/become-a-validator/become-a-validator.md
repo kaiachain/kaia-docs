@@ -33,13 +33,13 @@
 
 온보딩 흐름은 다음 페이지에서 순서대로 설명합니다:
 
-1. [전제 조건](./prerequisites.md) - 검증자 관리자 지갑(Kaia Safe 권장)을 연결하고 필요한 계정을 준비합니다.
+1. [필수 조건](./prerequisites.md) — 검증자 관리자 지갑(Safe Wallet 권장)을 연결하고 필요한 계정을 준비하십시오.
 2. [검증인 온보딩](./onboarding.md) - 스테이킹 컨트랙트를 배포하고 초기화한 다음 온보딩 요청을 제출합니다.
 3. [스테이킹 컨트랙트 관리](./manage-staking.md) - 관리자 업데이트, KAIA 스테이킹/스테이킹 해제, 보상 주소 변경, 멀티서명 관리 등을 할 수 있습니다.
 4. [검증인 정보 관리](./manage-validator.md) - 관리자 계정 이전, 오프보딩 요청, 보조 스테이킹 계약 관리.
 
 ## 관련 리소스 <a id="related-resources"></a>
 
-- [카이아 세이프 사용 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [세이프 월렛 사용자 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)
 - [KIP-277: 셀프 검증자 등록](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: 재위임](https://kips.kaia.io/KIPs/kip-163)
