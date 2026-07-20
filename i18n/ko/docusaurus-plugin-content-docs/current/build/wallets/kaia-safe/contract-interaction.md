@@ -1,27 +1,41 @@
-# 컨트랙트와 상호작용하기
+---
+title: 계약서 관리하기
+sidebar_label: 계약 상호작용
+---
 
-이 섹션에서는 새로 생성한 다중서명 지갑을 사용하여 Kairos에 배포된 간단한 컨트랙트와 상호작용하고 트랜잭션을 전송할 것입니다.
+# 계약서 관리하기
 
-**사전 요구 사항**
+:::caution 일몰 공고
 
-- [메타마스크](https://metamask.io/download/) & [카이아 메타마스크 구성](../../tutorials/connecting-metamask.mdx#send-klay)
-- [Remix](https://remix.ethereum.org/) & [Kaia Remix 플러그인](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+`safe.kaia.io`는 **2026년 8월 9일**에 서비스가 종료될 예정입니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
 
-**1단계**: [Remix](https://remix.ethereum.org/)로 이동합니다.
+:::
 
-**2단계**: 샘플 **스토리지 컨트랙트**를 컴파일하고 배포합니다.
+이 섹션에서는 Safe Wallet에서 관리되는 Safe 계정을 사용하여 Kairos상의 간단한 계약과 상호작용하게 됩니다.
 
-멀티서명 지갑에서 컨트랙트와 상호작용하기 전에 먼저 컨트랙트를 배포해야 합니다. 이 샘플 컨트랙트에는 **store** 메서드를 호출하여 업데이트하고 **retrieve** 메서드를 호출하여 검색할 수 있는 간단한 정수형 "number" 변수가 포함되어 있습니다.
+**선행 조건**
 
-![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
+- [Kaia / Kairos](../../tutorials/connecting-metamask.mdx)에 맞게 설정된 [MetaMask](https://metamask.io/download/)
+- [리믹스](https://remix.ethereum.org/) (필요 시 Kaia 네트워크 지원 포함)
+- [Faucet](https://faucet.kaia.io)에서 KAIA를 테스트해 보세요.
+- Kairos의 Safe 계정 ([계정 만들기](./use-kaia-safe.md#create-a-safe))
 
-**3단계**: 새 트랜잭션을 시작합니다.
+**1단계:** [Remix](https://remix.ethereum.org/)를 엽니다.
 
-안전지갑에서 스마트 컨트랙트와 상호작용하려면 **New Transaction**을 클릭합니다. 이 단계를 완료하려면 이전 단계에서 설명한 대로 이미 배포한 컨트랙트 주소와 ABI가 필요합니다.
+**2단계:** 샘플 스토리지 계약서(또는 직접 작성한 계약서)를 컴파일하고 배포합니다.
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
+Safe에서 계약을 사용하기 전에 먼저 계약을 배포하십시오. 일반적인 샘플 계약에서는 `uint`를 노출하며, 이 값은 `store`를 통해 업데이트하고 `retrieve`를 통해 읽을 수 있습니다.
 
-**4단계**: 트랜잭션을 검토하고 제출합니다. 서명자 지갑으로 트랜잭션에 서명해야 하며, 확인 임계값에 도달하면 트랜잭션이 실행됩니다.
+![](/img/build/wallets/ks-succor-deploy.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
+**3단계:** Safe Wallet에서 새로운 거래를 시작합니다.
+
+**새 거래**를 클릭하세요. 메서드와 매개변수를 선택할 수 있도록 배포된 계약 주소와 ABI를 입력하세요.
+
+![](/img/build/wallets/ks-succor-init-tx.gif)
+
+**4단계:** 검토 후 제출. 소유자 지갑으로 서명하면, 확인 기준치에 도달하는 즉시 거래가 실행됩니다.
+
+![](/img/build/wallets/ks-succor-review-tx.gif)
+
+또한 [트랜잭션 빌더](./tx-builder.md)를 사용하여 계약 호출을 일괄 처리하거나, [API 키트](./kaia-safe-api-kit.md)를 통해 프로그래밍 방식으로 제안할 수도 있습니다.
