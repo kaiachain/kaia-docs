@@ -39,17 +39,15 @@
 
 **HTTPS**
 
-| 服务提供商                                   | 终点                                                                                          | 命名空间              | 类型 |
-| --------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------- | -- |
-| [凯亚基金会](https://www.kaia.io)            | `https://public-en.node.kaia.io`                                                            | kaia,klay,eth,net | 全部 |
-|                                         | `https://archive-en.node.kaia.io`                                                           | kaia,klay,eth,net | 档案 |
-| [QuickNode](https://quicknode.com/)     | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/`                                  | kaia,klay,eth,net | 全部 |
-| [BlockPI Network](https://blockpi.io/)  | `https://kaia.blockpi.network/v1/rpc/public`                                                | kaia,klay,eth,net | 全部 |
-| [OnFinality](https://onfinality.io/)    | `https://klaytn.api.onfinality.io/public`                                                   | kaia,klay,eth,net | 全部 |
-| [Pokt Network](https://pocket.network/) | `https://kaia-mainnet.rpc.grove.city/v1/803ceedf`                                           | kaia,klay,eth,net | 全部 |
-| [GetBlock](https://getblock.io/)        | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`                                   | kaia,klay,eth,net | 全部 |
-| [dRPC](https://drpc.org/)               | `https://klaytn.drpc.org`                                                                   | kaia,klay,eth,net | 全部 |
-| [Nirvana Labs](https://nirvanalabs.io/) | `https://kaia.nirvanalabs.xyz/kaiaennode-499hw?apikey=2b4f3ffc4668c6df22c8b09e8dab80ff5eb2` | kaia,klay,eth,net | 档案 |
+| 服务提供商                                  | 终点                                                         | 命名空间              | 类型 |
+| -------------------------------------- | ---------------------------------------------------------- | ----------------- | -- |
+| [凯亚基金会](https://www.kaia.io)           | `https://public-en.node.kaia.io`                           | kaia,klay,eth,net | 全部 |
+|                                        | `https://archive-en.node.kaia.io`                          | kaia,klay,eth,net | 档案 |
+| [QuickNode](https://quicknode.com/)    | `https://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | 全部 |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia.blockpi.network/v1/rpc/public`               | kaia,klay,eth,net | 全部 |
+| [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
+| [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
@@ -67,8 +65,8 @@
 
 | 服务提供商                                  | 终点                                                           | 命名空间              | 类型 |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------- | -- |
-| [Kaia基金会](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | 全部 |
-|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | 档案 |
+| [Kaia基金会](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | kaia、klay、eth、net | 完整 |
+|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia、klay、eth、net | 档案 |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 全部 |
 
@@ -77,7 +75,7 @@
 | 服务提供商                               | 终点                                                                                                                           | 命名空间              | 类型 |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
 | [Kaia基金会](https://www.kaia.io)      | wss://public-en-kairos.node.kaia.io/ws                       | kaia,klay,eth,net | 全部 |
-|                                     | `wss://archive-en-kairos.node.kaia.io/ws`.                                                                   | kaia,klay,eth,net | 档案 |
+|                                     | `wss://archive-en-kairos.node.kaia.io/ws`.                                                                   | kaia、klay、eth、net | 档案 |
 | [QuickNode](https://quicknode.com/) | wss://responsive-green-emerald.kaia-kairos.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 
 ## RPC 服务提供商
