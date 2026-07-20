@@ -1,106 +1,57 @@
-# Frequently Asked Questions
+---
+title: Các câu hỏi thường gặp
+sidebar_label: Câu hỏi thường gặp
+---
 
-## Can I add new owners after creating a safe? <a id="Can i add new owners after creating a safe"></a>
+# Các câu hỏi thường gặp
 
-Yes! After creating your safe account, Kaia Safe gives you access to manage safe owners, i.e., add, remove, and replace owners, or rename existing owners.
+:::caution Thông báo về hoàng hôn
 
-Note: To execute this change, you need to be connected with one of the current owners.
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
 
-The steps below explain how to add new owners or signers to your Safe account after its creation.
+:::
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Manage Safe Account signers** card under the **Setup** section.
+## Tôi có thể thêm chủ sở hữu mới sau khi đã tạo một Safe không? <a id="Can i add new owners after creating a safe"></a>
 
-**Step 2:** Click the **Add new signer** button at the bottom of the card. Clicking this button would open a new window.
+Đúng vậy. Trong Safe Wallet, hãy mở **Cài đặt** để quản lý chủ sở hữu Safe: thêm, xóa, thay thế hoặc đổi tên chủ sở hữu. Bạn phải đăng nhập với tư cách là chủ sở hữu hiện tại, và các thay đổi phải đáp ứng ngưỡng xác nhận thông thường.
 
-![](/img/build/tools/kaia-safe/ks-add-signers.png)
+Quy trình điển hình:
 
-**Step 3:** Enter the **name** of the new owner and paste the **owner's address**. Then click the next button at the bottom-right of the page.
+1. Mở **Cài đặt** → Quản lý chủ sở hữu/người ký.
+2. Thêm chủ sở hữu mới (tên + địa chỉ).
+3. Hãy điều chỉnh chính sách chữ ký nếu cần thiết.
+4. Xem lại và gửi; các chủ sở hữu khác sẽ xác nhận như bất kỳ giao dịch an toàn nào khác.
 
-**Step 4:** Set a new signature policy. In this case, you can either change or retain the existing signature policy. The image below shows that 2 out of the 4 owners are required to confirm and execute any transaction.
+Các nhãn trên giao diện người dùng có thể thay đổi một chút khi Safe Wallet tiếp tục được phát triển — vui lòng tham khảo [Trung tâm Trợ giúp](https://help.safe.global) để xem các ảnh chụp màn hình mới nhất.
 
-![](/img/build/tools/kaia-safe/ks-add-signer-details.png)
+## Tôi có thể thay đổi số lượng xác nhận bắt buộc không? <a id="Can i change the number of required signer confirmation"></a>
 
-**Step 5:** Review and submit the transaction.
+Đúng vậy. Trong phần **Cài đặt**, hãy điều chỉnh ngưỡng xác nhận cần thiết, sau đó gửi yêu cầu và thu thập chữ ký của chủ sở hữu theo chính sách _hiện hành_.
 
-Confirm that all changes are correct before submitting. You can therefore submit the change by clicking on the **submit** button.
+## Làm thế nào để thêm một két sắt đã có sẵn? <a id="How do i add an existing safe"></a>
 
-After clicking on **Submit**, your connected wallet will ask you to confirm the change. Depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
+Bạn có thể mở một Safe hiện có tại [app.safe.global](https://app.safe.global) bằng cách kết nối ví của chủ sở hữu hoặc thêm địa chỉ Safe. Các trường hợp sử dụng bao gồm:
 
-![](/img/build/tools/kaia-safe/kaia-safe-change-owner-setup-review.gif)
+- Truy cập cùng một Safe từ một trình duyệt hoặc thiết bị khác
+- Tương tác với một két sắt mà người khác đã chỉ định bạn làm chủ sở hữu
+- Xem két sắt ở chế độ chỉ đọc
 
-## Can I change the number of required signer confirmation? <a id="Can i change the number of required signer confirmation"></a>
+Safe Wallet cũng hỗ trợ nhập/xuất danh bạ và các dữ liệu liên quan khi tính năng này có sẵn trong **Cài đặt**. Nên thêm kết nối Safe theo địa chỉ hoặc chủ sở hữu trên Safe Wallet thay vì dựa vào giao diện người dùng `safe.kaia.io` sắp ngừng hoạt động.
 
-Yes! You can change the number of signer confirmations required by following the steps to be shown below. This is important because you might want to change the owners or signers required to confirm transactions associated with your safe account.
+## Các mẹo thiết lập an toàn phổ biến
 
-**Step 1:** Go to **Settings** in the sidebar menu, you ll see the **Required Confirmation** card under the **Setup** section.
+Không có một cấu hình nào là tốt nhất cả — điều này còn tùy thuộc vào mục đích sử dụng của bạn. Các thiết lập mặc định hữu ích:
 
-This shows your current signature policy, and from the image below, 2 out of 4 owners are required to confirm any transaction.
+**Có bao nhiêu người quản lý?**  
+Đối với các đội, hãy sử dụng nhiều người quản lý để có thể có nhiều hơn một người phê duyệt. Những người quản lý số dư lớn thường sử dụng nhiều thiết bị/tài khoản riêng để đảm bảo tính dự phòng.
 
-![](/img/build/tools/kaia-safe/ks-conf-policy.png)
+**Ngưỡng nào?**  
+Hãy đặt ngưỡng lớn hơn 1 để một khóa bị xâm phạm không thể tự mình chuyển tiền. Mức ngưỡng khoảng 51% số chủ sở hữu (ví dụ: 2 trong 3, 3 trong 5) sẽ hỗ trợ quá trình phục hồi: các chủ sở hữu còn lại vẫn có thể thay thế một chủ sở hữu đã mất.
 
-**Step 2:** Click on the **change** button.
+**Những loại ví nào tương thích?**  
+Safe Wallet trên Kaia tương thích với các ví EOA phổ biến như [Kaia Wallet](https://docs.kaiawallet.io/) và [MetaMask](../../tutorials/connecting-metamask.mdx). Hãy kiểm tra quy trình kết nối của Safe Wallet để xem danh sách ví hiện tại.
 
-This pops up a new window to select your new signature threshold.
+## Thêm trợ giúp
 
-![](/img/build/tools/kaia-safe/ks-conf-policy-btn.png)
-
-**Step 3:** Click on the **Submit** button.
-
-Note that depending on your existing signature policy, other owners will have to confirm the change just like a regular transaction.
-
-## How do I add an existing safe? <a id="How do i add an existing safe"></a>
-
-Using your exported Safe data, which contains your added Safe accounts, address book, and settings, you can easily add your Safe account.
-
-> Note: You must have downloaded your Safe data as shown in the image below:
-
-![](/img/build/tools/kaia-safe/ks-export-btn.png)
-
-The need to add or load an existing safe into the interface varies. These may include:
-
-- You want to access your Safe from a different browser.
-- You want to interact with Safe where another party made you an owner.
-- You want to add any existing safe in read-only mode.
-
-Let's go through the process of adding your existing safe in the following steps. Note: Please ensure that your signer's wallet is connected.
-
-**Step 1:** Navigate to **Settings** tab.
-
-**Step 2:** Scroll to the **Data Import** card under the **Data** section.
-
-![](/img/build/tools/kaia-safe/ks-data-import-i.png)
-
-Here you can either Drag and Drop a JSON file or choose your file as seen in the image above.
-
-**Step 3:** Click on **Import** button.
-
-![](/img/build/tools/kaia-safe/ks-data-import-btn.png)
-
-![](/img/build/tools/kaia-safe/kaia-safe-data-import.gif)
-
-After this, you should now have access to your Safe account.
-
-## Common safe Set-up
-
-This tends to provide some pointers regarding decisions to take when setting up a Safe. These may include:
-
-- How many owners?
-
-- What threshold?
-
-- What wallets are compatible?
-
-There is no one best response to these three questions, therefore there is no one optimum Safe configuration. Really, it all depends on the particular use case. Nevertheless, we make an effort to offer some suggestions for things to take into account:
-
-**How many owners?**
-
-Typically, having many owner accounts is a smart option. It is good practice for several people to have access to the safe account when groups are managing funds. It is advised for individuals who manage money to have multiple accounts so they can use more than one authentication factor.
-
-**What threshold?**
-
-A Safe's threshold is the minimum number of owner accounts that must approve a transaction before it can be successfully executed. It is advisable to use a threshold greater than 1, ensuring that at least one additional account is always needed to validate and carry out Safe transactions, rather than allowing a single account to carry out transactions. As a result, money cannot be moved even if an attacker gains access to one account.
-
-Additionally, it is recommended to choose a threshold of 51% of the total owners, e.g., 2 out of 3, 3 out of 5, etc.  Because of this, even if one owner loses access to their account, users are not immediately locked out of all of their money in the Safe; instead, the other owners can still perform transactions and, for example, replace that lost owner account. One can contend that this serves as a recovery mechanism.
-
-**Các ví nào tương thích?**
-Hiện tại, Kaia Safe tương thích với [Kaia Wallet](https://docs.kaiawallet.io/), [MetaMask](../../tutorials/connecting-metamask.mdx).
+- [Trung tâm trợ giúp Safe Wallet](https://help.safe.global)
+- [Tài liệu hướng dẫn an toàn](https://docs.safe.global)
