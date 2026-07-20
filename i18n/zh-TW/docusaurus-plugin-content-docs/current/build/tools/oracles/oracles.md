@@ -6,8 +6,9 @@
 
 以下提供商已與 Kaia 集成，以提供分散式 Oracle 服務：
 
-- [Pyth Network](https://docs.pyth.network/home)
-- [Orakl Network](https://docs.orakl.network)
-- [Witnet](https://docs.witnet.io/)
-- [SupraOracles](https://supraoracles.com/docs/overview)
+- [Pyth Network](./pyth-network.md)
+- [Orakl Network](./orakl-network.md)
+- [RedStone](./redstone.md)
+- [Witnet](./witnet.md)
+- [SupraOracles](./supraoracles.md)
 - [KlayOracle](https://klayoracle.gitbook.io/v1.0.0/)
