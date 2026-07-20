@@ -1,46 +1,49 @@
 ---
 id: kaia-safe-api-kit
-title: Kaia Safe API-Kit
+title: 안전 API 키트
+sidebar_label: API 키트
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Kaia Safe API Kit
+# 안전 API 키트
 
-API-Kit is your go-to kit for securely interacting with the [Safe Transaction API](https://github.com/safe-global/safe-transaction-service). The core of this kit is to allow valid signers to propose and share transactions with the other signers of a Safe, send the signatures to the service to collect them, and get information about a Safe (like reading the transaction history, pending transactions, enabled Modules and Guards, etc.), among other features.
+:::caution 일몰 공고
+
+`safe.kaia.io`는 **2026년 8월 9일**에 서비스가 종료될 예정입니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
+
+:::
+
+API 키트를 사용하면 [안전 거래 서비스](https://docs.safe.global/core-api/transaction-service-overview)와 안전하게 연동할 수 있습니다. 유효한 서명자는 거래를 제안 및 공유하고, 오프체인에서 서명을 수집하며, Safe 정보(이력, 보류 중인 거래, 모듈, 가드 등)를 조회할 수 있습니다.
+
+Kaia 체인 ID: **8217** (메인넷), **1001** (Kairos). `safe.kaia.io`가 단계적으로 중단됨에 따라, 지원되는 체인의 경우 Safe Global Transaction Service 구성을 우선적으로 사용하시기 바랍니다. 여전히 사용자 정의 `txServiceUrl`이 필요한 경우, 마이그레이션 후에도 사용 중인 엔드포인트가 계속 사용 가능한지 확인하십시오.
 
 ## Quickstart <a id="Quickstart"></a>
 
-By the end of this guide, you will be able to propose transactions to the service and obtain the owners' signatures for execution.
+이 가이드를 마치면, 서비스에 거래를 제안하고 실행을 위해 소유자의 서명을 받을 수 있게 됩니다.
 
 ## Prerequisites <a id="Prerequisites"></a>
 
 1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-2. A Safe with several signers
+2. Kairos(또는 메인넷)에서 여러 명의 서명자가 있는 금고
 
 ## Set up environment <a id="Setup-environment"></a>
 
-### Step 1: Create a project directory.
-
-Copy and paste this command in your terminal to create the project folder.
+### 1단계: 프로젝트 디렉터리를 생성합니다.
 
 ```js
 mkdir kaiasafe-api-kit
 cd kaiasafe-api-kit
 ```
 
-### Step 2: Initialize an npm project.
-
-Copy and paste this command in your terminal to create a `package.json` file.
+### 2단계: npm 프로젝트 초기화하기
 
 ```js
 npm init -y
 ```
 
-### Step 3: Install dependencies.
-
-Using API-Kit is as simple as running the installation command below:
+### 3단계: 종속성 설치
 
 <Tabs>
   <TabItem value="npm" label="npm">
@@ -56,11 +59,9 @@ Using API-Kit is as simple as running the installation command below:
  </TabItem>
 </Tabs>
 
-### Step 4: Import dependencies.
+### 4단계: 종속성 가져오기
 
-Create a file named  `app.js`. This is where all our code snippets for this interaction would live.
-
-Copy and paste these necessary imports at the top of the `app.js` file.
+`app.js` 파일을 생성하고 다음 내용을 추가하세요:
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -70,11 +71,9 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 ```
 
-### Step 5: Configure Setup
+### 5단계: 설정 구성
 
-To efficiently illustrate how API-Kit works, we will use a Safe account setup with two or more signers, and threshold two, so we have multiple signatures that need to be collected when executing a transaction.
-
-Copy and paste the following under the import statements in your `app.js` file:
+소유자가 최소 두 명이고, 서명 임계값을 2로 설정하여 여러 명의 서명이 필요하도록 금고를 사용하십시오.
 
 ```js
 // https://chainlist.org/?search=kaia&testnets=true
@@ -90,23 +89,20 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction wh
 
 ### Step 1: Initialize API Kit
 
-To initialize API Kit, we need to create an instance of the API Kit.
-
-> In chains where the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) is supported, it's enough to specify the chainId property.
+[안전한 거래 서비스](https://docs.safe.global/core-api/transaction-service-overview)가 지원되는 체인의 경우, `chainId`를 지정하는 것만으로도 충분한 경우가 많습니다. 전용 엔드포인트를 사용할 때도 사용자 정의 `txServiceUrl`을 전달할 수 있습니다(Kaia UI 서비스가 종료된 후에도 해당 URL이 유효한지 확인하십시오).
 
 ```js
 const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
+  chainId: 1001n, // Kairos; Kaia 메인넷의 경우 8217n을 사용하세요
+  // 필요한 경우 사용자 지정 URL — safe.kaia.io 서비스가 종료된 후에도 유효한지 확인하세요
+  // Kaia가 상장되면 Safe 글로벌 트랜잭션 서비스 설정을 우선적으로 사용:
+  // https://docs.safe.global/core-api/transaction-service-overview
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 
 ```
 
-As you can see above, we included custom service using the optional **txServiceUrl** property.
-
 ### Step 2: Initialize Protocol Kit
-
-To handle transactions and signatures, we need to create an instance of the Protocol Kit (a kit that enables developers to interact with  [Safe Smart Accounts](https://github.com/safe-global/safe-smart-account) using a TypeScript interface) with the provider, signer and safeAddress.
 
 ```js
 const protocolKitOwner1 = await Safe.default.init({
@@ -116,9 +112,7 @@ const protocolKitOwner1 = await Safe.default.init({
 })
 ```
 
-### Step 3: Propose a transaction to the service
-
-One of the core features of API Kit is to enable valid signers to share transactions with other signers. But before this is done,  any of the Safe signers needs to initiate the process by creating a proposal of a transaction. This transaction is then sent  to the service to make it accessible by the other owners so they can give their approval and sign the transaction as well.
+### 3단계: 서비스에 트랜잭션을 제안합니다.
 
 ```js
 const safeTransactionData = {
@@ -148,8 +142,6 @@ try {
 
 ### Step 4: Retrieve pending transaction
 
-API Kit provides us  different methods to retrieve pending transactions depending on the situation. For this guide, we will retrieve a transaction given the Safe transaction hash and other available methods commented out below:
-
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getPendingTransactions()
@@ -161,7 +153,7 @@ const transaction = await apiKit.getTransaction(safeTxHash)
 
 ## Step 5: Confirm the transaction
 
-The next thing to do is to sign the transaction with the Protocol Kit and submit the signature to the Safe Transaction Service using the [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction) method.
+Protocol Kit로 서명하고 [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction)을 통해 서명을 제출하세요.
 
 ```js
 const protocolKitOwner2 = await Safe.default.init({
@@ -170,7 +162,6 @@ const protocolKitOwner2 = await Safe.default.init({
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Confirm the Safe transaction
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -179,19 +170,17 @@ const signatureResponse = await apiKit.confirmTransaction(
 
 ### Step 6: Execute the transaction
 
-The Safe transaction is now ready to be executed. This can be done using the [Safe Wallet Web](https://app.safe.global/) interface, the [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), the Safe CLI or any other tool that's available.
-
-For this last step, we executed the safe transaction using Protocol Kit.
+[Safe Wallet](https://app.safe.global/), [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), Safe CLI 또는 기타 호환 가능한 도구를 통해 실행하십시오.
 
 ```js
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
-console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${hash}`)
+console.log('트랜잭션 실행됨:');
+console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
-At the end, the full code in `app.js` should look like this:
+`app.js`의 전체 예제:
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -201,13 +190,14 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 // https://chainlist.org/?search=kaia&testnets=true
 const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>"; // 2 Owner Safe Address Ex: 0x123.... 안전해야 
-const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // 소유자 1과 안전 주소만 테스트 KAIA 잔액 필요
+const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 소유자 안전 주소 예: 0x123.... 안전 주소는 
+const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // 소유자 1과 안전 주소에만 테스트용 KAIA 잔액이 있어야 함
 const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2는 테스트 KAIA가 필요 없음
-const TO_ADDRESS = OWNER_1_ADDRESS; // 1 위를 받는 샘플 트랜잭션의 수신자 주소
+const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // 소유자 2는 테스트용 KAIA를 보유할 필요가 없습니다
+const TO_ADDRESS = OWNER_1_ADDRESS; // 1 wei를 수신하는 샘플 트랜잭션의 수신자 주소
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
+  // safe.kaia.io 서비스 종료 후 엔드포인트 확인; Safe Global TX 서비스 문서 참조
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
@@ -227,7 +217,7 @@ const safeTransaction = await protocolKitOwner1.createTransaction({
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2. 서비스에 트랜잭션을 제안합니다
+// 2. 서비스에 트랜잭션 제안
 try {
   await apiKit.proposeTransaction({
     safeAddress: SAFE_ADDRESS,
@@ -239,21 +229,15 @@ try {
 } catch(err) {
   console.log(err)
 }
-console.log("트랜잭션 해시는 "+safeTxHash")
+console.log("트랜잭션 해시는 "+safeTxHash)
 const transaction = await apiKit.getTransaction(safeTxHash)
-// const transactions = await service.getPendingTransactions()
-// const transactions = await service.getIncomingTransactions()
-// const transactions = await service.getMultisigTransactions()
-// const transactions = await service.getModuleTransactions()
-// const transactions = await service.getAllTransactions()
-// 3. Owner 2의 확인
+// 3. 소유자 2의 확인
 const protocolKitOwner2 = await Safe.default.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// 안전한 트랜잭션 확인
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -267,4 +251,4 @@ console.log('Transaction executed:');
 console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
-Visit the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for more information, and navigate to [Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) to access the full source code for this guide.
+자세한 내용은 [API 키트 참조](https://docs.safe.global/sdk/api-kit/reference)와 [예제 코드 조각](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets)을 참조하십시오.
