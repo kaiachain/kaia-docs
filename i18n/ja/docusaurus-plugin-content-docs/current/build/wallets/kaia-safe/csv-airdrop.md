@@ -1,72 +1,55 @@
+---
+title: CSVエアドロップを使用する
+sidebar_label: CSVエアドロップ
+---
+
 # CSVエアドロップを使用する
 
-これはKaia Safeのカスタムアプリで、ERC20、ERC721、ERC1155、ネイティブトークンの複数の送金を一括して1つのトランザクションにすることができます。 CSV転送ファイルを1つアップロード／コピー＆ペーストし、送信ボタンを押すだけという簡単さです。 CSV転送ファイルを1つアップロード／コピー＆ペーストし、送信ボタンを押すだけという簡単さです。
+:::caution 日没に関するお知らせ
 
-この方法一つで、署名やトランザクションが少なくて済むため、ガス⛽と相当な時間⌚を節約できる。
+`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
 
-それでは、CSV Airdropを使った例を見てみよう！
+:::
 
-## ステップ1: [カイアセーフ](https://safe.kaia.io/)にログインします。 <a id="login-kaiasafe"></a>
+**CSVエアドロップ**（「Safe Apps」に掲載されている場合）は、ERC-20、ERC-721、ERC-1155、およびネイティブトークンの複数の送金を、1つのSafeトランザクションにまとめて処理します。 送金情報をCSVファイルとしてアップロードまたは貼り付け、一度送信するだけで済みます。個別に送金するよりも、署名の回数が減り、ガス代も安くなります。
 
-セーフのアカウントをまだ作成していない場合は、[セーフの作成ガイド](./use-kaia-safe.md#create-a-safe)および[資産の追加ガイド](./use-kaia-safe.md#add-assets)を参照して、アカウントを設定し、資産 (KAIA、FT、NFT) を追加してください。
+Safeアプリの提供状況は、Kaia／Kairos向けのSafe Wallet Appsカタログによって異なります。 ご利用のネットワークに「CSV Airdrop」が表示されていない場合は、[トランザクションビルダー](./tx-builder.md)をご利用いただくか、[ヘルプセンター](https://help.safe.global)をご確認ください。
 
-## ステップ2：アプリをクリックし、CSVを検索し、CSV Airdropを選択します。 <a id="search-CSV-airdrop"></a>
+## ステップ 1：Safe Wallet で「Safe」を開く<a id="login-kaiasafe"></a>
 
-![](/img/build/tools/kaia-safe/search-csv-app.png)
+[app.safe.global](https://app.safe.global) にログインし、お使いの Kaia または Kairos Safe を選択してください。 まだアカウントをお持ちでない場合は、[セーフの作成](./use-kaia-safe.md#create-a-safe) および [資産の追加](./use-kaia-safe.md#add-assets) の手順に従ってください。
+
+## ステップ 2: CSV Airdrop を開く<a id="search-CSV-airdrop"></a>
+
+\*\*「アプリ」**に移動し、**「CSV」**を検索して、お使いのネットワークで利用可能な場合は**「CSV Airdrop」\*\*を開いてください。
 
 ## ステップ3：転送用CSVファイルの準備<a id="prepare-CSV-airdrop"></a>
 
-転送ファイルは、以下の必須カラムを含むCSV形式であることが期待される：
+転送ファイルはCSV形式で、以下のような列を含むことが求められます：
 
-- _token_type_：転送されるトークンのタイプ。 erc20、nft、ネイティブのいずれか。 NFT トークンは ERC721 または ERC1155 のいずれかとなります。
-- _token_address_：転送する ERC20 トークンのイーサリアムアドレス。 ネイティブ(ETH)送金の場合、これは空白のままにしておかなければならない。 ネイティブ(ETH)送金の場合、これは空白のままにしておかなければならない。
-- _receiver_：送金先のイーサリアムアドレス。
-- _amount_：転送するトークンの量。 erk721転送の場合は空白のままでよい。
-- _id_：転送する収集可能トークン (erc721 または erc1155) の ID。 ネイティブおよびerk20の移籍では空白のままでよい。
+- _token_type_: `erc20`、`nft`、または `native`。 NFTトークンは、ERC-721またはERC-1155のいずれかです。
+- _token_address_: トークン契約のアドレス。 ネイティブ（KAIA）転送の場合は、空欄のままにしてください。
+- _受信者_：受信先のアドレス。
+- _金額_：送金する金額。 ERC-721の転送では、空欄にしても構いません。
+- _id_: コレクタブルID（ERC-721 または ERC-1155）。 ネイティブおよびERC-20の送金については、空欄でも構いません。
 
 :::important
-CSVファイルは、", "をセパレーターとして使用し、ヘッダー行は常に最初の行として提供され、記述されたカラム名を含まなければならない。
-[サンプル転送ファイル](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
-[サンプル転送ファイル](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
+区切り文字として `,` を使用してください。 ヘッダー行は最初の行でなければならず、記載された列名を含んでいる必要があります。
+[転送ファイルのサンプル](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
 :::
 
-### ネイティブ・トークン・トランスファー<a id="native-token-trnasfers"></a>
+### ネイティブトークンの送金<a id="native-token-trnasfers"></a>
 
-ネイティブ・トークンはトークン・アドレスを持たないため、ネイティブ転送では _token_address_ 列を空白にする必要があります。
+ネイティブ転送の場合は、_token_address_ を空欄のままにしてください。 セーフに十分な量のKAIAが入っていることを確認してください。
 
-![](/img/build/tools/kaia-safe/native-csv-app.png)
+### ERC-20の送金<a id="erc20-trnasfers"></a>
 
-:::note
-kaiaセーフウォレットのアドレスに十分なネイティブトークンがあることを確認してください。
-:::
+_token_type_ を `erc20` に設定し、その他の項目を入力してください。 セーフにそのトークンが十分に保管されていることを確認してください。
 
-### ERC-20 移籍<a id="erc20-trnasfers"></a>
+### ERC-721の転送<a id="erc721-transfers"></a>
 
-erc20 の転送には _token_type_ として erc20 を指定し、その他のフィールドもそれに合わせて指定する。
+NFTの転送を行う際は、_token_type_ を設定し、アプリの要件に従ってコレクティブルの _id_ を指定してください。 「The Safe」がそれらのNFTを所有していることを確認してください。
 
-![](/img/build/tools/kaia-safe/erc20-csv-app.png)
+## ステップ4：確認して送信する<a id="review-submit-transaction"></a>
 
-:::note
-kaia セーフウォレットのアドレスに十分な erc20 トークンがあることを確認してください。
-:::
-
-### ERC-721 移籍<a id="erc721-transfers"></a>
-
-erc721 転送のために _token_type_ として erc721 を提供し、それに応じて他の各フィールドも提供する。
-
-![](/img/build/tools/kaia-safe/erc721-csv-app.png)
-
-:::note
-kaia セーフウォレットのアドレスに十分な erc721 トークンがあることを確認してください。
-:::
-
-### 例<a id="illustration"></a>
-
-この例では、2つのネイティブ転送、2つのERC20転送、1つのERC721転送がある。
-
-![](/img/build/tools/kaia-safe/rs-csv-app.png)
-
-## ステップ 4: 取引の確認と提出<a id="review-submit-transaction"></a>
-
-取引内容を確認することができます。 取引内容を確認することができます。 準備ができたら、Submit をクリックして、他の Safe トランザクションと同様にトランザクションを実行します。
-
+アプリ内でデコードされた転送内容を確認してから、送信してください。 他の「Safe」取引と同様に、「Safe」の確認を完了してください。
