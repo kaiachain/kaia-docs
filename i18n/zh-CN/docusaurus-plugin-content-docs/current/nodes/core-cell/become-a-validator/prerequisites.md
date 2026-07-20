@@ -2,11 +2,17 @@
 
 在启用验证程序之前，您必须注册一个拥有全面管理权限的**验证程序管理器**账户。 由于该账户可以修改与验证器相关的大部分关键信息，我们**强烈建议**使用多重签名钱包或具有同等安全保障的钱包作为验证器管理器。
 
-一般来说，我们建议使用通过 [Kaia Safe](http://safe.kaia.io) 创建的多重签名钱包作为验证器管理器。 本指南的其余部分假设您使用的是 Kaia Safe。
+通常，我们建议使用通过 [Safe Wallet](https://app.safe.global)（来自 [Safe](https://safe.global) / Safe Global）创建的多签名钱包作为验证器管理器。 本指南的其余部分假设您正在 Kaia 上使用 Safe Wallet。
+
+:::caution 日落通知
+
+`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 版 Safe Wallet 来管理您的账户。 您现有的“安全账户”将自动与“安全钱包”兼容。
+
+:::
 
 ## 连接安全钱包<a id="connecting-a-safe-wallet"></a>
 
-首先，按照 [Kaia Safe 用户指南](../../../build/wallets/kaia-safe/kaia-safe.md) 创建 Safe 帐户。 然后将验证器管理门户注册为安全自定义应用程序。
+首先，请按照[Safe Wallet 用户指南](../../../build/wallets/kaia-safe/kaia-safe.md) 创建一个 Safe 账户。 然后将验证器管理门户注册为安全自定义应用程序。
 
 ![添加自定义安全应用程序](/img/nodes/become-a-validator/image02.png)
 
