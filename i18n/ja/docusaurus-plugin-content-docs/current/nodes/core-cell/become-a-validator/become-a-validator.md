@@ -33,13 +33,13 @@
 
 オンボーディングの流れは、以下のページで順に説明する：
 
-1. [前提条件](./prerequisites.md) - Validator Manager ウォレット（Kaia Safe を推奨）を接続し、必要なアカウントを準備する。
+1. [前提条件](./prerequisites.md) — バリデータマネージャーウォレット（Safe Wallet を推奨）を接続し、必要なアカウントを準備してください。
 2. [Validator Onboarding](./onboarding.md) - ステーキング契約をデプロイして初期化し、オンボーディングリクエストを送信します。
 3. [ステーキング契約の管理](./manage-staking.md) - 管理者の更新、KAIAのステーキング/アンステーキング、報酬アドレスの変更、マルチシグの管理など。
 4. [検証者情報の管理](./manage-validator.md) - マネージャーアカウントの譲渡、オフボーディングのリクエスト、補助ステーキング契約の管理。
 
 ## 関連リソース<a id="related-resources"></a>
 
-- [カイアセーフユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Safe Wallet ユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)
 - [KIP-277: セルフバリデーター登録](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: 再委任](https://kips.kaia.io/KIPs/kip-163)
