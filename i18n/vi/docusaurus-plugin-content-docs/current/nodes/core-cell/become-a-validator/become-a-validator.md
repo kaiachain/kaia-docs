@@ -33,13 +33,13 @@ Tất cả các tính năng nêu trên cũng được hỗ trợ trên mạng th
 
 Quy trình hướng dẫn sử dụng sẽ được trình bày trong các trang sau, theo thứ tự như sau:
 
-1. [Điều kiện tiên quyết](./prerequisites.md) — kết nối ví quản lý trình xác thực (khuyến nghị sử dụng Kaia Safe) và chuẩn bị các tài khoản cần thiết.
+1. [Các điều kiện tiên quyết](./prerequisites.md) — kết nối ví quản lý trình xác thực (khuyên dùng Safe Wallet) và chuẩn bị các tài khoản cần thiết.
 2. [Hướng dẫn tham gia cho người xác thực](./onboarding.md) — triển khai và khởi tạo hợp đồng staking của bạn, sau đó gửi yêu cầu tham gia.
 3. [Quản lý hợp đồng staking](./manage-staking.md) — cập nhật thông tin quản trị viên, đặt cược/rút cược KAIA, thay đổi địa chỉ nhận phần thưởng, quản lý đa chữ ký và nhiều tính năng khác.
 4. [Quản lý thông tin người xác thực](./manage-validator.md) — chuyển nhượng tài khoản quản lý, yêu cầu ngừng tham gia và quản lý các hợp đồng đặt cược phụ.
 
 ## Tài nguyên liên quan <a id="related-resources"></a>
 
-- [Hướng dẫn sử dụng Kaia Safe](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/kaia-safe/kaia-safe.md)
 - [KIP-277: Đăng ký trình xác thực tự động](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: Chuyển giao lại](https://kips.kaia.io/KIPs/kip-163)
