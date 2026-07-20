@@ -7,7 +7,9 @@ sidebar_label: Safe Wallet
 
 :::caution Sunset notice
 
-`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe accounts will be automatically compatible with Safe Wallet.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward.
+
+Already using Kaia Safe? See **[Migrate to Safe Global](./migrate-to-safe-global.md)** — your existing Safe accounts are unaffected and available on Safe Wallet.
 
 :::
 
@@ -47,9 +49,9 @@ Main benefits of multisig wallets:
 * **Transactions and confirmations:** Propose, collect signatures, and execute transactions according to your threshold.
 * **Account recovery:** If a key is lost, remaining owners who meet the threshold can still manage the account (for example by replacing a lost owner).
 
-Existing accounts created on the former Kaia-hosted Safe UI remain compatible with Safe Wallet at [app.safe.global](https://app.safe.global).
-
 ## Next steps
 
-* [Use Safe Wallet on Kaia](./use-kaia-safe.md) — create a Safe, add assets, and send transactions
-* [Overview](./overview.md) — networks, migration notes, and Safe Global resources
+* [Migrate to Safe Global](./migrate-to-safe-global.md) — switch from `safe.kaia.io` (existing accounts stay the same)
+* [Use Safe Wallet on Kaia](./use-safe-wallet.md) — create a Safe, add assets, and send transactions
+* [Overview](./overview.md) — networks and Safe Global resources
+* [FAQs](./faqs.md) — migration and account management questions

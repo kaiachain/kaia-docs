@@ -58,6 +58,30 @@ const redirects = [
   { from: ['/build/get-started/account', '/build/get-started/account/creating-accounts', '/build/get-started/account/managing-accounts'], to: '/nodes/endpoint-node/ken-cli-commands' },
   { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
   { from: '/learn/storage/state-pruning', to: '/learn/storage/storage-optimization' },
+  // Safe Wallet rename (kaia-safe → safe-wallet) — renamed page slugs
+  {
+    from: [
+      '/build/wallets/kaia-safe',
+      '/build/wallets/kaia-safe/kaia-safe',
+      '/build/tools/wallets/kaia-safe',
+      '/build/tools/wallets/kaia-safe/kaia-safe',
+    ],
+    to: '/build/wallets/safe-wallet/safe-wallet',
+  },
+  {
+    from: [
+      '/build/wallets/kaia-safe/use-kaia-safe',
+      '/build/tools/wallets/kaia-safe/use-kaia-safe',
+    ],
+    to: '/build/wallets/safe-wallet/use-safe-wallet',
+  },
+  {
+    from: [
+      '/build/wallets/kaia-safe/kaia-safe-api-kit',
+      '/build/tools/wallets/kaia-safe/kaia-safe-api-kit',
+    ],
+    to: '/build/wallets/safe-wallet/safe-wallet-api-kit',
+  },
 ];
 
 // Folder-wide mappings (oldBase -> newBase)
@@ -66,7 +90,8 @@ const folderRedirects = [
   ['/build/smart-contracts/verify', '/build/smart-contracts/deployment-and-verification/verify'],
   ['/build/smart-contracts/samples', '/build/smart-contracts/token-development/samples'],
   ['/build/tools/wallets/hardware-wallets', '/build/wallets/hardware-wallets'],
-  ['/build/tools/wallets/kaia-safe', '/build/wallets/kaia-safe'],
+  ['/build/tools/wallets/kaia-safe', '/build/wallets/safe-wallet'],
+  ['/build/wallets/kaia-safe', '/build/wallets/safe-wallet'],
   ['/build/tools/wallets/wallet-libraries', '/build/wallets/wallet-libraries'],
 ];
 

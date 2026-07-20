@@ -40,6 +40,6 @@ The onboarding flow is covered in the following pages, in order:
 
 ## Related Resources <a id="related-resources"></a>
 
-- [Safe Wallet User Guide](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Safe Wallet User Guide](../../../build/wallets/safe-wallet/safe-wallet.md)
 - [KIP-277: Self Validator Registration](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: Redelegation](https://kips.kaia.io/KIPs/kip-163)

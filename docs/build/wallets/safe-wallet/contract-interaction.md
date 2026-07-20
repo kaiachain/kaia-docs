@@ -18,7 +18,7 @@ In this section you interact with a simple contract on Kairos using a Safe accou
 * [MetaMask](https://metamask.io/download/) configured for [Kaia / Kairos](../../tutorials/connecting-metamask.mdx)
 * [Remix](https://remix.ethereum.org/) (with Kaia network support as needed)
 * Test KAIA from the [Faucet](https://faucet.kaia.io)
-* A Safe account on Kairos ([create one](./use-kaia-safe.md#create-a-safe))
+* A Safe account on Kairos ([create one](./use-safe-wallet.md#create-a-safe))
 
 **Step 1:** Open [Remix](https://remix.ethereum.org/).
 
@@ -38,4 +38,4 @@ Click **New transaction**. Enter the deployed contract address and ABI so you ca
 
 ![](/img/build/wallets/ks-succor-review-tx.gif)
 
-You can also batch contract calls with the [Transaction Builder](./tx-builder.md) or propose them programmatically with the [API Kit](./kaia-safe-api-kit.md).
+You can also batch contract calls with the [Transaction Builder](./tx-builder.md) or propose them programmatically with the [API Kit](./safe-wallet-api-kit.md).

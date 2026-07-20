@@ -17,7 +17,7 @@ Safe App availability depends on the Safe Wallet Apps catalog for Kaia / Kairos.
 
 ## Step 1: Open your Safe in Safe Wallet <a id="login-kaiasafe"></a>
 
-Sign in at [app.safe.global](https://app.safe.global) and select your Kaia or Kairos Safe. If you do not have an account yet, follow [Create a Safe](./use-kaia-safe.md#create-a-safe) and [Add assets](./use-kaia-safe.md#add-assets).
+Sign in at [app.safe.global](https://app.safe.global) and select your Kaia or Kairos Safe. If you do not have an account yet, follow [Create a Safe](./use-safe-wallet.md#create-a-safe) and [Add assets](./use-safe-wallet.md#add-assets).
 
 ## Step 2: Open CSV Airdrop <a id="search-CSV-airdrop"></a>
 

@@ -7,9 +7,21 @@ sidebar_label: FAQs
 
 :::caution Sunset notice
 
-`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward.
 
 :::
+
+## Does moving to Safe Global affect my existing Safe? <a id="Does moving to Safe Global affect my existing Safe"></a>
+
+No. Your Safe is an on-chain smart account. Safe Global is a different **UI** for the same contracts. Your Safe address, owners, threshold, and assets are unchanged. You do not need to recreate the Safe or transfer funds.
+
+See **[Migrate to Safe Global](./migrate-to-safe-global.md)** for full details.
+
+## Will my Safe appear automatically on app.safe.global? <a id="Will my Safe appear automatically"></a>
+
+In most cases, yes: connect an owner wallet, select **Kaia** or **Kairos**, and open your existing Safe. If it does not show up, use **Add existing Safe** / **Load** and paste the Safe address.
+
+Optional local data (address book, nicknames) may need a one-time export from `safe.kaia.io` and import under **Settings → Data** in Safe Wallet. That does not affect on-chain ownership or balances.
 
 ## Can I add new owners after creating a Safe? <a id="Can i add new owners after creating a safe"></a>
 

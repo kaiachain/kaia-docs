@@ -12,7 +12,7 @@ In general, we recommend using a multisig wallet created via [Safe Wallet](https
 
 ## Connecting a Safe Wallet <a id="connecting-a-safe-wallet"></a>
 
-First, follow the [Safe Wallet user guide](../../../build/wallets/kaia-safe/kaia-safe.md) to create a Safe account. Then register the Validator Management Portal as a Safe custom app.
+First, follow the [Safe Wallet user guide](../../../build/wallets/safe-wallet/safe-wallet.md) to create a Safe account. Then register the Validator Management Portal as a Safe custom app.
 
 ![Add custom Safe App](/img/nodes/become-a-validator/image02.png)
 
