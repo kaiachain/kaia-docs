@@ -6,8 +6,9 @@
 
 以下のプロバイダーは、分散型オラクルサービスを提供するためにKaiaと統合しています：
 
-- [Pyth Network](https://docs.pyth.network/home)
-- [Orakl Network](https://docs.orakl.network)
-- [Witnet](https://docs.witnet.io/)
-- [SupraOracles](https://supraoracles.com/docs/overview)
+- [Pyth Network](./pyth-network.md)
+- [Orakl Network](./orakl-network.md)
+- [RedStone](./redstone.md)
+- [Witnet](./witnet.md)
+- [SupraOracles](./supraoracles.md)
 - [KlayOracle](https://klayoracle.gitbook.io/v1.0.0/)
