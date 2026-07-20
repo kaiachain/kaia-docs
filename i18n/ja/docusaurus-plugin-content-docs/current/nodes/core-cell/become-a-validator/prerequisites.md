@@ -2,11 +2,17 @@
 
 バリデータをオンボードする前に、全体的な管理権限を持つ **バリデータ管理者** アカウントを登録する必要があります。 このアカウントはバリデータに関連するほとんどの重要な情報を変更することができるため、バリデータ管理者にはマルチシグウォレットまたは同等のセキュリティ保証を持つウォレットを使用することを**強く推奨する**。
 
-一般的には、[Kaia Safe](http://safe.kaia.io)を介して作成されたマルチシグウォレットをバリデーターマネージャーとして使用することを推奨します。 本ガイドの残りの部分は、Kaia Safeを使用していることを前提としています。
+一般的には、バリデータマネージャーとして、[Safe Wallet](https://app.safe.global)（[Safe](https://safe.global)／Safe Global）を通じて作成されたマルチシグウォレットの使用をお勧めします。 このガイドの残りの部分では、Kaia上でSafe Walletを使用していることを前提としています。
+
+:::caution 日没に関するお知らせ
+
+`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
+
+:::
 
 ## 安全な財布の接続<a id="connecting-a-safe-wallet"></a>
 
-まず、[Kaia Safeユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)に従って、Safeアカウントを作成してください。 次に、Validator Management Portal を Safe カスタムアプリとして登録します。
+まず、[Safe Wallet ユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)の手順に従って、Safe アカウントを作成してください。 次に、Validator Management Portal を Safe カスタムアプリとして登録します。
 
 カスタムセーフアプリの追加](/img/nodes/become-a-validator/image02.png)
 
