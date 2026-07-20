@@ -2,11 +2,17 @@
 
 Trước khi có thể đưa một trình xác thực vào hệ thống, bạn phải đăng ký một tài khoản **quản trị viên trình xác thực** có quyền quản lý tổng thể. Vì tài khoản này có thể thay đổi hầu hết các thông tin quan trọng liên quan đến trình xác thực, chúng tôi **khuyên bạn nên** sử dụng ví đa chữ ký — hoặc một loại ví có mức độ bảo mật tương đương — làm trình quản lý trình xác thực.
 
-Nói chung, chúng tôi khuyên bạn nên sử dụng ví đa chữ ký được tạo qua [Kaia Safe](http://safe.kaia.io) làm trình quản lý trình xác thực. Phần còn lại của hướng dẫn này giả định rằng bạn đang sử dụng Kaia Safe.
+Nói chung, chúng tôi khuyến nghị sử dụng ví đa chữ ký được tạo thông qua [Safe Wallet](https://app.safe.global) (thuộc [Safe](https://safe.global) / Safe Global) làm trình quản lý trình xác thực. Phần còn lại của hướng dẫn này giả định rằng bạn đang sử dụng Safe Wallet trên Kaia.
+
+:::caution Thông báo về hoàng hôn
+
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
+
+:::
 
 ## Kết nối ví an toàn <a id="connecting-a-safe-wallet"></a>
 
-Trước tiên, hãy làm theo [Hướng dẫn sử dụng Kaia Safe](../../../build/wallets/kaia-safe/kaia-safe.md) để tạo tài khoản Safe. Sau đó, hãy đăng ký Cổng thông tin quản lý trình xác thực dưới dạng ứng dụng tùy chỉnh an toàn.
+Trước tiên, hãy làm theo [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/kaia-safe/kaia-safe.md) để tạo tài khoản Safe. Sau đó, hãy đăng ký Cổng thông tin quản lý trình xác thực dưới dạng ứng dụng tùy chỉnh an toàn.
 
 ![Thêm ứng dụng an toàn tùy chỉnh](/img/nodes/become-a-validator/image02.png)
 
