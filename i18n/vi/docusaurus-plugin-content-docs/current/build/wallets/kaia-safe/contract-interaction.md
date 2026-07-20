@@ -1,27 +1,41 @@
-# Interact with Contracts
+---
+title: Tương tác với các hợp đồng
+sidebar_label: Tương tác hợp đồng
+---
 
-In this section, you will be interacting with and sending a transaction to a simple contract deployed on Kairos using our newly created multisig wallet.
+# Tương tác với các hợp đồng
 
-**Pre-requisites**
+:::caution Thông báo về hoàng hôn
 
-- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../tutorials/connecting-metamask.mdx#send-klay)
-- [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- Obtain test KAIA from the [Faucet](https://faucet.kaia.io)
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
 
-**Step 1:** Navigate to [Remix](https://remix.ethereum.org/)
+:::
 
-**Step 2:** Compile and deploy the sample **storage contract**.
+Trong phần này, bạn sẽ tương tác với một hợp đồng đơn giản trên Kairos bằng cách sử dụng tài khoản Safe được quản lý trong Safe Wallet.
 
-The contract must first be deployed before you may interact with it in your multisig wallet. This sample contract contains a simple uint "number" variable that can be updated by calling the **store** method and retrieved by calling the **retrieve** method.
+**Điều kiện tiên quyết**
 
-![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
+- [MetaMask](https://metamask.io/download/) đã được cấu hình cho [Kaia / Kairos](../../tutorials/connecting-metamask.mdx)
+- [Remix](https://remix.ethereum.org/) (với sự hỗ trợ từ mạng Kaia khi cần thiết)
+- Thử nghiệm KAIA từ [Faucet](https://faucet.kaia.io)
+- Một tài khoản Safe trên Kairos ([tạo tài khoản](./use-kaia-safe.md#create-a-safe))
 
-**Step 3:** Initiate a new transaction.
+**Bước 1:** Mở [Remix](https://remix.ethereum.org/).
 
-To interact with a smart contract in your safe wallet, click **"New Transaction"**. To complete this step, you will need your already deployed contract address and ABI, as illustrated in the previous step.
+**Bước 2:** Biên dịch và triển khai một hợp đồng lưu trữ mẫu (hoặc hợp đồng của riêng bạn).
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
+Hãy triển khai hợp đồng trước khi thực hiện các thao tác với nó từ Safe. Một mẫu hợp đồng điển hình sẽ công khai một biến `uint` mà bạn có thể cập nhật bằng hàm `store` và đọc bằng hàm `retrieve`.
 
-**Step 4:** Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
+![](/img/build/wallets/ks-succor-deploy.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
+**Bước 3:** Khởi tạo một giao dịch mới trong Safe Wallet.
+
+Nhấp vào **Giao dịch mới**. Hãy nhập địa chỉ hợp đồng đã được triển khai và ABI để bạn có thể chọn phương thức và các tham số.
+
+![](/img/build/wallets/ks-succor-init-tx.gif)
+
+**Bước 4:** Kiểm tra lại và gửi đi. Ký bằng ví của chủ sở hữu; giao dịch sẽ được thực hiện ngay khi đạt đến ngưỡng xác nhận.
+
+![](/img/build/wallets/ks-succor-review-tx.gif)
+
+Bạn cũng có thể thực hiện các cuộc gọi hợp đồng theo lô bằng [Transaction Builder](./tx-builder.md) hoặc đề xuất chúng thông qua lập trình bằng [API Kit](./kaia-safe-api-kit.md).
