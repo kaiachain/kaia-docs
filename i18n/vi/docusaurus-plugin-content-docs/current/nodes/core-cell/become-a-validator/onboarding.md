@@ -18,7 +18,7 @@ Sau khi đăng ký, thông tin của người xác thực sẽ được ghi lạ
 
 Chuyển đến menu **Triển khai hợp đồng staking** để triển khai hợp đồng staking.
 
-Hiện tại, một hợp đồng staking có thể đăng ký nhiều tài khoản quản trị, nhưng bắt đầu từ **Giai đoạn 2 không cần xin phép**, mỗi hợp đồng staking chỉ được phép có một tài khoản quản trị. Vì lý do này, chúng tôi khuyên bạn nên đăng ký một tài khoản Kaia Safe duy nhất với tư cách là quản trị viên.
+Hiện tại, một hợp đồng staking có thể đăng ký nhiều tài khoản quản trị, nhưng bắt đầu từ **Giai đoạn 2 không cần xin phép**, mỗi hợp đồng staking chỉ được phép có một tài khoản quản trị. Vì lý do này, chúng tôi khuyên bạn nên đăng ký một tài khoản Safe Wallet duy nhất làm tài khoản quản trị.
 
 Trước khi triển khai hợp đồng staking, bạn cũng cần một tài khoản tạm thời khác — ngoài tài khoản quản trị — để thực hiện việc triển khai. Tài khoản này được gọi là **bộ xác thực hợp đồng** và được duy trì để đảm bảo khả năng tương thích ngược. Vì tài khoản quản trị hợp đồng staking và tài khoản quản lý validator thường được tách biệt, bạn có thể tái sử dụng tài khoản quản lý validator làm validator của hợp đồng.
 
@@ -39,7 +39,7 @@ Ví quản trị hợp đồng staking và ví xác thực hợp đồng tạm t
 ![Phần Ủy quyền công khai](/img/nodes/become-a-validator/image08.png)
 ![Phần Ủy quyền công khai (tiếp theo)](/img/nodes/become-a-validator/image09.png)
 
-5. Nhập địa chỉ quản trị hợp đồng staking và ngưỡng đa chữ ký. Nếu bạn nhập địa chỉ ví Kaia Safe làm **địa chỉ quản trị** và đặt ngưỡng là `1`, chức năng đa chữ ký sẽ do Kaia Safe đảm nhận. Nếu bạn nhập nhiều địa chỉ quản trị và đặt ngưỡng ở một giá trị tùy ý, chức năng đa chữ ký sẽ được xử lý trong menu **Quản lý Staking**.
+5. Nhập địa chỉ quản trị hợp đồng staking và ngưỡng đa chữ ký. Nếu bạn nhập địa chỉ Safe Wallet làm **địa chỉ quản trị** và đặt ngưỡng là `1`, chức năng đa chữ ký sẽ do Safe xử lý. Nếu bạn nhập nhiều địa chỉ quản trị và đặt ngưỡng ở một giá trị tùy ý, chức năng đa chữ ký sẽ được xử lý trong menu **Quản lý Staking**.
 
 ![Nút Triển khai hợp đồng](/img/nodes/become-a-validator/image10.png)
 
