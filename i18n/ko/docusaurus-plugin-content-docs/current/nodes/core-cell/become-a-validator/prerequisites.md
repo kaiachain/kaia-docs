@@ -12,7 +12,7 @@
 
 ## 안전한 지갑 연결 <a id="connecting-a-safe-wallet"></a>
 
-먼저, [Safe Wallet 사용자 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)에 따라 Safe 계정을 생성하세요. 그런 다음 유효성 검사기 관리 포털을 안전한 사용자 지정 앱으로 등록합니다.
+먼저, [Safe Wallet 사용자 가이드](../../../build/wallets/safe-wallet/safe-wallet.md)에 따라 Safe 계정을 생성하세요. 그런 다음 유효성 검사기 관리 포털을 안전한 사용자 지정 앱으로 등록합니다.
 
 ![사용자 지정 안전 앱 추가](/img/nodes/become-a-validator/image02.png)
 
