@@ -72,10 +72,10 @@ Token Out: WKAIA (`0x043c471bEe060e00A56CcD02c0Ca286808a5A436`)
 카이로스 테스트넷용 TEST 토큰을 받으려면:
 
 - 카이아스캔에서 [ERC20 수도꼭지](https://kairos.kaiascan.io/address/0x78a6cacfe5d34e0566e56710c8789d207411001a?tabId=contract&page=1)를 엽니다.
-- 계약 탭으로 이동한 다음 _계약서 작성_을 선택합니다.
+- 계약 탭으로 이동한 다음 _계약서 작&#xC131;_&#xC744; 선택합니다.
 - 클레임(토큰) 함수 찾기
 - 카이로스에서 지원되는 GA 토큰의 주소를 붙여넣습니다(이 가이드에서는 TEST 주소를 사용).
-- 요청을 제출하려면 _조회_를 클릭합니다. 곧 테스트 토큰을 받게 될 것입니다.
+- 요청을 제출하려면 _조&#xD68C;_&#xB97C; 클릭합니다. 곧 테스트 토큰을 받게 될 것입니다.
 
 ![](/img/build/tutorials/test-tokens-faucet.png)
 
