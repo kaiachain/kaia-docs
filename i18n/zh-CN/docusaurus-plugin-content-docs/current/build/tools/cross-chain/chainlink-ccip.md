@@ -543,7 +543,7 @@ cast send $KAIROS_LINK_ADDRESS --rpc-url $KAIROS_RPC_URL "transfer(address,uint2
 
 为此，您需要使用 cast 命令调用部署到 Kairos Testnet 的发送方合约上的 _sendMessagePayLINK(uint64, address, string)_ 函数，以便向以太坊 Sepolia 上的接收方合约发送消息数据。
 
-要调用发送方智能合约的_sendMessagePayLINK(uint64, address, string)_ 函数，请运行
+要调用发送方智能合约&#x7684;_&#x73;endMessagePayLINK(uint64, address, string)_ 函数，请运行
 
 ```bash
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "sendMessagePayLINK(uint64, address, string)" $ETH_SEPOLIA_CHAIN_SELECTOR `RECEIVER_DEPLOYED_ADDRESS` "gKaia builders" --account deployer
