@@ -1,5 +1,4 @@
 ---
-id: kaia-safe-api-kit
 title: Safe API Kit
 sidebar_label: API Kit
 ---

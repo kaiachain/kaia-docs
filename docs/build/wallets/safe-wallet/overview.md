@@ -7,11 +7,13 @@ sidebar_label: Safe Wallet overview
 
 :::caution Sunset notice
 
-`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe accounts will be automatically compatible with Safe Wallet.
+`safe.kaia.io` will sunset on **August 9, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward.
 
 :::
 
 Safe Wallet is the [Safe](https://safe.global) (Safe Global) web interface for [Safe smart accounts](https://docs.safe.global/home/what-is-safe) on Kaia. You manage owners, thresholds, assets, and transactions through [app.safe.global](https://app.safe.global), with Kaia Mainnet and Kairos available when you select the network in the UI.
+
+For users coming from the former Kaia-hosted Safe (`safe.kaia.io`), see **[Migrate to Safe Global](./migrate-to-safe-global.md)**: existing Safes remain valid; only the recommended UI changes.
 
 ## Product and documentation
 
@@ -29,7 +31,7 @@ For architecture, smart account behaviour, and backend services (Transaction Ser
 | Kaia Mainnet | 8217 |
 | Kairos Testnet | 1001 |
 
-When using the [API Kit](./kaia-safe-api-kit.md) or other Safe SDK tooling, pass the correct Kaia chain ID. Service endpoints may change as `safe.kaia.io` sunsets; prefer Safe Global Transaction Service documentation for supported chains and configuration.
+When using the [API Kit](./safe-wallet-api-kit.md) or other Safe SDK tooling, pass the correct Kaia chain ID. Service endpoints may change as `safe.kaia.io` sunsets; prefer Safe Global Transaction Service documentation for supported chains and configuration.
 
 ## Historical note
 
