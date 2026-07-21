@@ -12,7 +12,7 @@ Nói chung, chúng tôi khuyến nghị sử dụng ví đa chữ ký được t
 
 ## Kết nối ví an toàn <a id="connecting-a-safe-wallet"></a>
 
-Trước tiên, hãy làm theo [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/kaia-safe/kaia-safe.md) để tạo tài khoản Safe. Sau đó, hãy đăng ký Cổng thông tin quản lý trình xác thực dưới dạng ứng dụng tùy chỉnh an toàn.
+Trước tiên, hãy làm theo [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/safe-wallet/safe-wallet.md) để tạo tài khoản Safe. Sau đó, hãy đăng ký Cổng thông tin quản lý trình xác thực dưới dạng ứng dụng tùy chỉnh an toàn.
 
 ![Thêm ứng dụng an toàn tùy chỉnh](/img/nodes/become-a-validator/image02.png)
 
