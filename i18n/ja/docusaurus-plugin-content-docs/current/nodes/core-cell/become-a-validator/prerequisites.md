@@ -12,7 +12,7 @@
 
 ## 安全な財布の接続<a id="connecting-a-safe-wallet"></a>
 
-まず、[Safe Wallet ユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)の手順に従って、Safe アカウントを作成してください。 次に、Validator Management Portal を Safe カスタムアプリとして登録します。
+まず、[Safe Wallet ユーザーガイド](../../../build/wallets/safe-wallet/safe-wallet.md)の手順に従って、Safeアカウントを作成してください。 次に、Validator Management Portal を Safe カスタムアプリとして登録します。
 
 カスタムセーフアプリの追加](/img/nodes/become-a-validator/image02.png)
 
