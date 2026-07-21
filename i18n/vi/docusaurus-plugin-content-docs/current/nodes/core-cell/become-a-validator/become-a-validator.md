@@ -40,6 +40,6 @@ Quy trình hướng dẫn sử dụng sẽ được trình bày trong các trang
 
 ## Tài nguyên liên quan <a id="related-resources"></a>
 
-- [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Hướng dẫn sử dụng Safe Wallet](../../../build/wallets/safe-wallet/safe-wallet.md)
 - [KIP-277: Đăng ký trình xác thực tự động](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: Chuyển giao lại](https://kips.kaia.io/KIPs/kip-163)
