@@ -40,6 +40,6 @@
 
 ## 関連リソース<a id="related-resources"></a>
 
-- [Safe Wallet ユーザーガイド](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Safe Wallet ユーザーガイド](../../../build/wallets/safe-wallet/safe-wallet.md)
 - [KIP-277: セルフバリデーター登録](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: 再委任](https://kips.kaia.io/KIPs/kip-163)
