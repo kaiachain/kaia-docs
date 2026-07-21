@@ -40,6 +40,6 @@
 
 ## 관련 리소스 <a id="related-resources"></a>
 
-- [세이프 월렛 사용자 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)
+- [Safe Wallet 사용자 가이드](../../../build/wallets/safe-wallet/safe-wallet.md)
 - [KIP-277: 셀프 검증자 등록](https://kips.kaia.io/KIPs/kip-277)
 - [KIP-163: 재위임](https://kips.kaia.io/KIPs/kip-163)
