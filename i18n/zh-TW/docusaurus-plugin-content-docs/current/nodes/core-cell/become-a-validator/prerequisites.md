@@ -12,7 +12,7 @@
 
 ## 連接安全錢包<a id="connecting-a-safe-wallet"></a>
 
-首先，請依照 [Safe Wallet 使用指南](../../../build/wallets/kaia-safe/kaia-safe.md) 建立一個 Safe 帳戶。 然後將 Validator Management Portal 註冊為 Safe 自訂應用程式。
+首先，請依照 [Safe Wallet 使用指南](../../../build/wallets/safe-wallet/safe-wallet.md) 建立一個 Safe 帳戶。 然後將 Validator Management Portal 註冊為 Safe 自訂應用程式。
 
 ![新增自訂安全應用程式](/img/nodes/become-a-validator/image02.png)
 
