@@ -151,7 +151,7 @@ export default function SurveyCard({
 }
 ```
 
-**C. 调查列表**：处理调查表集合的组织和显示，设有_热门话题_和_即将结束_等部分，以改进用户导航。
+**C. 调查列表**：处理调查表集合的组织和显示，设&#x6709;_&#x70ED;门话&#x9898;_&#x548C;_即将结&#x675F;_&#x7B49;部分，以改进用户导航。
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
