@@ -151,7 +151,7 @@ export default function SurveyCard({
 }
 ```
 
-**C. 설문조사 목록**: 설문조사 컬렉션의 구성 및 표시를 처리하며, 사용자 탐색을 개선하기 위해 _인기 주제_ 및 _종료 예정_과 같은 섹션을 제공합니다.
+**C. 설문조사 목록**: 설문조사 컬렉션의 구성 및 표시를 처리하며, 사용자 탐색을 개선하기 위해 _인기 주제_ 및 _종료 예&#xC815;_&#xACFC; 같은 섹션을 제공합니다.
 
 ```typescript
 // app/[locale]/square/surveys/page.tsx
