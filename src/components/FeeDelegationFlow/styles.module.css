@@ -1,0 +1,94 @@
+.wrap {
+  margin: 1.25rem 0 1.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 4px 2px 6px;
+  margin: -4px -2px -2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.node {
+  flex: 0 0 auto;
+  width: 8.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.65rem 0.6rem;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.nodeActive {
+  border-color: var(--ifm-color-primary);
+  border-width: 2px;
+  /* keep layout stable when border thickens */
+  padding: calc(0.65rem - 1px) calc(0.6rem - 1px);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 28%, transparent);
+}
+
+.nodeMuted {
+  opacity: 0.4;
+}
+
+.stepNum {
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+}
+
+.badge {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.08rem 0.35rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 18%, transparent);
+  color: var(--ifm-color-primary);
+}
+
+.title {
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.detail {
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding: 0 0.05rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-600);
+  user-select: none;
+}
+
+.arrowMuted {
+  opacity: 0.35;
+}
+
+.caption {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
