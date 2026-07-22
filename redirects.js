@@ -66,7 +66,7 @@ const redirects = [
       '/build/tools/wallets/kaia-safe',
       '/build/tools/wallets/kaia-safe/kaia-safe',
     ],
-    to: '/build/wallets/safe-wallet',
+    to: '/build/wallets/safe-wallet/safe-wallet',
   },
   {
     from: [
