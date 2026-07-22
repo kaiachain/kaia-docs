@@ -58,12 +58,12 @@ const redirects = [
   { from: ['/build/get-started/account', '/build/get-started/account/creating-accounts', '/build/get-started/account/managing-accounts'], to: '/nodes/endpoint-node/ken-cli-commands' },
   { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
   { from: '/learn/storage/state-pruning', to: '/learn/storage/storage-optimization' },
-  // Safe Wallet rename (kaia-safe → safe-wallet) — renamed page slugs only.
-  // Folder-wide /build/wallets/kaia-safe and /build/tools/wallets/kaia-safe are
-  // handled by folderRedirects + createRedirects (avoid EEXIST duplicates).
+  // Safe Wallet rename (kaia-safe → safe-wallet) — renamed page slugs
   {
     from: [
+      '/build/wallets/kaia-safe',
       '/build/wallets/kaia-safe/kaia-safe',
+      '/build/tools/wallets/kaia-safe',
       '/build/tools/wallets/kaia-safe/kaia-safe',
     ],
     to: '/build/wallets/safe-wallet',
