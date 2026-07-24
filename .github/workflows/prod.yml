@@ -4,6 +4,15 @@ on:
     branches:
       - main
 
+# Serialize prod deployments: concurrent runs race on `aws s3 sync --delete`
+# against the same bucket and can leave it in a mixed state (see the Jul 2026
+# empty-pages incident). cancel-in-progress must stay false — cancelling a run
+# mid-sync would leave a partial deployment. GitHub keeps at most one pending
+# run queued, so rapid consecutive merges collapse into a single trailing deploy.
+concurrency:
+  group: prod-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     name: deploy
