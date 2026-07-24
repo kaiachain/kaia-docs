@@ -59,11 +59,12 @@ const redirects = [
   { from: '/build/get-started/before-you-start', to: '/build/get-started/foundation-setup' },
   { from: '/learn/storage/state-pruning', to: '/learn/storage/storage-optimization' },
   // Safe Wallet rename (kaia-safe → safe-wallet) — renamed page slugs
+  // Note: '/build/wallets/kaia-safe' and '/build/tools/wallets/kaia-safe' are
+  // intentionally NOT listed here — folderRedirects below already generates
+  // those redirects, and duplicating them fails the build (EEXIST on index.html).
   {
     from: [
-      '/build/wallets/kaia-safe',
       '/build/wallets/kaia-safe/kaia-safe',
-      '/build/tools/wallets/kaia-safe',
       '/build/tools/wallets/kaia-safe/kaia-safe',
     ],
     to: '/build/wallets/safe-wallet',
