@@ -75,3 +75,17 @@ jobs:
           aws s3 sync ./build/ $S3_BUCKET_PROD --delete
           aws s3 cp llms.txt $S3_BUCKET_PROD
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"
+
+      # A failed prod deploy means main is not reaching docs.kaia.io — someone
+      # must look at it. The Jul 2026 incident sat unnoticed for ~19h because
+      # the failure was silent. No-op until the SLACK_WEBHOOK_URL secret is set.
+      - name: Notify Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "SLACK_WEBHOOK_URL secret not set; skipping notification"
+            exit 0
+          fi
+          curl -sf -X POST -H 'Content-type: application/json' --data "{\"text\":\":rotating_light: *kaia-docs prod deploy failed* — docs.kaia.io is NOT receiving this change.\nCommit: \`${{ github.sha }}\`\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" "$SLACK_WEBHOOK_URL"

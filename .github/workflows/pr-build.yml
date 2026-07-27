@@ -1,0 +1,58 @@
+name: PR build check
+
+# Run the same production build on every PR so build-breaking changes
+# (invalid redirects, broken config, missing files) are caught BEFORE merge
+# instead of failing the prod deploy afterwards (see the Jul 2026 incident:
+# both #432 and #433 merged green and then broke the prod build).
+#
+# Runs on GitHub-hosted runners on purpose: PRs can come from forks, and
+# fork-submitted code must not execute on self-hosted infra runners.
+# No secrets are used — the build works without them (search/analytics
+# integrations simply stay disabled in the PR build).
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: pr-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensures full Git history is fetched for correct timestamp calculation
+
+      - name: Installing Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Installing dependencies
+        run: |
+          npm install
+
+      - name: Clone kaia-sdk
+        run: |
+          git clone -b dev https://github.com/kaiachain/kaia-sdk.git
+          cd kaia-sdk/documentation && npm install && cd -
+
+      - name: Generate .mdx files
+        env:
+          RPC_SPEC_DIR: ../../web3rpc/yaml
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: |
+          cd kaia-sdk/documentation && bash generate-docs.sh split && cd -
+          cd web3rpc && bash -x web3rpc.sh && cd -
+
+      - name: Build static files
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: npm run build
