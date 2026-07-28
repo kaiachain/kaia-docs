@@ -7,7 +7,7 @@ sidebar_label: 安全錢包
 
 :::caution 日落通知
 
-`safe.kaia.io` 將於 **2026 年 8 月 9 日** 停止服務。 請使用 [app.safe.global](https://app.safe.global) 上的 **Safe Wallet** for Kaia 來管理您未來的帳戶。
+`safe.kaia.io` 將於 **2026 年 8 月 31 日** 停止服務。 請使用 [app.safe.global](https://app.safe.global) 上的 **Safe Wallet** for Kaia 來管理您未來的帳戶。
 
 您已經在使用 Kaia Safe 了嗎？ 請參閱 **[遷移至 Safe Global](./migrate-to-safe-global.md)** — 您的現有 Safe 帳戶不受影響，並可繼續在 Safe Wallet 上使用。
 
