@@ -63,7 +63,7 @@
 
 #### 2.3. 多签名钱包：Safe Wallet 入门指南
 
-多重签名（或 "多重签名"）钱包是一种智能合约，需要多个私钥批准才能执行交易。 例如，"2-of-3 multi-sig "需要获得三个指定所有人中两个人的批准。 这是管理团队资金、金库和重要智能合约管理的标准，因为它可以防止单点故障。 在 Kaia 上，请使用来自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可在 [app.safe.global](https://app.safe.global) 下载——请参阅 [Safe Wallet 指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 将于 **2026年8月9日** 停止服务。)
+多重签名（或 "多重签名"）钱包是一种智能合约，需要多个私钥批准才能执行交易。 例如，"2-of-3 multi-sig "需要获得三个指定所有人中两个人的批准。 这是管理团队资金、金库和重要智能合约管理的标准，因为它可以防止单点故障。 在 Kaia 上，请使用来自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可在 [app.safe.global](https://app.safe.global) 下载——请参阅 [Safe Wallet 指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 将于 **2026年8月31日** 停止服务。)
 
 ## 第 2 部分：钱包管理实用食谱
 
