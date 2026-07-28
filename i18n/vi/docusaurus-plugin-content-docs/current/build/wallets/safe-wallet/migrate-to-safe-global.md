@@ -7,7 +7,7 @@ sidebar_label: Chuyển sang Safe Global
 
 :::caution Thông báo về hoàng hôn
 
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
 
 :::
 
@@ -31,26 +31,31 @@ Trước đây, Kaia đã cung cấp **Kaia Safe** (`safe.kaia.io`), một phiê
 **Những nội dung bạn nên cập nhật**
 
 - Hãy sử dụng [app.safe.global](https://app.safe.global) thay vì `safe.kaia.io`
-- Chọn **Kaia Mainnet** hoặc **Kairos Testnet** trong Safe Wallet
 - Cập nhật các dấu trang vẫn trỏ đến `safe.kaia.io`
-- Tùy chọn xuất/nhập dữ liệu giao diện người dùng cục bộ (sổ địa chỉ, biệt danh) nếu bạn muốn các nhãn đó xuất hiện trong giao diện mới
+- [Xuất danh bạ của bạn](#export-your-address-book) trước ngày hết hạn nếu bạn muốn giữ lại các tên và nhãn đã lưu
 
-Điều này đã được xác minh: các Safes hiện có được tạo thông qua Kaia Safe sẽ hiển thị trên Safe Global khi bạn kết nối ví của chủ sở hữu và chọn mạng phù hợp (**Kaia** hoặc **Kairos**). Bạn **không** cần phải triển khai lại, tạo lại hoặc chuyển tiền sang một Safe mới.
+Điều này đã được xác minh: các Safes hiện có được tạo thông qua Kaia Safe sẽ hiển thị trên Safe Global khi bạn kết nối ví của chủ sở hữu. Bạn **không** cần phải triển khai lại, tạo lại hoặc chuyển tiền sang một Safe mới.
 
 ## Cách mở tài khoản Safe hiện có của bạn trên Safe Global
 
 1. Mở [app.safe.global](https://app.safe.global).
 2. Kết nối một ví là **chủ sở hữu** của Safe của bạn (ví dụ: Kaia Wallet hoặc MetaMask).
-3. Chọn **Kaia Mainnet** hoặc **Kairos Testnet**.
-4. Két sắt hiện tại của bạn sẽ hiển thị. Nếu không, hãy sử dụng **Thêm Safe hiện có** / **Tải**, dán địa chỉ Safe vào và xác nhận mạng.
+3. Kho lưu trữ hiện tại của bạn sẽ xuất hiện, kèm theo tên mạng của nó (**Kaia** hoặc **Kairos**). Nếu không, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách** để xem các Safes được liên kết với ví đã kết nối của bạn.
 
-Tùy chọn: trước khi `safe.kaia.io` ngừng hoạt động, hãy xuất dữ liệu cục bộ (sổ địa chỉ và cài đặt) từ giao diện người dùng cũ và nhập lại vào mục **Cài đặt → Dữ liệu** trong Safe Wallet nếu bạn muốn giữ lại các biệt danh và dữ liệu trình duyệt liên quan. Đây là tùy chọn và không ảnh hưởng đến quyền sở hữu hoặc số dư trên chuỗi.
+## Xuất danh bạ của bạn
+
+Sổ địa chỉ của bạn — các tên và nhãn mà bạn đã lưu cho các địa chỉ — được lưu trữ cục bộ trong giao diện `safe.kaia.io`, chứ không phải trên chuỗi khối. Đây là thứ duy nhất **không** được chuyển sang tự động, vì vậy hãy xuất dữ liệu này trước ngày hết hạn nếu bạn muốn giữ lại.
+
+1. Trong `safe.kaia.io`, hãy truy cập **Cài đặt → Dữ liệu → Xuất dữ liệu** và tải tệp xuống.
+2. Truy cập vào [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và tải lên tệp đó tại mục **Nhập dữ liệu Safe của bạn**.
+
+Bước này là tùy chọn và không ảnh hưởng đến quyền sở hữu hoặc số dư trên chuỗi.
 
 ## Câu trả lời nhanh
 
 - **Tôi có cần tạo một “Safe” mới không?** Không.
 - **Tình trạng vốn hoặc chủ sở hữu của tôi có thay đổi không?** Không.
-- **Tôi có thể tiếp tục sử dụng `safe.kaia.io` không?** Chỉ đến ngày **9 tháng 8 năm 2026** thôi. Hãy chuyển sang [app.safe.global](https://app.safe.global) ngay bây giờ.
+- **Tôi có thể tiếp tục sử dụng `safe.kaia.io` không?** Chỉ đến ngày **31 tháng 8 năm 2026** thôi. Hãy chuyển sang [app.safe.global](https://app.safe.global) ngay bây giờ.
 - **Tôi có thể tìm thêm trợ giúp ở đâu?** [Trung tâm trợ giúp Safe Wallet](https://help.safe.global) và [Câu hỏi thường gặp](./faqs.md).
 
 ## Các bước tiếp theo
