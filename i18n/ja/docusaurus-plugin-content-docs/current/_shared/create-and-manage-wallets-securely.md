@@ -63,7 +63,7 @@ Web3では、"not your keys, not your crypto "というフレーズが基本的�
 
 #### 2.3. マルチシグネチャウォレット：Safe Wallet入門
 
-マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。 例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。 これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 Kaiaでは、[app.safe.global](https://app.safe.global)にある[Safe](https://safe.global)（Safe Global）の**Safe Wallet**をご利用ください。詳細は[Safe Walletガイド](/build/wallets/safe-wallet/use-safe-wallet)をご覧ください。 (`safe.kaia.io`は**2026年8月9日**をもってサービス終了となります。)
+マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。 例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。 これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 Kaiaでは、[app.safe.global](https://app.safe.global)にある[Safe](https://safe.global)（Safe Global）の**Safe Wallet**をご利用ください。詳細は[Safe Walletガイド](/build/wallets/safe-wallet/use-safe-wallet)をご覧ください。 (`safe.kaia.io`は**2026年8月31日**をもってサービス終了となります。)
 
 ## パート2：財布管理の実践レシピ
 
