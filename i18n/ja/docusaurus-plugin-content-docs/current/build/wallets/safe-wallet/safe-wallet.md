@@ -7,7 +7,7 @@ sidebar_label: セーフ・ウォレット
 
 :::caution 日没に関するお知らせ
 
-`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後、Kaiaのアカウントを管理する際は、[app.safe.global](https://app.safe.global) の**Safe Wallet**をご利用ください。
+`safe.kaia.io` は **2026年8月31日** にサービス終了となります。 今後、Kaiaのアカウントを管理する際は、[app.safe.global](https://app.safe.global) の**Safe Wallet**をご利用ください。
 
 すでに「Kaia Safe」をご利用ですか？ **[Safe Global への移行](./migrate-to-safe-global.md)** をご覧ください。既存の Safe アカウントには影響がなく、Safe Wallet で引き続きご利用いただけます。
 
