@@ -7,7 +7,7 @@ sidebar_label: 안전한 지갑
 
 :::caution 일몰 공고
 
-`safe.kaia.io`는 **2026년 8월 9일**에 서비스가 종료될 예정입니다. 앞으로 계정을 관리하시려면 [app.safe.global](https://app.safe.global)에서 Kaia용 **Safe Wallet**을 이용해 주시기 바랍니다.
+`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로 계정을 관리하시려면 [app.safe.global](https://app.safe.global)에서 Kaia용 **Safe Wallet**을 이용해 주시기 바랍니다.
 
 이미 Kaia Safe를 사용하고 계신가요? \*\*[Safe Global로 이전하기](./migrate-to-safe-global.md)\*\*를 참조하세요. 기존 Safe 계정은 영향을 받지 않으며 Safe Wallet에서 계속 사용할 수 있습니다.
 
