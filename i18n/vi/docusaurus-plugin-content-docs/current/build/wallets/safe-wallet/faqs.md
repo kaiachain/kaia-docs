@@ -7,7 +7,7 @@ sidebar_label: Câu hỏi thường gặp
 
 :::caution Thông báo về hoàng hôn
 
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
 
 :::
 
@@ -19,9 +19,9 @@ Xem **[Chuyển sang Safe Global](./migrate-to-safe-global.md)** để biết th
 
 ## Tài khoản Safe của tôi có tự động xuất hiện trên app.safe.global không? <a id="Will my Safe appear automatically"></a>
 
-Trong hầu hết các trường hợp, câu trả lời là có: hãy kết nối ví chủ sở hữu, chọn **Kaia** hoặc **Kairos**, rồi mở Safe hiện có của bạn. Nếu nó không hiển thị, hãy sử dụng **Thêm Safe đã có** / **Tải** và dán địa chỉ Safe vào.
+Trong hầu hết các trường hợp, câu trả lời là có: chỉ cần kết nối ví chủ sở hữu, ví Safe hiện có của bạn sẽ xuất hiện trong danh sách, kèm theo tên mạng tương ứng (**Kaia** hoặc **Kairos**). Nếu nó không hiển thị, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách** để xem các Safes được liên kết với ví đã kết nối của bạn.
 
-Các dữ liệu cục bộ tùy chọn (sổ địa chỉ, biệt danh) có thể cần được xuất một lần từ `safe.kaia.io` và nhập vào phần **Cài đặt → Dữ liệu** trong Safe Wallet. Điều đó không ảnh hưởng đến quyền sở hữu hoặc số dư trên chuỗi.
+Sổ địa chỉ và biệt danh của bạn được lưu trữ cục bộ trong giao diện cũ và cần được xuất một lần từ `safe.kaia.io` (**Cài đặt → Dữ liệu → Xuất dữ liệu**), sau đó tải lên tại [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) trong phần **Nhập dữ liệu Safe của bạn**. Điều đó không ảnh hưởng đến quyền sở hữu hoặc số dư trên chuỗi.
 
 ## Tôi có thể thêm chủ sở hữu mới sau khi đã tạo một Safe không? <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +48,7 @@ Bạn có thể mở một Safe hiện có tại [app.safe.global](https://app.s
 - Tương tác với một két sắt mà người khác đã chỉ định bạn làm chủ sở hữu
 - Xem két sắt ở chế độ chỉ đọc
 
-Safe Wallet cũng hỗ trợ nhập/xuất danh bạ và các dữ liệu liên quan khi tính năng này có sẵn trong **Cài đặt**. Nên thêm kết nối Safe theo địa chỉ hoặc chủ sở hữu trên Safe Wallet thay vì dựa vào giao diện người dùng `safe.kaia.io` sắp ngừng hoạt động.
+Nếu Safe không hiển thị sau khi kết nối, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách**. Trang này cũng hỗ trợ tính năng **Nhập dữ liệu Safe của bạn** nếu bạn đã xuất danh bạ từ `safe.kaia.io` — xem [Chuyển sang Safe Global](./migrate-to-safe-global.md#export-your-address-book).
 
 ## Các mẹo thiết lập an toàn phổ biến
 
