@@ -7,7 +7,7 @@ sidebar_label: 常见问题解答
 
 :::caution 日落通知
 
-`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 版 Safe Wallet 来管理您的账户。
+`safe.kaia.io` 将于 **2026年8月31日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 版 Safe Wallet 来管理您的账户。
 
 :::
 
@@ -19,9 +19,9 @@ sidebar_label: 常见问题解答
 
 ## 我的“保险箱”会自动显示在 app.safe.global 上吗？ <a id="Will my Safe appear automatically"></a>
 
-在大多数情况下，是的：连接所有者钱包，选择 **Kaia** 或 **Kairos**，然后打开您现有的保险库。 如果未显示，请使用\*\*“添加现有保险库”\*\* / **“加载”**，并粘贴保险库地址。
+在大多数情况下，是的：连接一个所有者钱包后，您现有的“保险箱”就会出现在列表中，并标注其所属网络（**Kaia** 或 **Kairos**）。 如果未显示，请访问 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)，然后点击 **管理列表**，查看与您已连接的钱包关联的 Safes。
 
-可选的本地数据（通讯录、昵称）可能需要从 `safe.kaia.io` 进行一次导出，然后在 Safe Wallet 的 **设置 → 数据** 中导入。 这不会影响链上的所有权或余额。
+您的通讯录和昵称存储在旧界面的本地，需要先从 `safe.kaia.io` 进行一次导出（**设置 → 数据 → 数据导出**），然后在 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) 下的 **导入您的 Safe 数据** 处进行上传。 这不会影响链上的所有权或余额。
 
 ## 创建“保险箱”后，我可以添加新所有者吗？ <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +48,7 @@ sidebar_label: 常见问题解答
 - 与他人将你设为所有者的保险箱进行交互
 - 以只读模式查看保险箱
 
-Safe Wallet 还支持导入/导出通讯录及相关数据，该功能可在 **设置** 中找到。 建议在 Safe Wallet 中通过地址或所有者关联来添加保险箱，而不是依赖即将停用的 `safe.kaia.io` 用户界面。
+如果连接后未显示“Safe”，请访问 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) 并点击 **管理列表**。 如果您已从 `safe.kaia.io` 导出了通讯录，该页面还支持 **导入您的 Safe 数据**——请参阅 [迁移至 Safe Global](./migrate-to-safe-global.md#export-your-address-book)。
 
 ## Common Safe 设置提示
 
