@@ -7,7 +7,7 @@ sidebar_label: 迁移至 Safe Global
 
 :::caution 日落通知
 
-`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia 版 **Safe Wallet** 来管理您的账户。
+`safe.kaia.io` 将于 **2026年8月31日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia 版 **Safe Wallet** 来管理您的账户。
 
 :::
 
@@ -31,26 +31,31 @@ Kaia 此前曾提供过 **Kaia Safe**（`safe.kaia.io`），这是 Gnosis Safe �
 **您应更新的内容**
 
 - 请使用 [app.safe.global](https://app.safe.global) 代替 `safe.kaia.io`
-- 在 Safe Wallet 中选择 **Kaia 主网** 或 **Kairos 测试网**
 - 更新仍指向 `safe.kaia.io` 的书签
-- 如果希望在新界面中显示这些标签，可选择导出/导入本地 UI 数据（通讯录、昵称）
+- 如果您希望保留已保存的姓名和标签，请在截止日期前[导出您的通讯录](#export-your-address-book)
 
-这一点已得到验证：当您连接所有者钱包并选择正确的网络（**Kaia** 或 **Kairos**）时，通过 Kaia Safe 创建的现有保险库会显示在 Safe Global 上。 您**无需**重新部署、重新创建或将资金转移到新的“保险箱”中。
+这一点已经得到验证：当您连接所有者钱包时，通过 Kaia Safe 创建的现有保险库会显示在 Safe Global 上。 您**无需**重新部署、重新创建或将资金转移到新的“保险箱”中。
 
 ## 如何在Safe Global上打开您现有的保险箱
 
 1. 打开 [app.safe.global](https://app.safe.global)。
 2. 连接一个作为您保险箱**所有者**的钱包（例如 Kaia Wallet 或 MetaMask）。
-3. 请选择 **Kaia 主网** 或 **Kairos 测试网**。
-4. 您的现有“保险箱”应会显示出来。 如果没有，请使用\*\*“添加现有安全区”\*\* / **“加载”**，粘贴安全区地址，并确认网络。
+3. 您现有的“保险箱”应会显示出来，并标注其所属网络（**Kaia** 或 **Kairos**）。 如果没有，请访问 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)，点击 **管理列表**，查看与您已连接的钱包关联的 Safes。
 
-可选操作：在 `safe.kaia.io` 停止服务之前，请从旧版界面导出本地数据（通讯录和设置），并将其导入 Safe Wallet 的 **设置 → 数据** 部分，以便保留昵称及相关浏览器数据。 此项为可选操作，不会影响链上的所有权或余额。
+## 导出您的地址簿
+
+您的地址簿——即您为地址保存的名称和标签——存储在 `safe.kaia.io` 接口的本地，而非链上。 这是唯一一项**不会**自动转入新系统的内容，因此，如果您想保留它，请在截止日期前将其导出。
+
+1. 在 `safe.kaia.io` 中，进入 **设置 → 数据 → 数据导出**，然后下载该文件。
+2. 请访问 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)，并在 **导入您的 Safe 数据** 部分上传该文件。
+
+此步骤为可选操作，不会影响链上的所有权或余额。
 
 ## 快速解答
 
 - **我需要创建一个新的“保险箱”吗？** 不需要。
 - **我的资金或所有者会发生变化吗？** 不会。
-- **我还能继续使用 `safe.kaia.io` 吗？** 只能使用到 **2026年8月9日**。 立即切换至 [app.safe.global](https://app.safe.global)。
+- **我还能继续使用 `safe.kaia.io` 吗？** 仅限使用至 **2026年8月31日**。 立即切换至 [app.safe.global](https://app.safe.global)。
 - **哪里可以获得更多帮助？** [Safe Wallet 帮助中心](https://help.safe.global) 和 [常见问题](./faqs.md)。
 
 ## 下一步
