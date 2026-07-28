@@ -63,7 +63,7 @@ Lưu trữ lạnh là việc lưu trữ các khóa riêng tư trên một thiế
 
 #### 2.3. Ví đa chữ ký: Giới thiệu về Safe Wallet
 
-Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. Trên Kaia, hãy sử dụng **Safe Wallet** từ [Safe](https://safe.global) (Safe Global) tại [app.safe.global](https://app.safe.global)—xem [hướng dẫn sử dụng Safe Wallet](/build/wallets/safe-wallet/use-safe-wallet). (`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**.)
+Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. Trên Kaia, hãy sử dụng **Safe Wallet** từ [Safe](https://safe.global) (Safe Global) tại [app.safe.global](https://app.safe.global)—xem [hướng dẫn sử dụng Safe Wallet](/build/wallets/safe-wallet/use-safe-wallet). (`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**.)
 
 ## Phần 2: Các phương pháp thực tế để quản lý ví
 
