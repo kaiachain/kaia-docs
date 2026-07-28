@@ -7,7 +7,7 @@ sidebar_label: よくある質問
 
 :::caution 日没に関するお知らせ
 
-`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。
+`safe.kaia.io` は **2026年8月31日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。
 
 :::
 
@@ -19,9 +19,9 @@ sidebar_label: よくある質問
 
 ## 自分の「Safe」は app.safe.global に自動的に表示されますか？ <a id="Will my Safe appear automatically"></a>
 
-ほとんどの場合、その通りです。オーナーウォレットを接続し、**Kaia** または **Kairos** を選択して、既存のセーフを開いてください。 表示されない場合は、**「既存のセーフを追加」**／\*\*「読み込み」\*\*を選択し、セーフのアドレスを貼り付けてください。
+ほとんどの場合、その通りです。オーナーウォレットを接続すると、既存の「Safe」がリストに表示され、そのネットワーク名（**Kaia** または **Kairos**）がラベルとして付いています。 表示されない場合は、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、**リストの管理**をクリックして、接続済みのウォレットに関連付けられているセーフを確認してください。
 
-オプションのローカルデータ（アドレス帳、ニックネームなど）については、`safe.kaia.io` から一度エクスポートし、Safe Wallet の **設定 → データ** からインポートする必要がある場合があります。 これは、オンチェーン上の所有権や残高には影響しません。
+アドレス帳とニックネームは、旧インターフェースにローカルで保存されているため、`safe.kaia.io`（**設定 → データ → データのエクスポート**）から一度エクスポートした後、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) の **Safe データのインポート** からアップロードする必要があります。 これは、オンチェーン上の所有権や残高には影響しません。
 
 ## 「セーフ」を作成した後、新しい所有者を追加することはできますか？ <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +48,7 @@ Safe Walletの機能改善に伴い、UIのラベルは若干変更される場�
 - 他の誰かがあなたを所有者に設定した金庫とのやり取り
 - 読み取り専用モードで金庫を表示する
 
-Safe Walletでは、**設定**でその機能が利用可能な場合、アドレス帳および関連データのインポート／エクスポートもサポートしています。 廃止予定の `safe.kaia.io` UI に頼るよりも、Safe Wallet で「住所」または「所有者」による接続を追加することをお勧めします。
+接続後に「Safe」が表示されない場合は、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、\*\*「リストの管理」\*\*をクリックしてください。 `safe.kaia.io` からアドレス帳をエクスポートした場合は、同じページで **Safe データのインポート** を行うことができます。詳しくは、[Safe Global への移行](./migrate-to-safe-global.md#export-your-address-book) をご覧ください。
 
 ## 一般的なセーフのセットアップに関するヒント
 
