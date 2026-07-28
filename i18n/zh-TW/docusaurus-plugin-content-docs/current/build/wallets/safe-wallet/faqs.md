@@ -7,7 +7,7 @@ sidebar_label: 常見問題
 
 :::caution 日落通知
 
-`safe.kaia.io` 將於 **2026 年 8 月 9 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。
+`safe.kaia.io` 將於 **2026 年 8 月 31 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。
 
 :::
 
@@ -19,9 +19,9 @@ sidebar_label: 常見問題
 
 ## 我的「Safe」會自動出現在 app.safe.global 上嗎？ <a id="Will my Safe appear automatically"></a>
 
-在大多數情況下，是的：連接所有者錢包，選擇 **Kaia** 或 **Kairos**，然後開啟您現有的「保險箱」。 如果未顯示，請使用 **新增現有安全區** / **載入**，並貼上安全區的地址。
+在大多數情況下，是的：連接所有者錢包後，您現有的「Safe」就會出現在清單中，並標示其所屬的網路（**Kaia** 或 **Kairos**）。 如果未顯示，請前往 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)，並點擊 **管理清單**，以查看與您已連線的錢包相關聯的 Safes。
 
-部分可選的本地資料（如通訊錄、暱稱）可能需要從 `safe.kaia.io` 進行一次性的匯出，並在 Safe Wallet 的 **設定 → 資料** 中進行匯入。 這不會影響鏈上的所有權或餘額。
+您的通訊錄和暱稱儲存在舊介面的本地端，需要先從 `safe.kaia.io` 進行一次性的匯出（**設定 → 資料 → 資料匯出**），然後在 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) 的 **匯入您的 Safe 資料** 區塊中進行上傳。 這不會影響鏈上的所有權或餘額。
 
 ## 建立「保險箱」後，我可以新增所有者嗎？ <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +48,7 @@ sidebar_label: 常見問題
 - 與他人將您設為擁有者的保險箱進行互動
 - 以唯讀模式檢視保險箱
 
-Safe Wallet 亦支援通訊錄及相關資料的匯入／匯出功能，此功能可在 **設定** 中啟用。 建議在 Safe Wallet 中透過地址或擁有者連結新增保險箱，而非依賴即將停用的 `safe.kaia.io` 使用者介面。
+若連線後未顯示「Safe」，請前往 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) 並點擊 **管理清單**。 若您已從 `safe.kaia.io` 匯出通訊錄，該頁面亦支援 **匯入您的 Safe 資料**——請參閱 [遷移至 Safe Global](./migrate-to-safe-global.md#export-your-address-book)。
 
 ## Common Safe 設定的常見建議
 
