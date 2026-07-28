@@ -63,7 +63,7 @@ Kaia에서는 다른 EVM 호환 체인과 마찬가지로 사용자 계정이 �
 
 #### 2.3. 다중 서명 지갑: 세이프 월렛 소개
 
-다중 서명(또는 "다중 서명") 지갑은 트랜잭션이 실행되기 전에 여러 개의 개인 키를 승인해야 하는 스마트 컨트랙트입니다. 예를 들어 2대 3 다중 서명의 경우 지정된 소유자 3명 중 2명의 승인이 필요합니다. 이는 단일 장애 지점을 방지하기 때문에 팀 자금, 재무 및 중요한 스마트 컨트랙트 관리를 위한 표준입니다. Kaia에서는 [app.safe.global](https://app.safe.global)에서 [Safe](https://safe.global)(Safe Global)의 **Safe Wallet**을 사용하세요. 자세한 내용은 [Safe Wallet 가이드](/build/wallets/safe-wallet/use-safe-wallet)를 참조하세요. (`safe.kaia.io`는 **2026년 8월 9일**에 서비스가 종료됩니다.)
+다중 서명(또는 "다중 서명") 지갑은 트랜잭션이 실행되기 전에 여러 개의 개인 키를 승인해야 하는 스마트 컨트랙트입니다. 예를 들어 2대 3 다중 서명의 경우 지정된 소유자 3명 중 2명의 승인이 필요합니다. 이는 단일 장애 지점을 방지하기 때문에 팀 자금, 재무 및 중요한 스마트 컨트랙트 관리를 위한 표준입니다. Kaia에서는 [app.safe.global](https://app.safe.global)에서 [Safe](https://safe.global)(Safe Global)의 **Safe Wallet**을 사용하세요. 자세한 내용은 [Safe Wallet 가이드](/build/wallets/safe-wallet/use-safe-wallet)를 참조하세요. (`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다.)
 
 ## 2부: 지갑 관리를 위한 실용적인 레시피
 
