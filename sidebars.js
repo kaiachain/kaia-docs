@@ -183,19 +183,20 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'Kaia Safe',
+          label: 'Safe Wallet',
           link: {
             type: 'doc',
-            id: 'build/wallets/kaia-safe/kaia-safe',
+            id: 'build/wallets/safe-wallet/safe-wallet',
           },
           items: [
-            'build/wallets/kaia-safe/overview',
-            'build/wallets/kaia-safe/use-kaia-safe',
-            'build/wallets/kaia-safe/contract-interaction',
-            'build/wallets/kaia-safe/tx-builder',
-            'build/wallets/kaia-safe/csv-airdrop',
-            'build/wallets/kaia-safe/faqs',
-            'build/wallets/kaia-safe/kaia-safe-api-kit',
+            'build/wallets/safe-wallet/migrate-to-safe-global',
+            'build/wallets/safe-wallet/overview',
+            'build/wallets/safe-wallet/use-safe-wallet',
+            'build/wallets/safe-wallet/contract-interaction',
+            'build/wallets/safe-wallet/tx-builder',
+            'build/wallets/safe-wallet/csv-airdrop',
+            'build/wallets/safe-wallet/faqs',
+            'build/wallets/safe-wallet/safe-wallet-api-kit',
           ],
         },
       ],
@@ -360,6 +361,7 @@ const sidebars = {
           items: [
             'build/tools/oracles/orakl-network',
             'build/tools/oracles/pyth-network',
+            'build/tools/oracles/redstone',
             'build/tools/oracles/supraoracles',
             'build/tools/oracles/witnet',
             { type: 'doc', label: 'Proof of Play vRNG', id: 'build/tools/oracles/vrng-pop' },
@@ -457,6 +459,17 @@ const sidebars = {
       link: { type: 'doc', id: 'nodes/core-cell/core-cell' },
       items: [
         'nodes/core-cell/system-requirements',
+        {
+          type: 'category',
+          label: 'Become a Validator',
+          link: { type: 'doc', id: 'nodes/core-cell/become-a-validator/become-a-validator' },
+          items: [
+            'nodes/core-cell/become-a-validator/prerequisites',
+            'nodes/core-cell/become-a-validator/onboarding',
+            'nodes/core-cell/become-a-validator/manage-staking',
+            'nodes/core-cell/become-a-validator/manage-validator',
+          ],
+        },
         'nodes/core-cell/network-configuration',
         {
           type: 'category',
@@ -608,6 +621,15 @@ const sidebars = {
         'minidapps/survey-minidapp/integrating-frontend',
         'minidapps/survey-minidapp/api-reference',
       ],
+    },
+    ...commonSidebar,
+  ],
+  krwStablecoinSidebar: [
+    'krw-stablecoin/overview',
+    {
+      type: 'link',
+      label: 'Full Document',
+      href: 'pathname:///files/krw-stablecoin-architecture-proposal.pdf',
     },
     ...commonSidebar,
   ],

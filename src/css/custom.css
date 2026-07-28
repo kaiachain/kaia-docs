@@ -5,6 +5,7 @@
  */
 
 /* You can override the default Infima variables here. */
+/* src/css/custom.css */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&family=Red+Hat+Display:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
@@ -96,15 +97,14 @@ body {
 /* Custom navbar positioning */
 :root {
   --navbar-padding-horizontal: 1rem;
-  --max-group-spacing: 11rem;
-  --min-group-spacing: 0.5rem;
   --collapse-breakpoint: 996px;
 }
 
 /* Center the navbar container */
 .navbar__inner {
   display: flex;
-  justify-content: center;
+  flex-wrap: nowrap !important;
+  align-items: center;
   width: 100%;
   max-width: 1540px;
   margin: 0 auto;
@@ -114,6 +114,14 @@ body {
 /* Create the three-group layout */
 .navbar__items {
   flex: 0 0 auto;
+  flex-wrap: nowrap !important;
+  min-width: 0;
+}
+
+/* Links and items must never break across lines. */
+.navbar__link,
+.navbar__item {
+  white-space: nowrap;
 }
 
 /* Logo group with dynamic spacing */
@@ -121,70 +129,77 @@ body {
   justify-content: flex-start;
 }
 
-/* Dynamic spacing after logo */
+/* Fixed gap to the right of the brand; stepped down at breakpoints. */
 .navbar__inner .navbar__brand {
-  margin-right: min(
-    var(--max-group-spacing), 
-    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
-  );
+  margin-right: 2rem;
 }
 
 /* Middle group (nav links) */
 .navbar__inner .navbar__items:not(:first-child):not(.navbar__items--right) {
+  flex: 1 1 0;
   justify-content: center;
-  flex: 0 1 auto;
-  margin-left: 0;
 }
 
-/* Dynamic spacing before right group */
+/* Right group */
 .navbar__inner .navbar__items--right {
+  flex: 0 0 auto;
   justify-content: flex-end;
-  margin-left: min(
-    var(--max-group-spacing), 
-    calc(var(--min-group-spacing) + (100vw - var(--collapse-breakpoint))*0.2)
-  );
+  margin-left: 2rem;
 }
 
-/* Progressive compression at smaller screens */
+/* Progressive compression at smaller screens - Step 1 */
+@media (max-width: 1400px) {
+  .navbar__inner .navbar__brand {
+    margin-right: 1.5rem;
+  }
+
+  .navbar__inner .navbar__items--right {
+    margin-left: 1.5rem;
+  }
+}
+
+/* Progressive compression at smaller screens - Step 2 */
 @media (max-width: 1300px) {
-  /* Reduce spacing between navbar items */
+  .navbar__inner {
+    padding: 0 0.5rem;
+  }
+
   .navbar__items .navbar__item {
     padding-left: 0.4rem;
     padding-right: 0.4rem;
   }
-  
-  .navbar__inner {
-    padding: 0 0.5rem;
-  }
-  
-  /* Reduce group spacing more aggressively */
+
   .navbar__inner .navbar__brand {
-    margin-right: max(0.3rem, calc(var(--min-group-spacing) + (100vw - 1130px)*0.05));
+    margin-right: 0.75rem;
   }
-  
+
   .navbar__inner .navbar__items--right {
-    margin-left: max(0.3rem, calc(var(--min-group-spacing) + (100vw - 1130px)*0.05));
+    margin-left: 0.75rem;
+  }
+
+  .navbar__items {
+    font-size: 0.9rem;
   }
 }
 
-/* Maximum compression before mobile breakpoint */
+/* Progressive compression at smaller screens - Step 3 */
 @media (max-width: 1130px) and (min-width: 997px) {
   .navbar__items .navbar__item {
     padding-left: 0.2rem;
     padding-right: 0.2rem;
   }
-  
+
   .navbar__inner .navbar__brand {
     margin-right: 0.25rem;
     padding-right: 0.2rem;
   }
-  
+
   .navbar__inner .navbar__items--right {
     margin-left: 0.25rem;
   }
-  
+
   .navbar__items {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -193,23 +208,23 @@ body {
   .navbar__item:not(.navbar__search) {
     display: none;
   }
-  
+
   .navbar__toggle {
     display: flex !important;
   }
-  
+
   .navbar__search, .navbar__items--right {
     display: flex !important;
   }
-  
+
   .navbar__items:first-child {
     margin-right: auto;
   }
-  
+
   .navbar__items--right {
     margin-left: 0;
   }
-  
+
   .navbar__items {
     font-size: 1rem;
   }

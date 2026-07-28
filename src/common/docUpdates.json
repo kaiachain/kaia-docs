@@ -488,7 +488,7 @@
       "title": "Simplifying Transfers with CSV Airdrop",
       "updateType": "NEW_CONTENT",
       "summary": "Batch multiple token transfers in Kaia Safe by simply uploading a CSV file.",
-      "primaryDocLink": "/build/tools/wallets/kaia-safe/csv-airdrop",
+      "primaryDocLink": "/build/wallets/safe-wallet/csv-airdrop",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/202",
 	    "showInWhatsNew": true
     },
@@ -682,7 +682,7 @@
       "title": "Kaia Safe API Kit Guide",
       "updateType": "NEW_CONTENT",
       "summary": "Learn to securely propose and manage Safe transactions with the Kaia Safe API Kit.",
-      "primaryDocLink": "/build/tools/wallets/kaia-safe/kaia-safe-api-kit",
+      "primaryDocLink": "/build/wallets/safe-wallet/safe-wallet-api-kit",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/94",
 	    "showInWhatsNew": true
     },
@@ -711,7 +711,7 @@
       "title": "Updated media in Kaia Safe documentation",
       "updateType": "UPDATE",
       "summary": "Updated the images in the Kaia Safe documentation to reflect the latest UI changes.",
-      "primaryDocLink": "/build/tools/wallets/kaia-safe",
+      "primaryDocLink": "/build/wallets/safe-wallet/safe-wallet",
       "githubPrLink": "https://github.com/kaiachain/kaia-docs/pull/75"
     },
     {

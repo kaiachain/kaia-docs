@@ -270,13 +270,6 @@ const config = {
             }
           }
         : undefined,
-      announcementBar: {
-        id: 'hardfork_v2.2.2',
-        content: '<div style="font-size: 15px; font-weight: bold;">⚠️ Breaking Change: Hard fork at block #213,333,000 (estimated: Apr 7, 2026 10:03 UTC+9). Contract code at address(0) will be removed. Please check the <a target="_blank" href="https://blog.kaia.io/breaking-change-v2-2-2-hardfork-upgrade-removal-of-bytecode-at-address-0-2/">blog post</a> for migration details.</div>',
-        backgroundColor: '#ff6b35',
-        textColor: '#ffffff',
-        isCloseable: true,
-      },
       navbar: {
         title: 'Kaia Docs',
         logo: {
@@ -403,6 +396,23 @@ const config = {
               {
                 to: "learn/token-economics/token-economy",
                 label: 'Token Economy',
+              },
+            ],
+          },
+          {
+            type: 'dropdown',
+            to: "krw-stablecoin/overview",
+            position: 'left',
+            sidebarid: 'krwStablecoinSidebar',
+            label: 'KRW Stablecoin',
+            items: [
+              {
+                to: "krw-stablecoin/overview",
+                label: 'Overview',
+              },
+              {
+                href: 'pathname:///files/krw-stablecoin-architecture-proposal.pdf',
+                label: 'Full Document',
               },
             ],
           },
