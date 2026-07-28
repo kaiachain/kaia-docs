@@ -7,7 +7,7 @@ sidebar_label: Ví an toàn
 
 :::caution Thông báo về hoàng hôn
 
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
 
 Bạn đã sử dụng Kaia Safe chưa? Xem **[Chuyển sang Safe Global](./migrate-to-safe-global.md)** — các tài khoản Safe hiện tại của bạn sẽ không bị ảnh hưởng và vẫn có thể sử dụng trên Safe Wallet.
 
