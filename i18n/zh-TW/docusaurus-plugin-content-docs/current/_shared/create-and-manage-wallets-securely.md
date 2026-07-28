@@ -63,7 +63,7 @@
 
 #### 2.3. 多簽名錢包：Safe Wallet 入門指南
 
-多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。 例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。 這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。 在 Kaia 上，請使用來自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可於 [app.safe.global](https://app.safe.global) 取得——請參閱 [Safe Wallet 使用指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 將於 **2026年8月9日** 停止服務。)
+多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。 例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。 這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。 在 Kaia 上，請使用來自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可於 [app.safe.global](https://app.safe.global) 取得——請參閱 [Safe Wallet 使用指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 將於 **2026年8月31日** 停止服務。)
 
 ## 第二部分：錢包管理實用配方
 
