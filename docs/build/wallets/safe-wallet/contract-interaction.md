@@ -26,16 +26,25 @@ In this section you interact with a simple contract on Kairos using a Safe accou
 
 Deploy the contract before interacting with it from the Safe. A typical sample contract exposes a `uint` that you update with `store` and read with `retrieve`.
 
-![](/img/build/wallets/ks-succor-deploy.gif)
+<video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" />
+</video>
 
 **Step 3:** Initiate a new transaction in Safe Wallet.
 
 Click **New transaction**. Enter the deployed contract address and ABI so you can select the method and parameters.
 
-![](/img/build/wallets/ks-succor-init-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" />
+</video>
 
 **Step 4:** Review and submit. Sign with an owner wallet; the transaction executes once the confirmation threshold is reached.
 
-![](/img/build/wallets/ks-succor-review-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" />
+</video>
 
 You can also batch contract calls with the [Transaction Builder](./tx-builder.md) or propose them programmatically with the [API Kit](./safe-wallet-api-kit.md).

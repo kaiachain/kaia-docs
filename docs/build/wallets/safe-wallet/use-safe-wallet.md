@@ -15,33 +15,41 @@ sidebar_label: Create and manage Safes
 
 Here is how to create a Safe smart account on Kaia with Safe Wallet.
 
-**Step 1:** Open [Safe Wallet](https://app.safe.global/welcome) in your browser.
+**Step 1:** Open [Safe Wallet](https://app.safe.global/welcome) in your browser. The landing page has two tabs: **Workspaces**, for teams that manage several accounts together, and **My accounts**, for the Safes your connected wallet signs on. To create a single Safe, stay on **My accounts**.
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+:::tip
 
-**Step 2:** Connect your wallet. Safe Wallet supports wallets such as [Kaia Wallet](https://docs.kaiawallet.io/) and [MetaMask](../../tutorials/connecting-metamask.mdx). Ensure **Kaia Mainnet** or **Kairos Testnet** is selected in your wallet and in Safe Wallet.
+Managing a treasury with several Safes and a team of reviewers? [Workspace](./overview.md#workspace) adds a shared dashboard, a shared address book, and email login for members who need visibility but should not hold a signing key. You can create Safes first and organise them into a workspace later.
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+:::
 
-**Step 3:** Click **Create account** (or equivalent) and give your Safe a name.
+![Safe Wallet welcome page with the My accounts tab selected, showing Connect wallet and Watch any account](/img/build/wallets/sg-welcome-page.png)
 
-![](/img/build/wallets/ks-add-safe-name.png)
+**Step 2:** Click **Connect wallet** and pick [MetaMask](../../tutorials/connecting-metamask.mdx). The dialog only lists wallets it detects, so install the extension first if you do not see the one you want—[Kaia Wallet](https://docs.kaiawallet.io/) appears here once its extension is installed. Ensure **Kaia Mainnet** or **Kairos Testnet** is selected in your wallet and in Safe Wallet.
 
-**Step 4:** Add owners/signers by entering the addresses that can submit and approve transactions. You can add as many owners as you need and change them later.
+![Connect your wallet dialog with MetaMask highlighted among the available wallets](/img/build/wallets/sg-connect-wallet.png)
 
-**Step 5:** Choose how many owner confirmations a transaction needs. Prefer a threshold greater than 1. A common practice is about 51% of owners (for example 2 of 3, or 3 of 5).
+**Step 3:** Click **Create account**, name your Safe, then choose the networks to deploy it on—**Kaia** for Mainnet or **Kairos** for testnet. You can add more networks later. Click **Next**.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![Set up the basics step with a Safe name entered and Kairos selected under Select Networks](/img/build/wallets/sg-add-safe-name.png)
 
-**Step 6:** Review the parameters, then deploy the Safe and follow the on-screen prompts.
+**Step 4:** On **Signers and confirmations**, add the addresses allowed to propose and approve transactions. Your connected wallet is **Signer 1**; click **Add new signer** for each additional one. Names are optional labels stored for your own reference. You can change signers later.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+**Step 5:** Set the **Threshold**—how many signers must confirm before a transaction executes. Prefer more than 1. A common practice is about 51% of signers (for example 2 of 3, or 3 of 5). Click **Next**.
 
-**Step 7:** After deployment, start using your Safe and open the account UI.
+![Signers and confirmations step with three signers added and a threshold of 2 out of 3](/img/build/wallets/sg-add-signers.png)
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+**Step 6:** Check the network, name, signers, and threshold. Deploying a Safe is an on-chain transaction, so it costs a one-time activation fee in KAIA—make sure your connected wallet holds enough. Click **Create account**, then confirm the transaction in your wallet.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![Review step showing the network, name, three signers, a 2 of 3 threshold, and the estimated activation fee in KAIA](/img/build/wallets/sg-review-create-safe.png)
+
+**Step 7:** Once the transaction confirms, your Safe is live. The dialog shows its address—this is the address you share to receive funds, and it is different from your signer wallet address. Click **Let's go** to open the account.
+
+![Your account is all set dialog showing the new Safe name and address on Kairos](/img/build/wallets/sg-start-using-wallet.png)
+
+The account opens on **Overview**, with the sidebar for **Assets**, **Transactions**, **Address book**, **Apps**, and **Settings**. The Safe starts empty—use **Copy address** to fund it from another wallet.
+
+![Safe account overview with zero balance, an Add funds prompt, and the sidebar navigation](/img/build/wallets/sg-safe-ui.png)
 
 Your Safe account is ready.
 
@@ -65,7 +73,11 @@ You can fund the Safe from any address that can transfer to Kaia accounts. For n
 
 ### NFT deposits
 
-Transfer NFTs to the Safe address from a marketplace or wallet that supports Kaia (Mainnet or Kairos). For example, on [OpenSea](https://opensea.io/), open the NFT, use transfer, and paste the Safe address. After confirmation, the NFT appears under **Assets** / NFTs in Safe Wallet. See OpenSea’s [transfer guide](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea) for product-specific steps.
+1. Copy your Safe address.
+2. In the wallet that holds the NFT, open it and choose transfer.
+3. Paste the Safe address, confirm, and verify it under **Assets** → **NFTs** in Safe Wallet.
+
+On Mainnet you can also transfer from a marketplace that supports Kaia, such as the [OKX NFT Marketplace](https://web3.okx.com/nft). On Kairos, use the wallet transfer above.
 
 ## Send assets
 
@@ -73,15 +85,24 @@ Transfer NFTs to the Safe address from a marketplace or wallet that supports Kai
 
 **Step 1:** Click **New transaction** and select **Send tokens**.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" />
+</video>
 
-**Step 2:** Choose the asset, enter the recipient address and amount.
+**Step 2:** Enter the recipient address, then pick the token and amount—**MAX** fills in the full balance. You can add up to five recipients to one transaction. Click **Next**.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" />
+</video>
 
-**Step 3:** Review and submit. Sign with your owner wallet; the transaction executes once the confirmation threshold is reached.
+**Step 3:** Review the details and click **Sign**, then confirm in your wallet. Signing does not send the transaction—it stays in the queue under **Transactions** until the threshold is met, then any signer can execute it.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" />
+</video>
 
 ### Send NFTs
 
