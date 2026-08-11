@@ -29,7 +29,7 @@ By the end of this guide, you will propose a transaction to the service and coll
 
 ## Prerequisites <a id="Prerequisites"></a>
 
-1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)—Node 20.12 or later, since the example uses the built-in `process.loadEnvFile()`
 2. A Safe with several signers on Kairos (or Mainnet)
 3. A Safe API key
 
@@ -39,24 +39,20 @@ Requests to Safe's Transaction Service need an API key. Sign in to the [Safe dev
 
 Unauthenticated access is capped at 2 requests per second and 5,000 requests per month, which is for exploration only. Requests without a key return `401 Unauthorized`; exceeding your quota returns `429 Too Many Requests`.
 
-Keep the key out of source control—read it from an environment variable:
-
-```sh
-export SAFE_API_KEY="<your api key>"
-```
+Keep the key out of source control. This guide reads it, along with the RPC URL and signer keys, from a `.env` file—see [Step 6](#step-6-configure-setup).
 
 ## Set up environment <a id="Setup-environment"></a>
 
 ### Step 1: Create a project directory
 
-```js
+```sh
 mkdir kaiasafe-api-kit
 cd kaiasafe-api-kit
 ```
 
 ### Step 2: Initialize an npm project
 
-```js
+```sh
 npm init -y
 ```
 
@@ -106,15 +102,72 @@ import { OperationType } from '@safe-global/types-kit'
 
 Use a Safe with at least two owners and threshold two so multiple signatures are required.
 
+Create a `.env` file in the project root:
+
+```sh
+# Kaia Kairos testnet — https://chainlist.org/?search=kaia&testnets=true
+RPC_URL=https://public-en-kairos.node.kaia.io
+CHAIN_ID=1001
+EXPLORER_TX_URL=https://kairos.kaiascan.io/tx/
+
+# API key from https://developer.safe.global
+SAFE_API_KEY=
+
+# 2-of-2 Safe deployed on Kairos (https://app.safe.global)
+SAFE_ADDRESS=
+
+# Owner 1 proposes AND executes, so it needs test KAIA for gas
+OWNER_1_ADDRESS=
+OWNER_1_PRIVATE_KEY=
+
+# Owner 2 only signs off-chain, so it needs no balance
+OWNER_2_PRIVATE_KEY=
+
+# Receiver of the 1 wei sample transaction (defaults to OWNER_1_ADDRESS)
+# TO_ADDRESS=
+```
+
+:::danger
+
+`.env` holds private keys. Add it to `.gitignore` before your first commit, and never use keys that hold real funds for this walkthrough.
+
+:::
+
+Load it in `app.js` and fail fast if anything is missing:
+
 ```js
-// https://chainlist.org/?search=kaia&testnets=true
-const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_API_KEY = process.env.SAFE_API_KEY
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Owner Safe Address Ex: 0x123.... SAFE SHOULD 
-const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // ONLY OWNER 1 and SAFE ADDRESS Need to have some test KAIA balance
-const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 need not have any test KAIA
-const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
+// Loads .env into process.env (built into Node >= 20.12 / 21.7, no dependency needed)
+process.loadEnvFile()
+
+const {
+  RPC_URL,
+  CHAIN_ID,
+  SAFE_API_KEY,
+  SAFE_ADDRESS,
+  OWNER_1_ADDRESS,
+  OWNER_1_PRIVATE_KEY,
+  OWNER_2_PRIVATE_KEY,
+  EXPLORER_TX_URL
+} = process.env
+
+const REQUIRED = [
+  'RPC_URL',
+  'CHAIN_ID',
+  'SAFE_API_KEY',
+  'SAFE_ADDRESS',
+  'OWNER_1_ADDRESS',
+  'OWNER_1_PRIVATE_KEY',
+  'OWNER_2_PRIVATE_KEY'
+]
+
+const missing = REQUIRED.filter((key) => !process.env[key])
+if (missing.length > 0) {
+  console.error(`Missing required environment variables in .env: ${missing.join(', ')}`)
+  process.exit(1)
+}
+
+// Receiver address of sample transaction who receives 1 wei
+const TO_ADDRESS = process.env.TO_ADDRESS || OWNER_1_ADDRESS
 ```
 
 ## Use API Kit <a id="use-api-kit"></a>
@@ -125,7 +178,7 @@ Pass the chain ID and your API key. Safe resolves the Transaction Service endpoi
 
 ```js 
 const apiKit = new SafeApiKit({
-  chainId: 1001n, // Kairos; use 8217n for Kaia Mainnet
+  chainId: BigInt(CHAIN_ID), // 1001 for Kairos, 8217 for Kaia Mainnet
   apiKey: SAFE_API_KEY
 })
 ```
@@ -156,7 +209,6 @@ const safeTransaction = await protocolKitOwner1.createTransaction({
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2. Propose transaction to the service
 try {
   await apiKit.proposeTransaction({
     safeAddress: SAFE_ADDRESS,
@@ -174,11 +226,12 @@ try {
 
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
-// const transactions = await service.getPendingTransactions()
-// const transactions = await service.getIncomingTransactions()
-// const transactions = await service.getMultisigTransactions()
-// const transactions = await service.getModuleTransactions()
-// const transactions = await service.getAllTransactions()
+// Other reads available on the same instance:
+// const transactions = await apiKit.getPendingTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getIncomingTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getMultisigTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getModuleTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getAllTransactions(SAFE_ADDRESS)
 ```
 
 ### Step 5: Confirm the transaction
@@ -207,7 +260,7 @@ const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
 console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
+console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
 Full `app.js` example:
@@ -215,26 +268,54 @@ Full `app.js` example:
 ```js
 import SafeApiKit from '@safe-global/api-kit'
 import Safe from '@safe-global/protocol-kit'
-import { 
+import {
   OperationType
 } from '@safe-global/types-kit'
-// https://chainlist.org/?search=kaia&testnets=true
-const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_API_KEY = process.env.SAFE_API_KEY
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Owner Safe Address Ex: 0x123.... SAFE SHOULD 
-const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // ONLY OWNER 1 and SAFE ADDRESS Need to have some test KAIA balance
-const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // OWNER 2 need not have any test KAIA
-const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction who receives 1 wei
+
+// Loads .env into process.env (built into Node >= 20.12 / 21.7, no dependency needed)
+process.loadEnvFile()
+
+const {
+  RPC_URL,
+  CHAIN_ID,
+  SAFE_API_KEY,
+  SAFE_ADDRESS,
+  OWNER_1_ADDRESS,
+  OWNER_1_PRIVATE_KEY,
+  OWNER_2_PRIVATE_KEY,
+  EXPLORER_TX_URL
+} = process.env
+
+const REQUIRED = [
+  'RPC_URL',
+  'CHAIN_ID',
+  'SAFE_API_KEY',
+  'SAFE_ADDRESS',
+  'OWNER_1_ADDRESS',
+  'OWNER_1_PRIVATE_KEY',
+  'OWNER_2_PRIVATE_KEY'
+]
+
+const missing = REQUIRED.filter((key) => !process.env[key])
+if (missing.length > 0) {
+  console.error(`Missing required environment variables in .env: ${missing.join(', ')}`)
+  process.exit(1)
+}
+
+// Receiver address of sample transaction who receives 1 wei
+const TO_ADDRESS = process.env.TO_ADDRESS || OWNER_1_ADDRESS
+
 const apiKit = new SafeApiKit({
-  chainId: 1001n, // Kairos; use 8217n for Kaia Mainnet
+  chainId: BigInt(CHAIN_ID),
   apiKey: SAFE_API_KEY
 })
+
 const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
+
 // 1. Create transaction
 const safeTransactionData = {
   to: TO_ADDRESS,
@@ -242,11 +323,14 @@ const safeTransactionData = {
   data: '0x',
   operation: OperationType.Call
 }
+
 const safeTransaction = await protocolKitOwner1.createTransaction({
   transactions: [safeTransactionData]
 })
+
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
+
 // 2. Propose transaction to the service
 try {
   await apiKit.proposeTransaction({
@@ -259,26 +343,41 @@ try {
 } catch(err) {
   console.log(err)
 }
+
 console.log("Transaction hash is "+safeTxHash)
 const transaction = await apiKit.getTransaction(safeTxHash)
+// Other reads available on the same instance:
+// const transactions = await apiKit.getPendingTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getIncomingTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getMultisigTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getModuleTransactions(SAFE_ADDRESS)
+// const transactions = await apiKit.getAllTransactions(SAFE_ADDRESS)
+
 // 3. Confirmation from Owner 2
 const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
 })
+
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
+
+// Confirm the Safe transaction
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
 )
+
 console.log(signatureResponse)
+
 // 4. Execute transaction
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
+
 const receipt = await executeTxReponse.transactionResponse?.wait();
+
 console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
+console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-See the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) and [example snippets](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) for more detail.
+The complete runnable project—`app.js`, `.env.example`, and `package.json`—is at [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit). See the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for the full method list.
