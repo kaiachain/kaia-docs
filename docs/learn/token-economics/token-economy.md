@@ -9,7 +9,7 @@ Kaia’s token economy is designed to create sustainable funding structures for 
 Kaia’s funding structure runs continuously with Kaia network’s block generation. With every new block, newly issued KAIA and the sum of transaction fees used in the block \(collectively called “block reward”\) are aggregated and distributed to the following three destination accounts in accordance to the predetermined ratio:
 
 * Validators and Community: 50%
-    * Block proposer rewards: 20% of the 50% (10% of total)
+    * Contribution rewards: 20% of the 50% (10% of total)
     * Staking rewards: 80% of the 50% (40% of total)
 * Kaia Ecosystem Fund (KEF): 25%
 * Kaia Infrastructure Fund (KIF): 25%
@@ -24,7 +24,7 @@ Kaia Governance Council is the collective group of Core Cell Operators \(CCOs\).
 
 For each block in the Kaia blockchain, a Committee is formed by randomly selecting members from the Kaia Governance Council (GC). This Committee consists of a single member who is assigned the role of Proposer, while the remaining Committee members take on the role of Validators. Once a block is successfully created and appended to the Kaia blockchain, the block reward is distributed among the Council members and various funds according to the previously mentioned ratios.
 
-All Council members have an equal probability of being selected as the Proposer for a given block, and the block proposer reward is distributed evenly among them. However, the GC staking reward is allocated proportionally based on the amount of KAIA staked by each member, minus the minimum requirement of 5 million KAIA. This means that Council members who stake a larger amount of KAIA beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KAIA to maximize their potential rewards from the GC staking award portion of the block reward distribution.
+All Council members have an equal probability of being selected as the Proposer for a given block, and the contribution reward is accumulated in the Kaia Performance Fund (KPF) and distributed based on measurable on-chain contribution. However, the GC staking reward is allocated proportionally based on the amount of KAIA staked by each member, minus the minimum requirement of 5 million KAIA. This means that Council members who stake a larger amount of KAIA beyond the minimum threshold will receive a greater share of the staking reward compared to those who stake less. As a result, Council members are incentivized to stake more KAIA to maximize their potential rewards from the GC staking award portion of the block reward distribution.
 
 As long as the minimum 5 million KAIA staking requirement is met, Kaia Governance Council members can freely stake or unstake his or her own KAIA. Staking information is updated every 86,400 blocks, and newly staked KAIA comes info effect two update cycles later from when the staking is completed. Withdrawing staked KAIA requires one week of delay to prevent malicious members from immediately exiting.
 

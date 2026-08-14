@@ -96,7 +96,7 @@ Kaia's native token, [KAIA](./token-economics/kaia-native-token.md), plays a cen
 - KAIA tokens are issued automatically with each new block.
 - Initial annual inflation rate: 5.2%.
 - Block rewards are distributed as follows:
-  - CCO and Community: 50% (20% Block Creator rewards, 80% Staking rewards)
+  - CCO and Community: 50% (20% Contribution rewards, 80% Staking rewards)
   - KEF (Kaia Ecosystem Fund): 25%
   - KIF (Kaia Infrastructure Fund): 25%
 

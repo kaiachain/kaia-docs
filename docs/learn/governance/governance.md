@@ -109,10 +109,10 @@ The absence penalty policy was introduced and approved under [KGP-31: Governance
 
 ### Rewards
 
-The current reward structure was proposed and approved under [KIP-82](https://kips.kaia.io/KIPs/kip-82). It consists of **Proposer Rewards** and **Staking Rewards**.
+The current reward structure was proposed and approved under [KIP-82](https://kips.kaia.io/KIPs/kip-82) and updated under [GP-21](https://govforum.kaia.io/t/gp-21-kaia-tokenomics-reform-ending-proposal-reward-pr-and-introducing-contribution-reward-cr-english/1451). It consists of **Contribution Rewards** and **Staking Rewards**.
 
-- **Proposer Rewards:**  
-  All GC members stake at least 5M KAIA, operate CN/PN nodes, and equally participate in block production. Each GC member receives **0.96 KAIA per block proposed**.
+- **Contribution Rewards:**
+  All GC members stake at least 5M KAIA, operate CN/PN nodes, and equally participate in block production. The Kaia Performance Fund (KPF) accumulates **0.96 KAIA per block**, which is distributed based on measurable on-chain contribution or burned if unearned.
 - **Staking Rewards:**  
   GC members staking more than 5M KAIA receive proportional rewards on their excess stake. From **3.84 KAIA distributed per block**, rewards are allocated based on each member's share of the total excess staked KAIA.
 
