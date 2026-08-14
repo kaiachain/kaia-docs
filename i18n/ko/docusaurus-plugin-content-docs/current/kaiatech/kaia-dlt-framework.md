@@ -74,9 +74,9 @@ The consensus process consists of the following three stages:
 
 - Block Reward for each block will be distributed in prespecified percentages (that can be changed subject to on-chain governance voting).
 
-  1. CCO and Community: 50%
-     1. Of the 50%, 20% is Block Creator rewards
-     2. Of the 50%, 80% is Staking rewards
+  1. 검증자 및 커뮤니티: 50%
+     1. 이 50% 중 20%는 기여 보상(총 발행량의 10%)입니다.
+     2. 이 50% 중 80%는 스테이킹 보상입니다(총 발행량의 40%).
   2. KEF (Kaia Ecosystem Fund): 25%
   3. KIF (Kaia Infrastructure Fund): 25%
 
