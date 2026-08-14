@@ -109,10 +109,10 @@ Chính sách xử phạt vắng mặt đã được ban hành và phê duyệt t
 
 ### Phần thưởng
 
-Cơ cấu thưởng hiện tại đã được đề xuất và phê duyệt theo [KIP-82](https://kips.kaia.io/KIPs/kip-82). Nó bao gồm **Phần thưởng cho người đề xuất** và **Phần thưởng staking**.
+Cơ cấu phần thưởng hiện tại đã được đề xuất và phê duyệt theo [KIP-82](https://kips.kaia.io/KIPs/kip-82) và được cập nhật theo [GP-21](https://govforum.kaia.io/t/gp-21-kaia-tokenomics-reform-ending-proposal-reward-pr-and-introducing-contribution-reward-cr-english/1451). Nó bao gồm **Phần thưởng đóng góp** và **Phần thưởng staking**.
 
-- **Phần thưởng cho người đề xuất:**  
-  Tất cả thành viên GC đều đặt cược ít nhất 5 triệu KAIA, vận hành các nút CN/PN và tham gia bình đẳng vào quá trình sản xuất khối. Mỗi thành viên GC nhận được **0.96 KAIA cho mỗi khối được đề xuất**.
+- **Phần thưởng đóng góp:**
+  Tất cả thành viên GC đều phải đặt cọc ít nhất 5 triệu KAIA, vận hành các nút CN/PN và tham gia sản xuất khối một cách bình đẳng. Quỹ Kaia Performance (KPF) tích lũy **0,96 KAIA mỗi khối**, số KAIA này sẽ được phân phối dựa trên mức độ đóng góp có thể đo lường được trên chuỗi hoặc bị đốt nếu chưa được kiếm được.
 - **Phần thưởng staking:**  
   Các thành viên GC staking hơn 5 triệu KAIA sẽ nhận được phần thưởng tương ứng với số KAIA staking vượt quá 5 triệu. Từ **3.84 KAIA được phân phối cho mỗi khối**, phần thưởng được phân bổ dựa trên tỷ lệ phần trăm KAIA đã stake của từng thành viên so với tổng số KAIA đã stake.
 
