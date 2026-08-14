@@ -122,8 +122,10 @@ Information about supported wallets on Kaia and how to configure them.
   - [Chainsafe Gaming](https://docs.kaia.io/build/tools/gaming-sdks/chainsafe): Guide for using Chainsafe Gaming SDK to build blockchain-enabled games on Kaia.
   - [Reown AppKit](https://docs.kaia.io/build/tools/gaming-sdks/reown): Guide for using Reown AppKit to build blockchain-enabled games on Kaia.
 - [Indexers](https://docs.kaia.io/build/tools/indexers): Provides information and guide about indexers on Kaia
-  - [The Graph](https://docs.kaia.io/build/tools/indexers/thegraph): Guide for using The Graph, a decentralized indexing protocol on Kaia.
+  - [Goldsky](https://docs.kaia.io/build/tools/indexers/goldsky): Guide for using Goldsky, a high-performance subgraph and data streaming indexer on Kaia.
   - [SubQuery](https://docs.kaia.io/build/tools/indexers/subquery): Guide for using SubQuery, a multi-chain indexing protocol on Kaia.
+  - [The Graph](https://docs.kaia.io/build/tools/indexers/thegraph): Guide for using The Graph, a decentralized indexing protocol on Kaia. Kaia support on The Graph ends on August 31, 2026.
+  - [Migrate from The Graph](https://docs.kaia.io/build/tools/indexers/migrate-from-the-graph): Migration guide for moving Kaia subgraphs off The Graph to Goldsky, SubQuery, or a self-hosted graph-node before the August 31, 2026 sunset.
 - [Crosschain](https://docs.kaia.io/build/tools/cross-chain): Provides information and guide about cross chain protocols supported by Kaia
   - [Layerzero](https://docs.kaia.io/build/tools/cross-chain/layerzero): LayerZero lets users build cross-chain apps for data, calls, and tokens with censorship resistance and permissionless smart contract support.
   - [Wormhole](https://docs.kaia.io/build/tools/cross-chain/wormhole): Users can use Wormhole to transfer tokens and data between 30+ linked chains, including Kaia, for cross-chain app building.

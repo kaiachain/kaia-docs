@@ -381,9 +381,10 @@ const sidebars = {
           label: 'Indexers',
           link: { type: 'doc', id: 'build/tools/indexers/indexers' },
           items: [
-            'build/tools/indexers/thegraph',
-            'build/tools/indexers/subquery',
             'build/tools/indexers/goldsky',
+            'build/tools/indexers/subquery',
+            'build/tools/indexers/thegraph',
+            'build/tools/indexers/migrate-from-the-graph',
           ],
         },
         {
