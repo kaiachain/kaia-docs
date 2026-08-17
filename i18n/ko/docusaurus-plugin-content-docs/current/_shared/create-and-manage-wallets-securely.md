@@ -61,9 +61,9 @@ Kaia에서는 다른 EVM 호환 체인과 마찬가지로 사용자 계정이 �
 
 콜드 스토리지는 인터넷에 연결되지 않은 장치에 개인 키를 보관하는 것을 말합니다. 하드웨어 지갑\*\*은 이러한 목적으로 제작된 물리적 장치입니다. 연결된 컴퓨터에 개인 키를 노출하지 않고 내부적으로 트랜잭션에 서명합니다. 따라서 고가치 자산을 보호하는 데 있어 최고의 표준이 됩니다. 이 가이드에서는 공식적으로 지원되는 [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) 및 [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1) 하드웨어 지갑에 중점을 두고 설명합니다.
 
-#### 2.3. 다중 서명 지갑: Kaia 세이프 소개
+#### 2.3. 다중 서명 지갑: 세이프 월렛 소개
 
-다중 서명(또는 "다중 서명") 지갑은 트랜잭션이 실행되기 전에 여러 개의 개인 키를 승인해야 하는 스마트 컨트랙트입니다. 예를 들어 2대 3 다중 서명의 경우 지정된 소유자 3명 중 2명의 승인이 필요합니다. 이는 단일 장애 지점을 방지하기 때문에 팀 자금, 재무 및 중요한 스마트 컨트랙트 관리를 위한 표준입니다. [Kaia 세이프](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe)는 Kaia 네트워크의 기본 다중 서명 솔루션입니다.
+다중 서명(또는 "다중 서명") 지갑은 트랜잭션이 실행되기 전에 여러 개의 개인 키를 승인해야 하는 스마트 컨트랙트입니다. 예를 들어 2대 3 다중 서명의 경우 지정된 소유자 3명 중 2명의 승인이 필요합니다. 이는 단일 장애 지점을 방지하기 때문에 팀 자금, 재무 및 중요한 스마트 컨트랙트 관리를 위한 표준입니다. Kaia에서는 [app.safe.global](https://app.safe.global)에서 [Safe](https://safe.global)(Safe Global)의 **Safe Wallet**을 사용하세요. 자세한 내용은 [Safe Wallet 가이드](/build/wallets/safe-wallet/use-safe-wallet)를 참조하세요. (`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다.)
 
 ## 2부: 지갑 관리를 위한 실용적인 레시피
 
@@ -142,7 +142,7 @@ source .env
 
 기본 파운드리 템플릿에는 카운터 컨트랙트를 배포하는 샘플 스크립트가 포함되어 있습니다. 자신의 지갑 이름과 RPC 엔드포인트를 사용하도록 이 스크립트를 수정해야 합니다.
 
-위조 생성\* 또는 _위조 스크립트_를 사용하여 스크립트를 실행하는 경우,
+위조 생성\* 또는 _위조 스크립&#xD2B8;_&#xB97C; 사용하여 스크립트를 실행하는 경우,
 
 - 를 입력하면 단말기에서 개인 키를 암호화하는 데 사용한 비밀번호를 입력하라는 메시지가 표시됩니다.
 - 비밀번호를 입력하면 파운드리가 스크립트를 실행하고 컨트랙트를 배포합니다.
@@ -339,67 +339,67 @@ SafePal 앱은 블록체인 데이터를 가져오고, 거래를 브로드캐스
 
 이 장에서는 보안 위험이 가장 높은 프로덕션 환경에서 자산을 보호하고 작업을 자동화하는 방법을 다룹니다.
 
-#### 4.1. 레시피: Kaia 금고로 다중 서명 금고 설정하기
+#### 4.1. 레시피: Safe Wallet을 활용한 다중 서명 지갑 설정하기
 
-Kaia 세이프는 개발자가 여러 소유자가 제어할 수 있는 계정을 생성하여 보안을 크게 향상시킬 수 있습니다.
+[Safe](https://safe.global) / Safe Global에서 제공하는 **Safe Wallet** ([app.safe.global](https://app.safe.global))을 통해 개발자는 여러 소유자가 관리하는 Safe 스마트 계정을 생성할 수 있으며, 이를 통해 보안성이 크게 향상됩니다.
 
 대량의 자금, 프로토콜의 권한 또는 소유권 관리를 위해 일반 지갑을 사용해서는 안 됩니다. 너무 많은 프로젝트가 기본적인 지갑 보안 실패로 인해 피해를 입었습니다. 차세대 대형 탈중앙 금융 프로토콜을 출시하든, DAO 자산을 관리하든, 귀중한 자산을 보호하든 다중 서명 지갑은 필수입니다.
 
-이 가이드에서는 Kaia 금고에서 Kaia 금고를 만들고, 소유자와 승인 임계값을 구성하고, 기본 거래를 실행하는 방법을 알려드리겠습니다.
+이 가이드에서는 Safe Wallet을 사용하여 Kaia에서 ‘Safe’를 생성하고, 소유자와 승인 한도를 설정하며, 기본적인 거래를 실행하는 방법을 알아보겠습니다.
 
 ##### 안전한 지갑 만들기
 
-1. Kaia 세이프 앱](https://app.safe.global/welcome)을 방문하세요.
+1. [Safe Wallet](https://app.safe.global/welcome)을 방문해 보세요.
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
-2. **지갑 연결**. Kaia Safe 웹사이트에 연결하려는 지갑 유형을 선택합니다. 이 가이드에서는 Kaia 지갑을 사용하겠습니다.
+2. **지갑 연결**. 연결할 지갑 유형을 선택하세요. **Kaia 메인넷** 또는 **Kairos 테스트넷**이 선택되어 있는지 확인하십시오. 이 가이드에서는 Kaia 지갑을 사용하겠습니다.
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
-3. **금고 이름**을 지정합니다. 지갑을 연결한 후 **계정 만들기**를 클릭하고 Kaia 금고의 이름을 지정합니다.
+3. **금고 이름**을 지정합니다. 지갑을 연결한 후 **계정 만들기**를 클릭하고, Safe에 이름을 지정하세요.
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
-4. **서명자 구성**. Kaia Safe 계정에서 거래를 승인하는 데 필요한 서명자 확인 횟수를 구성합니다.  아래와 같이 전체 소유자의 51%(예: \*3명 중 2명, \*5명 중 3명 등)의 임계값을 사용하는 것이 좋습니다.
+4. **서명자 구성**. Safe 계정의 거래가 승인되기 위해 필요한 서명자 확인 횟수를 설정하세요.  아래와 같이 전체 소유자의 51%(예: \*3명 중 2명, \*5명 중 3명 등)의 임계값을 사용하는 것이 좋습니다.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
-5. **Kaia 세이프 계정을 배포**합니다. 모든 Kaia 세이프 매개변수에 완전히 만족하면 **만들기**를 클릭하여 Kaia 세이프 계정 생성을 제출하세요.
+5. **Safe 계정을 활성화하세요**. Safe의 모든 설정에 완전히 만족하셨다면, **만들기**를 클릭하여 Safe 계정 생성을 신청하세요.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
-6. **지갑 사용**. Kaia세이프 월렛 사용 시작\*\* 버튼을 클릭합니다.
+6. **지갑 사용**. **‘Safe Wallet 사용 시작’**(또는 UI상의 이에 상응하는 버튼)을 클릭하세요.
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
-7. **아래와 같이 Kaia 세이프 스마트 컨트랙트 지갑의 사용자 인터페이스**에 액세스합니다.
+7. 아래 그림과 같이 Safe 스마트 계약 지갑의 **사용자 인터페이스를 열기**.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
-Kaia 세이프 계정을 성공적으로 생성하신 것을 축하드립니다!
+Safe 계정 생성을 성공적으로 마치신 것을 축하드립니다!
 
 ##### 기본 트랜잭션 실행(네이티브 토큰 보내기)
 
-이 섹션에서는 Kaia 세이프 계정에서 수취인 주소로 네이티브 토큰 Kaia를 보내는 등의 기본 트랜잭션을 실행하는 방법을 알아보세요.
+이 섹션에서는 Safe 계정에서 수취인 주소로 네이티브 토큰인 KAIA를 전송하는 것과 같은 기본적인 거래를 실행하는 방법을 알아보겠습니다.
 
-Kaia 세이프 계정에 충분한 자금이 있는지 확인하세요. 이 가이드를 참조하여 Safe 계정에 [입금](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe/#add-assets)하는 방법을 안내받을 수 있습니다.
+Safe 계정에 충분한 잔액이 있는지 확인하십시오. Safe 계좌에 [입금](/build/wallets/safe-wallet/use-safe-wallet#add-assets)하는 방법에 대한 안내는 이 가이드를 참고하시기 바랍니다.
 
 1단계: 사이드 메뉴에서 **새 트랜잭션** 버튼을 클릭하고 **토큰 보내기**를 선택해 새로운 자산 전송을 시작합니다.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 2단계: 이전할 자산을 선택합니다. 송금할 **수취인 주소**와 **Kaia 금액**을 추가합니다.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 3단계: 거래를 검토하고 제출합니다. 서명자 지갑으로 거래에 서명해야 하며, 확인 임계값에 도달하면 거래가 실행됩니다.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
-#### 4.2. 레시피: 중요한 스마트 컨트랙트 작업을 위해 Kaia 세이프 통합하기
+#### 4.2. 레시피: 중요한 스마트 계약 작업을 위한 Safe Wallet 통합
 
-이 가이드에서는 스마트 컨트랙트에서 Kaia 세이프 계정을 관리자로 지정하는 방법을 알려드리겠습니다. 또한 승인된 서명자만 권한 작업을 수행할 수 있도록 Kaia 세이프 계정을 사용하여 **setTokenPrice()** 및 \*\*pause()\*\*와 같은 권한 함수를 실행하는 방법도 확인할 수 있습니다.
+이 가이드에서는 스마트 계약에서 Safe 계정을 관리자로 지정하는 방법을 알아보겠습니다. 또한 Safe 계정을 사용하여 **setTokenPrice()** 및 \*\*pause()\*\*와 같은 특권 기능을 실행하는 방법을 살펴보게 되며, 이를 통해 승인된 서명자만 특권 작업을 수행할 수 있도록 보장합니다.
 
 ##### 전제 조건
 
@@ -411,11 +411,11 @@ Kaia 세이프 계정에 충분한 자금이 있는지 확인하세요. 이 가�
 
 ##### 2단계: 샘플 토큰 컨트랙트 컴파일 및 배포
 
-멀티서명 지갑에서 권한이 있는 함수를 호출하여 컨트랙트와 상호작용하려면 먼저 컨트랙트를 배포해야 합니다. 가장 먼저 해야 할 일은 배포 시 새로 생성한 Kaia 세이프 계정을 토큰 컨트랙트의 **initialOwner**로 설정하는 것입니다.
+멀티서명 지갑에서 권한이 있는 함수를 호출하여 컨트랙트와 상호작용하려면 먼저 컨트랙트를 배포해야 합니다. 가장 먼저 해야 할 일은, 배포 시 새로 생성한 Safe 계정을 토큰 계약의 **initialOwner**로 설정하는 것입니다.
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-이 샘플 토큰 컨트랙트에는 Kaia 세이프 계정으로만 호출할 수 있는 **setTokenPrice()**, \*\*pause()\*\*와 같은 권한 함수가 포함되어 있습니다. 다음으로 해야 할 일은 이러한 작업을 적절히 실행하는 것입니다. 트랜잭션 빌더를 사용하거나 Kaia 세이프 API 키트를 사용하여 프로그래밍 방식으로 이 작업을 수행할 수 있습니다.
+이 샘플 토큰 계약서에는 Safe 계정에서만 호출할 수 있는 **setTokenPrice()**, \*\*pause()\*\*와 같은 권한 관련 함수가 포함되어 있습니다. 다음으로 해야 할 일은 이러한 작업을 적절히 실행하는 것입니다. 이 작업은 트랜잭션 빌더를 사용하거나 Safe API Kit를 통해 프로그래밍 방식으로 수행할 수 있습니다.
 
 ##### 3단계: 새 거래 시작하기
 
@@ -425,9 +425,9 @@ Kaia 세이프 계정에 충분한 자금이 있는지 확인하세요. 이 가�
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
-###### Kaia 세이프 API 키트 사용
+###### Safe API Kit 사용법
 
-이 섹션에서는 Kaia 세이프 API 키트를 사용해 **setTokenPrice** 함수를 호출하는 트랜잭션을 프로그래밍 방식으로 제안하고, 세이프 계정 소유자의 서명을 수집하고, 트랜잭션을 실행하는 방법을 설명합니다.
+이 섹션에서는 Safe API Kit를 사용하여 **setTokenPrice** 함수를 호출하는 트랜잭션을 프로그래밍 방식으로 제안하고, Safe 계정 소유자로부터 서명을 수집한 후, 해당 트랜잭션을 실행해 보겠습니다.
 
 **전제 조건**
 
@@ -682,7 +682,7 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-축하합니다! Kaia 세이프 API 키트를 사용하여 Kaia 세이프 계정에서 권한 기능을 성공적으로 실행했습니다.
+축하합니다! Safe API Kit을 사용하여 Safe 계정에서 권한 기능을 성공적으로 실행했습니다.
 
 ##### 4단계: 거래 검토 및 제출
 

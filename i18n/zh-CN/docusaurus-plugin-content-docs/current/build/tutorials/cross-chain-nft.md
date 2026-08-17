@@ -423,7 +423,7 @@ export default config;
 - CCIP 路由器地址
 - LINK 令牌地址
 
-您的部署脚本将需要这些值。 接下来，导航到项目中的_ignition/modules_文件夹，创建一个名为 "deployEthereumSepolia.ts "的新文件，并粘贴以下代码：
+您的部署脚本将需要这些值。 接下来，导航到项目中&#x7684;_&#x69;gnition/module&#x73;_&#x6587;件夹，创建一个名为 "deployEthereumSepolia.ts "的新文件，并粘贴以下代码：
 
 ```typescript
 // This setup uses Hardhat Ignition to manage smart contract deployments.

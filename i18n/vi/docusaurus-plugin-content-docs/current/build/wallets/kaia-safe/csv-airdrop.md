@@ -1,71 +1,55 @@
-# Use CSV Airdrop
+---
+title: Sử dụng CSV Airdrop
+sidebar_label: Chương trình Airdrop CSV
+---
 
-This is a custom app in Kaia Safe that can be used to batch multiple transfers of ERC20, ERC721, ERC1155 and native tokens into a single transaction. It's as simple as uploading / copy & pasting a single CSV transfer file and hitting the submit button.
+# Sử dụng CSV Airdrop
 
-This single method saves gas ⛽ and a substantial amount of time ⌚ by requiring less signatures and transactions.
+:::caution Thông báo về hoàng hôn
 
-Let’s get started with an example using CSV Airdrop!
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
 
-## Step 1: Login into your [KaiaSafe](https://safe.kaia.io/)  <a id="login-kaiasafe"></a>
+:::
 
-If you haven't created a Safe account yet, please refer to our [Create a Safe Guide](./use-kaia-safe.md#create-a-safe) and [Add Asset Guide](./use-kaia-safe.md#add-assets) to set up your account and add assets (KAIA, FT, NFT).
+**CSV Airdrop** (khi được liệt kê trong mục “Ứng dụng an toàn”) gộp nhiều giao dịch chuyển token ERC-20, ERC-721, ERC-1155 và token gốc thành một giao dịch an toàn duy nhất. Bạn chỉ cần tải lên hoặc dán tệp CSV chứa các giao dịch chuyển tiền và gửi một lần — như vậy sẽ cần ít chữ ký hơn và phí gas cũng thấp hơn so với việc gửi từng giao dịch riêng lẻ.
 
-## Step 2: Click apps, search CSV and select CSV Airdrop  <a id="search-CSV-airdrop"></a>
+Tính khả dụng của ứng dụng Safe phụ thuộc vào danh mục ứng dụng Safe Wallet dành cho Kaia / Kairos. Nếu CSV Airdrop không được liệt kê cho mạng của bạn, hãy sử dụng [Trình tạo giao dịch](./tx-builder.md) hoặc tham khảo [Trung tâm trợ giúp](https://help.safe.global).
 
-![](/img/build/tools/kaia-safe/search-csv-app.png)
+## Bước 1: Mở Safe trong ứng dụng Safe Wallet <a id="login-kaiasafe"></a>
 
-## Step 3: Prepare a Transfer CSV file <a id="prepare-CSV-airdrop"></a>
+Đăng nhập tại [app.safe.global](https://app.safe.global) và chọn két sắt Kaia hoặc Kairos của bạn. Nếu bạn chưa có tài khoản, hãy làm theo hướng dẫn [Tạo két sắt](./use-kaia-safe.md#create-a-safe) và [Thêm tài sản](./use-kaia-safe.md#add-assets).
 
-Transfer files are expected to be in CSV format with the following required columns:
+## Bước 2: Mở tệp CSV Airdrop <a id="search-CSV-airdrop"></a>
 
-- _token_type_: The type of token that is being transferred. One of erc20,nft or native. NFT Tokens can be either ERC721 or ERC1155.
-- _token_address_: Ethereum address of ERC20 token to be transferred. This has to be left blank for native (ETH) transfers.
-- _receiver_: Ethereum address of transfer receiver.
-- _amount_: the amount of token to be transferred. This can be left blank for erc721 transfers.
-- _id_: The id of the collectible token (erc721 or erc1155) to transfer. This can be left blank for native and erc20 transfers.
+Vào mục **Ứng dụng**, tìm kiếm **CSV** và mở **CSV Airdrop** nếu ứng dụng này có sẵn trên mạng của bạn.
+
+## Bước 3: Chuẩn bị tệp CSV để chuyển dữ liệu <a id="prepare-CSV-airdrop"></a>
+
+Các tệp chuyển dữ liệu cần được cung cấp dưới định dạng CSV với các cột như sau:
+
+- _token_type_: `erc20`, `nft` hoặc `native`. Các token NFT có thể tuân theo tiêu chuẩn ERC-721 hoặc ERC-1155.
+- _token_address_: Địa chỉ hợp đồng token. Để trống đối với các giao dịch chuyển khoản nội bộ (KAIA).
+- _người nhận_: Địa chỉ người nhận.
+- _số tiền_: Số tiền cần chuyển. Có thể để trống đối với các giao dịch chuyển nhượng theo tiêu chuẩn ERC-721.
+- _id_: Mã định danh vật phẩm sưu tầm (ERC-721 hoặc ERC-1155). Có thể để trống đối với các giao dịch nội bộ và giao dịch ERC-20.
 
 :::important
-The CSV file has to use "," as a separator and the header row always has to be provided as the first row and include the described column names.
-[Sample Transfer File](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
+Sử dụng `,` làm dấu phân cách. Hàng tiêu đề phải là hàng đầu tiên và phải chứa các tên cột đã được mô tả.
+[Tệp chuyển dữ liệu mẫu](https://ipfs.io/ipfs/bafybeiesr6b3cm76ofcm2joukgdtuyva3niftmbpbb4sgxsa3qwsenv3lu/sample.csv)
 :::
 
-### Native Token Transfers <a id="native-token-trnasfers"></a>
+### Chuyển nhượng token gốc <a id="native-token-trnasfers"></a>
 
-Since native tokens do not have a token address, you must leave the _token_address_ column blank for native transfers.
+Để trống _token_address_ đối với các giao dịch nội bộ. Đảm bảo rằng ngăn chứa an toàn có đủ KAIA.
 
-![](/img/build/tools/kaia-safe/native-csv-app.png)
+### Giao dịch ERC-20 <a id="erc20-trnasfers"></a>
 
-:::note
-Make sure you have enough native tokens in the kaia safe wallet address.
-:::
+Đặt _token_type_ thành `erc20` và điền thông tin vào các trường còn lại. Đảm bảo rằng Safe có đủ số lượng token đó.
 
-### ERC-20 Transfers <a id="erc20-trnasfers"></a>
+### Giao dịch ERC-721 <a id="erc721-transfers"></a>
 
-Provide erc20 as _token_type_ for erc20 transfers and other respective fields accordingly.
+Đặt _token_type_ cho các giao dịch chuyển nhượng NFT và bao gồm _id_ của vật phẩm sưu tầm theo yêu cầu của ứng dụng. Đảm bảo rằng Safe là chủ sở hữu của các NFT đó.
 
-![](/img/build/tools/kaia-safe/erc20-csv-app.png)
+## Bước 4: Kiểm tra và gửi <a id="review-submit-transaction"></a>
 
-:::note
-Make sure you have enough erc20 tokens in the kaia safe wallet address.
-:::
-
-### ERC-721 Transfers <a id="erc721-transfers"></a>
-
-Provide erc721 as _token_type_ for erc721 transfers and other respective fields accordingly.
-
-![](/img/build/tools/kaia-safe/erc721-csv-app.png)
-
-:::note
-Make sure you have enough erc721 tokens in the kaia safe wallet address.
-:::
-
-### Illustration <a id="illustration"></a>
-
-For this illustration, we have 2 native transfers, 2 ERC20 transfers and 1 ERC721 transfers
-
-![](/img/build/tools/kaia-safe/rs-csv-app.png)
-
-## Step 4: Review and submit transaction <a id="review-submit-transaction"></a>
-
-You'll be able to review and confirm the transaction. Once ready, click Submit to execute the transaction just like any other Safe transaction.
-
+Kiểm tra lại các giao dịch đã được giải mã trong ứng dụng, sau đó gửi đi. Hoàn tất việc xác nhận giao dịch Safe theo cách tương tự như bất kỳ giao dịch Safe nào khác.

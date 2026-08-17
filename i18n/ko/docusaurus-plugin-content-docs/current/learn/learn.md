@@ -96,7 +96,7 @@ Kaia의 네이티브 토큰인 [Kaia](./token-economics/kaia-native-token.md)는
 - KAIA 토큰은 새로운 블록이 생성될 때마다 자동으로 발행됩니다.
 - 초기 연간 인플레이션율: 5.2%.
 - 블록 보상은 다음과 같이 배분됩니다:
-  - CCO 및 커뮤니티: 50% (블록 생성자 보상 20%, 스테이킹 보상 80%)
+  - CCO 및 커뮤니티: 50% (기여 보상 20%, 스테이킹 보상 80%)
   - KEF (Kaia Ecosystem Fund): 25%
   - KIF (Kaia Infrastructure Fund): 25%
 

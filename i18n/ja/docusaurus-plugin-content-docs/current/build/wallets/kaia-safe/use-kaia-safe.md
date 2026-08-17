@@ -1,169 +1,111 @@
-# Kaia Safeを利用する
+---
+title: KaiaでSafe Walletをご利用ください
+sidebar_label: セーフの作成と管理
+---
+
+# KaiaでSafe Walletをご利用ください
+
+:::caution 日没に関するお知らせ
+
+`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
+
+:::
 
 ## Safeを作る
 
-ここでは、カイア・ネットワークにおけるSafeの作成方法とその利点について説明します。
+ここでは、Safe Wallet を使用して Kaia で Safe スマートアカウントを作成する方法をご紹介します。
 
-\*\*ステップ 1: \*\* [Kaia Safe App](https://safe.kaia.io/) に移動します。 ウェブブラウザでアプリケーションに移動すると、Kaia Safeの機能を調べることができます。 ウェブブラウザでアプリケーションに移動すると、Kaia Safeの機能を調べることができます。
+**手順 1：** ブラウザで [Safe Wallet](https://app.safe.global/welcome) を開きます。
 
-**ステップ2:** [ウォレット](https://docs.ethhub.io/using-ethereum/wallets/intro-to-ethereum-wallets/)を接続します。 現在、Kaia Safeは、[Kaia Wallet](https://docs.kaiawallet.io/)、[MetaMask](../../tutorials/connecting-metamask.mdx)ウォレットなど、様々なウォレットに対応しています。
+![](/img/build/wallets/ks-welcome-page-sw.png)
 
-このガイドでは、MetaMaskを使用する。 MetaMaskウォレットにKaiaネットワーク([Mainnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)または[Kairos Testnet](../../tutorials/connecting-metamask.mdx#connect-to-kaia-network)が追加されていることを確認してください。
+**ステップ2：** ウォレットを接続します。 Safe Wallet は、[Kaia Wallet](https://docs.kaiawallet.io/) や [MetaMask](../../tutorials/connecting-metamask.mdx) などのウォレットに対応しています。 ウォレットおよびSafe Walletで、**Kaiaメインネット**または**Kairosテストネット**が選択されていることを確認してください。
 
-![](/img/build/tools/kaia-safe/kaia-safe-connect-wallet.png)
+![](/img/build/wallets/ks-connect-wallet-sw.png)
 
-**ステップ 3:** ウォレットが接続されたら、**Create Account**をクリックし、新しいセーフに\*\*「名前」\*\*を付けます。 この名前はあなたのSafeアカウントにリンクされています。セーフ・アカウントはマルチシグネチャーのウォレットで、あなたのすべての資金を保管・保存します。
+**手順 3：** **「アカウントを作成」**（または同等のリンク）をクリックし、Safe に名前を付けます。
 
-**ステップ4:** 取引を提出し承認する権限を持つアドレスを入力し、所有者/署名者を追加します。 署名者は何人でも追加でき、いつでも削除や入れ替えが可能です。 署名者は何人でも追加でき、いつでも削除や入れ替えが可能です。
+![](/img/build/wallets/ks-add-safe-name.png)
 
-**ステップ 5：** Safe 口座の取引が承認されるために必要な署名者の確認回数を選択します。 このアプリのデフォルトでは、署名者の確認は1人であることに注意してください。 しかし、安全な口座を確保するためには、1より高いしきい値を使用することをお勧めします。 例えば、3人中2人、5人中3人などである：
+**手順 4：** 取引の送信および承認ができるアドレスの入力により、所有者／署名者を追加します。 所有者は必要なだけ追加でき、後で変更することも可能です。
 
-![](/img/build/tools/kaia-safe/kaia-safe-create-acct.gif)
+**ステップ 5：** 取引に必要な所有者の承認数を指定します。 しきい値は1より大きい値にすることを推奨します。 一般的な慣行として、所有者の約51％（例えば、3人のうち2人、あるいは5人のうち3人）が挙げられます。
 
-**ステップ6:** レビューとセーフの展開
+![](/img/build/wallets/ks-add-signers-sw.png)
 
-Safe のすべてのパラメータに完全に満足したら、Safe アカウントの作成を送信し、画面上の指示に従ってアカウント作成を完了します。
+**手順 6：** パラメータを確認し、Safe をデプロイして、画面上の指示に従ってください。
 
-![](/img/build/tools/kaia-safe/kaia-safe-create-review.gif)
+![](/img/build/wallets/ks-review-create-safe-sw.png)
 
-Kaia Safeのアカウント作成完了おめでとうございます！
+**手順 7：** デプロイが完了したら、Safe の利用を開始し、アカウント UI を開いてください。
+
+![](/img/build/wallets/ks-start-using-wallet-sw.png)
+
+![](/img/build/wallets/ks-safe-ui-sw.png)
+
+Safeアカウントの準備が整いました。
 
 ## Kaia Safeのアカウント作成完了おめでとうございます！
 
-このセクションでは、セーフアカウントに資産（KAIA、FT、NFT）を追加し、資金を安全に保管する方法をご紹介します。
+アカウントのダッシュボードに表示されているセーフのアドレスに、KAIA、代替可能トークン、またはNFTを送金することで、セーフに資金を投入することができます。
 
-### KAIA預金
+### カイア鉱床
 
-以下は、**KAIA**をあなたのセーフアカウントに追加する手順です。
+1. アカウントのダッシュボードから、Safeのアドレスをコピーしてください。
+2. ウォレット（MetaMask、ハードウェアウォレット、または資金が入金済みのその他のアカウントなど）から、そのアドレス宛にKAIAを送金してください。
+3. 送金が確認されると、残高はSafe Walletの\*\*「資産」\*\*欄に表示されます。
 
-**ステップ 1：** アカウントのダッシュボードからセーフアドレスをコピーします。
+Kaiaアカウントへの送金が可能であれば、どのアドレスからでも「Safe」に資金を入金できます。 MetaMaskでのネットワーク設定については、[MetaMaskをKaiaに接続する](../../tutorials/connecting-metamask.mdx)をご覧ください。
 
-![](/img/build/tools/kaia-safe/ks-deposit-copy-addr.png)
+### 代替可能トークンの預入
 
-\*\*ステップ 2: \*\* Metamask ウォレットを開き、**send** をクリックして資産を安全なアカウントに送信します。
+1. Safeのアドレスをコピーしてください。
+2. ウォレットのトークン一覧から、そのトークンを選択し、Safeアドレスに送信してください。
+3. Safe Walletの\*\*「資産」\*\*で送金を確認し、残高を確認してください。
 
-Safeアカウントに資産を送金するには、さまざまな方法があります。 Safe アカウントに資産を送金するには、さまざまな方法があります。 あなたの[ハードウェアウォレット](https://www.ledger.com/academy/crypto-hardware-wallet)、[ウェブウォレット](https://medium.com/arcana-network-blog/why-web-wallets-e77c776e4d5e)、またはスマートコントラクトからも送信できます。 今回は、MetaMaskと呼ばれるウェブウォレットを利用する。 今回は、MetaMaskと呼ばれるウェブウォレットを利用する。
+### NFTの預入
 
-![](/img/build/tools/kaia-safe/ks-token-send-btn.png)
-
-\*\*ステップ3：\*\*以下のように、検索フィールドに安全なアドレスを貼り付けます。
-
-\*\*ステップ4：\*\*金額を入力し、**次へ**をクリックします。
-
-![](/img/build/tools/kaia-safe/ks-token-send-details.png)
-
-\*\*ステップ5： \*\*取引を確認し、資産ダッシュボードを確認します。 メタマスクアカウントからKaia Safeアカウントへの送金額が確認できます。
-
-![](/img/build/tools/kaia-safe/kaia-safe-klay-bal.png)
-
-### KIP-7 預託金
-
-それでは、以下の手順でKIP7（カンジブルトークン）を金庫に入金する方法を見ていきましょう。
-
-**ステップ 1：** アカウントのダッシュボードからセーフアドレスをコピーします。
-
-![](/img/build/tools/kaia-safe/ks-deposit-ft-copy.png)
-
-\*\*ステップ 2: \*\* Metamask Wallet を開き、**assets** タブに移動します。
-
-\*\*ステップ3:\*\*送信したいトークンを選択し、**送信**をクリックします。
-
-![](/img/build/tools/kaia-safe/ks-ft-send-btn.png)
-
-**ステップ4： **上記の**KAIA**デポジットのステップ**3**, **4**, **5**を繰り返します。
-
-![](/img/build/tools/kaia-safe/ks-ft-send-details.png)
-
-\*\*ステップ5：\*\*資産ダッシュボードを見ると、KIP7トークンが安全な口座に送金されているのがわかります。 同様に、FungibleトークンをSafeアカウントに送金することもできます。
-
-![](/img/build/tools/kaia-safe/ks-ft-balance.png)
-
-### KIP-17 (NFTs) 預金
-
-それでは、KIP17 (Non Fungible tokens)をSafeに入金する方法を以下の手順で見ていきましょう。
-
-NFTはさまざまな方法でSafeアカウントに振り込むことができます。 NFTはさまざまな方法でSafeアカウントに振り込むことができます。 以下は、[OpenSea](https://opensea.io/about) を使用して NFT を安全口座に送金する方法の例です。
-
-1. [OpenSeaアカウント](https://testnets.opensea.io/account)のプロフィールページに移動します。
-2. 移籍したいNFTへナビゲート。 テキストボックスにSafeのアドレスを貼り付け、Safeに転送する。
-3. 次のページで、転送ボタンをクリックする。
-4. テキストボックスに金庫の住所を貼り付け、金庫に転送する。
-5. Kaia SafeのAssetsセクションにOpenSeaのNFTがあります。
-
-![](/img/build/tools/kaia-safe/kaia-safe-trf-nft.gif)
-
-NFTの移管の詳細については、OpenSeaのこちらの[ガイド](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)をご参照ください。
+Kaia（メインネットまたはKairos）に対応しているマーケットプレイスやウォレットから、NFTを「Safe」アドレスに転送してください。 たとえば、[OpenSea](https://opensea.io/)でNFTを開き、「転送」を選択して、Safeのアドレスを貼り付けてください。 確認が完了すると、そのNFTはSafe Walletの\*\*「資産」\*\*／「NFT」の下に表示されます。 製品ごとの具体的な手順については、OpenSeaの[転送ガイド](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)をご覧ください。
 
 ## 資産を送る
 
-このセクションでは、Kaia SafeアカウントからKAIAおよびKIP-7トークンを送信する方法について説明します。
+### KAIAとトークンを送る
 
-### KAIAおよびKIP7トークンの送信<a id="Send KAIA from Safe"></a>
+**手順 1：** **「新規取引」** をクリックし、**「トークンの送金」** を選択します。
 
-**ステップ1： **サイドメニューの**New Transaction**ボタンをクリックし、**Send tokens**を選択して、新しいアセットトランスファーを開始します。
+![](/img/build/wallets/ks-new-tx-sw.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-init-send-token.gif)
+**手順 2：** 資産を選択し、受取人のアドレスと金額を入力します。
 
-\*\*ステップ 2: \*\* 譲渡する資産を選択します。
+![](/img/build/wallets/ks-send-details-sw.gif)
 
-- **KAIA**
+**ステップ3：** 内容を確認して送信する。 オーナーウォレットで署名してください。確認閾値に達すると、取引が実行されます。
 
-> 注: **受取人の住所**と**送金するKAIAの金額**を追加してください。
+![](/img/build/wallets/ks-review-send-tx-sw.gif)
 
-![](/img/build/tools/kaia-safe/kaia-safe-send-token-details.gif)
+### NFTを送信する
 
-- **KIP-7トークン**
+1. **「新規取引」**をクリックし、**「NFTを送信」**（またはSafe Walletにおける同等のNFT転送フロー）を選択してください。
+2. NFTと受取人を選択してください。
+3. 内容を確認し、必要な署名を集め、署名・捺印を行う。
 
-上の画像のように、アセットのドロップダウンで送信したいトークンを選択します。
+時間の経過とともに変更されるUIの詳細については、[Safe Wallet ヘルプセンター](https://help.safe.global)をご覧ください。
 
-> 注: **受取人のアドレス**と**転送するトークン数**を追加してください。
+## 補足
 
-**ステップ3：** 取引を確認し、提出する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
+### 取引手数料
 
-![](/img/build/tools/kaia-safe/kaia-safe-review-send-tokens.gif)
+安全な取引（資産の移転や契約のやり取り）には、その取引を**実行**する所有者（通常は閾値に達した最後の署名者）が支払うネットワーク手数料が発生します。
 
-### NFTを送る<a id="Send NFTs from Safe"></a>
+### 安全なノンス
 
-このセクションでは、カイアセーフアカウントから非有金トークンを送信する方法について説明します。
+セキュリティ上の理由から、セーフトランザクションは順序通りに実行する必要があります。 各トランザクションには**nonce**が割り当てられています。 nonce が _最後に実行された値 + 1_ であるトランザクションのみが実行可能です。それより大きい nonce のトランザクションは、それより前のトランザクションが完了し、十分な署名が集まるまでキューに残ります。
 
-**ステップ1： **サイドメニューの**New Transaction**ボタンをクリックし、**Send NFTs**を選択して新しい資産譲渡を開始します。
+### チェーン固有のアドレスプレフィックス
 
-![](/img/build/tools/kaia-safe/kaia-safe-init-send-nft.gif)
+ダッシュボードから「セーフアドレス」をコピーする際、転送先のウォレットがチェーン名のプレフィックスを受け付けない場合は、プレフィックスを含めないようにしてください。転送エラーを防ぐため、プレフィックスなしのアドレスを貼り付けてください。
 
-\*\*ステップ 2: \*\* 譲渡する資産を選択します。
+## その他のヘルプ
 
-![](/img/build/tools/kaia-safe/kaia-safe-send-nft-details.gif)
-
-**ステップ3：** 取引を確認し、提出する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
-
-![](/img/build/tools/kaia-safe/kaia-safe-review-send-nft.gif)
-
-## その他の注意事項<a id="Points to Note"></a>
-
-カイアセーフをご利用になる際にご留意いただきたいことを以下にまとめました：
-
-### 取引手数料<a id="Transaction Fees"></a>
-
-カイアセーフの取引は、資産の移転であれ契約のやり取りであれ、手数料が発生し、その手数料は取引を実行した署名者（通常、必要な署名数のしきい値に達した最後の署名者）が支払う。
-
-### Safe Nonce <a id="Safe Nonce"></a>
-
-セキュリティ上の理由から、Safeでの取引は順番に実行される必要があります。 セキュリティ上の理由から、Safeでの取引は順番に実行される必要があります。 これを実現するために、トランザクションには**nonce**と呼ばれる番号が割り当てられ、各トランザクションが一度しか実行できないようになっている。
-
-![](/img/build/tools/kaia-safe/ks-nounce.png)
-
-任意の時点において、最後に実行されたトランザクション+1_ を持つトランザクションのみが実行可能である。 より高いnonceを持つトランザクションは実行のためにキューに入れられる。 そのため、トランザクションが完了するたびに、キュー内の次のトランザクションは、それが十分な署名を蓄積していれば、実行可能な状態になる。 より高いnonceを持つトランザクションは実行のためにキューに入れられる。 そのため、トランザクションが完了するたびに、キュー内の次のトランザクションは、それが十分な署名を蓄積していれば、実行可能な状態になる。
-
-![](/img/build/tools/kaia-safe/ks-pending-tx.png)
-
-### チェーン別アドレス<a id="Chain-specific addresses"></a>
-
-チェーン接頭辞付きのアドレスをコピーすることもできます。
-
-- チェーン接頭辞付きのアドレスをコピーする：
-
-![](/img/build/tools/kaia-safe/ks-chain-spec-addr.png)
-
-ダッシュボードからセーフアドレスをコピーしてウォレットに貼り付ける場合、チェックボックスをクリックしてチェーン名を追加するかどうかを選択できます。 以下のエラーを避けるため、チェックを外しておくことをお勧めします。 以下のエラーを避けるため、チェックを外しておくことをお勧めします。
-
-![](/img/build/tools/kaia-safe/ks-chain-addr-err.png)
+- [Safe Wallet ヘルプセンター](https://help.safe.global)
+- [Safeのドキュメント](https://docs.safe.global)

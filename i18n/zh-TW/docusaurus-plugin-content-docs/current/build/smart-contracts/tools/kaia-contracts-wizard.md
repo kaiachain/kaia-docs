@@ -139,7 +139,7 @@ contract KIP7TokenAirdrop is KIP7, Ownable {
 
 從上面修改的代碼中可以看到，我們添加了一個名為 `airdropTokens()` 的新函數。 該函數向某些選定的地址鑄造代幣，且只能由合約的創建者--"onlyOwner"--調用。
 
-隨後，我們將_公共_ **mint()** _onlyOwner_函數修改為**_mintSingleTokens()** 私有。
+隨後，我們&#x5C07;_&#x516C;共_ **mint()** _onlyOwne&#x72;_&#x51FD;數修改&#x70BA;**_mintSingleTokens()** 私有。
 
 現在我們已經準備好 KIP7 空投合同代碼，下一步是在項目目錄的 src 文件夾中新建一個名為 airdropKIP7.sol 的文件，並將修改後的代碼粘貼到該文件中。
 

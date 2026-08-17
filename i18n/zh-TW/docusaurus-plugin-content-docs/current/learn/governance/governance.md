@@ -109,10 +109,10 @@ Kaia 區塊鏈實現了具有這些特性的鏈上治理系統。 投票權與�
 
 ### 獎勵
 
-目前的獎勵結構是在 [KIP-82](https://kips.kaia.io/KIPs/kip-82) 下提出並通過的。 它包括 \*\* 投標者獎勵\*\* 和 \*\* 投標者獎勵\*\*。
+目前的獎勵機制是根據 [KIP-82](https://kips.kaia.io/KIPs/kip-82) 提出並獲批准，並根據 [GP-21](https://govforum.kaia.io/t/gp-21-kaia-tokenomics-reform-ending-proposal-reward-pr-and-introducing-contribution-reward-cr-english/1451) 進行了更新。 它由 **貢獻獎勵** 和 **質押獎勵** 組成。
 
-- \*\* 提案人獎勵：\*\*  
-  所有 GC 會員至少持有 5M KAIA，操作 CN/PN 節點，並平等參與區塊製作。 每位 GC 成員每建議一個區塊可獲得 **0.96 KAIA**。
+- **貢獻獎勵：**
+  所有 GC 成員均需質押至少 500 萬 KAIA，並營運 CN/PN 節點，且平等參與區塊生成。 Kaia Performance Fund（KPF）每區塊累積 **0.96 KAIA**，該獎勵將根據可量化的鏈上貢獻進行分配；若未達貢獻門檻，則予以銷毀。
 - \*\* 投注獎勵:\*\*  
   GC 會員投注超過 5M KAIA，可按比例獲得超額投注獎勵。 從每個區塊\*\*分派的 3.84 KAIA 中，獎金根據每位會員在總超額投注 KAIA 中所佔的份額進行分配。
 

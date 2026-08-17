@@ -1,37 +1,55 @@
-# Kaia Safe
+---
+title: Ví an toàn
+sidebar_label: Ví an toàn
+---
 
-In a typical blockchain platform like Kaia, most users are familiar with single key wallet systems such as Kaia Wallet and MetaMask, which are also known as externally owned accounts (EOA). These accounts make use of traditional key pairs, i.e., public keys and private keys, which isn’t ideal as the private key creates a single point of failure.
+# Ví an toàn
 
-This makes EOAs unsuitable for organisational use, as a compromised private key could lead to the organisation losing all of its crypto funds—such was the case in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-) where $162.5 million was lost.
+:::caution Thông báo về hoàng hôn
 
-This is where multisig wallets like Kaia Safe come in. Unlike single key wallets, a multi-sig wallet needs multiple parties' private keys to sign and execute a transaction, removing the single point of failure and providing greater security for organisational use cases.
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các tài khoản Safe hiện tại của bạn sẽ tự động tương thích với Safe Wallet.
 
-## What are MultiSig Wallets? <a id="What are Multisig Wallets"></a>
+:::
 
-As the name implies, a multi-signature wallet is a digital wallet that requires two, three, or more private keys from different sources to confirm and execute a crypto transaction.
+## Giới thiệu
 
-For example, you can imagine a multi-signature wallet as a safe that has three locks. The three keys required to open the safe are with three different individuals, thus requiring their joint consent to open.
+[Safe](https://safe.global) (Safe Global) cung cấp bộ giải pháp tài khoản thông minh đa chữ ký (multisig) đạt tiêu chuẩn ngành dành cho các mạng EVM. **Safe Wallet** là ứng dụng web của Safe dùng để tạo và quản lý các tài khoản đó — có thể truy cập tại [app.safe.global](https://app.safe.global).
 
-Here are the main benefits of multisig wallets:
+Safe Wallet hỗ trợ mạng chính Kaia và mạng thử nghiệm Kairos. Kết nối ví chủ sở hữu, chọn **Kaia** hoặc **Kairos**, sau đó tạo hoặc mở một Safe.
 
-- **Store assets/funds securely:** Companies and protocols can store their funds safely without worrying about a private key leak or one bad actor moving funds without authorization.
+Trong một cấu hình điển hình trên Kaia, hầu hết người dùng đều bắt đầu với các ví chỉ sử dụng một khóa như Kaia Wallet hoặc MetaMask (tài khoản thuộc sở hữu bên ngoài, hay còn gọi là EOA). Các tài khoản này dựa trên một cặp khóa và tạo ra một điểm lỗi duy nhất — không phù hợp với các quỹ tài chính của tổ chức, như trong vụ [tấn công Wintermute](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-), nơi đã gây thiệt hại 162,5 triệu đô la.
 
-- **Enable decentralised decision making:** Companies and business executives can make on-chain decisions on which transactions to execute.
+Safe Wallet loại bỏ điểm lỗi duy nhất đó: nhiều chủ sở hữu phải ký xác nhận theo ngưỡng xác nhận nhất định trước khi giao dịch được thực hiện.
 
-- **Two-factor authentication:** With the help of multisig wallets, businesses and individuals can make sure that only those with access to the necessary keys can execute transactions.
+Đối với hành vi của sản phẩm, kiến trúc và các API, hãy tham khảo tài liệu chính thức của Safe:
 
-Next, we will dive into Kaia Safe, a multisig wallet for Klatyn, and how to use it to manage your funds and transactions.
+- [“An toàn” là gì?](https://docs.safe.global/home/what-is-safe)
+- [Tài liệu hướng dẫn an toàn](https://docs.safe.global)
+- [Trung tâm trợ giúp](https://help.safe.global)
 
-## What is Kaia Safe? <a id="What is Kaia Safe"></a>
+## Ví đa chữ ký là gì? <a id="What are Multisig Wallets"></a>
 
-Kaia Safe is a multisig wallet for the Kaia ecosystem. It is a fork of the well-known multisig wallet [Gnosis Safe](https://gnosis-safe.io/).
+Ví đa chữ ký là loại ví kỹ thuật số yêu cầu hai, ba hoặc nhiều khóa riêng tư từ các nguồn khác nhau để xác nhận và thực hiện một giao dịch tiền điện tử.
 
-## Benefits <a id="Benefits of Kaia Safe"></a>
+Ví dụ, bạn có thể hình dung một ví đa chữ ký như một chiếc két sắt có ba ổ khóa. Ba chìa khóa này do ba người khác nhau giữ, vì vậy cần có sự đồng ý chung của cả ba người mới có thể mở được.
 
-- **Store and transfer KAIA and KCTs (KIP7, KIP17)**: Users can deposit and transfer cryptocurrencies (KAIA) and tokens (fungible or non-fungible).
+Những lợi ích chính của ví đa chữ ký:
 
-- **Flexibility and security:** The confirmation threshold gives users more flexibility and control over which transactions should be executed, and removes the single point of failure.
+- **Lưu trữ tài sản một cách an toàn:** Các công ty và giao thức có thể lưu trữ tiền mà không cần phụ thuộc vào một khóa riêng tư duy nhất hay một bên thứ ba nào đó có thể chuyển tiền mà không được ủy quyền.
+- **Thúc đẩy quá trình ra quyết định phi tập trung:** Các nhóm có thể đưa ra quyết định trực tiếp trên chuỗi về việc sẽ thực hiện những giao dịch nào.
+- **Kiểm soát chung:** Chỉ những bên có các khóa cần thiết mới có thể phê duyệt và thực hiện các giao dịch theo ngưỡng đã được cấu hình.
 
-- **Safe apps:** Kaia Safe's functionality is expanded by the addition of custom apps that enable batch transactions and interaction with other dApps. One example of this safe app is the **Transaction Builder** which combines and executes multiple transactions as a batch transaction.
+## Các lợi ích trên Kaia <a id="Benefits of Kaia Safe"></a>
 
-- **Account recovery:** In the event of lost keys, Kaia Safe accounts can be recovered as long as the confirmation threshold can still be met by the remaining keys.
+- **Lưu trữ và chuyển KAIA và các token:** Nạp và chuyển KAIA gốc cùng các token có thể thay thế hoặc không thể thay thế (ví dụ: ERC-20 / KIP-7 và ERC-721 / KIP-17).
+- **Chủ sở hữu và ngưỡng xác nhận:** Cấu hình nhiều chủ sở hữu và ngưỡng xác nhận để đảm bảo khả năng kiểm soát linh hoạt và an toàn.
+- **Ứng dụng an toàn:** Mở rộng chức năng của Safe Wallet bằng các ứng dụng dành cho xử lý hàng loạt, gọi hợp đồng thông minh và các quy trình làm việc khác — ví dụ như **Transaction Builder** và các đợt airdrop dựa trên tệp CSV khi có sẵn trong danh mục Ứng dụng.
+- **Giao dịch và xác nhận:** Đề xuất, thu thập chữ ký và thực hiện giao dịch theo ngưỡng của bạn.
+- **Khôi phục tài khoản:** Nếu một khóa bị mất, những chủ sở hữu còn lại đáp ứng ngưỡng quy định vẫn có thể quản lý tài khoản (ví dụ: bằng cách thay thế chủ sở hữu bị mất).
+
+Các tài khoản hiện có được tạo trên nền tảng Safe UI trước đây do Kaia lưu trữ vẫn tương thích với Safe Wallet tại [app.safe.global](https://app.safe.global).
+
+## Các bước tiếp theo
+
+- [Sử dụng Safe Wallet trên Kaia](./use-kaia-safe.md) — tạo ví Safe, thêm tài sản và thực hiện giao dịch
+- [Tổng quan](./overview.md) — mạng lưới, hướng dẫn di cư và các tài nguyên của Safe Global

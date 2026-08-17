@@ -1,35 +1,43 @@
-# 지갑 연결
+# 전제 조건
 
-먼저 밸리데이터의 전반적인 관리 권한을 가진 validator manager 계정을 등록해야 합니다. 이 계정은 밸리데이터와 관련된 대부분의 중요 정보를 수정할 수 있는 권한을 가지므로, 멀티시그 월렛 또는 이에 준하는 보안이 보장되는 월렛을 사용하는것이 강력하게 권장됩니다. 일반적으로 Kaia Safe([safe.kaia.io](http://safe.kaia.io))로 생성한 멀티시그 월렛을 validator manager로 사용하는것을 추천합니다. 이어지는 가이드에서는 Kaia Safe를 이용한다고 가정하고 진행합니다.
+검증자를 온보딩하려면 먼저 전반적인 관리 권한을 가진 **검증자 관리자** 계정을 등록해야 합니다. 이 계정은 유효성 검사기와 관련된 대부분의 중요한 정보를 수정할 수 있으므로, 멀티서명 지갑 또는 동등한 보안이 보장되는 지갑을 유효성 검사기 관리자로 사용할 것을 **강력히 권장**합니다.
 
-## Safe Wallet 연결 <a id="connecting-a-safe-wallet"></a>
+일반적으로 [Safe Wallet](https://app.safe.global) ([Safe](https://safe.global) / Safe Global에서 제공)을 통해 생성된 멀티시그 지갑을 검증자 관리자로 사용할 것을 권장합니다. 이 가이드의 나머지 부분에서는 사용자가 Kaia에서 Safe Wallet을 사용하고 있다고 가정합니다.
 
-먼저 [Kaia Safe 사용 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)를 따라서 Safe 계정을 생성합니다. 그 후 Safe custom app으로 밸리데이터 관리 포털을 등록합니다.
+:::caution 일몰 공고
 
-![Add custom Safe App](/img/nodes/become-a-validator/image02.png)
+`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
 
-Apps \> My custom apps \> Add custom Safe App 를 클릭해주세요.
+:::
+
+## 안전한 지갑 연결 <a id="connecting-a-safe-wallet"></a>
+
+먼저, [Safe Wallet 사용자 가이드](../../../build/wallets/safe-wallet/safe-wallet.md)에 따라 Safe 계정을 생성하세요. 그런 다음 유효성 검사기 관리 포털을 안전한 사용자 지정 앱으로 등록합니다.
+
+![사용자 지정 안전 앱 추가](/img/nodes/become-a-validator/image02.png)
+
+앱 > 내 맞춤 앱 > 맞춤 안전 앱 추가\*\*를 클릭합니다.
 
 ![포털 URL 붙여넣기](/img/nodes/become-a-validator/image03.png)
 
-Safe의 가이드를 따라 포털의 URL을 붙여넣습니다. 아래에 포털의 정보가 정상적으로 출력되는지 확인해주세요. 주의사항을 확인 후 체크박스를 클릭합니다. Add 버튼을 클릭하여 추가합니다.
+안전 가이드를 따라 포털 URL을 붙여넣습니다. 아래에서 포털 정보가 올바르게 표시되는지 확인하고, 검토 후 고지 사항 확인란을 선택한 후 **추가**를 클릭합니다.
 
-![My custom apps](/img/nodes/become-a-validator/image04.png)
+![내 사용자 지정 앱](/img/nodes/become-a-validator/image04.png)
 
-성공적으로 밸리데이터 포털이 추가되었다면, Apps \> My custom apps 탭에서 Kaia Validators 카드를 클릭하여 Safe 계정으로 포털에 접속합니다.
+검증자 관리 포털이 성공적으로 추가되면 **앱 > 내 사용자 지정 앱**으로 이동하여 **카이아 검증자** 카드를 클릭하여 세이프 계정을 사용하여 포털을 엽니다.
 
-![Safe 지갑 연결 완료](/img/nodes/become-a-validator/image05.png)
+![안전 지갑 연결됨](/img/nodes/become-a-validator/image05.png)
 
-포털에 진입하면 좌측 화면에 Safe 지갑이 연결된 것을 확인할 수 있습니다. 이제 포털에서 트랜잭션 전송을 시도할 때, Safe를 통해 멀티시그 설정에 따라 트랜잭션이 서명 및 전송됩니다.
+포털에 들어가면 왼쪽에 안전 지갑이 연결되어 있는 것을 볼 수 있습니다. 이제부터 포털에서 트랜잭션을 보내려고 하면 멀티서명 구성에 따라 Safe를 통해 트랜잭션이 서명되고 제출됩니다.
 
 ## 다른 지갑 연결 <a id="connecting-another-wallet"></a>
 
-:::warning Security Note
+:::warning 보안 참고 사항
 
-멀티시그 또는 이에 준하는 보안이 확보되지 않은 월렛을 밸리데이터 관리자 계정으로 사용하는것은 권장되지 않습니다.
+멀티서명이 없거나 동등한 보안이 보장되지 않는 지갑을 유효성 검사기 관리자로 사용하는 것은 **권장하지 않습니다**.
 
 :::
 
 ![지갑 연결](/img/nodes/become-a-validator/image06.png)
 
-다른 지갑을 이용해 관리자 계정을 관리할 경우, Connect Wallet 버튼을 눌러 지갑을 연결할 수 있습니다.
+다른 지갑으로 관리자 계정을 관리하려면 **지갑 연결**을 클릭하여 연결하세요.

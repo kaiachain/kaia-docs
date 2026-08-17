@@ -1,77 +1,46 @@
-# Use Transaction Builder
+---
+title: Sử dụng Trình tạo giao dịch
+sidebar_label: Trình tạo giao dịch
+---
 
-This is a custom app in Kaia Safe that is responsible for batching transactions. This means that we you can bundle several transactions together, instead of having to confirm one transaction after the other. You just have to confirm and execute once.
+# Sử dụng Trình tạo giao dịch
 
-With transaction builder, you can compose transactions from token transfers to complex contract interactions and batch them into a single transaction.
+:::caution Thông báo về hoàng hôn
 
-## KAIA Token Transfer <a id="token-transfer"></a>
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
 
-You can perform token transfer using transaction builder by following the steps below:
+:::
 
-**Step 1:** Navigate to Safe Apps and open Transaction Builder Safe App
+**Transaction Builder** là một ứng dụng an toàn cho phép gộp nhiều thao tác thành một giao dịch an toàn duy nhất. Thay vì xác nhận từng giao dịch chuyển khoản hoặc yêu cầu hợp đồng một cách riêng lẻ, bạn có thể tạo một lô, sau đó xác nhận và thực hiện cùng một lúc.
 
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+Tính khả dụng của các ứng dụng an toàn có thể khác nhau tùy theo mạng và danh mục. Trong Safe Wallet, hãy mở **Ứng dụng**, tìm kiếm **Transaction Builder** và khởi chạy ứng dụng này cho ví Kaia hoặc Kairos Safe của bạn.
 
-**Step 2:** Enter the recipient wallet address. For this guide, kindly skip the ABI field as we are trying to execute KAIA transfer transaction.
+Để nhận trợ giúp về sản phẩm dựa trên giao diện người dùng (UI) mới nhất, vui lòng tham khảo [Trung tâm Trợ giúp Safe Wallet](https://help.safe.global).
 
-![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+## Chuyển token KAIA <a id="token-transfer"></a>
 
-**Step 3:** Enter the KAIA value you want to send.
+**Bước 1:** Trong Safe Wallet, mở mục **Ứng dụng** và khởi chạy **Transaction Builder**.
 
-> Note: In this guide, we are sending 1 KAIA, so we entered 1 in the **KAIA value** input field. You can input any amount here, depending on your Safe's KAIA balance.
+**Bước 2:** Nhập địa chỉ người nhận. Đối với một giao dịch chuyển khoản KAIA đơn giản, bạn có thể để trống trường ABI.
 
-![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+**Bước 3:** Nhập giá trị KAIA cần gửi (ví dụ: `1` tương ứng với 1 KAIA), sau đó nhấp vào **Thêm giao dịch**.
 
-**Step 4:** Click Add transaction.
+**Bước 4:** Lặp lại thao tác này cho từng người nhận mà bạn muốn thêm vào lô.
 
-**Step 5:** Repeat steps 2, 3, and 4 for every recipient address.
+**Bước 5:** Khi lô giao dịch đã hoàn tất, hãy nhấp vào **Tạo lô**, kiểm tra lại các thao tác, sau đó nhấp vào **Gửi lô** và thu thập các chữ ký Safe cần thiết theo cách tương tự như bất kỳ giao dịch Safe nào khác.
 
-**Step 6:** Once you added all operations to the batch click Create Batch.
+## Các tương tác trong hợp đồng <a id="contract-interactions"></a>
 
-![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+Hãy sử dụng Transaction Builder khi bạn cần thực hiện nhiều lệnh gọi hợp đồng tương tự nhau — ví dụ như chuyển cùng một loại token đến nhiều địa chỉ — trong một giao dịch Safe duy nhất.
 
-**Step 7:** Review and submit transaction
+**Bước 1:** Mở **Transaction Builder** từ mục Ứng dụng an toàn.
 
-You'll be able to review the whole batch. Once ready, click Send Batch to submit and execute the transaction just like any other Safe transaction.
+**Bước 2:** Nhập **địa chỉ token (hoặc hợp đồng)** và **ABI**.
 
-## Contract Interactions <a id="contract-interactions"></a>
+**Bước 3:** Chọn một phương thức (ví dụ: `transfer`) và điền các tham số.
 
-Let's say you want to airdrop tokens to a long list of addresses, say 10 CCT tokens to 5 addresses. Instead of having to create 5 transactions, which the owners of your safe have to confirm and execute one after the other, the transaction builder puts all these transfers into a single transaction.
+> Lưu ý: Các số nguyên thường được biểu thị bằng đơn vị nhỏ nhất của token (không có số thập phân trong trường này). Đối với một mã thông báo có 18 chữ số thập phân, 10 mã thông báo thường được nhập dưới dạng `10000000000000000000`.
 
-In this guide, we have minted CCT tokens to the Safe address for illustrative purpose.
+**Bước 4:** Nhấp vào **Thêm giao dịch**, lặp lại thao tác này cho mỗi cuộc gọi, sau đó chọn **Tạo lô** → **Gửi lô** và hoàn tất các xác nhận an toàn.
 
-Let’s get started with this example using Transaction Builder!
-
-**Step 1:** Open Safe Apps.
-
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
-
-**Step 2:** Open the Transaction Builder Safe app
-
-![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
-
-**Step 3:** Enter your **token contract address** and **ABI**.
-
-In this example, CCT contract address and ABI will be used. You can copy and paste your ABI into the **Enter ABI** field.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
-
-**Step 4:** Select a method and fill the transaction information
-
-From the drop-down you can select a method. In this case, we select the **transfer** method. For this step to be completed, you have to fill out the transaction information, such as **to(address)** and **amount(uint256)**.
-
-Note: The value is an unsigned integer without any decimals. In this example, the CCT token has 18 decimals. So if you want to send 10 CCT, you have to enter 10000000000000000000.
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
-
-**Step 5:** Click **Add transaction**
-
-**Step 6:** Repeat steps **4**, **5**, and **6** for every recipient address.
-
-**Step 7:** Once you added all operations to the batch click **Create Batch**
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
-
-**Step 8:** Review and submit transaction
-
-You'll be able to review the whole batch. Once ready, click **Send Batch** to submit and execute the transaction just like any other Safe transaction.
+Hãy thực hiện các giao dịch và chuyển khoản theo lô một cách cẩn thận: mỗi chủ sở hữu ký tên cần xem xét toàn bộ lô giao dịch trước khi thực hiện.

@@ -1,77 +1,46 @@
-# 使用事务生成器
+---
+title: 使用事务构建器
+sidebar_label: 事务构建器
+---
 
-这是 Kaia Safe 中的一个自定义应用程序，负责批处理交易。 这意味着您可以将几笔交易捆绑在一起，而不必一笔接一笔地确认。 您只需确认并执行一次。
+# 使用事务构建器
 
-有了事务生成器，您就可以将从代币转账到复杂的合约交互等各种事务组合在一起，并将它们批量合并到单个事务中。
+:::caution 日落通知
 
-## KAIA Token Transfer <a id="token-transfer"></a>
+`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 版 Safe Wallet 来管理您的账户。 您现有的“安全账户”将自动与“安全钱包”兼容。
 
-您可以按照以下步骤，使用事务生成器执行令牌转移：
+:::
 
-**步骤 1：** 导航至安全应用程序并打开交易生成器安全应用程序
+**事务构建器** 是一款 Safe 应用，可将多项操作批量合并为一个 Safe 事务。 无需逐一确认转账或合约调用，而是先构建一个批次，然后一次性确认并执行。
 
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
+“安全应用”的可用性可能因网络和应用商店而异。 在 Safe Wallet 中，打开 **应用**，搜索 **交易生成器**，并启动它以连接您的 Kaia 或 Kairos Safe。
 
-**第 2 步：** 输入收件人钱包地址。 For this guide, kindly skip the ABI field as we are trying to execute KAIA transfer transaction.
+如需了解与最新用户界面相匹配的产品帮助，请访问 [Safe Wallet 帮助中心](https://help.safe.global)。
 
-![](/img/build/tools/kaia-safe/tx-builder-token-recipient-addr.png)
+## KAIA 代币转账<a id="token-transfer"></a>
 
-**Step 3:** Enter the KAIA value you want to send.
+**步骤 1：** 在 Safe Wallet 中，打开 **应用** 并启动 **交易生成器**。
 
-> Note: In this guide, we are sending 1 KAIA, so we entered 1 in the **KAIA value** input field. You can input any amount here, depending on your Safe's KAIA balance.
+**第 2 步：** 输入收件人地址。 如果是简单的 KAIA 转账，可以将 ABI 留空。
 
-![](/img/build/tools/kaia-safe/tx-builder-token-trf-value.png)
+**第 3 步：** 输入要发送的 KAIA 数量（例如，输入 `1` 表示 1 KAIA），然后点击 **添加交易**。
 
-**步骤 4：** 点击添加交易。
+**第 4 步：** 针对批次中的每位收件人重复此操作。
 
-**步骤 5：** 对每个收件人地址重复步骤 2、3 和 4。
+**第 5 步：** 批处理完成后，点击 **“创建批处理”**，核对操作内容，然后点击 **“发送批处理”**，并按照与其他 Safe 交易相同的方式收集所需的 Safe 签名。
 
-**步骤 6：** 将所有操作添加到批次后，单击 "创建批次"。
+## 合约交互<a id="contract-interactions"></a>
 
-![](/img/build/tools/kaia-safe/token-trf-tx-builder.gif)
+当您需要在单个 Safe 交易中执行大量类似的合约调用（例如将同一代币转账至多个地址）时，请使用 Transaction Builder。
 
-**第 7 步：** 审查并提交交易
+**步骤 1：** 从“安全应用”中打开 **交易生成器**。
 
-您可以查看整个批次。 准备就绪后，单击 "发送批次"，即可像其他安全交易一样提交和执行交易。
+**第 2 步：** 输入 **代币（或合约）地址** 和 **ABI**。
 
-## 合同互动<a id="contract-interactions"></a>
+**第 3 步：** 选择一个方法（例如 `transfer`），并填写参数。
 
-比方说，您想向一长串地址空投令牌，比如向 5 个地址空投 10 个 CCT 令牌。 交易生成器可将所有这些转账合并到一个交易中，而无需创建 5 个交易，保险箱的所有者必须一个接一个地确认和执行这些交易。
+> 注：整数金额通常以代币的最小单位表示（该字段中不包含小数）。 对于一个由18位十进制数组成的令牌，通常会将 `10` 个令牌输入为 `10000000000000000000`。
 
-在本指南中，我们将 CCT 代币铸造到安全地址，以作说明。
+**第 4 步：** 点击 **“添加交易”**，对每次呼叫重复此操作，然后点击 **“创建批次”** → **“发送批次”**，并完成安全确认。
 
-让我们使用事务生成器开始这个示例！
-
-**步骤 1：** 打开安全应用程序。
-
-![](/img/build/tools/kaia-safe/ks-tx-builder.png)
-
-**步骤 2：** 打开交易生成器安全应用程序
-
-![](/img/build/tools/kaia-safe/ks-use-tx-builder.png)
-
-**第 3 步：** 输入您的**令牌合同地址**和**ABI**。
-
-在本例中，将使用 CCT 合同地址和 ABI。 您可以将 ABI 复制并粘贴到 **输入 ABI** 字段中。
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-init.gif)
-
-**第 4 步：** 选择一种方法并填写交易信息
-
-您可以从下拉菜单中选择一种方法。 在这种情况下，我们选择**转移**方法。 要完成这一步，您必须填写交易信息，如 **收件人（地址）** 和 **金额（uint256）**。
-
-注：数值为无符号整数，不含小数。 在这个例子中，CCT 标记有 18 个小数。 因此，如果要发送 10 个 CCT，就必须输入 10000000000000000000。
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-details.gif)
-
-**第 5 步：** 点击**添加交易**
-
-**步骤 6：** 对每个收件人地址重复步骤 **4**、**5** 和 **6**。
-
-**第 7 步：** 将所有操作添加到批次后，单击**创建批次**。
-
-![](/img/build/tools/kaia-safe/kaia-safe-tx-builder-batch.gif)
-
-**第 8 步：** 审查并提交交易
-
-您可以查看整个批次。 准备就绪后，点击**发送批次**，即可像其他安全交易一样提交和执行交易。
+请谨慎处理批量合约和转账：每位签署的持有人在执行前都应仔细核对整个批次。

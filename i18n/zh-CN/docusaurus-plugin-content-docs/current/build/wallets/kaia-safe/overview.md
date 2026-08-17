@@ -1,15 +1,36 @@
-# Kaia Safe 设计公司
+---
+title: Safe Wallet 概述
+sidebar_label: Safe Wallet 概述
+---
 
-目前，Kaia Safe 是一套用于创建和管理多重签名钱包的工具，即
+# Safe Wallet 概述
 
-- **Safe React：** 这是一个用于创建多签名钱包并与之交互的反应式网络应用程序。
+:::caution 日落通知
 
-- **安全交易服务：** 跟踪通过安全合约发送的交易，并监听主网和 Kairos 中最近区块的事件。 交易也可以发送到该服务，以便在链外收集签名，或通知所有者即将发送到区块链的交易。
+`safe.kaia.io` 将于 **2026年8月9日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia 版 **Safe Wallet** 来管理您的账户。 您现有的 Safe 账户将自动与 Safe Wallet 兼容。
 
-- **安全配置服务：** 提供 Kaia Safe 客户端环境的配置信息，例如所有链细节和应用程序接口的配置。
+:::
 
-- **安全客户端网关：** 这是 Kaia Safe 客户端与后端服务（交易服务和 Kaia 节点）之间的网关。
+Safe Wallet 是 [Safe](https://safe.global)（Safe Global）为 Kaia 平台上的 [Safe 智能账户](https://docs.safe.global/home/what-is-safe) 提供的网页界面。 您可通过 [app.safe.global](https://app.safe.global) 管理所有者、阈值、资产和交易，在用户界面中选择网络时，可使用 Kaia 主网和 Kairos。
 
-- **安全基础设施：** 这是一个集群设置，用于部署后端服务（安全交易、安全配置、安全客户端网关）。
+## 产品与文档
 
-请参阅此 [链接](https://github.com/kaiachain/kaia-safe-infrastructure) 获取更多信息。
+关于架构、智能账户行为以及后端服务（交易服务、客户端网关及相关 API），请参考官方的 Safe Global 资源：
+
+- [什么是“安全”？](https://docs.safe.global/home/what-is-safe)
+- [Safe Wallet 帮助中心](https://help.safe.global)
+- [安全文档](https://docs.safe.global)
+- [安全交易服务概述](https://docs.safe.global/core-api/transaction-service-overview)
+
+## Kaia 网络
+
+| 网络         | 链 ID |
+| ---------- | ---- |
+| Kaia 主网    | 8217 |
+| Kairos 测试网 | 1001 |
+
+使用 [API 工具包](./kaia-safe-api-kit.md) 或其他 Safe SDK 工具时，请传入正确的 Kaia 链 ID。 随着 `safe.kaia.io` 的停用，服务端点可能会发生变化；有关受支持的区块链和配置信息，请优先参考 Safe 全局交易服务文档。
+
+## 历史注释
+
+Kaia 此前曾运营一个由 Kaia 托管的 Safe 堆栈（包括用户界面和基础设施）。 该堆栈即将停用，取而代之的是 [app.safe.global](https://app.safe.global) 上的 Safe Wallet。 诸如 [kaia-safe-infrastructure](https://github.com/kaiachain/kaia-safe-infrastructure) 之类的旧版仓库参考文档描述的是较早的部署模型，并非新集成的主要途径。

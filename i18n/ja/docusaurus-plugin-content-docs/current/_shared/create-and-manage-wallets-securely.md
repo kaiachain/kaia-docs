@@ -61,9 +61,9 @@ Web3では、"not your keys, not your crypto "というフレーズが基本的�
 
 コールド・ストレージとは、インターネットに接続されていないデバイスに秘密鍵を保管することである。 ハードウェア・ウォレット\*\*は、この目的のために作られた物理的なデバイスである。 接続されたコンピューターに秘密鍵を公開することなく、内部でトランザクションに署名する。 そのため、高価値の資産を保護するためのゴールド・スタンダードとなっている。 このガイドでは、公式にサポートされている[DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent)と[SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1)のハードウェアウォレットに焦点を当てます。
 
-#### 2.3. マルチシグネチャ・ウォレットカイアセーフの紹介
+#### 2.3. マルチシグネチャウォレット：Safe Wallet入門
 
-マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。 例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。 これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 [Kaia Safe](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe)はKaiaネットワークにおける主要なマルチシグソリューションです。
+マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。 例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。 これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 Kaiaでは、[app.safe.global](https://app.safe.global)にある[Safe](https://safe.global)（Safe Global）の**Safe Wallet**をご利用ください。詳細は[Safe Walletガイド](/build/wallets/safe-wallet/use-safe-wallet)をご覧ください。 (`safe.kaia.io`は**2026年8月31日**をもってサービス終了となります。)
 
 ## パート2：財布管理の実践レシピ
 
@@ -340,67 +340,67 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 この章では、セキュリティ上のリスクが最も高い本番環境において、資産を保護し、アクションを自動化するためのレシピについて説明する。
 
-#### 4.1. レシピカイア・セーフを使ったマルチシグネチャ・トレジャリーの設定
+#### 4.1. レシピ：Safe Wallet を使ったマルチシグネチャ・トレジャリーの設定
 
-カイアセーフでは、開発者は複数の所有者が管理できるアカウントを作成でき、セキュリティが大幅に向上する。
+[Safe](https://safe.global) / Safe Global が提供する **Safe Wallet** ([app.safe.global](https://app.safe.global)) を使用すると、開発者は複数の所有者によって管理される Safe スマートアカウントを作成でき、セキュリティが大幅に向上します。
 
 多額の資金やプロトコルの権限、所有権の管理には、決して通常のウォレットを使うべきではありません。 基本的な財布のセキュリティの失敗によって、多くのプロジェクトが危険にさらされてきた。 次の大きなDeFiプロトコルを立ち上げるにせよ、DAOの財務を管理するにせよ、あるいは貴重な資産を保護するにせよ、マルチシグネチャーウォレットは絶対に不可欠です。
 
-このガイドでは、Kaia Safeを使用してKaiaに金庫を作成する方法、金庫の所有者と承認基準を設定する方法、基本的なトランザクションを実行する方法について説明します。
+このガイドでは、Safe Wallet を使用して Kaia 上で「Safe」を作成する方法、所有者や承認閾値の設定方法、および基本的なトランザクションの実行方法について解説します。
 
 ##### 安全な財布を作る
 
-1. カイアセーフアプリ](https://app.safe.global/welcome)をご覧ください。
+1. [Safe Wallet](https://app.safe.global/welcome)をご覧ください。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
-2. \*\*財布をつなぐ カイアセーフのウェブサイトに接続するウォレットタイプを選択します。 このガイドでは、カイア・ウォレットを使用します。
+2. \*\*財布をつなぐ 接続したいウォレットの種類を選択してください。 **Kaia メインネット** または **Kairos テストネット** が選択されていることを確認してください。 このガイドでは、カイア・ウォレットを使用します。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
-3. **金庫の名前**。 ウォレットを接続した後、**Create Account**をクリックし、Kaia Safeに名前を付けます。
+3. **金庫の名前**。 ウォレットを接続したら、\*\*「アカウントを作成」\*\*をクリックし、Safeに名前を付けてください。
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
-4. **署名者の設定**。 カイアセーフアカウントの取引が承認されるまでに必要な署名者の確認回数を設定します。  グッドプラクティスは、全オーナーの51％を閾値とすることである。例えば、以下に示すように、_3人中2人_、_5人中3人_など。
+4. **署名者の設定**。 Safeアカウント内の取引が承認されるために必要な署名者の確認回数を設定します。  グッドプラクティスは、全オーナーの51％を閾値とすることである。例えば、以下に示すように、_3人中2人_、_5人中3&#x4EBA;_&#x306A;ど。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
-5. \*\*カイアセーフのアカウントを導入してください。 カイアセーフのパラメータをすべて入力したら、**Create**をクリックし、カイアセーフのアカウントを作成します。
+5. **Safeアカウントを設定してください**。 Safeのすべての設定に完全に満足したら、\*\*[作成]\*\*をクリックして、Safeアカウントの作成を申請してください。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
-6. **財布を使ってください。 カイアセーフウォレットの使用を開始する**ボタンをクリックします。
+6. \*\*財布を使ってください。 「**Safe Wallet を使い始める**」（または UI 上の同等のボタン）をクリックしてください。
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
-7. **以下のように、Kaia Safeスマートコントラクトウォレットのユーザーインターフェース**にアクセスしてください。
+7. \*\*以下の図のように、\*\*Safeスマートコントラクトウォレットのユーザーインターフェースにアクセスしてください。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
-カイアセーフのアカウント作成完了おめでとうございます！
+Safeアカウントの作成が完了しました。おめでとうございます！
 
 ##### 基本トランザクションの実行（ネイティブトークンの送信）
 
-このセクションでは、カイアセーフアカウントから受取人アドレスにネイティブトークンKAIAを送信するなどの基本的なトランザクションの実行方法を学びます。
+このセクションでは、Safeアカウントから受取人のアドレスへネイティブトークン「KAIA」を送金するなど、基本的な取引の実行方法について学びます。
 
-カイアセーフアカウントに十分な資金があることを確認してください。 Safe 口座への [入金](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe/#add-assets) の方法については、このガイドを参照してください。
+Safeアカウントに十分な残高があることを確認してください。 Safeアカウントへの[入金](/build/wallets/safe-wallet/use-safe-wallet#add-assets)方法については、こちらのガイドをご参照ください。
 
 ステップ1： サイドメニューの**New Transaction**ボタンをクリックし、**Send tokens**を選択して、新しいアセットトランスファーを開始します。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 ステップ2：譲渡する資産を選択する。 受取人の住所**と送金するKAIAの金額**を入力してください。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 ステップ3：取引を確認し、送信する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
-#### 4.2. レシピ重要なスマートコントラクトのアクションにKaia Safeを統合する
+#### 4.2. レシピ：重要なスマートコントラクト操作におけるSafe Walletの統合
 
-このガイドでは、スマートコントラクトの管理者としてKaia Safeアカウントを割り当てる方法を学びます。 また、Kaia Safe アカウントを使用して、**setTokenPrice()** や **pause()** などの特権関数を実行し、 承認された署名者のみが特権アクションを実行できるようにする方法も紹介します。
+このガイドでは、スマートコントラクト内でSafeアカウントを管理者として割り当てる方法について解説します。 また、Safeアカウントを使用して\*\*setTokenPrice()**や**pause()\*\*といった特権機能を実行する方法についても説明します。これにより、承認された署名者のみが特権アクションを実行できるようになります。
 
 ##### 前提条件
 
@@ -412,11 +412,11 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ##### ステップ2：サンプルトークンコントラクトのコンパイルとデプロイ
 
-マルチシグウォレットで特権関数を呼び出す前に、まずコントラクトをデプロイする必要があります。 まず、デプロイ時に新しく作成したKaia Safeアカウントをトークンコントラクトの**initialOwner**に設定します。
+マルチシグウォレットで特権関数を呼び出す前に、まずコントラクトをデプロイする必要があります。 まず最初に行うべきことは、デプロイ時に、新しく作成した「Safe」アカウントをトークンコントラクトの**initialOwner**として設定することです。
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-このサンプルトークンコントラクトには、**setTokenPrice()**、\*\*pause()\*\*といった、カイアセーフアカウントからのみ呼び出せる特権関数が含まれています。 次にやりたいことは、これらのアクションを適宜実行することだ。 トランザクションビルダーを使用するか、カイアセーフAPIキットを使用してプログラムでこれを行うことができます。
+このサンプルトークン契約には、\*\*setTokenPrice()**や**pause()\*\*といった、Safeアカウントからのみ呼び出し可能な特権関数が含まれています。 次にやりたいことは、これらのアクションを適宜実行することだ。 これを行うには、トランザクションビルダーを使用するか、Safe API Kit を使ってプログラムで実装することができます。
 
 ##### ステップ3：新規取引の開始
 
@@ -426,9 +426,9 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
-###### カイアセーフAPIキットの使用
+###### Safe API Kit の使用方法
 
-このセクションでは、Kaia Safe API Kit を使用して、**setTokenPrice** 関数を呼び出すトランザクションをプログラマブルに提案し、Safe のアカウント所有者から署名を収集し、トランザクションを実行します。
+このセクションでは、Safe API Kit を使用して、**setTokenPrice** 関数を呼び出すトランザクションをプログラムで提案し、Safe アカウントの所有者から署名を収集し、そのトランザクションを実行します。
 
 \*\*前提条件
 
@@ -683,7 +683,7 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-おめでとう！ カイアセーフAPI-Kitを使用して、カイアセーフアカウントから特権関数を正常に実行しました。
+おめでとう！ Safe API Kit を使用して、Safe アカウントから権限機能の実行に成功しました。
 
 ##### ステップ 4: 取引の確認と提出
 

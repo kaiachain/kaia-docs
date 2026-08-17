@@ -78,29 +78,28 @@ Scaffold-ETH 2を使ったプロジェクト開発のプロセスは以下のよ
 
 <Tabs>
   <TabItem value="カイア" label="カイア・メインネット" default>
-    ```javascript
-      networks: {
-        // … other networks
-        kaia: {
-          chainId: 8217,
-          url: "https://public-en.node.kaia.io",
-          accounts: [deployerPrivateKey],
-        },
-      }
-    ```
+  ```javascript
+    networks: {
+      // … other networks
+      kaia: {
+        chainId: 8217,
+        url: "https://public-en.node.kaia.io",
+        accounts: [deployerPrivateKey],
+      },
+    }
+  ```
   </TabItem>
-
   <TabItem value="カイロス" label="カイロス・テストネット">
-    ```javascript
-      networks: {
-        // … other networks
-        kairos: {
-          chainId: 1001,
-          url: "https://public-en-kairos.node.kaia.io",
-          accounts: [deployerPrivateKey],
-        },
-      } 
-    ```
+  ```javascript
+    networks: {
+      // … other networks
+      kairos: {
+        chainId: 1001,
+        url: "https://public-en-kairos.node.kaia.io",
+        accounts: [deployerPrivateKey],
+      },
+    } 
+  ```
   </TabItem>
 </Tabs>
 
@@ -199,7 +198,6 @@ deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278
       },
     ```
   </TabItem>
-
   <TabItem value="カイロス" label="カイロス・テストネット">
     ```js
       etherscan: {

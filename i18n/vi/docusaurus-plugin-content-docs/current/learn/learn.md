@@ -96,7 +96,7 @@ Mã thông báo gốc của Kaia, [KAIA](./token-economics/kaia-native-token.md)
 - KAIA tokens are issued automatically with each new block.
 - Initial annual inflation rate: 5.2%.
 - Block rewards are distributed as follows:
-  - CCO and Community: 50% (20% Block Creator rewards, 80% Staking rewards)
+  - CCO và Cộng đồng: 50% (20% phần thưởng đóng góp, 80% phần thưởng staking)
   - KEF (Kaia Ecosystem Fund): 25%
   - KIF (Kaia Infrastructure Fund): 25%
 

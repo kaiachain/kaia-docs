@@ -1,46 +1,49 @@
 ---
 id: kaia-safe-api-kit
-title: Kaia Safe API-Kit
+title: Bộ công cụ API an toàn
+sidebar_label: Bộ công cụ API
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Kaia Safe API Kit
+# Bộ công cụ API an toàn
 
-API-Kit is your go-to kit for securely interacting with the [Safe Transaction API](https://github.com/safe-global/safe-transaction-service). The core of this kit is to allow valid signers to propose and share transactions with the other signers of a Safe, send the signatures to the service to collect them, and get information about a Safe (like reading the transaction history, pending transactions, enabled Modules and Guards, etc.), among other features.
+:::caution Thông báo về hoàng hôn
+
+`safe.kaia.io` sẽ ngừng hoạt động vào ngày **9 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
+
+:::
+
+Bộ công cụ API giúp bạn tương tác một cách an toàn với [Dịch vụ Giao dịch An toàn](https://docs.safe.global/core-api/transaction-service-overview). Những người ký có quyền hạn có thể đề xuất và chia sẻ các giao dịch, thu thập chữ ký ngoài chuỗi, cũng như truy cập thông tin trên Safe (lịch sử, các giao dịch đang chờ xử lý, các mô-đun, các cơ chế bảo vệ và nhiều nội dung khác).
+
+Mã định danh chuỗi Kaia: **8217** (Mainnet), **1001** (Kairos). Khi `safe.kaia.io` ngừng hoạt động, hãy ưu tiên sử dụng cấu hình Dịch vụ Giao dịch Toàn cầu An toàn (Safe Global Transaction Service) cho các chuỗi được hỗ trợ. Nếu bạn vẫn cần một `txServiceUrl` tùy chỉnh, hãy đảm bảo rằng điểm cuối mà bạn đang sử dụng vẫn khả dụng sau khi hoàn tất quá trình di chuyển.
 
 ## Quickstart <a id="Quickstart"></a>
 
-By the end of this guide, you will be able to propose transactions to the service and obtain the owners' signatures for execution.
+Khi kết thúc hướng dẫn này, bạn sẽ đề xuất một giao dịch cho dịch vụ và thu thập chữ ký của chủ sở hữu để thực hiện giao dịch.
 
 ## Prerequisites <a id="Prerequisites"></a>
 
 1. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-2. A Safe with several signers
+2. Một két sắt có nhiều người ký trên Kairos (hoặc Mainnet)
 
 ## Set up environment <a id="Setup-environment"></a>
 
-### Step 1: Create a project directory.
-
-Copy and paste this command in your terminal to create the project folder.
+### Bước 1: Tạo thư mục dự án
 
 ```js
 mkdir kaiasafe-api-kit
 cd kaiasafe-api-kit
 ```
 
-### Step 2: Initialize an npm project.
-
-Copy and paste this command in your terminal to create a `package.json` file.
+### Bước 2: Khởi tạo một dự án npm
 
 ```js
 npm init -y
 ```
 
-### Step 3: Install dependencies.
-
-Using API-Kit is as simple as running the installation command below:
+### Bước 3: Cài đặt các gói phụ thuộc
 
 <Tabs>
   <TabItem value="npm" label="npm">
@@ -56,11 +59,9 @@ Using API-Kit is as simple as running the installation command below:
  </TabItem>
 </Tabs>
 
-### Step 4: Import dependencies.
+### Bước 4: Nhập các thư viện phụ thuộc
 
-Create a file named  `app.js`. This is where all our code snippets for this interaction would live.
-
-Copy and paste these necessary imports at the top of the `app.js` file.
+Tạo tệp `app.js` và thêm nội dung sau:
 
 ```js
 import SafeApiKit from '@safe-global/api-kit'
@@ -70,11 +71,9 @@ import {
 } from '@safe-global/safe-core-sdk-types'
 ```
 
-### Step 5: Configure Setup
+### Bước 5: Cấu hình thiết lập
 
-To efficiently illustrate how API-Kit works, we will use a Safe account setup with two or more signers, and threshold two, so we have multiple signatures that need to be collected when executing a transaction.
-
-Copy and paste the following under the import statements in your `app.js` file:
+Hãy sử dụng két sắt có ít nhất hai chủ sở hữu và mức độ bảo mật 2 để yêu cầu nhiều chữ ký.
 
 ```js
 // https://chainlist.org/?search=kaia&testnets=true
@@ -90,23 +89,20 @@ const TO_ADDRESS = OWNER_1_ADDRESS; // Receiver address of sample transaction wh
 
 ### Step 1: Initialize API Kit
 
-To initialize API Kit, we need to create an instance of the API Kit.
-
-> In chains where the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview) is supported, it's enough to specify the chainId property.
+Trên các chuỗi khối hỗ trợ [Dịch vụ Giao dịch An toàn](https://docs.safe.global/core-api/transaction-service-overview), việc chỉ định `chainId` thường là đủ. Bạn vẫn có thể truyền tham số `txServiceUrl` tùy chỉnh khi sử dụng điểm cuối chuyên dụng (hãy đảm bảo rằng tham số này vẫn hợp lệ sau khi giao diện người dùng Kaia ngừng hoạt động).
 
 ```js
 const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
+  chainId: 1001n, // Kairos; sử dụng 8217n cho Kaia Mainnet
+  // URL tùy chỉnh nếu cần — hãy đảm bảo URL này vẫn hợp lệ sau khi safe.kaia.io ngừng hoạt động
+  // Ưu tiên cấu hình Dịch vụ Giao dịch Toàn cầu Safe khi Kaia được niêm yết:
+  // https://docs.safe.global/core-api/transaction-service-overview
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 
 ```
 
-As you can see above, we included custom service using the optional **txServiceUrl** property.
-
 ### Step 2: Initialize Protocol Kit
-
-To handle transactions and signatures, we need to create an instance of the Protocol Kit (a kit that enables developers to interact with  [Safe Smart Accounts](https://github.com/safe-global/safe-smart-account) using a TypeScript interface) with the provider, signer and safeAddress.
 
 ```js
 const protocolKitOwner1 = await Safe.default.init({
@@ -116,9 +112,7 @@ const protocolKitOwner1 = await Safe.default.init({
 })
 ```
 
-### Step 3: Propose a transaction to the service
-
-One of the core features of API Kit is to enable valid signers to share transactions with other signers. But before this is done,  any of the Safe signers needs to initiate the process by creating a proposal of a transaction. This transaction is then sent  to the service to make it accessible by the other owners so they can give their approval and sign the transaction as well.
+### Bước 3: Đề xuất một giao dịch tới dịch vụ
 
 ```js
 const safeTransactionData = {
@@ -148,8 +142,6 @@ try {
 
 ### Step 4: Retrieve pending transaction
 
-API Kit provides us  different methods to retrieve pending transactions depending on the situation. For this guide, we will retrieve a transaction given the Safe transaction hash and other available methods commented out below:
-
 ```js
 const transaction = await apiKit.getTransaction(safeTxHash)
 // const transactions = await service.getPendingTransactions()
@@ -161,7 +153,7 @@ const transaction = await apiKit.getTransaction(safeTxHash)
 
 ## Step 5: Confirm the transaction
 
-The next thing to do is to sign the transaction with the Protocol Kit and submit the signature to the Safe Transaction Service using the [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction) method.
+Ký bằng Protocol Kit và gửi chữ ký qua [confirmTransaction](https://docs.safe.global/sdk/api-kit/reference#confirmtransaction).
 
 ```js
 const protocolKitOwner2 = await Safe.default.init({
@@ -170,7 +162,6 @@ const protocolKitOwner2 = await Safe.default.init({
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Confirm the Safe transaction
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -179,19 +170,17 @@ const signatureResponse = await apiKit.confirmTransaction(
 
 ### Step 6: Execute the transaction
 
-The Safe transaction is now ready to be executed. This can be done using the [Safe Wallet Web](https://app.safe.global/) interface, the [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), the Safe CLI or any other tool that's available.
-
-For this last step, we executed the safe transaction using Protocol Kit.
+Thực thi thông qua [Safe Wallet](https://app.safe.global/), [Protocol Kit](https://docs.safe.global/sdk/protocol-kit#execute-the-transaction), Safe CLI hoặc một công cụ tương thích khác.
 
 ```js
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
-console.log('Transaction executed:');
-console.log(`https://kairos.kaiascan.io/tx/${hash}`)
+console.log('Giao dịch đã được thực hiện:');
+console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
-At the end, the full code in `app.js` should look like this:
+Ví dụ đầy đủ về `app.js`:
 
 ```js
 import SafeApiKit từ '@safe-global/api-kit'
@@ -201,13 +190,14 @@ import {
 } từ '@safe-global/safe-core-sdk-types'
 // https://chainlist.org/?search=kaia&testnets=true
 const RPC_URL = 'https://public-en-kairos.node.kaia.io'
-const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Địa chỉ Safe của Chủ sở hữu Ví dụ: 0x123.... SAFE SHOULD 
-const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // Chỉ địa chỉ chủ sở hữu 1 và địa chỉ an toàn cần có số dư KAIA thử nghiệm
+const SAFE_ADDRESS = "<REPLACE WITH SAFE PUBLIC ADDRESS HERE>";  // 2 Địa chỉ an toàn của chủ sở hữu Ví dụ: 0x123.... ĐỊA CHỈ AN TOÀN NÊN 
+const OWNER_1_ADDRESS = "<REPLACE WITH OWNER 1 PUBLIC KEY HERE>"; // CHỈ CHỦ SỞ HỮU 1 và ĐỊA CHỈ AN TOÀN mới cần có số dư KAIA thử nghiệm
 const OWNER_1_PRIVATE_KEY = "<REPLACE WITH OWNER 1 PRIVATE KEY HERE>";
-const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // Chủ sở hữu 2 không cần có số dư KAIA thử nghiệm
-const TO_ADDRESS = OWNER_1_ADDRESS; // Địa chỉ nhận của giao dịch mẫu nhận 1 wei
+const OWNER_2_PRIVATE_KEY = "<REPLACE WITH OWNER 2 PRIVATE KEY HERE>"; // Chủ sở hữu 2 không cần có bất kỳ địa chỉ KAIA thử nghiệm nào
+const TO_ADDRESS = OWNER_1_ADDRESS; // Địa chỉ người nhận của giao dịch mẫu nhận 1 wei
 const apiKit = new SafeApiKit.default({
   chainId: 1001n,
+  // Xác nhận điểm cuối sau khi safe.kaia.io ngừng hoạt động; xem tài liệu Dịch vụ Giao dịch Toàn cầu Safe tại
   txServiceUrl: 'https://docs-safe.kaia.io/txs-baobab/api'
 })
 const protocolKitOwner1 = await Safe.default.init({
@@ -227,7 +217,7 @@ const safeTransaction = await protocolKitOwner1.createTransaction({
 })
 const safeTxHash = await protocolKitOwner1.getTransactionHash(safeTransaction)
 const signature = await protocolKitOwner1.signHash(safeTxHash)
-// 2. Đề xuất giao dịch đến dịch vụ
+// 2. Đề xuất giao dịch cho dịch vụ
 try {
   await apiKit.proposeTransaction({
     safeAddress: SAFE_ADDRESS,
@@ -239,13 +229,8 @@ try {
 } catch(err) {
   console.log(err)
 }
-console.log("Transaction hash is "+safeTxHash)
+console.log("Hash giao dịch là "+safeTxHash)
 const transaction = await apiKit.getTransaction(safeTxHash)
-// const transactions = await service.getPendingTransactions()
-// const transactions = await service.getIncomingTransactions()
-// const transactions = await service.getMultisigTransactions()
-// const transactions = await service.getModuleTransactions()
-// const transactions = await service.getAllTransactions()
 // 3. Xác nhận từ Chủ sở hữu 2
 const protocolKitOwner2 = await Safe.default.init({
   provider: RPC_URL,
@@ -253,7 +238,6 @@ const protocolKitOwner2 = await Safe.default.init({
   safeAddress: SAFE_ADDRESS
 })
 const signature2 = await protocolKitOwner2.signHash(safeTxHash)
-// Xác nhận giao dịch Safe
 const signatureResponse = await apiKit.confirmTransaction(
   safeTxHash,
   signature2.data
@@ -263,8 +247,8 @@ console.log(signatureResponse)
 const safeTxn = await apiKit.getTransaction(safeTxHash);
 const executeTxReponse = await protocolKitOwner1.executeTransaction(safeTxn)
 const receipt = await executeTxReponse.transactionResponse?.wait();
-console.log('Giao dịch đã được thực thi:');
+console.log('Giao dịch đã được thực hiện:');
 console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 ```
 
-Visit the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for more information, and navigate to [Github](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets) to access the full source code for this guide.
+Để biết thêm chi tiết, hãy tham khảo [Tài liệu tham khảo bộ công cụ API](https://docs.safe.global/sdk/api-kit/reference) và [các đoạn mã ví dụ](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/snippets).

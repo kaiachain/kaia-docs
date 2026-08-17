@@ -1,27 +1,41 @@
-# 與合同互動
+---
+title: 與合約進行互動
+sidebar_label: 合約互動
+---
 
-在本節中，您將使用我們新創建的多重簽名錢包與部署在 Kairos 上的簡單合約進行交互並向其發送一筆交易。
+# 與合約進行互動
+
+:::caution 日落通知
+
+`safe.kaia.io` 將於 **2026 年 8 月 9 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。 您現有的「安全帳戶」將自動與「安全錢包」相容。
+
+:::
+
+在本節中，您將使用由 Safe Wallet 管理的 Safe 帳戶，與 Kairos 上的簡單合約進行互動。
 
 **先決條件**
 
-- [Metamask](https://metamask.io/download/) & [Kaia Metamask Config](../../tutorials/connecting-metamask.mdx#send-klay)
-- [混音](https://remix.ethereum.org/) 和[Kaia 混音插件](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- 從 [水龍頭](https://faucet.kaia.io) 獲取測試 KAIA
+- 已為 [Kaia / Kairos](../../tutorials/connecting-metamask.mdx) 設定 [MetaMask](https://metamask.io/download/)
+- [混音版](https://remix.ethereum.org/) （視需要由 Kaia 網路提供支援）
+- 從 [Faucet](https://faucet.kaia.io) 測試 KAIA
+- Kairos 上的 Safe 帳戶（[建立一個](./use-kaia-safe.md#create-a-safe)）
 
-**步驟 1：** 導航至 [混音](https://remix.ethereum.org/)
+**步驟 1：** 開啟 [Remix](https://remix.ethereum.org/)。
 
-**第 2 步：** 編譯並部署**存儲合同**示例。
+**步驟 2：** 編譯並部署一個範例儲存合約（或您自己的合約）。
 
-必須先部署合約，然後才能在多重簽名錢包中與之交互。 該示例合約包含一個簡單的 uint "數字 "變量，可通過調用**store**方法進行更新，也可通過調用**retrieve**方法進行檢索。
+在從 Safe 進行互動之前，請先部署該合約。 一個典型的範例合約會公開一個 `uint` 變數，您可以透過 `store` 來更新它，並透過 `retrieve` 來讀取它。
 
-![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
+![](/img/build/wallets/ks-succor-deploy.gif)
 
-**第 3 步：** 啟動新交易。
+**步驟 3：** 在 Safe Wallet 中啟動一筆新交易。
 
-要與安全錢包中的智能合約互動，請點擊\*\*"新建交易 "\*\*。 要完成這一步驟，您需要已部署的合同地址和 ABI，如上一步所示。
+點擊 **新交易**。 請輸入已部署的合約地址和 ABI，以便您能選擇方法和參數。
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
+![](/img/build/wallets/ks-succor-init-tx.gif)
 
-**第 4 步：** 審查並提交交易。 您需要用簽名者錢包簽署交易，一旦達到確認閾值，交易就會執行。
+**第 4 步：** 檢視並提交。 使用持有者錢包進行簽署；一旦達到確認門檻，交易即會執行。
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
+![](/img/build/wallets/ks-succor-review-tx.gif)
+
+您也可以使用 [交易建構器](./tx-builder.md) 批次執行合約呼叫，或透過 [API 套件](./kaia-safe-api-kit.md) 以程式化方式提出合約呼叫。

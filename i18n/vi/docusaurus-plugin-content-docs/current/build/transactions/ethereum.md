@@ -356,3 +356,379 @@ The return of `kaia_getTransactionByHash`
   "value": "0x186a0"
 }
 ```
+
+## Loại dữ liệu Ethereum Blob <a id="txtypeethereumblob"></a>
+
+`TxTypeEthereumBlob` đại diện cho một loại giao dịch Ethereum được quy định trong [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) và [KIP-279](https://kips.kaia.io/KIPs/kip-279). Loại giao dịch này truyền tải các đối tượng dữ liệu nhị phân lớn (blobs), cung cấp một lớp khả dụng dữ liệu hiệu quả về chi phí cho các rollup Lớp 2 trên Kaia. Bằng cách tách dữ liệu blob khỏi bộ nhớ calldata cố định, các rollup có thể đăng tải dữ liệu với chi phí thấp hơn thông qua một thị trường phí blob độc lập. Bản thân dữ liệu blob không thể được EVM truy cập; chỉ các cam kết `blobVersionedHashes` mới có thể được truy cập trên chuỗi. Vì loại giao dịch này được thiết kế để đảm bảo tính tương thích, nên nó chỉ hoạt động với các EOA được liên kết với [AccountKeyLegacy]. Loại giao dịch này không thể được sử dụng để tạo hợp đồng — trường `to` không được để trống.
+
+:::note
+
+Mạng Kaia có thể xử lý loại giao dịch này sau khối `OsakaCompatibleBlock`
+
+:::
+
+:::note
+
+Các thông số khí blob của Kaia được điều chỉnh cho các khối 1 giây. Chỉ được phép có **một khối** trong mỗi khối. Chỉ chấp nhận định dạng sidecar [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) (phiên bản V1) — các sidecar phiên bản V0 sẽ bị từ chối. Các khối phụ Blob được lưu giữ trong 1.814.400 khối (~21 ngày).
+
+:::
+
+:::note
+
+`eth_sendRawTransaction` yêu cầu giao dịch blob đầy đủ kèm theo sidecar (`BlobTxWithBlobs`). Tham số `blobVersionedHashes` phải sử dụng tiền tố phiên bản `0x01`.
+
+:::
+
+### Thuộc tính <a id="attributes"></a>
+
+| Thuộc tính                             | Loại                                                                                                          | Mô tả                                                                                                                                                                                                                                                               |
+| :------------------------------------- | :------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| loại                                   | uint8 (Go)                                                                                 | Loại `TxTypeEthereumBlob` là kết hợp của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Đây chắc hẳn là `0x7803`.                                                                                                           |
+| ID chuỗi                               | \*big.Int (Go)                                                             | ID chuỗi điểm đến.                                                                                                                                                                                                                                  |
+| giá trị ngẫu nhiên                     | uint64 (Go)                                                                                | Một giá trị được sử dụng để xác định duy nhất giao dịch của người gửi. Nếu người gửi tạo ra hai giao dịch có cùng giá trị nonce, thì chỉ có một giao dịch được thực hiện.                                                           |
+| Phí ưu tiên tối đa trên mỗi đơn vị Gas | \*big.Int (Go)                                                             | Hệ số nhân để tính số tiền người gửi phải trả ngoài `baseFee`. Vì Kaia có mức phí gas cố định, nên hệ thống sẽ tự động áp dụng mức phí gas của mạng lưới tương ứng.                                                                 |
+| Phí tối đa trên mỗi đơn vị Gas         | \*big.Int (Go)                                                             | Số tiền tối đa mà người gửi sẵn sàng trả cho mỗi đơn vị gas. Vì Kaia có mức phí gas cố định, nên hệ thống sẽ tự động áp dụng mức phí gas của mạng lưới tương ứng.                                                                   |
+| khí                                    | uint64 (Go)                                                                                | Số tiền phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                        |
+| đến                                    | \*common.Address \(Go\)                                                  | Địa chỉ tài khoản sẽ nhận số tiền được chuyển. Không được để trống — các giao dịch blob không thể tạo hợp đồng.                                                                                                                     |
+| giá trị                                | \*big.Int (Go)                                                             | Số lượng KAIA trong `kei` cần chuyển.                                                                                                                                                                                                               |
+| dữ liệu                                | \[\]byte \(Go\)                    | Dữ liệu đi kèm với giao dịch, được sử dụng để thực hiện giao dịch.                                                                                                                                                                                  |
+| danh sách truy cập                     | type.AccessList (Go)                                                       | Một danh sách các địa chỉ và khóa lưu trữ bao gồm \[\](common.Address, []common.Hash). |
+| Phí tối đa cho mỗi khối dữ liệu        | \*big.Int (Go)                                                             | Mức phí tối đa cho mỗi đơn vị khí blob mà người gửi sẵn sàng chi trả. Giá khí Blob được xác định độc lập với giá khí thông thường.                                                                                                  |
+| blob có phiên bản băm                  | \[\]common.Hash (Go) | Danh sách các giá trị băm có phiên bản của các blob liên quan đến giao dịch này. Mỗi hàm băm phải sử dụng tiền tố phiên bản `0x01`. Phải có ít nhất một hàm băm.                                                    |
+| v, r, s                                | \*big.Int (Go)                                                             | Chữ ký mật mã do người gửi tạo ra để người nhận có thể xác định địa chỉ của người gửi.                                                                                                                                                              |
+
+### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature"></a>
+
+Để tạo chữ ký cho loại giao dịch này, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+:::note
+
+Loại giao dịch này cần được ký bằng Osaka Signer
+
+:::
+
+```javascript
+SigRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash, <private key>)
+```
+
+### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash"></a>
+
+Để lấy `SenderTxHash` cho loại giao dịch này, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+```javascript
+SenderTxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### Mã hóa RLP cho băm giao dịch <a id="rlp-encoding-for-transaction-hash"></a>
+
+Để lấy mã băm giao dịch, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+```javascript
+TxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+TxHash = keccak256(TxHashRLP)
+```
+
+### Giao dịch thô <a id="raw-transaction"></a>
+
+```javascript
+RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+```
+
+Khi gửi qua `eth_sendRawTransaction`, cần phải cung cấp biểu diễn mạng đầy đủ bao gồm cả sidecar:
+
+```javascript
+BlobTxWithBlobs = rlp([TransactionPayloadBody, sidecar_version, blobs, commitments, proofs])
+```
+
+trong đó `sidecar_version` là `0x01` theo EIP-7594.
+
+### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example"></a>
+
+Dưới đây là kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+
+```javascript
+    TX(b4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7)
+    Hợp đồng: false
+    Chuỗi:   0x3e9
+    Từ:     0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5
+    Đến:       a9ef4a5bfb21e92c06da23ed79294dab11f5a6df
+    Nonce:    366
+    GasTipCap: 0x0
+    GasFeeCap: 0xba43b7400
+    GasLimit  0xc350
+    Value:    0x0
+    Data:     0xd09de08a
+    AccessList: []
+    MaxFeePerBlobGas: 0x5d21dba000
+    BlobVersionedHashes: [016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7]
+    V:        0x1
+    R:        0x4b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff
+    S:        0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916
+    Hex:      7803f8978203e982016e80850ba43b740082c35094a9ef4a5bfb21e92c06da23ed79294dab11f5a6df8084d09de08ac0855d21dba000e1a0016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d701a04b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ffa0659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916
+```
+
+### Kết quả RPC \(Ví dụ\) <a id="rpc-output-example"></a>
+
+Dưới đây là đối tượng giao dịch được trả về qua JSON RPC.
+
+Sự trở lại của `eth_getTransactionByHash`
+
+```javascript
+{
+  "blockHash": "0x1683db8c05f898cd9084a8905b3fa2a64b1380b6543e963ea15d2858b241c339",
+  "blockNumber": "0xc77238e",
+  "from": "0x0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5",
+  "gas": "0xc350",
+  "gasPrice": "0x5d21dba00",
+  "maxFeePerGas": "0xba43b7400",
+  "maxPriorityFeePerGas": "0x0",
+  "maxFeePerBlobGas": "0x5d21dba000",
+  "hash": "0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "input": "0xd09de08a",
+  "nonce": "0x16e",
+  "to": "0xa9ef4a5bfb21e92c06da23ed79294dab11f5a6df",
+  "transactionIndex": "0x0",
+  "value": "0x0",
+  "type": "0x3",
+  "accessList": [],
+  "chainId": "0x3e9",
+  "blobVersionedHashes": [
+      "0x016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7"
+  ],
+  "v": "0x1",
+  "r": "0x4b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff",
+  "s": "0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916"
+}
+```
+
+Sự trở lại của `kaia_getTransactionByHash`
+
+```javascript
+{
+  "accessList": [],
+  "blobVersionedHashes": [
+      "0x016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7"
+  ],
+  "blockHash": "0x1683db8c05f898cd9084a8905b3fa2a64b1380b6543e963ea15d2858b241c339",
+  "blockNumber": "0xc77238e",
+  "chainId": "0x3e9",
+  "from": "0x0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5",
+  "gas": "0xc350",
+  "gasPrice": "0x5d21dba00",
+  "hash": "0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "input": "0xd09de08a",
+  "maxFeePerBlobGas": "0x5d21dba000",
+  "maxFeePerGas": "0xba43b7400",
+  "maxPriorityFeePerGas": "0x0",
+  "nonce": "0x16e",
+  "senderTxHash": "0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "signatures": [
+      {
+          "V": "0x1",
+          "R": "0x4b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff",
+          "S": "0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916"
+      }
+  ],
+  "to": "0xa9ef4a5bfb21e92c06da23ed79294dab11f5a6df",
+  "transactionIndex": "0x0",
+  "type": "TxTypeEthereumBlob",
+  "typeInt": 30723,
+  "value": "0x0"
+}
+```
+
+## TxTypeEthereumSetCode <a id="txtypeethereumsetcode"></a>
+
+`TxTypeEthereumSetCode` đại diện cho một loại giao dịch Ethereum được quy định trong [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) và [KIP-228](https://kips.kaia.io/KIPs/kip-228). Loại giao dịch này giúp cải thiện trải nghiệm người dùng bằng cách cho phép áp dụng các tính năng trừu tượng hóa tài khoản vào các tài khoản EOA hiện có. Trước đây, các chủ sở hữu EOA muốn sử dụng các tính năng của tài khoản thông minh phải tạo một tài khoản thông minh mới và chuyển toàn bộ tài sản cùng các quyền hạn sang đó. Với các giao dịch SetCode, người dùng có thể gắn mã vào một EOA hiện có ngay tại chỗ, giúp loại bỏ nhu cầu thực hiện các quá trình di chuyển tốn kém. `authorizationList` chỉ định một danh sách các bộ ba `(chainId, address, nonce)` được ký bởi các tài khoản mà mã của chúng cần được thiết lập, cho phép thực hiện các mô hình như giao dịch theo lô, tài trợ gas và ủy quyền có phạm vi. Đoàn đại biểu sẽ tồn tại cho đến khi được thay đổi hoặc xóa bỏ một cách rõ ràng bởi một giao dịch SetCode khác. Vì loại giao dịch này được thiết kế để đảm bảo tính tương thích, nên nó chỉ hoạt động với các EOA được liên kết với [AccountKeyLegacy]. Loại giao dịch này không thể được sử dụng để tạo hợp đồng — trường `destination` không được để trống.
+
+:::note
+
+Mạng Kaia có thể xử lý loại giao dịch này sau khối `PragueCompatibleBlock`
+
+:::
+
+:::note
+
+Chỉ các EOA có `AccountKeyLegacy` mới có thể được gán mã thông qua một bộ ủy quyền. Các bộ dữ liệu ủy quyền tham chiếu đến các tài khoản có các loại khóa khác sẽ bị bỏ qua. Khi một tài khoản EOA đã được thiết lập mã, các giao dịch `TxTypeValueTransfer` tiêu chuẩn không thể nhắm đến tài khoản đó, và các giao dịch `TxTypeAccountUpdate` không thể được khởi tạo từ tài khoản đó.
+
+:::
+
+:::note
+
+Theo quy định tại [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702), mỗi bộ dữ liệu ủy quyền được ký độc lập bằng hàm băm `keccak256(MAGIC || rlp([chainId, address, nonce]))`, trong đó `MAGIC = 0x05`. Cần có ít nhất một bộ giá trị ủy quyền.
+
+:::
+
+### Thuộc tính <a id="attributes-1"></a>
+
+| Thuộc tính                             | Loại                                                                                           | Mô tả                                                                                                                                                                                                                                                                             |
+| :------------------------------------- | :--------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| loại                                   | uint8 (Go)                                                                  | Loại `TxTypeEthereumSetCode` là kết hợp của `EthereumTxTypeEnvelope` và `EthereumTransactionType`. Đây chắc hẳn là `0x7804`.                                                                                                                      |
+| ID chuỗi                               | \*big.Int (Go)                                              | ID chuỗi điểm đến.                                                                                                                                                                                                                                                |
+| giá trị ngẫu nhiên                     | uint64 (Go)                                                                 | Một giá trị được sử dụng để xác định duy nhất giao dịch của người gửi. Nếu người gửi tạo ra hai giao dịch có cùng giá trị nonce, thì chỉ có một giao dịch được thực hiện.                                                                         |
+| Phí ưu tiên tối đa trên mỗi đơn vị Gas | \*big.Int (Go)                                              | Hệ số nhân để tính số tiền người gửi phải trả ngoài `baseFee`. Vì Kaia có mức phí gas cố định, nên hệ thống sẽ tự động áp dụng mức phí gas của mạng lưới tương ứng.                                                                               |
+| Phí tối đa trên mỗi đơn vị Gas         | \*big.Int (Go)                                              | Số tiền tối đa mà người gửi sẵn sàng trả cho mỗi đơn vị gas. Vì Kaia có mức phí gas cố định, nên hệ thống sẽ tự động áp dụng mức phí gas của mạng lưới tương ứng.                                                                                 |
+| khí                                    | uint64 (Go)                                                                 | Số tiền phí giao dịch tối đa mà giao dịch được phép sử dụng.                                                                                                                                                                                                      |
+| điểm đến                               | \*common.Address \(Go\)                                   | Địa chỉ tài khoản sẽ nhận số tiền được chuyển. Không được để là nil — Các giao dịch SetCode không thể tạo hợp đồng.                                                                                                                               |
+| giá trị                                | \*big.Int (Go)                                              | Số lượng KAIA trong `kei` cần chuyển.                                                                                                                                                                                                                             |
+| dữ liệu                                | \[\]byte \(Go\)     | Dữ liệu đi kèm với giao dịch, được sử dụng để thực hiện giao dịch.                                                                                                                                                                                                |
+| danh sách truy cập                     | type.AccessList (Go)                                        | Một danh sách các địa chỉ và khóa lưu trữ bao gồm \[\](common.Address, []common.Hash).               |
+| danh sách ủy quyền                     | \[\]Xác thực \(Go\) | Một danh sách các bộ tuple ủy quyền, mỗi bộ có dạng `[chainId, address, nonce, yParity, r, s]`, trong đó `address` là hợp đồng mà cơ quan ký ủy quyền chuyển giao mã nguồn, và bộ tuple này được ký bởi cơ quan đó. Phải có ít nhất một bộ tuple. |
+| v, r, s                                | \*big.Int (Go)                                              | Chữ ký mật mã do người gửi tạo ra để người nhận có thể xác định địa chỉ của người gửi.                                                                                                                                                                            |
+
+### Mã hóa RLP cho chữ ký <a id="rlp-encoding-for-signature-1"></a>
+
+Để tạo chữ ký cho loại giao dịch này, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+:::note
+
+Loại giao dịch này cần được ký bằng Prague Signer
+
+:::
+
+```javascript
+SigRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash, <private key>)
+```
+
+Mỗi bộ dữ liệu ủy quyền trong `authorizationList` được ký riêng biệt như sau:
+
+```javascript
+AuthSigRLP = MAGIC || encode([chainId, address, nonce])  // MAGIC = 0x05
+AuthSigHash = keccak256(AuthSigRLP)
+AuthSignature = sign(AuthSigHash, <authority private key>)
+```
+
+### Mã hóa RLP cho SenderTxHash <a id="rlp-encoding-for-sendertxhash-1"></a>
+
+Để lấy `SenderTxHash` cho loại giao dịch này, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+```javascript
+SenderTxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### Mã hóa RLP cho băm giao dịch <a id="rlp-encoding-for-transaction-hash-1"></a>
+
+Để lấy mã băm giao dịch, quá trình tuần tự hóa RLP được thực hiện như sau:
+
+```javascript
+TxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+TxHash = keccak256(TxHashRLP)
+```
+
+### Giao dịch thô <a id="raw-transaction-1"></a>
+
+```javascript
+RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+```
+
+### Mã hóa RLP \(Ví dụ\) <a id="rlp-encoding-example-1"></a>
+
+Dưới đây là kết quả của quá trình tuần tự hóa RLP và đối tượng giao dịch:
+
+```javascript
+    TX(383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1)
+    Hợp đồng: false
+    Chuỗi:   0x3e9
+    Từ:     698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce
+    Đến:       698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce
+    Nonce:    29
+    GasTipCap: 0x0
+    GasFeeCap: 0x6fc23ac00
+    GasLimit  0x186a0
+    Value:    0x0
+    Data:     0x8129fc1c
+    AccessList: []
+    AuthorizationList: [{ChainID: 0x3e9, Address: 5fa0193098ecbbad437243fe0ed77a402cd62242, Nonce: 30}]
+    V:        0x1
+    R:        0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e
+    S:        0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805
+    Hex:      7804f8ce8203e91d808506fc23ac00830186a094698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce80848129fc1cc0f85ef85c8203e9945fa0193098ecbbad437243fe0ed77a402cd622421e01a0a21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969a01494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a01a077b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708ea026b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805
+```
+
+### Kết quả RPC \(Ví dụ\) <a id="rpc-output-example-1"></a>
+
+Dưới đây là đối tượng giao dịch được trả về qua JSON RPC.
+
+Sự trở lại của `eth_getTransactionByHash`
+
+```javascript
+{
+  "blockHash": "0xb76e4a38c1311159ed6fe704f4b220294589accf1c5ec440a471fd4201c6c968",
+  "blockNumber": "0xb35bcdd",
+  "from": "0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "gas": "0x186a0",
+  "gasPrice": "0x5d21dba00",
+  "maxFeePerGas": "0x6fc23ac00",
+  "maxPriorityFeePerGas": "0x0",
+  "hash": "0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "input": "0x8129fc1c",
+  "nonce": "0x1d",
+  "to": "0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "transactionIndex": "0x0",
+  "value": "0x0",
+  "type": "0x4",
+  "accessList": [],
+  "chainId": "0x3e9",
+  "authorizationList": [
+      {
+          "chainId": "0x3e9",
+          "address": "0x5fa0193098ecbbad437243fe0ed77a402cd62242",
+          "nonce": "0x1e",
+          "yParity": "0x1",
+          "r": "0xa21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969",
+          "s": "0x1494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a"
+      }
+  ],
+  "v": "0x1",
+  "r": "0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e",
+  "s": "0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805"
+}
+```
+
+Sự trở lại của `kaia_getTransactionByHash`
+
+```javascript
+{
+  "accessList": [],
+  "authorizationList": [
+      {
+          "chainId": "0x3e9",
+          "address": "0x5fa0193098ecbbad437243fe0ed77a402cd62242",
+          "nonce": "0x1e",
+          "yParity": "0x1",
+          "r": "0xa21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969",
+          "s": "0x1494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a"
+      }
+  ],
+  "blockHash": "0xb76e4a38c1311159ed6fe704f4b220294589accf1c5ec440a471fd4201c6c968",
+  "blockNumber": "0xb35bcdd",
+  "chainId": "0x3e9",
+  "from": "0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "gas": "0x186a0",
+  "gasPrice": "0x5d21dba00",
+  "hash": "0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "input": "0x8129fc1c",
+  "maxFeePerGas": "0x6fc23ac00",
+  "maxPriorityFeePerGas": "0x0",
+  "nonce": "0x1d",
+  "senderTxHash": "0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "signatures": [
+      {
+          "V": "0x1",
+          "R": "0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e",
+          "S": "0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805"
+      }
+  ],
+  "to": "0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "transactionIndex": "0x0",
+  "type": "TxTypeEthereumSetCode",
+  "typeInt": 30724,
+  "value": "0x0"
+}
+```

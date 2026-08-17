@@ -20,7 +20,7 @@
 | [Favorlet](https://favorlet.io/)                   | 非監護       | イーオーエー  | モバイル                 | いいえ   | いいえ      | サポート | いいえ      |
 | [Huobi Wallet](https://www.itoken.com/en)          | 非監護       | イーオーエー  | モバイル                 | いいえ   | いいえ      | サポート | いいえ      |
 | [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | 非監護       | イーオーエー  | モバイル, ブラウザ           | いいえ   | はい       | サポート | いいえ      |
-| [Kaia Safe](https://safe.kaia.io/)                 | 非監護       | スマート契約  | ウェブアプリ               | はい    | いいえ      | サポート | いいえ      |
+| [Safe Wallet](https://app.safe.global/)            | 非監護       | スマート契約  | ウェブアプリ               | はい    | いいえ      | サポート | いいえ      |
 | [Klip Wallet](https://klipwallet.com/)             | 非監護       | イーオーエー  | モバイル                 | いいえ   | いいえ      | サポート | いいえ      |
 | [Krystal DeFi](https://krystal.app/)               | 非監護       | イーオーエー  | モバイル、ウェブアプリ          | いいえ   | いいえ      | サポート | はい       |
 | [Math Wallet](https://mathwallet.org/en-us/)       | カストーディアル  | イーオーエー  | モバイル、ウェブアプリ、ブラウザ     | いいえ   | はい       | サポート | はい       |

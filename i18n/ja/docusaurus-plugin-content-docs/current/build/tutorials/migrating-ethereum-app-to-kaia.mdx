@@ -41,30 +41,33 @@ Kaia実行環境はEthereum仮想マシンと互換性があり、Solidityで書
 
 <Tabs>
   <TabItem value="hardhat" label="hardhat">
-    ```js
-    // using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
-    networks: {
-    	kaia: {
-    	  url: "https://public-en.node.kaia.io",
-    		accounts:[process.env.PRIVATE_KEY],
-      },
-    	kairos_testnet: {
-    		url: "https://public-en-kairos.node.kaia.io", 
-    		accounts:[process.env.PRIVATE_KEY],
-    	}
-    }
 
-    // Then run the command to deploy :
-    // npx hardhat run scripts/deploy.js --network kaia
-    // npx hardhat run scripts/deploy.js --network kairos_testnet
+```js
+// using Hardhat, it will be enough to add the following networks to the "hardhat.config.js" configuration file
+networks: {
+	kaia: {
+	  url: "https://public-en.node.kaia.io",
+		accounts:[process.env.PRIVATE_KEY],
+  },
+	kairos_testnet: {
+		url: "https://public-en-kairos.node.kaia.io", 
+		accounts:[process.env.PRIVATE_KEY],
+	}
+}
 
-    ```
+// Then run the command to deploy :
+// npx hardhat run scripts/deploy.js --network kaia
+// npx hardhat run scripts/deploy.js --network kairos_testnet
+
+```
+
   </TabItem>
-
   <TabItem value="Foundry" label="Foundry">
-    ```js
-    forge create --rpc-url<rpc_url> --private-key<private_key> <path_to_contract> 
-    ```
+
+```js
+forge create --rpc-url<rpc_url> --private-key<private_key> <path_to_contract> 
+```
+
   </TabItem>
 </Tabs>
 

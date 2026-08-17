@@ -2,9 +2,11 @@
 
 [Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 推出 MEV Auction 系統，讓搜尋者能參與公平、透明的 MEV 機會拍賣。 本指南提供使用 Kaia MEV Auction SDK 的搜尋器工作流程的全面演練。
 
-:::info
+:::warning 服務通知 - MEV 拍賣基礎設施暫時停用
 
-本指南使用 Kairos 測試網路端點和合約位址。 主網路預計於 2025 年 12 月中推出。 部署到主網路時，請相應更新所有端點和合約位址。
+為了配合目前的使用模式進行作業優化，MEV 拍賣基礎架構 - 包括 **Auctioneer** 和 **MEV Explorer** - 已在 \*\* Mainnet 和 Kairos\*\* 上暫停。 Auctioneer 端點 (`auctioneer.kaia.io`、`auctioneer-kairos.kaia.io`) 和 MEV Explorer 端點 (`mev.kaia.io`、`mev-kairos.kaia.io`) 目前無法使用。
+
+此暫停並不會\***終止 Kaia 的 MEV 架構或搜尋器生態系統。 CN 層級的 MEV 功能仍然**啟用。 當生態系統條件與搜尋者需求需要恢復積極的 MEV 拍賣作業時，該基礎設施將重新上線。 復工日期尚未確定。
 
 :::
 

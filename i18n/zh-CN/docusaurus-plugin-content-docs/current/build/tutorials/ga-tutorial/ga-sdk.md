@@ -20,7 +20,7 @@ GA 功能封装在 `-ext` SDK 中，扩展了 ethers.js 和 web3.js 的功能。
 
 ## 5.2. JSON-RPC API
 
-kaia_sendRawTransactions "接受一个**数组**的签名、RLP编码的原始交易，其_类型字节_为以太坊系列之一（0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob）。  将其用于 GA 对 **ApproveTx + SwapTx**，这是普通的 EVM 类型。
+kaia_sendRawTransactions "接受一个**数组**的签名、RLP编码的原始交易，&#x5176;_&#x7C7B;型字&#x8282;_&#x4E3A;以太坊系列之一（0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob）。  将其用于 GA 对 **ApproveTx + SwapTx**，这是普通的 EVM 类型。
 
 Kaia 特有的类型，如 **0x30**（智能合约执行），仍必须使用旧的单一传输方法 "klay_sendRawTransaction "进行广播。
 

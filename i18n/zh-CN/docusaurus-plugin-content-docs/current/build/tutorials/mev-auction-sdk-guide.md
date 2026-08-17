@@ -2,9 +2,11 @@
 
 [Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 引入了 MEV 拍卖系统，使搜索者能够参与公平、透明的 MEV 机会拍卖。 本指南全面介绍了使用 Kaia MEV 拍卖 SDK 的搜索工作流程。
 
-:::info
+:::warning 服务通知 - MEV 拍卖基础设施暂时中止
 
-本指南使用 Kairos 测试网络端点和合同地址。 主网计划于 2025 年 12 月中旬启动。 部署到主网时，相应更新所有端点和合同地址。
+作为根据当前使用模式进行的运营优化的一部分，MEV 拍卖基础设施（包括**Auctioneer**和**MEV Explorer**）已在**主网和 Kairos**上暂时中止。 Auctioneer 端点（`auctioneer.kaia.io`, `auctioneer-kairos.kaia.io`）和 MEV Explorer 端点（`mev.kaia.io`, `mev-kairos.kaia.io`）目前不可用。
+
+这种暂停不会\***终止 Kaia 的 MEV 框架或搜索器生态系统。 CN 级 MEV 功能仍**启用\*\*。 当生态系统条件和搜索者的需求要求恢复活跃的 MEV 拍卖业务时，基础设施将重新上线。 恢复日期尚未确定。
 
 :::
 

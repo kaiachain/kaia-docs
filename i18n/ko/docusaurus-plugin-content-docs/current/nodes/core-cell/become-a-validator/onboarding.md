@@ -1,97 +1,99 @@
-# 밸리데이터 온보딩
+# 검증자 온보딩
 
-관리자 계정 설정을 마친 후, 밸리데이터 온보딩을 위해 온체인 등록 단계를 수행할 수 있습니다. 이를 위해서는 먼저 실제 Consensus Node (kcn)을 구동하여야 한다는 점을 유의해주세요.
+관리자 계정 설정을 완료하면 온체인 등록 단계를 수행하여 검증자로 온보딩할 수 있습니다. 이 프로세스를 시작하기 전에 먼저 실제 컨센서스 노드(kcn)를 실행해야 한다는 점에 유의하세요.
 
-Kaia 밸리데이터로 온보딩하기 위해서 1개의 스테이킹 컨트랙트를 배포하고, 스테이킹 컨트랙트 주소를 포함한 정보를 제출해야 합니다.
+카이아 검증인으로 온보딩하려면 스테이킹 컨트랙트 하나를 배포하고 다른 필수 정보와 함께 스테이킹 컨트랙트 주소를 제출해야 합니다.
 
-:::info Permissionless Phase 1 / Phase 2
+:::info 무허가 1단계 / 2단계
 
-Permissionless Phase 1 에서는 원활한 운영을 위해 온보딩시 Kaia Team의 행정 승인(administrative approval)이 필요합니다. 따라서 새로운 밸리데이터 운영자는 온보딩 신청을 전송할 수 있고, Kaia Team에서 내부 승인 절차를 거쳐 온체인 등록이 완료됩니다.
+무허가 1단계\*\* 동안에는 원활한 운영을 위해 카이아 팀의 **행정 승인**을 받아야 온보딩이 가능합니다. 새로운 검증인 운영자는 온보딩 요청을 제출할 수 있으며, 카이아 팀은 내부 승인 절차를 거쳐 온체인 등록을 완료합니다.
 
-곧 도입될 Permissionless Phase 2 부터는 Kaia Team의 행정 승인 없이 바로 온체인에 정보가 등록 가능하게 됩니다.
+곧 출시될 **퍼미션리스 2단계**부터는 카이아 팀의 관리 승인 없이도 정보를 온체인에 직접 등록할 수 있습니다.
 
 :::
 
-등록 후에는 AddressBook과 SimpleBlsRegistry 컨트랙트에 밸리데이터의 정보가 기록되며, Kaia 노드들이 컨센서스 과정에서 이를 참조하게 됩니다. 자세한 Self Validator Registration 등록 기술 관련 사항은 [KIP-277](https://kips.kaia.io/KIPs/kip-277) 에서 확인할 수 있습니다.
+등록 후 검증자의 정보는 합의 과정에서 카이아 노드가 참조하는 **AddressBook** 및 **SimpleBlsRegistry** 컨트랙트에 기록됩니다. 셀프 검증자 등록에 대한 자세한 기술 정보는 [KIP-277](https://kips.kaia.io/KIPs/kip-277)을 참조하세요.
 
-## 첫 스테이킹 컨트랙트 배포하기 <a id="deploy-your-first-staking-contract"></a>
+## 첫 스테이킹 컨트랙트 배포 <a id="deploy-your-first-staking-contract"></a>
 
-이제 스테이킹 컨트랙트를 배포하기 위해 Deploy Staking Contract 메뉴로 이동합니다.
+스테이킹 컨트랙트를 배포하려면 **스테이킹 컨트랙트 배포** 메뉴로 이동합니다.
 
-현재 한 스테이킹 컨트랙트에 여러개의 admin 계정을 등록할 수 있으나, Permissionless Phase 2 부터는 스테이킹 컨트랙트에 단 하나의 admin 계정만 등록이 가능해지므로, 단일 Kaia Safe 계정을 admin으로 등록하는것을 권장합니다.
+현재는 하나의 스테이킹 계약에 여러 개의 관리자 계정을 등록할 수 있지만, **무허가 2단계**부터는 스테이킹 계약당 하나의 관리자 계정만 허용됩니다. 이러한 이유로, 관리자 계정으로 하나의 세이프 월렛 계정만 등록할 것을 권장합니다.
 
-스테이킹 컨트랙트를 배포하기 전에 먼저 admin 외에 컨트랙트 배포에 사용할 임시 어카운트가 추가로 필요합니다. 이 어카운트는 contract validator 이며, 이는 하위호환성을 위한 장치입니다. 일반적으로 스테이킹 컨트랙트 admin 계정과 밸리데이터 manager 계정은 분리해서 사용하므로 밸리데이터 manager 계정을 컨트랙트 validator로 사용해도 됩니다.
+스테이킹 컨트랙트를 배포하기 전에 관리자 외에 추가 임시 계정이 있어야 배포를 수행할 수 있습니다. 이 계정을 **계약 유효성 검사기**라고 하며 이전 버전과의 호환성을 위해 존재합니다. 스테이킹 컨트랙트 관리자 계정과 검증인 관리자 계정은 일반적으로 별도로 유지되므로, 검증인 관리자 계정을 컨트랙트 검증인으로 재사용할 수 있습니다.
 
-스테이킹 컨트랙트 admin 지갑과, 임시 컨트랙트 validator 지갑은 소량의 KAIA를 보유하고 있어야 합니다. 모든 준비가 완료됐다면 다음 단계를 진행합니다.
+스테이킹 컨트랙트 관리자 지갑과 임시 컨트랙트 검증자 지갑은 각각 소량의 KAIA를 보유하고 있어야 합니다. 모든 준비가 완료되면 아래 단계를 진행합니다.
 
-![Deploy Staking Contract 폼](/img/nodes/become-a-validator/image07.png)
+스테이킹 계약 양식 배포](/img/nodes/become-a-validator/image07.png)
 
-1. \[Are you onboarding to the Kaia network?\] 체크박스를 클릭합니다.
+1. 카이아 네트워크에 온보딩 중이신가요?]\*\* 확인란을 클릭합니다.
 
-2. 미리 준비한 컨트랙트 validator 어카운트 주소를 입력합니다.
+2. 미리 준비한 계약 유효성 검사기 계정 주소를 입력합니다.
 
-3. Consensus Node ID에는 CN console에서 `admin.nodeInfo.nodeAddress` RPC를 호출하여 출력된 주소를 입력합니다.
+3. 컨센서스 노드 ID\*\*의 경우 CN 콘솔에서 `admin.nodeInfo.nodeAddress` RPC를 호출하여 반환된 주소를 입력합니다.
 
-4. Reward address는 Public Delegation 기능의 사용 유무에 따라 다릅니다. Public Delegation 없이 밸리데이터에 온보딩하려면, 리워드를 수령할 주소를 직접 입력합니다. Public Delegation 기능을 켜고 온보딩하려면, "Public Delegation" 체크박스를 클릭합니다. 이후 리워드는 자동으로 Public Delegation 컨트랙트를 통해 delegator들에게 분배됩니다.
+4. 보상 주소\*\*는 공개 위임 사용 여부에 따라 다릅니다.
+   - 공개 위임 없이\*\* 검증자로 온보딩하려면 보상을 직접 받을 주소를 입력하세요.
+   - 공개 위임이 활성화된 상태에서 \*\*온보딩하려면 **공개 위임** 확인란을 클릭합니다. 그러면 공개 위임 계약을 통해 위임자에게 보상이 자동으로 분배됩니다.
 
-![Public Delegation 설정](/img/nodes/become-a-validator/image08.png)
-![Public Delegation 설정(이어서)](/img/nodes/become-a-validator/image09.png)
+![공개 위임 섹션](/img/nodes/become-a-validator/image08.png)
+![공개 위임 섹션(계속)](/img/nodes/become-a-validator/image09.png)
 
-5. 스테이킹 컨트랙트 admin 주소와 멀티시그 threshold 값을 입력합니다. Admin address에는 Kaia Safe 월렛 주소를 입력하고 threshold를 1로 설정하면 멀티시그 기능을 Kaia Safe에서 담당하게 됩니다. 여러 개의 admin 주소를 입력하고 threshold를 임의로 설정하면 Manage Staking 메뉴에서 멀티시그 기능을 담당하게 됩니다.
+5. 스테이킹 컨트랙트 관리자 주소와 다중서명 임계값을 입력합니다. **관리자 주소**로 Safe Wallet 주소를 입력하고 임계값을 `1`로 설정하면, 다중 서명 기능은 Safe에서 처리됩니다. 여러 관리자 주소를 입력하고 임계값을 임의의 값으로 설정하면 멀티서명 기능은 **스테이킹 관리** 메뉴에서 처리됩니다.
 
-![Deploy Contract 버튼](/img/nodes/become-a-validator/image10.png)
+![계약 배포 버튼](/img/nodes/become-a-validator/image10.png)
 
-6. \[Deploy Contract\] 버튼을 클릭하여 트랜잭션을 실행하면 컨트랙트가 배포되어 \[Not initialized\] 상태가 됩니다.
+6. 트랜잭션을 실행하려면 \*\*[컨트랙트 배포]\*\*를 클릭합니다. 컨트랙트가 배포된 후에는 **[초기화되지 않음]** 상태로 표시됩니다.
 
-## 스테이킹 컨트랙트 초기화하기 <a id="initialize-the-staking-contract"></a>
+## 스테이킹 컨트랙트 초기화 <a id="initialize-the-staking-contract"></a>
 
-새롭게 배포된 스테이킹 컨트랙트는 초기화를 진행해야 사용 가능한 상태로 변경됩니다. 필수 정보를 입력하고 각 admin 계정으로부터 트랜잭션을 한 번씩 전송하여 지갑을 검증한 뒤에 컨트랙트를 사용할 수 있습니다.
+새로 배포된 스테이킹 컨트랙트는 사용하려면 먼저 초기화해야 합니다. 필요한 정보를 입력하고 각 관리자 계정에서 트랜잭션을 한 번씩 전송하여 지갑을 확인하면 계약을 사용할 수 있게 됩니다.
 
-![Set Staking Tracker](/img/nodes/become-a-validator/image11.png)
+![스테이킹 트래커 설정](/img/nodes/become-a-validator/image11.png)
 
-1. \[Set Staking Tracker\] 버튼을 클릭하여 스테이킹 컨트랙트에 Staking Tracker 주소를 입력합니다. 올바른 Staking Tracker 주소가 자동으로 입력됩니다.
+1. 스테이킹 트래커 설정]\*\*을 클릭하여 스테이킹 트래커 주소를 스테이킹 컨트랙트에 기록합니다. 올바른 스테이킹 트래커 주소가 자동으로 입력됩니다.
 
-![Set GC ID](/img/nodes/become-a-validator/image12.png)
+![GC ID 설정](/img/nodes/become-a-validator/image12.png)
 
-2. Kaia Team으로부터 GC ID를 할당받아 입력합니다. \[Set GC ID\] 버튼을 클릭하여 스테이킹 컨트랙트에 GC ID를 입력합니다. Permissionless Phase 2부터는 GC ID가 자동 할당될 예정입니다.
+2. 카이아 팀으로부터 GC ID를 받아 입력합니다. [GC ID 설정]**을 클릭하여 스테이킹 컨트랙트에 GC ID를 기록합니다. 무허가 2단계**부터는 GC ID가 자동으로 할당됩니다.
 
-![Public Delegation 정보 입력](/img/nodes/become-a-validator/image13.png)
-![Public Delegation 정보 입력(이어서)](/img/nodes/become-a-validator/image14.png)
+![공개 위임 정보](/img/nodes/become-a-validator/image13.png)
+![공개 위임 정보 (계속)](/img/nodes/become-a-validator/image14.png)
 
-3. Public Delegation을 활성화한 경우 관련 정보를 입력합니다. 컨트랙트 배포시에 Public Delegation을 활성화하지 않았다면 이 단계를 생략합니다.
-    1. Owner는 commission recipient와 commission rate를 변경할 수 있는 계정을 입력합니다.
-    2. Commission recipient는 commission을 수령할 계정을 입력합니다.
-    3. Commission rate는 0과 10000사이의 basis point 단위의 값을 입력합니다.
-    4. GC Name은 pdKAIA 토큰 이름으로 노출될 짧은 이름을 입력합니다. 예를 들어, GC Name을 "Hello"라고 하면 해당 Public Delegation의 deposit token명이 "Hello-pdKAIA"가 됩니다. (예시: [kaiascan에서 pdKAIA 검색](https://kaiascan.io/search?tabId=tokens&keyword=pdkaia&page=1))
+3. 공개 위임이 활성화된 경우 관련 정보를 입력합니다. 컨트랙트 배포 중에 공개 위임이 활성화되지 않은 경우 이 단계를 건너뜁니다.
+   1. **소유자**: 커미션 수령인 및 커미션 요율을 변경할 수 있는 계정입니다.
+   2. **커미션 수령인**: 커미션을 수령하는 계정입니다.
+   3. **수수료율**: `0`에서 `10000` 사이의 베이시스 포인트 값입니다.
+   4. **GC 이름**: pdKAIA 토큰 이름으로 노출될 짧은 이름입니다. 예를 들어, GC 이름이 '헬로'인 경우, 퍼블릭 델리게이션의 예치 토큰 이름은 '헬로-pdKAIA'가 됩니다. (예시: [카이아스캔 pdKAIA 토큰 검색](https://kaiascan.io/search?tabId=tokens&keyword=pdkaia&page=1))
 
-![Review Conditions](/img/nodes/become-a-validator/image15.png)
+![검토 조건](/img/nodes/become-a-validator/image15.png)
 
-4. 앞서 설정했던 컨트랙트 validator와 각 스테이킹 컨트랙트 admin으로부터 트랜잭션을 한 번씩 전송하여 지갑을 검증합니다. 지갑을 변경하며 로그인해서 \[Review Conditions\] 버튼을 한 번씩 클릭합니다.
+4. 앞서 설정한 컨트랙트 검증자와 모든 스테이킹 컨트랙트 관리자가 지갑을 확인하기 위해 각각 하나의 트랜잭션을 전송합니다. 각 지갑을 차례로 사용해 로그인하고 \*\*[조건 검토]\*\*를 각각 한 번씩 클릭합니다.
 
-![Deposit & Init 1](/img/nodes/become-a-validator/image16.png)
-![Deposit & Init 2](/img/nodes/become-a-validator/image17.png)
+![입금 및 초기화 (1)](/img/nodes/become-a-validator/image16.png)
+![입금 및 초기화 (2)](/img/nodes/become-a-validator/image17.png)
 
-5. 마지막으로 \[Deposit & Init\] 버튼을 클릭하여 컨트랙트 초기화를 마칩니다.
+5. 마지막으로 \*\*[입금 및 초기화]\*\*를 클릭해 컨트랙트 초기화를 완료합니다.
 
-## 온보딩 신청하기 <a id="submit-an-onboarding-request"></a>
+## 온보딩 요청 제출 <a id="submit-an-onboarding-request"></a>
 
-Home 메뉴로 돌아오면 배포가 완료된 스테이킹 컨트랙트가 \[Initialized\] 상태로 표시됩니다.
+홈\*\* 메뉴로 돌아오면 배포된 스테이킹 컨트랙트가 **[초기화됨]** 상태로 표시됩니다.
 
-![초기화 완료 상태의 Home](/img/nodes/become-a-validator/image18.png)
+![초기화 후 홈](/img/nodes/become-a-validator/image18.png)
 
-\[Onboard Validator\] 버튼을 클릭하여 Kaia Team에 온보딩을 신청합니다.
+카이아 팀에 온보딩 요청을 제출하려면 \*\*[온보딩 검증자]\*\*를 클릭하세요.
 
-![Onboard Validator 버튼](/img/nodes/become-a-validator/image19.png)
+![온보드 유효성 검사기](/img/nodes/become-a-validator/image19.png)
 
-![온보딩 신청 폼](/img/nodes/become-a-validator/image20.png)
+![온보딩 요청 양식](/img/nodes/become-a-validator/image20.png)
 
-1. 표시되는 정보를 확인합니다.
-2. 노드 정보를 확인합니다. Consensus Node ID 주소는 최소 10 KAIA를 보유하고 있어야 하는데, 이는 [Gas Abstraction](../../../build/tutorials/ga-tutorial/ga-intro.md)과 [MEV Auction](../../../build/tutorials/mev-auction-sdk-guide.md) 트랜잭션을 처리하기 위해 필요한 최소 수량입니다. 10 KAIA는 차감되지 않으며 해당 트랜잭션을 처리하면서 잠시 사용되었다가 즉시 반환됩니다.
+1. 표시된 정보를 검토합니다.
+2. 노드 정보를 검토합니다. 합의 노드 ID\*\* 주소는 [가스 추상화](../../../build/tutorials/ga-tutorial/ga-intro.md) 및 [MEV 경매](../../../build/tutorials/mev-auction-sdk-guide.md) 트랜잭션을 처리하는 데 필요한 최소값인 **10 KAIA** 이상을 보유해야 합니다. 10 KAIA는 차감되지 않으며, 해당 거래를 처리하는 동안 잠시 사용되었다가 즉시 반환됩니다.
 
-![BLS 공개키 정보](/img/nodes/become-a-validator/image21.png)
+![BLS 공개 키 정보](/img/nodes/become-a-validator/image21.png)
 
-3. 노드로부터 BLS 공개키 정보를 조회하여 입력합니다. CN console에서 `admin.nodeInfo.blsPublicKeyInfo` RPC를 호출해서 나오는 'publicKey'와 'pop'값을 입력합니다.
+3. 노드에 BLS 공개 키 정보를 쿼리하고 입력합니다. CN 콘솔에서 `admin.nodeInfo.blsPublicKeyInfo` RPC를 호출하고 반환된 `publicKey` 및 `pop` 값을 입력합니다.
 
-![Submit Onboarding Request](/img/nodes/become-a-validator/image22.png)
+![온보딩 요청 제출](/img/nodes/become-a-validator/image22.png)
 
-4. \[Submit Onboarding Request\] 버튼을 클릭하여 온보딩 신청을 제출합니다.
+4. 온보딩 요청을 제출하려면 \*\*[온보딩 요청 제출]\*\*을 클릭합니다.

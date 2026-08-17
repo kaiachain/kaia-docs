@@ -2,9 +2,11 @@
 
 [Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) đã giới thiệu hệ thống đấu giá MEV, cho phép người dùng tham gia vào các cuộc đấu giá công bằng và minh bạch để tận dụng cơ hội MEV. Hướng dẫn này cung cấp một hướng dẫn chi tiết về quy trình làm việc của người tìm kiếm sử dụng SDK Kaia MEV Auction.
 
-:::info
+:::warning Thông báo dịch vụ — Hệ thống đấu giá MEV tạm thời ngừng hoạt động
 
-Hướng dẫn này sử dụng các điểm cuối và địa chỉ hợp đồng của mạng thử nghiệm Kairos. Việc ra mắt mạng chính (mainnet) dự kiến sẽ diễn ra vào giữa tháng 12 năm 2025. Khi triển khai lên mạng chính, hãy cập nhật tất cả các điểm cuối và địa chỉ hợp đồng tương ứng.
+Nhằm tối ưu hóa hoạt động phù hợp với các xu hướng sử dụng hiện tại, cơ sở hạ tầng đấu giá MEV — bao gồm **Auctioneer** và **MEV Explorer** — đã tạm thời ngừng hoạt động trên **cả Mainnet và Kairos**. Các điểm cuối của Auctioneer (`auctioneer.kaia.io`, `auctioneer-kairos.kaia.io`) và các điểm cuối của MEV Explorer (`mev.kaia.io`, `mev-kairos.kaia.io`) hiện không khả dụng.
+
+Sự tạm dừng này **không** làm ngừng hoạt động của khung MEV của Kaia hay hệ sinh thái các trình tìm kiếm. Chức năng MEV cấp CN vẫn **được bật**. Hệ thống cơ sở hạ tầng sẽ được đưa trở lại hoạt động khi điều kiện của hệ sinh thái và nhu cầu của người tìm kiếm đòi hỏi phải tiếp tục các hoạt động đấu giá MEV. Chưa có ngày cụ thể để tiếp tục.
 
 :::
 

@@ -20,7 +20,7 @@ Kaia 上的钱包允许访问由私钥控制的账户，从而方便私钥管理
 | [Favorlet](https://favorlet.io/)                   | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
 | [Huobi Wallet](https://www.itoken.com/en)          | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
 | [Kaia Wallet](https://www.kaiawallet.io/en_US/)    | 非监护  | EOA  | 移动, 浏览器            | 没有   | 是     | 支持  | 没有   |
-| [Kaia Safe](https://safe.kaia.io/)                 | 非监护  | 智能合约 | 网络应用程序             | 是    | 没有    | 支持  | 没有   |
+| [Safe Wallet](https://app.safe.global/)            | 非监护  | 智能合约 | 网络应用程序             | 是    | 没有    | 支持  | 没有   |
 | [Klip Wallet](https://klipwallet.com/)             | 非监护  | EOA  | 移动电话               | 没有   | 没有    | 支持  | 没有   |
 | [Krystal DeFi](https://krystal.app/)               | 非监护  | EOA  | 移动、网络应用            | 没有   | 没有    | 支持  | 是    |
 | [Math Wallet](https://mathwallet.org/en-us/)       | 保管员  | EOA  | 手机、网络应用程序、浏览器      | 没有   | 是     | 支持  | 是    |

@@ -74,9 +74,9 @@ The consensus process consists of the following three stages:
 
 - Block Reward for each block will be distributed in prespecified percentages (that can be changed subject to on-chain governance voting).
 
-  1. CCO and Community: 50%
-     1. Of the 50%, 20% is Block Creator rewards
-     2. Of the 50%, 80% is Staking rewards
+  1. Các nhà xác thực và cộng đồng: 50%
+     1. Trong số 50% đó, 20% là Phần thưởng đóng góp (chiếm 10% tổng lượng phát hành)
+     2. Trong số 50% đó, 80% là phần thưởng staking (chiếm 40% tổng lượng phát hành)
   2. KEF (Kaia Ecosystem Fund): 25%
   3. KIF (Kaia Infrastructure Fund): 25%
 

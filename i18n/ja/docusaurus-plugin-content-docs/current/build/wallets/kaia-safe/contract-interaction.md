@@ -1,27 +1,41 @@
-# コントラクトとの実行
+---
+title: 契約とのやり取り
+sidebar_label: 契約上のやり取り
+---
 
-このセクションでは、新しく作成したマルチシグウォレットを使って、Kairos上にデプロイされたシンプルなコントラクトとやり取りし、トランザクションを送信します。
+# 契約とのやり取り
+
+:::caution 日没に関するお知らせ
+
+`safe.kaia.io` は **2026年8月9日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
+
+:::
+
+このセクションでは、Safe Walletで管理されているSafeアカウントを使用して、Kairos上のシンプルなコントラクトとやり取りを行います。
 
 **前提条件**
 
-- [メタマスク](https://metamask.io/download/) & [カイアメタマスクコンフィグ](../../tutorials/connecting-metamask.mdx#send-klay)
-- [Remix](https://remix.ethereum.org/) & [Kaia Remix Plugin](https://klaytn.foundation/using-klaytn-plugin-on-remix/)
-- [Faucet](https://faucet.kaia.io)からテスト用KAIAを入手。
+- [Kaia / Kairos](../../tutorials/connecting-metamask.mdx)用に設定された [MetaMask](https://metamask.io/download/)
+- [リミックス](https://remix.ethereum.org/) （必要に応じてKaiaネットワークのサポートあり）
+- [Faucet](https://faucet.kaia.io)からKAIAを試してみてください
+- KairosのSafeアカウント（[作成する](./use-kaia-safe.md#create-a-safe)）
 
-**ステップ1:** [Remix](https://remix.ethereum.org/)に移動します。
+**手順 1：** [Remix](https://remix.ethereum.org/) を開きます。
 
-**ステップ2：** サンプルの**storage contract**をコンパイルし、デプロイする。
+**ステップ 2：** サンプルストレージ契約（または独自の契約）をコンパイルしてデプロイします。
 
-マルチシグウォレットでコントラクトを使用する前に、まずコントラクトをデプロイする必要があります。 このサンプル・コントラクトには、**store** メソッドを呼び出すと更新され、**retrieve** メソッドを呼び出すと取得される、単純な uint "number" 変数が含まれています。
+Safeから契約を操作する前に、その契約をデプロイしてください。 典型的なサンプル契約では、`uint` が公開されており、これを `store` で更新し、`retrieve` で読み取ります。
 
-![](/img/build/tools/kaia-safe/ks-ic-deploy.gif)
+![](/img/build/wallets/ks-succor-deploy.gif)
 
-\*\*ステップ3：\*\*新規取引を開始する。
+**ステップ3：** Safe Walletで新しい取引を開始します。
 
-安全なウォレットでスマート・コントラクトとやり取りするには、\*\*"New Transaction "\*\*をクリックします。 このステップを完了するには、前のステップで説明したように、すでにデプロイされている契約アドレスとABIが必要です。 このステップを完了するには、前のステップで説明したように、すでにデプロイされている契約アドレスとABIが必要です。
+「**新規取引**」をクリックします。 デプロイ済みのコントラクトアドレスとABIを入力して、メソッドとパラメータを選択できるようにしてください。
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-init.gif)
+![](/img/build/wallets/ks-succor-init-tx.gif)
 
-**ステップ4：** 取引を確認し、提出する。 **ステップ4：** 取引を確認し、提出する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
+**ステップ4：** 内容を確認して送信する。 所有者のウォレットで署名してください。確認の閾値に達すると、取引が実行されます。
 
-![](/img/build/tools/kaia-safe/kaia-safe-ci-review-send.gif)
+![](/img/build/wallets/ks-succor-review-tx.gif)
+
+また、[トランザクションビルダー](./tx-builder.md) を使用して契約呼び出しを一括処理したり、[APIキット](./kaia-safe-api-kit.md) を使ってプログラムから契約を提案したりすることもできます。

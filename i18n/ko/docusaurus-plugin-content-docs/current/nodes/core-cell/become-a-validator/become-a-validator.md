@@ -1,45 +1,45 @@
-# 밸리데이터 등록 및 관리
+# 검증자 되기
 
-## 들어가며 <a id="overview"></a>
+## 개요 <a id="overview"></a>
 
-:::info Permissionless Phase 1
+:::info 무허가 1단계
 
-이 매뉴얼은 Permissionless Phase 1 단계에서 현재 GC들이 포털을 통해 Validator를 관리하는 방법을 안내합니다. Permissionless 네트워크를 통한 참여 개방은 Phase 2(9월 말 예정)에 이루어질 예정이며, 해당 매뉴얼은 Phase 2 시점에 한 번 더 업데이트될 예정입니다. 자세한 업데이트 내용은 다음 문서를 참조해주세요. [Permissionless 구현 계획](https://govforum.kaia.io/t/permissionless-implementation-overview/1218), [PGT 로드맵](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447)
+이 가이드는 **무허가 1단계** 기간 동안 기존 GC가 검증인 관리 포털을 통해 검증인을 관리하는 방법을 설명합니다. 무허가 네트워크를 통해 누구나 참여할 수 있도록 개방하는 것은 \*\*2단계(9월 말 예정)\*\*에서 이루어질 예정이며, 이 가이드는 이 시점에 업데이트될 예정입니다. 자세한 내용은 [무허가 구현 개요](https://govforum.kaia.io/t/permissionless-implementation-overview/1218) 및 [PGT 로드맵](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447)을 참조하세요.
 
 :::
 
-이제 Kaia에서 밸리데이터 정보를 등록하고 관리할 수 있는 [밸리데이터 관리 포털](https://portal.kaia.io/validators)을 제공합니다. 이 가이드를 통해서 밸리데이터들은 Kaia 네트워크에 참여할 수 있습니다.
+카이아는 검증자 정보를 등록하고 관리할 수 있는 [검증자 관리 포털](https://portal.kaia.io/validators)을 제공합니다. 이 가이드에서는 검증자가 포털을 사용하여 Kaia 네트워크에 가입하는 방법을 안내합니다.
 
-밸리데이터 활동을 위해 필요한 정보들은 온체인 컨트랙트에 기록되어야 하므로, 밸리데이터는 누구나 이 포털을 통해 트랜잭션을 전송하여 컨트랙트에 정보를 입력하거나 수정할 수 있습니다. 또한, 새로운 밸리데이터가 Kaia 네트워크에 온보딩하거나 오프보딩할 경우, 해당 밸리데이터가 보유한 스테이킹 컨트랙트를 관리할 수 있습니다.
+검증자 운영에 필요한 정보는 온체인 컨트랙트에 기록되어야 하므로, 모든 검증자는 포털을 사용하여 해당 정보를 기록하거나 업데이트하는 트랜잭션을 전송할 수 있습니다. 또한 포털을 통해 새로운 검증인을 카이아 네트워크에 온보딩하거나 기존 검증인을 오프보딩할 때 검증인은 자신이 소유한 스테이킹 컨트랙트를 관리할 수 있습니다.
 
-구체적으로 현재 다음과 같은 기능들을 지원하고 있습니다.
+현재 포털에서 지원하는 기능은 다음과 같습니다.
 
 ![포털 홈](/img/nodes/become-a-validator/image01.png)
 
-- **Home**: validator manager가 배포한 스테이킹 컨트랙트 등이 표시되는 메인 화면입니다.
-- **Deploy Staking Contract**: 새로운 스테이킹 컨트랙트를 배포할 수 있습니다.
-- **Manage Staking**: 배포된 스테이킹 컨트랙트의 정보를 수정할 수 있습니다.
-- **Become a Validator**: 배포된 스테이킹 컨트랙트를 등록함으로써 밸리데이터로 온보딩할 수 있습니다.
-- **Manage Validator**: 온보딩한 밸리데이터의 정보를 수정할 수 있습니다.
-- **Pending Requests**: Kaia Team이 사용하는 관리 기능 화면입니다.
+- **홈**: 검증자 관리자가 배포한 스테이킹 컨트랙트를 표시하는 메인 화면입니다.
+- **스테이킹 컨트랙트 배포**: 새 스테이킹 컨트랙트를 배포합니다.
+- **스테이킹 관리**: 배포된 스테이킹 컨트랙트의 정보를 수정합니다.
+- **검증인 되기**: 배포된 스테이킹 컨트랙트를 등록하여 검증인으로 참여하세요.
+- **유효성 검사기 관리**: 온보딩된 유효성 검사기에 대한 정보를 수정합니다.
+- **보류 중인 요청**: Kaia 팀에서 사용하는 관리 화면입니다.
 
 :::note
 
-위 기능들은 현재 테스트넷도 모두 지원합니다. 따라서 테스트 목적일 경우 테스트넷에서 진행하는것을 권장합니다.
+위의 모든 기능은 테스트넷에서도 지원됩니다. 먼저 테스트넷에서 모든 테스트 작업을 수행하는 것이 좋습니다.
 
 :::
 
-## 가이드 구성 <a id="what-youll-do"></a>
+## 수행할 작업 <a id="what-youll-do"></a>
 
-온보딩 흐름은 다음 순서로 진행됩니다.
+온보딩 흐름은 다음 페이지에서 순서대로 설명합니다:
 
-1. [사전 준비](./prerequisites.md) — validator manager 지갑을 연결하고(Kaia Safe 권장) 필요한 계정들을 준비합니다.
-2. [밸리데이터 온보딩](./onboarding.md) — 스테이킹 컨트랙트를 배포·초기화하고 온보딩 신청을 제출합니다.
-3. [스테이킹 컨트랙트 관리](./manage-staking.md) — admin 관리, KAIA 스테이킹/언스테이킹, 리워드 주소 변경, 멀티시그 처리 등을 수행합니다.
-4. [밸리데이터 정보 관리](./manage-validator.md) — manager 계정 이전, 오프보딩 신청, 보조 스테이킹 컨트랙트 관리를 수행합니다.
+1. [필수 조건](./prerequisites.md) — 검증자 관리자 지갑(Safe Wallet 권장)을 연결하고 필요한 계정을 준비하십시오.
+2. [검증인 온보딩](./onboarding.md) - 스테이킹 컨트랙트를 배포하고 초기화한 다음 온보딩 요청을 제출합니다.
+3. [스테이킹 컨트랙트 관리](./manage-staking.md) - 관리자 업데이트, KAIA 스테이킹/스테이킹 해제, 보상 주소 변경, 멀티서명 관리 등을 할 수 있습니다.
+4. [검증인 정보 관리](./manage-validator.md) - 관리자 계정 이전, 오프보딩 요청, 보조 스테이킹 계약 관리.
 
-## 관련 자료 <a id="related-resources"></a>
+## 관련 리소스 <a id="related-resources"></a>
 
-- [Kaia Safe 사용 가이드](../../../build/wallets/kaia-safe/kaia-safe.md)
-- [KIP-277: Self Validator Registration](https://kips.kaia.io/KIPs/kip-277)
-- [KIP-163: Redelegation](https://kips.kaia.io/KIPs/kip-163)
+- [Safe Wallet 사용자 가이드](../../../build/wallets/safe-wallet/safe-wallet.md)
+- [KIP-277: 셀프 검증자 등록](https://kips.kaia.io/KIPs/kip-277)
+- [KIP-163: 재위임](https://kips.kaia.io/KIPs/kip-163)

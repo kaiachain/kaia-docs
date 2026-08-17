@@ -59,7 +59,7 @@ Goldskyは、サブグラフを展開するための3つの方法をサポート
 - 他のホストからの移行 - [The Graph](https://docs.goldsky.com/subgraphs/migrate-from-the-graph)や[Alchemy](https://docs.goldsky.com/subgraphs/migrate-from-alchemy/guide)のようなプラットフォームから既存のサブグラフを移行する。
 - インスタント・サブグラフ ([ロー・コード](https://docs.goldsky.com/subgraphs/guides/create-a-low-code-subgraph) / [ノー・コード](https://docs.goldsky.com/subgraphs/guides/create-a-no-code-subgraph))- コンフィギュレーション・ファイル(ロー・コード)またはUI(ノー・コード)を使用して、従来のサブグラフ・マッピング・コードを記述することなく、サブグラフをデプロイします。
 
-このガイドでは、ローコードアプローチを使用して、Kaiaメインネット上のUSDTコントラクトからの_Transfer_イベントをインデックス化するサブグラフをデプロイします。
+このガイドでは、ローコードアプローチを使用して、Kaiaメインネット上のUSDTコントラクトから&#x306E;_&#x54;ransfe&#x72;_&#x30A4;ベントをインデックス化するサブグラフをデプロイします。
 
 ## セットアップと配備
 
@@ -101,7 +101,7 @@ Goldskyは、サブグラフを展開するための3つの方法をサポート
 
 #### コンフィグ名
 
-これは、このコンフィグが何のためにあるのかを理解するのに役立つ任意の名前である。 内部デバッグにのみ使用される。 このガイドでは、_usdt-demo_を使用する。
+これは、このコンフィグが何のためにあるのかを理解するのに役立つ任意の名前である。 内部デバッグにのみ使用される。 このガイドでは、_usdt-dem&#x6F;_&#x3092;使用する。
 
 #### ABI、チェーン、コントラクト・インスタンス
 

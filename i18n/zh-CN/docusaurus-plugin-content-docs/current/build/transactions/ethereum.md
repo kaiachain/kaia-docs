@@ -356,3 +356,379 @@ kaia_getTransactionByHash\` 的返回值
   "value": "0x186a0"
 }
 ```
+
+## TxTypeEthereumBlob<a id="txtypeethereumblob"></a>
+
+TxTypeEthereumBlob "代表[EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) 和[KIP-279](https://kips.kaia.io/KIPs/kip-279) 中指定的以太坊交易类型。 这种事务类型可携带二进制大型数据对象（blob），为 Kaia 上的第 2 层滚动提供经济高效的数据可用性层。 通过将 blob 数据从永久 calldata 存储中分离出来，卷积可以通过独立的 blob 费用市场以较低的成本发布数据。 EVM 无法访问 blob 数据本身；链上只能访问 "blobVersionedHashes "承诺。 由于该交易类型的存在是为了支持兼容性，因此只适用于与[AccountKeyLegacy]相关的 EOA。 该事务类型不能用于创建合同--`to` 字段不能为空。
+
+:::note
+
+Kaia 网络可在 "OsakaCompatibleBlock "后处理此交易类型。
+
+:::
+
+:::note
+
+Kaia 的 Blob 气体参数以 1 秒钟为单位进行调整。 每个块**只允许**一个 blob。 只接受 [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) 副标题格式（V1），拒绝 V0 副标题。 Blob 边车保留了 1 814 400 个区块（约 21 天）。
+
+:::
+
+:::note
+
+eth_sendRawTransaction` 需要完整的 blob 事务和侧载（`BlobTxWithBlobs\`）。 blobVersionedHashes "必须使用版本前缀 "0x01"。
+
+:::
+
+### 属性<a id="attributes"></a>
+
+| 属性                                             | 类型                                                         | 说明                                                                                                          |
+| :--------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
+| 类型                                             | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumEnvelope` 和 `EthereumTransactionType` 连接而成的 `TxTypeEthereumBlob` 类型。 必须是 `0x7803`。 |
+| chainId                                        | \*big.Int （ Go\)                          | 目标链 ID。                                                                                                     |
+| 子密码                                            | uint64 \(Go\)                         | 用于唯一标识发件人交易的值。 如果一个发送方生成了两个具有相同 nonce 的交易，则只执行其中一个。                                                         |
+| 最大每气优先权费用                                      | \*big.Int （ Go\)                          | 一个乘数，用于计算发件人除了支付 `baseFee` 以外还要支付多少费用。 由于 Kaia 有固定的天然气价格，因此应采用相应管网的天然气价格。                                   |
+| maxFeePerGas                                   | \*big.Int （ Go\)                          | 发件人愿意为每单位气体支付的最高金额。 由于 Kaia 有固定的天然气价格，因此应采用相应管网的天然气价格。                                                      |
+| 燃气                                             | uint64 \(Go\)                         | 交易允许使用的最高交易费金额。                                                                                             |
+| 至                                              | \*common.Address （ Go\）                    | 接收转账金额的账户地址。 不能为零--Blob 交易不能创建合约。                                                                           |
+| 价值                                             | \*big.Int （ Go\)                          | 以 `kei` 为单位的 KAIA 转账金额。                                                                                     |
+| 数据                                             | \byte （去）                                                  | 附属于事务的数据，用于执行事务。                                                                                            |
+| 访问列表                                           | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)组成的地址和存储密钥列表。                                                        |
+| maxFeePerBlobGas (每球气体最高收费) | \*big.Int （ Go\)                          | 发送方愿意为每单位 Blob 气体支付的最高费用。 Blob 气体的定价与普通气体不同。                                                                |
+| blobVersionedHashes                            | \common.Hash (Go\)     | 与该事务相关的 Blob 的版本化哈希值列表。 每个哈希值必须使用版本前缀 `0x01`。 至少需要一个哈希值。                                                    |
+| v, r, s                                        | \*big.Int （ Go\)                          | 发送方为让接收方获取发送方地址而生成的加密签名。                                                                                    |
+
+### 签名的 RLP 编码<a id="rlp-encoding-for-signature"></a>
+
+为这种交易类型制作签名的 RLP 序列化过程如下：
+
+:::note
+
+此类交易应使用 Osaka Signer 进行签署
+
+:::
+
+```javascript
+SigRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash,<private key>)
+```
+
+### SenderTxHash 的 RLP 编码<a id="rlp-encoding-for-sendertxhash"></a>
+
+要获取该事务类型的 "SenderTxHash"，RLP 序列化过程如下：
+
+```javascript
+SenderTxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### 交易哈希的 RLP 编码<a id="rlp-encoding-for-transaction-hash"></a>
+
+要获得事务哈希值，RLP 序列化过程如下：
+
+```javascript
+TxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+TxHash = keccak256(TxHashRLP)
+```
+
+### 原始交易<a id="raw-transaction"></a>
+
+```javascript
+RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, to, value, data, accessList, maxFeePerBlobGas, blobVersionedHashes, v, r, s])
+```
+
+通过 `eth_sendRawTransaction` 提交时，必须提供完整的网络表示（包括侧载）：
+
+```javascript
+BlobTxWithBlobs = rlp([TransactionPayloadBody, sidecar_version, blobs, commitments, proofs])
+```
+
+根据 EIP-7594，"sidecar_version "为 "0x01"。
+
+### RLP 编码 （示例）<a id="rlp-encoding-example"></a>
+
+下面显示的是 RLP 序列化和事务对象的结果：
+
+```javascript
+    TX(b4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7)
+    Contract: false
+    Chaind：   0x3e9
+    From：     0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5
+    To: a9ef4a5bfb21e92c06da23ed79294dab11f5a6df
+    Nonce: 366
+    GasTipCap: 0x0
+    GasFeeCap: 0xba43b7400
+    GasLimit 0xc350
+    Value: 0x0
+    Data：     0xd09de08a
+    AccessList：[]
+    MaxFeePerBlobGas: 0x5d21dba000
+    BlobVersionedHashes：[016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7]
+    V：0x1
+    R：        0x4b6905c3f06373857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff
+    S: 0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916
+    Hex：      7803f8978203e982016e80850ba43b740082c35094a9ef4a5bfb21e92c06da23ed79294dab11f5a6df8084d09de08ac0855d21dba000e1a0016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d701a04b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ffa0659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916
+```
+
+### RPC 输出 （示例）<a id="rpc-output-example"></a>
+
+下面显示的是通过 JSON RPC 返回的事务对象。
+
+eth_getTransactionByHash "的返回值
+
+```javascript
+{
+  "blockHash"："0x1683db8c05f898cd9084a8905b3fa2a64b1380b6543e963ea15d2858b241c339",
+  "blockNumber"："0xc77238e",
+  "from"："0x0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5",
+  "gas"："0xc350",
+  "gasPrice"："0x5d21dba00",
+  "maxFeePerGas"："0xba43b7400",
+  "maxPriorityFeePerGas"："0x0",
+  "maxFeePerBlobGas"："0x5d21dba000",
+  "hash"："0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "input"："0xd09de08a",
+  "nonce"："0x16e",
+  "to"："0xa9ef4a5bfb21e92c06da23ed79294dab11f5a6df",
+  "transactionIndex"："0x0",
+  "value"："0x0",
+  "type"："0x3",
+  "accessList"：[],
+  "chainId"："0x3e9",
+  "blobVersionedHashes"：[
+      "0x016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7"
+  ],
+  "v"："0x1",
+  "r"："0x4b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff",
+  "s"："0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916"
+}
+```
+
+kaia_getTransactionByHash\` 的返回值
+
+```javascript
+{
+  "accessList"：[],
+  "blobVersionedHashes"：[
+      "0x016f2dec5826dba2b8071deb0fba09244486cc4f9b981fe26396bc3206d2a8d7"
+  ],
+  "blockHash"："0x1683db8c05f898cd9084a8905b3fa2a64b1380b6543e963ea15d2858b241c339",
+  "blockNumber"："0xc77238e",
+  "chainId"："0x3e9",
+  "from"："0x0a3fa1b8fbdaeabcd2a7cb13abb87e8d1bd0a3b5",
+  "gas"："0xc350",
+  "gasPrice"："0x5d21dba00",
+  "hash"："0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "input"："0xd09de08a",
+  "maxFeePerBlobGas"："0x5d21dba000",
+  "maxFeePerGas"："0xba43b7400",
+  "maxPriorityFeePerGas"："0x0",
+  "nonce"："0x16e",
+  "senderTxHash"："0xb4687ea17a0908a4dce2d83f8c2566881474b9da30ee8b8979b028778761c9d7",
+  "signatures"：[
+      {
+          "V"："0x1",
+          "R"："0x4b6905c3f0637363857626004b2367caa5e1d4c60fa3091a058ddbfef34e30ff",
+          "S"："0x659b7ede7f3439a3f07958abe448c25ddfc0ba0b530bff60356552484a854916"
+      }
+  ],
+  "to"："0xa9ef4a5bfb21e92c06da23ed79294dab11f5a6df",
+  "transactionIndex"："0x0",
+  "type"："TxTypeEthereumBlob",
+  "typeInt"：30723,
+  "value"："0x0"
+}
+```
+
+## TxTypeEthereumSetCode<a id="txtypeethereumsetcode"></a>
+
+TxTypeEthereumSetCode "代表[EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 和[KIP-228](https://kips.kaia.io/KIPs/kip-228) 中指定的以太坊交易类型。 这种交易类型允许将账户抽象功能应用于现有的电子业务约定，从而改善了用户体验。 以前，寻求智能账户功能的 EOA 所有者必须创建一个新的智能账户，并迁移所有资产和权限。 通过 SetCode 事务，用户可以就地将代码附加到现有的 EOA 上，从而无需进行成本高昂的迁移。 授权列表 "指定了一个由账户签署的"（chainId、地址、nonce）"元组列表，这些账户的代码应被设置，从而支持批量交易、气体赞助和范围授权等模式。 在另一个 SetCode 事务明确更改或删除之前，该委托一直存在。 由于该交易类型的存在是为了支持兼容性，因此只适用于与[AccountKeyLegacy]相关的 EOA。 该事务类型不能用于创建合同--"目的地 "字段不能为空。
+
+:::note
+
+Kaia 网络可以在 "PragueCompatibleBlock "之后处理这种交易类型。
+
+:::
+
+:::note
+
+只有具有 "AccountKeyLegacy "的 EOA 才能通过授权元组分配代码。 引用其他密钥类型账户的授权图元将被跳过。 一旦 EOA 设置了代码，标准的 "TxTypeValueTransfer "事务就不能以它为目标，"TxTypeAccountUpdate "事务也不能从它发起。
+
+:::
+
+:::note
+
+如 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 所述，每个授权元组都通过`keccak256(MAGIC || rlp([chainId,地址,nonce]))`独立签名，其中`MAGIC = 0x05`。 至少需要一个授权元组。
+
+:::
+
+### 属性<a id="attributes-1"></a>
+
+| 属性           | 类型                                                         | 说明                                                                                                                                                          |
+| :----------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 类型           | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumSetCode` 和 `EthereumTransactionType` 连接而成的 `TxTypeEthereumSetCode` 类型。 必须是 `0x7804`。                                               |
+| chainId      | \*big.Int （ Go\)                          | 目标链 ID。                                                                                                                                                     |
+| 扣押令          | uint64 \(Go\)                         | 用于唯一标识发件人交易的值。 如果一个发送方生成了两个具有相同 nonce 的交易，则只执行其中一个。                                                                                                         |
+| 最大优先级每气收费    | \*big.Int （ Go\)                          | 一个乘数，用于计算发件人除了支付 `baseFee` 以外还要支付多少费用。 由于 Kaia 有固定的天然气价格，因此应采用相应管网的天然气价格。                                                                                   |
+| maxFeePerGas | \*big.Int （ Go\)                          | 发件人愿意为每单位气体支付的最高金额。 由于 Kaia 有固定的天然气价格，因此应采用相应管网的天然气价格。                                                                                                      |
+| 燃气           | uint64 \(Go\)                         | 交易允许使用的最高交易费金额。                                                                                                                                             |
+| 目的地          | \*common.Address （ Go\）                    | 接收转账金额的账户地址。 不得为零--SetCode 交易不能创建合同。                                                                                                                        |
+| 价值           | \*big.Int （ Go\)                          | 以 `kei` 为单位的 KAIA 转账金额。                                                                                                                                     |
+| 数据           | \byte （去）                                                  | 附属于事务的数据，用于执行事务。                                                                                                                                            |
+| 访问列表         | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)组成的地址和存储密钥列表。                                                                                                        |
+| 授权列表         | \授权（Go\                                                   | 授权元组列表，每个元组的形式为"[chainId, address, nonce, yParity, r, s]"，其中 "address "为签名机构授权代码的合约，元组由该机构签名。 至少需要一个元组。 |
+| v, r, s      | \*big.Int （ Go\)                          | 发送方为让接收方获得发送方地址而生成的加密签名。                                                                                                                                    |
+
+### 签名的 RLP 编码<a id="rlp-encoding-for-signature-1"></a>
+
+为这种交易类型制作签名的 RLP 序列化过程如下：
+
+:::note
+
+这类交易应由布拉格签名者签名
+
+:::
+
+```javascript
+SigRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList])
+SigHash = keccak256(SigRLP)
+Signature = sign(SigHash,<private key>)
+```
+
+授权列表 "中的每个授权元组都是独立签名的：
+
+```javascript
+AuthSigRLP = MAGIC || encode([chainId, address, nonce]) // MAGIC = 0x05
+AuthSigHash = keccak256(AuthSigRLP)
+AuthSignature = sign(AuthSigHash,<authority private key>)
+```
+
+### SenderTxHash 的 RLP 编码<a id="rlp-encoding-for-sendertxhash-1"></a>
+
+要获取该事务类型的 `SenderTxHash` 值，RLP 序列化过程如下：
+
+```javascript
+SenderTxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+SenderTxHash = keccak256(SenderTxHashRLP)
+```
+
+### 交易哈希的 RLP 编码<a id="rlp-encoding-for-transaction-hash-1"></a>
+
+要获得事务哈希值，RLP 序列化过程如下：
+
+```javascript
+TxHashRLP = EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+TxHash = keccak256(TxHashRLP)
+```
+
+### 原始交易<a id="raw-transaction-1"></a>
+
+```javascript
+RawTx = EthereumTxTypeEnvelope || EthereumTransactionType || encode([chainId, nonce, maxPriorityFeePerGas, maxFeePerGas, gasLimit, destination, value, data, accessList, authorizationList, v, r, s])
+```
+
+### RLP 编码 （示例）<a id="rlp-encoding-example-1"></a>
+
+下面显示的是 RLP 序列化和事务对象的结果：
+
+```javascript
+    TX(383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1)
+    Contract: false
+    Chaind：   0x3e9
+    From：     698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce
+    收件人：       698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce
+    Nonce: 29
+    GasTipCap: 0x0
+    GasFeeCap: 0x6fc23ac00
+    GasLimit 0x186a0
+    Value: 0x0
+    Data：     0x8129fc1c
+    AccessList：[]
+    AuthorizationList：[{ChainID: 0x3e9, Address：5fa0193098ecbbad437243fe0ed77a402cd62242，Nonce：30}] V：0x1
+    V: 0x1
+    R: 0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e
+    S: 0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805
+    Hex：      7804f8ce8203e91d808506fc23ac00830186a094698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce80848129fc1cc0f85ef85c8203e9945fa0193098ecbbad437243fe0ed77a402cd622421e01a0a21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969a01494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a01a077b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708ea026b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805
+```
+
+### RPC 输出 （示例）<a id="rpc-output-example-1"></a>
+
+下面显示的是通过 JSON RPC 返回的事务对象。
+
+eth_getTransactionByHash "的返回值
+
+```javascript
+{
+  "blockHash"："0xb76e4a38c1311159ed6fe704f4b220294589accf1c5ec440a471fd4201c6c968",
+  "blockNumber"："0xb35bcdd",
+  "from"："0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "gas"："0x186a0",
+  "gasPrice"："0x5d21dba00",
+  "maxFeePerGas"："0x6fc23ac00",
+  "maxPriorityFeePerGas"："0x0",
+  "hash"："0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "input"："0x8129fc1c",
+  "nonce"："0x1d",
+  "to"："0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "transactionIndex"："0x0",
+  "value"："0x0",
+  "type"："0x4",
+  "accessList"：[],
+  "chainId"："0x3e9",
+  "authorizationList"：[
+      {
+          "chainId"："0x3e9",
+          "address"："0x5fa0193098ecbbad437243fe0ed77a402cd62242",
+          "nonce"："0x1e",
+          "yParity"："0x1",
+          "r"："0xa21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969",
+          "s"："0x1494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a"
+      }
+  ],
+  "v"："0x1",
+  "r"："0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e",
+  "s"："0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805"
+}
+```
+
+kaia_getTransactionByHash\` 的返回值
+
+```javascript
+{
+  "accessList"：[],
+  "authorizationList"：[
+      {
+          "chainId"："0x3e9",
+          "address"："0x5fa0193098ecbbad437243fe0ed77a402cd62242",
+          "nonce"："0x1e",
+          "yParity"："0x1",
+          "r"："0xa21df3fb047c656d5046ae6b5ea81743c047b281b07591f742a13606f09c4969",
+          "s"："0x1494cb06d71cbaa002d669ff63e1d0044bb5d06a00ca550a103ac0287789614a"
+      }
+  ],
+  "blockHash"："0xb76e4a38c1311159ed6fe704f4b220294589accf1c5ec440a471fd4201c6c968",
+  "blockNumber"："0xb35bcdd",
+  "chainId"："0x3e9",
+  "from"："0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "gas"："0x186a0",
+  "gasPrice"："0x5d21dba00",
+  "hash"："0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "input"："0x8129fc1c",
+  "maxFeePerGas"："0x6fc23ac00",
+  "maxPriorityFeePerGas"："0x0",
+  "nonce"："0x1d",
+  "senderTxHash"："0x383aafe58842af80cc63747b78181439cc8b1786b70fedfd86d966b1ea728da1",
+  "signatures"：[
+      {
+          "V"："0x1",
+          "R"："0x77b03c8fd556255dff1f7af72e7a9a8f081e1da9daeb09800d139bf22f22708e",
+          "S"："0x26b7d4762db258e596382de1416753c65ca8e3b0855e8276eecf22d019af2805"
+      }
+  ],
+  "to"："0x698f9bd1a4fc200f8d0c7997810e02a77ca6d5ce",
+  "transactionIndex"："0x0",
+  "type"："TxTypeEthereumSetCode",
+  "typeInt"：30724,
+  "value"："0x0"
+}
+```

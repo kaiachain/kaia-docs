@@ -20,7 +20,7 @@ GA 기능은 ethers.js와 web3.js의 기능을 확장하는 `-ext` SDK에 캡슐
 
 ## 5.2. JSON-RPC API
 
-`kaia_sendRawTransactions`는 _type byte_가 이더리움 계열(0x00 Legacy, 0x01 EIP-2930, 0x02 EIP-1559, 0x04 Blob) 중 하나인 서명되고 RLP 인코딩된 원시 트랜잭션의 **배열**을 받습니다.  이를 일반적인 EVM 타입인 GA 쌍 **ApproveTx + SwapTx**에 사용하세요.
+`kaia_sendRawTransactions`는 _type byt&#x65;_&#xAC00; 이더리움 계열(0x00 Legacy, 0x01 EIP-2930, 0x02 EIP-1559, 0x04 Blob) 중 하나인 서명되고 RLP 인코딩된 원시 트랜잭션의 **배열**을 받습니다.  이를 일반적인 EVM 타입인 GA 쌍 **ApproveTx + SwapTx**에 사용하세요.
 
 **0x30** (Smart-Contract Execution)과 같은 Kaia 특정 타입은 여전히 기존의 단일 tx 메서드인 `klay_sendRawTransaction`으로 브로드캐스트해야 합니다.
 

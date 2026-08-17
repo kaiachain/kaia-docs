@@ -3,147 +3,149 @@
 スマートコントラクトの関数は、RPC API「Call」を使って呼び出すことができる。 ここで呼び出せるのは、コントラクトのステートを変更しない**ビュー関数**に限られる。
 
 <CH.Spotlight>
-  <CH.Code>
-    ```js SmartContractView.js
-    const ethers = require("ethers");
+<CH.Code>
 
-    const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+```js SmartContractView.js
+const ethers = require("ethers");
 
-    /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
-    // SPDX-License-Identifier: UNLICENSED
-    pragma solidity ^0.8.13;
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 
-    contract Counter {
-        uint256 public number;
-        event SetNumber(uint256 number);
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
 
-        constructor(uint256 initNumber) {
-            number = initNumber;
-        }
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
 
-        function setNumber(uint256 newNumber) public {
-            number = newNumber;
-            emit SetNumber(number);
-        }
-
-        function increment() public {
-            number++;
-            emit SetNumber(number);
-        }
-    }
-    */
-    const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-    const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
-
-    async function main() {
-      const counter = new ethers.Contract(contractAddr, abi, provider);
-      const number = await counter.number();
-      console.log("number", number.toString());
+    constructor(uint256 initNumber) {
+        number = initNumber;
     }
 
-    main();
-    ```
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
 
-    ---
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
 
-    ```zsh output
-    ❯ js SmartContractView.js
-    番号 291
-    ```
-  </CH.Code>
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, provider);
+  const number = await counter.number();
+  console.log("number", number.toString());
+}
 
-  ---
+main();
+```
 
-  KAIAの機能をethers.jsに追加するために、ethers と @kaiachain/ethers-ext モジュールをインポートします。
+---
 
-  ```js SmartContractView.js focus=1
-  ```
+```zsh output
+❯ js SmartContractView.js
+番号 291
+```
 
-  ---
+</CH.Code>
 
-  指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
+---
 
-  ```js SmartContractView.js focus=3
-  ```
+KAIAの機能をethers.jsに追加するために、ethers と @kaiachain/ethers-ext モジュールをインポートします。
 
-  ---
+```js SmartContractView.js focus=1
+```
 
-  また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
+---
 
-  ```js SmartContractView.js focus=3
-  const ethers = require("ethers");
+指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
-  const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
+```js SmartContractView.js focus=3
+```
 
-  /* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
-  // SPDX-License-Identifier: UNLICENSED
-  pragma solidity ^0.8.13;
+---
 
-  contract Counter {
-      uint256 public number;
-      event SetNumber(uint256 number);
+また、プロバイダのURLを**kairos**から**quicknode**に変更することができます。
 
-      constructor(uint256 initNumber) {
-          number = initNumber;
-      }
+```js SmartContractView.js focus=3
+const ethers = require("ethers");
 
-      function setNumber(uint256 newNumber) public {
-          number = newNumber;
-          emit SetNumber(number);
-      }
+const provider = new ethers.providers.JsonRpcProvider("https://public-en-kairos.node.kaia.io");
 
-      function increment() public {
-          number++;
-          emit SetNumber(number);
-      }
-  }
-  */
-  const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
-  const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
+/* compiled in remix.ethereum.org (compiler: 0.8.18, optimizer: false)
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
 
-  async function main() {
-    const counter = new ethers.Contract(contractAddr, abi, provider);
-    const number = await counter.number();
-    console.log("number", number.toString());
-  }
+contract Counter {
+    uint256 public number;
+    event SetNumber(uint256 number);
 
-  main();
-  ```
+    constructor(uint256 initNumber) {
+        number = initNumber;
+    }
 
-  ---
+    function setNumber(uint256 newNumber) public {
+        number = newNumber;
+        emit SetNumber(number);
+    }
 
-  solidityコードから生成された**Abi**を設定する。
+    function increment() public {
+        number++;
+        emit SetNumber(number);
+    }
+}
+*/
+const abi = '[{"inputs":[{"internalType":"uint256","name":"initNumber","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"number","type":"uint256"}],"name":"SetNumber","type":"event"},{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newNumber","type":"uint256"}],"name":"setNumber","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
+const contractAddr = "0x95Be48607498109030592C08aDC9577c7C2dD505";
 
-  ```js SmartContractView.js focus=28
-  ```
+async function main() {
+  const counter = new ethers.Contract(contractAddr, abi, provider);
+  const number = await counter.number();
+  console.log("number", number.toString());
+}
 
-  ---
+main();
+```
 
-  相互作用する**契約アドレス**を定義する
+---
 
-  ```js SmartContractView.js focus=29
-  ```
+solidityコードから生成された**Abi**を設定する。
 
-  ---
+```js SmartContractView.js focus=28
+```
 
-  **Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
+---
 
-  ```js SmartContractView.js focus=32
-  ```
+相互作用する**契約アドレス**を定義する
 
-  ---
+```js SmartContractView.js focus=29
+```
 
-  メソッド**counter.number()**を使用して、契約から**number**の値を取得する。
+---
 
-  <CH.Code>
-    ```js SmartContractView.js focus=33:34
-    ```
+**Ethers.Contract**で契約インスタンスを作成し、パラメータ **contractAddr**、**abi**、**provider** を指定します。 このインスタンスを通じて、契約の読み書きができる。
 
-    ---
+```js SmartContractView.js focus=32
+```
 
-    ```zsh output
-    ❯ node SmartContractView.js
-    番号 291
-    ```
-  </CH.Code>
+---
+
+メソッド**counter.number()**を使用して、契約から**number**の値を取得する。
+
+<CH.Code>
+```js SmartContractView.js focus=33:34
+```
+---
+```zsh output
+❯ node SmartContractView.js
+番号 291
+```
+
+</CH.Code>
+
 </CH.Spotlight>

@@ -43,7 +43,7 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 - OpenZeppelin契約ウィザード](https://wizard.openzeppelin.com)を開く
 - ERC20\*\*を選択してください。
-- トークンに **名前** と **シンボル** を指定します。 例えばそれぞれ_Greek_と_GK_。
+- トークンに **名前** と **シンボル** を指定します。 例えばそれぞ&#x308C;_&#x47;ree&#x6B;_&#x3068;_GK_。
 - Premint\*\*フィールドで、10,000に設定する。 これにより、デプロイメントのためのトークンの初期量が作成される。
 - Features\*\*セクションで、Mintableボックスをチェックし、特権アカウント（onlyOwner）がより多くのサプライを作成できるようにする。
 - コピー\*\*アイコンをクリックして、次のセクションのRemixで使用するコードをコピーしてください。

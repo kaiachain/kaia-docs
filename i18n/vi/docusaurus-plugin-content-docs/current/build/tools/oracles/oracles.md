@@ -6,8 +6,9 @@ The need for blockchains to access and connect to external data sources, legacy 
 
 The following providers have integrated with Kaia to deliver decentralized oracle services:
 
-- [Pyth Network](https://docs.pyth.network/home)
-- [Orakl Network](https://docs.orakl.network)
-- [Witnet](https://docs.witnet.io/)
-- [SupraOracles](https://supraoracles.com/docs/overview)
+- [Mạng lưới Pyth](./pyth-network.md)
+- [Mạng Orakl](./orakl-network.md)
+- [RedStone](./redstone.md)
+- [Witnet](./witnet.md)
+- [SupraOracles](./supraoracles.md)
 - [KlayOracle](https://klayoracle.gitbook.io/v1.0.0/)

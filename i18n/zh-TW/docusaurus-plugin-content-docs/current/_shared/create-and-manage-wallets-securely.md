@@ -17,7 +17,7 @@
 
 ### 核心理念：安全第一<a id="core-philosophy-security-first"></a>
 
-在 Web3 中，_不是您的金鑰，不是您的密碼_這句話是最基本的真理。 對開發人員而言，這延伸至軟體開發生命週期的每個環節。 單單一個洩露的金鑰，就可能對使用者和專案造成災難性的損失。 本指南的核心理念是**安全第一**。 每項秘訣和建議都是為了協助您建立穩健、安全的預設系統，從第一天開始就將攻擊表面最小化並保護資產。
+在 Web3 中，_不是您的金鑰，不是您的密&#x78BC;_&#x9019;句話是最基本的真理。 對開發人員而言，這延伸至軟體開發生命週期的每個環節。 單單一個洩露的金鑰，就可能對使用者和專案造成災難性的損失。 本指南的核心理念是**安全第一**。 每項秘訣和建議都是為了協助您建立穩健、安全的預設系統，從第一天開始就將攻擊表面最小化並保護資產。
 
 ### 先決條件 <a id="prerequisites"></a>
 
@@ -61,9 +61,9 @@
 
 冷儲存是指將私人密碼匙保存在未連接到網際網路的裝置上。 硬體錢包\*\*是為此目的而建立的實體裝置。 它會在內部簽署交易，而不會向連接的電腦公開私密金鑰。 這使得它們成為保護高價值資產的黃金標準。 本指南將著重於官方支援的 [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) 和 [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1) 硬體錢包。
 
-#### 2.3. 多重簽名錢包：Kaia Safe 簡介
+#### 2.3. 多簽名錢包：Safe Wallet 入門指南
 
-多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。 例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。 這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。 [Kaia Safe](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe) 是 Kaia 網路上主要的多重認證解決方案。
+多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。 例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。 這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。 在 Kaia 上，請使用來自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可於 [app.safe.global](https://app.safe.global) 取得——請參閱 [Safe Wallet 使用指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 將於 **2026年8月31日** 停止服務。)
 
 ## 第二部分：錢包管理實用配方
 
@@ -340,67 +340,67 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 本章涵蓋在安全風險最高的生產環境中保護資產和自動化作業的秘訣。
 
-#### 4.1. 配方：使用 Kaia Safe 設定多重簽名 Treasury
+#### 4.1. 教學：使用 Safe Wallet 建立多簽名錢包
 
-Kaia Safe 可讓開發人員建立一個可由多位擁有者控制的帳戶，大幅提升安全性。
+**Safe Wallet** ([app.safe.global](https://app.safe.global))，由 [Safe](https://safe.global) / Safe Global 推出，可讓開發者建立由多位所有者共同控制的 Safe 智慧帳戶，從而大幅提升安全性。
 
 您絕不應該使用一般的錢包來管理大量資金、協定的權限或所有權控制。 太多專案因基本的錢包安全失敗而受到影響。 無論您是要推出下一個大型 DeFi 協定、管理 DAO 金庫或保護貴重資產，多重簽章錢包絕對是不可或缺的。
 
-在本指南中，您將學習如何使用 Kaia Safe 在 Kaia 上建立一個保險箱、設定其擁有者和審批門檻，以及執行基本交易。
+在本指南中，您將學習如何使用 Safe Wallet 在 Kaia 上建立「保險箱」、設定其擁有者與授權門檻，並執行一筆基本交易。
 
 ##### 建立安全的錢包
 
-1. 請造訪 [Kaia Safe App](https://app.safe.global/welcome)。
+1. 請造訪 [Safe Wallet](https://app.safe.global/welcome)。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
-2. **連接您的錢包**。 選擇您要連線到 Kaia Safe 網站的錢包類型。 在本指南中，我們將使用 Kaia Wallet。
+2. **連接您的錢包**。 請選擇您要連線的錢包類型。 請確認已選取 **Kaia 主網** 或 **Kairos 測試網**。 在本指南中，我們將使用 Kaia Wallet。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
-3. **命名您的保險櫃**。 連線您的錢包後，按一下 **Create Account**，並命名您的 Kaia Safe。
+3. **命名您的保險櫃**。 連接錢包後，請點擊 **建立帳戶**，並為您的「保險箱」命名。
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
-4. **設定簽署人**。 設定 Kaia Safe 帳戶中的交易需要多少簽名者確認才能通過。  良好的做法是使用佔總業主 51% 的臨界值，例如 _2佔 3_、_3 佔 5_等，如下所示。
+4. **設定簽署人**。 設定您的 Safe 帳戶中，一筆交易需要多少位簽署人的確認才能獲得批准。  良好的做法是使用佔總業主 51% 的臨界值，例如 _2佔 3_、_3 佔 &#x35;_&#x7B49;，如下所示。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
-5. **部署您的 Kaia Safe 帳戶**。 當您完全滿意 Kaia Safe 的所有參數後，按一下 \*\* 建立\*\*，以提交建立您的 Kaia Safe 帳戶。
+5. **啟用您的 Safe 帳戶**。 當您對所有 Safe 設定參數完全滿意後，請點擊 **建立** 以提交您的 Safe 帳戶申請。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
-6. **使用您的錢包**。 按一下 **開始使用 KaiaSafe Wallet** 按鈕。
+6. **使用您的錢包**。 點擊 **開始使用 Safe Wallet**（或使用者介面中的對應按鈕）。
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
-7. **進入 Kaia Safe 智慧合約錢包的使用者介面**，如下所示。
+7. **開啟**您的 Safe 智慧合約錢包**使用者介面**，如下圖所示。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
-恭喜您成功建立 Kaia Safe 帳戶！
+恭喜您成功建立 Safe 帳戶！
 
 ##### 執行基本交易（傳送原生代幣）
 
-在本節中，您將學習如何執行基本交易，例如從 Kaia Safe 帳戶傳送原生代幣 KAIA 到受益人地址。
+在本節中，您將學習如何執行基本交易，例如將原生代幣 KAIA 從您的 Safe 帳戶發送至收款人地址。
 
-確保您的 Kaia Safe 帳戶有足夠的資金。 您可以參考本指南，瞭解如何 [存款](https://docs.kaia.io/build/tools/wallets/kaia-safe/use-kaia-safe/#add-assets) 到您的 Safe 帳戶。
+請確保您的 Safe 帳戶內有足夠的餘額。 您可以參考這份指南，了解如何將資金 [存入](/build/wallets/safe-wallet/use-safe-wallet#add-assets) 至您的 Safe 帳戶。
 
 步驟 1：按一下側邊功能表中的**新交易**按鈕，然後選擇**傳送代幣**，開始新的資產轉移。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 步驟 2：選擇要轉移的資產。 加入**收件人地址**和要轉帳的**KAIA**金額。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 步驟 3：檢閱並提交交易。 您需要用簽署人錢包簽署交易，一旦達到確認臨界值，交易就會被執行。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
-#### 4.2. 配方：整合 Kaia Safe 以執行重要的智慧型契約作業
+#### 4.2. 食譜：將 Safe Wallet 整合至關鍵智慧合約操作中
 
-在本指南中，您將學習如何指定 Kaia Safe 帳戶為智慧契約中的管理員。 您也將看到如何使用 Kaia Safe 帳戶執行權限函數，例如 **setTokenPrice()** 和 **pause()**，以確保只有核准的簽章者才能執行權限動作。
+在本指南中，您將學習如何在智慧合約中將 Safe 帳戶指定為管理員。 您還將了解如何透過 Safe 帳戶執行 **setTokenPrice()** 和 **pause()** 等特權功能，以確保僅有經核准的簽署者才能執行特權操作。
 
 ##### 先決條件
 
@@ -412,11 +412,11 @@ Kaia Safe 可讓開發人員建立一個可由多位擁有者控制的帳戶，�
 
 ##### 步驟 2：編譯並部署代幣合約範例
 
-您必須先部署契約，才能在多重簽證錢包中與契約互動 - 呼叫特權函式。 我們要做的第一件事就是在部署時，將我們新建立的 Kaia Safe 帳戶設定為代幣合約的 \*\*初始擁有者。
+您必須先部署契約，才能在多重簽證錢包中與契約互動 - 呼叫特權函式。 我們首先要做的是，在部署時將新建立的 Safe 帳戶設定為該代幣合約的 **initialOwner**。
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-此樣本代用幣合約包含一些特權函數，例如 **setTokenPrice()**、**pause()**，這些函數只能由 Kaia Safe 帳戶呼叫。 接下來我們要做的就是相應地執行這些動作。 我們可以使用 Transaction builder 或使用 Kaia Safe API Kit 程式化。
+此範例代幣合約包含 **setTokenPrice()**、**pause()** 等特權函式，這些函式僅能由 Safe 帳戶呼叫。 接下來我們要做的就是相應地執行這些動作。 我們可以透過「交易建構器」來執行此操作，也可以透過「Safe API Kit」以程式化方式執行。
 
 ##### 步驟 3：啟動新交易
 
@@ -426,9 +426,9 @@ Kaia Safe 可讓開發人員建立一個可由多位擁有者控制的帳戶，�
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
-###### 使用 Kaia Safe API 套件
+###### 使用 Safe API Kit
 
-在本節中，您將使用 Kaia Safe API 套件，以程式化的方式提出一個呼叫 **setTokenPrice** 函式的交易，收集 Safe 帳戶所有者的簽名，並執行交易。
+在本節中，您將使用 Safe API Kit 透過程式化方式提出一筆呼叫 **setTokenPrice** 函式的交易，收集 Safe 帳戶持有人的簽名，並執行該交易。
 
 **先決條件**
 
@@ -683,7 +683,7 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-恭喜你 您已使用 Kaia Safe API-Kit 成功地從您的 Kaia Safe 帳戶執行一個特權函式。
+恭喜你 您已成功透過 Safe API Kit，從您的 Safe 帳戶執行了一項特權功能。
 
 ##### 步驟 4：檢閱並提交交易
 

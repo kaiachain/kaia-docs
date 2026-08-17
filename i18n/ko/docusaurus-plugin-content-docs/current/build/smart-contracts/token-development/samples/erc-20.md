@@ -89,5 +89,5 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 ![](/img/build/smart-contracts/mm-custom-tokens-imported-e20g.png)
 
-완료되면 다음과 같은 메시지가 표시되는 모달이 나타납니다: "_토큰을 가져왔습니다: GK_를 성공적으로 가져왔습니다."라는 메시지와 가져온 토큰(GK)이 메타마스크 지갑의 토큰 목록에 표시됩니다.
+완료되면 다음과 같은 메시지가 표시되는 모달이 나타납니다: "_토큰을 가져왔습니다: G&#x4B;_&#xB97C; 성공적으로 가져왔습니다."라는 메시지와 가져온 토큰(GK)이 메타마스크 지갑의 토큰 목록에 표시됩니다.
 
