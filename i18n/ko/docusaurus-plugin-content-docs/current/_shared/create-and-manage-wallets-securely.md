@@ -351,31 +351,31 @@ SafePal 앱은 블록체인 데이터를 가져오고, 거래를 브로드캐스
 
 1. [Safe Wallet](https://app.safe.global/welcome)을 방문해 보세요.
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
 2. **지갑 연결**. 연결할 지갑 유형을 선택하세요. **Kaia 메인넷** 또는 **Kairos 테스트넷**이 선택되어 있는지 확인하십시오. 이 가이드에서는 Kaia 지갑을 사용하겠습니다.
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
 3. **금고 이름**을 지정합니다. 지갑을 연결한 후 **계정 만들기**를 클릭하고, Safe에 이름을 지정하세요.
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
 4. **서명자 구성**. Safe 계정의 거래가 승인되기 위해 필요한 서명자 확인 횟수를 설정하세요.  아래와 같이 전체 소유자의 51%(예: \*3명 중 2명, \*5명 중 3명 등)의 임계값을 사용하는 것이 좋습니다.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
 5. **Safe 계정을 활성화하세요**. Safe의 모든 설정에 완전히 만족하셨다면, **만들기**를 클릭하여 Safe 계정 생성을 신청하세요.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
 6. **지갑 사용**. **‘Safe Wallet 사용 시작’**(또는 UI상의 이에 상응하는 버튼)을 클릭하세요.
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
 7. 아래 그림과 같이 Safe 스마트 계약 지갑의 **사용자 인터페이스를 열기**.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
 Safe 계정 생성을 성공적으로 마치신 것을 축하드립니다!
 
@@ -387,15 +387,15 @@ Safe 계정에 충분한 잔액이 있는지 확인하십시오. Safe 계좌에 
 
 1단계: 사이드 메뉴에서 **새 트랜잭션** 버튼을 클릭하고 **토큰 보내기**를 선택해 새로운 자산 전송을 시작합니다.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 2단계: 이전할 자산을 선택합니다. 송금할 **수취인 주소**와 **Kaia 금액**을 추가합니다.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 3단계: 거래를 검토하고 제출합니다. 서명자 지갑으로 거래에 서명해야 하며, 확인 임계값에 도달하면 거래가 실행됩니다.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. 레시피: 중요한 스마트 계약 작업을 위한 Safe Wallet 통합
 
