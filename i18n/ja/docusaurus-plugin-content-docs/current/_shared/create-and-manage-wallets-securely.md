@@ -352,31 +352,31 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 1. [Safe Wallet](https://app.safe.global/welcome)をご覧ください。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
 2. \*\*財布をつなぐ 接続したいウォレットの種類を選択してください。 **Kaia メインネット** または **Kairos テストネット** が選択されていることを確認してください。 このガイドでは、カイア・ウォレットを使用します。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
 3. **金庫の名前**。 ウォレットを接続したら、\*\*「アカウントを作成」\*\*をクリックし、Safeに名前を付けてください。
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
 4. **署名者の設定**。 Safeアカウント内の取引が承認されるために必要な署名者の確認回数を設定します。  グッドプラクティスは、全オーナーの51％を閾値とすることである。例えば、以下に示すように、_3人中2人_、_5人中3&#x4EBA;_&#x306A;ど。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
 5. **Safeアカウントを設定してください**。 Safeのすべての設定に完全に満足したら、\*\*[作成]\*\*をクリックして、Safeアカウントの作成を申請してください。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
 6. \*\*財布を使ってください。 「**Safe Wallet を使い始める**」（または UI 上の同等のボタン）をクリックしてください。
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
 7. \*\*以下の図のように、\*\*Safeスマートコントラクトウォレットのユーザーインターフェースにアクセスしてください。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
 Safeアカウントの作成が完了しました。おめでとうございます！
 
@@ -388,15 +388,15 @@ Safeアカウントに十分な残高があることを確認してください�
 
 ステップ1： サイドメニューの**New Transaction**ボタンをクリックし、**Send tokens**を選択して、新しいアセットトランスファーを開始します。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 ステップ2：譲渡する資産を選択する。 受取人の住所**と送金するKAIAの金額**を入力してください。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 ステップ3：取引を確認し、送信する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. レシピ：重要なスマートコントラクト操作におけるSafe Walletの統合
 
