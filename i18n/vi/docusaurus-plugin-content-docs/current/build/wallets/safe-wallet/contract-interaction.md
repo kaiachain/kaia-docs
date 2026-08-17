@@ -26,16 +26,16 @@ Trong phần này, bạn sẽ tương tác với một hợp đồng đơn giả
 
 Hãy triển khai hợp đồng trước khi thực hiện các thao tác với nó từ Safe. Một mẫu hợp đồng điển hình sẽ công khai một biến `uint` mà bạn có thể cập nhật bằng hàm `store` và đọc bằng hàm `retrieve`.
 
-![](/img/build/wallets/ks-succor-deploy.gif)
+<video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" /> </video>
 
 **Bước 3:** Khởi tạo một giao dịch mới trong Safe Wallet.
 
 Nhấp vào **Giao dịch mới**. Hãy nhập địa chỉ hợp đồng đã được triển khai và ABI để bạn có thể chọn phương thức và các tham số.
 
-![](/img/build/wallets/ks-succor-init-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" /> </video>
 
 **Bước 4:** Kiểm tra lại và gửi đi. Ký bằng ví của chủ sở hữu; giao dịch sẽ được thực hiện ngay khi đạt đến ngưỡng xác nhận.
 
-![](/img/build/wallets/ks-succor-review-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" /> </video>
 
 Bạn cũng có thể thực hiện các cuộc gọi hợp đồng theo lô bằng [Transaction Builder](./tx-builder.md) hoặc đề xuất chúng thông qua lập trình bằng [API Kit](./safe-wallet-api-kit.md).
