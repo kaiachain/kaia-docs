@@ -26,16 +26,16 @@ sidebar_label: 계약 상호작용
 
 Safe에서 계약을 사용하기 전에 먼저 계약을 배포하십시오. 일반적인 샘플 계약에서는 `uint`를 노출하며, 이 값은 `store`를 통해 업데이트하고 `retrieve`를 통해 읽을 수 있습니다.
 
-![](/img/build/wallets/ks-succor-deploy.gif)
+<video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" /> </video>
 
 **3단계:** Safe Wallet에서 새로운 거래를 시작합니다.
 
 **새 거래**를 클릭하세요. 메서드와 매개변수를 선택할 수 있도록 배포된 계약 주소와 ABI를 입력하세요.
 
-![](/img/build/wallets/ks-succor-init-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" /> </video>
 
 **4단계:** 검토 후 제출. 소유자 지갑으로 서명하면, 확인 기준치에 도달하는 즉시 거래가 실행됩니다.
 
-![](/img/build/wallets/ks-succor-review-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" /> </video>
 
 또한 [트랜잭션 빌더](./tx-builder.md)를 사용하여 계약 호출을 일괄 처리하거나, [API 키트](./safe-wallet-api-kit.md)를 통해 프로그래밍 방식으로 제안할 수도 있습니다.
