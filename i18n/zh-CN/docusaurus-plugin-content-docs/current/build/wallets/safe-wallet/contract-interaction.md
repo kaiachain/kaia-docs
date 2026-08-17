@@ -26,16 +26,16 @@ sidebar_label: 合约交互
 
 在从 Safe 中与合约进行交互之前，请先部署该合约。 一个典型的示例合约会暴露一个 `uint` 类型，你可以使用 `store` 对其进行写入，并使用 `retrieve` 对其进行读取。
 
-![](/img/build/wallets/ks-succor-deploy.gif)
+<video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" /> </video>
 
 **第 3 步：** 在 Safe Wallet 中发起一笔新交易。
 
 点击\*\*“新建交易”\*\*。 请输入已部署合约的地址和 ABI，以便选择方法和参数。
 
-![](/img/build/wallets/ks-succor-init-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" /> </video>
 
 **第 4 步：** 审核并提交。 使用所有者钱包进行签名；一旦达到确认阈值，交易即执行。
 
-![](/img/build/wallets/ks-succor-review-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" /> </video>
 
 您还可以使用 [交易构建器](./tx-builder.md) 批量调用合约，或通过 [API 工具包](./safe-wallet-api-kit.md) 以编程方式发起调用。
