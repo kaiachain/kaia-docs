@@ -26,16 +26,16 @@ sidebar_label: 契約上のやり取り
 
 Safeから契約を操作する前に、その契約をデプロイしてください。 典型的なサンプル契約では、`uint` が公開されており、これを `store` で更新し、`retrieve` で読み取ります。
 
-![](/img/build/wallets/ks-succor-deploy.gif)
+<video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" /> </video>
 
 **ステップ3：** Safe Walletで新しい取引を開始します。
 
 「**新規取引**」をクリックします。 デプロイ済みのコントラクトアドレスとABIを入力して、メソッドとパラメータを選択できるようにしてください。
 
-![](/img/build/wallets/ks-succor-init-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" /> </video>
 
 **ステップ4：** 内容を確認して送信する。 所有者のウォレットで署名してください。確認の閾値に達すると、取引が実行されます。
 
-![](/img/build/wallets/ks-succor-review-tx.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" /> </video>
 
 また、[トランザクションビルダー](./tx-builder.md) を使用して契約呼び出しを一括処理したり、[APIキット](./safe-wallet-api-kit.md) を使ってプログラムから契約を提案したりすることもできます。
