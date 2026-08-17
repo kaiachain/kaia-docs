@@ -15,33 +15,41 @@ sidebar_label: Tạo và quản lý két sắt
 
 Dưới đây là hướng dẫn cách tạo tài khoản thông minh Safe trên Kaia bằng Safe Wallet.
 
-**Bước 1:** Mở [Safe Wallet](https://app.safe.global/welcome) trong trình duyệt của bạn.
+**Bước 1:** Mở [Safe Wallet](https://app.safe.global/welcome) trong trình duyệt của bạn. Trang đích có hai tab: **Workspaces**, dành cho các nhóm cùng quản lý nhiều tài khoản, và **My accounts**, dành cho các Safes mà ví đã kết nối của bạn đăng nhập. Để tạo một tài khoản Safe duy nhất, hãy ở lại trang **Tài khoản của tôi**.
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+:::tip
 
-**Bước 2:** Kết nối ví của bạn. Safe Wallet hỗ trợ các ví như [Kaia Wallet](https://docs.kaiawallet.io/) và [MetaMask](../../tutorials/connecting-metamask.mdx). Hãy đảm bảo rằng **Kaia Mainnet** hoặc **Kairos Testnet** đã được chọn trong ví của bạn và trong Safe Wallet.
+Quản lý bộ phận tài chính với nhiều két sắt và một đội ngũ nhân viên kiểm tra? [Workspace](./overview.md#workspace) cung cấp bảng điều khiển chung, sổ địa chỉ chung và tính năng đăng nhập qua email cho các thành viên cần quyền truy cập thông tin nhưng không được phép nắm giữ khóa ký. Bạn có thể tạo các Safes trước, sau đó sắp xếp chúng vào một không gian làm việc.
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+:::
 
-**Bước 3:** Nhấp vào **Tạo tài khoản** (hoặc tùy chọn tương đương) và đặt tên cho Safe của bạn.
+![Trang chào mừng của Safe Wallet với tab “Tài khoản của tôi” đang được chọn, hiển thị các tùy chọn “Kết nối ví” và “Theo dõi bất kỳ tài khoản nào”](/img/build/wallets/sg-welcome-page.png)
 
-![](/img/build/wallets/ks-add-safe-name.png)
+**Bước 2:** Nhấp vào **Kết nối ví** và chọn [MetaMask](../../tutorials/connecting-metamask.mdx). Hộp thoại này chỉ hiển thị các ví mà nó phát hiện được, vì vậy nếu bạn không thấy ví mình muốn, hãy cài đặt tiện ích mở rộng trước — [Kaia Wallet](https://docs.kaiawallet.io/) sẽ xuất hiện tại đây sau khi tiện ích mở rộng của nó được cài đặt. Hãy đảm bảo rằng **Kaia Mainnet** hoặc **Kairos Testnet** đã được chọn trong ví của bạn và trong Safe Wallet.
 
-**Bước 4:** Thêm chủ sở hữu/người ký bằng cách nhập các địa chỉ có quyền gửi và phê duyệt giao dịch. Bạn có thể thêm bao nhiêu chủ sở hữu tùy ý và thay đổi danh sách này sau này.
+![Hộp thoại “Kết nối ví” với MetaMask được đánh dấu nổi bật trong danh sách các ví có sẵn](/img/build/wallets/sg-connect-wallet.png)
 
-**Bước 5:** Chọn số lần xác nhận của chủ sở hữu mà một giao dịch cần có. Nên chọn ngưỡng lớn hơn 1. Một quy định phổ biến là khoảng 51% chủ sở hữu (ví dụ: 2 trong 3, hoặc 3 trong 5).
+**Bước 3:** Nhấp vào **Tạo tài khoản**, đặt tên cho Safe của bạn, sau đó chọn mạng để triển khai nó — **Kaia** cho Mainnet hoặc **Kairos** cho testnet. Bạn có thể thêm các mạng khác sau này. Nhấp vào **Tiếp theo**.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![Thực hiện bước thiết lập cơ bản bằng cách nhập tên an toàn và chọn Kairos trong phần “Chọn mạng”](/img/build/wallets/sg-add-safe-name.png)
 
-**Bước 6:** Kiểm tra lại các thông số, sau đó triển khai Safe và làm theo các hướng dẫn hiển thị trên màn hình.
+**Bước 4:** Tại phần **Người ký và xác nhận**, hãy thêm các địa chỉ được phép đề xuất và phê duyệt giao dịch. Ví được kết nối của bạn là **Người ký 1**; hãy nhấp vào **Thêm người ký mới** cho mỗi người ký bổ sung. Tên là các nhãn tùy chọn được lưu lại để bạn tự tham khảo. Bạn có thể thay đổi người ký sau này.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+**Bước 5:** Đặt **Giá trị ngưỡng** — số lượng người ký cần xác nhận trước khi giao dịch được thực hiện. Chọn số lượng lớn hơn 1. Một quy định phổ biến là cần khoảng 51% số người ký tên (ví dụ: 2 trong 3, hoặc 3 trong 5). Nhấp vào **Tiếp theo**.
 
-**Bước 7:** Sau khi triển khai, hãy bắt đầu sử dụng Safe và mở giao diện người dùng tài khoản.
+![Bước xác nhận và ký tên với ba người ký và ngưỡng 2 trên 3](/img/build/wallets/sg-add-signers.png)
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+**Bước 6:** Kiểm tra mạng, tên, người ký và ngưỡng. Việc triển khai Safe là một giao dịch trên chuỗi, do đó sẽ phát sinh một khoản phí kích hoạt một lần bằng KAIA — hãy đảm bảo ví đã kết nối của bạn có đủ số dư. Nhấp vào **Tạo tài khoản**, sau đó xác nhận giao dịch trong ví của bạn.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![Bước xem lại hiển thị mạng lưới, tên, ba người ký, ngưỡng 2 trên 3 và phí kích hoạt ước tính bằng KAIA](/img/build/wallets/sg-review-create-safe.png)
+
+**Bước 7:** Ngay sau khi giao dịch được xác nhận, Safe của bạn sẽ chính thức hoạt động. Cửa sổ thoại hiển thị địa chỉ của nó — đây là địa chỉ bạn chia sẻ để nhận tiền, và nó khác với địa chỉ ví của người ký. Nhấp vào **Bắt đầu** để mở tài khoản.
+
+![Hộp thoại “Tài khoản của bạn đã được thiết lập xong” hiển thị tên và địa chỉ mới của Safe trên Kairos](/img/build/wallets/sg-start-using-wallet.png)
+
+Tài khoản mở ra ở trang **Tổng quan**, với thanh bên hiển thị các mục **Tài sản**, **Giao dịch**, **Sổ địa chỉ**, **Ứng dụng** và **Cài đặt**. Ví Safe ban đầu trống rỗng — hãy sử dụng tính năng **Sao chép địa chỉ** để nạp tiền vào ví từ một ví khác.
+
+![Tổng quan về tài khoản an toàn với số dư bằng 0, thông báo “Nạp tiền” và thanh điều hướng bên cạnh](/img/build/wallets/sg-safe-ui.png)
 
 Tài khoản Safe của bạn đã sẵn sàng.
 
@@ -65,7 +73,11 @@ Bạn có thể nạp tiền vào Safe từ bất kỳ địa chỉ nào có th�
 
 ### Tiền gửi NFT
 
-Chuyển NFT sang địa chỉ Safe từ một sàn giao dịch hoặc ví hỗ trợ Kaia (Mainnet hoặc Kairos). Ví dụ: trên [OpenSea](https://opensea.io/), hãy mở NFT, chọn chức năng “Chuyển nhượng” và dán địa chỉ Safe vào. Sau khi xác nhận, NFT sẽ xuất hiện trong mục **Tài sản** / NFTs trên Safe Wallet. Xem [hướng dẫn chuyển nhượng](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea) của OpenSea để biết các bước cụ thể cho từng sản phẩm.
+1. Sao chép địa chỉ Safe của bạn.
+2. Trong ví chứa NFT, hãy mở ví và chọn “Chuyển”.
+3. Dán địa chỉ Safe, xác nhận và xác minh địa chỉ đó trong phần **Tài sản** → **NFT** trên ứng dụng Safe Wallet.
+
+Trên Mainnet, bạn cũng có thể thực hiện chuyển khoản từ một sàn giao dịch hỗ trợ Kaia, chẳng hạn như [OKX NFT Marketplace](https://web3.okx.com/nft). Trên Kairos, hãy sử dụng tính năng chuyển tiền qua ví như đã nêu ở trên.
 
 ## Send assets
 
@@ -73,15 +85,15 @@ Chuyển NFT sang địa chỉ Safe từ một sàn giao dịch hoặc ví hỗ 
 
 **Bước 1:** Nhấp vào **Giao dịch mới** và chọn **Gửi token**.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
-**Bước 2:** Chọn tài sản, nhập địa chỉ người nhận và số tiền.
+**Bước 2:** Nhập địa chỉ người nhận, sau đó chọn loại token và số tiền — **MAX** sẽ tự động điền toàn bộ số dư. Bạn có thể thêm tối đa năm người nhận vào một giao dịch. Nhấp vào **Tiếp theo**.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
-**Bước 3:** Kiểm tra lại và gửi. Hãy ký xác nhận bằng ví chủ sở hữu của bạn; giao dịch sẽ được thực hiện ngay khi đạt đến ngưỡng xác nhận.
+**Bước 3:** Kiểm tra lại các thông tin chi tiết và nhấp vào **Ký**, sau đó xác nhận trong ví của bạn. Việc ký tên không tự động gửi giao dịch — giao dịch sẽ vẫn nằm trong hàng đợi dưới mục **Giao dịch** cho đến khi đạt ngưỡng quy định, sau đó bất kỳ người ký nào cũng có thể thực hiện giao dịch đó.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 ### Gửi NFT
 
