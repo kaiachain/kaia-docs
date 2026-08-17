@@ -15,33 +15,41 @@ sidebar_label: 创建和管理保险箱
 
 以下是在 Kaia 上使用 Safe Wallet 创建 Safe 智能账户的方法。
 
-**步骤 1：** 在浏览器中打开 [Safe Wallet](https://app.safe.global/welcome)。
+**步骤 1：** 在浏览器中打开 [Safe Wallet](https://app.safe.global/welcome)。 登录页面有两个标签页：**工作区**，供共同管理多个账户的团队使用；以及**我的账户**，用于显示您已连接的钱包所登录的“保险箱”。 若要创建一个“保险箱”，请留在\*\*“我的账户”\*\*页面。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+:::tip
 
-**第 2 步：** 连接您的钱包。 Safe Wallet 支持 [Kaia Wallet](https://docs.kaiawallet.io/) 和 [MetaMask](../../tutorials/connecting-metamask.mdx) 等钱包。 请确保在您的钱包和 Safe Wallet 中均已选择 **Kaia 主网** 或 **Kairos 测试网**。
+管理一个拥有多个“保险箱”和一支审核团队的资金池？ [工作区](./overview.md#workspace) 为那些需要查看信息但不应持有签名密钥的成员提供了共享仪表盘、共享通讯录以及电子邮件登录功能。 您可以先创建“保险箱”，稍后再将其整理到工作区中。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+:::
 
-**第 3 步：** 点击 **“创建账户”**（或类似选项），并为您的“保险箱”命名。
+![Safe Wallet 欢迎页面，当前选中“我的账户”标签页，显示“连接钱包”和“查看任意账户”](/img/build/wallets/sg-welcome-page.png)
 
-![](/img/build/wallets/ks-add-safe-name.png)
+**第 2 步：** 点击 **连接钱包**，然后选择 [MetaMask](../../tutorials/connecting-metamask.mdx)。 该对话框仅列出其检测到的钱包，因此，如果您未看到所需的钱包，请先安装该扩展程序——安装 [Kaia Wallet](https://docs.kaiawallet.io/) 的扩展程序后，它就会出现在此处。 请确保在您的钱包和 Safe Wallet 中均已选择 **Kaia 主网** 或 **Kairos 测试网**。
 
-**第 4 步：** 输入有权提交和批准交易的地址，以添加所有者/签署人。 您可以根据需要添加任意数量的所有者，并可在以后进行更改。
+![“连接钱包”对话框中，MetaMask在可用钱包列表中被高亮显示](/img/build/wallets/sg-connect-wallet.png)
 
-**第 5 步：** 选择交易需要多少次所有者确认。 建议将阈值设为大于1。 一种常见的做法是约51%的业主同意（例如3人中有2人，或5人中有3人）。
+**第 3 步：** 点击 **“创建账户”**，为您的 Safe 命名，然后选择要部署它的网络——主网选择 **Kaia**，测试网选择 **Kairos**。 您可以稍后添加更多网络。 单击\*\*“下一步”\*\*。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![在“设置基础步骤”中输入“Safe”作为名称，并在“选择网络”下选中“Kairos”](/img/build/wallets/sg-add-safe-name.png)
 
-**第 6 步：** 检查参数，然后部署 Safe，并按照屏幕上的提示操作。
+**第 4 步：** 在 **签名人和确认** 部分，添加允许提议和批准交易的地址。 您已连接的钱包是 **签名人 1**；如需添加其他签名人，请点击 **添加新签名人**。 名称是可选的标签，用于供您自己参考。 您可以稍后更改签署人。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+**第 5 步：** 设置 **阈值**——即交易执行前需要多少名签名人进行确认。 请选择大于1的数值。 一种常见的做法是约51%的签署人（例如3人中的2人，或5人中的3人）。 点击\*\*“下一步”\*\*。
 
-**第 7 步：** 部署完成后，开始使用您的 Safe 并打开账户界面。
+![“签名人和确认”步骤，已添加三名签名人，且阈值设定为3人中至少2人同意](/img/build/wallets/sg-add-signers.png)
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+**第 6 步：** 检查网络、名称、签名人和阈值。 部署保险箱是一项链上交易，因此需要支付一笔以 KAIA 计价的一次性激活费——请确保您已连接的钱包中持有足够的 KAIA。 点击\*\*“创建账户”\*\*，然后在您的钱包中确认该交易。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![审核步骤图，显示了网络、名称、三位签名人、2/3的阈值以及KAIA中的预估激活费](/img/build/wallets/sg-review-create-safe.png)
+
+**第 7 步：** 交易确认后，您的“保险箱”即刻启用。 对话框中显示了该地址——这是您用于接收资金的地址，与您的签名者钱包地址不同。 点击\*\*“开始吧”\*\*以开通账户。
+
+![“您的账户已设置完成”对话框，显示Kairos上新的“安全”名称和地址](/img/build/wallets/sg-start-using-wallet.png)
+
+账户打开后默认显示在**概览**页面，侧边栏包含**资产**、**交易**、**通讯录**、**应用**和**设置**。 保险箱初始为空——请使用**复制地址**功能，从另一个钱包向其中转入资金。
+
+![显示余额为零的安全账户概览、"充值"提示以及侧边栏导航](/img/build/wallets/sg-safe-ui.png)
 
 您的 Safe 账户已准备就绪。
 
@@ -65,7 +73,11 @@ sidebar_label: 创建和管理保险箱
 
 ### NFT 存款
 
-从支持 Kaia（主网或 Kairos）的市场或钱包中，将 NFT 转入 Safe 地址。 例如，在 [OpenSea](https://opensea.io/) 上，打开该 NFT，选择“转账”，然后粘贴 Safe 的地址。 确认后，该 NFT 将显示在 Safe Wallet 的 **资产** / NFT 栏目下。 有关具体产品的操作步骤，请参阅 OpenSea 的 [转账指南](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)。
+1. 复制您的Safe地址。
+2. 在存放该 NFT 的钱包中，打开它并选择“转账”。
+3. 将 Safe 地址粘贴进去，确认后，在 Safe Wallet 的 **资产** → **NFT** 栏目下进行验证。
+
+在主网上，您还可以从支持 Kaia 的交易平台进行转账，例如 [OKX NFT 交易平台](https://web3.okx.com/nft)。 在 Kairos 上，请使用上方的钱包转账功能。
 
 ## 发送资产
 
@@ -73,15 +85,15 @@ sidebar_label: 创建和管理保险箱
 
 **步骤 1：** 点击 **新建交易**，然后选择 **发送代币**。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
-**步骤 2：** 选择资产，输入收款地址和金额。
+**步骤 2：** 输入收款人地址，然后选择代币和金额——选择**MAX**将自动填入全部余额。 每笔交易最多可添加五位收款人。 单击\*\*“下一步”\*\*。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
-**第3步：** 审核并提交。 使用您的所有者钱包进行签名；一旦达到确认阈值，交易即会执行。
+**第 3 步：** 核对详细信息，点击 **签名**，然后在钱包中确认。 签名不会立即发送交易——该交易会保留在**交易**下的队列中，直到达到阈值，届时任何签名者均可执行该交易。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 ### 发送 NFT
 
