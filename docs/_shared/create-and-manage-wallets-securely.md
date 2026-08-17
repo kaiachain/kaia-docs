@@ -355,31 +355,31 @@ In this guide, you will learn how to create a Safe on Kaia with Safe Wallet, con
 
 1. Visit [Safe Wallet](https://app.safe.global/welcome). 
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
 2. **Connect your wallet**. Select the wallet type you want to connect. Ensure **Kaia Mainnet** or **Kairos Testnet** is selected. For this guide, we will use Kaia Wallet. 
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
 3. **Name your Safe**. After connecting your wallet, click **Create Account**, and give your Safe a name.
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
 4. **Configure signers**. Configure how many signer confirmations a transaction in your Safe account needs to be approved.  Good practice is to use a threshold of 51% of the total owners e.g., *2 out of 3*, *3 out of 5* etc as shown below.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
 5. **Deploy your Safe account**. Once you are completely satisfied with all of your Safe parameters, click **Create** to submit the creation of your Safe account.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
 6. **Use your wallet**. Click **Start using Safe Wallet** (or the equivalent button in the UI).
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
 7. **Access the user interface** of your Safe smart contract wallet as shown below.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
 Congratulations on successfully creating your Safe account!
 
@@ -391,15 +391,24 @@ Ensure your Safe account is sufficiently funded. You can refer to this guide for
 
 Step 1: Click the **New Transaction** button in the side menu and select **Send tokens** to begin a new asset transfer.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" />
+</video>
 
 Step 2: Choose assets to transfer. Add the **recipient address** and the **amount of KAIA** to transfer.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" />
+</video>
 
 Step 3: Review and submit the transaction. You will need to sign the transaction with your signer wallet, and it will be executed once the confirmation threshold is reached.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}>
+  <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" />
+  <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" />
+</video>
 
 #### 4.2. Recipe: Integrating Safe Wallet for Critical Smart Contract Actions
 
