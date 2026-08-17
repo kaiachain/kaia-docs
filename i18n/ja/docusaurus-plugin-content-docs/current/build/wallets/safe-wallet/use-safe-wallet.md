@@ -15,33 +15,41 @@ sidebar_label: セーフの作成と管理
 
 ここでは、Safe Wallet を使用して Kaia で Safe スマートアカウントを作成する方法をご紹介します。
 
-**手順 1：** ブラウザで [Safe Wallet](https://app.safe.global/welcome) を開きます。
+**手順 1：** ブラウザで [Safe Wallet](https://app.safe.global/welcome) を開きます。 ランディングページには2つのタブがあります。1つは、複数のアカウントを共同で管理するチーム向けの\*\*「ワークスペース」**、もう1つは、連携済みのウォレットでログインしているセーフ向けの**「マイアカウント」**です。 1つの「セーフ」を作成するには、**「マイアカウント」\*\*の画面にとどまってください。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+:::tip
 
-**ステップ2：** ウォレットを接続します。 Safe Wallet は、[Kaia Wallet](https://docs.kaiawallet.io/) や [MetaMask](../../tutorials/connecting-metamask.mdx) などのウォレットに対応しています。 ウォレットおよびSafe Walletで、**Kaiaメインネット**または**Kairosテストネット**が選択されていることを確認してください。
+複数の「セーフ」とレビュー担当チームを擁する財務管理を行っていますか？ [Workspace](./overview.md#workspace) では、可視性は必要だが署名キーを保持すべきではないメンバー向けに、共有ダッシュボード、共有アドレス帳、およびメールログイン機能が追加されています。 まず「セーフ」を作成し、後でそれらをワークスペースに整理することができます。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+:::
 
-**手順 3：** **「アカウントを作成」**（または同等のリンク）をクリックし、Safe に名前を付けます。
+![「マイアカウント」タブが選択されたSafe Walletのウェルカムページ。「ウォレットを接続」と「任意のアカウントを監視」が表示されている](/img/build/wallets/sg-welcome-page.png)
 
-![](/img/build/wallets/ks-add-safe-name.png)
+**手順 2：** **「ウォレットを接続」**をクリックし、[MetaMask](../../tutorials/connecting-metamask.mdx)を選択します。 このダイアログには、検出されたウォレットのみが表示されます。そのため、お探しのウォレットが表示されない場合は、まず拡張機能をインストールしてください。—[Kaia Wallet](https://docs.kaiawallet.io/)は、拡張機能をインストールするとここに表示されます。 ウォレットおよびSafe Walletで、**Kaiaメインネット**または**Kairosテストネット**が選択されていることを確認してください。
 
-**手順 4：** 取引の送信および承認ができるアドレスの入力により、所有者／署名者を追加します。 所有者は必要なだけ追加でき、後で変更することも可能です。
+![ウォレット接続ダイアログで、利用可能なウォレットの中からMetaMaskがハイライト表示されている画像](/img/build/wallets/sg-connect-wallet.png)
 
-**ステップ 5：** 取引に必要な所有者の承認数を指定します。 しきい値は1より大きい値にすることを推奨します。 一般的な慣行として、所有者の約51％（例えば、3人のうち2人、あるいは5人のうち3人）が挙げられます。
+**ステップ3：** **「アカウントを作成」**をクリックし、セーフに名前を付け、展開するネットワークを選択します。メインネットの場合は**Kaia**、テストネットの場合は**Kairos**を選択してください。 後でネットワークを追加することもできます。 \*\*[次へ]\*\*をクリックしてください。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![「ネットワークの選択」で「Safe」という名前を入力し、「Kairos」を選択して、基本設定の手順を設定する](/img/build/wallets/sg-add-safe-name.png)
 
-**手順 6：** パラメータを確認し、Safe をデプロイして、画面上の指示に従ってください。
+**手順 4：** **「署名者と承認」** で、トランザクションの提案および承認が許可されるアドレスを追加します。 接続済みのウォレットは **Signer 1** です。追加するごとに **新しい署名者を追加** をクリックしてください。 名前は、自分用の参照用に保存される任意のラベルです。 署名者は後で変更できます。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+**ステップ 5：** **しきい値**を設定します。これは、取引が実行されるまでに確認が必要な署名者の人数です。 1より大きい値が望ましい。 一般的な慣行として、署名者の約51％（例えば、3人のうち2人、あるいは5人のうち3人）が署名することが求められます。 \*\*[次へ]\*\*をクリックしてください。
 
-**手順 7：** デプロイが完了したら、Safe の利用を開始し、アカウント UI を開いてください。
+![署名者と承認のステップ（署名者3名を追加し、3人中2人の承認を要件とする）](/img/build/wallets/sg-add-signers.png)
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+**手順 6：** ネットワーク、名称、署名者、および閾値を確認します。 セーフの展開はオンチェーン取引であるため、KAIAでの1回限りのアクティベーション手数料がかかります。接続しているウォレットに十分な残高があることを確認してください。 「**アカウントを作成**」をクリックし、ウォレットで取引を確認してください。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![ネットワーク、名称、3名の署名者、3分の2の閾値、およびKAIAでの推定アクティベーション手数料を示す確認画面](/img/build/wallets/sg-review-create-safe.png)
+
+**ステップ7：** 取引が確認されると、セーフが利用可能になります。 ダイアログにはそのアドレスが表示されます。これは、資金を受け取るために共有するアドレスであり、署名用ウォレットのアドレスとは異なります。 \*\*「さあ、始めましょう」\*\*をクリックして、アカウントを開設してください。
+
+![カイロス上で新しい「セーフ」の名前と住所が表示された「アカウントの設定が完了しました」ダイアログ](/img/build/wallets/sg-start-using-wallet.png)
+
+アカウントを開くと、**概要**画面が表示され、サイドバーには**資産**、**取引**、**アドレス帳**、**アプリ**、**設定**が表示されます。 「Safe」は空の状態から始まります。\*\*「アドレスをコピー」\*\*を使用して、別のウォレットから資金を移してください。
+
+![残高がゼロの「Safe」アカウントの概要画面、入金プロンプト、およびサイドバーのナビゲーション](/img/build/wallets/sg-safe-ui.png)
 
 Safeアカウントの準備が整いました。
 
@@ -65,7 +73,11 @@ Kaiaアカウントへの送金が可能であれば、どのアドレスから�
 
 ### NFTの預入
 
-Kaia（メインネットまたはKairos）に対応しているマーケットプレイスやウォレットから、NFTを「Safe」アドレスに転送してください。 たとえば、[OpenSea](https://opensea.io/)でNFTを開き、「転送」を選択して、Safeのアドレスを貼り付けてください。 確認が完了すると、そのNFTはSafe Walletの\*\*「資産」\*\*／「NFT」の下に表示されます。 製品ごとの具体的な手順については、OpenSeaの[転送ガイド](https://support.opensea.io/en/articles/8866959-how-can-i-transfer-an-nft-using-opensea)をご覧ください。
+1. Safeのアドレスをコピーしてください。
+2. NFTを保管しているウォレットを開き、「転送」を選択してください。
+3. 「Safe」のアドレスを貼り付け、確認した後、Safe Walletの\*\*「資産」\*\* → \*\*「NFT」\*\*でそのアドレスを確認してください。
+
+メインネットでは、[OKX NFTマーケットプレイス](https://web3.okx.com/nft)など、Kaiaに対応しているマーケットプレイスからも送金を行うことができます。 Kairosでは、上記のウォレット送金機能をご利用ください。
 
 ## 資産を送る
 
@@ -73,15 +85,15 @@ Kaia（メインネットまたはKairos）に対応しているマーケット�
 
 **手順 1：** **「新規取引」** をクリックし、**「トークンの送金」** を選択します。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
-**手順 2：** 資産を選択し、受取人のアドレスと金額を入力します。
+**手順 2：** 受取人のアドレスを入力し、トークンと金額を選択してください。**MAX** を選択すると、残高全額が自動的に入力されます。 1回の取引につき、最大5人の受取人を追加できます。 \*\*[次へ]\*\*をクリックしてください。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
-**ステップ3：** 内容を確認して送信する。 オーナーウォレットで署名してください。確認閾値に達すると、取引が実行されます。
+**ステップ3：** 詳細を確認し、**「署名」**をクリックしてから、ウォレットで承認してください。 署名を行ってもトランザクションは送信されません。トランザクションは、閾値に達するまで**トランザクション**のキューに残り、閾値に達した時点で、どの署名者でもそれを実行できるようになります。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 ### NFTを送信する
 
