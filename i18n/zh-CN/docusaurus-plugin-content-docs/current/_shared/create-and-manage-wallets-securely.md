@@ -352,31 +352,31 @@ SafePal 应用程序充当中间人--获取区块链数据、广播交易和转�
 
 1. 访问 [Safe Wallet](https://app.safe.global/welcome)。
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
 2. **连接您的钱包**。 请选择您要连接的钱包类型。 请确保已选择 **Kaia 主网** 或 **Kairos 测试网**。 在本指南中，我们将使用 Kaia 钱包。
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
 3. **为保险箱命名**。 连接钱包后，点击**创建账户**，并为您的保险箱命名。
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
 4. **配置签名者**。 设置您的Safe账户中一笔交易需要多少个签名人的确认才能获得批准。  良好的做法是以业主总数的 51%为门槛，例如，3 &#x4E2A;_&#x4E2D;_&#x32; 个，5 &#x4E2A;_&#x4E2D;_&#x33; 个等，如下图所示。
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
 5. **部署您的 Safe 账户**。 当您对所有“Safe”参数都完全满意后，请点击\*\*“创建”\*\*以提交“Safe”账户的创建申请。
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
 6. **用你的钱包**。 点击\*\*“开始使用 Safe Wallet”\*\*（或用户界面中的相应按钮）。
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
 7. **打开**您的 Safe 智能合约钱包的用户界面，如下图所示。
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
 恭喜您成功创建了Safe账户！
 
@@ -388,15 +388,15 @@ SafePal 应用程序充当中间人--获取区块链数据、广播交易和转�
 
 步骤 1：点击侧边菜单中的**新交易**按钮，选择**发送代币**，开始新的资产转移。
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 第 2 步：选择要转移的资产。 添加**收件人地址**和**要转账的 KAIA**金额。
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 步骤 3：审核并提交交易。 您需要用签名者钱包签署交易，一旦达到确认阈值，交易就会执行。
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. 教程：将 Safe Wallet 集成到关键智能合约操作中
 
