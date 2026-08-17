@@ -352,31 +352,31 @@ Trong hướng dẫn này, bạn sẽ tìm hiểu cách tạo một Safe trên K
 
 1. Hãy truy cập [Safe Wallet](https://app.safe.global/welcome).
 
-![](/img/build/wallets/ks-welcome-page-sw.png)
+![](/img/build/wallets/sg-welcome-page.png)
 
 2. **Kết nối ví của bạn**. Chọn loại ví mà bạn muốn kết nối. Hãy đảm bảo rằng **Kaia Mainnet** hoặc **Kairos Testnet** đã được chọn. Trong hướng dẫn này, chúng tôi sẽ sử dụng Kaia Wallet.
 
-![](/img/build/wallets/ks-connect-wallet-sw.png)
+![](/img/build/wallets/sg-connect-wallet.png)
 
 3. **Đặt tên cho két sắt của bạn**. Sau khi kết nối ví của bạn, hãy nhấp vào **Tạo tài khoản** và đặt tên cho Safe của bạn.
 
-![](/img/build/wallets/ks-add-safe-name.png)
+![](/img/build/wallets/sg-add-safe-name.png)
 
 4. **Cấu hình người ký**. Cài đặt số lượng xác nhận của người ký cần thiết để một giao dịch trong tài khoản Safe của bạn được phê duyệt.  Thực hành tốt là sử dụng ngưỡng 51% tổng số chủ sở hữu, ví dụ: _2 trong 3_, _3 trong 5_ v.v., như minh họa bên dưới.
 
-![](/img/build/wallets/ks-add-signers-sw.png)
+![](/img/build/wallets/sg-add-signers.png)
 
 5. **Kích hoạt tài khoản Safe của bạn**. Khi bạn đã hoàn toàn hài lòng với tất cả các thông số của tài khoản Safe, hãy nhấp vào **Tạo** để gửi yêu cầu tạo tài khoản Safe của bạn.
 
-![](/img/build/wallets/ks-review-create-safe-sw.png)
+![](/img/build/wallets/sg-review-create-safe.png)
 
 6. **Sử dụng ví của bạn**. Nhấp vào **Bắt đầu sử dụng Safe Wallet** (hoặc nút tương ứng trên giao diện người dùng).
 
-![](/img/build/wallets/ks-start-using-wallet-sw.png)
+![](/img/build/wallets/sg-start-using-wallet.png)
 
 7. **Truy cập giao diện người dùng** của ví hợp đồng thông minh Safe của bạn như hình dưới đây.
 
-![](/img/build/wallets/ks-safe-ui-sw.png)
+![](/img/build/wallets/sg-safe-ui.png)
 
 Xin chúc mừng bạn đã tạo thành công tài khoản Safe!
 
@@ -388,15 +388,15 @@ Hãy đảm bảo tài khoản Safe của bạn có đủ số dư. Bạn có th
 
 Bước 1: Nhấp vào nút **Giao dịch mới** trong menu bên và chọn **Gửi token** để bắt đầu chuyển giao tài sản mới.
 
-![](/img/build/wallets/ks-new-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
 Bước 2: Chọn tài sản cần chuyển. Nhập **địa chỉ người nhận** và **số lượng KAIA** cần chuyển.
 
-![](/img/build/wallets/ks-send-details-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
 Bước 3: Kiểm tra và gửi giao dịch. Bạn cần ký giao dịch bằng ví ký tên của mình, và giao dịch sẽ được thực hiện sau khi đạt đến ngưỡng xác nhận.
 
-![](/img/build/wallets/ks-review-send-tx-sw.gif)
+<video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. Hướng dẫn: Tích hợp ví an toàn cho các thao tác quan trọng của hợp đồng thông minh
 
