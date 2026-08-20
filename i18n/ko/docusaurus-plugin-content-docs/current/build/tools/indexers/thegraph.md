@@ -6,11 +6,21 @@ sidebar_label: The Graph
 
 ![](/img/banners/kaia-thegraph.png)
 
+:::caution 일몰 공고
+
+The Graph에서의 Kaia 지원은 **2026년 8월 31일**에 종료됩니다. 해당 날짜가 지나면 카이아 서브그래프의 색인 생성이 중단되고, 해당 쿼리 엔드포인트에서 데이터를 반환하지 않게 됩니다.
+
+사용 중인 DApp이 The Graph의 Kaia 서브그래프에서 데이터를 읽어오는 경우, **[The Graph에서 마이그레이션하기](./migrate-from-the-graph.md)** 안내를 따라 종료일 전에 [Goldsky](./goldsky.md), [SubQuery](./subquery.md) 또는 자체 호스팅 그래프 노드로 이전하시기 바랍니다. 서브그래프 코드는 변경 없이 그대로 적용됩니다.
+
+아래 안내문은 서비스가 운영 중인 동안 참고용으로 제공됩니다.
+
+:::
+
 ## 소개
 
 Getting historical data on a smart contract can be frustrating when building a dapp. [The Graph](https://thegraph.com/) provides an easy way to query smart contract data through APIs known as subgraphs. The Graph’s infrastructure relies on a decentralized network of indexers, enabling your dapp to become truly decentralized.
 
-Both Kaia Mainnet & Testnet are supported by The Graph.
+The Graph는 **2026년 8월 31일**까지 Kaia 메인넷과 테스트넷을 모두 지원합니다.
 
 ## Quick Start
 
