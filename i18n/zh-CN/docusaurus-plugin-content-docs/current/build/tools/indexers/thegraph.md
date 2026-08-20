@@ -6,11 +6,21 @@ sidebar_label: The Graph
 
 ![](/img/banners/kaia-thegraph.png)
 
+:::caution 终止服务通知
+
+The Graph 上对 Kaia 的支持将于 **2026 年 8 月 31 日** 结束。 在此日期之后，Kaia 子图将停止索引，其查询端点也将停止返回数据。
+
+如果您的 DApp 从 The Graph 上的 Kaia 子图中读取数据，请按照 **[从 The Graph 迁移](./migrate-from-the-graph.md)** 的指引，在停用日期之前迁移至 [Goldsky](./goldsky.md)、[SubQuery](./subquery.md) 或自托管的图节点。 您的子图代码将原样保留。
+
+以下指南在服务仍在运行期间供参考。
+
+:::
+
 ## 导言
 
 在构建 dapp 时，获取智能合约的历史数据可能会令人沮丧。 [The Graph](https://thegraph.com/) 通过被称为子图的应用程序接口，提供了一种查询智能合约数据的简便方法。 图形的基础设施依赖于索引器的去中心化网络，使您的 dapp 真正实现去中心化。
 
-Kaia Mainnet 和 Testnet 均由 The Graph 提供支持。
+The Graph 将支持 Kaia 主网和测试网，直至 **2026 年 8 月 31 日**。
 
 ## 快速入门
 

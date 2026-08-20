@@ -6,11 +6,21 @@ sidebar_label: The Graph
 
 ![](/img/banners/kaia-thegraph.png)
 
+:::caution Thông báo về hoàng hôn
+
+Dịch vụ hỗ trợ Kaia trên The Graph sẽ kết thúc vào ngày **31 tháng 8 năm 2026**. Sau ngày đó, các tiểu đồ thị Kaia sẽ ngừng lập chỉ mục và các điểm cuối truy vấn của chúng sẽ ngừng trả về dữ liệu.
+
+Nếu ứng dụng phi tập trung (dapp) của bạn truy xuất dữ liệu từ một subgraph Kaia trên The Graph, hãy làm theo hướng dẫn **[Chuyển đổi từ The Graph](./migrate-from-the-graph.md)** để chuyển sang [Goldsky](./goldsky.md), [SubQuery](./subquery.md) hoặc một nút đồ thị tự lưu trữ trước ngày ngừng hỗ trợ. Mã đoạn đồ thị con của bạn sẽ được giữ nguyên như cũ.
+
+Hướng dẫn dưới đây được lưu giữ để tham khảo trong thời gian dịch vụ vẫn đang hoạt động.
+
+:::
+
 ## Giới thiệu
 
 Getting historical data on a smart contract can be frustrating when building a dapp. [The Graph](https://thegraph.com/) provides an easy way to query smart contract data through APIs known as subgraphs. The Graph’s infrastructure relies on a decentralized network of indexers, enabling your dapp to become truly decentralized.
 
-Both Kaia Mainnet & Testnet are supported by The Graph.
+Cả Kaia Mainnet và Testnet đều được The Graph hỗ trợ cho đến **ngày 31 tháng 8 năm 2026**.
 
 ## Quick Start
 
