@@ -5,11 +5,21 @@ sidebar_label: The Graph
 
 ![](/img/banners/kaia-thegraph.png)
 
+:::caution Sunset notice
+
+Kaia support on The Graph ends on **August 31, 2026**. After that date, Kaia subgraphs stop indexing and their query endpoints stop returning data.
+
+If your dapp reads from a Kaia subgraph on The Graph, follow **[Migrate from The Graph](./migrate-from-the-graph.md)** to move to [Goldsky](./goldsky.md), [SubQuery](./subquery.md), or a self-hosted graph-node before the sunset date. Your subgraph code carries over unchanged.
+
+The guide below is kept for reference while the service is still running.
+
+:::
+
 ## Introduction 
 
 Getting historical data on a smart contract can be frustrating when building a dapp. [The Graph](https://thegraph.com/) provides an easy way to query smart contract data through APIs known as subgraphs. The Graph’s infrastructure relies on a decentralized network of indexers, enabling your dapp to become truly decentralized.
 
-Both Kaia Mainnet & Testnet are supported by The Graph. 
+Both Kaia Mainnet & Testnet are supported by The Graph, until **August 31, 2026**. 
 
 ## Quick Start
 
