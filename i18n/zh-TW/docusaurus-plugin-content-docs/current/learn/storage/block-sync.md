@@ -58,3 +58,7 @@ Chaindata 快照為完全同步提供了更快的替代方案。 快照是同步
 ## 快照同步
 
 目前，Kaia 節點不支持 [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) 方法。 不過，使用鏈數據快照在更快的初始同步方面也有不相上下的優勢。
+
+## 快速同步
+
+Kaia 節點不支援「快速同步」方法。 以 `--syncmode fast` 啟動的節點會在啟動時因錯誤而終止運作。 請改用「完整同步」或「鏈數據快照」。
