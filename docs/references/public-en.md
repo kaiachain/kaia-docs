@@ -12,6 +12,10 @@ Hence, the main benefit of using an existing Public EN is that it allows you to 
 - If traffic is concentrated on certain nodes, you may experience service delay.
 - To prevent too many requests, rate limits may apply on a per-node basis, which are subject to change without prior notification.
 
+## Public Latency Benchmarks
+
+For a neutral cross-check of the public endpoints listed below, [OpenChainBench](https://openchainbench.com/benchmarks/kaia-rpc) publishes continuous latency measurements for Kaia's keyless JSON-RPC providers. Probes run every 60 seconds from three regions (Paris, Virginia, Singapore) against `eth_getBlockByNumber`, and the harness is open source at [github.com/ChainBench/openchainbench](https://github.com/ChainBench/openchainbench).
+
 ## Public JSON-RPC Endpoints
 
 Below is the list of the network domains offered by Kaia’s Public Node Providers.
