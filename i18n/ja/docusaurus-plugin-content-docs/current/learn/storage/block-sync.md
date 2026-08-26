@@ -58,3 +58,7 @@ Chaindata スナップショットは、フル・シンクより高速な代替�
 ## スナップ・シンク
 
 現在、Kaia ノードは [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) メソッドをサポートしていません。 しかし、chaindata snapshotを使用することで、初期同期の高速化という点で同等の利点が得られる。
+
+## 高速同期
+
+KaiaノードはFast Sync方式に対応していません。 `--syncmode fast` を指定して起動したノードは、起動時にエラーが発生して終了します。 その代わりに、フル同期またはチェーンデータのスナップショットを使用してください。

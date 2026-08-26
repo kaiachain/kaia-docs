@@ -58,3 +58,7 @@ Chaindata snapshots offer a faster alternative to Full Sync. A snapshot is a com
 ## Snap Sync
 
 Currently, Kaia nodes do not support the [Snap Sync](https://geth.ethereum.org/docs/fundamentals/sync-modes) method. However, using a chaindata snapshot provides a comparable advantage in terms of faster initial synchronization.
+
+## 빠른 동기화
+
+Kaia 노드는 Fast Sync 방식을 지원하지 않습니다. `--syncmode fast` 옵션을 지정하여 시작한 노드가 시작 시 오류가 발생하며 종료됩니다. 대신 ‘전체 동기화’ 또는 체인데이터 스냅샷을 사용하십시오.
