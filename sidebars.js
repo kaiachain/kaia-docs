@@ -312,6 +312,7 @@ const sidebars = {
         'build/tutorials/buy-me-a-coffee',
         'build/tutorials/connecting-remix',
         'build/tutorials/migrating-ethereum-app-to-kaia',
+        'build/tutorials/unwrap-legacy-wklay',
       ],
     },
     {

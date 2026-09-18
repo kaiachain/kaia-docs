@@ -14,3 +14,7 @@ The proposed canonical WKAIA contract is based on WETH standard. We have chosen 
 - Testnet (Kairos) — 0x043c471bEe060e00A56CcD02c0Ca286808a5A436
 
 For more information, see the [GitHub repository](https://github.com/kaiachain/canonical-wkaia).
+
+## Unwrapping WKAIA
+
+To convert WKAIA back to KAIA, use a Kaia ecosystem swap service, or call the contract directly from a block explorer. If you hold a balance in the older, non-canonical WKLAY wrapper at `0xfd844c2fca5e595004b17615f891620d1cb9bbb2`, see [Unwrap legacy WKLAY to KAIA](../../tutorials/unwrap-legacy-wklay.md).
