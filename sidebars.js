@@ -189,7 +189,6 @@ const sidebars = {
             id: 'build/wallets/safe-wallet/safe-wallet',
           },
           items: [
-            'build/wallets/safe-wallet/migrate-to-safe-global',
             'build/wallets/safe-wallet/overview',
             'build/wallets/safe-wallet/use-safe-wallet',
             'build/wallets/safe-wallet/contract-interaction',
@@ -197,6 +196,7 @@ const sidebars = {
             'build/wallets/safe-wallet/csv-airdrop',
             'build/wallets/safe-wallet/safe-wallet-api-kit',
             'build/wallets/safe-wallet/faqs',
+            'build/wallets/safe-wallet/migrate-to-safe-global',
           ],
         },
       ],

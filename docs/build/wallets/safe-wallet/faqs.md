@@ -5,12 +5,6 @@ sidebar_label: FAQs
 
 # Frequently asked questions
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward.
-
-:::
-
 ## Does moving to Safe Global affect my existing Safe? <a id="Does moving to Safe Global affect my existing Safe"></a>
 
 No. Your Safe is an on-chain smart account. Safe Global is a different **UI** for the same contracts. Your Safe address, owners, threshold, and assets are unchanged. You do not need to recreate the Safe or transfer funds.
@@ -21,7 +15,7 @@ See **[Migrate to Safe Global](./migrate-to-safe-global.md)** for full details.
 
 In most cases, yes: connect an owner wallet and your existing Safe appears in the list, labeled with its network (**Kaia** or **Kairos**). If it does not show up, go to [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) and click **Manage list** to see the Safes associated with your connected wallet.
 
-Your address book and nicknames are stored locally in the old interface and need a one-time export from `safe.kaia.io` (**Settings → Data → Data export**), then an upload at [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) under **Import your Safe data**. That does not affect on-chain ownership or balances.
+Your address book and nicknames were stored locally in the retired `safe.kaia.io` interface rather than on-chain, so they did not carry over—re-enter them in Safe Wallet under **Address book**. That affects labels only, not on-chain ownership or balances. See [Migrate to Safe Global](./migrate-to-safe-global.md#address-book-labels).
 
 ## Can I add new owners after creating a Safe? <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +42,7 @@ You can open an existing Safe at [app.safe.global](https://app.safe.global) by c
 * Interacting with a Safe where someone else made you an owner
 * Viewing a Safe in read-only mode
 
-If the Safe does not appear after connecting, go to [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) and click **Manage list**. The same page supports **Import your Safe data** if you exported your address book from `safe.kaia.io`—see [Migrate to Safe Global](./migrate-to-safe-global.md#export-your-address-book).
+If the Safe does not appear after connecting, go to [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) and click **Manage list**.
 
 ## Common Safe setup tips
 

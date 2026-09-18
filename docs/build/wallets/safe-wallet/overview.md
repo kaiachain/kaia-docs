@@ -5,12 +5,6 @@ sidebar_label: Safe Wallet overview
 
 # Safe Wallet overview
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward. See [Migrate to Safe Global](./migrate-to-safe-global.md) if you already have a Safe.
-
-:::
-
 [Safe Wallet](https://app.safe.global) is Safe Global's official interface for [Safe Smart Accounts](https://docs.safe.global/home/what-is-safe). A Safe Smart Account is a smart contract wallet: instead of one private key controlling the funds, a set of signers must approve each transaction according to a confirmation threshold. Kaia Mainnet and Kairos Testnet are both available—connect an owner wallet, select the network, then create or open a Safe.
 
 ## Key concepts
@@ -68,9 +62,9 @@ Select the network from the chain switcher in Safe Wallet before creating or ope
 
 ## Kaia-specific guides
 
-* [Migrate to Safe Global](./migrate-to-safe-global.md) — move an existing Safe to Safe Wallet
 * [Create and manage Safes](./use-safe-wallet.md) — create a Safe on Kaia, add assets, send transactions
 * [Contract interaction](./contract-interaction.md) — call a contract from a Safe on Kaia
 * [Transaction builder](./tx-builder.md) and [CSV airdrop](./csv-airdrop.md) — batching on Kaia
 * [API Kit](./safe-wallet-api-kit.md) — Safe Transaction Service with Kaia chain IDs
 * [FAQs](./faqs.md)
+* [Migrate to Safe Global](./migrate-to-safe-global.md) — coming from the retired `safe.kaia.io`

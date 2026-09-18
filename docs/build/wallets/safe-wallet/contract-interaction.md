@@ -5,12 +5,6 @@ sidebar_label: Contract interaction
 
 # Interact with contracts
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
-
-:::
-
 In this section you interact with a simple contract on Kairos using a Safe account managed in Safe Wallet.
 
 **Prerequisites**

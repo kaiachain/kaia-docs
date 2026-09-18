@@ -5,12 +5,6 @@ sidebar_label: CSV Airdrop
 
 # Use CSV Airdrop
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
-
-:::
-
 **CSV Airdrop** (when listed under Safe Apps) batches multiple transfers of ERC-20, ERC-721, ERC-1155, and native tokens into a single Safe transaction. You upload or paste a CSV of transfers and submit once—fewer signatures and lower gas than sending each transfer separately.
 
 Safe App availability depends on the Safe Wallet Apps catalog for Kaia / Kairos. If CSV Airdrop is not listed for your network, use [Transaction Builder](./tx-builder.md) or check the [Help Center](https://help.safe.global).
