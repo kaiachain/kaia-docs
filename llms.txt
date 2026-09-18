@@ -200,6 +200,7 @@ Information about supported wallets on Kaia and how to configure them.
 ## References
 
 - [Public JSON RPC References](https://docs.kaia.io/references/public-en): Provide access to public JSON-RPC endpoints for interacting with the Kaia network
+- [Migrate from Ankr](https://docs.kaia.io/references/migrate-from-ankr): Kaia support on Ankr ends October 16, 2026. Guide to moving Kaia RPC traffic to another provider before the sunset
 - [RPC API Reference](https://docs.kaia.io/references/json-rpc/references): Provides information on all the RPC API Reference on Kaia
 - [Kaia SDK References](https://docs.kaia.io/references/sdk): Provide API references and tutorials for interacting with kaia nodes and the kaia Network.
   - [Ethers.js Extension Guide](https://docs.kaia.io/references/sdk/ethers-ext/getting-started): Guide for integrating Ethers.js Extension with Kaia SDK

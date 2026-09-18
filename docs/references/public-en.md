@@ -81,6 +81,14 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 ## RPC Service Providers
 
+:::caution Sunset notice
+
+Kaia support on **Ankr** ends on **October 16, 2026**. After that date, all Ankr RPC endpoints pointing to Kaia chains are decommissioned and stop responding.
+
+If your app sends Kaia RPC calls to Ankr, follow **[Migrate from Ankr](./migrate-from-ankr.md)** before the sunset date. For most projects this is a one-line endpoint change.
+
+:::
+
 Below is the list of Kaia’s Public Node Providers.
 
 ### Kaia API Service (KAS)
@@ -125,6 +133,23 @@ To get started with a free Developer plan endpoint, simply sign up with email or
 - [Subscription](https://chainstack.com/pricing/)
 - [Website](https://chainstack.com/)
 
+
+### Alchemy
+
+Alchemy provides managed RPC infrastructure with hosted endpoints for Kaia, plus developer tooling, dashboards, and usage analytics.
+
+#### Features
+
+- Hosted HTTPS and WebSocket endpoints for Kaia
+- Usage dashboards and request analytics
+- Free tier available, with paid plans for higher throughput
+- Refer to Alchemy's documentation for the API surface available on Kaia
+
+#### References
+
+- [Kaia on Alchemy](https://www.alchemy.com/rpc/kaia)
+- [Docs](https://www.alchemy.com/docs)
+- [Website](https://www.alchemy.com/)
 
 ### All That Node
 
@@ -213,22 +238,6 @@ Grove supports 50+ blockchains, with more being added all the time.
 * [Grove Website](https://grove.city/)
 * [Pocket Network Website](https://pocket.network)
 * [Grove Portal](https://portal.grove.city) 
-
-### ANKR
-
-Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
-
-#### Features
-
-* 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-* Discord and Support Portal for the free plan, and dedicated support for the premium.
-* WebSocket is available for the premium plan.
-
-#### References
-
-* [Docs](https://www.ankr.com/docs/build-blockchain/overview)
-* [Subscription](https://www.ankr.com/rpc/pricing/)
-* [Website](https://www.ankr.com/rpc/)
 
 ### NodeReal
 
@@ -322,6 +331,32 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 * [Website](https://drpc.org/)
 * [Docs](https://drpc.org/docs)
+
+### ANKR
+
+:::caution Sunset notice
+
+Kaia support on **Ankr** ends on **October 16, 2026**. After that date, all Ankr RPC endpoints pointing to Kaia chains are decommissioned and stop responding.
+
+If your app sends Kaia RPC calls to Ankr, follow **[Migrate from Ankr](./migrate-from-ankr.md)** before the sunset date. For most projects this is a one-line endpoint change.
+
+:::
+
+Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
+
+Kaia support is available **until October 16, 2026**.
+
+#### Features
+
+* 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
+* Discord and Support Portal for the free plan, and dedicated support for the premium.
+* WebSocket is available for the premium plan.
+
+#### References
+
+* [Docs](https://www.ankr.com/docs/build-blockchain/overview)
+* [Subscription](https://www.ankr.com/rpc/pricing/)
+* [Website](https://www.ankr.com/rpc/)
 
 ## Useful Resources 
 
