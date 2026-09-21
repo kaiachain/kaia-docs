@@ -8,12 +8,6 @@ import TabItem from '@theme/TabItem';
 
 # Bộ công cụ API an toàn
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
-
-:::
-
 Bộ công cụ API giúp bạn tương tác một cách an toàn với [Dịch vụ Giao dịch An toàn](https://docs.safe.global/core-api/transaction-service-overview). Những người ký có quyền hạn có thể đề xuất và chia sẻ các giao dịch, thu thập chữ ký ngoài chuỗi, cũng như truy cập thông tin trên Safe (lịch sử, các giao dịch đang chờ xử lý, các mô-đun, các cơ chế bảo vệ và nhiều nội dung khác).
 
 Dịch vụ Giao dịch được lưu trữ của Safe hỗ trợ cả hai mạng Kaia, do đó bạn chỉ cần ID chuỗi và khóa API — không cần điểm cuối tùy chỉnh.
