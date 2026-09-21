@@ -8,13 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # 安全 API 工具包
 
-:::caution 日落通知
-
-`safe.kaia.io` 将于 **2026年8月31日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 版 Safe Wallet 来管理您的账户。 您现有的“安全账户”将自动与“安全钱包”兼容。
-
-:::
-
-API 工具包可帮助您与 [安全交易服务](https://docs.safe.global/core-api/transaction-service-overview) 进行安全交互。 具有签字权限的用户可以提议和分享交易、在链下收集签名，以及读取 Safe 信息（历史记录、待处理交易、模块、守护程序等）。
+API 工具包可帮助您与 [安全交易服务](https://docs.safe.global/core-api/transaction-service-overview) 进行安全交互。具有签字权限的用户可以提议和分享交易、在链下收集签名，以及读取 Safe 信息（历史记录、待处理交易、模块、守护程序等）。
 
 Safe 的托管交易服务同时支持两个 Kaia 网络，因此您只需提供链 ID 和 API 密钥，无需自定义端点。
 
@@ -35,11 +29,11 @@ Safe 的托管交易服务同时支持两个 Kaia 网络，因此您只需提供
 
 ### 获取 API 密钥<a id="api-key"></a>
 
-向 Safe 的交易服务发送请求需要 API 密钥。 登录 [Safe 开发者控制台](https://developer.safe.global/)，打开 **API 密钥**，然后创建一个。 密钥是一个 JWT——你可以设置其有效期，并可随时撤销它。
+向 Safe 的交易服务发送请求需要 API 密钥。登录 [Safe 开发者控制台](https://developer.safe.global/)，打开 **API 密钥**，然后创建一个。密钥是一个 JWT——你可以设置其有效期，并可随时撤销它。
 
-未经身份验证的访问限制为每秒 2 次请求，每月 5,000 次请求，仅供探索使用。 没有密钥的请求将返回 `401 未授权`；超过配额的请求将返回 `429 请求过多`。
+未经身份验证的访问限制为每秒 2 次请求，每月 5,000 次请求，仅供探索使用。没有密钥的请求将返回 `401 未授权`；超过配额的请求将返回 `429 请求过多`。
 
-请勿将密钥纳入源代码控制。 本指南会从 `.env` 文件中读取该信息，以及 RPC URL 和签名密钥——请参阅 [步骤 6](#step-6-configure-setup)。
+请勿将密钥纳入源代码控制。本指南会从 `.env` 文件中读取该信息，以及 RPC URL 和签名密钥——请参阅 [步骤 6](#step-6-configure-setup)。
 
 ## 设置环境<a id="Setup-environment"></a>
 
@@ -74,7 +68,7 @@ npm init -y
 
 :::note
 
-类型现已移至 `@safe-global/types-kit`。 旧版 `@safe-global/safe-core-sdk-types` 包已更名——如果您正在升级现有项目，请更新导入语句。
+类型现已移至 `@safe-global/types-kit`。旧版 `@safe-global/safe-core-sdk-types` 包已更名——如果您正在升级现有项目，请更新导入语句。
 
 :::
 
@@ -129,7 +123,7 @@ OWNER_2_PRIVATE_KEY=
 
 :::danger
 
-`.env` 文件中存储了私钥。 在首次提交之前，将其添加到 `.gitignore` 中，并且在本教程中切勿使用存有真实资金的密钥。
+`.env` 文件中存储了私钥。在首次提交之前，将其添加到 `.gitignore` 中，并且在本教程中切勿使用存有真实资金的密钥。
 
 :::
 
@@ -380,4 +374,4 @@ console.log('交易已执行：');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-完整的可运行项目——`app.js`、`.env.example` 和 `package.json`——位于 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)。 完整的方法列表请参阅 [API 工具包参考](https://docs.safe.global/sdk/api-kit/reference)。
+完整的可运行项目——`app.js`、`.env.example` 和 `package.json`——位于 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)。完整的方法列表请参阅 [API 工具包参考](https://docs.safe.global/sdk/api-kit/reference)。
