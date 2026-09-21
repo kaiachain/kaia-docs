@@ -8,12 +8,6 @@ import TabItem from '@theme/TabItem';
 
 # 안전 API 키트
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
-
-:::
-
 API 키트를 사용하면 [안전 거래 서비스](https://docs.safe.global/core-api/transaction-service-overview)와 안전하게 연동할 수 있습니다. 유효한 서명자는 거래를 제안 및 공유하고, 오프체인에서 서명을 수집하며, Safe 정보(이력, 보류 중인 거래, 모듈, 가드 등)를 조회할 수 있습니다.
 
 Safe의 호스팅형 트랜잭션 서비스는 두 Kaia 네트워크를 모두 지원하므로, 체인 ID와 API 키만 있으면 되며 별도의 엔드포인트 설정은 필요하지 않습니다.
