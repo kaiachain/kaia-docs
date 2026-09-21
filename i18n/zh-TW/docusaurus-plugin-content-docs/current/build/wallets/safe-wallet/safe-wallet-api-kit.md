@@ -8,13 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # 安全 API 套件
 
-:::caution 日落通知
-
-`safe.kaia.io` 將於 **2026 年 8 月 31 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。 您現有的「安全帳戶」將自動與「安全錢包」相容。
-
-:::
-
-API Kit 可協助您安全地與 [安全交易服務](https://docs.safe.global/core-api/transaction-service-overview) 進行互動。 具備簽署權限的使用者可以提議並分享交易、在鏈外收集簽名，以及讀取 Safe 的相關資訊（歷史紀錄、待處理交易、模組、守護者等）。
+API Kit 可協助您安全地與 [安全交易服務](https://docs.safe.global/core-api/transaction-service-overview) 進行互動。具備簽署權限的使用者可以提議並分享交易、在鏈外收集簽名，以及讀取 Safe 的相關資訊（歷史紀錄、待處理交易、模組、守護者等）。
 
 Safe 的託管交易服務同時支援兩個 Kaia 網路，因此您只需提供鏈 ID 和 API 金鑰，無需自訂端點。
 
@@ -35,11 +29,11 @@ Safe 的託管交易服務同時支援兩個 Kaia 網路，因此您只需提供
 
 ### 取得 API 金鑰<a id="api-key"></a>
 
-對 Safe 交易服務的請求需要 API 金鑰。 登入 [Safe 開發者控制台](https://developer.safe.global/)，開啟 **API 金鑰**，並建立一個。 關鍵在於 JWT——您可以設定其有效期限，並可隨時撤銷它。
+對 Safe 交易服務的請求需要 API 金鑰。登入 [Safe 開發者控制台](https://developer.safe.global/)，開啟 **API 金鑰**，並建立一個。關鍵在於 JWT——您可以設定其有效期限，並可隨時撤銷它。
 
-未經身份驗證的存取量上限為每秒 2 次請求，每月 5,000 次請求，此限額僅供探索用途。 未附帶金鑰的請求會返回 `401 未授權`；若超過配額，則會返回 `429 請求過多`。
+未經身份驗證的存取量上限為每秒 2 次請求，每月 5,000 次請求，此限額僅供探索用途。未附帶金鑰的請求會返回 `401 未授權`；若超過配額，則會返回 `429 請求過多`。
 
-請勿將金鑰納入版本控制系統。 本指南會從 `.env` 檔案中讀取此資訊，以及 RPC URL 和簽署金鑰——請參閱 [步驟 6](#step-6-configure-setup)。
+請勿將金鑰納入版本控制系統。本指南會從 `.env` 檔案中讀取此資訊，以及 RPC URL 和簽署金鑰——請參閱 [步驟 6](#step-6-configure-setup)。
 
 ## 設置環境<a id="Setup-environment"></a>
 
@@ -74,7 +68,7 @@ npm init -y
 
 :::note
 
-類型現已移至 `@safe-global/types-kit`。 舊版的 `@safe-global/safe-core-sdk-types` 套件已更名——若您正在升級現有專案，請更新匯入設定。
+類型現已移至 `@safe-global/types-kit`。舊版的 `@safe-global/safe-core-sdk-types` 套件已更名——若您正在升級現有專案，請更新匯入設定。
 
 :::
 
@@ -129,7 +123,7 @@ OWNER_2_PRIVATE_KEY=
 
 :::danger
 
-`.env` 存放私鑰。 請在首次提交之前將其加入 `.gitignore` 檔案，並且在進行本教學時，切勿使用存放真實資金的金鑰。
+`.env` 存放私鑰。請在首次提交之前將其加入 `.gitignore` 檔案，並且在進行本教學時，切勿使用存放真實資金的金鑰。
 
 :::
 
@@ -380,4 +374,4 @@ console.log('交易已執行：');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-完整的可執行專案——包含 `app.js`、`.env.example` 及 `package.json`——請參閱 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)。 請參閱 [API 套件參考手冊](https://docs.safe.global/sdk/api-kit/reference) 以查看完整的方法清單。
+完整的可執行專案——包含 `app.js`、`.env.example` 及 `package.json`——請參閱 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)。請參閱 [API 套件參考手冊](https://docs.safe.global/sdk/api-kit/reference) 以查看完整的方法清單。
