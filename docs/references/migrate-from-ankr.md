@@ -71,7 +71,7 @@ All of the providers below serve Kaia today. Because they all speak the same JSO
 
 Capabilities such as archive history and the `debug` / `trace` namespaces differ by provider and by plan. Check the provider's own documentation for what your workload needs before you commit — the links in the table header are the authoritative source for each.
 
-**Alchemy is the recommended replacement** for most teams moving off Ankr: it is a managed endpoint with a free tier, dashboards, and the same one-line URL swap.
+**Alchemy is the recommended replacement** for most teams moving off Ankr.
 
 If you just want to confirm a cutover works before signing up anywhere, dRPC's public endpoints need no account, so you can point at one and test immediately.
 
