@@ -8,12 +8,6 @@ import TabItem from '@theme/TabItem';
 
 # Safe API Kit
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
-
-:::
-
 API Kit helps you interact securely with the [Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview). Valid signers can propose and share transactions, collect signatures off-chain, and read Safe information (history, pending transactions, modules, guards, and more).
 
 Safe's hosted Transaction Service supports both Kaia networks, so you only need the chain ID and an API key—no custom endpoint.

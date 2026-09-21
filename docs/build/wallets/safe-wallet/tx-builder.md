@@ -5,12 +5,6 @@ sidebar_label: Transaction Builder
 
 # Use Transaction Builder
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
-
-:::
-
 **Transaction Builder** groups several operations—token transfers, approvals, and contract calls—into one Safe transaction. Instead of confirming each action separately, you build a batch, then confirm and execute it once. The batch is atomic: if one action reverts, the whole batch reverts.
 
 For product help that tracks the latest UI, see the [Safe Wallet Help Center](https://help.safe.global).

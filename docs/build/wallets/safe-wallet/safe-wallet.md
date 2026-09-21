@@ -5,14 +5,6 @@ sidebar_label: Safe Wallet
 
 # Safe Wallet
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use **Safe Wallet** for Kaia at [app.safe.global](https://app.safe.global) to manage your accounts going forward.
-
-Already using Kaia Safe? See **[Migrate to Safe Global](./migrate-to-safe-global.md)** — your existing Safe accounts are unaffected and available on Safe Wallet.
-
-:::
-
 ## Introduction
 
 [Safe](https://safe.global) (Safe Global) provides the industry-standard multisig smart account stack for EVM networks. **Safe Wallet** is Safe’s web app for creating and managing those accounts—available at [app.safe.global](https://app.safe.global).
@@ -51,7 +43,7 @@ Main benefits of multisig wallets:
 
 ## Next steps
 
-* [Migrate to Safe Global](./migrate-to-safe-global.md) — switch from `safe.kaia.io` (existing accounts stay the same)
 * [Use Safe Wallet on Kaia](./use-safe-wallet.md) — create a Safe, add assets, and send transactions
 * [Overview](./overview.md) — networks and Safe Global resources
-* [FAQs](./faqs.md) — migration and account management questions
+* [FAQs](./faqs.md) — account management questions
+* [Migrate to Safe Global](./migrate-to-safe-global.md) — coming from the retired `safe.kaia.io`? Your accounts are unchanged

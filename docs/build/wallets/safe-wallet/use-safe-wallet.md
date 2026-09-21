@@ -5,12 +5,6 @@ sidebar_label: Create and manage Safes
 
 # Use Safe Wallet on Kaia
 
-:::caution Sunset notice
-
-`safe.kaia.io` will sunset on **August 31, 2026**. Please use Safe Wallet for Kaia Network at [app.safe.global](https://app.safe.global) to manage your accounts going forward. Your existing Safe Accounts will be automatically compatible with Safe Wallet.
-
-:::
-
 ## Create a Safe
 
 Here is how to create a Safe smart account on Kaia with Safe Wallet.
