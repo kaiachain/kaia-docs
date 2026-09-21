@@ -63,7 +63,7 @@ Lưu trữ lạnh là việc lưu trữ các khóa riêng tư trên một thiế
 
 #### 2.3. Ví đa chữ ký: Giới thiệu về Safe Wallet
 
-Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. Trên Kaia, hãy sử dụng **Safe Wallet** từ [Safe](https://safe.global) (Safe Global) tại [app.safe.global](https://app.safe.global)—xem [hướng dẫn sử dụng Safe Wallet](/build/wallets/safe-wallet/use-safe-wallet). (`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**.)
+Ví đa chữ ký (hoặc "multi-sig") là một hợp đồng thông minh yêu cầu nhiều khóa riêng tư để phê duyệt một giao dịch trước khi nó có thể được thực thi. Ví dụ, một giao dịch đa chữ ký 2-of-3 yêu cầu sự chấp thuận của hai trong số ba chủ sở hữu được chỉ định. Đây là tiêu chuẩn để quản lý quỹ đội, kho bạc và quản trị hợp đồng thông minh quan trọng, vì nó ngăn chặn điểm yếu duy nhất có thể gây ra sự cố. Trên Kaia, hãy sử dụng **Safe Wallet** từ [Safe](https://safe.global) (Safe Global) tại [app.safe.global](https://app.safe.global)—xem [hướng dẫn sử dụng Safe Wallet](/build/wallets/safe-wallet/use-safe-wallet).
 
 ## Phần 2: Các phương pháp thực tế để quản lý ví
 
@@ -459,7 +459,7 @@ npm init -y
 Sử dụng API-Kit đơn giản như việc chạy lệnh cài đặt dưới đây:
 
 ```bash
-npm install --save-dev @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
+npm install --save-dev @safe-global/api-kit @safe-global/protocol-kit @safe-global/types-kit
 ```
 
 ```bash
@@ -474,7 +474,7 @@ Sao chép và dán các lệnh nhập sau vào đầu tệp `app.js`.
 ```js
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 ```
@@ -482,6 +482,8 @@ import "dotenv/config";
 **Bước 5: Cấu hình thiết lập**
 
 Để minh họa một cách hiệu quả cách API-Kit hoạt động, chúng ta sẽ sử dụng một tài khoản an toàn (Safe account) với hai hoặc nhiều người ký (signers) và ngưỡng (threshold) là hai, do đó cần thu thập nhiều chữ ký khi thực hiện một giao dịch.
+
+Các yêu cầu gửi đến Dịch vụ Giao dịch của Safe cũng cần có khóa API. Tạo một khóa trong [Bảng điều khiển nhà phát triển Safe](https://developer.safe.global/) tại phần **API Keys** và đặt giá trị này làm biến môi trường `SAFE_API_KEY` trong tệp `.env` của bạn. Safe tự động xác định điểm cuối Dịch vụ Giao dịch (Transaction Service) dựa trên ID chuỗi, do đó không cần thiết phải chỉ định `txServiceUrl` trên Kaia hoặc Kairos.
 
 Sao chép và dán đoạn mã sau vào phần import trong tệp `app.js` của bạn:
 
@@ -492,6 +494,7 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 ```
 
@@ -513,11 +516,11 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -548,7 +551,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
@@ -577,7 +580,7 @@ console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 
@@ -588,6 +591,7 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 // Create interface from ABI
 const contractABI = [
@@ -599,12 +603,12 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
 
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -636,7 +640,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
