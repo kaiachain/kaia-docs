@@ -4,12 +4,6 @@
 
 일반적으로 [Safe Wallet](https://app.safe.global) ([Safe](https://safe.global) / Safe Global에서 제공)을 통해 생성된 멀티시그 지갑을 검증자 관리자로 사용할 것을 권장합니다. 이 가이드의 나머지 부분에서는 사용자가 Kaia에서 Safe Wallet을 사용하고 있다고 가정합니다.
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
-
-:::
-
 ## 안전한 지갑 연결 <a id="connecting-a-safe-wallet"></a>
 
 먼저, [Safe Wallet 사용자 가이드](../../../build/wallets/safe-wallet/safe-wallet.md)에 따라 Safe 계정을 생성하세요. 그런 다음 유효성 검사기 관리 포털을 안전한 사용자 지정 앱으로 등록합니다.
