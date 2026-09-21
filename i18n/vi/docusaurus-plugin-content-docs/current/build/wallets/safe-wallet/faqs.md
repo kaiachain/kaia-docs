@@ -5,12 +5,6 @@ sidebar_label: Câu hỏi thường gặp
 
 # Các câu hỏi thường gặp
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
-
-:::
-
 ## Việc chuyển sang Safe Global có ảnh hưởng đến tài khoản Safe hiện tại của tôi không? <a id="Does moving to Safe Global affect my existing Safe"></a>
 
 Không. Your Safe là một tài khoản thông minh trên chuỗi khối. Safe Global là một giao diện người dùng (**UI**) khác dành cho cùng các hợp đồng đó. Địa chỉ ví Safe, chủ sở hữu, ngưỡng và tài sản của bạn vẫn không thay đổi. Bạn không cần phải tạo lại tài khoản Safe hay chuyển tiền.
@@ -21,7 +15,7 @@ Xem **[Chuyển sang Safe Global](./migrate-to-safe-global.md)** để biết th
 
 Trong hầu hết các trường hợp, câu trả lời là có: chỉ cần kết nối ví chủ sở hữu, ví Safe hiện có của bạn sẽ xuất hiện trong danh sách, kèm theo tên mạng tương ứng (**Kaia** hoặc **Kairos**). Nếu nó không hiển thị, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách** để xem các Safes được liên kết với ví đã kết nối của bạn.
 
-Sổ địa chỉ và biệt danh của bạn được lưu trữ cục bộ trong giao diện cũ và cần được xuất một lần từ `safe.kaia.io` (**Cài đặt → Dữ liệu → Xuất dữ liệu**), sau đó tải lên tại [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) trong phần **Nhập dữ liệu Safe của bạn**. Điều đó không ảnh hưởng đến quyền sở hữu hoặc số dư trên chuỗi.
+Sổ địa chỉ và các biệt danh của bạn đã được lưu trữ cục bộ trong giao diện `safe.kaia.io` (hiện đã ngừng hoạt động) thay vì trên chuỗi khối, do đó chúng không được chuyển sang — vui lòng nhập lại chúng trong Safe Wallet tại mục **Sổ địa chỉ**. Điều đó chỉ ảnh hưởng đến các nhãn, chứ không ảnh hưởng đến quyền sở hữu trên chuỗi hay số dư. Xem [Chuyển sang Safe Global](./migrate-to-safe-global.md#address-book-labels).
 
 ## Tôi có thể thêm chủ sở hữu mới sau khi đã tạo một Safe không? <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +42,7 @@ Bạn có thể mở một Safe hiện có tại [app.safe.global](https://app.s
 - Tương tác với một két sắt mà người khác đã chỉ định bạn làm chủ sở hữu
 - Xem két sắt ở chế độ chỉ đọc
 
-Nếu Safe không hiển thị sau khi kết nối, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách**. Trang này cũng hỗ trợ tính năng **Nhập dữ liệu Safe của bạn** nếu bạn đã xuất danh bạ từ `safe.kaia.io` — xem [Chuyển sang Safe Global](./migrate-to-safe-global.md#export-your-address-book).
+Nếu Safe không hiển thị sau khi kết nối, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách**.
 
 ## Các mẹo thiết lập an toàn phổ biến
 
