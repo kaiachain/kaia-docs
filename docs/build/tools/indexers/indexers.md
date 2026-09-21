@@ -2,7 +2,7 @@
 
 Blockchain indexers are tools used in the context of blockchain technology to improve the efficiency and speed of searching, querying, and accessing data stored on a blockchain. They create and maintain organized databases of the blockchain's data, allowing users to quickly retrieve information without needing to process the entire blockchain from scratch.
 
-:::caution Kaia support on The Graph has ended
+:::info[Kaia support on The Graph has ended]
 
 Kaia support on [The Graph](https://thegraph.com/) ended on **August 31, 2026**. Kaia subgraphs no longer index and their query endpoints no longer return data. If your dapp still depends on one, see **[Migrate from The Graph](./migrate-from-the-graph.md)** — your subgraph code carries over to Goldsky, SubQuery, or a self-hosted graph-node without changes.
 

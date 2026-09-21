@@ -5,13 +5,9 @@ sidebar_label: Migrate from The Graph
 
 # Migrate from The Graph
 
-:::caution Kaia support on The Graph has ended
-
 Kaia support on **The Graph** ended on **August 31, 2026**. Kaia subgraphs no longer index, their query endpoints no longer return Kaia data, and Kaia is no longer a deployable network in Subgraph Studio.
 
 If your dapp still points at a Kaia subgraph on The Graph, move it to [Goldsky](./goldsky.md), [SubQuery](./subquery.md), or a self-hosted graph-node. Your subgraph code carries over unchanged.
-
-:::
 
 ## What happened
 
