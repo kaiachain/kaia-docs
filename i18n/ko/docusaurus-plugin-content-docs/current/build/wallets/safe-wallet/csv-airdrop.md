@@ -5,12 +5,6 @@ sidebar_label: CSV 에어드랍
 
 # CSV 에어드롭 사용
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
-
-:::
-
 **CSV 에어드롭**(‘안전한 앱’에 등재된 경우)은 ERC-20, ERC-721, ERC-1155 및 네이티브 토큰에 대한 여러 건의 전송을 하나의 ‘안전한’ 거래로 묶어 처리합니다. 이체 내역이 담긴 CSV 파일을 업로드하거나 붙여넣은 뒤 한 번에 제출하면, 각 이체를 개별적으로 보낼 때보다 서명 횟수가 줄어들고 가스 비용도 절감됩니다.
 
 Safe 앱의 이용 가능 여부는 Kaia/Kairos용 Safe Wallet 앱 카탈로그에 따라 달라집니다. 사용 중인 네트워크에 CSV 에어드롭이 표시되지 않는 경우, [거래 생성기](./tx-builder.md)를 사용하거나 [도움말 센터](https://help.safe.global)를 확인해 주세요.
