@@ -5,12 +5,6 @@ sidebar_label: 계약 상호작용
 
 # 계약서 관리하기
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
-
-:::
-
 이 섹션에서는 Safe Wallet에서 관리되는 Safe 계정을 사용하여 Kairos상의 간단한 계약과 상호작용하게 됩니다.
 
 **선행 조건**
