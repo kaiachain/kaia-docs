@@ -5,12 +5,6 @@ sidebar_label: Chương trình Airdrop CSV
 
 # Sử dụng CSV Airdrop
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
-
-:::
-
 **CSV Airdrop** (khi được liệt kê trong mục “Ứng dụng an toàn”) gộp nhiều giao dịch chuyển token ERC-20, ERC-721, ERC-1155 và token gốc thành một giao dịch an toàn duy nhất. Bạn chỉ cần tải lên hoặc dán tệp CSV chứa các giao dịch chuyển tiền và gửi một lần — như vậy sẽ cần ít chữ ký hơn và phí gas cũng thấp hơn so với việc gửi từng giao dịch riêng lẻ.
 
 Tính khả dụng của ứng dụng Safe phụ thuộc vào danh mục ứng dụng Safe Wallet dành cho Kaia / Kairos. Nếu CSV Airdrop không được liệt kê cho mạng của bạn, hãy sử dụng [Trình tạo giao dịch](./tx-builder.md) hoặc tham khảo [Trung tâm trợ giúp](https://help.safe.global).
