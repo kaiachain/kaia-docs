@@ -8,13 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Safe APIキット
 
-:::caution 日没に関するお知らせ
-
-`safe.kaia.io` は **2026年8月31日** にサービス終了となります。 今後は、[app.safe.global](https://app.safe.global) の「Safe Wallet for Kaia Network」をご利用いただき、アカウントの管理を行ってください。 現在お持ちの「Safe Accounts」は、「Safe Wallet」と自動的に互換性が確保されます。
-
-:::
-
-APIキットを使用すると、[Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview)と安全に連携することができます。 有効な署名者は、トランザクションの提案や共有、オフチェーンでの署名の収集、およびSafeの情報（履歴、保留中のトランザクション、モジュール、ガードなど）の閲覧を行うことができます。
+APIキットを使用すると、[Safe Transaction Service](https://docs.safe.global/core-api/transaction-service-overview)と安全に連携することができます。有効な署名者は、トランザクションの提案や共有、オフチェーンでの署名の収集、およびSafeの情報（履歴、保留中のトランザクション、モジュール、ガードなど）の閲覧を行うことができます。
 
 Safeのホスト型トランザクションサービスは、両方のKaiaネットワークに対応しているため、必要なのはチェーンIDとAPIキーだけで、カスタムエンドポイントは不要です。
 
@@ -35,11 +29,11 @@ Safeのホスト型トランザクションサービスは、両方のKaiaネッ
 
 ### APIキーを取得する<a id="api-key"></a>
 
-Safeのトランザクションサービスへのリクエストには、APIキーが必要です。 [Safe 開発者ダッシュボード](https://developer.safe.global/) にログインし、**API キー** を開いて、API キーを作成してください。 鍵となるのはJWTです。有効期限を設定でき、いつでも無効化することができます。
+Safeのトランザクションサービスへのリクエストには、APIキーが必要です。 [Safe 開発者ダッシュボード](https://developer.safe.global/) にログインし、**API キー** を開いて、API キーを作成してください。鍵となるのはJWTです。有効期限を設定でき、いつでも無効化することができます。
 
-認証なしでのアクセスは、1秒あたり2リクエスト、1か月あたり5,000リクエストまでと制限されており、これは試用目的のみに限定されます。 キーを指定しないリクエストには `401 Unauthorized` が返され、クォータを超過した場合は `429 Too Many Requests` が返されます。
+認証なしでのアクセスは、1秒あたり2リクエスト、1か月あたり5,000リクエストまでと制限されており、これは試用目的のみに限定されます。キーを指定しないリクエストには `401 Unauthorized` が返され、クォータを超過した場合は `429 Too Many Requests` が返されます。
 
-キーはソース管理の対象外にしてください。 このガイドでは、RPC URL や署名鍵とともに、これらを `.env` ファイルから読み込みます。詳細は [ステップ 6](#step-6-configure-setup) を参照してください。
+キーはソース管理の対象外にしてください。このガイドでは、RPC URL や署名鍵とともに、これらを `.env` ファイルから読み込みます。詳細は [ステップ 6](#step-6-configure-setup) を参照してください。
 
 ## 環境設定<a id="Setup-environment"></a>
 
@@ -74,7 +68,7 @@ npm init -y
 
 :::note
 
-型定義は、`@safe-global/types-kit` に配置されました。 以前の `@safe-global/safe-core-sdk-types` パッケージの名称が変更されました。既存のプロジェクトをアップグレードする場合は、インポートを更新してください。
+型定義は、`@safe-global/types-kit` に配置されました。以前の `@safe-global/safe-core-sdk-types` パッケージの名称が変更されました。既存のプロジェクトをアップグレードする場合は、インポートを更新してください。
 
 :::
 
@@ -129,7 +123,7 @@ OWNER_2_PRIVATE_KEY=
 
 :::danger
 
-`.env` には秘密鍵が格納されています。 最初のコミットを行う前に、これを `.gitignore` に追加してください。また、このチュートリアルでは、実際の資金が保管されている鍵は絶対に使用しないでください。
+`.env` には秘密鍵が格納されています。最初のコミットを行う前に、これを `.gitignore` に追加してください。また、このチュートリアルでは、実際の資金が保管されている鍵は絶対に使用しないでください。
 
 :::
 
@@ -380,4 +374,4 @@ console.log('Transaction executed:');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-実行可能なプロジェクト一式（`app.js`、`.env.example`、および `package.json`）は、[kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit) にあります。 メソッドの一覧については、[APIキットリファレンス](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。
+実行可能なプロジェクト一式（`app.js`、`.env.example`、および `package.json`）は、[kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit) にあります。メソッドの一覧については、[APIキットリファレンス](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。
