@@ -62,20 +62,36 @@ While your Ankr account is still active:
 
 All of the options below serve Kaia today. Because they all speak the same JSON-RPC interface, migrating is a URL change rather than a code change.
 
-| | [Alchemy](https://www.alchemy.com/rpc/kaia) | [QuickNode](https://www.quicknode.com/docs/kaia) | [All That Node](https://www.allthatnode.com/) | [dRPC](https://drpc.org/) | Kaia Foundation |
+| | [Alchemy](https://www.alchemy.com/rpc/kaia) **(Recommended)** | [QuickNode](https://www.quicknode.com/docs/kaia) | [All That Node](https://www.allthatnode.com/) | [dRPC](https://drpc.org/) | Kaia Foundation |
 | --- | --- | --- | --- | --- | --- |
 | **Hosting** | Managed | Managed | Managed | Managed | Public, community-run |
 | **API key required** | Yes | Yes | Yes | No, for public endpoints | No |
 | **Migration effort** | Swap the URL | Swap the URL | Swap the URL | Swap the URL | Swap the URL |
-| **Best for** | Teams already on Alchemy elsewhere | Production apps wanting a dedicated endpoint | Teams wanting node plus faucet tooling | Fastest start, no signup | Development and testing |
+| **Best for** | Most migrations | Production apps wanting a dedicated endpoint | Teams wanting node plus faucet tooling | Fastest start, no signup | Development and testing |
 
 Capabilities such as archive history and the `debug` / `trace` namespaces differ by provider and by plan. Check the provider's own documentation for what your workload needs before you commit — the links in the table header are the authoritative source for each.
 
-**If you want the shortest path,** dRPC's public endpoints need no signup, so you can test a cutover immediately. For production traffic, a dedicated endpoint from Alchemy, QuickNode, or All That Node gives you rate limits and support that a public endpoint does not.
+**Alchemy is the recommended replacement** for most teams moving off Ankr: it is a managed endpoint with a free tier, dashboards, and the same one-line URL swap.
+
+If you just want to confirm a cutover works before signing up anywhere, dRPC's public endpoints need no account, so you can point at one and test immediately.
 
 You can also [run your own endpoint node](../nodes/endpoint-node/endpoint-node.md) if you would rather not depend on a hosted provider at all.
 
-## Option 1: dRPC
+## Option 1: Alchemy (recommended)
+
+1. Create an app at [alchemy.com](https://www.alchemy.com/rpc/kaia) and select Kaia.
+2. Copy the endpoint, which has the form `https://kaia-mainnet.g.alchemy.com/v2/<api-key>`. WebSocket is available at `wss://kaia-mainnet.g.alchemy.com/v2/<api-key>`.
+3. Replace your Ankr URL with it, keeping the key in an environment variable.
+
+```js
+// Before
+const provider = new ethers.JsonRpcProvider("https://rpc.ankr.com/kaia");
+
+// After
+const provider = new ethers.JsonRpcProvider(`https://kaia-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`);
+```
+
+## Option 2: dRPC
 
 No account needed to start.
 
@@ -85,20 +101,10 @@ No account needed to start.
 | Kairos Testnet | `https://kaia-kairos.drpc.org` |
 
 ```js
-// Before
-const provider = new ethers.JsonRpcProvider("https://rpc.ankr.com/kaia");
-
-// After
 const provider = new ethers.JsonRpcProvider("https://kaia.drpc.org");
 ```
 
 For higher rate limits, create a key at [drpc.org](https://drpc.org/) and use your dedicated endpoint URL instead.
-
-## Option 2: Alchemy
-
-1. Create an app at [alchemy.com](https://www.alchemy.com/rpc/kaia) and select Kaia.
-2. Copy the endpoint, which has the form `https://kaia-mainnet.g.alchemy.com/v2/<api-key>`. WebSocket is available at `wss://kaia-mainnet.g.alchemy.com/v2/<api-key>`.
-3. Replace your Ankr URL with it, keeping the key in an environment variable.
 
 ## Option 3: QuickNode
 
