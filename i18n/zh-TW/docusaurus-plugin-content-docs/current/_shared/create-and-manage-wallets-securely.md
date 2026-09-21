@@ -4,7 +4,7 @@
 
 ### 這本食譜的對象<a id="who-is-this-cookbook-for"></a>
 
-歡迎來到 Kaia 安全錢包 Cookbook。 本指南是為在 Kaia 區塊鏈上建置的開發人員、工程師和團隊而寫。 無論您是要建立您的第一個分散式應用程式 (dApp)、部署自動化服務或管理金庫，這本烹飪手冊都提供了以安全第一的思維來處理加密金鑰和錢包的基本秘訣。
+歡迎來到 Kaia 安全錢包 Cookbook。本指南是為在 Kaia 區塊鏈上建置的開發人員、工程師和團隊而寫。無論您是要建立您的第一個分散式應用程式 (dApp)、部署自動化服務或管理金庫，這本烹飪手冊都提供了以安全第一的思維來處理加密金鑰和錢包的基本秘訣。
 
 ### 如何使用本烹飪手冊<a id="how-to-use-this-cookbook"></a>
 
@@ -13,11 +13,11 @@
 - **[Part 1](#part-1-foundational-concepts--security-principles)** 建立您需要瞭解的安全基礎。
 - **[第 2 部分](#part-2-practical-recipes-for-wallet-management)** 提供從基本到進階方案的實作配方。
 
-每個配方都建立在前幾節的概念上。 Web3 安全新手？ 從 [Chapter 1](#chapter-1-the-principles-of-private-key-security) 開始。 經驗豐富的開發人員？ 跳至符合您使用情況的配方
+每個配方都建立在前幾節的概念上。 Web3 安全新手？從 [Chapter 1](#chapter-1-the-principles-of-private-key-security) 開始。經驗豐富的開發人員？跳至符合您使用情況的配方
 
 ### 核心理念：安全第一<a id="core-philosophy-security-first"></a>
 
-在 Web3 中，_不是您的金鑰，不是您的密&#x78BC;_&#x9019;句話是最基本的真理。 對開發人員而言，這延伸至軟體開發生命週期的每個環節。 單單一個洩露的金鑰，就可能對使用者和專案造成災難性的損失。 本指南的核心理念是**安全第一**。 每項秘訣和建議都是為了協助您建立穩健、安全的預設系統，從第一天開始就將攻擊表面最小化並保護資產。
+在 Web3 中，_不是您的金鑰，不是您的密&#x78BC;_&#x9019;句話是最基本的真理。對開發人員而言，這延伸至軟體開發生命週期的每個環節。單單一個洩露的金鑰，就可能對使用者和專案造成災難性的損失。本指南的核心理念是**安全第一**。每項秘訣和建議都是為了協助您建立穩健、安全的預設系統，從第一天開始就將攻擊表面最小化並保護資產。
 
 ### 先決條件 <a id="prerequisites"></a>
 
@@ -25,49 +25,49 @@
 
 ## 第 1 部分：基礎概念與安全原則 <a id="part-i-foundational-concept-and-security-principles"></a>
 
-本部分著重於安全錢包管理背後的\*原因。 它建立了在編寫任何程式碼之前所需的核心知識。
+本部分著重於安全錢包管理背後的\*原因。它建立了在編寫任何程式碼之前所需的核心知識。
 
 ### 第 1 章：私密金鑰安全原則<a id="chapter-1-the-principles-of-private-key-security"></a>
 
 #### 1.1. 瞭解關鍵對：帳戶的核心 <a id="understanding-key-pairs-the-heart-of-your-account"></a>
 
-在 Kaia 上，與其他 EVM 相容的連鎖店一樣，您的帳號不是使用者名稱和密碼。 它是一對加密金鑰：一個 \*\* 公開金鑰\*\* 和一個 \*\* 私密金鑰\*\*。 公開金鑰會衍生出您的公開位址，就像您的銀行帳號一樣，可以安全分享。 私密金鑰是授權您帳戶所有動作的秘密，例如簽署交易或訊息。 這是需要保護的最重要資訊。 任何擁有您私人密碼匙的人都可以完全且不可逆轉地控制您的帳戶及其資產。
+在 Kaia 上，與其他 EVM 相容的連鎖店一樣，您的帳號不是使用者名稱和密碼。它是一對加密金鑰：一個 \*\* 公開金鑰\*\* 和一個 \*\* 私密金鑰\*\*。公開金鑰會衍生出您的公開位址，就像您的銀行帳號一樣，可以安全分享。私密金鑰是授權您帳戶所有動作的秘密，例如簽署交易或訊息。這是需要保護的最重要資訊。任何擁有您私人密碼匙的人都可以完全且不可逆轉地控制您的帳戶及其資產。
 
 #### 1.2. 安全的金鑰產製：Kaia 的最佳實作 <a id="secure-key-generation-best-practices-for-kaia"></a>
 
-安全金鑰是隨機產生的金鑰。 您帳戶的安全性取決於數學上不可能有人猜到您的私人密碼匙。 請務必使用經過嚴格審核的標準加密函式庫來產生金鑰，例如內嵌在 `ethers-ext` 中的函式庫或本指南中討論的工具。 切勿嘗試自行製作「聰明」或「人類可讀」的私人密碼匙，因為這會大幅降低其隨機性，使其容易被猜中。
+安全金鑰是隨機產生的金鑰。您帳戶的安全性取決於數學上不可能有人猜到您的私人密碼匙。請務必使用經過嚴格審核的標準加密函式庫來產生金鑰，例如內嵌在 `ethers-ext` 中的函式庫或本指南中討論的工具。切勿嘗試自行製作「聰明」或「人類可讀」的私人密碼匙，因為這會大幅降低其隨機性，使其容易被猜中。
 
 #### 1.3. 安全金鑰儲存：從本地金鑰庫到生產金鑰庫 <a id="secure-key-storage-from-local-keystores-to-prodduction-vaults"></a>
 
-如何儲存私人密碼匙與如何產生私人密碼匙同樣重要。 將私人密碼匙儲存在明文檔案中，等同於將您的銀行密碼寫在便條上，然後放在螢幕上。
+如何儲存私人密碼匙與如何產生私人密碼匙同樣重要。將私人密碼匙儲存在明文檔案中，等同於將您的銀行密碼寫在便條上，然後放在螢幕上。
 
 :::warning
 **警告：切勿以純文字儲存私人金鑰** `.env`檔案。 .env 檔案雖然方便開發，但經常會誤提交到版本控制中，公開暴露金鑰，導致資金立即被盜。
 :::
 
-安全本機儲存的標準是**加密的 keystore 檔案** (有時也稱為 JSON keystore)。 此檔案包含您的私人密碼匙，但會以您選擇的強密碼進行加密。 要使用金鑰，您必須在記憶體中提供 keystore 檔案和密碼來解密。 對於生產系統，最佳做法是使用 AWS KMS 或 Google Cloud KMS 等專用 \*\* 秘書管理器\*\*，以確保金鑰不會直接暴露於應用程式程式碼。
+安全本機儲存的標準是**加密的 keystore 檔案** (有時也稱為 JSON keystore)。此檔案包含您的私人密碼匙，但會以您選擇的強密碼進行加密。要使用金鑰，您必須在記憶體中提供 keystore 檔案和密碼來解密。對於生產系統，最佳做法是使用 AWS KMS 或 Google Cloud KMS 等專用 \*\* 秘書管理器\*\*，以確保金鑰不會直接暴露於應用程式程式碼。
 
 #### 1.4. 處理記憶體中的鍵：在執行時盡量減少暴露 <a id="handling-keys-in-memory-minimizing-exposure-during-runtime"></a>
 
-即使從安全來源載入，您的應用程式記憶體中也必須存在私人金鑰，才能簽署交易。 盡量減少這種暴露是至關重要的。 良好的應用程式設計可確保密鑰在記憶體中保留的時間盡可能短，並在使用後立即清除。 本烹飪手冊中的圖書館和食譜就是遵循這個原則設計的。
+即使從安全來源載入，您的應用程式記憶體中也必須存在私人金鑰，才能簽署交易。盡量減少這種暴露是至關重要的。良好的應用程式設計可確保密鑰在記憶體中保留的時間盡可能短，並在使用後立即清除。本烹飪手冊中的圖書館和食譜就是遵循這個原則設計的。
 
 ### 第 2 章：Kaia 電子錢包生態系統導航 <a id="chapter-2-navigating-the-kaia-wallet-ecosystem"></a>
 
 #### 2.1. Kaia 皮夾
 
-[Kaia Wallet](https://docs.kaia.io/build/tools/wallets/kaia-wallet) 是 Kaia 生態系統的原生瀏覽器延伸錢包。 雖然它與 MetaMask 分享許多功能，但它已針對 Kaia 進行最佳化，支援獨特的交易類型、費用委託交易以及特定於網路的帳戶系統，並在網路中提供無縫的使用者體驗。 對開發人員而言，瞭解其特定行為和 API 是建立順暢 dApp 整合的關鍵。
+[Kaia Wallet](https://docs.kaia.io/build/tools/wallets/kaia-wallet) 是 Kaia 生態系統的原生瀏覽器延伸錢包。雖然它與 MetaMask 分享許多功能，但它已針對 Kaia 進行最佳化，支援獨特的交易類型、費用委託交易以及特定於網路的帳戶系統，並在網路中提供無縫的使用者體驗。對開發人員而言，瞭解其特定行為和 API 是建立順暢 dApp 整合的關鍵。
 
 #### 2.2. 冷儲存：硬體錢包概述
 
-冷儲存是指將私人密碼匙保存在未連接到網際網路的裝置上。 硬體錢包\*\*是為此目的而建立的實體裝置。 它會在內部簽署交易，而不會向連接的電腦公開私密金鑰。 這使得它們成為保護高價值資產的黃金標準。 本指南將著重於官方支援的 [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) 和 [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1) 硬體錢包。
+冷儲存是指將私人密碼匙保存在未連接到網際網路的裝置上。硬體錢包\*\*是為此目的而建立的實體裝置。它會在內部簽署交易，而不會向連接的電腦公開私密金鑰。這使得它們成為保護高價值資產的黃金標準。本指南將著重於官方支援的 [DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent) 和 [SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1) 硬體錢包。
 
 #### 2.3. 多簽名錢包：Safe Wallet 入門指南
 
-多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。 例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。 這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。 在 Kaia 上，請使用來自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可於 [app.safe.global](https://app.safe.global) 取得——請參閱 [Safe Wallet 使用指南](/build/wallets/safe-wallet/use-safe-wallet)。 (`safe.kaia.io` 將於 **2026年8月31日** 停止服務。)
+多重簽署（或稱「多重簽署」）錢包是一種智慧型契約，需要多個私人金鑰核准交易後才能執行。例如，2-of-3 多重簽位需要三位指定所有者中的兩位批准。這是管理團隊資金、金庫和重要智慧型契約管理的標準，因為它可以防止單點故障。在 Kaia 上，請使用來自 [Safe](https://safe.global)（Safe Global）的 **Safe Wallet**，可於 [app.safe.global](https://app.safe.global) 取得——請參閱 [Safe Wallet 使用指南](/build/wallets/safe-wallet/use-safe-wallet)。
 
 ## 第二部分：錢包管理實用配方
 
-現在您已瞭解 [第 1 部分](#part-1-foundational-concepts--security-principles) 中的基本安全原則，是時候將它們付諸實踐了。 本節針對實際情況提供逐步指導，從個別的開發設定開始，到生產級解決方案。
+現在您已瞭解 [第 1 部分](#part-1-foundational-concepts--security-principles) 中的基本安全原則，是時候將它們付諸實踐了。本節針對實際情況提供逐步指導，從個別的開發設定開始，到生產級解決方案。
 
 **您將建構：**\*
 
@@ -81,11 +81,11 @@
 
 #### 3.1. 食譜：您的第一個 Kaia 開發錢包
 
-如果您是第一次使用 Kaia 或第一次設定 Kaia 皮夾，我們建議您參考 [皮夾使用入門](/build/wallets/wallet-config/configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia) 章節。 它涵蓋了基本步驟，例如安裝錢包、安全地建立和備份您的帳戶、新增額外帳戶，以及為錢包注資。
+如果您是第一次使用 Kaia 或第一次設定 Kaia 皮夾，我們建議您參考 [皮夾使用入門](/build/wallets/wallet-config/configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia) 章節。它涵蓋了基本步驟，例如安裝錢包、安全地建立和備份您的帳戶、新增額外帳戶，以及為錢包注資。
 
 #### 3.2. 配方：在 Foundry 專案中安全管理帳戶
 
-使用 [Foundry](https://book.getfoundry.sh)，您可以透過 [cast wallet](https://getfoundry.sh/cast/reference/cast-wallet-import) CLI 匯入加密的錢包。 雖然加密其他值 (例如 RPC URL) 目前尚不可用，但結合加密金鑰與環境變數仍可提供安全的設定。
+使用 [Foundry](https://book.getfoundry.sh)，您可以透過 [cast wallet](https://getfoundry.sh/cast/reference/cast-wallet-import) CLI 匯入加密的錢包。雖然加密其他值 (例如 RPC URL) 目前尚不可用，但結合加密金鑰與環境變數仍可提供安全的設定。
 
 ##### 步驟 1：安裝並初始化 Foundry
 
@@ -107,13 +107,13 @@ cd foundry-encrypted
 
 ##### 步驟 2：匯入您的錢包
 
-您可以使用 cast wallet CLI 匯入一個錢包。 只需將 **your-wallet-name** 替換為所需的錢包名稱，然後執行以下指令：
+您可以使用 cast wallet CLI 匯入一個錢包。只需將 **your-wallet-name** 替換為所需的錢包名稱，然後執行以下指令：
 
 ```bash
 cast wallet import your-wallet-name --interactive
 ```
 
-輸入私人密碼匙後，系統會提示您設定加密密碼。 加密的金鑰會儲存在您本機的 keystore 中，預設路徑為 **~/.foundry/keystore** 。
+輸入私人密碼匙後，系統會提示您設定加密密碼。加密的金鑰會儲存在您本機的 keystore 中，預設路徑為 **~/.foundry/keystore** 。
 
 :::note
 交互式標記 - - 用於防止私密金鑰被保存在終端機記錄中。
@@ -139,9 +139,9 @@ source .env
 
 ###### 步驟 4：執行您的腳本
 
-我們完成了錢包匯入，並將 RPC 端點加入我們的設定。 現在我們準備執行指令碼並部署契約。
+我們完成了錢包匯入，並將 RPC 端點加入我們的設定。現在我們準備執行指令碼並部署契約。
 
-預設的 Foundry 模版包含部署 Counter 合約的範例指令碼。 您應該修改這個腳本，使用您自己的錢包名稱和 RPC 端點。
+預設的 Foundry 模版包含部署 Counter 合約的範例指令碼。您應該修改這個腳本，使用您自己的錢包名稱和 RPC 端點。
 
 當您使用 _forge create_ 或 _forge script_ 執行指令碼時、
 
@@ -164,11 +164,11 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 
 ![](/img/build/wallets/foundry-script-encrypted-secret-deployment.png)
 
-恭喜你 您已成功在 Foundry 中設定加密機密，並在部署腳本中使用它們。
+恭喜你您已成功在 Foundry 中設定加密機密，並在部署腳本中使用它們。
 
 #### 3.3. 配方：安全管理硬帽專案中的帳戶
 
-[Hardhat 3](https://hardhat.org/docs/getting-started) (目前為 beta 版) 透過內建的機密管理器引入加密機密。 此功能支援安全地儲存任何基於字串的敏感秘密，例如私人金鑰或 RPC URL，以及不應該提交到版本控制的 API 金鑰。
+[Hardhat 3](https://hardhat.org/docs/getting-started) (目前為 beta 版) 透過內建的機密管理器引入加密機密。此功能支援安全地儲存任何基於字串的敏感秘密，例如私人金鑰或 RPC URL，以及不應該提交到版本控制的 API 金鑰。
 
 ##### 步驟 1：建立新的 Hardhat 專案
 
@@ -180,7 +180,7 @@ npm init -y
 npx hardhat --init
 ```
 
-接受提示的預設答案。 然後執行 Hardhat 版本來驗證專案版本：
+接受提示的預設答案。然後執行 Hardhat 版本來驗證專案版本：
 
 ```bash
 npx hardhat --version
@@ -214,7 +214,7 @@ npx hardhat keystore list
 
 您應該會在加密機密清單中看到您的「KAIROS_RPC_URL」和「PRIVATE_KEY」。
 
-若要再次擷取秘密值，請執行以下指令。 系統會提示您輸入主密鑰進行解密。
+若要再次擷取秘密值，請執行以下指令。系統會提示您輸入主密鑰進行解密。
 
 ```bash
 npx hardhat keystore get KAIROS_RPC_URL
@@ -224,7 +224,7 @@ npx hardhat keystore get KAIROS_RPC_URL
 
 ##### 步驟 4：在組態中參照秘密
 
-開啟 `hardhat.config.ts`，更新 networks 區段以引用您的加密秘密。 如果您的秘密名稱不同，請相應調整項目。
+開啟 `hardhat.config.ts`，更新 networks 區段以引用您的加密秘密。如果您的秘密名稱不同，請相應調整項目。
 
 ```javascript
 import { configVariable } from "hardhat/config";
@@ -242,7 +242,7 @@ module.exports = {
 
 ##### 步驟 5：在部署指令碼中使用加密的秘密
 
-使用以下指令，透過 **ignition/modules** 中的「Counter.ts」模組部署您的契約。 此模組會部署 `Counter.sol` 並以值 5 來呼叫 `incBy` 函式。
+使用以下指令，透過 **ignition/modules** 中的「Counter.ts」模組部署您的契約。此模組會部署 `Counter.sol` 並以值 5 來呼叫 `incBy` 函式。
 
 ```bash
 npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
@@ -250,11 +250,11 @@ npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
 
 執行此指令會觸發 Hardhat 的提示，要求您輸入之前建立的密碼。
 
-之所以需要這樣做，是因為 kairos 網路配置了一個 keystore。 只有在您的任務或指令碼依賴加密機密時，才會提示您。 輸入密碼後，Hardhat 會繼續部署您的契約，並執行 `incBy` 函式，其值為 5。
+之所以需要這樣做，是因為 kairos 網路配置了一個 keystore。只有在您的任務或指令碼依賴加密機密時，才會提示您。輸入密碼後，Hardhat 會繼續部署您的契約，並執行 `incBy` 函式，其值為 5。
 
 ![](/img/build/wallets/hh-encrypted-secrets-deployment.png)
 
-恭喜您 您已成功在 Hardhat 中設定加密機密，並在部署指令碼中使用它們。
+恭喜您您已成功在 Hardhat 中設定加密機密，並在部署指令碼中使用它們。
 
 #### 3.4. 配方：將硬體錢包 (SafePal) 連接到 dApp
 
@@ -262,13 +262,13 @@ npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
 
 ##### 步驟 1：設定 Safepal S1 電子錢包
 
-在連接到任何 DApp 之前，請確保您的 SafePal S1 裝置已正確設定。 如果您尚未安裝，請遵循 [本安裝指南](https://safepalsupport.zendesk.com/hc/en-us/articles/360046051752-How-to-Set-Up-a-S1-Hardware-Wallet)。
+在連接到任何 DApp 之前，請確保您的 SafePal S1 裝置已正確設定。如果您尚未安裝，請遵循 [本安裝指南](https://safepalsupport.zendesk.com/hc/en-us/articles/360046051752-How-to-Set-Up-a-S1-Hardware-Wallet)。
 
 如果您的裝置已經設定，您可以跳過此步驟。
 
 ##### 步驟 2：將 S1 裝置與 SafePal App 配對
 
-SafePal S1 是一個完全離線的硬體錢包，這意味著它不能直接連接到互聯網或與區塊鏈網路通信。 要與 dApps 互動或簽署交易，裝置必須與 SafePal App 配對。
+SafePal S1 是一個完全離線的硬體錢包，這意味著它不能直接連接到互聯網或與區塊鏈網路通信。要與 dApps 互動或簽署交易，裝置必須與 SafePal App 配對。
 
 SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 dApp 互動，同時確保您的私密金鑰安全地儲存在離線 S1 裝置上。
 
@@ -278,17 +278,17 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 在這個步驟中，您將使用 WalletConnect 將 SafePal S1 硬體錢包連接到去中心化應用程式 (dApp)。
 
-在本指南中，我們將以 Kaia 領先的去中心化交易所 (DEX) [DragonSwap](https://dgswap.io) 為範例 dApp。 連線將使用 WalletConnect 透過瀏覽器進行。
+在本指南中，我們將以 Kaia 領先的去中心化交易所 (DEX) [DragonSwap](https://dgswap.io) 為範例 dApp。連線將使用 WalletConnect 透過瀏覽器進行。
 
 1. 在瀏覽器中輸入 dApp URL，啟動 DragonSwap dApp，然後點擊網站右上角的**連接錢包**按鈕。
 
 ![](/img/build/wallets/sp-hw-dgswap-cw.png)
 
-2. 在所有連線選項中，按一下 **Wallet Connect**。 螢幕上會顯示 QR 代碼。
+2. 在所有連線選項中，按一下 **Wallet Connect**。螢幕上會顯示 QR 代碼。
 
 ![](/img/build/wallets/sp-hw-dgswap-wc.png)
 
-3. 使用 SafePal App 掃描 QR 代碼。 按一下 App 主頁面右上方的掃描按鈕，即可進入掃描程序。
+3. 使用 SafePal App 掃描 QR 代碼。按一下 App 主頁面右上方的掃描按鈕，即可進入掃描程序。
 
 ![](/img/build/wallets/sp-hw-dgswap-sp-app-scan.jpg)
 
@@ -296,19 +296,19 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 ![](/img/build/wallets/sp-hw-dgswap-sp-app-connect.jpg)
 
-5. 那麼您就成功地在瀏覽器中連接了錢包和 DragonSwap dApp！ 您的錢包地址現在應該顯示在 DragonSwap 連接元件中。
+5. 那麼您就成功地在瀏覽器中連接了錢包和 DragonSwap dApp！您的錢包地址現在應該顯示在 DragonSwap 連接元件中。
 
 ![](/img/build/wallets/sp-hw-dgswap-connected.png)
 
 ##### 步驟 4：執行交易
 
-在本節中，我們將執行一筆交易，將 KAIA 交換成 USDT。 導航至 [Swap](https://dgswap.io/swap/) 頁面。
+在本節中，我們將執行一筆交易，將 KAIA 交換成 USDT。導航至 [Swap](https://dgswap.io/swap/) 頁面。
 
-1. 填寫您的交換訂單並按一下 \*\* 交換\*\* 按鈕。 在繼續交易之前，請務必確認交換。
+1. 填寫您的交換訂單並按一下 \*\* 交換\*\* 按鈕。在繼續交易之前，請務必確認交換。
 
 ![](/img/build/wallets/sp-hw-dgswap-trade.png)
 
-2. 開啟您的 SafePal 應用程式，您應該會看到交易確認頁面。 按一下 \*\* 同意\*\* 繼續交易。
+2. 開啟您的 SafePal 應用程式，您應該會看到交易確認頁面。按一下 \*\* 同意\*\* 繼續交易。
 
 ![](/img/build/wallets/sp-hw-swap-sp-app-agree.jpg)
 
@@ -320,11 +320,11 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 ![](/img/build/wallets/sp-hw-swap-pincode.jpg)
 
-5. 從 SafePal App 掃描 S1 裝置上顯示的動態 QR 代碼。 這樣做可確保應用程式收到 QR 碼中包含的簽章，並準備將交換交易廣播至區塊鏈 (Kaia)。
+5. 從 SafePal App 掃描 S1 裝置上顯示的動態 QR 代碼。這樣做可確保應用程式收到 QR 碼中包含的簽章，並準備將交換交易廣播至區塊鏈 (Kaia)。
 
 ![](/img/build/wallets/sp-hw-scan-swap-sp-app.jpg)
 
-6. 簽署完成後，您會看到一個彈出視窗，以廣播交易。 之後按一下 **確認**。
+6. 簽署完成後，您會看到一個彈出視窗，以廣播交易。之後按一下 **確認**。
 
 ![](/img/build/wallets/sp-hw-swap-sp-app-broadcast.jpg)
 
@@ -334,7 +334,7 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 ![](/img/build/wallets/sp-hw-after-swap-asset-bal.jpg)
 
-恭喜您 您已成功簽署了一筆交易，並通過 walletconnect 使用您的 SafePal 硬體錢包將交易廣播到第三方 dApp 的區塊鏈上。
+恭喜您您已成功簽署了一筆交易，並通過 walletconnect 使用您的 SafePal 硬體錢包將交易廣播到第三方 dApp 的區塊鏈上。
 
 ### 第 4 章：進階與生產級設定
 
@@ -344,7 +344,7 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 **Safe Wallet** ([app.safe.global](https://app.safe.global))，由 [Safe](https://safe.global) / Safe Global 推出，可讓開發者建立由多位所有者共同控制的 Safe 智慧帳戶，從而大幅提升安全性。
 
-您絕不應該使用一般的錢包來管理大量資金、協定的權限或所有權控制。 太多專案因基本的錢包安全失敗而受到影響。 無論您是要推出下一個大型 DeFi 協定、管理 DAO 金庫或保護貴重資產，多重簽章錢包絕對是不可或缺的。
+您絕不應該使用一般的錢包來管理大量資金、協定的權限或所有權控制。太多專案因基本的錢包安全失敗而受到影響。無論您是要推出下一個大型 DeFi 協定、管理 DAO 金庫或保護貴重資產，多重簽章錢包絕對是不可或缺的。
 
 在本指南中，您將學習如何使用 Safe Wallet 在 Kaia 上建立「保險箱」、設定其擁有者與授權門檻，並執行一筆基本交易。
 
@@ -354,23 +354,23 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 ![](/img/build/wallets/sg-welcome-page.png)
 
-2. **連接您的錢包**。 請選擇您要連線的錢包類型。 請確認已選取 **Kaia 主網** 或 **Kairos 測試網**。 在本指南中，我們將使用 Kaia Wallet。
+2. **連接您的錢包**。請選擇您要連線的錢包類型。請確認已選取 **Kaia 主網** 或 **Kairos 測試網**。在本指南中，我們將使用 Kaia Wallet。
 
 ![](/img/build/wallets/sg-connect-wallet.png)
 
-3. **命名您的保險櫃**。 連接錢包後，請點擊 **建立帳戶**，並為您的「保險箱」命名。
+3. **命名您的保險櫃**。連接錢包後，請點擊 **建立帳戶**，並為您的「保險箱」命名。
 
 ![](/img/build/wallets/sg-add-safe-name.png)
 
-4. **設定簽署人**。 設定您的 Safe 帳戶中，一筆交易需要多少位簽署人的確認才能獲得批准。  良好的做法是使用佔總業主 51% 的臨界值，例如 _2佔 3_、_3 佔 &#x35;_&#x7B49;，如下所示。
+4. **設定簽署人**。設定您的 Safe 帳戶中，一筆交易需要多少位簽署人的確認才能獲得批准。良好的做法是使用佔總業主 51% 的臨界值，例如 _2佔 3_、_3 佔 &#x35;_&#x7B49;，如下所示。
 
 ![](/img/build/wallets/sg-add-signers.png)
 
-5. **啟用您的 Safe 帳戶**。 當您對所有 Safe 設定參數完全滿意後，請點擊 **建立** 以提交您的 Safe 帳戶申請。
+5. **啟用您的 Safe 帳戶**。當您對所有 Safe 設定參數完全滿意後，請點擊 **建立** 以提交您的 Safe 帳戶申請。
 
 ![](/img/build/wallets/sg-review-create-safe.png)
 
-6. **使用您的錢包**。 點擊 **開始使用 Safe Wallet**（或使用者介面中的對應按鈕）。
+6. **使用您的錢包**。點擊 **開始使用 Safe Wallet**（或使用者介面中的對應按鈕）。
 
 ![](/img/build/wallets/sg-start-using-wallet.png)
 
@@ -384,23 +384,23 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 在本節中，您將學習如何執行基本交易，例如將原生代幣 KAIA 從您的 Safe 帳戶發送至收款人地址。
 
-請確保您的 Safe 帳戶內有足夠的餘額。 您可以參考這份指南，了解如何將資金 [存入](/build/wallets/safe-wallet/use-safe-wallet#add-assets) 至您的 Safe 帳戶。
+請確保您的 Safe 帳戶內有足夠的餘額。您可以參考這份指南，了解如何將資金 [存入](/build/wallets/safe-wallet/use-safe-wallet#add-assets) 至您的 Safe 帳戶。
 
 步驟 1：按一下側邊功能表中的**新交易**按鈕，然後選擇**傳送代幣**，開始新的資產轉移。
 
 <video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
-步驟 2：選擇要轉移的資產。 加入**收件人地址**和要轉帳的**KAIA**金額。
+步驟 2：選擇要轉移的資產。加入**收件人地址**和要轉帳的**KAIA**金額。
 
 <video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
-步驟 3：檢閱並提交交易。 您需要用簽署人錢包簽署交易，一旦達到確認臨界值，交易就會被執行。
+步驟 3：檢閱並提交交易。您需要用簽署人錢包簽署交易，一旦達到確認臨界值，交易就會被執行。
 
 <video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. 食譜：將 Safe Wallet 整合至關鍵智慧合約操作中
 
-在本指南中，您將學習如何在智慧合約中將 Safe 帳戶指定為管理員。 您還將了解如何透過 Safe 帳戶執行 **setTokenPrice()** 和 **pause()** 等特權功能，以確保僅有經核准的簽署者才能執行特權操作。
+在本指南中，您將學習如何在智慧合約中將 Safe 帳戶指定為管理員。您還將了解如何透過 Safe 帳戶執行 **setTokenPrice()** 和 **pause()** 等特權功能，以確保僅有經核准的簽署者才能執行特權操作。
 
 ##### 先決條件
 
@@ -412,17 +412,17 @@ SafePal App 擔任中介角色 - 擷取區塊鏈資料、廣播交易並轉播 d
 
 ##### 步驟 2：編譯並部署代幣合約範例
 
-您必須先部署契約，才能在多重簽證錢包中與契約互動 - 呼叫特權函式。 我們首先要做的是，在部署時將新建立的 Safe 帳戶設定為該代幣合約的 **initialOwner**。
+您必須先部署契約，才能在多重簽證錢包中與契約互動 - 呼叫特權函式。我們首先要做的是，在部署時將新建立的 Safe 帳戶設定為該代幣合約的 **initialOwner**。
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-此範例代幣合約包含 **setTokenPrice()**、**pause()** 等特權函式，這些函式僅能由 Safe 帳戶呼叫。 接下來我們要做的就是相應地執行這些動作。 我們可以透過「交易建構器」來執行此操作，也可以透過「Safe API Kit」以程式化方式執行。
+此範例代幣合約包含 **setTokenPrice()**、**pause()** 等特權函式，這些函式僅能由 Safe 帳戶呼叫。接下來我們要做的就是相應地執行這些動作。我們可以透過「交易建構器」來執行此操作，也可以透過「Safe API Kit」以程式化方式執行。
 
 ##### 步驟 3：啟動新交易
 
 ###### 使用交易建立程式
 
-若要與安全錢包中的智慧型契約互動，請點選 **New Transaction**。 要完成此步驟，您將需要您已部署的合約地址和 ABI，如上一步所示。
+若要與安全錢包中的智慧型契約互動，請點選 **New Transaction**。要完成此步驟，您將需要您已部署的合約地址和 ABI，如上一步所示。
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
@@ -459,7 +459,7 @@ npm init -y
 使用 API-Kit 就像執行以下安裝指令一樣簡單：
 
 ```bash
-npm install --save-dev @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
+npm install --save-dev @safe-global/api-kit @safe-global/protocol-kit @safe-global/types-kit
 ```
 
 ```bash
@@ -468,13 +468,12 @@ npm install --save-dev ethers dotenv
 
 **步驟 4：匯入相依性.**
 
-建立一個名為 `app.js` 的檔案。 我們在此互動的所有程式碼片段都會放在這裡。
-複製並貼上這些必要的匯入到 `app.js` 檔案的頂端。
+建立一個名為 `app.js` 的檔案。我們在此互動的所有程式碼片段都會放在這裡。複製並貼上這些必要的匯入到 `app.js` 檔案的頂端。
 
 ```js
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 ```
@@ -482,6 +481,8 @@ import "dotenv/config";
 **步驟 5：配置設定**
 
 為了有效說明 API-Kit 如何運作，我們會使用一個有兩個或更多簽名者的 Safe 帳戶設定，以及兩個臨界值，因此我們在執行交易時需要收集多個簽名。
+
+對 Safe 交易服務的請求也需要一個 API 金鑰。請在 [Safe 開發者儀表板](https://developer.safe.global/) 的 **API 金鑰** 區塊中建立一個，並將其設定為 `.env` 檔案中的 `SAFE_API_KEY`。 Safe 會根據鏈 ID 解析交易服務端點，因此 Kaia 或 Kairos 上無需指定 `txServiceUrl`。
 
 複製並貼上以下內容到您的 `app.js` 檔案中的匯入語句下：
 
@@ -492,12 +493,13 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 ```
 
 **第 6 步：提出、確認並執行安全交易**
 
-在這個步驟中，您將使用 Safe API-Kit 和一個有多位擁有者的 Safe 帳戶，提出、簽署並執行智慧契約函式呼叫。 您會從 Safe 傳送一個交易來呼叫智慧契約方法 **setTokenPrice()** - 但相同的結構也適用於任何特權函式，例如 **pause()**。
+在這個步驟中，您將使用 Safe API-Kit 和一個有多位擁有者的 Safe 帳戶，提出、簽署並執行智慧契約函式呼叫。您會從 Safe 傳送一個交易來呼叫智慧契約方法 **setTokenPrice()** - 但相同的結構也適用於任何特權函式，例如 **pause()**。
 
 複製並貼上以下內容到您的 `app.js` 檔案中的初始設定下：
 
@@ -513,11 +515,11 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -548,7 +550,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
@@ -577,7 +579,7 @@ console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 
@@ -588,6 +590,7 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 // Create interface from ABI
 const contractABI = [
@@ -599,12 +602,12 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
 
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -636,7 +639,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
@@ -670,7 +673,7 @@ console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 7. 以所有必要的簽名確認交易
 8. 從 Safe 執行交易
 
-現在讓我們看看程式碼的運作。 在您的終端機執行 `node app.js`，您應該會看到這樣的輸出：
+現在讓我們看看程式碼的運作。在您的終端機執行 `node app.js`，您應該會看到這樣的輸出：
 
 ```bash
 0xfa537bf8282ae36d933c41d867dee1ced93657094efe60c07180a872bb1388fc
@@ -683,7 +686,7 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 
 ![](/img/build/wallets/ks-succor-token-price-remix-display.png)
 
-恭喜你 您已成功透過 Safe API Kit，從您的 Safe 帳戶執行了一項特權功能。
+恭喜你您已成功透過 Safe API Kit，從您的 Safe 帳戶執行了一項特權功能。
 
 ##### 步驟 4：檢閱並提交交易
 
@@ -702,13 +705,13 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 - \*\* 加密金鑰庫\*\*：包含已使用密碼加密的私人密碼匙的檔案。
 - **硬體錢包**：離線儲存私密金鑰並在內部簽署交易的實體裝置。
 - \*\* 多重簽名 (Multi-Sig)\*\*：一種需要多個獨立私人金鑰批准才能授權單一交易的錢包。
-- **私人密碼匙**：一個秘密的字母數字字串，讓擁有者可以存取他們的加密貨幣，並能夠進行交易。 絕對不可以分享。
-- \*\* 公開金鑰 / 位址\*\*：可公開分享的密碼金鑰，用於接收資金。 它源自私人密碼匙。
+- **私人密碼匙**：一個秘密的字母數字字串，讓擁有者可以存取他們的加密貨幣，並能夠進行交易。絕對不可以分享。
+- \*\* 公開金鑰 / 位址\*\*：可公開分享的密碼金鑰，用於接收資金。它源自私人密碼匙。
 - \*\* 種子詞組（或助記詞組）\*\*：由 12-24 個字組成的清單，可作為加密錢包中所有私密金鑰的主備份。
 
 ### 附錄 B：環境組態範例
 
-為了幫助讀者成功地跟隨教學，並複製本指南中的程式碼範例，以下是實作過程中使用的開發環境配置範例。 建議將您的本機設定與這些版本對齊，以避免相容性問題。
+為了幫助讀者成功地跟隨教學，並複製本指南中的程式碼範例，以下是實作過程中使用的開發環境配置範例。建議將您的本機設定與這些版本對齊，以避免相容性問題。
 
 **Node.js**
 
