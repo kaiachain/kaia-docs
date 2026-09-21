@@ -60,7 +60,7 @@ While your Ankr account is still active:
 
 ## Choose an alternative
 
-All of the options below serve Kaia today. Because they all speak the same JSON-RPC interface, migrating is a URL change rather than a code change.
+All of the providers below serve Kaia today. Because they all speak the same JSON-RPC interface, migrating is a URL change rather than a code change.
 
 | | [Alchemy](https://www.alchemy.com/rpc/kaia) **(Recommended)** | [QuickNode](https://www.quicknode.com/docs/kaia) | [All That Node](https://www.allthatnode.com/) | [dRPC](https://drpc.org/) | Kaia Foundation |
 | --- | --- | --- | --- | --- | --- |
@@ -75,105 +75,6 @@ Capabilities such as archive history and the `debug` / `trace` namespaces differ
 
 If you just want to confirm a cutover works before signing up anywhere, dRPC's public endpoints need no account, so you can point at one and test immediately.
 
+For endpoint URLs, and for the full list of RPC providers serving Kaia, see [Public JSON RPC Endpoints](./public-en.md). Sign up with the provider you pick, then replace the Ankr URL in your app with the endpoint it gives you.
+
 You can also [run your own endpoint node](../nodes/endpoint-node/endpoint-node.md) if you would rather not depend on a hosted provider at all.
-
-## Option 1: Alchemy (recommended)
-
-1. Create an app at [alchemy.com](https://www.alchemy.com/rpc/kaia) and select Kaia.
-2. Copy the endpoint, which has the form `https://kaia-mainnet.g.alchemy.com/v2/<api-key>`. WebSocket is available at `wss://kaia-mainnet.g.alchemy.com/v2/<api-key>`.
-3. Replace your Ankr URL with it, keeping the key in an environment variable.
-
-```js
-// Before
-const provider = new ethers.JsonRpcProvider("https://rpc.ankr.com/kaia");
-
-// After
-const provider = new ethers.JsonRpcProvider(`https://kaia-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`);
-```
-
-## Option 2: dRPC
-
-No account needed to start.
-
-| Network | Endpoint |
-| --- | --- |
-| Kaia Mainnet | `https://kaia.drpc.org` |
-| Kairos Testnet | `https://kaia-kairos.drpc.org` |
-
-```js
-const provider = new ethers.JsonRpcProvider("https://kaia.drpc.org");
-```
-
-For higher rate limits, create a key at [drpc.org](https://drpc.org/) and use your dedicated endpoint URL instead.
-
-## Option 3: QuickNode
-
-1. Create an endpoint at [quicknode.com](https://www.quicknode.com/docs/kaia) and choose Kaia Mainnet or Kairos Testnet.
-2. Copy the HTTP and WSS URLs QuickNode generates for your endpoint.
-3. Replace your Ankr URL with it.
-
-## Option 4: All That Node
-
-1. Create an account at [allthatnode.com](https://www.allthatnode.com/) and add a Kaia node.
-2. Copy the endpoint URL from the dashboard.
-3. Replace your Ankr URL with it.
-
-## Option 5: Kaia Foundation public endpoints
-
-Provided for the community for testing and development. Uptime and stability are not guaranteed, so do not use them for commercial purposes — see [Public JSON RPC Endpoints](./public-en.md) for the full list and the terms.
-
-| Network | Endpoint |
-| --- | --- |
-| Kaia Mainnet | `https://public-en.node.kaia.io` |
-| Kaia Mainnet (archive) | `https://archive-en.node.kaia.io` |
-| Kairos Testnet | `https://public-en-kairos.node.kaia.io` |
-| Kairos Testnet (archive) | `https://archive-en-kairos.node.kaia.io` |
-
-## Cutover checklist
-
-- [ ] Found every Ankr reference in the codebase with the `grep` above
-- [ ] Updated deployment environment variables
-- [ ] Updated CI/CD secrets and pipeline configs
-- [ ] Updated serverless function and container configs
-- [ ] Updated RPC URLs saved in wallets, dashboards, and monitoring tools
-- [ ] Checked that indexers, bots, and analytics jobs use the new endpoint
-- [ ] Told any third party that consumes your endpoint
-- [ ] Verified the new endpoint against a known block before cutting over production
-- [ ] Watched error rates and latency for 24 hours after the switch
-- [ ] Cancelled the Ankr subscription
-
-A quick way to confirm a new endpoint is live and on the right chain:
-
-```bash
-curl -s -X POST <YOUR_NEW_ENDPOINT> \
-  -H 'Content-Type: application/json' \
-  --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
-```
-
-Expect `"result":"0x2019"` for Kaia Mainnet (8217) or `"result":"0x3e9"` for Kairos Testnet (1001).
-
-## FAQs
-
-**Do I need to redeploy my contracts?**
-No. Contracts live on Kaia, not on Ankr. Nothing on-chain changes.
-
-**Will my app lose transaction history?**
-No. History is on-chain. Any provider reads the same data, though querying very old state needs an archive endpoint.
-
-**Do I have to change my code?**
-Usually only the endpoint URL. The JSON-RPC interface is the same across providers.
-
-**Can I use more than one provider?**
-Yes, and it is a good idea for production. Configure a fallback endpoint so a single provider outage does not take your app down.
-
-**What if I miss the date?**
-Your Kaia RPC calls to Ankr start failing. Switching to another endpoint restores service immediately — there is nothing to recover or migrate beyond the URL.
-
-**Where do I get help?**
-The [Kaia Developer Forum](https://devforum.kaia.io) and the [Kaia Discord](https://discord.gg/kaiachain).
-
-## Next steps
-
-* [Public JSON RPC Endpoints](./public-en.md) — the full list of Kaia RPC providers and endpoints
-* [Run an endpoint node](../nodes/endpoint-node/endpoint-node.md) — operate your own RPC infrastructure
-* [JSON-RPC API reference](./json-rpc/references.md) — the API surface your provider serves
