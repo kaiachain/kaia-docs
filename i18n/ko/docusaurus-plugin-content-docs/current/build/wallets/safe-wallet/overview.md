@@ -5,12 +5,6 @@ sidebar_label: 세이프 월렛 개요
 
 # 세이프 월렛 개요
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로 계정을 관리하시려면 [app.safe.global](https://app.safe.global)에서 Kaia용 **Safe Wallet**을 이용해 주시기 바랍니다. 이미 Safe를 보유하고 계신 경우, [Safe Global로 이전하기](./migrate-to-safe-global.md)를 참조하십시오.
-
-:::
-
 [Safe Wallet](https://app.safe.global)은 [Safe Smart Accounts](https://docs.safe.global/home/what-is-safe)를 위한 Safe Global의 공식 인터페이스입니다. 세이프 스마트 계좌는 스마트 계약 지갑입니다. 자금을 단일 개인 키로 관리하는 대신, 일정한 승인 임계값에 따라 여러 명의 서명자가 각 거래를 승인해야 합니다. Kaia 메인넷과 Kairos 테스트넷이 모두 이용 가능합니다. 소유자 지갑을 연결하고, 네트워크를 선택한 다음, 세이프를 생성하거나 열어주세요.
 
 ## 핵심 개념
@@ -68,9 +62,9 @@ Kaia 문서에는 Kaia에 특화된 내용, 즉 지원되는 네트워크, 체�
 
 ## 카이아 전용 가이드
 
-- [Safe Global로 이전하기](./migrate-to-safe-global.md) — 기존 Safe를 Safe Wallet으로 옮기기
 - [세이프 생성 및 관리](./use-safe-wallet.md) — Kaia에서 세이프를 생성하고, 자산을 추가하며, 거래를 전송하세요
 - [컨트랙트 상호작용](./contract-interaction.md) — Kaia의 Safe에서 컨트랙트를 호출하기
 - [트랜잭션 빌더](./tx-builder.md) 및 [CSV 에어드롭](./csv-airdrop.md) — Kaia에서의 일괄 처리
 - [API 키트](./safe-wallet-api-kit.md) — Kaia 체인 ID를 활용한 안전한 거래 서비스
 - [자주 묻는 질문](./faqs.md)
+- [Safe Global로 이전하기](./migrate-to-safe-global.md) — 서비스가 종료된 `safe.kaia.io`에서 이전
