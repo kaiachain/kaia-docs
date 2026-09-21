@@ -73,8 +73,6 @@ Capabilities such as archive history and the `debug` / `trace` namespaces differ
 
 **Alchemy is the recommended replacement** for most teams moving off Ankr.
 
-If you just want to confirm a cutover works before signing up anywhere, dRPC's public endpoints need no account, so you can point at one and test immediately.
-
 For endpoint URLs, and for the full list of RPC providers serving Kaia, see [Public JSON RPC Endpoints](./public-en.md). Sign up with the provider you pick, then replace the Ankr URL in your app with the endpoint it gives you.
 
 You can also [run your own endpoint node](../nodes/endpoint-node/endpoint-node.md) if you would rather not depend on a hosted provider at all.
