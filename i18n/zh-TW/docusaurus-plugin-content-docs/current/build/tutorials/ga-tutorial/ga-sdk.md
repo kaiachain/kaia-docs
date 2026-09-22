@@ -2,7 +2,7 @@
 
 ## 5.1. SDK
 
-GA 功能封裝在 `-ext` SDK 中，擴充了 ethers.js 和 web3.js 的功能。 如需詳細的 API 參考資料，請參閱套件庫。
+GA 功能封裝在 `-ext` SDK 中，擴充了 ethers.js 和 web3.js 的功能。如需詳細的 API 參考資料，請參閱套件庫。
 
 ### Kaia Ethers-ext SDK
 
@@ -20,7 +20,7 @@ GA 功能封裝在 `-ext` SDK 中，擴充了 ethers.js 和 web3.js 的功能。
 
 ## 5.2. JSON-RPC API
 
-`kaia_sendRawTransactions` 接受一個**陣列**有簽章、RLP 編碼的原始交易，其 _type byte_ 是 Ethereum 系列之一 (0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob)。  將它用於 GA 對 **ApproveTx + SwapTx**，這是一般的 EVM 類型。
+`kaia_sendRawTransactions` 接受一個**陣列**有簽章、RLP 編碼的原始交易，其 _type byte_ 是 Ethereum 系列之一 (0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob)。將它用於 GA 對 **ApproveTx + SwapTx**，這是一般的 EVM 類型。
 
 Kaia 特有的類型，例如 **0x30**（Smart-Contract Execution）仍必須使用舊的單次傳送方法 `klay_sendRawTransaction` 來傳送。
 
