@@ -12,8 +12,7 @@ Once it is turned on, a node in your service chain can periodically anchor its c
 
 ### KAS（カイアAPIサービス）の登録<a id="sign-up-kas"></a>
 
-まず、[KAS console website](https://www.klaytnapi.com)でKASにサインアップし、KASアカウントを取得する必要があります。
-上記のウェブサイトにアクセスし、KASに登録してください。
+まず、[KAS console website](https://www.klaytnapi.com)でKASにサインアップし、KASアカウントを取得する必要があります。上記のウェブサイトにアクセスし、KASに登録してください。
 
 [![main page](/img/nodes/kas-main-en.png)](https://www.klaytnapi.com)
 
@@ -34,7 +33,7 @@ KASが提供するAnchor APIは、データ・アンカリングのために設�
 
 ## オペレーター・アドレスの作成<a id="create-kas-credential"></a>
 
-KAS経由でサービスチェーンデータをアンカーするためには、KASに登録されたKaiaアドレスが存在し、実際にアンカートランザクションをKaiaに送信する必要がある。 従って、サービスノードをセットアップする前に、KAS経由で "operator "と呼ばれるKaiaアカウントを作成する必要があります。 このアカウントを作成するには、KASコンソールを使用してください。
+KAS経由でサービスチェーンデータをアンカーするためには、KASに登録されたKaiaアドレスが存在し、実際にアンカートランザクションをKaiaに送信する必要がある。従って、サービスノードをセットアップする前に、KAS経由で "operator "と呼ばれるKaiaアカウントを作成する必要があります。このアカウントを作成するには、KASコンソールを使用してください。
 
 KASコンソールページの右上にある、データをアンカーしたいKaia内のチェーンを**最初に選択する**必要があることに注意してください。 You should create an operator for each chain (Cypress/Baobab).
 
@@ -44,15 +43,13 @@ KASコンソールページの右上にある、データをアンカーした�
 
 ![create operator](/img/nodes/kas-create-operator-en.png)
 
-そして、以下のようなオペレーターリストを確認することができます。
-サービスチェーンノードの設定にはオペレーターのアドレスが必要です。
+そして、以下のようなオペレーターリストを確認することができます。サービスチェーンノードの設定にはオペレーターのアドレスが必要です。
 
 ![create operator](/img/nodes/kas-operator-list-en.png)
 
 ## サービスチェーンノードの設定<a id="configure-service-chain-node"></a>
 
-APIクレデンシャル、アンカーAPI情報（APIエンドポイントとパラメータ）、KASのオペレータアカウントを取得したら、いよいよサービスチェーンノードをセットアップする。
-サービスチェーンノードの設定ファイル（`kscnd.conf`, `kspnd.conf`, `ksend.conf`）を以下のように編集する必要がある。
+APIクレデンシャル、アンカーAPI情報（APIエンドポイントとパラメータ）、KASのオペレータアカウントを取得したら、いよいよサービスチェーンノードをセットアップする。サービスチェーンノードの設定ファイル（`kscnd.conf`, `kspnd.conf`, `ksend.conf`）を以下のように編集する必要がある。
 
 SC_SUB_BRIDGE=1`とすべての`SC_KAS_\` プレフィックス項目を設定する必要があります。
 
@@ -75,8 +72,7 @@ SC_KAS_ANCHOR_X_CHAIN_ID=1001                                           # Mainne
 
 ## サービスチェーンノードの実行<a id="run-service-chain-node"></a>
 
-これでもう大丈夫だ。 サービス・チェーン・ノードを走らせることができる。
-以下のようなKAS Anchor APIに関するログメッセージが表示されます。
+これでもう大丈夫だ。サービス・チェーン・ノードを走らせることができる。以下のようなKAS Anchor APIに関するログメッセージが表示されます。
 
 ```bash
 ...
