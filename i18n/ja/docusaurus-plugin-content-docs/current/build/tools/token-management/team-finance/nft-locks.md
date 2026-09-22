@@ -6,7 +6,7 @@ Team FinanceのNFTロック機能により、クリエイターは個人また�
 
 ## はじめに
 
-このチュートリアルでは、Team FinanceでNFTをロックする方法を学びます。 始めよう！
+このチュートリアルでは、Team FinanceでNFTをロックする方法を学びます。始めよう！
 
 1. Team Finance [NFT locks](https://app.team.finance/nft-locks) タブに移動し、**Create NFT lock** をクリックします。
 
@@ -34,14 +34,14 @@ Team FinanceのNFTロック機能により、クリエイターは個人また�
 
 > これにより、承認トランザクションに署名するよう促される。
 
-7. NFTロックの詳細を確認し、**Confirm transaction**をクリックします。 あなたの財布は、プロセスを完了するために取引に署名するよう求められます。
+7. NFTロックの詳細を確認し、**Confirm transaction**をクリックします。あなたの財布は、プロセスを完了するために取引に署名するよう求められます。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-7.png)
 
-8. 確認後、取引状況を表示するページに移動します。 お取引が確認されるまで、ページからの移動はご遠慮ください。
+8. 確認後、取引状況を表示するページに移動します。お取引が確認されるまで、ページからの移動はご遠慮ください。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-8.png)
 
-9. おめでとう！ Team Finance を使用して NFT ロックを作成しました。 ダッシュボードでロックの詳細や進捗状況を確認することができます。
+9. おめでとう！ Team Finance を使用して NFT ロックを作成しました。ダッシュボードでロックの詳細や進捗状況を確認することができます。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-9.png)
