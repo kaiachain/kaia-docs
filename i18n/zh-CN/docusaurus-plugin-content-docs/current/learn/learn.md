@@ -1,6 +1,6 @@
 # 卡娅概述
 
-Kaia 是高度优化的、<LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> 基于 BFT 的公共区块链 </LinkWithTooltip>，旨在满足企业级可靠性和性能标准。 本概述详细介绍了 Kaia 的架构、功能和生态系统。
+Kaia 是高度优化的、<LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> 基于 BFT 的公共区块链 </LinkWithTooltip>，旨在满足企业级可靠性和性能标准。本概述详细介绍了 Kaia 的架构、功能和生态系统。
 
 ## 主要设计目标
 
@@ -49,7 +49,7 @@ Kaia 的网络结构分为三个逻辑子网络：
 
 ## 共识算法
 
-Kaia 使用伊斯坦布尔 BFT 的优化版本，通过区块链特定的修改实现了实用拜占庭容错（PBFT）。 达成共识的过程包括
+Kaia 使用伊斯坦布尔 BFT 的优化版本，通过区块链特定的修改实现了实用拜占庭容错（PBFT）。达成共识的过程包括
 
 1. 使用可验证随机函数 (VRF) 选举委员会<LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">（提案人</LinkWithTooltip>和<LinkWithTooltip to="../misc/glossary#validator" tooltip="A node verifying data, ensuring efficient block processing.">验证人</LinkWithTooltip>）。
 2. 由当选的提案人生成块。
