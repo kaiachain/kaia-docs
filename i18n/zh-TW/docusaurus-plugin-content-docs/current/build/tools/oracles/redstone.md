@@ -2,13 +2,13 @@
 
 ## 概覽
 
-[RedStone](https://redstone.finance/) 是一個模組化預言機網路，負責向智慧合約提供價格資料。 在 Kaia 上，RedStone 公開了 **Push** 饋送，這些饋送將價格資料儲存於鏈上，因此 dApp 可以透過熟悉的、與 Chainlink 相容的 `AggregatorV3Interface` 讀取這些資料。
+[RedStone](https://redstone.finance/) 是一個模組化預言機網路，負責向智慧合約提供價格資料。在 Kaia 上，RedStone 公開了 **Push** 饋送，這些饋送將價格資料儲存於鏈上，因此 dApp 可以透過熟悉的、與 Chainlink 相容的 `AggregatorV3Interface` 讀取這些資料。
 
-RedStone Push 會根據可設定的 **偏差** 和 **心跳** 條件，定期更新鏈上價格。 請參閱 [RedStone Push 文件](https://docs.redstone.finance/docs/dapps/redstone-push/) 以了解更多資訊，並在 [Push Feeds 使用者介面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中瀏覽 Kaia 的即時資訊流。
+RedStone Push 會根據可設定的 **偏差** 和 **心跳** 條件，定期更新鏈上價格。請參閱 [RedStone Push 文件](https://docs.redstone.finance/docs/dapps/redstone-push/) 以了解更多資訊，並在 [Push Feeds 使用者介面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中瀏覽 Kaia 的即時資訊流。
 
 ## 在 Kaia 上使用 RedStone
 
-每個 Push 資料饋送皆以價格饋送合約的形式部署，該合約實作了 Chainlink 的 Aggregator 介面。 您可以呼叫 `latestRoundData()` 來讀取最新價格。
+每個 Push 資料饋送皆以價格饋送合約的形式部署，該合約實作了 Chainlink 的 Aggregator 介面。您可以呼叫 `latestRoundData()` 來讀取最新價格。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -50,7 +50,7 @@ contract RedStoneConsumer {
 }
 ```
 
-請傳入您所需資產的饋送網址（請參閱下表）。 請務必驗證 `updatedAt`，並根據您所採用協議的資料新鮮度要求對資料進行四捨五入。
+請傳入您所需資產的饋送網址（請參閱下表）。請務必驗證 `updatedAt`，並根據您所採用協議的資料新鮮度要求對資料進行四捨五入。
 
 ## Kaia 的動態
 
@@ -71,7 +71,7 @@ contract RedStoneConsumer {
 | ---- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
 | USDT | [`0x13d3B27c7C100621CB3B714deAb858Ee06d41db1`](https://kairos.kaiascan.io/account/0x13d3B27c7C100621CB3B714deAb858Ee06d41db1) | 0.5% / 6 小時 |
 
-飼料的供應狀況及相關參數可能會有所變動。 請在 [Push Feeds 使用者介面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中確認最新的網址及更新條件。
+飼料的供應狀況及相關參數可能會有所變動。請在 [Push Feeds 使用者介面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中確認最新的網址及更新條件。
 
 ## 資源
 
