@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem'
 
 ## 导言<a href="#introduction" id="introduction" />
 
-Scaffold-ETH 2 是一个开源工具包，用于在以太坊和其他与 EVM 兼容的区块链（如 Kaia）上构建去中心化应用程序（dApps）。 借助 Scaffold-ETH 2，开发人员可以轻松部署 Solidity 智能合约，并使用 React 前端启动 dApp。
+Scaffold-ETH 2 是一个开源工具包，用于在以太坊和其他与 EVM 兼容的区块链（如 Kaia）上构建去中心化应用程序（dApps）。借助 Scaffold-ETH 2，开发人员可以轻松部署 Solidity 智能合约，并使用 React 前端启动 dApp。
 
-Scaffold-ETH 2 工具包使用 Next.js、RainbowKit、Hardhat、Foundry、Wagmi 和 TypeScript 构建。 开发人员可以使用 Hardhat 或 Foundry 轻松创建、测试和部署智能合约，还可以使用 Next.js 构建 React 前端。
+Scaffold-ETH 2 工具包使用 Next.js、RainbowKit、Hardhat、Foundry、Wagmi 和 TypeScript 构建。开发人员可以使用 Hardhat 或 Foundry 轻松创建、测试和部署智能合约，还可以使用 Next.js 构建 React 前端。
 
 在本教程中，您将学习如何使用 Scaffold-ETH 2 在 Kaia 上部署、运行合约和构建 dApp。
 
@@ -40,7 +40,7 @@ npx create-eth@latest
 
 **项目名称**：输入项目名称： 输入项目名称，如 kaia-scaffold-example。
 
-\*\* 实体框架\*\*；您想使用哪种实体框架？选择您喜欢的实体框架（Hardhat、Foundry）。 在本指南中，我们将使用 **Hardhat** 框架。
+\*\* 实体框架\*\*；您想使用哪种实体框架？选择您喜欢的实体框架（Hardhat、Foundry）。在本指南中，我们将使用 **Hardhat** 框架。
 
 **Install packages?**：按回车键表示是（默认选项）或输入 n 并按回车键表示否
 设置完成后，导航至项目目录。
@@ -64,7 +64,7 @@ cd project-name
 6. 在 **packages/nextjs/scaffold.config.ts** 文件中配置前端以 Kaia 为目标
 7. 在 **packages/nextjs/pages**目录下根据需要编辑你的前台
 
-在本指南中，我们将使用 Scaffold-ETH 2 安装后可用的默认示例合同和前端。 只需为 Kaia 修改这些组件即可。 在这种情况下，我们将把配置分为 **Hardhat** 和 **Next.js** 配置。
+在本指南中，我们将使用 Scaffold-ETH 2 安装后可用的默认示例合同和前端。只需为 Kaia 修改这些组件即可。在这种情况下，我们将把配置分为 **Hardhat** 和 **Next.js** 配置。
 
 ## 硬头盔配置
 
@@ -74,7 +74,7 @@ cd project-name
 
 **第 1 步：配置网络**
 
-我们要做的第一件事是配置 `hardhat.config.ts` 以支持 Kaia 网络。 转到 `packages/hardhat/hardhat.config.ts`，将 Kaia 网络添加到网络对象中。
+我们要做的第一件事是配置 `hardhat.config.ts` 以支持 Kaia 网络。转到 `packages/hardhat/hardhat.config.ts`，将 Kaia 网络添加到网络对象中。
 
 <Tabs>
   <TabItem value="卡娅" label="Kaia Mainnet" default>
@@ -105,7 +105,7 @@ cd project-name
 
 **第 2 步：生成一个新账户或添加一个账户，以便从该账户部署合同**
 
-接下来要做的就是配置您的账户。  您可以运行以下命令生成一个随机账户/私人密钥：
+接下来要做的就是配置您的账户。您可以运行以下命令生成一个随机账户/私人密钥：
 
 ```bash
 yarn generate 
@@ -114,7 +114,7 @@ yarn generate
 它会自动在`.env`文件中添加加密私钥（DEPLOYER_PRIVATE_KEY_ENCRYPTED）。
 
 :::note
-系统会提示您输入密码，该密码将用于加密您的私人密钥。 请不要忘记这个密码，因为在今后的部署和账户查询中会用到它。
+系统会提示您输入密码，该密码将用于加密您的私人密钥。请不要忘记这个密码，因为在今后的部署和账户查询中会用到它。
 :::
 
 如果您希望导入私人密钥，请运行
@@ -123,7 +123,7 @@ yarn generate
 yarn account:import
 ```
 
-系统会提示您粘贴私人密钥并设置加密密码。 它会将加密后的私人密钥保存在`.env`文件中。
+系统会提示您粘贴私人密钥并设置加密密码。它会将加密后的私人密钥保存在`.env`文件中。
 
 您可以通过以下方式检查已配置（生成或导入）的账户和余额：
 
@@ -176,7 +176,7 @@ deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278
 
 ### 验证您已部署的合同<a href="#verify-deployed-contract" id="verify-deployed-contract" />
 
-要验证已部署的合同，我们将使用硬帽验证插件。 只需在 harhdat-verify etherscan 配置对象下的**hardhat.config.ts**中添加以下配置即可。
+要验证已部署的合同，我们将使用硬帽验证插件。只需在 harhdat-verify etherscan 配置对象下的**hardhat.config.ts**中添加以下配置即可。
 
 <Tabs>
   <TabItem value="卡娅" label="Kaia Mainnet" default>
@@ -234,7 +234,7 @@ yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
  "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
 ```
 
-如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。 稍等片刻后，控制台将显示验证结果，如果验证成功，还将提供 KaiaScan 上已验证合同的 URL。
+如上所示，要验证合同，必须输入网络名称、合同地址和构造函数参数（如有）。稍等片刻后，控制台将显示验证结果，如果验证成功，还将提供 KaiaScan 上已验证合同的 URL。
 
 **输出**：
 
@@ -255,7 +255,7 @@ https://kairos.kaiascan.io/address/0xb1ea8476debb6d3021cC3a179B9eC21e01742d82#co
 
 ## Next.js 配置<a href="#nextjs-configuration" id="nextjs-configuration" />
 
-在本节中，你将修改 Next.js 配置，使其针对**packages/nextjs**文件夹下的 Kairos Testnet（智能合约部署到了这里）。 在本文件夹中，我们打算修改 **scaffold.config.ts** 文件中 scaffoldConfig 对象的 **targetNetwork** 数组。
+在本节中，你将修改 Next.js 配置，使其针对**packages/nextjs**文件夹下的 Kairos Testnet（智能合约部署到了这里）。在本文件夹中，我们打算修改 **scaffold.config.ts** 文件中 scaffoldConfig 对象的 **targetNetwork** 数组。
 
 ### 修改 targetNetwork 数组<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array" />
 
@@ -263,7 +263,7 @@ https://kairos.kaiascan.io/address/0xb1ea8476debb6d3021cC3a179B9eC21e01742d82#co
 targetNetworks: [chains.kaia, chains.kairos],
 ```
 
-这就是配置 Next.js 的全部要求！ 接下来，在本地主机上启动 dApp。
+这就是配置 Next.js 的全部要求！接下来，在本地主机上启动 dApp。
 
 ### 在本地主机启动应用程序<a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost" />
 
@@ -275,12 +275,12 @@ targetNetworks: [chains.kaia, chains.kairos],
 yarn start
 ```
 
-现在，您应该可以在 http://localhost:3000/ 上访问基于 React 的 dApp 前端。 您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
+现在，您应该可以在 http://localhost:3000/ 上访问基于 React 的 dApp 前端。您可以通过连接钱包或查看合约调试器页面与 dApp 进行互动。
 
 ![Scaffold dApp](/img/build/tutorials/scaffold-5.png)
 
 ## 结论
 
-祝贺你 您已成功使用 Scaffold-ETH 2 在 Kaia 上部署了一个合约并运行了一个 dApp。 现在您已经了解 Scaffold-ETH 2 的工作原理，可以随意创建和部署自己的智能合约，并修改前端以满足您的 dApp 需求！
+祝贺你您已成功使用 Scaffold-ETH 2 在 Kaia 上部署了一个合约并运行了一个 dApp。现在您已经了解 Scaffold-ETH 2 的工作原理，可以随意创建和部署自己的智能合约，并修改前端以满足您的 dApp 需求！
 
 如需了解更多信息，请访问 [Scaffold-ETH 2 文档](https://docs.scaffoldeth.io/) ；如有任何疑问，请访问 [Kaia 论坛](https://devforum.kaia.io/) 。
