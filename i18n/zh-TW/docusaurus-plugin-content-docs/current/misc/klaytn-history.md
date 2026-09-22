@@ -4,7 +4,7 @@
 
 :::info
 
-本文件列出 Kaia 過渡前發生的硬分叉。 關於過渡後的硬分叉，請參考 [Kaia 硬分叉歷史](kaia-history.md)。
+本文件列出 Kaia 過渡前發生的硬分叉。關於過渡後的硬分叉，請參考 [Kaia 硬分叉歷史](kaia-history.md)。
 
 :::
 
@@ -17,7 +17,7 @@
 
 ### 摘要
 
-Randao hardfork 隨 [v1.12.0 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 推出。 它根據 [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113)、[KIP-114](https://kips.klaytn.foundation/KIPs/kip-114)、[KIP-146](https://kips.klaytn.foundation/KIPs/kip-146)，實作了一個執行 Randao on-chain 隨機性的可選硬叉。
+Randao hardfork 隨 [v1.12.0 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 推出。它根據 [KIP-113](https://kips.klaytn.foundation/KIPs/kip-113)、[KIP-114](https://kips.klaytn.foundation/KIPs/kip-114)、[KIP-146](https://kips.klaytn.foundation/KIPs/kip-146)，實作了一個執行 Randao on-chain 隨機性的可選硬叉。
 
 ## 坎昆
 
@@ -28,7 +28,7 @@ Randao hardfork 隨 [v1.12.0 版本] (https://github.com/klaytn/klaytn/releases/
 
 ### 摘要
 
-Ethereum 的 Cancun 硬分叉項目是在 [v1.12.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 推出的。 如需具體資訊，請參閱發佈說明。 此外，AccessList 交易類型(在 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中引入) 已完全支援 ([#1955](https://github.com/klaytn/klaytn/pull/1955))。
+Ethereum 的 Cancun 硬分叉項目是在 [v1.12.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 推出的。如需具體資訊，請參閱發佈說明。此外，AccessList 交易類型(在 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中引入) 已完全支援 ([#1955](https://github.com/klaytn/klaytn/pull/1955))。
 
 ## 上海
 
@@ -39,7 +39,7 @@ Ethereum 的 Cancun 硬分叉項目是在 [v1.12.0 版本](https://github.com/kl
 
 ### 摘要
 
-Ethereum 的上海硬分叉項目是隨著 [v1.11.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.11.0) 推出的。 它包含相當於 Ethereum Shanghai hardfork([#1883](https://github.com/klaytn/klaytn/pull/1883)、[#1861](https://github.com/klaytn/klaytn/pull/1861)、[#1888](https://github.com/klaytn/klaytn/pull/1888))的功能，並固定允許透過覆寫 EOA 來建立新的契約帳戶([#1904](https://github.com/klaytn/klaytn/pull/1904))。
+Ethereum 的上海硬分叉項目是隨著 [v1.11.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.11.0) 推出的。它包含相當於 Ethereum Shanghai hardfork([#1883](https://github.com/klaytn/klaytn/pull/1883)、[#1861](https://github.com/klaytn/klaytn/pull/1861)、[#1888](https://github.com/klaytn/klaytn/pull/1888))的功能，並固定允許透過覆寫 EOA 來建立新的契約帳戶([#1904](https://github.com/klaytn/klaytn/pull/1904))。
 
 ## KIP-103<a id="kip-103"></a>
 
@@ -50,7 +50,7 @@ Ethereum 的上海硬分叉項目是隨著 [v1.11.0 版本](https://github.com/k
 
 ### 摘要
 
-KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.10.2) 中引入的。 它包含了 [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) 的實作，是庫務再平衡的技術規格（[KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) ）。
+KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.10.2) 中引入的。它包含了 [KIP-103](https://kips.klaytn.foundation/KIPs/kip-103) 的實作，是庫務再平衡的技術規格（[KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157) ）。
 
 ### 庫務再平衡<a id="treasury-rebalance"></a>
 
@@ -70,7 +70,7 @@ KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/relea
 
 ### 摘要
 
-Kore hardfork 是在 [v1.10.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.10.0) 推出的。 它是鏈上治理投票方法 ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81))、新的 GC 獎勵結構 ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82))，以及 EVM 變更的實作。
+Kore hardfork 是在 [v1.10.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.10.0) 推出的。它是鏈上治理投票方法 ([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81))、新的 GC 獎勵結構 ([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82))，以及 EVM 變更的實作。
 
 ## 岩漿<a id="magma"></a>
 
@@ -81,7 +81,7 @@ Kore hardfork 是在 [v1.10.0 版] (https://github.com/klaytn/klaytn/releases/ta
 
 ### 摘要
 
-Magma hardfork 是在 [v1.9.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.9.0) 推出的。 它包含動態瓦斯收費機制，[#1493](https://github.com/klaytn/klaytn/pull/1493))，並且是[KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)的實作。
+Magma hardfork 是在 [v1.9.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.9.0) 推出的。它包含動態瓦斯收費機制，[#1493](https://github.com/klaytn/klaytn/pull/1493))，並且是[KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)的實作。
 
 ## EthTxType<a id="eth-tx-type"></a>
 
@@ -92,7 +92,7 @@ Magma hardfork 是在 [v1.9.0 版] (https://github.com/klaytn/klaytn/releases/ta
 
 ### 摘要
 
-Ethereum 的 EthTxType 變更是隨著 [v1.8.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.8.0) 推出的。 它包含新的交易類型，以支援 Ethereum 交易類型：TxTypeEthereumAccessList 和 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
+Ethereum 的 EthTxType 變更是隨著 [v1.8.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.8.0) 推出的。它包含新的交易類型，以支援 Ethereum 交易類型：TxTypeEthereumAccessList 和 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
 ## 倫敦 EVM<a id="london-evm"></a>
 
