@@ -1,6 +1,6 @@
 # ミニDapp SDKの統合
 
-このセクションでは、Mini Dapp SDKがゲームにロードされていることを確認します。 そのために、Cocos Creatorのbuild-templatesディレクトリでは、ゲームがどのようにウェブ・プラットフォーム用にビルドされるかをカスタマイズすることができ、ゲーム開始前にSDKをプリロードするのに欠かせない。
+このセクションでは、Mini Dapp SDKがゲームにロードされていることを確認します。そのために、Cocos Creatorのbuild-templatesディレクトリでは、ゲームがどのようにウェブ・プラットフォーム用にビルドされるかをカスタマイズすることができ、ゲーム開始前にSDKをプリロードするのに欠かせない。
 
 build-templates/web-desktop\*\*にカスタムテンプレートを作成することで、すべてのビルドにSDKを自動的に含めることができ、開発とデプロイが効率化されます。
 
@@ -48,7 +48,7 @@ build-templates/web-desktop/index.html`を編集し、<head> </head>`セクシ�
 
 ## ステップ6：プロジェクトのビルドとプレビュー<a id="build-preview-project"></a>
 
-設定が完了したら、Cocos Creator Editorの上部にある_Play on Device_をクリックします。 新しいブラウザのタブでゲームが開くはずです。
+設定が完了したら、Cocos Creator Editorの上部にある_Play on Device_をクリックします。新しいブラウザのタブでゲームが開くはずです。
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
@@ -56,7 +56,7 @@ build-templates/web-desktop/index.html`を編集し、<head> </head>`セクシ�
 
 # WebビルドをLocalhost:3000にルートする<a id="route-web-build"></a>
 
-セキュリティと開発目的のため、Mini Dapp SDKは現在localhost:3000で動作しています。 現時点では、デフォルトのUnity WebGLビルドはランダムなポート（7457など）を使用しており、アプリを効率的に動作させるには、Unity WebGLビルドをlocalhost:3000で開くように設定する必要があります。
+セキュリティと開発目的のため、Mini Dapp SDKは現在localhost:3000で動作しています。現時点では、デフォルトのUnity WebGLビルドはランダムなポート（7457など）を使用しており、アプリを効率的に動作させるには、Unity WebGLビルドをlocalhost:3000で開くように設定する必要があります。
 
 そのためには、以下の手順に従ってください：
 
