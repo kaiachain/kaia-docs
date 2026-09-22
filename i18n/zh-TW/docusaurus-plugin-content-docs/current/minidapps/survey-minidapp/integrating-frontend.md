@@ -1,6 +1,6 @@
 # 整合 Next.js 前端應用程式與智慧契約
 
-在之前的步驟中，您已成功建立智慧型契約並將其部署到 localhost。 現在，是時候從前端與它互動了。 前端使用 Next.js，整合了用於隱私功能的 Semaphore 和用於驗證的 Mini Dapp SDK。
+在之前的步驟中，您已成功建立智慧型契約並將其部署到 localhost。現在，是時候從前端與它互動了。前端使用 Next.js，整合了用於隱私功能的 Semaphore 和用於驗證的 Mini Dapp SDK。
 
 ## 設定與安裝<a id="setup-installation"></a>
 
@@ -464,7 +464,7 @@ const connectWallet = async () => {
 
 #### 朋友邀請系統<a id="friend-invitation-system"></a>
 
-該平台結合了 LINE 的社交功能，讓使用者透過無縫的分享體驗邀請朋友。 這是透過 LIFF ShareTargetPicker 來實作的，它提供了原生的 LINE 介面來選擇朋友。
+該平台結合了 LINE 的社交功能，讓使用者透過無縫的分享體驗邀請朋友。這是透過 LIFF ShareTargetPicker 來實作的，它提供了原生的 LINE 介面來選擇朋友。
 
 \*\* 提供者介面\*\*
 
@@ -713,7 +713,7 @@ export default async function SurveysPage({
 3. \*\* 回覆隱私權\*\*：調查問卷的答案應該是保密的，個人使用者無法追蹤。
 4. \*\* 可驗證的真實性\*\*：儘管是匿名，但回覆必須可驗證是來自授權的參與者。
 
-Semaphore 通訊協定使用零知識證明來解決這些挑戰，允許使用者證明他們在群組中的成員身份，並在不透露身份的情況下提交回應。 這可確保調查過程中的隱私和資料完整性。
+Semaphore 通訊協定使用零知識證明來解決這些挑戰，允許使用者證明他們在群組中的成員身份，並在不透露身份的情況下提交回應。這可確保調查過程中的隱私和資料完整性。
 
 **1. 身分建立**：使用多重因素產生確定的身分，以確保唯一性和安全性，同時維護隱私。
 
@@ -778,7 +778,7 @@ export const joinGroup = async (
 
 ## 元件結構<a id="component-structure"></a>
 
-在本節中，我們將分解元件結構。 您的元件資料夾應該是這樣的：
+在本節中，我們將分解元件結構。您的元件資料夾應該是這樣的：
 
 ```bash
 buttons/
