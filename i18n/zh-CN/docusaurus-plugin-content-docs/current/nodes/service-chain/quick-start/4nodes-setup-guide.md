@@ -1,6 +1,6 @@
 # 安装 4 节点服务链
 
-本节介绍如何设置多节点 ServiceChain。 我们将建立一个 4 个共识节点的 ServiceChain，"chainID "为 1002，如下图中蓝色边框所示。
+本节介绍如何设置多节点 ServiceChain。我们将建立一个 4 个共识节点的 ServiceChain，"chainID "为 1002，如下图中蓝色边框所示。
 
 ![](/img/nodes/sc-4scn-arch.png)
 
@@ -14,7 +14,7 @@
 
 ## 步骤 0：在所有节点上安装 SCN<a id="install-scn"></a>
 
-安装就是解压缩下载的软件包。 在每台服务器上提取 SCN 存档。
+安装就是解压缩下载的软件包。在每台服务器上提取 SCN 存档。
 
 ```console
 $ tar xvf kscn-vX.X.X-XXXXX-amd64.tar.gz
@@ -26,13 +26,13 @@ x kscn-XXXXX-amd64/bin/kscnd
 x kscn-XXXXX-amd64/bin/kscn
 ```
 
-为方便起见，我们将在 $PATH中添加二进制路径。 使用节点上的实际路径。
+为方便起见，我们将在 $PATH中添加二进制路径。使用节点上的实际路径。
 
 ```console
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。 有关详细信息，请参阅 [安装](../install-service-chain.md#installation)。
+SCN 还提供各种 RPM 发行版，如 RHEL、CentOS 和 Fedora。有关详细信息，请参阅 [安装](../install-service-chain.md#installation)。
 
 ```console
 $ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
@@ -60,8 +60,7 @@ $ yum install kscnd
 ## 第 1 步：创建 genesis.json 和节点密钥<a id="step-1-create-genesis-json-and-a-key"></a>
 
 我们将使用 homi 工具生成所需的文件。
-homi "是一种实用工具，可自动生成脚本、配置文件和私钥，以配置 Kaia 区块链。
-你可以在任何 Linux/Mac 电脑上执行 homi。
+homi "是一种实用工具，可自动生成脚本、配置文件和私钥，以配置 Kaia 区块链。你可以在任何 Linux/Mac 电脑上执行 homi。
 
 首先，解压缩下载的 homi 压缩包。
 
@@ -74,7 +73,7 @@ x homi-XXXXX-amd64/bin/homi
 
 转到 `bin` 文件夹，使用以下选项执行 `homi` 以生成文件。
 `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output`
-由于 Kairos 的 "chainID "是 1001，为方便起见，本例中构建的 ServiceChain 的 "chainID "设置为 1002。 通过启动实际服务运行区块链时，建议在 https://chainlist.defillama.com/ 注册新的 chainID 值后使用，这样 chainID 就不会与其他 ServiceChain 重叠。 ServiceChain 端口设置为 22323，这是默认端口。
+由于 Kairos 的 "chainID "是 1001，为方便起见，本例中构建的 ServiceChain 的 "chainID "设置为 1002。通过启动实际服务运行区块链时，建议在 https://chainlist.defillama.com/ 注册新的 chainID 值后使用，这样 chainID 就不会与其他 ServiceChain 重叠。 ServiceChain 端口设置为 22323，这是默认端口。
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -102,8 +101,7 @@ Created :  homi-output/Kaia_txpool.json
 
 ## 第 2 步：自定义 static-nodes.json<a id="step-2-customize-static-nodes-json"></a>
 
-在文本编辑器中打开 `homi-output/scripts/static-nodes.json`，然后用节点的实际值更新 IP 地址和端口。
-在本例中，假设服务链中每个 SCN 节点的 IP 如下图所示。 请记住您在此处分配的端口，因为稍后在第 4 步中会用到它。
+在文本编辑器中打开 `homi-output/scripts/static-nodes.json`，然后用节点的实际值更新 IP 地址和端口。在本例中，假设服务链中每个 SCN 节点的 IP 如下图所示。请记住您在此处分配的端口，因为稍后在第 4 步中会用到它。
 
 ![](/img/nodes/sc-4scn-ip.png)
 
@@ -116,7 +114,7 @@ Created :  homi-output/Kaia_txpool.json
 ]
 ```
 
-更新`static-nodes.json`后，将输出文件夹（`homi-output`）上传到所有 SCN，即 本例中的 SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 节点。
+更新`static-nodes.json`后，将输出文件夹（`homi-output`）上传到所有 SCN，即本例中的 SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 节点。
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/
@@ -127,10 +125,7 @@ $ scp -r path/to/homi-output/ user@192.168.0.4:~/
 
 ## 步骤 3：节点初始化<a id="step-3-node-initialization"></a>
 
-现在，我们将使用创世文件初始化每个节点。 在每个节点上执行以下命令。
-它会在你的主目录下创建数据文件夹，存储链数据和日志。
-您可以使用 `--datadir` 指令更改数据文件夹。
-在本例中，我们将数据文件夹设置为 `\~/data`。
+现在，我们将使用创世文件初始化每个节点。在每个节点上执行以下命令。它会在你的主目录下创建数据文件夹，存储链数据和日志。您可以使用 `--datadir` 指令更改数据文件夹。在本例中，我们将数据文件夹设置为 `\~/data`。
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -147,9 +142,7 @@ keystore	klay		kscn
 $ cp ~/homi-output/scripts/static-nodes.json ~/data/
 ```
 
-在步骤 1 中，我们生成了 4 个节点密钥。
-将每个节点密钥分配给 SCN，并将匹配的 "节点密钥 "复制到每个 SCN 的数据文件夹中。
-例如，SCN-L2-01（192.168.0.1）节点使用 `nodekey1`，SCN-L2-02（192.168.0.2）、SCN-L2-03（192.168.0.3）和 SCN-L2-04（192.168.0.4）节点分别使用 `nodekey2`、`nodekey3` 和 `nodekey4`。
+在步骤 1 中，我们生成了 4 个节点密钥。将每个节点密钥分配给 SCN，并将匹配的 "节点密钥 "复制到每个 SCN 的数据文件夹中。例如，SCN-L2-01（192.168.0.1）节点使用 `nodekey1`，SCN-L2-02（192.168.0.2）、SCN-L2-03（192.168.0.3）和 SCN-L2-04（192.168.0.4）节点分别使用 `nodekey2`、`nodekey3` 和 `nodekey4`。
 
 ```console
 $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
@@ -159,7 +152,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## 步骤 5：配置节点<a id="step-5-configure-nodes"></a>
 
-在每个 SCN 上，进入 kscn 安装文件夹并按如下方式编辑 `conf/kscnd.conf`。 端口 "是用于设置 "homi "的端口，"SC_SUB_BRIDGE "是下一节连接网桥时所需的。 目前，只需将其设置为 0。 在 `DATA_DIR` 中，输入步骤 3 中使用的数据文件夹。
+在每个 SCN 上，进入 kscn 安装文件夹并按如下方式编辑 `conf/kscnd.conf`。端口 "是用于设置 "homi "的端口，"SC_SUB_BRIDGE "是下一节连接网桥时所需的。目前，只需将其设置为 0。在 `DATA_DIR` 中，输入步骤 3 中使用的数据文件夹。
 
 ```
 ...
@@ -180,7 +173,7 @@ $ kscnd start
 Starting kscnd: OK
 ```
 
-您可以通过查看 `kaia.blockNumber` 来检查区块生成状态。 如果该数字不为 0，则说明节点工作正常。
+您可以通过查看 `kaia.blockNumber` 来检查区块生成状态。如果该数字不为 0，则说明节点工作正常。
 
 ```console
 $ kscn attach --datadir ~/data
@@ -192,7 +185,7 @@ $ kscn attach --datadir ~/data
 
 ## (示例）创建和确认价值转移交易<a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
 
-现在，4 节点 ServiceChain 已开始运行。 我们将在服务链中执行价值转移交易，以确认安装。
+现在，4 节点 ServiceChain 已开始运行。我们将在服务链中执行价值转移交易，以确认安装。
 
 ![](/img/nodes/sc-4scn-test.png)
 
@@ -231,10 +224,8 @@ true
 
 :::note
 
-服务链的最简单形式是只有一个 SCN。
-本教程中说明的 ServiceChain 是一个 4 节点 ServiceChain。 不过，如果您愿意，也可以建立单节点 ServiceChain。
-只需在 "步骤 1：创建 genesis.json 和 nodekeys "中向 homi 传递"--cn-num 1"，而不是"--cn-num 4"。
+服务链的最简单形式是只有一个 SCN。本教程中说明的 ServiceChain 是一个 4 节点 ServiceChain。不过，如果您愿意，也可以建立单节点 ServiceChain。只需在 "步骤 1：创建 genesis.json 和 nodekeys "中向 homi 传递"--cn-num 1"，而不是"--cn-num 4"。
 
-至少需要 4 个节点才能容许拜占庭故障。 因此，在 BFT 算法下，实现高可用性的 SCN 数量最少为 4。 仅有 2 个 SCN 节点是不够的，因为如果其中一个 SCN 出现故障，另一个 SCN 就无法独立达成共识。
+至少需要 4 个节点才能容许拜占庭故障。因此，在 BFT 算法下，实现高可用性的 SCN 数量最少为 4。仅有 2 个 SCN 节点是不够的，因为如果其中一个 SCN 出现故障，另一个 SCN 就无法独立达成共识。
 
 :::
