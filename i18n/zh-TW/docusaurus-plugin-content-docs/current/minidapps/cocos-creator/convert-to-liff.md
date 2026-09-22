@@ -199,7 +199,7 @@ build/
 
 ## 總結<a id="conclusion"></a>
 
-恭喜你 您已成功使用 Cocos Creator 建立並部署您的第一個 LINE Mini dApp！ 透過遵循本指南，您已整合 Web3 功能，包括錢包連線、餘額檢索和代幣鑄造 - 將區塊鏈驅動的互動帶入 LINE 生態系統。
+恭喜你您已成功使用 Cocos Creator 建立並部署您的第一個 LINE Mini dApp！透過遵循本指南，您已整合 Web3 功能，包括錢包連線、餘額檢索和代幣鑄造 - 將區塊鏈驅動的互動帶入 LINE 生態系統。
 
 如需更多有關開發 LINE mini dApp 的詳細資訊，請探索這些全面的資源：
 
