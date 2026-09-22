@@ -548,6 +548,7 @@ const sidebars = {
   refSidebar: [
     'references/references',
     'references/public-en',
+    'references/migrate-from-ankr',
     {
       type: 'category',
       label: 'RPC API Reference',
