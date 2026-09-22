@@ -1,6 +1,6 @@
 # 为什么要在 Kaia 上建造
 
-Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模的项目提供强大的基础设施，引领 Web3 的应用。 本文件根据 Kaia 的主要设计原则和价值主张，解释了 Kaia 的与众不同之处。
+Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模的项目提供强大的基础设施，引领 Web3 的应用。本文件根据 Kaia 的主要设计原则和价值主张，解释了 Kaia 的与众不同之处。
 
 ## 广泛的用户基础
 
@@ -12,7 +12,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 ## 丰富的流动性支持
 
-1. **真实世界资产（RWA）链接**：Kaia 区块链拥有各种现实世界资产，如黄金、船舶和房地产。 未来的计划包括上链法币支持的稳定币和债券，扩大开发者可用的资产范围。
+1. **真实世界资产（RWA）链接**：Kaia 区块链拥有各种现实世界资产，如黄金、船舶和房地产。未来的计划包括上链法币支持的稳定币和债券，扩大开发者可用的资产范围。
 
 2. **大规模生态系统基金**：Kaia 生态系统基金以 KAIA 代币为基础，支持各种需要流动性的行业，如 DeFi 和 GameFi。
 
@@ -26,7 +26,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 2. **以太坊兼容性**：
    - 100% 的兼容性确保基于 EVM 的 dApp 无需修改即可上载。
-   - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。 参见 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
+   - 开发工具、EVM 和 API 等同于以太坊，可实现无缝集成，使两个生态系统互惠互利。参见 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md) 和 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx) 。
 
 3. **方便的账户模式**：可为账户分配各种密钥，加强安全性并改善用户体验。
 
@@ -34,7 +34,7 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 ## 成本低，用户体验更好
 
-1. **负担得起的交易费用**：最终用户无需承担高昂的交易费用。 成本稳定，由交易复杂程度决定。 参见 [可负担的智能合约执行成本](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) 和 [交易费用](transaction-fees/transaction-fees.md) 。
+1. **负担得起的交易费用**：最终用户无需承担高昂的交易费用。成本稳定，由交易复杂程度决定。参见 [可负担的智能合约执行成本](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) 和 [交易费用](transaction-fees/transaction-fees.md) 。
 
 2. **收费委托**：应用程序可以支付用户的交易费用，从而实现灵活的商业模式并降低用户获取门槛。
 
@@ -52,4 +52,4 @@ Kaia Blockchain 的目标是成为亚洲第一区块链，通过为各种规模�
 
 2. **去中心化治理**：Kaia 治理委员会（GC）包括传统企业、DAO 和建设者，形成了一个拥有数百名参与者的独特治理结构。
 
-总之，Kaia 在提供这些增强功能的同时，还保持了区块链的透明度、安全性和去中心化等核心特性。 该协议保持稳定，利益相关者坚定不移，为建设者实现 Web3 创新理念创造了理想的环境。
+总之，Kaia 在提供这些增强功能的同时，还保持了区块链的透明度、安全性和去中心化等核心特性。该协议保持稳定，利益相关者坚定不移，为建设者实现 Web3 创新理念创造了理想的环境。
