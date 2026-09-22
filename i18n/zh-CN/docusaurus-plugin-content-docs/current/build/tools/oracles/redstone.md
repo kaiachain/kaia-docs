@@ -2,13 +2,13 @@
 
 ## 概述
 
-[RedStone](https://redstone.finance/) 是一个模块化预言机网络，为智能合约提供价格数据。 在 Kaia 上，RedStone 提供了 **Push** 数据源，这些数据源将价格信息存储在链上，因此 dApp 可以使用熟悉的、与 Chainlink 兼容的 `AggregatorV3Interface` 来读取这些数据。
+[RedStone](https://redstone.finance/) 是一个模块化预言机网络，为智能合约提供价格数据。在 Kaia 上，RedStone 提供了 **Push** 数据源，这些数据源将价格信息存储在链上，因此 dApp 可以使用熟悉的、与 Chainlink 兼容的 `AggregatorV3Interface` 来读取这些数据。
 
-RedStone Push 会根据可配置的 **偏差** 和 **心跳** 条件，定期更新链上价格。 请参阅 [RedStone Push 文档](https://docs.redstone.finance/docs/dapps/redstone-push/) 了解更多信息，并在 [Push Feeds 用户界面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中浏览 Kaia 的实时信息流。
+RedStone Push 会根据可配置的 **偏差** 和 **心跳** 条件，定期更新链上价格。请参阅 [RedStone Push 文档](https://docs.redstone.finance/docs/dapps/redstone-push/) 了解更多信息，并在 [Push Feeds 用户界面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中浏览 Kaia 的实时信息流。
 
 ## 在 Kaia 上使用 RedStone
 
-每个 Push 数据源均作为实现 Chainlink Aggregator 接口的价格数据源合约进行部署。 您可以调用 `latestRoundData()` 来读取最新价格。
+每个 Push 数据源均作为实现 Chainlink Aggregator 接口的价格数据源合约进行部署。您可以调用 `latestRoundData()` 来读取最新价格。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -50,7 +50,7 @@ contract RedStoneConsumer {
 }
 ```
 
-请提供所需资源的源地址（参见下表）。 请务必验证 `updatedAt`，并根据协议对数据的新鲜度要求对数据进行四舍五入处理。
+请提供所需资源的源地址（参见下表）。请务必验证 `updatedAt`，并根据协议对数据的新鲜度要求对数据进行四舍五入处理。
 
 ## Kaia 上的动态
 
@@ -71,7 +71,7 @@ contract RedStoneConsumer {
 | ---- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | USDT | [`0x13d3B27c7C100621CB3B714deAb858Ee06d41db1`](https://kairos.kaiascan.io/account/0x13d3B27c7C100621CB3B714deAb858Ee06d41db1) | 0.5% / 6小时 |
 
-饲料的供应情况和相关参数可能会发生变化。 请在 [推送源界面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中确认最新的地址和更新条件。
+饲料的供应情况和相关参数可能会发生变化。请在 [推送源界面](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true) 中确认最新的地址和更新条件。
 
 ## 资源
 
