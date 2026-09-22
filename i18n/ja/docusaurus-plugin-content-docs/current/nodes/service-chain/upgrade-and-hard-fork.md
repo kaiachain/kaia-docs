@@ -1,12 +1,12 @@
 # アップグレード・サービス・チェーン
 
-カイアとそのServiceChainは、新機能の開発とバグの修正のため、常に新しいバージョンをリリースしてきた。 このページはServiceChainのバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
+カイアとそのServiceChainは、新機能の開発とバグの修正のため、常に新しいバージョンをリリースしてきた。このページはServiceChainのバイナリをアップグレードし、ServiceChainのハードフォークブロック番号を設定するためのガイドです。
 
 ## アップグレード<a href="#upgrade" id="upgrade"></a>
 
 このセクションでは、ServiceChainバイナリをアップグレードする方法を示します。
 
-**注意** ServiceChainバイナリのアップグレードは、不可逆的で後方互換性がない場合があります。 詳細はリリースノートを参照。 例えば、[Kaia v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544)にはこうある：
+**注意** ServiceChainバイナリのアップグレードは、不可逆的で後方互換性がない場合があります。詳細はリリースノートを参照。例えば、[Kaia v1.9.0 release note](https://medium.com/klaytn/klaytn-v1-9-0-release-notes-medium-58e4644f7544)にはこうある：
 
 > 注：このバージョンは、スナップショット同期をサポートするためにデータベースのバージョンを更新します。 v1.9.0にアップデート後、既存のデータで旧バージョンにダウングレードすることはできません。
 
@@ -15,7 +15,7 @@
 - [カイア・ドックス](../downloads/downloads.md)
 - [カイアGithubリポジトリ](https://github.com/kaiachain/kaia/releases)
 
-ServiceChainバイナリをアップグレードするには、ServiceChainノードを停止してバイナリを置き換えます。 例えば、以下のコマンドを使って SCN ノードを停止し、バイナリを新しいものに置き換えることができます。
+ServiceChainバイナリをアップグレードするには、ServiceChainノードを停止してバイナリを置き換えます。例えば、以下のコマンドを使って SCN ノードを停止し、バイナリを新しいものに置き換えることができます。
 
 ```bash
 $ kscnd stop
@@ -23,7 +23,7 @@ Shutting down kscnd: OK
 $ cp /path/to/new/kscn /path/to/original/kscn
 ```
 
-アップグレード後にServiceChainノードを再起動することができます。 しかし、ServiceChainでハードフォークを計画している場合は、ServiceChainのノードを停止させておく必要があります。 ServiceChainのハードフォークの手順については、[ハードフォーク](#hard-fork)を参照してください。
+アップグレード後にServiceChainノードを再起動することができます。しかし、ServiceChainでハードフォークを計画している場合は、ServiceChainのノードを停止させておく必要があります。 ServiceChainのハードフォークの手順については、[ハードフォーク](#hard-fork)を参照してください。
 
 ```bash
 $ kscnd start
@@ -55,11 +55,11 @@ Kaia JavaScript コンソールへようこそ！
 1234
 ```
 
-ここで、ハードフォークを有効にするために適切なブロック番号を選択する必要があります。 現在のブロックとハードフォークのブロックの間に十分なブロック数（1秒ごとに生成される）があることを確認する。
+ここで、ハードフォークを有効にするために適切なブロック番号を選択する必要があります。現在のブロックとハードフォークのブロックの間に十分なブロック数（1秒ごとに生成される）があることを確認する。
 
 ### 2. ServiceChainバイナリのアップグレード<a href="#2-upgrade-the-servicechain-binary" id="2-upgrade-the-servicechain-binary"></a>
 
-ServiceChain バイナリのアップグレード方法については、このページの [Upgrade](#upgrade) セクションを参照してください。 当面はServiceChainノードを停止しておくこと。 ハードフォークのブロック番号を設定した後、それらを再開します。
+ServiceChain バイナリのアップグレード方法については、このページの [Upgrade](#upgrade) セクションを参照してください。当面はServiceChainノードを停止しておくこと。ハードフォークのブロック番号を設定した後、それらを再開します。
 
 ### 3. ハードフォーク・ブロック番号の設定<a href="#3-set-the-hard-fork-block-number" id="3-set-the-hard-fork-block-number"></a>
 
@@ -67,7 +67,7 @@ ServiceChainのバイナリを希望するハードフォークをサポート�
 
 #### すべてのServiceChainノードのgenesisを更新し、チェーン設定を再初期化する。<a href="#update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes" id="update-genesis-and-re-initialize-chain-config-for-all-servicechain-nodes"></a>
 
-まず、`genesis.json`の`config`フィールドにハードフォーク番号を指定する。 例えば、ServiceChainでMagmaのハードフォークを有効化しようとする場合、以下のようにgenesisの`config`フィールドで`magmaCompatibleBlock`を指定する必要がある。
+まず、`genesis.json`の`config`フィールドにハードフォーク番号を指定する。例えば、ServiceChainでMagmaのハードフォークを有効化しようとする場合、以下のようにgenesisの`config`フィールドで`magmaCompatibleBlock`を指定する必要がある。
 
 ```json
 {
@@ -82,7 +82,7 @@ ServiceChainのバイナリを希望するハードフォークをサポート�
 }
 ```
 
-チェーン設定でハードフォークを有効にするには、以前のハードフォークが有効になっていなければならない。 つまり、Magmaハードフォークを有効にするには、EthTxTypeハードフォークがすでに有効になっていなければならない。 チェーン設定に先行ハードフォークの互換ブロック番号のフィールドがない場合は、それも追加しなければならない。
+チェーン設定でハードフォークを有効にするには、以前のハードフォークが有効になっていなければならない。つまり、Magmaハードフォークを有効にするには、EthTxTypeハードフォークがすでに有効になっていなければならない。チェーン設定に先行ハードフォークの互換ブロック番号のフィールドがない場合は、それも追加しなければならない。
 
 例えば、Magmaのハードフォークブロック番号を設定したい場合、`genesis.json`の`config`フィールドに以下のように`ethTxTypeCompatibleBlock`がない：
 
@@ -138,7 +138,7 @@ ERROR[08/02,09:12:39 Z] [48] The same or more recent governance index exist. Ski
 
 #### 更新されたチェーンの設定を確認する<a href="#confirm-the-updated-chain-config" id="confirm-the-updated-chain-config"></a>
 
-ここで、ServiceChainノードを再起動する。 例えば、以下のコマンドでSCNノードを再起動できます。
+ここで、ServiceChainノードを再起動する。例えば、以下のコマンドでSCNノードを再起動できます。
 
 ```bash
 $ kscnd start
@@ -164,11 +164,11 @@ Kaia JavaScript コンソールへようこそ！
 
 ### Magma <a href="#magma" id="magma"></a>
 
-マグマのハードフォークでは、KIP-71、ダイナミック・ガス料金が導入される。 これにはガス価格の上限と下限が含まれる。
+マグマのハードフォークでは、KIP-71、ダイナミック・ガス料金が導入される。これにはガス価格の上限と下限が含まれる。
 
-デフォルトでは、上限は`7500000000`、下限は`25000000000`に設定されている。 これらの境界は SCN ノードの Javascript コンソールで [governance API](../../../references/json-rpc/governance/chain-config) を使って変更することができます。 もちろん、下限が上限を超えることはない。
+デフォルトでは、上限は`7500000000`、下限は`25000000000`に設定されている。これらの境界は SCN ノードの Javascript コンソールで [governance API](../../../references/json-rpc/governance/chain-config) を使って変更することができます。もちろん、下限が上限を超えることはない。
 
-ガス料金を固定値に設定するには、ガス料金の上限と下限を同じ値に設定する必要がある。 例えば、SCNノードのJavascriptコンソールで`governance.vote` APIを使用して、ガス料金を`0`に設定することができます。
+ガス料金を固定値に設定するには、ガス料金の上限と下限を同じ値に設定する必要がある。例えば、SCNノードのJavascriptコンソールで`governance.vote` APIを使用して、ガス料金を`0`に設定することができます。
 
 ```bash
 $ kscn attach --datadir ~/kscnd_home
@@ -184,11 +184,11 @@ Kaia JavaScript コンソールへようこそ！
 "あなたの投票は準備中です。ブロックヘッダに入れるか、あなたのノードが提案者としてブロックを生成するときに適用されます。あなたの票は重複する可能性があることに注意してください。"
 ```
 
-**注** ガバナンス投票とそのアップデートは、マグマのハードフォークの発動に関係なく利用可能である。 つまり、ガバナンス投票はマグマのハードフォーク発動前にも行うことができる。
+**注** ガバナンス投票とそのアップデートは、マグマのハードフォークの発動に関係なく利用可能である。つまり、ガバナンス投票はマグマのハードフォーク発動前にも行うことができる。
 
 ガス価格の上限と下限を更新するための投票が成功した場合、その変更は2イスタンブール・エポック後に有効になる（エポックはブロック番号で表される）。
 
-例えば、エポックが3600で、ガス価格の上限と下限を更新する投票がブロック#4000に置かれた場合、その変更はブロック#10800から有効になる。 詳細には、ブロック#7200で最初のエポックに達した時点で投票が確定し、2番目のエポック（ブロック#10800）で変更が適用される。
+例えば、エポックが3600で、ガス価格の上限と下限を更新する投票がブロック#4000に置かれた場合、その変更はブロック#10800から有効になる。詳細には、ブロック#7200で最初のエポックに達した時点で投票が確定し、2番目のエポック（ブロック#10800）で変更が適用される。
 
 エポックを確認するには、以下のように `governanace.itemsAt` API を使用する。
 
