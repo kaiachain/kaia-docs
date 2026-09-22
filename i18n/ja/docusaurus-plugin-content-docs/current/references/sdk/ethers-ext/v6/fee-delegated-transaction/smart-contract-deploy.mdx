@@ -1,6 +1,6 @@
 # スマートコントラクトのデプロイ
 
-**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。 このトランザクションタイプでは、以下の変更が行われる。
+**TxTypeSmartContractDeploy**は、指定されたアドレスにスマートコントラクトをデプロイする。このトランザクションタイプでは、以下の変更が行われる。
 
 <CH.Spotlight>
 <CH.Code>
@@ -90,7 +90,7 @@ ethers.jsにkaiaの機能を追加するために、**ethers**モジュールと
 
 ---
 
-指定された**kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
+指定された**kairos** testnet URLでプロバイダを設定します。エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=10
 ```
@@ -193,7 +193,7 @@ senderTxHashRLP0x29f9018882035b850ba43b7400830f4240808094a2a8854b1802d8cd5de631e
 
 ---
 
-手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。 関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
+手数料支払者のウォレットを使ってブロックチェーンにトランザクションを送信する。関数 `sendTransactionAsFeePayer` は送信者の署名に FeePayer の秘密鍵による署名を追加し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js TxTypeFeeDelegatedSmartContractDeploy.js focus=30:32
