@@ -10,7 +10,7 @@ sidebar_label: Particle Network
 
 [粒子網絡](https://particle.network) 提供錢包抽象服務，以簡化用戶入門。
 
-[粒子連接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持與 EVM 兼容的鏈，包括 Kaia 及其測試網。 它允許使用[社交和 Web3 登錄選項](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)進行 2 鍵登錄，所有操作都在一個模態中完成。
+[粒子連接 SDK](https://developers.particle.network/api-reference/connect/desktop/web) 支持與 EVM 兼容的鏈，包括 Kaia 及其測試網。它允許使用[社交和 Web3 登錄選項](https://developers.particle.network/api-reference/connect/desktop/web#wallet-connectors)進行 2 鍵登錄，所有操作都在一個模態中完成。
 
 通過 Particle Network，Kaia 開發人員可以為 Kaia 主網和測試網嵌入社交登錄，讓用戶只需使用他們的谷歌、電子郵件、X 等信息就能在您的應用程序中生成和使用錢包。
 
@@ -24,7 +24,7 @@ sidebar_label: Particle Network
 
 ## 安裝
 
-要在您的 dApp 中利用 Particle Network，特別是 Particle Connect，您首先需要安裝所需的庫。 Particle Connect SDK 通過一個界面簡化了錢包創建、用戶登錄和區塊鏈交互過程。 它支持社交登錄和 Web3 登錄，便於訪問。
+要在您的 dApp 中利用 Particle Network，特別是 Particle Connect，您首先需要安裝所需的庫。 Particle Connect SDK 通過一個界面簡化了錢包創建、用戶登錄和區塊鏈交互過程。它支持社交登錄和 Web3 登錄，便於訪問。
 
 要安裝 SDK 以及 Viem（連接後臺）和 ethers（演示 EIP-1193 提供商），請運行
 
@@ -34,7 +34,7 @@ yarn add @particle-network/connectkit viem@^2 ethers
 
 ## 初始化粒子連接
 
-首先，我們將設置 Particle Connect，這是 Particle 的旗艦認證 SDK。 在項目根目錄下創建名為 `ConnectKit.tsx` 的新文件。 該文件將容納 "ParticleConnectKit "組件，它是已配置的 "ConnectKitProvider "實例的包裝器，是配置 Particle Connect 的主要接口（我們稍後將以編程方式介紹）。
+首先，我們將設置 Particle Connect，這是 Particle 的旗艦認證 SDK。在項目根目錄下創建名為 `ConnectKit.tsx` 的新文件。該文件將容納 "ParticleConnectKit "組件，它是已配置的 "ConnectKitProvider "實例的包裝器，是配置 Particle Connect 的主要接口（我們稍後將以編程方式介紹）。
 
 接下來，前往 [Particle dashboard](https://dashboard.particle.network)，創建一個新的網絡應用程序項目，並獲取以下必要的 API 密鑰：
 
@@ -124,7 +124,7 @@ export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
 
 ## 將 Particle Connect 集成到您的應用程序中
 
-配置完成後，用 "ParticleConnectKit "組件封裝您的應用程序，以啟用對 Particle Connect SDK 的全局訪問。 要做到這一點，請對 `src` 目錄中的 `layout.tsx` 文件作如下修改：
+配置完成後，用 "ParticleConnectKit "組件封裝您的應用程序，以啟用對 Particle Connect SDK 的全局訪問。要做到這一點，請對 `src` 目錄中的 `layout.tsx` 文件作如下修改：
 
 ```typescript
 import { ParticleConnectkit } from '@/connectkit';
@@ -156,7 +156,7 @@ export default function RootLayout({
 
 ### 連接錢包
 
-設置好 "layout.tsx "文件後，就可以通過中央**連接錢包**按鈕連接用戶了。 您可以從 `@particle-network/connectkit` 中導入 `ConnectButton` 來實現這一功能。 一旦用戶登錄，"連接按鈕 "就會變成一個嵌入式部件。
+設置好 "layout.tsx "文件後，就可以通過中央**連接錢包**按鈕連接用戶了。您可以從 `@particle-network/connectkit` 中導入 `ConnectButton` 來實現這一功能。一旦用戶登錄，"連接按鈕 "就會變成一個嵌入式部件。
 
 ```js
 import { ConnectButton, useAccount } from '@particle-network/connectkit';
@@ -181,7 +181,7 @@ export const App = () => {
 
 ### 獲取賬戶和餘額
 
-通過 `ConnectButton` 組件成功連接錢包（或社交登錄）後，就可以檢索用戶的相關 Kaia 地址。 此外，您還可以通過 "publicClient"（利用 Particle Connect 已設置的 Viem 提供商）檢索其當前餘額（以 KAIA 為單位）。
+通過 `ConnectButton` 組件成功連接錢包（或社交登錄）後，就可以檢索用戶的相關 Kaia 地址。此外，您還可以通過 "publicClient"（利用 Particle Connect 已設置的 Viem 提供商）檢索其當前餘額（以 KAIA 為單位）。
 
 ```js
 "use client";
@@ -242,7 +242,7 @@ export default function Home() {
 
 ### 斷開錢包連接
 
-用戶登錄後，可以通過源自 `useDisconnect` 的 `disconnect` 以編程方式強制註銷。 這將斷開當前活動會話與 dApp 的連接，使用戶返回初始狀態。
+用戶登錄後，可以通過源自 `useDisconnect` 的 `disconnect` 以編程方式強制註銷。這將斷開當前活動會話與 dApp 的連接，使用戶返回初始狀態。
 
 ```js
 import { useDisconnect } from "@particle-network/connectkit";
@@ -328,4 +328,4 @@ const executeTransaction = async () => {
 
 您可以在 [Particle Connect 文檔](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect) 中找到可用鉤子的完整列表。
 
-有關 Particle Network（Particle Connect、Particle Auth 和其他 SDK）的其他指南，請參閱 [Particle Network 文檔](https://developers.particle.network) 和 [Particle Network GitHub 賬戶](https://github.com/Particle-Network)。 此外，您還可以訪問 [Particle Network 博客](https://blog.particle.network) 瞭解有關 Particle Network 服務、即將發佈的版本和技術棧的更多信息。
+有關 Particle Network（Particle Connect、Particle Auth 和其他 SDK）的其他指南，請參閱 [Particle Network 文檔](https://developers.particle.network) 和 [Particle Network GitHub 賬戶](https://github.com/Particle-Network)。此外，您還可以訪問 [Particle Network 博客](https://blog.particle.network) 瞭解有關 Particle Network 服務、即將發佈的版本和技術棧的更多信息。
