@@ -2,7 +2,7 @@
 
 [Web3.js Extension for kaia](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext) 提供：
 
-- 可直接替代 `new Web3(...)`，支持涉及 AccountKey 和 TxTypes 的以太坊和 kaia 交易类型。 详见[修改 Web3 对象]（#modifications-to-the-web3-object）部分
+- 可直接替代 `new Web3(...)`，支持涉及 AccountKey 和 TxTypes 的以太坊和 kaia 交易类型。详见[修改 Web3 对象]（#modifications-to-the-web3-object）部分
 
 ## 安装
 
@@ -47,7 +47,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### 帐户
 
-- 以下函数可以处理 Klaytn TxType。 参见 [src/accounts/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/accounts/index.ts)
+- 以下函数可以处理 Klaytn TxType。参见 [src/accounts/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/accounts/index.ts)
 
   ```js
   // account independent functions
@@ -72,7 +72,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### Eth RPC 封装程序
 
-- 以下函数调用不同的 RPC，并处理 Klaytn TxTypes。 参见 [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
+- 以下函数调用不同的 RPC，并处理 Klaytn TxTypes。参见 [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
   ```js
   // 尝试 klay_protocolVersion，否则返回 eth_protocolVersion
   web3.eth.getProtocolVersion()
@@ -91,7 +91,7 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 ### Klaytn RPC
 
-- 以下函数调用 Klaytn RPC。 参见 [src/web3.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/web3.ts)
+- 以下函数调用 Klaytn RPC。参见 [src/web3.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/web3.ts)
 
   ```js
   web3.klay.blockNumber() // klay_blockNumber
