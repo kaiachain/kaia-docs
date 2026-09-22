@@ -1,6 +1,6 @@
 # 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
+**AccountKeyRoleBased**はロールベースのキーを表す。アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -161,7 +161,7 @@ web3_tx_sign_recover_role_based()
 
 ---
 
-**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。この行以降のすべてのフィールドを印刷することができる。
 
 ```py web3_role_based_value_transfer_sign_recover.py focus=4,6,24
 
