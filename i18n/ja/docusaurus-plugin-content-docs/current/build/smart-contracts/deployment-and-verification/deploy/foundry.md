@@ -9,7 +9,7 @@ FoundryはRustで書かれたスマートコントラクト開発フレームワ
 Foundryは、高速でモジュール化されたスマート・コントラクト開発を可能にする4つの主要CLIツールで構成されている：
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)：  Forgeを使ってスマートコントラクトのデプロイ、テスト、コンパイルができる。
-- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にするものであり、 チェーンデータの取得、トランザクションの送信などが含まれる。 これには、チェーンデータの取得、トランザクションの送信などが含まれる。
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：CastはEVMスマートコントラクトとのやり取りを簡単にするものであり、 チェーンデータの取得、トランザクションの送信などが含まれる。これには、チェーンデータの取得、トランザクションの送信などが含まれる。
 - [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：ローカルノードをスピンアップする必要がありますか？ AnvilはFoundryが提供するローカルノード環境である。 AnvilはFoundryが提供するローカルノード環境である。
 - [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel)：高速で便利で冗長なsolidity REPL。
 
@@ -42,7 +42,7 @@ forge -V
 
 ![](/img/build/get-started/forge-version.png)
 
-foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。 次のステップでfoundryプロジェクトをセットアップしてみよう：
+foundryのインストールに成功すると、foundryで使用できるCLIツール（forge、cast、anvil、chisel）にアクセスできるようになります。次のステップでfoundryプロジェクトをセットアップしてみよう：
 
 \*\*ステップ1新しいプロジェクトを開始するには、以下のコマンドを実行します：
 
@@ -227,7 +227,7 @@ forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_R
 
 ## Interacting with the contract
 
-スマート・コントラクトのデプロイに成功したら、次のステップは通常、その関数を呼び出して実行することでスマート・コントラクトと対話することだ。 さっそく[Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)を使って、カイア・カイロス・ネットワークに配備されたコントラクトとやりとりしてみよう。
+スマート・コントラクトのデプロイに成功したら、次のステップは通常、その関数を呼び出して実行することでスマート・コントラクトと対話することだ。さっそく[Cast](https://book.getfoundry.sh/reference/cast/cast-send.html)を使って、カイア・カイロス・ネットワークに配備されたコントラクトとやりとりしてみよう。
 
 In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
 
@@ -459,7 +459,7 @@ gas-estimate-multiplier\`フラグは、すべてのガス推定値に乗じる�
 
 ## 結論
 
-このガイドを最後まで読まれた方、おめでとうございます。 ご質問は[カイアフォーラム](https://devforum.kaia.io/)をご覧ください。 しかし、以下は、カイアでFoundryをさらに構築する際に必要となるかもしれない有用なリソースのリストです。
+このガイドを最後まで読まれた方、おめでとうございます。ご質問は[カイアフォーラム](https://devforum.kaia.io/)をご覧ください。しかし、以下は、カイアでFoundryをさらに構築する際に必要となるかもしれない有用なリソースのリストです。
 
 - [Foundry Docs](https://book.getfoundry.sh/)
 - [サイフリン・ファウンドリー・ファンダメンタルズ](https://updraft.cyfrin.io/courses/foundry)
