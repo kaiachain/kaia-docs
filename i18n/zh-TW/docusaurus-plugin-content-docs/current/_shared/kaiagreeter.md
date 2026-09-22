@@ -1,6 +1,6 @@
 # KaiaGreeter
 
-`KaiaGreeter`是一個返回問候信息的簡單合約。 問候信息在部署合同時設置。
+`KaiaGreeter`是一個返回問候信息的簡單合約。問候信息在部署合同時設置。
 
 ## 寫作 KaiaGreeter<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 
