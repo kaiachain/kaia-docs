@@ -1,10 +1,10 @@
 # Intrinsicガス
 
-ガスは`IntrinsicGas`と`ExecutionGas`の和である。 ここでは、`IntrinsicGas`がどのように構成されているかに焦点を当てる。
+ガスは`IntrinsicGas`と`ExecutionGas`の和である。ここでは、`IntrinsicGas`がどのように構成されているかに焦点を当てる。
 
 :::note
 
-Intrinsicガスに関連するハードフォークの変更は、このページの一番下にあります。 ハードフォーク変更](#hardfork-changes)へ。
+Intrinsicガスに関連するハードフォークの変更は、このページの一番下にあります。ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
@@ -55,7 +55,7 @@ KeyValidationGas = (送信者のKeyValidationGas) + (料金支払者のKeyValida
 
 基本的に、`PayloadGas` には `number_of_bytes_of_tx_input x TxDataGas (100)` がチャージされる。
 
-トランザクション作成契約の場合、`number_of_words_of_initcode x InitCodeWordGas (2)` の追加料金が適用される。 上海のハードフォークから有効だ。
+トランザクション作成契約の場合、`number_of_words_of_initcode x InitCodeWordGas (2)` の追加料金が適用される。上海のハードフォークから有効だ。
 
 ## TxTypedガス<a id="txtypedgas"></a>
 
