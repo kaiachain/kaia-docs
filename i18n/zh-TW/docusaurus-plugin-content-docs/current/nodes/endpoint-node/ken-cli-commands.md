@@ -70,15 +70,15 @@ init 指令會為網路初始化新的 genesis 區塊和定義。
 
 :::warning
 
-記住您的密碼。 如果您遺失帳戶密碼，將無法存取該帳戶。 這裡沒有「忘記密碼」選項。 永遠不要忘記
+記住您的密碼。如果您遺失帳戶密碼，將無法存取該帳戶。這裡沒有「忘記密碼」選項。永遠不要忘記
 
 :::
 
-Kaia 提供兩個方便的命令列工具，`ken` 和`JavaScript 控制台`，供開發人員管理帳號。 請注意，不支援以未加密的格式匯出您的私人密碼匙。
+Kaia 提供兩個方便的命令列工具，`ken` 和`JavaScript 控制台`，供開發人員管理帳號。請注意，不支援以未加密的格式匯出您的私人密碼匙。
 
 ### 資料目錄
 
-Keystore 檔案儲存在 `<DATADIR>/keystore`。 您可以如下指定資料目錄。 強烈建議使用 `--datadir` 選項執行 `ken account` 指令。 讓資料目錄指向在 `kend.conf` 中設定的 `DATA_DIR`，以便與您的 Endpoint 節點無縫共用帳號。
+Keystore 檔案儲存在 `<DATADIR>/keystore`。您可以如下指定資料目錄。強烈建議使用 `--datadir` 選項執行 `ken account` 指令。讓資料目錄指向在 `kend.conf` 中設定的 `DATA_DIR`，以便與您的 Endpoint 節點無縫共用帳號。
 
 ```bash
 $ ken account new --datadir<DATADIR>
@@ -92,7 +92,7 @@ $ ken account new --datadir "~/kend_home"
 
 ### 帳戶指令
 
-Kaia 端點節點二進位 `ken` 透過 `account` 指令提供帳號管理。 指令 `account` 可讓您建立新帳號、列出所有現有帳號、將私密金鑰匯入新帳號、轉移至最新的金鑰格式，以及變更密碼。
+Kaia 端點節點二進位 `ken` 透過 `account` 指令提供帳號管理。指令 `account` 可讓您建立新帳號、列出所有現有帳號、將私密金鑰匯入新帳號、轉移至最新的金鑰格式，以及變更密碼。
 
 **用途：**
 
@@ -132,7 +132,7 @@ DATABASE OPTIONS:
 
 ### 建立新帳戶
 
-這將會建立一個新帳戶，並將地址列印在螢幕上。 在資料目錄下會建立一個 keystore 檔案。
+這將會建立一個新帳戶，並將地址列印在螢幕上。在資料目錄下會建立一個 keystore 檔案。
 
 #### Kaia 密鑰庫檔案
 
@@ -142,7 +142,7 @@ DATABASE OPTIONS:
 UTC--<created_at UTC ISO8601>-<address hex>
 ```
 
-在 Kaia 節點之間傳輸整個目錄或其中的個別 keystore 檔案是安全的。 請注意，如果您從其他節點新增金鑰到您的節點，帳號的順序可能會改變。 因此，請確保您的腳本或程式碼片段不依賴索引。
+在 Kaia 節點之間傳輸整個目錄或其中的個別 keystore 檔案是安全的。請注意，如果您從其他節點新增金鑰到您的節點，帳號的順序可能會改變。因此，請確保您的腳本或程式碼片段不依賴索引。
 
 #### ken CLI
 
@@ -154,7 +154,7 @@ $ ken account new --password <(echo $mypassword) --datadir<DATADIR>
 
 :::warning
 
-請注意，使用密碼檔案僅供測試之用；將密碼儲存在檔案中或以任何其他方式揭露密碼都不是好主意。 如果您在密碼檔案中使用密碼標誌，最好確保除了您之外，任何人都無法讀取或列出該檔案。 您可以通過以下方式實現這一目標：
+請注意，使用密碼檔案僅供測試之用；將密碼儲存在檔案中或以任何其他方式揭露密碼都不是好主意。如果您在密碼檔案中使用密碼標誌，最好確保除了您之外，任何人都無法讀取或列出該檔案。您可以通過以下方式實現這一目標：
 
 ```bash
 $ touch /path/to/password
@@ -168,9 +168,9 @@ $ cat > /path/to/password
 
 ### 匯入帳戶
 
-您可以使用密鑰檔案匯入帳戶。 密碼匙檔案假設包含未加密的私人密碼匙，以典範 EC 原始位元組編碼為十六進位。 簡單來說，它是一個不含前導 `0x` 的純文字私人密碼匙。
+您可以使用密鑰檔案匯入帳戶。密碼匙檔案假設包含未加密的私人密碼匙，以典範 EC 原始位元組編碼為十六進位。簡單來說，它是一個不含前導 `0x` 的純文字私人密碼匙。
 
-這會從指定的 keyfile 匯入未加密的私人密碼匙，建立新帳戶，在資料目錄下產生 keystore 檔案，並在控制台列印地址。 您必須記住密碼，以後才能解鎖您的帳戶。
+這會從指定的 keyfile 匯入未加密的私人密碼匙，建立新帳戶，在資料目錄下產生 keystore 檔案，並在控制台列印地址。您必須記住密碼，以後才能解鎖您的帳戶。
 
 \*\* 注意\*\*：如果您可以直接複製您的 keystore 檔案到另一個 Kaia 範例，就不需要這個匯入/匯出機制。
 
@@ -196,7 +196,7 @@ Account #0: {bfc22a57999459b0c2ce6337deb9287e7a970e02} keystore:///Users/usernam
 Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/username/kend_home/keystore/UTC--2019-03-26T07-04-44.840061000Z--47bd2e9565cbe1789454718d6cf1778d7ea557aa
 ```
 
-\*\* 注意\*\*：如果您從其他節點複製密鑰儲存檔案或移除檔案，傳回的帳戶清單順序可能會改變。 因此，請確保您不依賴索引，或確保如果您複製或移除 keystore 檔案，請檢查並在腳本中更新您的帳戶索引。
+\*\* 注意\*\*：如果您從其他節點複製密鑰儲存檔案或移除檔案，傳回的帳戶清單順序可能會改變。因此，請確保您不依賴索引，或確保如果您複製或移除 keystore 檔案，請檢查並在腳本中更新您的帳戶索引。
 
 ### 解鎖帳戶
 
@@ -204,9 +204,9 @@ Account #1: {47bd2e9565cbe1789454718d6cf1778d7ea557aa} keystore:///Users/usernam
 
 #### ken CLI
 
-您可以使用 `--unlock "{address},{address}"`選項在命令列上解除鎖定帳號並啟動 EN，該選項使用逗號分隔的帳號清單（以十六進制或索引為單位）作為參數，因此您可以程式化地在一次會話中解除鎖定帳號。 如果您想透過 RPC 從 dApps 使用您的帳戶，這將非常有用。
+您可以使用 `--unlock "{address},{address}"`選項在命令列上解除鎖定帳號並啟動 EN，該選項使用逗號分隔的帳號清單（以十六進制或索引為單位）作為參數，因此您可以程式化地在一次會話中解除鎖定帳號。如果您想透過 RPC 從 dApps 使用您的帳戶，這將非常有用。
 
-`--unlock` 會解除鎖定清單中的第一個帳號。 當您以程式化方式建立帳號時，此功能非常有用，您不需要知道實際帳號就能解除鎖定。
+`--unlock` 會解除鎖定清單中的第一個帳號。當您以程式化方式建立帳號時，此功能非常有用，您不需要知道實際帳號就能解除鎖定。
 
 建立帳號，並在帳號未鎖定的情況下啟動節點：
 
@@ -223,7 +223,7 @@ $ ken --unlock "2" --datadir<DATADIR>
 $ ken --unlock "bfc22a57999459b0c2ce6337deb9287e7a970e02" --datadir<DATADIR>
 ```
 
-命令列可讓您解除鎖定多個帳號。 在這種情況下，解鎖的參數是以逗號分隔的帳號位址或索引清單。
+命令列可讓您解除鎖定多個帳號。在這種情況下，解鎖的參數是以逗號分隔的帳號位址或索引清單。
 
 ```bash
 $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32" --datadir<DATADIR>
@@ -233,9 +233,9 @@ $ ken --unlock "0x407d73d8a49eeb85d32cf465507dd71d507100c1,0,5,e470b1a7d2c9c5c6f
 
 ## JavaScript 控制檯
 
-Kaia Endpoint Node 附帶 JavaScript 控制檯。 通過控制檯命令行，您可以向您的 EN 發起部分 Kaia API 調用。 要附加到 JavaScript 控制檯，請執行以下命令。
+Kaia Endpoint Node 附帶 JavaScript 控制檯。通過控制檯命令行，您可以向您的 EN 發起部分 Kaia API 調用。要附加到 JavaScript 控制檯，請執行以下命令。
 
-要連線到 JavaScript 主控台，EN 必須處於執行狀態。 如需詳細資訊，請參閱 [啟動 EN](https://docs.kaia.io/nodes/endpoint-node/install-endpoint-nodes/)。 啟動 EN 並附加到控制台，如下所示。
+要連線到 JavaScript 主控台，EN 必須處於執行狀態。如需詳細資訊，請參閱 [啟動 EN](https://docs.kaia.io/nodes/endpoint-node/install-endpoint-nodes/)。啟動 EN 並附加到控制台，如下所示。
 
 ### 使用方式
 
@@ -257,11 +257,11 @@ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:
 
 ### 資料目錄
 
-建立帳戶時，keystore 檔案會儲存在 `<DATADIR>/keystore`。 `<DATADIR>` 是在 `kend.conf` 中設定的 `DATA_DIR`。 如果您依照快速入門指南所給的範例，則必須是 `~/kend_home`。
+建立帳戶時，keystore 檔案會儲存在 `<DATADIR>/keystore`。 `<DATADIR>` 是在 `kend.conf` 中設定的 `DATA_DIR`。如果您依照快速入門指南所給的範例，則必須是 `~/kend_home`。
 
 ### 控制台指令
 
-輸入 `personal` 或 `kaia` 取得可用功能清單。 在本教程中，我們將訪問以下函數：
+輸入 `personal` 或 `kaia` 取得可用功能清單。在本教程中，我們將訪問以下函數：
 
 - `personal.newAccount()`
 - `personal.importRawKey()`
@@ -277,7 +277,7 @@ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:
 > personal.newAccount("passphrase")
 ```
 
-帳戶以加密格式儲存。 您 \*\* 必須\*\*記住此密碼，以便日後解鎖您的帳戶。
+帳戶以加密格式儲存。您 \*\* 必須\*\*記住此密碼，以便日後解鎖您的帳戶。
 
 ### 透過控制台匯入帳號
 
@@ -307,7 +307,7 @@ modules: admin:1.0 debug:1.0 governance:1.0 istanbul:1.0 klay:1.0 miner:1.0 net:
 > personal.unlockAccount(address, "password", 300)
 ```
 
-請注意，我們不建議在此使用密碼參數，因為控制台的歷史記錄會被記錄下來，所以您可能會危及您的帳戶。 我已經警告過你了。
+請注意，我們不建議在此使用密碼參數，因為控制台的歷史記錄會被記錄下來，所以您可能會危及您的帳戶。我已經警告過你了。
 
 ### 檢查帳戶餘額
 
@@ -345,18 +345,18 @@ kaia.accounts[2]：0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32 結餘: 1 KAIA
 kaia.accounts[3]：0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99 結餘: 6 KAIA
 ```
 
-由於此函式會在重新啟動 `ken` 後消失，因此儲存常用的函式以便稍後呼叫，會很有幫助。 首先，將「checkAllBalances()」函式定義儲存到電腦上的檔案。 例如，`/Users/username/klayload.js`。 然後從互動式主控台載入檔案：
+由於此函式會在重新啟動 `ken` 後消失，因此儲存常用的函式以便稍後呼叫，會很有幫助。首先，將「checkAllBalances()」函式定義儲存到電腦上的檔案。例如，`/Users/username/klayload.js`。然後從互動式主控台載入檔案：
 
 ```javascript
 > loadScript("/Users/username/klayload.js")
 true
 ```
 
-檔案會修改您的 JavaScript 環境，就像您手動輸入指令一樣。 請隨意嘗試！
+檔案會修改您的 JavaScript 環境，就像您手動輸入指令一樣。請隨意嘗試！
 
 ## 模塊應用程序接口
 
-如果在控制檯提示符下鍵入模塊名稱，就會看到模塊的可用屬性和功能。 詳細功能請參考 [Kaia API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)。
+如果在控制檯提示符下鍵入模塊名稱，就會看到模塊的可用屬性和功能。詳細功能請參考 [Kaia API](https://docs.kaia.io/references/json-rpc/kaia/account-created/)。
 
 ```javascript
 > 個人
