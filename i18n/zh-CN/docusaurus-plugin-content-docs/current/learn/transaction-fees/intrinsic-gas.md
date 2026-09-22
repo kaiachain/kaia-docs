@@ -1,10 +1,10 @@
 # 内在气体
 
-气体是 "内在气体 "和 "执行气体 "的总和。 在这里，我们将重点讨论 "IntrinsicGas "是如何组织的。
+气体是 "内在气体 "和 "执行气体 "的总和。在这里，我们将重点讨论 "IntrinsicGas "是如何组织的。
 
 :::note
 
-与内在气体相关的硬叉变化可在本页底部找到。 转到 [Hardfork Changes](#hardfork-changes)。
+与内在气体相关的硬叉变化可在本页底部找到。转到 [Hardfork Changes](#hardfork-changes)。
 
 :::
 
@@ -17,7 +17,7 @@
 ```
 
 - PayloadGas "根据 tx 中数据字段的大小计算。
-- 当事务注册新键时，会计算 `KeyCreationGas` 值。 仅适用于 "账户更新 "事务。
+- 当事务注册新键时，会计算 `KeyCreationGas` 值。仅适用于 "账户更新 "事务。
 - KeyValidationGas "根据签名数量计算。
 - TxTypedGas "是根据交易类型定义的。
 
@@ -52,7 +52,7 @@ KeyValidationGas = (KeyValidationGas for a sender) + (KeyValidationGas for a fee
 
 基本上，"PayloadGas "是按 "输入字节数 x TxDataGas (100) "收费的。
 
-如果是创建交易合同，则需支付 "Initcode 的字数 x InitCodeWordGas (2) "的额外费用。 自上海硬分叉以来，它一直有效。
+如果是创建交易合同，则需支付 "Initcode 的字数 x InitCodeWordGas (2) "的额外费用。自上海硬分叉以来，它一直有效。
 
 ## TxTypedGas<a id="txtypedgas"></a>
 
