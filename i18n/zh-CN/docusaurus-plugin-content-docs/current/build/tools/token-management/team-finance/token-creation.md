@@ -8,7 +8,7 @@
 
 ## 入门
 
-在本教程中，您将学习如何使用 Team Finance 轻松创建代币。 让我们开始吧！
+在本教程中，您将学习如何使用 Team Finance 轻松创建代币。让我们开始吧！
 
 1. 导航至团队财务 [令牌创建](https://app.team.finance/token-creation) 选项卡，点击 **创建令牌**。
 
@@ -30,16 +30,16 @@
 
 ![](/img/build/tools/token-management/token-creation/tc-step-5.png)
 
-6. 现在，请核实创建令牌的详细信息，然后点击 **确认交易**，完成整个过程。 进入钱包并签署交易，完成交易过程。
+6. 现在，请核实创建令牌的详细信息，然后点击 **确认交易**，完成整个过程。进入钱包并签署交易，完成交易过程。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-6.png)
 
-7. 确认后，您将被重新引导到一个页面，该页面将显示交易状态。 在交易确认之前，请不要离开页面。
+7. 确认后，您将被重新引导到一个页面，该页面将显示交易状态。在交易确认之前，请不要离开页面。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7a.png)
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7b.png)
 
-8. 祝贺你 您已成功使用 Team Finance 创建了代币。 您可以在仪表板上查看已创建令牌的详细信息并执行一些操作。
+8. 祝贺你您已成功使用 Team Finance 创建了代币。您可以在仪表板上查看已创建令牌的详细信息并执行一些操作。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-8.png)
