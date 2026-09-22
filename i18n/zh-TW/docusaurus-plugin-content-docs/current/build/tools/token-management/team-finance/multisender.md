@@ -6,7 +6,7 @@
 
 ## 開始使用
 
-在本教程中，您將學習如何使用 Team Finance 向多個錢包發送代用幣。 讓我們開始吧！
+在本教程中，您將學習如何使用 Team Finance 向多個錢包發送代用幣。讓我們開始吧！
 
 1. 導覽到 Team Finance [Multisender](https://app.team.finance/token-multisender) 標籤，然後按一下 **Send tokens**。
 
@@ -22,11 +22,11 @@
 
 4. 輸入您要傳送的令牌地址，然後按一下 **繼續**。
 
-> 您可以發送 KAIA 或可替代代幣。 在本指南中，我們將發送可替代代幣。
+> 您可以發送 KAIA 或可替代代幣。在本指南中，我們將發送可替代代幣。
 
 ![](/img/build/tools/token-management/multisender/ms-step-4.png)
 
-5. 新增 **收件人詳細資料 (錢包地址和金額)**。 您可以選擇手動新增收件人詳細資訊，或上傳 CSV 檔案。 在本指南中，我們將使用上傳 CSV 檔案選項。
+5. 新增 **收件人詳細資料 (錢包地址和金額)**。您可以選擇手動新增收件人詳細資訊，或上傳 CSV 檔案。在本指南中，我們將使用上傳 CSV 檔案選項。
 
 ![](/img/build/tools/token-management/multisender/ms-step-5a.png)
 
@@ -36,7 +36,7 @@
 
 ![](/img/build/tools/token-management/multisender/ms-step-6.png)
 
-7. 現在，確認傳送代幣到多個錢包的詳細資訊，然後按一下 **Confirm transaction** 以完成程序。 前往您的錢包，簽署交易完成程序。
+7. 現在，確認傳送代幣到多個錢包的詳細資訊，然後按一下 **Confirm transaction** 以完成程序。前往您的錢包，簽署交易完成程序。
 
 ![](/img/build/tools/token-management/multisender/ms-step-7.png)
 
@@ -44,6 +44,6 @@
 這是一項付費服務，因此請確保您在 KAIA（原生代幣）中備有所需的服務費。
 :::
 
-7. 確認後，您會被重新導向一個頁面，在那裡顯示交易的狀態。 在交易確認之前，請不要離開該頁面。
+7. 確認後，您會被重新導向一個頁面，在那裡顯示交易的狀態。在交易確認之前，請不要離開該頁面。
 
-8. 恭喜你 您已成功使用 Team Finance 向多個錢包發送了代幣。 您可以在儀表板上檢視詳細資訊。
+8. 恭喜你您已成功使用 Team Finance 向多個錢包發送了代幣。您可以在儀表板上檢視詳細資訊。
