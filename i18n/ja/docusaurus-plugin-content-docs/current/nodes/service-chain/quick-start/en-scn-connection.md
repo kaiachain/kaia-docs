@@ -13,7 +13,7 @@ You will set up a Baobab EN and connect the EN with one of your SCNs. Then you w
   - 詳しくは[動作環境](../system-requirements.md)をご参照ください。
 - Download the Baobab EN executable. ダウンロード可能なバイナリの全リストは、[Download](../../downloads/downloads.md) を参照のこと。
 - 仮定と限界
-  - ServiceChainネットワークがインストールされ、実行されている。 ネットワークのセットアップについては、「4ノードサービスチェーンのセットアップ」(4nodes-setup-guide.md)を参照してください。
+  - ServiceChainネットワークがインストールされ、実行されている。ネットワークのセットアップについては、「4ノードサービスチェーンのセットアップ」(4nodes-setup-guide.md)を参照してください。
   - カイロスEN。
   - 1対1の接続しかサポートされていないため、1つのENは1つのSCNにしか接続できません。
   - すべてのSCNがENに接続する必要はない。
@@ -36,9 +36,7 @@ EN-01$ curl -X GET https://packages.kaia.io/kairos/genesis.json -o ~/genesis.jso
 
 ## ステップ 2：EN ノードの初期化<a id="step-2-en-node-initialization"></a>
 
-次に、genesisファイルを使用してENノードを初期化する。 以下のコマンドを実行する。
-チェーンデータとログを保存するデータフォルダがホームディレクトリに作成されます。
-データフォルダは `--datadir` ディレクティブを使って変更できる。
+次に、genesisファイルを使用してENノードを初期化する。以下のコマンドを実行する。チェーンデータとログを保存するデータフォルダがホームディレクトリに作成されます。データフォルダは `--datadir` ディレクティブを使って変更できる。
 
 ```
 EN-01$ ken init --datadir ~/data ~/genesis.json
@@ -65,7 +63,7 @@ EN-01$ kend start
 Starting kscnd: OK
 ```
 
-ブロックの同期状況は `kaia.blockNumber` を見ることで確認できる。 この数値が0でなければ、ノードは正常に動作している。 Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
+ブロックの同期状況は `kaia.blockNumber` を見ることで確認できる。この数値が0でなければ、ノードは正常に動作している。 Downloading all blocks on the Baobab network may take a long time depending on network conditions and hardware performance, so we recommend using [Fast Sync](../../endpoint-node/install-endpoint-nodes.md#fast-sync-optional) to synchronize blocks.
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -77,7 +75,7 @@ EN-01$ ken attach --datadir ~/data
 
 ## ステップ5：ENノードのKNIのチェック<a id="step-5-check-kni-of-en-node"></a>
 
-SCN-L2-01ノードからの接続に使用されるEN-01のKNIに注意してください。 この値は次のステップで `main-bridges.json` を生成する際に使用される。
+SCN-L2-01ノードからの接続に使用されるEN-01のKNIに注意してください。この値は次のステップで `main-bridges.json` を生成する際に使用される。
 
 ```
 EN-01$ ken attach --datadir ~/data
@@ -89,7 +87,7 @@ EN-01$ ken attach --datadir ~/data
 
 ## ステップ6：main-bridges.jsonの作成<a id="step-6-create-main-bridges-json"></a>
 
-SCN-L2-01 (注: EN-01 ノードではありません) にログオンし、`~/data` に `main-bridges.json` を作成します。 の後にある`[::]`をEN-01ノードのIPアドレスに置き換える。
+SCN-L2-01 (注: EN-01 ノードではありません) にログオンし、`~/data` に `main-bridges.json` を作成します。の後にある`[::]`をEN-01ノードのIPアドレスに置き換える。
 
 ```
 SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > ~/data/main-bridges.json
@@ -99,7 +97,7 @@ SCN-L2-01$ echo '["kni://0f7aa6499553...25bae@192.168.1.1:50505?discport=0"]' > 
 
 SCN-L2-01 ノードのシェルから `kscn-XXXXX-amd64/conf/kscnd.conf` を編集します。
 SC_SUB_BRIDGE`を 1 に設定すると、SCN-L2-01 ノードの起動時に自動的にデータアンカリングを開始する。 In this example,`SC_PARENT_CHAIN_ID`is set to 1001 because the`chainID` of the parent chain, Baobab, is 1001.
-SC_ANCHORING_PERIOD`はメインチェーンにアンカリングTXを送信する期間を決めるパラメータである。 値を10に設定すると、ノードは10ブロックごとにアンカリングを実行するように設定される。 デフォルト値は1である。
+SC_ANCHORING_PERIOD`はメインチェーンにアンカリングTXを送信する期間を決めるパラメータである。値を10に設定すると、ノードは10ブロックごとにアンカリングを実行するように設定される。デフォルト値は1である。
 
 ```
 ...
@@ -130,12 +128,11 @@ SCN-L2-01$ kscn attach --datadir ~/data
 
 ## アンカーリング <a id="anchoring"></a>
 
-EN-01とSCN-L2-01の接続が完了したら、アンカリングにより親チェーンのServiceChainブロック情報を記録します。
-このセクションでは、親オペレーターのアカウントをトップアップし、アンカリングを有効にし、アンカリングされたブロック番号を確認します。
+EN-01とSCN-L2-01の接続が完了したら、アンカリングにより親チェーンのServiceChainブロック情報を記録します。このセクションでは、親オペレーターのアカウントをトップアップし、アンカリングを有効にし、アンカリングされたブロック番号を確認します。
 
 ### Step 1: Get KLAY to test anchoring <a id="step-1-get-klay-to-test-anchoring"></a>
 
-Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. そのため、`subbridge.parentOperator`アカウントは、取引手数料を支払うのに十分なKAIAを持っていなければならない。 [Kairos Faucet](https://faucet.kaia.io/)からKAIAを取得し、`parentOperator`にKAIAを転送する。 実サービスでのデータアンカリングのために、`parentOperator`はトランザクション料金に十分なKAIAを持つ必要がある。
+Anchoring requires SCN-L2-01 to make an anchoring transaction to Baobab. そのため、`subbridge.parentOperator`アカウントは、取引手数料を支払うのに十分なKAIAを持っていなければならない。 [Kairos Faucet](https://faucet.kaia.io/)からKAIAを取得し、`parentOperator`にKAIAを転送する。実サービスでのデータアンカリングのために、`parentOperator`はトランザクション料金に十分なKAIAを持つ必要がある。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
@@ -155,7 +152,7 @@ SCN-L2-01$ kscn attach --datadir ~/data
 true
 ```
 
-アンカー開始後、`subbridge.latestAnchoredBlockNumber`を使用することで、Kairosにアンカーされた最新のブロックを確認することができます。 Please note that this only works after the EN already followed up on the latest block of Baobab. デフォルトでは、SCN-L2-01はアンカーをオンにしたブロックからすべてのブロックでアンカーを試行する。 SC_ANCHORING_PERIOD\`を変更することで、アンカー期間を設定することができる。 値が10に設定されている場合、ノードはブロック番号が10の倍数のときにアンカリングを試みる。
+アンカー開始後、`subbridge.latestAnchoredBlockNumber`を使用することで、Kairosにアンカーされた最新のブロックを確認することができます。 Please note that this only works after the EN already followed up on the latest block of Baobab. デフォルトでは、SCN-L2-01はアンカーをオンにしたブロックからすべてのブロックでアンカーを試行する。 SC_ANCHORING_PERIOD\`を変更することで、アンカー期間を設定することができる。値が10に設定されている場合、ノードはブロック番号が10の倍数のときにアンカリングを試みる。
 
 ```
 SCN-L2-01$ kscn attach --datadir ~/data
