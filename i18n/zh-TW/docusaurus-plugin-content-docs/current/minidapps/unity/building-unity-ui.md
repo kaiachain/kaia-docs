@@ -1,6 +1,6 @@
 # UI 創建
 
-在本節中，我們將建立 dApp 的使用者介面！ 我們將建立一個結構化的 UI 系統，其中有三個主要面板，分別用於狀態更新、行動和鑄幣功能。
+在本節中，我們將建立 dApp 的使用者介面！我們將建立一個結構化的 UI 系統，其中有三個主要面板，分別用於狀態更新、行動和鑄幣功能。
 
 ## 設定主畫布
 
@@ -31,20 +31,20 @@
 
 此面板顯示您所有重要的 Web3 資訊：
 
-- 在 StatusPanel 上按一下滑鼠右鍵，然後按一下 UI → Text - TextMeshPro，再重新命名為 StatusText。 確保填入檢閱器窗格中的 「文字輸入 」欄位，例如 「狀態...」
+- 在 StatusPanel 上按一下滑鼠右鍵，然後按一下 UI → Text - TextMeshPro，再重新命名為 StatusText。確保填入檢閱器窗格中的 「文字輸入 」欄位，例如 「狀態...」
 
 :::note
 **TextMeshPro (TMP) 設定**
 
-當您第一次建立 TextMeshPro 元件時 (UI - Text - TextMeshPro)，Unity 會自動提示您匯入 TMP Essentials。 如果您不小心跳過此提示，您可以透過 Window > TextMeshPro > Import TMP Essentials 手動匯入。
+當您第一次建立 TextMeshPro 元件時 (UI - Text - TextMeshPro)，Unity 會自動提示您匯入 TMP Essentials。如果您不小心跳過此提示，您可以透過 Window > TextMeshPro > Import TMP Essentials 手動匯入。
 
-為什麼需要這個？TextMeshPro 需要核心資源 (著色器、預設字型和材質)，才能在遊戲中正確顯示文字。 如果沒有這些要件，您的文字元件將無法正確呈現，而且您會在專案中看到著色器/材質錯誤。 這是文字正常運作所需的一次性設定。
+為什麼需要這個？TextMeshPro 需要核心資源 (著色器、預設字型和材質)，才能在遊戲中正確顯示文字。如果沒有這些要件，您的文字元件將無法正確呈現，而且您會在專案中看到著色器/材質錯誤。這是文字正常運作所需的一次性設定。
 :::
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → Text - TextMeshPro，然後將其重新命名為 AddressText。 請務必填入文字物件，例如：「地址文字......」
-- 在 StatusPanel 點選滑鼠右鍵，點選 UI → Text - TextMeshPro，然後重新命名為 TokenBalanceText。 確保填入文字物件，例如 "0.0000 ET"
+- 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → Text - TextMeshPro，然後將其重新命名為 AddressText。請務必填入文字物件，例如：「地址文字......」
+- 在 StatusPanel 點選滑鼠右鍵，點選 UI → Text - TextMeshPro，然後重新命名為 TokenBalanceText。確保填入文字物件，例如 "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@
 
 您的主要互動按鈕：
 
-- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 ConnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Connect Wallet」。
+- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 ConnectWalletButton。確保在 Inspector 窗格中的「Text Input」欄位填入「Connect Wallet」。
 
-- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 DisconnectWalletButton。 確保在 Inspector 窗格中的「Text Input」欄位填入「Disconnect Wallet」。
+- 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將其重新命名為 DisconnectWalletButton。確保在 Inspector 窗格中的「Text Input」欄位填入「Disconnect Wallet」。
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 代幣鑄造介面：
 
-- 在 MintPanel 上按一下滑鼠右鍵，按一下 UI → 輸入欄位 → TextMeshPro，然後將其重新命名為 MintAmountInput。 請務必在占位符物件中填入 「輸入金額…」
-- 在 MintPanel 上按一下滑鼠右鍵，然後按一下 UI → Button → TextMeshPro，再重新命名為 MintButton。 確保文字物件填上 "Mint" 字樣
+- 在 MintPanel 上按一下滑鼠右鍵，按一下 UI → 輸入欄位 → TextMeshPro，然後將其重新命名為 MintAmountInput。請務必在占位符物件中填入 「輸入金額…」
+- 在 MintPanel 上按一下滑鼠右鍵，然後按一下 UI → Button → TextMeshPro，再重新命名為 MintButton。確保文字物件填上 "Mint" 字樣
 
 ```code
 MintPanel
