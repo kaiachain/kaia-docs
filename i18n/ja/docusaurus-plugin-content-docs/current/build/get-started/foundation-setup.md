@@ -4,7 +4,7 @@
 
 ## 概要
 
-Kaiaは、スピード、セキュリティ、スケーラビリティのために設計されたEVM互換ブロックチェーンである。 Ethereumツールと完全な互換性を持ち、SolidityスマートコントラクトをサポートするKaia Virtual Machine（KVM）を使用している。 イーサリアムからの移行であれば、既存のコードやワークフローのほとんどが[最小限の変更](../tutorials/migrating-ethereum-app-to-kaia.mdx)で動作する。
+Kaiaは、スピード、セキュリティ、スケーラビリティのために設計されたEVM互換ブロックチェーンである。 Ethereumツールと完全な互換性を持ち、SolidityスマートコントラクトをサポートするKaia Virtual Machine（KVM）を使用している。イーサリアムからの移行であれば、既存のコードやワークフローのほとんどが[最小限の変更](../tutorials/migrating-ethereum-app-to-kaia.mdx)で動作する。
 
 カイアのアーキテクチャの詳細については、[カイアでビルドする理由](../../learn/why-kaia.md)と[コンセンサス・メカニズム](../../learn/consensus-mechanism.md)をご覧ください。
 
@@ -12,8 +12,8 @@ Kaiaは、スピード、セキュリティ、スケーラビリティのため�
 
 カイアには主に2つのネットワークがある：
 
-- **Kairos Testnet**：テストと開発用 チェーンID: 1001. 実費をかけずに実験するために使う。
-- \*\*メインネット本番用。 チェーンID: 8217.
+- **Kairos Testnet**：テストと開発用チェーンID: 1001. 実費をかけずに実験するために使う。
+- \*\*メインネット本番用。チェーンID: 8217.
 
 これらのRPCエンドポイントを使ってウォレットやツールを設定します：
 
@@ -24,7 +24,7 @@ Kaiascan](https://kaiascan.io/) (メインネット) または [Kairos Kaiascan]
 
 ## 開発ツール
 
-Kaiaは、イーサリアムの一般的なツールをサポートし、その機能をいくつか拡張している。 主なリソース
+Kaiaは、イーサリアムの一般的なツールをサポートし、その機能をいくつか拡張している。主なリソース
 
 - **SDKs](../../references/sdk/sdk.md)**：ネットワークとの対話には、[ethers-ext](../../references/sdk/ethers-ext/getting-started.md)（ethers.jsの拡張）、[web3js-ext](../../references/sdk/web3js-ext/getting-started.md)などを使用してください。
 - **[パブリックRPCエンドポイント](../../references/public-en.md)**：パブリックRPCエンドポイント経由のアクセス。
