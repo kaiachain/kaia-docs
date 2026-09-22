@@ -98,7 +98,7 @@ Current contract value 123n
 
 ---
 
-`writeContract` 方法用來呼叫合約上的 **setNumber** 函式，並傳入 Date.now()（目前的時間戳記，以毫秒為單位）作為參數。 這會建立並傳送一個交易，以更新合約的 **number** 變數。
+`writeContract` 方法用來呼叫合約上的 **setNumber** 函式，並傳入 Date.now()（目前的時間戳記，以毫秒為單位）作為參數。這會建立並傳送一個交易，以更新合約的 **number** 變數。
 
 <CH.Code>
 ```js smartContractWrite.js focus=24:30
@@ -112,7 +112,7 @@ tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
 
 ---
 
-使用公共用戶端從合約中查詢 **number** 函式（一個不修改狀態的檢視函式）。 這會擷取數字變數的目前值，該值應反映前一筆交易設定的時間戳記 (如果成功的話)。
+使用公共用戶端從合約中查詢 **number** 函式（一個不修改狀態的檢視函式）。這會擷取數字變數的目前值，該值應反映前一筆交易設定的時間戳記 (如果成功的話)。
 
 <CH.Code>
 ```js smartContractWrite.js focus=31:36
