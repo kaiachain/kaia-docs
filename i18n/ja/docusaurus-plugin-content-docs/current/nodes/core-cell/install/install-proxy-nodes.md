@@ -10,7 +10,7 @@
 
 アーカイブファイルは実行バイナリとコンフィギュレーションファイルで構成され、以下のような構造になっている。
 
-**注**：ファイル構造やファイル名を変更しないでください。 これを変更すると、ノードが正しく機能しなくなる可能性があります。
+**注**：ファイル構造やファイル名を変更しないでください。これを変更すると、ノードが正しく機能しなくなる可能性があります。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注**: `kpn` と `kpnd` をグローバルに実行するには、環境変数 `$PATH` に `kpn-linux-amd64/bin` のパスを追加することを推奨する。 一例を挙げよう、
+**注**: `kpn` と `kpnd` をグローバルに実行するには、環境変数 `$PATH` に `kpn-linux-amd64/bin` のパスを追加することを推奨する。一例を挙げよう、
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
@@ -94,7 +94,7 @@ PNの設定は、データ・ディレクトリを作成し、設定ファイル
 
 ### PNデータディレクトリの作成<a id="pn-data-directory-creation"></a>
 
-カイア・ブロックチェーンのデータサイズが常に増加しているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。 希望のパスにディレクトリを作成する必要があるかもしれません。
+カイア・ブロックチェーンのデータサイズが常に増加しているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。希望のパスにディレクトリを作成する必要があるかもしれません。
 
 ```bash
 $ mkdir -p /var/kpnd/data
@@ -102,7 +102,7 @@ $ mkdir -p /var/kpnd/data
 
 ### ノードキーのインストール<a id="install-node-key"></a>
 
-PNを操作するには、`nodekey`が必要である。 KPNのバイナリをお持ちでない場合は、新しいバイナリを作成します。 もしあれば、`nodekey`をPN dataディレクトリに置く必要がある。 `nodekey`を作成する方法は、"[インストールする前に](./before-you-install.md) "のセクションにあります。 以下のコマンドラインは `nodekey` をPN dataディレクトリにコピーする。
+PNを操作するには、`nodekey`が必要である。 KPNのバイナリをお持ちでない場合は、新しいバイナリを作成します。もしあれば、`nodekey`をPN dataディレクトリに置く必要がある。 `nodekey`を作成する方法は、"[インストールする前に](./before-you-install.md) "のセクションにあります。以下のコマンドラインは `nodekey` をPN dataディレクトリにコピーする。
 
 ```bash
 $ cp nodekey /var/kpnd/data
@@ -110,7 +110,7 @@ $ cp nodekey /var/kpnd/data
 
 ### `static-nodes.json`をインストールする。<a id="install-static-nodes-json"></a>
 
-`static-nodes.json`はPN演算子から作成する。 PNが接続しているアドレスが含まれている。 あなたのCNと他のコアセルのPNを含むアドレスを追加することをお勧めします。 詳しくはカイア公式メール(メインネットの場合は`bootstrap@klaytn.com`、カイロスの場合は`baobab@klaytn.com`)までお問い合わせください。
+`static-nodes.json`はPN演算子から作成する。 PNが接続しているアドレスが含まれている。あなたのCNと他のコアセルのPNを含むアドレスを追加することをお勧めします。詳しくはカイア公式メール(メインネットの場合は`bootstrap@klaytn.com`、カイロスの場合は`baobab@klaytn.com`)までお問い合わせください。
 
 **static-nodes.json**
 
@@ -232,7 +232,7 @@ kpnd is running
 
 ### 過去ログ<a id="logs"></a>
 
-ログは `kpnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kpnd.out` ファイルに保存される。 ノードが正常に動作している場合、各ブロックが1秒間に以下のように作成されることがわかる。
+ログは `kpnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kpnd.out` ファイルに保存される。ノードが正常に動作している場合、各ブロックが1秒間に以下のように作成されることがわかる。
 
 例
 
@@ -252,7 +252,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kpnコンソール<a id="kcn-console-kpn-console"></a>
 
-KaiaはCLIクライアント`kpn console`を提供している。 しかし、PNは、セキュリティ上の理由から、クライアントのRPCインタフェースを無効にすることができる。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
+KaiaはCLIクライアント`kpn console`を提供している。しかし、PNは、セキュリティ上の理由から、クライアントのRPCインタフェースを無効にすることができる。クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。
 
 IPC ファイル `klay.ipc` は PN の `DATA_DIR` パスにある。
 
