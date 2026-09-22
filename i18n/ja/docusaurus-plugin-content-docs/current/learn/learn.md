@@ -1,6 +1,6 @@
 # カイアの概要
 
-Kaiaは高度に最適化された<LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFTベースのパブリック・ブロックチェーンで </LinkWithTooltip>、エンタープライズ・グレードの信頼性と性能基準を満たすように設計されている。 この概要では、カイアのアーキテクチャ、機能、エコシステムについて詳しく説明する。
+Kaiaは高度に最適化された<LinkWithTooltip to="../misc/glossary#bft-based-public-blockchain" tooltip="A blockchain that ensures consensus even if up to 1/3 of nodes act maliciously,<br /> using Byzantine Fault Tolerance (BFT) algorithms to maintain network integrity."> BFTベースのパブリック・ブロックチェーンで </LinkWithTooltip>、エンタープライズ・グレードの信頼性と性能基準を満たすように設計されている。この概要では、カイアのアーキテクチャ、機能、エコシステムについて詳しく説明する。
 
 ## 主な設計目標
 
@@ -49,7 +49,7 @@ Kaiaは高度に最適化された<LinkWithTooltip to="../misc/glossary#bft-base
 
 ## コンセンサス・アルゴリズム
 
-KaiaはIstanbul BFTの最適化バージョンを使用しており、ブロックチェーン特有の修正を加えたPBFT（Practical Byzantine Fault Tolerance）を実装している。 コンセンサス・プロセスには以下が含まれる：
+KaiaはIstanbul BFTの最適化バージョンを使用しており、ブロックチェーン特有の修正を加えたPBFT（Practical Byzantine Fault Tolerance）を実装している。コンセンサス・プロセスには以下が含まれる：
 
 1. 検証可能ランダム関数（VRF）を用いた委員会<LinkWithTooltip to="../misc/glossary#proposer" tooltip="A randomly chosen consensus node for block creation.">（提案</LinkWithTooltip>者と<LinkWithTooltip to="../misc/glossary#validator" tooltip="A node verifying data, ensuring efficient block processing.">検証者</LinkWithTooltip>）の選出。
 2. 選出された提案者によるブロック生成。
