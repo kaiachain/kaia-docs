@@ -20,7 +20,7 @@
 
 ### 创建节点密钥和节点 URI<a id="node-key-node-uri-creation"></a>
 
-节点密钥和节点 URI 在开始时只创建一次。 节点 URI 必须与核心单元网络的其他核心单元共享。 一个 CN 通过创建的节点 URI 连接到其他 CN，一个 PN 通过创建的节点 URI 连接到一个 CN 和一些 PN。 节点 URI 是通过下载的 `kgen` 根据节点密钥创建的。 以下命令行创建了 `nodekey` 和 `node_info.json`。
+节点密钥和节点 URI 在开始时只创建一次。节点 URI 必须与核心单元网络的其他核心单元共享。一个 CN 通过创建的节点 URI 连接到其他 CN，一个 PN 通过创建的节点 URI 连接到一个 CN 和一些 PN。节点 URI 是通过下载的 `kgen` 根据节点密钥创建的。以下命令行创建了 `nodekey` 和 `node_info.json`。
 
 `kgen` 获取相关的 IP 和端口号，如下所示。
 
@@ -30,7 +30,7 @@ $ ls
 nodekey node_info.json
 ```
 
-节点密钥 "是一个 64 字节的十六进制字符串，是节点内部使用的私人密钥。 该私人密钥必须存在于 Kaia 数据目录中，小心不要丢失。
+节点密钥 "是一个 64 字节的十六进制字符串，是节点内部使用的私人密钥。该私人密钥必须存在于 Kaia 数据目录中，小心不要丢失。
 
 ```text
 $ cat nodekey
@@ -59,12 +59,12 @@ $ cat node_info.json
 
 ### 节点 URI 注册<a id="node-uri-enrollment"></a>
 
-创建的节点 URI 应注册参与核心小区网络（CCN）。 注册流程如下。
+创建的节点 URI 应注册参与核心小区网络（CCN）。注册流程如下。
 
 1. 使用 `kgen` \(`node_info.json`\)创建一个节点 URI，其中包含相关的 IP 和端口号。
 2. 将信息发送到 Kaia 官方电子邮件地址（主网地址为 `bootstrap@klaytn.com` 或 Kairos\ 电子邮件地址为 `baobab@klaytn.com`）。
 
-注册信息应发送至 Kaia 官方邮箱。 格式如下
+注册信息应发送至 Kaia 官方邮箱。格式如下
 
 如果是 CN、
 
