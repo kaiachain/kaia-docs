@@ -1,6 +1,6 @@
 # 部署智能合约
 
-在 Kaia 上部署智能合约有多种方法。 本文档提供了使用 Remix IDE 部署示例合同的分步指南。
+在 Kaia 上部署智能合约有多种方法。本文档提供了使用 Remix IDE 部署示例合同的分步指南。
 
 在本指南中，我们将使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 生成账户，生成的账户将用于通过 Remix Kaia 插件签署交易。
 
@@ -12,7 +12,7 @@
 
 ![](/img/build/smart-contracts/d-remix-create.png)
 
-2. 复制并粘贴以下示例代码（或任何您想部署的代码）到新文件中。 下面的代码是 CoinFlip 合约，旨在让两名玩家参与游戏，胜者获得彩池。
+2. 复制并粘贴以下示例代码（或任何您想部署的代码）到新文件中。下面的代码是 CoinFlip 合约，旨在让两名玩家参与游戏，胜者获得彩池。
 
 ```solidity
 // SPDX-License-Identifier：MIT
@@ -57,27 +57,27 @@ contract CoinFlip {
 }
 ```
 
-3. 在图标面板中选择 "编译器"。 单击 **Compile Coinflip.sol** 按钮，在实际部署前编译示例代码。
+3. 在图标面板中选择 "编译器"。单击 **Compile Coinflip.sol** 按钮，在实际部署前编译示例代码。
 
 ![](/img/build/smart-contracts/d-remix-compile.png)
 
-4. 在 Kaia 插件选项卡中选择所需的 EVM 环境。 在本指南中，我们将选择 Kairos (testnet)。
+4. 在 Kaia 插件选项卡中选择所需的 EVM 环境。在本指南中，我们将选择 Kairos (testnet)。
 
 ![](/img/build/smart-contracts/d-remix-env.png)
 
-下一步是导入一个账户来签署我们的交易。 您可以从任何与 Kaia 兼容的钱包中导出私钥，也可以使用 Kaia 工具包生成一个开发者账户。 在本指南中，我们将使用 [Kaia Toolkit](https://toolkit.kaia.io/account) 生成一个开发者账户。
+下一步是导入一个账户来签署我们的交易。您可以从任何与 Kaia 兼容的钱包中导出私钥，也可以使用 Kaia 工具包生成一个开发者账户。在本指南中，我们将使用 [Kaia Toolkit](https://toolkit.kaia.io/account) 生成一个开发者账户。
 
 5. 点击账户旁边的加号按钮，导入一个账户。
 
 ![](/img/build/smart-contracts/d-remix-import-account.png)
 
 :::note
-确保账户有足够的 KAIA 来支付部署智能合约的交易费用。 如果您还没有测试 KAIA，请从 [水龙头](https://faucet.kaia.io/) 获取一些测试 KAIA。
+确保账户有足够的 KAIA 来支付部署智能合约的交易费用。如果您还没有测试 KAIA，请从 [水龙头](https://faucet.kaia.io/) 获取一些测试 KAIA。
 :::
 
 6. 设置气体限值和发送值。
 
-- 如果部署的是更复杂的合同，可能需要设置更高的气体限值。 在本例中，可以保持原样。
+- 如果部署的是更复杂的合同，可能需要设置更高的气体限值。在本例中，可以保持原样。
 - 将 `Value` 设为 0，除非您想在部署时向合同发送 `KAIA`。
 
 7. 点击**部署**按钮
@@ -90,10 +90,10 @@ contract CoinFlip {
 
 8. 您可以通过点击功能按钮与合同互动。
 
-这些功能用不同的颜色表示。 在 Solidity 中，"pure "或 "view "函数有蓝色的底部（示例中的 "player1"、"player2"、"pool "等），不会创建新的事务，因此不会耗费任何气体。 红色按钮（示例中的 "输入"）代表 "可支付 "功能，可改变区块链上的状态、消耗气体并可接受价值。 橙色按钮（示例中的 "flipCoin"）用于 "非支付 "功能，可改变合约状态，但不接受数值。
+这些功能用不同的颜色表示。在 Solidity 中，"pure "或 "view "函数有蓝色的底部（示例中的 "player1"、"player2"、"pool "等），不会创建新的事务，因此不会耗费任何气体。红色按钮（示例中的 "输入"）代表 "可支付 "功能，可改变区块链上的状态、消耗气体并可接受价值。橙色按钮（示例中的 "flipCoin"）用于 "非支付 "功能，可改变合约状态，但不接受数值。
 
 ![](/img/build/smart-contracts/d-remix-deployed.png)
 
-如果您读完了本指南，恭喜您。 如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。 不过，以下是您在 Kaia 上使用 Remix IDE 进一步构建时可能需要的有用资源列表。
+如果您读完了本指南，恭喜您。如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。不过，以下是您在 Kaia 上使用 Remix IDE 进一步构建时可能需要的有用资源列表。
 
 - [混音文档](https://remix-ide.readthedocs.io/en/latest/)
