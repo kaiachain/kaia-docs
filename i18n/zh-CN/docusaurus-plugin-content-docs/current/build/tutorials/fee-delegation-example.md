@@ -18,7 +18,7 @@
 
 ## 1. 导言<a href="#1-introduction" id="1-introduction"></a>
 
-本教程将指导您使用 Kaia SDK (ethers-ext) 创建一个简单的服务器-客户端示例，以演示费用委托价值转移交易如何在 Kaia 上运行。 教程和示例代码已在 Kairos 测试网上进行了测试。
+本教程将指导您使用 Kaia SDK (ethers-ext) 创建一个简单的服务器-客户端示例，以演示费用委托价值转移交易如何在 Kaia 上运行。教程和示例代码已在 Kairos 测试网上进行了测试。
 
 ## 2. 如何进行费用委托<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -54,13 +54,13 @@ console.log("senderTxHashRLP", senderTxHashRLP)；
 
 如果没有错误，那么 `senderTxHashRLP` 将有一个已签名的事务，该事务由 `senderPrivateKey` 签名。
 
-现在，您需要将 `senderTxHashRLP` 发送给缴费人。 实施的方法有很多种。 在本教程中，我们将提供一个简单的服务器-客户端代码，作为向缴费人发送 "senderTxHashRLP "的示例。
+现在，您需要将 `senderTxHashRLP` 发送给缴费人。实施的方法有很多种。在本教程中，我们将提供一个简单的服务器-客户端代码，作为向缴费人发送 "senderTxHashRLP "的示例。
 
 ### 2.2 付款人签署交易<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-当 "付费方 "收到 "发送方 TxHashRLP "时，"付费方 "会再次用自己的私钥对 "发送方 TxHashRLP "进行签名，并将交易发送给 Kaia。 下面的代码片段说明了这一过程。
+当 "付费方 "收到 "发送方 TxHashRLP "时，"付费方 "会再次用自己的私钥对 "发送方 TxHashRLP "进行签名，并将交易发送给 Kaia。下面的代码片段说明了这一过程。
 
-[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) 方法在发送交易前用给定的付费者私钥对交易进行签名。 运行代码前，请用实际值替换 "FEEPAYER_ADDRESS "和 "PRIVATE_KEY"。
+[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) 方法在发送交易前用给定的付费者私钥对交易进行签名。运行代码前，请用实际值替换 "FEEPAYER_ADDRESS "和 "PRIVATE_KEY"。
 
 请注意，当缴费人代表发件人向 Kaia 提交交易时，"senderTxHashRLP "类型必须是 "FeeDelegatedValueTransfer "类型的交易。
 
@@ -229,7 +229,7 @@ console.log("Fee delegate service started ...");
 
 服务器监听端口为 `1337`。
 
-当有 "数据 "传入时，它会用 "付费者私钥 "对 "数据 "进行签名，并将其发送到 Kaia 区块链。 它假定 `data` 是 `sender_client.js` 中的 `senderTxHashRLP` 。
+当有 "数据 "传入时，它会用 "付费者私钥 "对 "数据 "进行签名，并将其发送到 Kaia 区块链。它假定 `data` 是 `sender_client.js` 中的 `senderTxHashRLP` 。
 
 ## 4. 运行示例<a href="#4-run-example" id="4-run-example"></a>
 
@@ -271,11 +271,11 @@ senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc
 从服务器接收数据：这是费用委托，服务费支付方为 0x88311cD55B656D2502b50f62E83F8279c1641e70
 ```
 
-它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。 然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址和 "发送哈希值"。 Tx hash "是提交给 Kaia 网络的交易的哈希值。
+它将用 "发送方 "私钥签署交易，并将签署后的交易发送到费用委托服务（即费用支付方的服务器）。然后，它将收到缴费委托服务的响应，包括 "缴费人 "地址和 "发送哈希值"。 Tx hash "是提交给 Kaia 网络的交易的哈希值。
 
 ### 4.3 检查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-在服务器控制台，您将看到以下输出。 它可以打印来自 Kaia 的交易收据。
+在服务器控制台，您将看到以下输出。它可以打印来自 Kaia 的交易收据。
 
 ```bash
 $ node feepayer_server.js
