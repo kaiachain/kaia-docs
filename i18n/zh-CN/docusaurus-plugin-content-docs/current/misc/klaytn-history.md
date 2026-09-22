@@ -4,7 +4,7 @@
 
 :::info
 
-本文档列出了 Kaia 过渡之前出现的硬分叉。 有关过渡期后的硬分叉，请参阅 [Kaia 硬分叉历史](kaia-history.md)。
+本文档列出了 Kaia 过渡之前出现的硬分叉。有关过渡期后的硬分叉，请参阅 [Kaia 硬分叉历史](kaia-history.md)。
 
 :::
 
@@ -17,7 +17,7 @@
 
 ### 摘要
 
-在 [v1.12.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 中引入了 Randao hardfork。 它根据[KIP-113](https://kips.klaytn.foundation/KIPs/kip-113)、[KIP-114](https://kips.klaytn.foundation/KIPs/kip-114)、[KIP-146](https://kips.klaytn.foundation/KIPs/kip-146)实现了一个可选的硬叉，实现了 Randao 链上随机性。
+在 [v1.12.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.12.0) 中引入了 Randao hardfork。它根据[KIP-113](https://kips.klaytn.foundation/KIPs/kip-113)、[KIP-114](https://kips.klaytn.foundation/KIPs/kip-114)、[KIP-146](https://kips.klaytn.foundation/KIPs/kip-146)实现了一个可选的硬叉，实现了 Randao 链上随机性。
 
 ## 坎昆
 
@@ -28,7 +28,7 @@
 
 ### 摘要
 
-以太坊的坎昆硬分叉项目是在[v1.12.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.12.0)中引入的。 有关具体信息，请参阅发布说明。 此外，AccessList 事务类型（[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中引入）已完全支持（[#1955](https://github.com/klaytn/klaytn/pull/1955) ）。
+以太坊的坎昆硬分叉项目是在[v1.12.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.12.0)中引入的。有关具体信息，请参阅发布说明。此外，AccessList 事务类型（[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中引入）已完全支持（[#1955](https://github.com/klaytn/klaytn/pull/1955) ）。
 
 ## 上海
 
@@ -39,7 +39,7 @@
 
 ### 摘要
 
-以太坊的上海硬分叉项目是在[v1.11.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.11.0) 中推出的。 它包括相当于以太坊上海硬分叉的功能（[#1883](https://github.com/klaytn/klaytn/pull/1883)、[#1861](https://github.com/klaytn/klaytn/pull/1861)、[#1888](https://github.com/klaytn/klaytn/pull/1888)）和允许通过覆盖 EOA 来创建新合约账户的固定功能（[#1904](https://github.com/klaytn/klaytn/pull/1904)）。
+以太坊的上海硬分叉项目是在[v1.11.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.11.0) 中推出的。它包括相当于以太坊上海硬分叉的功能（[#1883](https://github.com/klaytn/klaytn/pull/1883)、[#1861](https://github.com/klaytn/klaytn/pull/1861)、[#1888](https://github.com/klaytn/klaytn/pull/1888)）和允许通过覆盖 EOA 来创建新合约账户的固定功能（[#1904](https://github.com/klaytn/klaytn/pull/1904)）。
 
 ## KIP-103<a id="kip-103"></a>
 
@@ -50,7 +50,7 @@
 
 ### 摘要
 
-KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.10.2) 中引入的。 它包括[KIP-103](https://kips.klaytn.foundation/KIPs/kip-103)的实施，是国库再平衡的技术规范（[KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)）。
+KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.10.2) 中引入的。它包括[KIP-103](https://kips.klaytn.foundation/KIPs/kip-103)的实施，是国库再平衡的技术规范（[KGP-6](https://govforum.klaytn.foundation/t/kgp-6-proposal-to-establish-a-sustainable-and-verifiable-klay-token-economy/157)）。
 
 ### 国库再平衡<a id="treasury-rebalance"></a>
 
@@ -70,7 +70,7 @@ KIP-103 hardfork 是在 [v1.10.2 版本] (https://github.com/klaytn/klaytn/relea
 
 ### 摘要
 
-Kore 硬分叉是在[v1.10.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.10.0) 中引入的。 它是链上治理投票方法（[KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)）、新的 GC 奖励结构（[KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)）和 EVM 变化的一种实现。
+Kore 硬分叉是在[v1.10.0 版本](https://github.com/klaytn/klaytn/releases/tag/v1.10.0) 中引入的。它是链上治理投票方法（[KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)）、新的 GC 奖励结构（[KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)）和 EVM 变化的一种实现。
 
 ## 岩浆<a id="magma"></a>
 
@@ -81,7 +81,7 @@ Kore 硬分叉是在[v1.10.0 版本](https://github.com/klaytn/klaytn/releases/t
 
 ### 摘要
 
-在 [v1.9.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.9.0) 中引入了 Magma 硬分叉。 它包括动态燃气费定价机制 [#1493](https://github.com/klaytn/klaytn/pull/1493)) 和 [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71) 的实施。
+在 [v1.9.0 版] (https://github.com/klaytn/klaytn/releases/tag/v1.9.0) 中引入了 Magma 硬分叉。它包括动态燃气费定价机制 [#1493](https://github.com/klaytn/klaytn/pull/1493)) 和 [KIP-71](https://kips.klaytn.foundation/KIPs/kip-71) 的实施。
 
 ## EthTxType<a id="eth-tx-type"></a>
 
@@ -92,7 +92,7 @@ Kore 硬分叉是在[v1.10.0 版本](https://github.com/klaytn/klaytn/releases/t
 
 ### 摘要
 
-以太坊的 EthTxType 变化是在 [v1.8.0 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.8.0) 中引入的。 它包括支持以太坊交易类型的新交易类型：TxTypeEthereumAccessList 和 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
+以太坊的 EthTxType 变化是在 [v1.8.0 版本] (https://github.com/klaytn/klaytn/releases/tag/v1.8.0) 中引入的。它包括支持以太坊交易类型的新交易类型：TxTypeEthereumAccessList 和 TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158)).
 
 ## 伦敦电子考勤机<a id="london-evm"></a>
 
