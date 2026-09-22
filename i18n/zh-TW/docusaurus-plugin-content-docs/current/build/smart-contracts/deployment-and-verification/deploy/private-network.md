@@ -4,7 +4,7 @@
 
 ## 導言<a id="introduction"></a>
 
-在本指南中，我們將指導您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在專用 Kaia 網絡上部署 Greeter 合同。 通過本指南，您將學會如何
+在本指南中，我們將指導您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在專用 Kaia 網絡上部署 Greeter 合同。通過本指南，您將學會如何
 
 - 設立 "硬頭巾 "項目。
 - 啟動一個模擬啟明星測試網的專用網絡。
@@ -51,13 +51,13 @@ npm install @nomiclabs/hardhat-ethers hardhat-deploy dotenv
 
 :::note
 
-hardhat-utils 插件依賴於 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 和 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 插件。  確保在`hardhat.config.js`或`hardhat.config.ts`中要求或導入它們。
+hardhat-utils 插件依賴於 [hardhat-ethers](https://www.npmjs.com/package/@nomiclabs/hardhat-ethers) 和 [hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy) 插件。確保在`hardhat.config.js`或`hardhat.config.ts`中要求或導入它們。
 
 :::
 
 :::info
 
-(建議）安裝硬帽速記裝置。 但您仍然可以使用 npx 硬頭盔執行任務。
+(建議）安裝硬帽速記裝置。但您仍然可以使用 npx 硬頭盔執行任務。
 
 ```js
 npm install hardhat-shorthand --save
@@ -94,7 +94,7 @@ npx 硬頭盔啟動
 
 **第 5 步：創建 .env 文件**
 
-現在在項目文件夾中創建 `.env` 文件。 該文件可幫助我們將環境變量從 `.env` 文件加載到 process.env 文件中。
+現在在項目文件夾中創建 `.env` 文件。該文件可幫助我們將環境變量從 `.env` 文件加載到 process.env 文件中。
 
 在終端中複製並粘貼此命令，創建一個 `.env` 文件
 
@@ -165,7 +165,7 @@ hh klaytn-node
 
 ## 連接控制檯<a id="attaching-console"></a>
 
-專用網絡自帶 JavaScript 控制檯。 通過控制檯命令行，您可以向網絡發起部分 Kaia API 調用。 要附加到 JavaScript 控制檯，請執行以下命令：
+專用網絡自帶 JavaScript 控制檯。通過控制檯命令行，您可以向網絡發起部分 Kaia API 調用。要附加到 JavaScript 控制檯，請執行以下命令：
 
 ```js
 hh klaytn-node --attach
@@ -310,7 +310,7 @@ hh explorer --network localhost
 
 **第 2 步：** 要訪問這個區塊資源管理器，請在瀏覽器中打開 [http://localhost:4000](http://localhost:4000)。
 
-第 3 步：在搜索欄中複製並粘貼已部署的合同地址，然後按 Enter 鍵。 您應該能看到最近部署的合同。
+第 3 步：在搜索欄中複製並粘貼已部署的合同地址，然後按 Enter 鍵。您應該能看到最近部署的合同。
 
 ![](/img/build/smart-contracts/pn-verify-tx-block-explorer.png)
 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-有關 hardhat-utils 的更深入指南，請參閱 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。 此外，您還可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代碼實現。
+有關 hardhat-utils 的更深入指南，請參閱 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。此外，您還可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代碼實現。
