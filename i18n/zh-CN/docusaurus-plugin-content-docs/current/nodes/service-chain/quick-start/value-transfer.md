@@ -1,8 +1,6 @@
 # 跨链价值转移
 
-本节将介绍如何使用提供的测试代码在 Kairos 网络和您的 ServiceChain 之间启用 ERC-20 值传输。
-您将把 KAIA 添加到运营商账户，并部署桥接和 ERC-20 合约。
-然后在 SCN 上注册合同地址。 您将测试 ERC-20 值的转移。
+本节将介绍如何使用提供的测试代码在 Kairos 网络和您的 ServiceChain 之间启用 ERC-20 值传输。您将把 KAIA 添加到运营商账户，并部署桥接和 ERC-20 合约。然后在 SCN 上注册合同地址。您将测试 ERC-20 值的转移。
 
 ## 先决条件<a id="prerequisites"></a>
 
@@ -27,8 +25,7 @@ $ kscn attach --datadir ~/data
 
 ![](/img/nodes/sc-vt-add-kaia.png)
 
-`subbridge.parentOperator` 和 `subbridge.childOperator` 必须有足够的 KAIA 来发送事务。 请注意，"subbridge.parentOperator "是 Kairos 网络上的账户，而 "subbridge.childOperator "是 ServiceChain 网络上的账户。
-使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建测试账户，并从 [the faucet](https://faucet.kaia.io/) 获取测试 KAIA。 然后向`parentOperator`发送一些 KAIA。 childOperator "必须从 "homi "生成的测试账户获取 KAIA（[请参阅《EN 设置和 SCN 连接指南》](en-scn-connection.md)）。
+`subbridge.parentOperator` 和 `subbridge.childOperator` 必须有足够的 KAIA 来发送事务。请注意，"subbridge.parentOperator "是 Kairos 网络上的账户，而 "subbridge.childOperator "是 ServiceChain 网络上的账户。使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建测试账户，并从 [the faucet](https://faucet.kaia.io/) 获取测试 KAIA。然后向`parentOperator`发送一些 KAIA。 childOperator "必须从 "homi "生成的测试账户获取 KAIA（[请参阅《EN 设置和 SCN 连接指南》](en-scn-connection.md)）。
 
 ```
 $ kscn account import ~/homi-output/keys_test/testkey1
@@ -48,7 +45,7 @@ True
 "0x84caab84ebf0c4bb4ecf0a7849f1de3e479f1863a95f70c51047a7ca7bc64b33"
 ```
 
-检查操作员账户是否有足够的余额。 您可以从安装子桥的 SCN 节点控制台进行如下查询：
+检查操作员账户是否有足够的余额。您可以从安装子桥的 SCN 节点控制台进行如下查询：
 
 ```
 > kaia.getBalance(subbridge.childOperator)
@@ -61,13 +58,11 @@ True
 
 ### 步骤 2：部署合同<a id="step-2-deploy-contracts"></a>
 
-- 连接 SCN 并为合同部署准备节点环境。
-  克隆存储库 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+- 连接 SCN 并为合同部署准备节点环境。克隆存储库 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
 
 ![](/img/nodes/sc-vt-deploy.png)
 
-在这一步中，我们将在父链和子链中部署桥接合约和令牌合约。
-代币合约用于铸币/转移测试，桥接合约用于监听/处理价值转移请求。
+在这一步中，我们将在父链和子链中部署桥接合约和令牌合约。代币合约用于铸币/转移测试，桥接合约用于监听/处理价值转移请求。
 
 ```bash
 $ git clone https://github.com/klaytn/servicechain-value-transfer-examples
@@ -100,7 +95,7 @@ $ cd erc20
  }
 ```
 
-运行命令 `node erc20-deploy.js`，执行令牌部署。 该脚本同时部署桥接合约和令牌合约，并输出 API 使用情况以初始化桥接对。
+运行命令 `node erc20-deploy.js`，执行令牌部署。该脚本同时部署桥接合约和令牌合约，并输出 API 使用情况以初始化桥接对。
 
 ```
 $ node erc20-deploy.js
@@ -119,7 +114,7 @@ $ node erc20-deploy.js
 
 ![](/img/nodes/sc-vt-transfer.png)
 
-使用 `node erc20-transfer-1step.js` 命令执行令牌转移。 这种一步式令牌传输需要修改 ERC-20 令牌的实现。 如果您不想修改代币合约，或者您已经部署了代币合约，请参考 [ERC-20 代币转移（两步法）](#erc-20-token-transfer-twost step)。
+使用 `node erc20-transfer-1step.js` 命令执行令牌转移。这种一步式令牌传输需要修改 ERC-20 令牌的实现。如果您不想修改代币合约，或者您已经部署了代币合约，请参考 [ERC-20 代币转移（两步法）](#erc-20-token-transfer-twost step)。
 
 ```
 $ node erc20-transfer-1step.js
@@ -134,9 +129,7 @@ alice balance: 100
 
 ## ERC-20 令牌传输（两步法）<a id="erc-20-token-transfer-twostep"></a>
 
-运行 erc20-transfer-2step.js，查看两步转移示例。 通过这个两步代币转移示例，可以使用未经修改的 ERC-20 代币合约。
-两步转移包括两次函数调用：(1) 先批准桥接合同，然后 (2) 调用合同函数 "requestERC20Transfer()"。
-由于我们已经部署了桥接合约和令牌合约，因此本节不再部署合约。 如果没有部署，则必须先部署。 您可以使用 `node erc20-deploy.js` 部署合同。
+运行 erc20-transfer-2step.js，查看两步转移示例。通过这个两步代币转移示例，可以使用未经修改的 ERC-20 代币合约。两步转移包括两次函数调用：(1) 先批准桥接合同，然后 (2) 调用合同函数 "requestERC20Transfer()"。由于我们已经部署了桥接合约和令牌合约，因此本节不再部署合约。如果没有部署，则必须先部署。您可以使用 `node erc20-deploy.js` 部署合同。
 
 ```
 $ node erc20-transfer-2step.js
@@ -149,9 +142,7 @@ $ node erc20-transfer-2step.js
 
 ## 通过 ERC-20 接口进行 KIP-7 令牌传输（两步法）<a id="kip-7-token-transfer-via-erc-20-interface-two-step"></a>
 
-[KIP-7](https://kips.kaia.io/KIPs/kip-7)是与 ERC-20 兼容的令牌标准。 我们可以向 KIP-7 令牌合约调用 "requestERC20Transfer() "函数，在父链和子链之间转移 KIP-7 令牌。
-在通过 ERC-20 接口发送 KIP-7 令牌的情况下，我们会调用 "approve() "函数，允许网桥代表交易发送方发送令牌。 然后调用`requestERC20Transfer()`函数。
-下面的命令将部署桥接合同和 KIP-7 合同。
+[KIP-7](https://kips.kaia.io/KIPs/kip-7)是与 ERC-20 兼容的令牌标准。我们可以向 KIP-7 令牌合约调用 "requestERC20Transfer() "函数，在父链和子链之间转移 KIP-7 令牌。在通过 ERC-20 接口发送 KIP-7 令牌的情况下，我们会调用 "approve() "函数，允许网桥代表交易发送方发送令牌。然后调用`requestERC20Transfer()`函数。下面的命令将部署桥接合同和 KIP-7 合同。
 
 ```
 $ node kip7-deploy.js
@@ -181,7 +172,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## 对 KIP-7 和 KIP-17 的本地支持（待实施）<a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
-目前，Kaia 团队提供的桥接合约仅支持 "requestERC20Transfer() "和 "requestERC721Transfer() "令牌传输。 KIP-7 和 KIP-17 的相应请求功能将很快得到支持。 在实施之前，如上图所示，您可以使用 ERC-20 接口传输 KIP-7 令牌。
+目前，Kaia 团队提供的桥接合约仅支持 "requestERC20Transfer() "和 "requestERC721Transfer() "令牌传输。 KIP-7 和 KIP-17 的相应请求功能将很快得到支持。在实施之前，如上图所示，您可以使用 ERC-20 接口传输 KIP-7 令牌。
 
 ## ERC-721、KIP-17 和 KAIA 的价值转移<a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
