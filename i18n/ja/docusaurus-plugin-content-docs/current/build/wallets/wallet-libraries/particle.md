@@ -24,7 +24,7 @@ Particle Networkを使えば、Kaiaの開発者はKaiaメインネットとテ�
 
 ## インストール
 
-Particle Network、特にParticle ConnectをdApp内で活用するには、まず必要なライブラリをインストールする必要があります。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。
+Particle Network、特にParticle ConnectをdApp内で活用するには、まず必要なライブラリをインストールする必要があります。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。 ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。 Particle Connect SDKは、ウォレットの作成、ユーザーログイン、ブロックチェーンとのやり取りを1つのインターフェースで効率化します。ソーシャルログインとWeb3ログインの両方をサポートし、簡単にアクセスできる。
 
 SDKとViem（コネクトのバックエンド）、ethers（EIP-1193プロバイダーのデモ）をインストールするには、以下を実行する：
 
@@ -34,7 +34,7 @@ yarn add @particle-network/connectkit viem@^2エーテル
 
 ## Particle Connectの初期化
 
-まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
+まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。まずはじめに、Particleの代表的な認証SDKであるParticle Connectを設定します。 プロジェクトのルート・ディレクトリに `ConnectKit.tsx` という新しいファイルを作成します。 このファイルには `ParticleConnectKit` コンポーネントが格納されます。このコンポーネントは、設定された `ConnectKitProvider` インスタンスのラッパーであり、Particle Connect を設定するための主要なインターフェイスとして機能します（これがプログラムでどのように見えるかについては、後で説明します）。
 
 次に、[Particle dashboard](https://dashboard.particle.network)にアクセスして新しいWebアプリケーションプロジェクトを作成し、以下の必須APIキーを取得します：
 
@@ -124,7 +124,7 @@ export const ParticleConnectkit = ({ children }: React.PropsWithChildren) => {
 
 ## Particle Connectをアプリに統合
 
-設定が完了したら、アプリケーションを `ParticleConnectKit` コンポーネントでラップし、Particle Connect SDK へのグローバルアクセスを有効にします。 そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します： そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：
+設定が完了したら、アプリケーションを `ParticleConnectKit` コンポーネントでラップし、Particle Connect SDK へのグローバルアクセスを有効にします。 そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：そのためには、`src`ディレクトリにある`layout.tsx`ファイルを以下のように修正します：
 
 ```typescript
 import { ParticleConnectkit } from '@/connectkit';
@@ -156,7 +156,7 @@ export default function RootLayout({
 
 ### コネクティング・ウォレット
 
-`layout.tsx`ファイルのセットアップが完了したら、中央の**Connect Wallet**ボタンを使ってユーザーを接続します。 これを行うには `@particle-network/connectkit` から `ConnectButton` をインポートします。 ユーザーがログインすると、`ConnectButton`は埋め込みウィジェットに変わります。
+`layout.tsx`ファイルのセットアップが完了したら、中央の**Connect Wallet**ボタンを使ってユーザーを接続します。これを行うには `@particle-network/connectkit` から `ConnectButton` をインポートします。ユーザーがログインすると、`ConnectButton`は埋め込みウィジェットに変わります。
 
 ```js
 import { ConnectButton, useAccount } from '@particle-network/connectkit';
@@ -181,7 +181,7 @@ export const App = () => {
 
 ### アカウントと残高の取得
 
-`ConnectButton`コンポーネントを通してウォレット（またはソーシャルログイン）が接続されると、ユーザーの関連するKaiaアドレスを取得することができます。 さらに、（KAIAの）現在の残高を`publicClient`を通して取得することができます。これは、Particle Connectによってすでに設定されているViemプロバイダを利用します。
+`ConnectButton`コンポーネントを通してウォレット（またはソーシャルログイン）が接続されると、ユーザーの関連するKaiaアドレスを取得することができます。さらに、（KAIAの）現在の残高を`publicClient`を通して取得することができます。これは、Particle Connectによってすでに設定されているViemプロバイダを利用します。
 
 ```js
 "use client";
@@ -242,7 +242,7 @@ export default function Home() {
 
 ### ウォレットの切断
 
-一度ログインしたユーザは、プログラムによって `useDisconnect` から派生した `disconnect` によって強制的にログアウトさせることができる。 これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。
+一度ログインしたユーザは、プログラムによって `useDisconnect` から派生した `disconnect` によって強制的にログアウトさせることができる。これは現在アクティブなセッションをdAppから切断し、ユーザーを初期状態に戻します。
 
 ```js
 import { useDisconnect } from "@particle-network/connectkit";
@@ -328,4 +328,4 @@ const executeTransaction = async () => {
 
 利用可能なフックの完全なリストは、[Particle Connect docs](https://developers.particle.network/api-reference/connect/desktop/web#key-react-hooks-for-particle-connect)にあります。
 
-Particle Network（Particle Connect、Particle Auth、およびその他のSDK）に関するその他のガイドについては、[Particle Network docs](https://developers.particle.network)および[Particle Network GitHubアカウント](https://github.com/Particle-Network)を参照してください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。
+Particle Network（Particle Connect、Particle Auth、およびその他のSDK）に関するその他のガイドについては、[Particle Network docs](https://developers.particle.network)および[Particle Network GitHubアカウント](https://github.com/Particle-Network)を参照してください。 さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。さらに、Particle Networkのサービス、今後のリリース、技術スタックに関する追加情報については、[Particle Networkブログ](https://blog.particle.network)をご覧ください。
