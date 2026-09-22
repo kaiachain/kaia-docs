@@ -2,7 +2,7 @@
 
 ## 概要
 
-このガイドでは、ethers-ext SDKを使用して、Kaiaブロックチェーン上でUSDTを例としてERC 20トークンをプログラムで送信する方法を学びます。 カイアSDKは、ethers-ext、web3js-ext、viem-ext、web3j-ext、web3py-extを含むライブラリーの集合体であり、開発者が異なるプログラミング環境でカイアノードと対話することを支援します。
+このガイドでは、ethers-ext SDKを使用して、Kaiaブロックチェーン上でUSDTを例としてERC 20トークンをプログラムで送信する方法を学びます。カイアSDKは、ethers-ext、web3js-ext、viem-ext、web3j-ext、web3py-extを含むライブラリーの集合体であり、開発者が異なるプログラミング環境でカイアノードと対話することを支援します。
 
 このガイドでは、スマートコントラクトの呼び出しを通じてUSDTトークンを送信するためにethers-ext SDKを使用することに焦点を当てています。
 
