@@ -8,7 +8,7 @@ import Editor from '@site/src/components/Editor'
   route={RoutePath.Web3jsExt_Account_Role}
 />
 
-**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个**基于账户密钥角色的**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
+**AccountKeyRoleBased** 表示基于角色的密钥。如果账户有一个**基于账户密钥角色的**对象，且交易类型为**除账户更新外的**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -219,7 +219,7 @@ signedTx 0xcb8e1fc03088f2a00d44c31ce1c5f4913d3cf11403d60014a245ae44aa4c2a2f
 
 ---
 
-向区块链发送已签名的 tx。 它将返回交易的**收据**
+向区块链发送已签名的 tx。它将返回交易的**收据**
 
 <CH.Code>
 ```js AccountUpdateWithRoleBased.js focus=35:36
