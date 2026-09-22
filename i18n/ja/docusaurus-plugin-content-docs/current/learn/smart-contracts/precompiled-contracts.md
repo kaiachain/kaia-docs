@@ -1,10 +1,7 @@
 # コンパイル済み契約書
 
-Kaiaはいくつかの便利なコンパイル済みコントラクトを提供しますが、どれも状態を変更するものではありません。
-これらのコントラクトはネイティブ実装としてプラットフォーム自体に実装されており、Kaiaクライアント仕様の一部であることを意味します。
-アドレス0x01から0x0Aまでのプリコンパイルされたコントラクトは、イーサリアムのものと同じである。
-プリコンパイルの有用性は、大きく4つのカテゴリーに分類される：
-.。 ハッシュメソッド
+Kaiaはいくつかの便利なコンパイル済みコントラクトを提供しますが、どれも状態を変更するものではありません。これらのコントラクトはネイティブ実装としてプラットフォーム自体に実装されており、Kaiaクライアント仕様の一部であることを意味します。アドレス0x01から0x0Aまでのプリコンパイルされたコントラクトは、イーサリアムのものと同じである。プリコンパイルの有用性は、大きく4つのカテゴリーに分類される：
+.。ハッシュメソッド
 . ハッシュメソッド
 . メモリコピー
 . zk証明のためのelliptic curve数学を可能にする方法。
@@ -17,13 +14,13 @@ istanbulのEVMハードフォーク以前に導入された契約は、元のア
 - case 1) Kairos のブロック番号 `#75373310` に配置されたコントラクトは、それぞれ vmLog、feePayer、validateSender のアドレスとして 0x09、0x0a、0x0b を認識しており、blake2f は使用できません。
 - case 2) ブロック番号 `#75373314` の Kairos に配置されたコントラクトは、0x09 を blake2f のアドレスとして認識し、0x3fd、0x3fe、0xff を vmLog、feePayer、validateSender のアドレスとして認識する。
 
-ハードフォークの変更に関連するコンパイル済みの契約書は、このページの一番下にあります。 [ハードフォーク変更](#hardfork-changes)へ。
+ハードフォークの変更に関連するコンパイル済みの契約書は、このページの一番下にあります。[ハードフォーク変更](#hardfork-changes)へ。
 
 :::
 
 ## アドレス 0x01: ecrecover<a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
-アドレス0x01はecrecoverを実装している。 ECDSAの復元関数を計算することで、与えられた署名からアドレスを返す。 これは、ソリディティ・ラッパーが付属している唯一のプリコンパイルである。 この関数のプロトタイプは以下の通りである：
+アドレス0x01はecrecoverを実装している。 ECDSAの復元関数を計算することで、与えられた署名からアドレスを返す。これは、ソリディティ・ラッパーが付属している唯一のプリコンパイルである。この関数のプロトタイプは以下の通りである：
 
 ```text
 function ecRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view returns (address) {
@@ -34,7 +31,7 @@ function ecRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view retu
 
 ## アドレス 0x02: sha256(data)<a id="address-0x-02-sha-256-data"></a>
 
-アドレス0x02はSHA256ハッシュを実装している。 与えられたデータからSHA256ハッシュを返す。 イーサリアムがKeccak256を使用しているように、ビットコインとZcashで主に使用されている。 この関数のプロトタイプは以下の通りである：
+アドレス0x02はSHA256ハッシュを実装している。与えられたデータからSHA256ハッシュを返す。イーサリアムがKeccak256を使用しているように、ビットコインとZcashで主に使用されている。この関数のプロトタイプは以下の通りである：
 
 ```text
 function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
@@ -62,7 +59,7 @@ function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
 
 ## アドレス 0x03: ripemd160<a id="address-0x-03-ripemd-160-data"></a>
 
-アドレス0x03はRIPEMD160ハッシュを実装している。 与えられたデータからRIPEMD160ハッシュを返す。 この関数のプロトタイプは以下の通りである：
+アドレス0x03はRIPEMD160ハッシュを実装している。与えられたデータからRIPEMD160ハッシュを返す。この関数のプロトタイプは以下の通りである：
 
 ```text
 function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
@@ -74,7 +71,7 @@ function RIPEMD160(bytes calldata data) public view returns (bytes20 h) {
 
 ## アドレス 0x04: datacopy(data)<a id="address-0x-04-datacopy-data"></a>
 
-アドレス0x04はdatacopy(＝identity function)を実装している。 入力データをそのまま返す。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このプリコンパイルされたコントラクトを呼び出すには、インライン・アセンブリを使った以下のコードを使うことができる。
+アドレス0x04はdatacopy(＝identity function)を実装している。入力データをそのまま返す。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このプリコンパイルされたコントラクトを呼び出すには、インライン・アセンブリを使った以下のコードを使うことができる。
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -92,7 +89,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## アドレス 0x05: bigModExp(base, exp, mod\)<a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-アドレス0x05は、`base**exp % mod`という数式を実装している。 与えられたデータから結果を返す。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。 このコンパイル済みコントラクトは任意の長さの入力をサポートしているが、以下のコードでは例として固定長の入力を使用していることに注意。
+アドレス0x05は、`base**exp % mod`という数式を実装している。与えられたデータから結果を返す。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。このコンパイル済みコントラクトは任意の長さの入力をサポートしているが、以下のコードでは例として固定長の入力を使用していることに注意。
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -124,7 +121,7 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 
 ## アドレス 0x06: bn256Add(ax, ay, bx, by)<a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-アドレス0x06は、ネイティブの楕円曲線ポイント加算を実装している。 (ax,ay)+(bx,by)\`を表す楕円曲線の点で、(ax,ay)と(bx,by)が曲線bn256上の有効な点であるものを返す。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x06は、ネイティブの楕円曲線ポイント加算を実装している。 (ax,ay)+(bx,by)\`を表す楕円曲線の点で、(ax,ay)と(bx,by)が曲線bn256上の有効な点であるものを返す。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -145,7 +142,7 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 
 ## アドレス 0x07: bn256ScalarMul(x, y, scalar)<a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-アドレス0x07は、スカラー値とのネイティブな楕円曲線乗算を実装している。 (x,y)が曲線bn256上の有効な曲線点であるような楕円曲線点(scalar \* (x, y)\`)を返す。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x07は、スカラー値とのネイティブな楕円曲線乗算を実装している。 (x,y)が曲線bn256上の有効な曲線点であるような楕円曲線点(scalar \* (x, y)\`)を返す。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -165,7 +162,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 
 ## アドレス 0x08: bn256Pairing (a1, b1, a2, b2, a3, b3, ..., ak, bk)<a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-アドレス0x08は、zkSNARK検証を実行するための楕円曲線パーリング操作を実装している。 詳しくは[EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)を参照のこと。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x08は、zkSNARK検証を実行するための楕円曲線パーリング操作を実装している。詳しくは[EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -187,7 +184,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-09-blake2F-rounds-h-m-t-f"></a>
 
-アドレス0x09はBLAKE2bのF圧縮機能を実装している。 詳しくは[EIP-152](https://eips.ethereum.org/EIPS/eip-152)を参照のこと。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x09はBLAKE2bのF圧縮機能を実装している。詳しくは[EIP-152](https://eips.ethereum.org/EIPS/eip-152)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -207,7 +204,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## Address 0x0A: kzg\(data\) <a id="address-0x-0a-kzg-data"></a>
 
-アドレス0x0Aは、KZG証明の検証を所定の時点で所定の値まで実行する。 詳細は[EIP-4844](https://eips.ethereum.org/EIPS/eip-4844)を参照のこと。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x0Aは、KZG証明の検証を所定の時点で所定の値まで実行する。詳細は[EIP-4844](https://eips.ethereum.org/EIPS/eip-4844)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callKzg(bytes memory data) public returns (bytes memory) {
@@ -224,8 +221,7 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## アドレス 0x0B: bls12381G1Add(input)<a id="address-0x-0b-bls12381G1Add-input"></a>
 
-アドレス0x0Bは、BLS12381 G1アドオプション動作を実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x0Bは、BLS12381 G1アドオプション動作を実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381add() public returns (bytes memory) {
@@ -238,8 +234,7 @@ function bls12381add() public returns (bytes memory) {
 
 ## アドレス 0x0C: bls12381G1MultiExp(input)<a id="address-0x-0c-bls12381G1MultiExp-input"></a>
 
-アドレス0x0Cは、BLS12381のG1乗算演算を実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x0Cは、BLS12381のG1乗算演算を実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381mul() public returns (bytes memory) {
@@ -259,8 +254,7 @@ function bls12381multiexp() public returns (bytes memory) {
 
 ## アドレス 0x0D: bls12381G2Add(input)<a id="address-0x-0d-bls12381G2Add-input"></a>
 
-アドレス 0x0D は BLS12381 G2 の加算動作を実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス 0x0D は BLS12381 G2 の加算動作を実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381g2add() public returns (bytes memory) {
@@ -273,8 +267,7 @@ function bls12381g2add() public returns (bytes memory) {
 
 ## アドレス 0x0E: bls12381G2MultiExp(input)<a id="address-0x-0e-bls12381G2MultiExp-input"></a>
 
-アドレス0x0Eは、BLS12381のG2乗算演算を実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x0Eは、BLS12381のG2乗算演算を実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381g2mul() public returns (bytes memory) {
@@ -294,8 +287,7 @@ function bls12381g2multiexp() public returns (bytes memory) {
 
 ## アドレス 0x0F: bls12381Pairing\(input)<a id="address-0x-0f-bls12381Pairing-input"></a>
 
-アドレス0x0FはBLS12381のペアリング動作を実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x0FはBLS12381のペアリング動作を実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381pairing() public returns (bytes memory) {
@@ -308,8 +300,7 @@ function bls12381pairing() public returns (bytes memory) {
 
 ## アドレス 0x10: bls12381MapG1(input)<a id="address-0x-10-bls12381MapG1-input"></a>
 
-アドレス 0x10 は BLS12381 Map G1 オペレーションを実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス 0x10 は BLS12381 Map G1 オペレーションを実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381mapg1() public returns (bytes memory) {
@@ -322,8 +313,7 @@ function bls12381mapg1() public returns (bytes memory) {
 
 ## アドレス 0x11: bls12381MapG2(input)<a id="address-0x-11-bls12381MapG2-input"></a>
 
-アドレス 0x11 は BLS12381 Map G2 オペレーションを実装している。 詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。
-このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス 0x11 は BLS12381 Map G2 オペレーションを実装している。詳しくは[EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)を参照のこと。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function bls12381mapg2() public returns (bytes memory) {
@@ -336,7 +326,7 @@ function bls12381mapg2() public returns (bytes memory) {
 
 ## アドレス 0x3fd: vmLog<a id="address-0x-3fc-vmlog-str"></a>
 
-アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。 詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。 このプリコンパイルされたコントラクトはデバッグ目的でのみ使用されるべきで、Kaiaノードが起動するときに`--vmlog`オプションを有効にする必要があることに注意してください。 また、vmLogの出力を見るには、Kaiaノードのログレベルを4以上にする必要があります。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス0x3FDは、指定された文字列 `str` を特定のファイルに出力するか、ロガーモジュールに渡す。詳細は、[debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target) を参照してください。このプリコンパイルされたコントラクトはデバッグ目的でのみ使用されるべきで、Kaiaノードが起動するときに`--vmlog`オプションを有効にする必要があることに注意してください。また、vmLogの出力を見るには、Kaiaノードのログレベルを4以上にする必要があります。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -346,7 +336,7 @@ function callVmLog(bytes memory str) public {
 
 ## Address 0x3fe: feePayer(\)<a id="address-0x-3fd-feepayer"></a>
 
-アドレス 0x3FE は、実行中のトランザクションの料金支払人を返す。 このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。 このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
+アドレス 0x3FE は、実行中のトランザクションの料金支払人を返す。このプリコンパイルされたコントラクトは Solidity コンパイラではサポートされていません。このコンパイル済みコントラクトを呼び出すには、以下のコードを使用する。
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -363,13 +353,13 @@ function feePayer() internal returns (address addr) {
 
 ## Address 0x3ff: validateSender(Γ)<a id="address-0x-3fe-validatesender"></a>
 
-アドレス0x3FFは、メッセージとともに送信者の署名を検証する。 Kaiaは[鍵ペアをアドレスから切り離す](../accounts.md#decoupling-key-pairs-from-addresses)ので、署名が対応する送信者によって適切に署名されていることを検証する必要がある。 そのために、このコンパイル済みコントラクトは3つのパラメーターを受け取る：
+アドレス0x3FFは、メッセージとともに送信者の署名を検証する。 Kaiaは[鍵ペアをアドレスから切り離す](../accounts.md#decoupling-key-pairs-from-addresses)ので、署名が対応する送信者によって適切に署名されていることを検証する必要がある。そのために、このコンパイル済みコントラクトは3つのパラメーターを受け取る：
 
 - 公開鍵を取得するための送信者のアドレス
 - 署名の生成に使われるメッセージ・ハッシュ。
 - 送信者の秘密鍵によって、与えられたメッセージ・ハッシュで署名された署名。
 
-プリコンパイルされたコントラクトは、与えられた署名が送信者の秘密鍵によって適切に署名されていることを検証する。 Kaiaはネイティブにマルチシグネチャをサポートしていることに注意してください。 署名は65バイト長でなければならない。
+プリコンパイルされたコントラクトは、与えられた署名が送信者の秘密鍵によって適切に署名されていることを検証する。 Kaiaはネイティブにマルチシグネチャをサポートしていることに注意してください。署名は65バイト長でなければならない。
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
@@ -402,7 +392,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
 | ハードフォーク    | 新商品                                          | 変更点                                                                                                                                                |
 | ---------- | :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | カンクンEVM    | kzg (0x0a) コンパイル済み契約書     |                                                                                                                                                    |
-| コレ         |                                              | modExp (0x05) プリコンパイルされた契約は、新しいガス<br/>計算ロジックを使用する。 計算コストも影響する。 <br/>より正確になる。                                                    |
+| コレ         |                                              | modExp (0x05) プリコンパイルされた契約は、新しいガス<br/>計算ロジックを使用する。計算コストも影響する。<br/>より正確になる。                                                      |
 | イスタンブールEVM | blake2f (0x09) コンパイル済み契約書 | kaiaのプリコンパイル契約アドレスは、<br/>、0x09,0x0A,0x0Bから0x3FD,0x3FE,0x3FFに移動されました。<br/>詳細は、以下の[プリコンパイル契約アドレス変更表](#precompiled-contract-address-change)を参照してください。 |
 
 ### コントラクトアドレス変更<a id="precompiled-contract-address-change"></a>
