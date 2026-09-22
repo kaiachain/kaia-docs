@@ -4,7 +4,7 @@
 
 ## 导言
 
-[Chainlink Cross-Chain Interoperability Protocol](https://docs.chain.link/ccip) (CCIP) 为开发者和去中心化应用程序（dApps）提供了一种安全、高效的跨区块链交互方式。 利用 CCIP，您可以发送代币和任意消息，以触发目标合约上的操作，如铸造 NFT、重新平衡指数或调用自定义函数。
+[Chainlink Cross-Chain Interoperability Protocol](https://docs.chain.link/ccip) (CCIP) 为开发者和去中心化应用程序（dApps）提供了一种安全、高效的跨区块链交互方式。利用 CCIP，您可以发送代币和任意消息，以触发目标合约上的操作，如铸造 NFT、重新平衡指数或调用自定义函数。
 
 在本教程中，您将学习如何使用 Chainlink CCIP 从 Kaia 智能合约向另一条链上的合约发送信息和代币，以及如何接收这些信息和代币。
 
@@ -34,7 +34,7 @@
 
 ### 创建项目
 
-在本节中，您将使用 [Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/foundry) 设置开发环境。 要创建一个新的 Foundry 项目，首先要创建一个新目录：
+在本节中，您将使用 [Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/foundry) 设置开发环境。要创建一个新的 Foundry 项目，首先要创建一个新目录：
 
 ```bash
 mkdir kaia-foundry-ccip-example
@@ -371,7 +371,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
 }
 ```
 
-上面的代码是一个双向 CCIP 合约，可在允许列表的链上发送和接收字符串信息，并带有所有者控制、LINK 或本地费用支付功能。 让我们来看看本合同中要用到的主要功能：
+上面的代码是一个双向 CCIP 合约，可在允许列表的链上发送和接收字符串信息，并带有所有者控制、LINK 或本地费用支付功能。让我们来看看本合同中要用到的主要功能：
 
 **1. 所有列表**
 
@@ -380,14 +380,14 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
 - **allowlistedSenders[address]（通过 allowlistSender(addr, allowed)）**：当信息到达时，限制信任源链上的哪些发件人地址。
 
 :::note
-测试前在两端都设置好。 信息源必须信任发送方和链。 目的地也必须列入允许发送列表。
+测试前在两端都设置好。信息源必须信任发送方和链。目的地也必须列入允许发送列表。
 :::
 
 **2. 发送信息**
 
-**sendMessagePayLINK(selector, receiver, text)**：发送信息并在 LINK 中支付 CCIP 费用。 这将生成一条信息，报出费用，检查 LINK 余额，批准路由器，然后执行 ccipSend。 完成后，它会返回一个与发送信息相关的唯一 ID。
+**sendMessagePayLINK(selector, receiver, text)**：发送信息并在 LINK 中支付 CCIP 费用。这将生成一条信息，报出费用，检查 LINK 余额，批准路由器，然后执行 ccipSend。完成后，它会返回一个与发送信息相关的唯一 ID。
 
-**发送消息支付本地（选择器、接收器、文本）**：发送信息并以本地令牌支付 CCIP 费用。 这将生成一条信息，报出费用，检查本地余额，然后执行 ccipSend（值：费用）。 完成后，它会返回一个与发送信息相关的唯一 ID。
+**发送消息支付本地（选择器、接收器、文本）**：发送信息并以本地令牌支付 CCIP 费用。这将生成一条信息，报出费用，检查本地余额，然后执行 ccipSend（值：费用）。完成后，它会返回一个与发送信息相关的唯一 ID。
 
 **3. 建立信息**
 
@@ -400,7 +400,7 @@ _buildCCIPMessage(receiver, text, feeTokenAddress) -> EVM2AnyMessage
 
 **4. 接收信息**
 
-CCIP 调用 _ccipReceive(...) 在目标链上。 合同：
+CCIP 调用 _ccipReceive(...) 在目标链上。合同：
 
 - 根据允许列表验证源链和发件人
 - 解码字符串
@@ -420,7 +420,7 @@ forge build
 
 ### 将钱包设置为部署器
 
-在将智能合约部署到网络之前，您需要设置一个钱包作为部署器。 为此，您可以使用 [cast wallet import](https://book.getfoundry.sh/reference/cast/cast-wallet-import) 命令将钱包的私钥导入 Foundry 的安全加密密钥库：
+在将智能合约部署到网络之前，您需要设置一个钱包作为部署器。为此，您可以使用 [cast wallet import](https://book.getfoundry.sh/reference/cast/cast-wallet-import) 命令将钱包的私钥导入 Foundry 的安全加密密钥库：
 
 ```bash
 cast wallet import deployer --interactive
@@ -457,7 +457,7 @@ source .env
 
 完成合约编译和环境设置后，就可以部署智能合约了。
 
-要使用 Foundry 部署智能合约，可以使用 forge create 命令。 该命令要求您指定要部署的智能合约、要部署到的网络的 RPC URL 和要部署的账户。
+要使用 Foundry 部署智能合约，可以使用 forge create 命令。该命令要求您指定要部署的智能合约、要部署到的网络的 RPC URL 和要部署的账户。
 
 ### 将发送方合同部署到 Kairos Testnet
 
@@ -469,17 +469,17 @@ forge create --rpc-url $KAIROS_RPC_URL --account deployer --broadcast src/Messen
 
 出现提示时，输入之前导入钱包私钥时设置的密码。
 
-运行上述命令后，合同将部署到 Kairos 测试网络上。 您可以使用 [Kaiascan block explorer](https://kairos.kaiascan.io) 查看部署状态和合同。
+运行上述命令后，合同将部署到 Kairos 测试网络上。您可以使用 [Kaiascan block explorer](https://kairos.kaiascan.io) 查看部署状态和合同。
 
 #### 使您的合约能够向以太坊 Sepolia 上的接收方合约发送 CCIP 消息
 
-首先，我们需要更新目标链的交易允许列表状态。 为此，请运行以下命令：
+首先，我们需要更新目标链的交易允许列表状态。为此，请运行以下命令：
 
 ```bash
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistDestinationChain(uint64, bool)" $ETH_SEPOLIA_CHAIN_SELECTOR true --account deployer
 ```
 
-上面的代码调用 _allowlistDestinationChain()_ 来设置发送方合约允许的目标链选择器。 每个链选择器都可以在 [CCIP 目录] (https://docs.chain.link/ccip/directory) 中找到。
+上面的代码调用 _allowlistDestinationChain()_ 来设置发送方合约允许的目标链选择器。每个链选择器都可以在 [CCIP 目录] (https://docs.chain.link/ccip/directory) 中找到。
 
 ### 在以太坊 Sepolia 上部署接收器合约
 
@@ -491,17 +491,17 @@ forge create --rpc-url $ETH_SEPOLIA_RPC_URL --account deployer --broadcast src/M
 
 出现提示时，输入之前导入钱包私钥时设置的密码。
 
-运行上述命令后，合约将部署到以太坊 Sepolia 上。 您可以使用 [ETH Sepolia 区块浏览器](https://sepolia.etherscan.io/) 查看部署状态和合约。
+运行上述命令后，合约将部署到以太坊 Sepolia 上。您可以使用 [ETH Sepolia 区块浏览器](https://sepolia.etherscan.io/) 查看部署状态和合约。
 
 #### 启用您的合同，以便从 Kairos Testnet 上的发件人合同接收 CCIP 信息
 
-首先，我们需要更新交易源链的允许列表状态。 为此，请运行以下命令：
+首先，我们需要更新交易源链的允许列表状态。为此，请运行以下命令：
 
 ```bash
 cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistSourceChain(uint64, bool)" $KAIROS_CHAIN_SELECTOR true --account deployer
 ```
 
-上面的代码调用 _allowlistSourceChain()_ 来设置接收器合约允许使用的源代码链选择器。 每个链选择器都可以在 [CCIP 目录] (https://docs.chain.link/ccip/directory) 中找到。
+上面的代码调用 _allowlistSourceChain()_ 来设置接收器合约允许使用的源代码链选择器。每个链选择器都可以在 [CCIP 目录] (https://docs.chain.link/ccip/directory) 中找到。
 
 #### 启用您的合同，以便从 Kairos Testnet 上的发件人合同接收 CCIP 信息
 
@@ -512,7 +512,7 @@ cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistS
 ```
 
 :::note
-此时，您在 Kairos Testnet 上有一个发送方合约，在 Ethereum Sepolia 上有一个接收方合约。 作为安全措施，您启用了发送方合约，以便向 Ethereum Sepolia 发送 CCIP 消息，并启用了接收方合约，以便从发送方和 Kairos Testnet 接收 CCIP 消息。
+此时，您在 Kairos Testnet 上有一个发送方合约，在 Ethereum Sepolia 上有一个接收方合约。作为安全措施，您启用了发送方合约，以便向 Ethereum Sepolia 发送 CCIP 消息，并启用了接收方合约，以便从发送方和 Kairos Testnet 接收 CCIP 消息。
 :::
 
 ## 为智能合约提供资金
@@ -549,15 +549,15 @@ cast send $KAIROS_LINK_ADDRESS --rpc-url $KAIROS_RPC_URL "transfer(address,uint2
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "sendMessagePayLINK(uint64, address, string)" $ETH_SEPOLIA_CHAIN_SELECTOR `RECEIVER_DEPLOYED_ADDRESS` "gKaia builders" --account deployer
 ```
 
-上述命令调用 _sendMessagePayLINK(uint64, address, string)_ 发送信息。 传递给该方法的参数包括目标链（Ethereum Sepolia）的链选择器、接收方合约地址以及要包含在消息中的文本数据（Hello Builders）。
+上述命令调用 _sendMessagePayLINK(uint64, address, string)_ 发送信息。传递给该方法的参数包括目标链（Ethereum Sepolia）的链选择器、接收方合约地址以及要包含在消息中的文本数据（Hello Builders）。
 
 运行该命令后，将返回一个唯一的 messageId。
 
-交易完成后，CCIP 会花几分钟时间将数据传送到 Ethereum Sepolia，并调用 Receiver 合约上的 ccipReceive 函数。 要验证跨链交易，请打开 [CCIP explorer](https://ccip.chain.link) 并使用交易哈希值进行搜索。
+交易完成后，CCIP 会花几分钟时间将数据传送到 Ethereum Sepolia，并调用 Receiver 合约上的 ccipReceive 函数。要验证跨链交易，请打开 [CCIP explorer](https://ccip.chain.link) 并使用交易哈希值进行搜索。
 
 ![](/img/build/tools/ccip-kaia-eth.png)
 
-接下来要做的是检查目的地链上的接收器合同。 为此，您需要运行下面的命令调用 _getLastReceivedMessageDetails()_ ：
+接下来要做的是检查目的地链上的接收器合同。为此，您需要运行下面的命令调用 _getLastReceivedMessageDetails()_ ：
 
 ```bash
 cast call `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "getLastReceivedMessageDetails()" 
@@ -583,14 +583,14 @@ cast to-utf8 e48656c6c6f206275696c64657273000000000000000000000000000000000000
 现在你应该看到 **Hello builders** 意味着我们的跨链操作成功了。
 
 :::note
-这些示例合同旨在双向运行。 您可以使用它们将数据从 Kairos Testnet 发送到 Ethereum Sepolia，再从 Ethereum Sepolia 发送回 Kairos Testnet。
+这些示例合同旨在双向运行。您可以使用它们将数据从 Kairos Testnet 发送到 Ethereum Sepolia，再从 Ethereum Sepolia 发送回 Kairos Testnet。
 :::
 
 ### 发送数据并以本地方式支付
 
-在此部分，您将用 CCIP 发送短信，并用本地令牌支付费用。 您将从 Ethereum Sepolia 向 Kaia（Kairos Testnet）发送数据。 这就颠倒了先前的方向，因此 Sepolia 合约充当发送方，而 Kairos 合约充当接收方。
+在此部分，您将用 CCIP 发送短信，并用本地令牌支付费用。您将从 Ethereum Sepolia 向 Kaia（Kairos Testnet）发送数据。这就颠倒了先前的方向，因此 Sepolia 合约充当发送方，而 Kairos 合约充当接收方。
 
-首先，我们需要用以太坊 Sepolia 上的 ETH 为发送方合约提供资金。 为此，请运行以下 cast 命令：
+首先，我们需要用以太坊 Sepolia 上的 ETH 为发送方合约提供资金。为此，请运行以下 cast 命令：
 
 ```bash
 cast send --rpc-url $ETH_SEPOLIA_RPC_URL `SENDER_DEPLOYED_ADDRESS` --value 300000000000000000 --account deployer
@@ -602,13 +602,13 @@ cast send --rpc-url $ETH_SEPOLIA_RPC_URL `SENDER_DEPLOYED_ADDRESS` --value 30000
 将 SENDER_DEPLOYED_ADDRESS 替换为发件人合同地址。
 :::
 
-下一步是在以太坊 Sepolia 上允许发送者合约的目的链。 为此，请运行以下命令：
+下一步是在以太坊 Sepolia 上允许发送者合约的目的链。为此，请运行以下命令：
 
 ```bash
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistDestinationChain(uint64, bool)" $KAIROS_CHAIN_SELECTOR true --account deployer
 ```
 
-下一步是允许从 Kairos Testnet 上的接收器合同中获取源链。 为此，请运行以下命令：
+下一步是允许从 Kairos Testnet 上的接收器合同中获取源链。为此，请运行以下命令：
 
 ```bash
 cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistSourceChain(uint64, bool)" $ETH_SEPOLIA_CHAIN_SELECTOR true --account deployer
@@ -626,15 +626,15 @@ cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistSender
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "sendMessagePayNative(uint64, address, string)" $KAIROS_CHAIN_SELECTOR 0x12798F1E2013A110E3C8B23aC1f36c00B8DFD4d9 "gKaia Builders" --account deployer
 ```
 
-上述命令调用 _sendMessagePayNative(uint64, address, string)_ 发送信息。 传递给该方法的参数包括目标链（Kairos Testnet）的链选择器、接收器合同地址以及要包含在信息中的文本数据（gKaia Builders）。
+上述命令调用 _sendMessagePayNative(uint64, address, string)_ 发送信息。传递给该方法的参数包括目标链（Kairos Testnet）的链选择器、接收器合同地址以及要包含在信息中的文本数据（gKaia Builders）。
 
 运行该命令后，将返回一个唯一的 messageId。
 
-交易完成后，CCIP 会花几分钟时间将数据传送到 Kairos Testnet，并调用接收器合同上的 ccipReceive 函数。 要验证跨链交易，请打开 [CCIP explorer](https://ccip.chain.link) 并使用交易哈希值进行搜索。
+交易完成后，CCIP 会花几分钟时间将数据传送到 Kairos Testnet，并调用接收器合同上的 ccipReceive 函数。要验证跨链交易，请打开 [CCIP explorer](https://ccip.chain.link) 并使用交易哈希值进行搜索。
 
 ![](/img/build/tools/ccip-eth-kaia.png)
 
-接下来要做的是检查目的地链上的接收器合同。 为此，您需要运行下面的命令调用 _getLastReceivedMessageDetails()_ ：
+接下来要做的是检查目的地链上的接收器合同。为此，您需要运行下面的命令调用 _getLastReceivedMessageDetails()_ ：
 
 ```bash
 cast call `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "getLastReceivedMessageDetails()" 
@@ -660,7 +660,7 @@ cast to-utf8 674b616961206275696c64657273000000000000000000000000000000000000
 
 ## 结论
 
-在本教程中，您将学习如何使用 Chainlink CCIP 从 Kaia Kairos Testnet 向另一条链 Ethereum Sepolia 发送消息，反之亦然。 有关 Chainlink CCIP 及其工作原理的更多深入指南，请参阅 [Chainlink CCIP Documentation](https://docs.chain.link/ccip/tutorials/evm)。
+在本教程中，您将学习如何使用 Chainlink CCIP 从 Kaia Kairos Testnet 向另一条链 Ethereum Sepolia 发送消息，反之亦然。有关 Chainlink CCIP 及其工作原理的更多深入指南，请参阅 [Chainlink CCIP Documentation](https://docs.chain.link/ccip/tutorials/evm)。
 
 
 
