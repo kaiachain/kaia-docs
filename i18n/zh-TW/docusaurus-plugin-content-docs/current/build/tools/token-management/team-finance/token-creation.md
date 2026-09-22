@@ -8,7 +8,7 @@
 
 ## 開始使用
 
-在本教程中，您將學習如何使用 Team Finance 輕鬆創建代幣。 讓我們開始吧！
+在本教程中，您將學習如何使用 Team Finance 輕鬆創建代幣。讓我們開始吧！
 
 1. 導覽到 Team Finance [Token creation](https://app.team.finance/token-creation) 標籤，然後按一下 **Create token**。
 
@@ -30,16 +30,16 @@
 
 ![](/img/build/tools/token-management/token-creation/tc-step-5.png)
 
-6. 現在，請驗證您的代用幣建立詳細資訊，然後按一下 \*\* 確認交易\*\*，以完成程序。 前往您的錢包，簽署交易完成程序。
+6. 現在，請驗證您的代用幣建立詳細資訊，然後按一下 \*\* 確認交易\*\*，以完成程序。前往您的錢包，簽署交易完成程序。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-6.png)
 
-7. 確認後，您會被重新導向一個頁面，在那裡顯示交易的狀態。 在交易確認之前，請不要離開該頁面。
+7. 確認後，您會被重新導向一個頁面，在那裡顯示交易的狀態。在交易確認之前，請不要離開該頁面。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7a.png)
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7b.png)
 
-8. 恭喜你 您已成功使用 Team Finance 建立代幣。 您可以在儀表板上檢視已建立代幣的詳細資訊，並執行一些動作。
+8. 恭喜你您已成功使用 Team Finance 建立代幣。您可以在儀表板上檢視已建立代幣的詳細資訊，並執行一些動作。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-8.png)
