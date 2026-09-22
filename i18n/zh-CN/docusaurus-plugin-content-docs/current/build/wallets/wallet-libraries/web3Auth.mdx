@@ -8,11 +8,11 @@ sidebar_label: Web3Auth
 
 ## 导言
 
-[Web3Auth](https://web3auth.io/docs/) 是一种钱包基础设施，可插入 dApp 或钱包。 它是 Web3 钱包和应用程序的可插拔认证基础设施。 凭借 Web3Auth 卓越的用户体验，无论是主流用户还是加密货币原住民，都可以在几分钟内完成注册。
+[Web3Auth](https://web3auth.io/docs/) 是一种钱包基础设施，可插入 dApp 或钱包。它是 Web3 钱包和应用程序的可插拔认证基础设施。凭借 Web3Auth 卓越的用户体验，无论是主流用户还是加密货币原住民，都可以在几分钟内完成注册。
 
-作为一种钱包基础设施，它为所有社交登录、网络和移动原生平台、钱包和其他密钥管理方法提供开箱即用的支持。 本指南结束时，您将把 Web3Auth 集成到基于 Kaia 网络构建的去中心化网络应用程序中。 要将 Web3Auth 集成到其他平台（Android、iOS、React Native、Flutter 和 Unity），请参考本 [指南](https://web3auth.io/docs/quick-start)。
+作为一种钱包基础设施，它为所有社交登录、网络和移动原生平台、钱包和其他密钥管理方法提供开箱即用的支持。本指南结束时，您将把 Web3Auth 集成到基于 Kaia 网络构建的去中心化网络应用程序中。要将 Web3Auth 集成到其他平台（Android、iOS、React Native、Flutter 和 Unity），请参考本 [指南](https://web3auth.io/docs/quick-start)。
 
-为了快速入门，本教程的完整代码可在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md) 上获取。 您可以克隆或下载该版本库，以便跟随学习。
+为了快速入门，本教程的完整代码可在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/blob/main/examples/3rd-integration-examples/web3Auth.md) 上获取。您可以克隆或下载该版本库，以便跟随学习。
 
 ## 先决条件
 
@@ -24,7 +24,7 @@ sidebar_label: Web3Auth
 
 ## 安装
 
-要在 dApp 中使用 Web3Auth，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js 和 Web3Auth Web SDK。 您可以将 Web3Auth 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 或 [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) 库一起使用，以便与 Kaia 区块链通信。 本指南将使用 ethers.js。
+要在 dApp 中使用 Web3Auth，必须先安装所需的库和 SDK。因此，您需要设置 ethers.js 和 Web3Auth Web SDK。您可以将 Web3Auth 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html) 或 [kaia sdk](https://docs.kaia.io/references/sdk/ethers-ext/getting-started/) 库一起使用，以便与 Kaia 区块链通信。本指南将使用 ethers.js。
 
 ```bash
 npm install --save @web3auth/modal @web3auth/base @web3auth/ethereum-provider @web3auth/default-evm-adapter
@@ -406,7 +406,7 @@ function App() {
 
 ## 设置实用工具功能
 
-在本指南中，我们将使用实用工具函数：`truncateAddress()`。 truncateAddress() 函数接收一个有效地址，并返回一个更可读的地址格式。 以下步骤展示了如何在项目中设置和使用 utils 函数。
+在本指南中，我们将使用实用工具函数：`truncateAddress()`。 truncateAddress() 函数接收一个有效地址，并返回一个更可读的地址格式。以下步骤展示了如何在项目中设置和使用 utils 函数。
 
 **第 1** 步在 `src` 根文件夹中创建一个 `utils.ts` 文件。
 
@@ -485,7 +485,7 @@ function App() {
 
 ## 断开钱包连接
 
-使用 Web3Auth 实例上的 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 方法可以断开与钱包的连接。 此外，一个好的做法是刷新状态，清除之前存储的连接数据。
+使用 Web3Auth 实例上的 [logout()](https://web3auth.io/docs/sdk/web/no-modal/usage#logging-out-the-user) 方法可以断开与钱包的连接。此外，一个好的做法是刷新状态，清除之前存储的连接数据。
 
 ```js
 function App() {
@@ -514,7 +514,7 @@ function App() {
 
 ## 获取用户信息
 
-Web3Auth 的一个独特功能是社交登录。 用户使用社交平台登录后，Web3Auth 实例会返回登录用户的一些信息。 在 Web3Auth 实例上调用 `getUserInfo()` 方法即可简单地获取登录用户信息。
+Web3Auth 的一个独特功能是社交登录。用户使用社交平台登录后，Web3Auth 实例会返回登录用户的一些信息。在 Web3Auth 实例上调用 `getUserInfo()` 方法即可简单地获取登录用户信息。
 
 ```js
 const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
@@ -626,7 +626,7 @@ return (
 
 ## 使用智能合约
 
-您可以根据智能合约的应用程序二进制接口（ABI）和合约地址与已部署的智能合约进行交互。 以下步骤说明了如何在项目中设置和使用合同地址和 ABI。
+您可以根据智能合约的应用程序二进制接口（ABI）和合约地址与已部署的智能合约进行交互。以下步骤说明了如何在项目中设置和使用合同地址和 ABI。
 
 **第 1** 步在 `src` 根文件夹中创建一个 `constants.ts` 文件。
 
