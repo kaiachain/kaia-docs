@@ -14,3 +14,7 @@
 - Testnet (Kairos) - 0x043c471bEe060e00A56CcD02c0Ca286808a5A436
 
 更多信息，请参阅 [GitHub 存储库](https://github.com/kaiachain/canonical-wkaia)。
+
+## 揭秘WKAIA
+
+若要将 WKAIA 转换回 KAIA，请使用 Kaia 生态系统的兑换服务，或通过区块浏览器直接调用合约。如果您在旧版、非标准 WKLAY 包装器（地址为 `0xfd844c2fca5e595004b17615f891620d1cb9bbb2`）中持有余额， 请参阅 [将旧版 WKLAY 解封装为 KAIA](../../tutorials/unwrap-legacy-wklay.md)。
