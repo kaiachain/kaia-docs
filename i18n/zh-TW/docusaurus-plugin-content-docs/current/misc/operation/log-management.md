@@ -6,8 +6,8 @@
 
 - \--log.rotate"：通過設置該標誌，可啟用日誌輪換並應用其他日誌輪換選項
 - \--log.maxsize\`：以 MB 為單位指定觸發備份文件創建的文件大小
-- `--log.maxbackups`：確定可存儲備份文件的最大數量。 一旦達到此限制，舊日誌將被刪除。
-- `--log.maxage`：代表保留日誌文件的最長天數。 例如，如果設置為 30，備份文件將在 30 天后刪除。
+- `--log.maxbackups`：確定可存儲備份文件的最大數量。一旦達到此限制，舊日誌將被刪除。
+- `--log.maxage`：代表保留日誌文件的最長天數。例如，如果設置為 30，備份文件將在 30 天后刪除。
 - log.compress\`：設置此標記後，備份日誌將被壓縮為 gz 格式。
 
 示例
@@ -27,7 +27,7 @@ LOG_MAXAGE=30 # maximum number of days to retain a log file
 LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 ```
 
-建議下載並使用版本為 v1.0.0 或更高的軟件包。 您可以在發佈說明的二進制文件部分下載（例如 [v1.11.0 發佈說明](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)）。 確保接下來的三個文件是 v1.0.0 或更高版本：配置文件、守護進程和二進制文件。 否則，它將不起作用。
+建議下載並使用版本為 v1.0.0 或更高的軟件包。您可以在發佈說明的二進制文件部分下載（例如 [v1.11.0 發佈說明](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)）。確保接下來的三個文件是 v1.0.0 或更高版本：配置文件、守護進程和二進制文件。否則，它將不起作用。
 
 ## 正常日誌狀態
 
@@ -41,7 +41,7 @@ LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 | Error                                                       | Fasthttp Err                                                                                                                                                                                                                                                                               | 提供連接時出錯：讀取超時，沒有讀取任何內容                                                                 | 低 |
 | Error                                                       | Fasthttp Err                                                                                                                                                                                                                                                                               | 服務連接時出錯：讀取請求標頭時出錯：無法在 "\x16…中找到 http 請求方法                                             | 低 |
 | Warn                                                        | hash=b1b26c…6b220a err="insufficient balance for transfer"                                                                                                                                                                                                                                 | 由於 "from 賬戶 "餘額不足，無法執行所處理的交易（通常是採礦交易）時，會出現此日誌（理論上，在創建交易並進入 txpool 時餘額充足，但實際執行時卻沒有餘額）。 | 低 |
-| ERROR                                                       | ERROR\[06/06,23:23:46 Z] \[7] decode anchor payload err="rlp: expected input list for types.AnchoringDataLegacy" | 錨定 tx 的數據字段可包含任何類型的值。 但是，當輸入的值類型不正確時，節點會輸出錯誤日誌                                        |   |
+| ERROR                                                       | ERROR\[06/06,23:23:46 Z] \[7] decode anchor payload err="rlp: expected input list for types.AnchoringDataLegacy" | 錨定 tx 的數據字段可包含任何類型的值。但是，當輸入的值類型不正確時，節點會輸出錯誤日誌                                         |   |
 | Proposer : `Successfully wrote mined block` |                                                                                                                                                                                                                                                                                            |                                                                                       |   |
 
 非提案國\`插入一個新區塊
