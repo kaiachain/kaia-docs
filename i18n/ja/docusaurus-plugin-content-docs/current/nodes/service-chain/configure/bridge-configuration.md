@@ -13,7 +13,7 @@
 | 名称                                                             | 説明                                                                   |
 | :------------------------------------------------------------- | :------------------------------------------------------------------- |
 | MAIN_BRIDGE                               | サービスチェーンのメインブリッジとしてブリッジサービスを有効にする。 1 で有効にする。                         |
-| MAIN_BRIDGE_PORT     | ブリッジのリッスンポート。 デフォルト：50505                                            |
+| MAIN_BRIDGE_PORT     | ブリッジのリッスンポート。デフォルト：50505                                             |
 | MAIN_BRIDGE_INDEXING | サービスチェーンデータへの高速アクセスのために、サービスチェーントランザクションハッシュのインデックスを有効にする。 1 で有効にする。 |
 
 ENでメインブリッジを有効にするには、以下のようにする。
@@ -54,15 +54,15 @@ MAIN_BRIDGE_INDEXING=1
 
 ## SCNをメインチェーンに接続<a id="connect-scn-to-the-main-chain"></a>
 
-メインブリッジとしてメインチェーンのENを走らせる必要がある。 また、どのSCN（Service Chain Consensus Node）をサブブリッジとしてENと接続するかも決めておく必要がある。
+メインブリッジとしてメインチェーンのENを走らせる必要がある。また、どのSCN（Service Chain Consensus Node）をサブブリッジとしてENと接続するかも決めておく必要がある。
 
 ### EN（メインブリッジ）情報を確認する<a id="check-en-(main-bridge)-information"></a>
 
 #### ENコンソールを開く<a id="open-en-console"></a>
 
-ENプロセスにはさまざまな取り付け方がある。 使えるコマンドは[ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md)で確認できます。 このページでは、IPC（プロセス間通信）を使ってプロセスにアタッチする方法を説明します。 IPC ファイル `klay.ipc` はノードの `DATA_DIR` パスにある。
+ENプロセスにはさまざまな取り付け方がある。使えるコマンドは[ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md)で確認できます。このページでは、IPC（プロセス間通信）を使ってプロセスにアタッチする方法を説明します。 IPC ファイル `klay.ipc` はノードの `DATA_DIR` パスにある。
 
-以下のコマンドを実行し、結果を確認してください。 (RPC用に `mainbridge` APIを追加している場合は、以下のようにブリッジAPIを確認することができる。 もし `mainbridge` API がない場合は、[EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) を再度確認してください。 )
+以下のコマンドを実行し、結果を確認してください。 (RPC用に `mainbridge` APIを追加している場合は、以下のようにブリッジAPIを確認することができる。もし `mainbridge` API がない場合は、[EN Configuration - Enable Main-bridge](#en-configuration-enable-main-bridge) を再度確認してください。 )
 
 ```bash
 $ ken attach --datadir ~/kend_home
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### エンのKNIを手に入れる<a id="get-the-ens-kni"></a>
 
-IPC経由でプロセスにアタッチした後、EN のメインブリッジ KNI を以下のように確認できる。 サービスチェーンAPI](../../../references/json-rpc/subbridge/add-peer)を参照してください。
+IPC経由でプロセスにアタッチした後、EN のメインブリッジ KNI を以下のように確認できる。サービスチェーンAPI](../../../references/json-rpc/subbridge/add-peer)を参照してください。
 
 ```javascript
 > mainbridge.nodeInfo
@@ -115,7 +115,7 @@ IPC経由でプロセスにアタッチした後、EN のメインブリッジ K
 
 #### SCNコンソールを開く<a id="open-scn-console"></a>
 
-以下のようにSCNプロセスに添付する。 RPC の `subbridge` API が有効になっているはずである。 もし `subbridge` APIがなければ、もう一度[SCNの設定](../install-service-chain.md#configuration-of-the-scn)を確認してください。
+以下のようにSCNプロセスに添付する。 RPC の `subbridge` API が有効になっているはずである。もし `subbridge` APIがなければ、もう一度[SCNの設定](../install-service-chain.md#configuration-of-the-scn)を確認してください。
 
 ```bash
 $ kscn attach --datadir ~/kscnd_home
