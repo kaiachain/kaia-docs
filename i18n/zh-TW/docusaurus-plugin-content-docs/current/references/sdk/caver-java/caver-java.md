@@ -4,6 +4,6 @@
 
 :::info[Archival 通知]。
 
-此處不再提供 caver-java SDK 文件。 請參考 [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) 以取得舊版 `caver-java` 資訊。 對於目前的 Kaia 開發，請使用 [web3j-ext](../web3j-ext/getting-started.md)。
+此處不再提供 caver-java SDK 文件。請參考 [the archived Docs](https://docs.klaytn.foundation/docs/references/sdk/caver-java/) 以取得舊版 `caver-java` 資訊。對於目前的 Kaia 開發，請使用 [web3j-ext](../web3j-ext/getting-started.md)。
 
 :::
