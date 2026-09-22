@@ -1,6 +1,6 @@
 # Public Account Key
 
-**AccountKeyPublic** 用於有一個公鑰的賬戶。 如果賬戶有一個 AccountKeyPublic 對象，交易驗證過程如下：
+**AccountKeyPublic** 用於有一個公鑰的賬戶。如果賬戶有一個 AccountKeyPublic 對象，交易驗證過程如下：
 
 <CH.Spotlight>
 <CH.Code>
@@ -131,7 +131,7 @@ web3_tx_sign_recover_pubkey()
 
 ---
 
-創建一個**TxType.VALUE_TRANSFER**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+創建一個**TxType.VALUE_TRANSFER**類型的空事務。您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
 
 ```py web3_public_value_transfer_sign_recover.py focus=19
 
@@ -163,7 +163,7 @@ web3_tx_sign_recover_pubkey()
 
 ---
 
-使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。 如果您想查看以下內容，可以打印這一行之後的所有字段
+使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。如果您想查看以下內容，可以打印這一行之後的所有字段
 
 ```py web3_public_value_transfer_sign_recover.py focus=4:6,25
 
