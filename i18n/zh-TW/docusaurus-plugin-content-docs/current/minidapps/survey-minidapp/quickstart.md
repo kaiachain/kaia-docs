@@ -1,6 +1,6 @@
 # 開始使用 Semaphore
 
-[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) 可讓使用者使用零知識證明匿名參與分散式應用程式。 對於此 dApp，Semaphore 可確保使用者在不洩露身份的情況下提交調查問卷回覆。
+[Semaphore](https://github.com/semaphore-protocol/semaphore/tree/main) 可讓使用者使用零知識證明匿名參與分散式應用程式。對於此 dApp，Semaphore 可確保使用者在不洩露身份的情況下提交調查問卷回覆。
 
 **Semaphore 功能**：
 
@@ -10,7 +10,7 @@
 
 ## 設定智慧契約開發環境<a id="set-up-smart-contract-env"></a>
 
-要使用 Hardhat，我們需要設定開發環境並安裝 Hardhat。 讓我們按以下步驟來做：
+要使用 Hardhat，我們需要設定開發環境並安裝 Hardhat。讓我們按以下步驟來做：
 
 導覽到專案的根目錄，然後執行下列指令來建立新的 Hardhat 專案。
 
@@ -29,7 +29,7 @@ npx hardhat init
 在本指南中，您將選擇一個排印稿專案。
 
 :::note
-在初始化專案時，您會收到安裝 hardhat-toolbox 外掛程式的提示。 這個外掛綁定了所有常用的套件和 Hardhat 外掛，建議開始使用 Hardhat 開發。
+在初始化專案時，您會收到安裝 hardhat-toolbox 外掛程式的提示。這個外掛綁定了所有常用的套件和 Hardhat 外掛，建議開始使用 Hardhat 開發。
 :::
 
 接下來，使用以下命令為Semaphore Solidity合約、`OpenZeppelin合約`和`hardhat-deploy`安裝`@semaphore-protocol/contracts`：
