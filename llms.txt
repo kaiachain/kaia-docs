@@ -104,6 +104,7 @@ Information about supported wallets on Kaia and how to configure them.
 - [Connecting MetaMask to Kaia](https://docs.kaia.io/build/tutorials/connecting-metamask): Guide for connecting MetMask to Kaia
 - [Connect Remix to Kaia](https://docs.kaia.io/build/tutorials/connecting-remix): Guide for connecting Remix IDE with Kaia for deploying smart contracts.
 - [Migrate Ethereum App to Kaia](https://docs.kaia.io/build/tutorials/migrating-ethereum-app-to-kaia): Guide for migrating Ethereum dapp to Kaia chain
+- [Unwrap legacy WKLAY to KAIA](https://docs.kaia.io/build/tutorials/unwrap-legacy-wklay): Guide for recovering KAIA from the legacy WKLAY wrapper contract via Kaiascan, and unwrapping canonical WKAIA
 
 ### Tools
 
