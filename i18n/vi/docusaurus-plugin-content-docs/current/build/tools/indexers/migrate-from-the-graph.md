@@ -5,22 +5,20 @@ sidebar_label: Chuyển đổi từ The Graph
 
 # Chuyển đổi từ The Graph
 
-:::caution Thông báo về hoàng hôn
+Dịch vụ hỗ trợ Kaia trên **The Graph** đã kết thúc vào ngày **31 tháng 8 năm 2026**. Các tiểu đồ thị Kaia không còn được lập chỉ mục, các điểm cuối truy vấn của chúng không còn trả về dữ liệu Kaia, và Kaia không còn là mạng có thể triển khai trong Subgraph Studio.
 
-Dịch vụ hỗ trợ Kaia trên **The Graph** sẽ kết thúc vào ngày **31 tháng 8 năm 2026**. Sau ngày đó, các tiểu đồ thị Kaia sẽ ngừng lập chỉ mục và các điểm cuối truy vấn của chúng sẽ ngừng trả về dữ liệu. Nếu ứng dụng phi tập trung (dapp) của bạn truy xuất dữ liệu từ một tiểu đồ thị Kaia trên The Graph, hãy chuyển sang sử dụng một máy chỉ mục khác trước ngày **31 tháng 8 năm 2026** để tránh tình trạng ngừng hoạt động.
+Nếu ứng dụng phi tập trung (dapp) của bạn vẫn trỏ đến một subgraph Kaia trên The Graph, hãy chuyển nó sang [Goldsky](./goldsky.md), [SubQuery](./subquery.md) hoặc một nút đồ thị tự lưu trữ. Mã đoạn đồ thị con của bạn sẽ được giữ nguyên.
 
-:::
+## Chuyện gì đã xảy ra
 
-## Điều gì đang thay đổi
+The Graph đã ngừng hỗ trợ Kaia. Vấn đề này chỉ ảnh hưởng đến dịch vụ lập chỉ mục được lưu trữ.
 
-Hiện tại, Kaia Mainnet (8217) và Kairos Testnet (1001) đã được hỗ trợ trên The Graph, trong đó việc lập chỉ mục cho các tiểu đồ thị (subgraph) của Kaia được thực hiện bởi Upgrade Indexer. Chương trình hỗ trợ này sẽ kết thúc vào ngày **31 tháng 8 năm 2026**.
-
-| Ngày                         | Điều gì sẽ xảy ra                                                                                                                                       |
+|                              |                                                                                                                                                         |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Ngày 31 tháng 8 năm 2026** | Các đồ thị con của Kaia ngừng lập chỉ mục. Các điểm cuối truy vấn trên cổng của The Graph đã ngừng trả về dữ liệu Kaia. |
-| Sau khi mặt trời lặn         | Kaia hiện không còn là mạng có thể triển khai trong Subgraph Studio nữa. Lệnh `graph deploy` cho Kaia không thành công. |
+| **Ngày 31 tháng 8 năm 2026** | Các tiểu đồ thị Kaia đã ngừng lập chỉ mục. Các điểm cuối truy vấn trên cổng The Graph đã ngừng trả về dữ liệu Kaia.     |
+| **Bây giờ**                  | Kaia hiện không còn là mạng có thể triển khai trong Subgraph Studio nữa. Lệnh `graph deploy` cho Kaia không thành công. |
 
-Không có gì thay đổi trên chuỗi. Kaia Mainnet và Kairos, các hợp đồng của bạn cũng như lịch sử sự kiện của bạn sẽ không bị ảnh hưởng — chỉ có dịch vụ lập chỉ mục được lưu trữ là sẽ ngừng hoạt động. Bất kỳ trình lập chỉ mục nào có thể đọc điểm cuối RPC của Kaia đều có thể tái tạo lại cùng một dữ liệu.
+**Không có thay đổi nào trên chuỗi.** Mạng chính Kaia (8217) và mạng thử nghiệm Kairos (1001), các hợp đồng của bạn cũng như toàn bộ lịch sử sự kiện của bạn đều không bị ảnh hưởng. Bất kỳ trình lập chỉ mục nào đọc điểm cuối RPC của Kaia đều có thể tái tạo lại chính xác dữ liệu từ thời điểm khởi tạo — không có dữ liệu lịch sử nào bị mất, và không cần phải khôi phục bất kỳ dữ liệu nào trên chuỗi.
 
 ## Bạn có bị ảnh hưởng không?
 
@@ -37,11 +35,13 @@ Một cách nhanh chóng để kiểm tra cơ sở mã của bạn:
 grep -rn "thegraph.com" --include="*.ts" --include="*.js" --include="*.json" --include="*.env*" .
 ```
 
+Nếu có bất kỳ trường hợp nào trong số này xảy ra, các truy vấn đó đã bị lỗi rồi. Việc di chuyển sẽ khôi phục lại dịch vụ.
+
 Bạn **sẽ không** bị ảnh hưởng nếu bạn lập chỉ mục Kaia bằng Goldsky, SubQuery, một nút đồ thị tự lưu trữ hoặc bằng cách truy cập trực tiếp vào điểm cuối RPC của Kaia.
 
 ## Chọn một phương án khác
 
-Cả ba tùy chọn dưới đây đều niêm yết Kaia Mainnet và Kairos ngay hôm nay.
+Cả ba tùy chọn dưới đây đều liên quan đến Kaia Mainnet và Kairos.
 
 |                                  | [Goldsky](./goldsky.md)                                                                            | [SubQuery](./subquery.md)                          | Nút đồ thị tự lưu trữ                         |
 | -------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------- | --------------------------------------------- |
@@ -53,29 +53,17 @@ Cả ba tùy chọn dưới đây đều niêm yết Kaia Mainnet và Kairos nga
 
 **Nếu bạn muốn có lộ trình ngắn nhất, hãy sử dụng Goldsky.** Goldsky hoàn toàn tương thích với đặc tả tiểu đồ thị của The Graph, do đó, một tiểu đồ thị Kaia hiện có có thể được chuyển sang mà không cần thay đổi các bản ánh xạ, lược đồ hay truy vấn của bạn — chỉ có URL điểm cuối trong ứng dụng của bạn là thay đổi.
 
-## Lựa chọn 1: Chuyển sang Goldsky
+:::tip Triển khai từ mã nguồn, không phải từ băm IPFS
 
-### 1. Lấy mã băm IPFS của đồ thị con của bạn
+Các hướng dẫn chuyển đổi sang The Graph thường bắt đầu bằng việc lấy mã băm triển khai của tiểu đồ thị của bạn từ điểm cuối truy vấn đang hoạt động của nó. Điều đó không còn khả thi đối với các đồ thị con Kaia nữa, bởi vì các điểm cuối đó đã ngừng phản hồi.
 
-Hãy truy vấn điểm cuối của tiểu đồ thị hiện có của bạn trên The Graph trước ngày ngừng hỗ trợ:
-
-```graphql
-query {
-  _meta {
-    deployment
-  }
-}
-```
-
-Giá trị `deployment` là mã băm IPFS của bạn. Bạn cũng có thể sao chép thông tin này dưới dạng **ID triển khai** từ trang của subgraph trên [Graph Explorer](https://thegraph.com/explorer) hoặc Subgraph Studio.
-
-:::tip Hãy làm việc này trước ngày 31 tháng 8
-
-Hãy trích xuất mã băm IPFS cho từng tiểu đồ thị Kaia mà bạn đang sở hữu và lưu lại. Việc thu thập dữ liệu sẽ dễ dàng hơn nhiều khi các thiết bị đầu cuối của bạn vẫn còn phản hồi.
+Thay vào đó, hãy triển khai từ kho lưu trữ nguồn của subgraph của bạn. Phương pháp này không cần ID triển khai, tạo ra bản dựng giống hệt và hiện là phương án đáng tin cậy. Chỉ nên sử dụng mã băm IPFS như phương án dự phòng nếu bạn đã lưu mã băm đó từ trước hoặc vẫn có thể truy cập mã băm đó từ trang của subgraph trên [Graph Explorer](https://thegraph.com/explorer) hoặc Subgraph Studio.
 
 :::
 
-### 2. Cài đặt và xác thực Goldsky CLI
+## Lựa chọn 1: Chuyển sang Goldsky
+
+### 1. Cài đặt và xác thực Goldsky CLI
 
 ```bash
 # macOS / Linux
@@ -97,17 +85,23 @@ goldsky login
 goldsky login --token <API_KEY>
 ```
 
-### 3. Triển khai lại tiểu đồ thị
+### 2. Triển khai tiểu đồ thị từ mã nguồn
+
+Từ thư mục dự án subgraph của bạn:
+
+```bash
+goldsky subgraph deploy <your-subgraph-name>/<version>
+```
+
+Goldsky sẽ xây dựng dựa trên các tệp `subgraph.yaml`, `schema.graphql` và các bản ánh xạ của bạn, sau đó bắt đầu lập chỉ mục Kaia từ khối bắt đầu mà bạn đã cấu hình. Xem [Triển khai các tiểu đồ thị](https://docs.goldsky.com/subgraphs/deploying-subgraphs) để tham khảo thông tin đầy đủ.
+
+Nếu bạn vẫn còn mã băm IPFS của một bản dựng trước đó, bạn có thể triển khai chính bản dựng đó thay thế:
 
 ```bash
 goldsky subgraph deploy <your-subgraph-name>/<version> --from-ipfs-hash <your-subgraph-ipfs-hash>
 ```
 
-Goldsky thực hiện quy trình xây dựng tiểu đồ thị tương tự và bắt đầu lập chỉ mục Kaia từ khối bắt đầu mà bạn đã cấu hình.
-
-Nếu bạn muốn triển khai từ kho lưu trữ nguồn, hãy chạy lệnh `goldsky subgraph deploy <name>/<version>` từ thư mục dự án — xem [Triển khai subgraph](https://docs.goldsky.com/subgraphs/deploying-subgraphs).
-
-### 4. Hãy đợi quá trình đồng bộ hóa hoàn tất rồi chuyển sang điểm cuối của bạn
+### 3. Hãy đợi quá trình đồng bộ hóa hoàn tất rồi chuyển sang điểm cuối của bạn
 
 Theo dõi tiến độ bằng:
 
@@ -115,7 +109,7 @@ Theo dõi tiến độ bằng:
 goldsky subgraph list
 ```
 
-Khi mạng con đã bắt kịp đầu chuỗi, hãy thay thế URL cổng trong ứng dụng của bạn bằng điểm cuối truy vấn Goldsky:
+Việc lập chỉ mục lại lịch sử Kaia từ điểm khởi đầu của bạn sẽ mất thời gian — hãy lên kế hoạch cho việc này thay vì mong đợi quá trình chuyển đổi diễn ra ngay lập tức. Khi đồ thị con đã bắt kịp đầu chuỗi, hãy thay thế URL cổng trong ứng dụng của bạn:
 
 ```diff
 - const queryUrl = 'https://gateway.thegraph.com/api/<api-key>/subgraphs/id/<subgraph-id>';
@@ -126,13 +120,15 @@ Các truy vấn GraphQL của bạn không thay đổi. Để xem hướng dẫn
 
 ## Lựa chọn 2: Chuyển sang SubQuery
 
-SubQuery có thể chạy quá trình xây dựng subgraph đã có sẵn, đồng thời cũng hỗ trợ SDK riêng của mình dành cho các dự án đa chuỗi.
+SubQuery có thể chạy quá trình xây dựng subgraph đã có sẵn, đồng thời hỗ trợ SDK riêng dành cho các dự án đa chuỗi.
 
-1. Lấy **ID triển khai** (IPFS CID) từ Graph Explorer, hoặc tạo một ID như vậy tại máy cục bộ thông qua cổng IPFS của SubQuery:
+1. Xây dựng đồ thị con của bạn dựa trên cổng IPFS của SubQuery để tạo ra một ID triển khai (CID):
 
    ```bash
    graph build -i https://unauthipfs.subquery.network/ipfs/api/v0
    ```
+
+   Nếu bạn đã lưu ID triển khai từ Graph Explorer trước khi dịch vụ ngừng hoạt động, bạn có thể sử dụng ID đó thay thế.
 
 2. Mở [SubQuery Explorer](https://explorer.subquery.network) và chọn **Publish New Project**.
 
@@ -149,26 +145,28 @@ Bạn sẽ cần một điểm cuối RPC của Kaia (xem [Các điểm cuối c
 ## Danh sách kiểm tra chuyển đổi
 
 - [ ] Liệt kê tất cả các tiểu đồ thị Kaia mà nhóm của bạn đang quản lý, bao gồm cả các bảng điều khiển nội bộ và các tác vụ phân tích.
-- [ ] Hãy lưu lại mã băm IPFS / ID triển khai của từng mục **trước ngày 31 tháng 8 năm 2026**.
-- [ ] Lưu khối bắt đầu và bất kỳ cấu hình ghép nào cho mỗi đồ thị con.
+- [ ] Xác định kho lưu trữ nguồn của từng mục, cùng với khối khởi đầu và bất kỳ cấu hình ghép nối nào.
 - [ ] Triển khai từng đồ thị con lên nhà cung cấp mà bạn đã chọn.
-- [ ] Chờ cho đến khi mỗi tiểu đồ thị đồng bộ hóa với đầu chuỗi.
-- [ ] Hãy so sánh một số truy vấn đã biết với cả hai điểm cuối và xác nhận xem kết quả có khớp nhau hay không.
+- [ ] Chờ cho đến khi từng đồ thị con đồng bộ hóa với đầu chuỗi.
+- [ ] Hãy so sánh một vài truy vấn đã biết với điểm cuối mới và xác nhận xem kết quả có chính xác không.
 - [ ] Cập nhật các URL điểm cuối và khóa API trong ứng dụng, các biến môi trường và thông tin bí mật CI của bạn.
 - [ ] Cập nhật các tích hợp của bên thứ ba hoặc các đối tác đang sử dụng điểm cuối subgraph của bạn.
 - [ ] Triển khai ứng dụng của bạn và xác nhận rằng lưu lượng truy cập trên môi trường sản xuất được xử lý từ điểm cuối mới.
-- [ ] Hủy dịch vụ thanh toán The Graph hoặc các khóa API chỉ được sử dụng cho Kaia.
+- [ ] Hủy các tài khoản thanh toán hoặc khóa API của The Graph chỉ được sử dụng cho Kaia.
 
 ## Câu hỏi thường gặp
 
 **Điều này có ảnh hưởng đến các hợp đồng thông minh hoặc dữ liệu trên chuỗi của tôi không?**
-Không. Chỉ có dịch vụ lập chỉ mục được lưu trữ là sẽ ngừng hoạt động. Các hợp đồng, giao dịch và nhật ký sự kiện của bạn trên Kaia vẫn giữ nguyên và vẫn có thể được tra cứu đầy đủ bởi bất kỳ trình lập chỉ mục nào.
+Không. Chỉ có dịch vụ lập chỉ mục được lưu trữ là đã ngừng hoạt động. Các hợp đồng, giao dịch và nhật ký sự kiện của bạn trên Kaia vẫn giữ nguyên và vẫn có thể được tra cứu đầy đủ bởi bất kỳ trình lập chỉ mục nào.
 
-**Tôi có phải viết lại tiểu đồ thị của mình không?**
-Không. Goldsky, SubQuery và các nút đồ thị tự lưu trữ đều chạy theo tiêu chuẩn subgraph. Tệp `schema.graphql`, các bản ánh xạ và các truy vấn GraphQL của bạn sẽ được giữ nguyên.
+**Tôi có phải viết lại đồ thị con của mình không?**
+Không. Goldsky, SubQuery và các nút đồ thị tự lưu trữ đều tuân thủ đặc tả đồ thị con tiêu chuẩn. Tệp `schema.graphql`, các bản ánh xạ và các truy vấn GraphQL của bạn sẽ được giữ nguyên.
 
-**Điều gì sẽ xảy ra với tiểu đồ thị của tôi trên The Graph sau ngày 31 tháng 8 năm 2026?**
-Hệ thống sẽ ngừng lập chỉ mục cho Kaia và điểm cuối truy vấn của nó sẽ ngừng trả về dữ liệu Kaia. Hãy thực hiện việc di chuyển trước ngày đó để tránh thời gian ngừng hoạt động.
+**Tôi chưa bao giờ lưu ID triển khai của tiểu đồ thị của mình.** Đồ thị con của tôi có bị mất không?\*\*
+Không. ID triển khai dùng để xác định một bản dựng, chứ không phải dữ liệu của bạn. Triển khai từ kho lưu trữ mã nguồn của bạn và trình lập chỉ mục mới của bạn sẽ xây dựng lại cùng một tập dữ liệu từ chuỗi.
+
+**Tôi cũng không còn mã nguồn của đồ thị con nữa.**
+Dữ liệu đã được lập chỉ mục vẫn có thể được xây dựng lại, nhưng các bản ánh xạ và lược đồ phải được viết lại. Hãy bắt đầu từ hướng dẫn [Goldsky](./goldsky.md), sử dụng các ABI của hợp đồng và khối mà hợp đồng của bạn đã được triển khai.
 
 **Các truy vấn dành cho các chuỗi khác có còn hoạt động không?**
 Có. Điều này chỉ ảnh hưởng đến Kaia. Các tiểu đồ thị mà bạn chạy trên các mạng khác thông qua The Graph sẽ không bị ảnh hưởng.
@@ -177,7 +175,7 @@ Có. Điều này chỉ ảnh hưởng đến Kaia. Các tiểu đồ thị mà 
 Không. Goldsky là phương án triển khai nhanh nhất nhờ tính năng di chuyển chỉ bằng một lệnh, nhưng SubQuery và nút đồ thị tự lưu trữ cũng là những lựa chọn hợp lý không kém. Hãy chọn giải pháp phù hợp với hệ thống công nghệ của bạn.
 
 **Tôi cần trợ giúp về việc di chuyển dữ liệu.**
-Hãy liên hệ qua [Diễn đàn Nhà phát triển Kaia](https://devforum.kaia.io) hoặc kênh Discord của Kaia. Nếu bạn đang vận hành một tiểu đồ thị lớn hoặc phức tạp, hãy liên hệ với đội ngũ Kaia càng sớm càng tốt để chúng tôi có thể hỗ trợ bạn lập kế hoạch chuyển đổi.
+Hãy liên hệ qua [Diễn đàn Nhà phát triển Kaia](https://devforum.kaia.io) hoặc kênh Discord của Kaia. Nếu bạn đang vận hành một đồ thị con có quy mô lớn hoặc phức tạp, hãy liên hệ với nhóm Kaia để chúng tôi có thể hỗ trợ bạn lên kế hoạch chuyển đổi.
 
 ## Các bước tiếp theo
 
