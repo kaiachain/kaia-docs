@@ -2,9 +2,9 @@
 
 ## 1.1 何謂瓦斯抽取？
 
-Gas Abstraction (GA) 是 Kaia 的原生解決方案，可讓使用者以原子方式將少量列入白名單的 ERC-20 交換到 KAIA 中，以支付瓦斯費用。 這項功能消除了使用者必須持有 KAIA 代幣才能與區塊鏈互動的障礙。
+Gas Abstraction (GA) 是 Kaia 的原生解決方案，可讓使用者以原子方式將少量列入白名單的 ERC-20 交換到 KAIA 中，以支付瓦斯費用。這項功能消除了使用者必須持有 KAIA 代幣才能與區塊鏈互動的障礙。
 
-當使用者只有 ERC-20 代幣時，GA 可讓使用者將少量的代幣交換至 KAIA，而無需支付預付的瓦斯費。 交換所花費的瓦斯會從 KAIA 的輸出中扣除，創造出無縫「無瓦斯交換」的體驗。
+當使用者只有 ERC-20 代幣時，GA 可讓使用者將少量的代幣交換至 KAIA，而無需支付預付的瓦斯費。交換所花費的瓦斯會從 KAIA 的輸出中扣除，創造出無縫「無瓦斯交換」的體驗。
 
 ## 1.2 瓦斯抽取為何重要
 
@@ -25,7 +25,7 @@ Kaia 新來者在下列情況下經常會遇到困難：
 
 **Kaia的獨特方法**
 
-與依賴集中式「付款主」服務的解決方案不同，Kaia 的 GA 是完全分散且不可信的。 此功能由網路層級的區塊提案者自動處理，可確保安全性和不中斷的服務。
+與依賴集中式「付款主」服務的解決方案不同，Kaia 的 GA 是完全分散且不可信的。此功能由網路層級的區塊提案者自動處理，可確保安全性和不中斷的服務。
 
 ## 1.3 使用案例與效益
 
@@ -45,4 +45,4 @@ Kaia 新來者在下列情況下經常會遇到困難：
 
 ## 1.4 與 Consensus Liquidity (CL) 的關係
 
-GA 原本是為了增加 [Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/) 的效用而設計，讓使用者可以使用 CL tokens (例如 BORA、Swapscanner) 支付瓦斯。 不過，該功能也可以支援其他 ERC-20 代幣，包括穩定幣。
+GA 原本是為了增加 [Consensus Liquidity tokens](https://blog.kaia.io/kaia-consensus-liquidity-a-new-paradigm-in-blockchain-liquidity/) 的效用而設計，讓使用者可以使用 CL tokens (例如 BORA、Swapscanner) 支付瓦斯。不過，該功能也可以支援其他 ERC-20 代幣，包括穩定幣。
