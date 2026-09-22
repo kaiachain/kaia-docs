@@ -4,7 +4,7 @@
 
 **回答**
 
-ログファイルはdataディレクトリにあります。 例えば、`kcnd` RPMパッケージをインストールすると、`kcnd`のログのデフォルトの場所は `/var/log/kcnd/kcnd.out` になる。
+ログファイルはdataディレクトリにあります。例えば、`kcnd` RPMパッケージをインストールすると、`kcnd`のログのデフォルトの場所は `/var/log/kcnd/kcnd.out` になる。
 
 ## Kaiaノードはネットワークに接続できず、以下のような「Protocol istanbul/64 failed」と「Genesis block mismatch」のエラーメッセージが表示される。 <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
@@ -15,7 +15,7 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 **回答**
 
 このエラーは、`genesis.json`が異なる場合に発生する可能性がある。
-Kaiaノードを停止し、データディレクトリを削除してください。 その後、以下のように正しい `genesis.json` を使用して `ken init` を再度実行してください。
+Kaiaノードを停止し、データディレクトリを削除してください。その後、以下のように正しい `genesis.json` を使用して `ken init` を再度実行してください。
 
 例えば、データディレクトリが `/var/kend/data` の場合。
 
@@ -88,7 +88,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 
 **回答**
 
-ログファイルに上記のプロトコルスタックエラーメッセージが表示された場合、カレント作業ディレクトリのフルパス名が長すぎるため、Kaiaの起動に失敗したことを意味します。 より短いフルデータディレクトリでKaiaノードを起動してください。 パス名の最大長はオペレーティング・システムによって異なる。
+ログファイルに上記のプロトコルスタックエラーメッセージが表示された場合、カレント作業ディレクトリのフルパス名が長すぎるため、Kaiaの起動に失敗したことを意味します。より短いフルデータディレクトリでKaiaノードを起動してください。パス名の最大長はオペレーティング・システムによって異なる。
 
 ## ENがCCに接続できず、以下のログメッセージが表示される。 <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
@@ -98,7 +98,7 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 
 **回答**
 
-メインチェーンとサービスチェーンの成り立ちが異なる場合に起こりうる。 両チェーンの起源が同じであることを確認してほしい。
+メインチェーンとサービスチェーンの成り立ちが異なる場合に起こりうる。両チェーンの起源が同じであることを確認してほしい。
 
 ## ヘッド状態不明エラー<a id="head-state-missing-error"></a>
 
