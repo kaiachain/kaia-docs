@@ -6,7 +6,7 @@
 
 Pyth Network](https://pyth.network/)は最大級のファーストパーティ・オラクル・ネットワークで、[膨大な数のチェーン](https://docs.pyth.network/price-feeds/contract-addresses)にリアルタイム・データを配信している。
 
-このネットワークは、世界最大級の[取引所、マーケットメーカー、金融サービスプロバイダー]で構成されている(https://pyth.network/publishers)。 これらは、スマート・コントラクト・アプリケーションに集計・配信するために、独自のデータをチェーン上で公開する。
+このネットワークは、世界最大級の[取引所、マーケットメーカー、金融サービスプロバイダー]で構成されている(https://pyth.network/publishers)。これらは、スマート・コントラクト・アプリケーションに集計・配信するために、独自のデータをチェーン上で公開する。
 
 ## Pyth Networkを使う
 
@@ -14,8 +14,7 @@ Pythは革新的な低レイテンシー[プルオラクルデザイン](https:/
 
 カイアの開発者は、株式、ETF、コモディティ、外国為替ペア、暗号通貨の[Pyth's price feeds](https://pyth.network/developers/price-feed-ids)のいずれにも無許可でアクセスできます。
 
-以下は、Kaiaネットワーク上のETH/USDの最新価格をフェッチするコントラクトの動作例です。
-最新の価格を取得するには、カイアのメインネット/テストネット用の [Pyth の契約アドレス](https://docs.pyth.network/price-feeds/contract-addresses/evm)と、希望の [価格フィード ID](https://pyth.network/developers/price-feed-ids)を渡す必要があります。
+以下は、Kaiaネットワーク上のETH/USDの最新価格をフェッチするコントラクトの動作例です。最新の価格を取得するには、カイアのメインネット/テストネット用の [Pyth の契約アドレス](https://docs.pyth.network/price-feeds/contract-addresses/evm)と、希望の [価格フィード ID](https://pyth.network/developers/price-feed-ids)を渡す必要があります。
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
@@ -46,13 +45,13 @@ contract MyFirstPythContract {
 }
 ```
 
-ここでは、価格更新のためにPythnetとWormholeをリッスンする[`Hermes`](https://hermes.pyth.network/docs/)から`updateData`を取得することができます。また、[`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15)のSDKを使用することもできます。  価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。
+ここでは、価格更新のためにPythnetとWormholeをリッスンする[`Hermes`](https://hermes.pyth.network/docs/)から`updateData`を取得することができます。また、[`pyth-evm-js`](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/js/src/EvmPriceServiceConnection.ts#L15)のSDKを使用することもできます。価格更新の取得方法](https://docs.pyth.network/price-feeds/fetch-price-updates)を確認し、最新のデータを取得してください。
 
-この[パッケージ](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)は、Solidityを使用してPythネットワークオラクルから価格を消費するためのユーティリティを提供します。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。
+この[パッケージ](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)は、Solidityを使用してPythネットワークオラクルから価格を消費するためのユーティリティを提供します。 また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。また、[Pyth Interface ABI](https://github.com/pyth-network/pyth-crosschain/blob/main/target_chains/ethereum/sdk/solidity/abis/IPyth.json)も含まれており、Pythコントラクトと通信するためにライブラリで使用することができます。
 
 Pyth データを利用する際には、[consumer best practices](https://docs.pyth.network/documentation/pythnet-price-feeds/best-practices)に従うことを推奨します。
 
-詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 Pythスマートコントラクトとやりとりするために利用できるさまざまな関数については、[APIリファレンスセクション](https://api-reference.pyth.network/price-feeds/evm/getPrice)に詳細があります。
+詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。詳しくは公式の[Pyth documentation](https://docs.pyth.network/price-feeds)を参照してください。 Pythスマートコントラクトとやりとりするために利用できるさまざまな関数については、[APIリファレンスセクション](https://api-reference.pyth.network/price-feeds/evm/getPrice)に詳細があります。
 
 ## カイアのPyth
 
@@ -65,7 +64,7 @@ Pyth Networkのスマートコントラクトは以下のアドレスで入手�
 
 ## PythをPUSHオラクルとして使う
 
-Pythオラクルは、バックエンドの価格を更新するスケジューラを実行することで、プッシュオラクルとして使用することができる。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。
+Pythオラクルは、バックエンドの価格を更新するスケジューラを実行することで、プッシュオラクルとして使用することができる。 これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。 スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。これは、あなたのダップがあなたの設定に従って最新の価格で更新されることを保証します。スケジューラを始めるには、オープンソースの[price pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher)アプリをチェックしよう。
 
 ## 開発者とコミュニティ
 
