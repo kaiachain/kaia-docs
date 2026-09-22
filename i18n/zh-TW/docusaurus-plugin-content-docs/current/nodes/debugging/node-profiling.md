@@ -1,6 +1,6 @@
 # 檔案節點資料
 
-剖析是了解和優化 Kaia 節點效能的重要工具。 本教學將引導您利用 Kaia 的除錯 API 和 `net/http/pprof` Go 套件，學習各種可用於 Kaia 節點操作員的剖析技術。
+剖析是了解和優化 Kaia 節點效能的重要工具。本教學將引導您利用 Kaia 的除錯 API 和 `net/http/pprof` Go 套件，學習各種可用於 Kaia 節點操作員的剖析技術。
 
 ## 先決條件
 
@@ -10,7 +10,7 @@
 
 - \*\* 存取節點控制台：\*\* 您需要透過 [節點控制台](../endpoint-node/ken-cli-commands.md#javascript-console) 與節點互動。
 
-- **工具：** Go 安裝在您的系統上，以使用 `go tool pprof` 和 `go tool trace`。 您可以透過執行來驗證：
+- **工具：** Go 安裝在您的系統上，以使用 `go tool pprof` 和 `go tool trace`。您可以透過執行來驗證：
 
 ```bash
 go version
@@ -18,7 +18,7 @@ go version
 
 ## 1\. 管理剖析：如何啟動、停止和檢查狀態
 
-Kaia 節點提供`debug`API，提供多種剖析方法。 您可以透過節點的主控台或 [JSON-RPC API call](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/) 與這些方法互動。
+Kaia 節點提供`debug`API，提供多種剖析方法。您可以透過節點的主控台或 [JSON-RPC API call](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/) 與這些方法互動。
 
 ### 1.1 啟動 pprof HTTP 伺服器
 
@@ -99,12 +99,12 @@ pprof 伺服器執行後，您可以使用多種方法收集各種設定檔，�
 
 - `allocs`：過去所有記憶體分配的取樣。
 - `阻塞`：導致同步原語阻塞的堆疊追蹤。
-- `goroutine`：所有目前 goroutine 的堆疊軌跡。 使用 `debug=2` 作為查詢參數，以與未恢復的恐慌相同的格式匯出。
-- `堆`：活物件的記憶體分配取樣。 您可以指定 `gc` GET 參數，在進行堆取樣之前執行垃圾回收。
+- `goroutine`：所有目前 goroutine 的堆疊軌跡。使用 `debug=2` 作為查詢參數，以與未恢復的恐慌相同的格式匯出。
+- `堆`：活物件的記憶體分配取樣。您可以指定 `gc` GET 參數，在進行堆取樣之前執行垃圾回收。
 - mutex\`：爭用代理權持有者的堆疊軌跡。
-- `profile`：CPU 設定檔。 您可以在 `seconds` GET 參數中指定持續時間。 取得設定檔之後，使用 `go tool pprof` 指令來調查設定檔。
+- `profile`：CPU 設定檔。您可以在 `seconds` GET 參數中指定持續時間。取得設定檔之後，使用 `go tool pprof` 指令來調查設定檔。
 - `threadcreate`：導致建立新 OS 線程的堆疊追蹤。
-- `trace`：目前程式的執行追蹤。 您可以在 `seconds` GET 參數中指定持續時間。 取得追蹤檔案後，使用 `go tool trace` 指令來調查追蹤。
+- `trace`：目前程式的執行追蹤。您可以在 `seconds` GET 參數中指定持續時間。取得追蹤檔案後，使用 `go tool trace` 指令來調查追蹤。
 
 #### 使用 `go tool pprof` 收集設定檔
 
@@ -197,7 +197,7 @@ scp <user>@<node_ip>:memory_profile memory_profile
 
 ## 3\. 記憶體剖析
 
-如前所述，記憶體剖析是指 go pprof 所提供的堆資訊。 也可以透過 Kaia 節點提供的除錯名稱空間中的 writeMemProfile 來收集。
+如前所述，記憶體剖析是指 go pprof 所提供的堆資訊。也可以透過 Kaia 節點提供的除錯名稱空間中的 writeMemProfile 來收集。
 
 ```bash
 # Using go tool pprof
@@ -206,11 +206,11 @@ scp <user>@<node_ip>:memory_profile memory_profile
 > debug.writeMemProfile("mem.profile")
 ```
 
-剖析記憶體對於分析記憶體相關問題（如記憶體洩漏）至關重要。 要控制記憶體剖析的粒度，調整 `MemProfileRate` 變數對此過程很有幫助。 這應該在節點執行時盡早設定 (例如，在 `main` 函式開始時)。
+剖析記憶體對於分析記憶體相關問題（如記憶體洩漏）至關重要。要控制記憶體剖析的粒度，調整 `MemProfileRate` 變數對此過程很有幫助。這應該在節點執行時盡早設定 (例如，在 `main` 函式開始時)。
 
 :::note
 
-Kaia 提供了 `--memprofilerate` 旗標，可以輕鬆設定 `MemProfileRate` 變數。 因此，由於它只能作為標誌，因此必須在啟動節點時設定，而且不能透過 API 呼叫變更。
+Kaia 提供了 `--memprofilerate` 旗標，可以輕鬆設定 `MemProfileRate` 變數。因此，由於它只能作為標誌，因此必須在啟動節點時設定，而且不能透過 API 呼叫變更。
 
 :::
 
@@ -278,4 +278,4 @@ go tool pprof cpu.profile
 
 ## 5\. 總結
 
-透過遵循此剖析教學，Kaia 節點操作員可以有效地找出並解決效能瓶頸、最佳化資源使用，並確保其節點順暢且有效率地運作。 定期進行剖析，並結合強大的監控和記錄實務，將大大有助於維持您的 Kaia 節點在區塊鏈網路中的可靠性和性能。
+透過遵循此剖析教學，Kaia 節點操作員可以有效地找出並解決效能瓶頸、最佳化資源使用，並確保其節點順暢且有效率地運作。定期進行剖析，並結合強大的監控和記錄實務，將大大有助於維持您的 Kaia 節點在區塊鏈網路中的可靠性和性能。
