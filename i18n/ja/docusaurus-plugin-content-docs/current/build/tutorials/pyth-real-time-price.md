@@ -2,11 +2,11 @@
 
 ## はじめに
 
-Pythは分散型オラクルネットワークであり、プッシュ型オラクルが主流のエコシステムにおいて、独自のアプローチをとっている。 Pythは、一定間隔でデータを契約にプッシュする代わりに、オンデマンドで実世界のデータを引き出すことができます。 このモデルにより、開発者はよりコントロールしやすくなり、不必要なオンチェーン更新を避けることができる。 この統合により、開発者はリアルタイムのデータを取得し、更新が要求された場合にのみ料金が発生する従量課金モデルを使用することができる。
+Pythは分散型オラクルネットワークであり、プッシュ型オラクルが主流のエコシステムにおいて、独自のアプローチをとっている。 Pythは、一定間隔でデータを契約にプッシュする代わりに、オンデマンドで実世界のデータを引き出すことができます。このモデルにより、開発者はよりコントロールしやすくなり、不必要なオンチェーン更新を避けることができる。この統合により、開発者はリアルタイムのデータを取得し、更新が要求された場合にのみ料金が発生する従量課金モデルを使用することができる。
 
 このガイドでは、Pythのリアルタイム価格フィードを使って、不換紙幣であるIDRの価値を読み取る方法を学びます。 Solidityスマートコントラクトは[pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)を使用してPythからUSD/IDR価格を取得し、[hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js)を使用して最新の価格を更新して取得します。
 
-手始めに、このチュートリアルの完全なコードを[GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example)でご覧ください。 これは、すぐに使えるリファレンスを提供し、プロジェクトとインストールをより迅速にセットアップするのに役立ちます。
+手始めに、このチュートリアルの完全なコードを[GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example)でご覧ください。これは、すぐに使えるリファレンスを提供し、プロジェクトとインストールをより迅速にセットアップするのに役立ちます。
 
 ## 前提条件
 
@@ -34,7 +34,7 @@ npm init -y
 npx hardhat@next --init
 ```
 
-プロンプトが表示されたら、デフォルトの応答を受け入れる。 このガイドでは、モカとイーサーのテンプレートを使用する。
+プロンプトが表示されたら、デフォルトの応答を受け入れる。このガイドでは、モカとイーサーのテンプレートを使用する。
 
 Hardhatのバージョンを確認して、インストールを確認してください：
 
@@ -57,7 +57,7 @@ npx hardhat keystore set PRIVATE_KEY
 
 **3. コンフィギュレーション・ファイル**における参照秘密
 
-hardhat.config.ts\`を開き、暗号化された秘密を参照するようにnetworksセクションを更新する。 異なるシークレット名を使用した場合は、それに応じてキーを更新する。
+hardhat.config.ts\`を開き、暗号化された秘密を参照するようにnetworksセクションを更新する。異なるシークレット名を使用した場合は、それに応じてキーを更新する。
 
 ```typescript
 import { configVariable } from "hardhat/config";
@@ -73,7 +73,7 @@ module.exports = {
 
 ## 契約の作成とPythオラクルからの価格の取得
 
-このセクションでは、[Pyth Solidity SDK](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)をインストールし、PriceConsumerコントラクトを作成し、Hardhatを使用してデプロイします。 このコントラクトはPythの価格フィードを読み込み、後でエルメスから取得した価格データを使って更新する。
+このセクションでは、[Pyth Solidity SDK](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)をインストールし、PriceConsumerコントラクトを作成し、Hardhatを使用してデプロイします。このコントラクトはPythの価格フィードを読み込み、後でエルメスから取得した価格データを使って更新する。
 
 ### Pyth SDKをインストールする
 
@@ -183,7 +183,7 @@ npx hardhat ignition deploy --network kairos ignition/modules/PriceConsumer.ts
 
 ## TypeScriptからの対話
 
-この最後のステップでは、TypeScriptを使用して、デプロイしたPriceConsumerコントラクトと対話します。 このスクリプトは、Hermesクライアントを介してPyth価格更新データを要求し、それをオンチェインで送信することによって、最新のUSD/IDR価格を取得します。
+この最後のステップでは、TypeScriptを使用して、デプロイしたPriceConsumerコントラクトと対話します。このスクリプトは、Hermesクライアントを介してPyth価格更新データを要求し、それをオンチェインで送信することによって、最新のUSD/IDR価格を取得します。
 
 \*\*依存関係のインストール
 
@@ -310,11 +310,11 @@ Exponent Value : -5
 ======== —— =========
 ```
 
-Kairos explorerの検索バーに取引ハッシュをペーストすることで、取引を確認することができます。 これにより、更新と読み取り操作が成功したことが確認される。
+Kairos explorerの検索バーに取引ハッシュをペーストすることで、取引を確認することができます。これにより、更新と読み取り操作が成功したことが確認される。
 
 ## 結論
 
-このチュートリアルでは、Pythからリアルタイムの価格を読み取るSolidityコントラクトを作成し、Kairosテストネットにデプロイし、Hermesクライアントを使用して対話しました。 また、Pythのプルベースの設計が、価格更新のタイミングや方法をどのようにコントロールできるかを学びました。
+このチュートリアルでは、Pythからリアルタイムの価格を読み取るSolidityコントラクトを作成し、Kairosテストネットにデプロイし、Hermesクライアントを使用して対話しました。また、Pythのプルベースの設計が、価格更新のタイミングや方法をどのようにコントロールできるかを学びました。
 
 詳しくは、こちらをご覧いただきたい：
 
