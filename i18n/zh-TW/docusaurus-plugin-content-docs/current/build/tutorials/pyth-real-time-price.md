@@ -2,11 +2,11 @@
 
 ## 介紹
 
-Pyth 是一個分散式甲骨文網路，在主要由推式甲骨文驅動的生態系統中採用獨特的方法。 Pyth 不會以固定的時間間隔將資料推送至您的合約，而是讓您可以依需求取得真實世界的資料。 此模式可讓開發人員擁有更多控制權，並有助於避免不必要的 onchain 更新。 透過此一整合，開發人員可以取得即時資料，並使用按使用量付費的模式，只有在要求更新時才需付費。
+Pyth 是一個分散式甲骨文網路，在主要由推式甲骨文驅動的生態系統中採用獨特的方法。 Pyth 不會以固定的時間間隔將資料推送至您的合約，而是讓您可以依需求取得真實世界的資料。此模式可讓開發人員擁有更多控制權，並有助於避免不必要的 onchain 更新。透過此一整合，開發人員可以取得即時資料，並使用按使用量付費的模式，只有在要求更新時才需付費。
 
-在本指南中，您將學習如何使用 Pyth 的即時價格源來讀取法定貨幣 IDR 的價值。 您的 Solidity 智慧合約將使用 [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity) 從 Pyth 擷取 USD/IDR 價格，您將使用 [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js) 更新並擷取最新價格。
+在本指南中，您將學習如何使用 Pyth 的即時價格源來讀取法定貨幣 IDR 的價值。您的 Solidity 智慧合約將使用 [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity) 從 Pyth 擷取 USD/IDR 價格，您將使用 [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js) 更新並擷取最新價格。
 
-若要快速入門，您可以在 [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example) 上找到本教學的完整程式碼。 這可提供即時可用的參考，並協助您更快速地設定專案和安裝。
+若要快速入門，您可以在 [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example) 上找到本教學的完整程式碼。這可提供即時可用的參考，並協助您更快速地設定專案和安裝。
 
 ## 要求
 
@@ -18,7 +18,7 @@ Pyth 是一個分散式甲骨文網路，在主要由推式甲骨文驅動的生
 
 - 以 KAIA testnet 代幣為資金的錢包。
 
-  您需要 KAIA 來支付 Kairos 測試網的部署和交易瓦斯費用。 您可以向 [Kaia Faucet](https://faucet.kaia.io/) 索取免費的測試網路 KAIA。
+  您需要 KAIA 來支付 Kairos 測試網的部署和交易瓦斯費用。您可以向 [Kaia Faucet](https://faucet.kaia.io/) 索取免費的測試網路 KAIA。
 
 ## 設定開發環境
 
@@ -34,7 +34,7 @@ npm init -y
 npx hardhat@next --init
 ```
 
-出現提示時，接受預設回應。 在本指南中，我們將使用 Mocha 和 Ethers 模版。
+出現提示時，接受預設回應。在本指南中，我們將使用 Mocha 和 Ethers 模版。
 
 通過檢查 Hardhat 版本來驗證您的安裝：
 
@@ -57,7 +57,7 @@ npx hardhat keystore set PRIVATE_KEY
 
 **3. 設定檔中的參考秘訣**
 
-開啟 `hardhat.config.ts`，更新 networks 區段以引用加密的秘密。 如果您使用不同的秘密名稱，請相應更新金鑰。
+開啟 `hardhat.config.ts`，更新 networks 區段以引用加密的秘密。如果您使用不同的秘密名稱，請相應更新金鑰。
 
 ```typescript
 import { configVariable } from "hardhat/config";
@@ -73,7 +73,7 @@ module.exports = {
 
 ## 建立契約並從 Pyth Oracles 取得價格
 
-在本節中，您將安裝 [Pyth Solidity SDK](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)、建立 PriceConsumer 契約，並使用 Hardhat 部署它。 合約會讀取 Pyth 價格源，您稍後會使用從 Hermes 取得的價格資料來更新。
+在本節中，您將安裝 [Pyth Solidity SDK](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)、建立 PriceConsumer 契約，並使用 Hardhat 部署它。合約會讀取 Pyth 價格源，您稍後會使用從 Hermes 取得的價格資料來更新。
 
 ### 安裝 Pyth SDK
 
@@ -183,7 +183,7 @@ npx hardhat ignition deploy --network kairos ignition/modules/PriceConsumer.ts
 
 ## 從 TypeScript 互動
 
-在最後一步，您將使用 TypeScript 與已部署的 PriceConsumer 契約互動。 這個腳本會透過 Hermes 客戶端請求 Pyth 價格更新資料，取得最新的 USD/IDR 價格，並在鏈上傳送。
+在最後一步，您將使用 TypeScript 與已部署的 PriceConsumer 契約互動。這個腳本會透過 Hermes 客戶端請求 Pyth 價格更新資料，取得最新的 USD/IDR 價格，並在鏈上傳送。
 
 \*\* 安裝相依性\*\*
 
@@ -310,11 +310,11 @@ Exponent Value : -5
 ======== —— =========
 ```
 
-在搜尋列中貼上交易切細值，即可在 Kairos explorer 上驗證您的交易。 這證明更新和讀取作業成功。
+在搜尋列中貼上交易切細值，即可在 Kairos explorer 上驗證您的交易。這證明更新和讀取作業成功。
 
 ## 總結
 
-在本教程中，您建立了一個 Solidity 契約，可從 Pyth 讀取即時價格，並將其部署到 Kairos 測試網路，並使用 Hermes 客戶端與其互動。 您也了解到 Pyth 基於拉動的設計如何讓您控制價格更新發生的時間和方式。
+在本教程中，您建立了一個 Solidity 契約，可從 Pyth 讀取即時價格，並將其部署到 Kairos 測試網路，並使用 Hermes 客戶端與其互動。您也了解到 Pyth 基於拉動的設計如何讓您控制價格更新發生的時間和方式。
 
 如需更多資訊，請探索：
 
