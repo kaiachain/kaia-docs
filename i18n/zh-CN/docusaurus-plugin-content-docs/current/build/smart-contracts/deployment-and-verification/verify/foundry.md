@@ -4,13 +4,13 @@ sidebar_label: 使用代工厂
 
 # 如何使用 Foundry 验证智能合约
 
-本指南将教您如何使用 Foundry 直接从 CLI 在 Kaiascan 上自动验证智能合约源代码。 目前，Kaiascan 只支持在使用 Foundry 时验证扁平化合同文件。
+本指南将教您如何使用 Foundry 直接从 CLI 在 Kaiascan 上自动验证智能合约源代码。目前，Kaiascan 只支持在使用 Foundry 时验证扁平化合同文件。
 
 > 确保您的合同已平整，然后再进行验证过程。
 
 ## 快速开始
 
-本指南希望您对使用 Foundry 开发智能合约有所了解。 请参阅  [Deploy smart contract using Foundry](../deploy/foundry.md) 开始使用。   我们将在下面部署和验证这个 NFT 合同样本：
+本指南希望您对使用 Foundry 开发智能合约有所了解。请参阅  [Deploy smart contract using Foundry](../deploy/foundry.md) 开始使用。我们将在下面部署和验证这个 NFT 合同样本：
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
