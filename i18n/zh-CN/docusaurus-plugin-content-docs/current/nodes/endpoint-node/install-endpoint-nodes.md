@@ -10,7 +10,7 @@
 
 存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
+**注意**：请勿更改文件结构或文件名。如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `ken-linux-amd64/bin` 路径，以便全局运行 `ken` 和 `kend`。 举个例子
+**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `ken-linux-amd64/bin` 路径，以便全局运行 `ken` 和 `kend`。举个例子
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
@@ -92,7 +92,7 @@ EN 配置是创建一个数据目录，并在配置文件 `kend.conf` 中设置�
 
 ### EN 数据目录创建<a id="en-data-directory-creation"></a>
 
-考虑到 Kaia 区块链数据的大小不断增加，建议使用足够大的存储空间。 您需要在所需路径上创建目录。
+考虑到 Kaia 区块链数据的大小不断增加，建议使用足够大的存储空间。您需要在所需路径上创建目录。
 
 ```text
 $ sudo mkdir -p /var/kend/data
@@ -115,7 +115,7 @@ DATA_DIR=/var/kend/data
 
 ### (可选）下载 Chaindata 快照
 
-从创世区块进行同步非常耗时。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../learn/storage/block-sync.md#full-sync) 过程。
+从创世区块进行同步非常耗时。您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../learn/storage/block-sync.md#full-sync) 过程。
 
 ## 启动 EN<a id="startup-the-en"></a>
 
@@ -183,7 +183,7 @@ kend 正在运行
 
 ### 日志<a id="logs"></a>
 
-日志存储在位于`kend.conf`文件中`LOG_DIR`字段所定义路径下的`kend.out`文件中。 当节点正常工作时，可以看到每个区块每秒的导入情况如下。
+日志存储在位于`kend.conf`文件中`LOG_DIR`字段所定义路径下的`kend.out`文件中。当节点正常工作时，可以看到每个区块每秒的导入情况如下。
 
 例如
 
@@ -205,7 +205,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### 控制台<a id="ken-console"></a>
 
-Kaia 提供一个 CLI 客户端："ken console"。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。 IPC 文件 `klay.ipc` 位于 EN 的 `DATA_DIR` 路径下。
+Kaia 提供一个 CLI 客户端："ken console"。使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。 IPC 文件 `klay.ipc` 位于 EN 的 `DATA_DIR` 路径下。
 
 请执行以下命令并查看结果。
 
