@@ -10,7 +10,7 @@
 
 存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
+**注意**：请勿更改文件结构或文件名。如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf kcn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kcn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注意**：建议在环境变量 "$PATH"中添加解压缩目录 "kcn-linux-amd64/bin "路径，以便全局运行 "kcn "和 "kcnd"。 举个例子
+**注意**：建议在环境变量 "$PATH"中添加解压缩目录 "kcn-linux-amd64/bin "路径，以便全局运行 "kcn "和 "kcnd"。举个例子
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kcn-linux-amd64/bin
@@ -93,7 +93,7 @@ CN 配置是在配置文件 `kcnd.conf` 中创建一个数据目录并设置几�
 
 ### 创建 CN 数据目录<a id="cn-data-directory-creation"></a>
 
-考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。 您可能需要在所需路径上创建该目录。
+考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。您可能需要在所需路径上创建该目录。
 
 ```bash
 $ mkdir -p /var/kcnd/data
@@ -101,7 +101,7 @@ $ mkdir -p /var/kcnd/data
 
 ### 安装节点密钥<a id="install-node-key"></a>
 
-要运行一个 CN，需要一个 "节点密钥"。 如果您没有 KCN 二进制文件，KCN 将为您创建一个新文件。 如果有，则需要将 `nodekey` 放入 CN 数据目录。 安装前](./before-you-install.md) "部分介绍了创建 "节点密钥 "的方法。 以下命令行会将 `nodekey` 复制到 CN 数据目录。
+要运行一个 CN，需要一个 "节点密钥"。如果您没有 KCN 二进制文件，KCN 将为您创建一个新文件。如果有，则需要将 `nodekey` 放入 CN 数据目录。安装前](./before-you-install.md) "部分介绍了创建 "节点密钥 "的方法。以下命令行会将 `nodekey` 复制到 CN 数据目录。
 
 ```bash
 $ cp nodekey /var/kcnd/data
@@ -126,15 +126,15 @@ DATA_DIR=/var/kcnd/data
 
 #### 设置 Rewardbase<a id="setup-rewardbase"></a>
 
-作为参与 Kaia 网络共识的回报，CN 运营商将获得 KAIA。 因此，需要在配置文件 `kcnd.conf` 中设置地址。
+作为参与 Kaia 网络共识的回报，CN 运营商将获得 KAIA。因此，需要在配置文件 `kcnd.conf` 中设置地址。
 
-创建新账户的方法多种多样，但 "kcn "也提供了相关功能。 您可以使用以下命令查看帮助信息。
+创建新账户的方法多种多样，但 "kcn "也提供了相关功能。您可以使用以下命令查看帮助信息。
 
 ```bash
 $ kcn account new --help
 ```
 
-该程序的一个示例如下。 首先，您需要创建一个新账户，奖励 KAIA 将发送到该账户。
+该程序的一个示例如下。首先，您需要创建一个新账户，奖励 KAIA 将发送到该账户。
 
 ```bash
 $ kcn account new --datadir ~/kcnd_home
@@ -147,7 +147,7 @@ Repeat passphrase:
 Address: {d13f7da0032b1204f77029dc1ecbf4dae2f04241}
 ```
 
-因此，它会在你定义的路径上创建相关的密钥存储。 接下来，您需要将创建的地址放入文件 `kcnd.conf` 中，如下所示。
+因此，它会在你定义的路径上创建相关的密钥存储。接下来，您需要将创建的地址放入文件 `kcnd.conf` 中，如下所示。
 
 ```text
 ...
@@ -155,11 +155,11 @@ REWARDBASE="d13f7da0032b1204f77029dc1ecbf4dae2f04241"
 ...
 ```
 
-请记住，您创建的密钥存储和密码非常重要，因此必须小心管理。 有关 `kcnd.conf` 的更多详情，请参阅[配置文件](../../../misc/operation/configuration.md) 部分。
+请记住，您创建的密钥存储和密码非常重要，因此必须小心管理。有关 `kcnd.conf` 的更多详情，请参阅[配置文件](../../../misc/operation/configuration.md) 部分。
 
 ### (可选）下载 Chaindata 快照
 
-从创世区块进行同步非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
+从创世区块进行同步非常耗时。您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
 
 ## 启动 CN<a id="startup-the-cn"></a>
 
@@ -208,7 +208,7 @@ $ systemctl daemon-reload
 
 如果网络已经或将要激活 Randao 硬分叉，则每个 CN 维护者必须向 [KIP-113 智能合约](https://kips.kaia.io/KIPs/kip-113) 提交其 BLS 公钥信息。
 
-BLS 公钥信息可通过节点密钥计算得出。 要提取它，首先要启动节点。 然后使用命令
+BLS 公钥信息可通过节点密钥计算得出。要提取它，首先要启动节点。然后使用命令
 
 ```
 $ kcn account bls-info --datadir /var/kcnd/data
@@ -257,7 +257,7 @@ kcnd is running
 
 ### 日志<a id="logs"></a>
 
-日志存储在 `kcnd.out` 文件中，该文件位于 `kcnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。 当节点正常运行时，可以看到每秒创建的每个区块如下所示。
+日志存储在 `kcnd.out` 文件中，该文件位于 `kcnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。当节点正常运行时，可以看到每秒创建的每个区块如下所示。
 
 例如
 
@@ -277,7 +277,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### 控制台<a id="kcn-console-kpn-console"></a>
 
-Kaia 提供一个 CLI 客户端："kcn console"。 不过，出于安全考虑，CN 可能会禁用客户端的 RPC 接口。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
+Kaia 提供一个 CLI 客户端："kcn console"。不过，出于安全考虑，CN 可能会禁用客户端的 RPC 接口。使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
 
 IPC 文件 `klay.ipc` 位于 CN 上的 `DATA_DIR` 路径中。
 
