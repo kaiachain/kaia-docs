@@ -1,6 +1,6 @@
 # 取消
 
-**TxTypeCancel** 取消事務池中具有相同 nonce 的事務的執行。 當已提交的交易在一定時間內似乎未得到處理時，這種交易類型就很有用。
+**TxTypeCancel** 取消事務池中具有相同 nonce 的事務的執行。當已提交的交易在一定時間內似乎未得到處理時，這種交易類型就很有用。
 
 <CH.Spotlight>
 <CH.Code>
@@ -186,7 +186,7 @@ web3_cancel_sign_recover()
 
 ---
 
-創建一個**TxType.CANCEL**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+創建一個**TxType.CANCEL**類型的空事務。您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
 
 ```py cancel_example.py focus=4,5,8,29
 
@@ -202,7 +202,7 @@ web3_cancel_sign_recover()
 
 ---
 
-使 **nonce** 與之前發送的 **value transfer tx** 相同。 您需要設置要取消的**相同的 tx nonce**。
+使 **nonce** 與之前發送的 **value transfer tx** 相同。您需要設置要取消的**相同的 tx nonce**。
 
 ```python cancel_example.py focus=4,6,8,32
 
@@ -277,7 +277,7 @@ decoded transaction: {
 
 ---
 
-將**tx**發送到區塊鏈。 它將返回 tx 哈希值，用於等待接收
+將**tx**發送到區塊鏈。它將返回 tx 哈希值，用於等待接收
 
 ```python cancel_example.py focus=46
 
