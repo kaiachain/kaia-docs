@@ -55,7 +55,7 @@ RPC_URL="http://localhost:8551"
 
 ## 3. 匯出輸出
 
-結果會儲存在輸出資料夾。 您可以將輸出目錄壓縮成 zip 檔案。
+結果會儲存在輸出資料夾。您可以將輸出目錄壓縮成 zip 檔案。
 
 ```bash
 ./analyze.sh --compress-output
