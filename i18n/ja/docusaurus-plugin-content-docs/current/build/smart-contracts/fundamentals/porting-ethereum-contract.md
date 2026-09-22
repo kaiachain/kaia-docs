@@ -1,7 +1,6 @@
 # イーサリアム契約のインポート
 
-ほとんどの場合、Ethereumの契約はKaia上で修正せずにそのまま使用できます。
-ただし、以下の2点には注意すること。
+ほとんどの場合、Ethereumの契約はKaia上で修正せずにそのまま使用できます。ただし、以下の2点には注意すること。
 
 ## ソリディティ・サポート<a id="solidity-support"></a>
 
@@ -23,8 +22,7 @@ Kairosネットワークの場合はブロック番号`#86,513,895`から、メ�
 
 :::
 
-Kaia上の他のEVMバージョンとの後方互換性は保証されていません。
-したがって、プロトコルのアップグレード状況に応じて、正しいターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。
+Kaia上の他のEVMバージョンとの後方互換性は保証されていません。したがって、プロトコルのアップグレード状況に応じて、正しいターゲットオプションでSolidityコードをコンパイルすることを強くお勧めします。
 
 - Kairos: --evm-version london
 - Mainnet: --evm-version london
@@ -40,4 +38,4 @@ $ solc --evm-version london contract.sol
 
 ## 分離されたキー・ペア<a id="decoupled-key-pairs"></a>
 
-カイア [キー・ペアをアドレスから切り離す](../../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../../transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。 ほとんどの場合、ビジネスロジックには影響しません。 しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。 詳細は[こちら](../../../learn/smart-contracts/precompiled-contracts.md)を参照。
+カイア [キー・ペアをアドレスから切り離す](../../../learn/accounts.md#decoupling-key-pairs-from-addresses)。 user [updates account](../../transactions/basic.md#txtypeaccountupdate) とすると、特定のアカウントの秘密鍵が別のものに置き換えられる。ほとんどの場合、ビジネスロジックには影響しません。しかし、ビジネスロジックにecrecoverが含まれている場合は、validateSenderの使用を検討する必要があります。詳細は[こちら](../../../learn/smart-contracts/precompiled-contracts.md)を参照。
