@@ -18,7 +18,7 @@
 
 ## 1. 導言<a href="#1-introduction" id="1-introduction"></a>
 
-本教學引導您使用 Kaia SDK (ethers-ext) 建立一個簡單的伺服器-用戶端範例，以示範費用授權的價值轉移交易如何在 Kaia 上運作。 本教學與範例程式碼已在 Kairos 測試網路上進行測試。
+本教學引導您使用 Kaia SDK (ethers-ext) 建立一個簡單的伺服器-用戶端範例，以示範費用授權的價值轉移交易如何在 Kaia 上運作。本教學與範例程式碼已在 Kairos 測試網路上進行測試。
 
 ## 2. 如何進行費用委託<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -54,13 +54,13 @@ console.log("senderTxHashRLP", senderTxHashRLP)；
 
 如果沒有錯誤，那麼 `senderTxHashRLP` 將會有一個已簽署的交易，這個交易是由 `senderPrivateKey` 簽署的。
 
-現在，您需要傳送 `senderTxHashRLP` 給付費者。 有多種實現方法。 在本教程中，我們將為您提供一個簡單的伺服器-用戶端程式碼，以傳送「senderTxHashRLP」給付費者為例。
+現在，您需要傳送 `senderTxHashRLP` 給付費者。有多種實現方法。在本教程中，我們將為您提供一個簡單的伺服器-用戶端程式碼，以傳送「senderTxHashRLP」給付費者為例。
 
 ### 2.2 付款人簽署交易<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-當 `fee payer` 收到 `senderTxHashRLP` 時，`fee payer` 用他們的私人金鑰再次簽署 `senderTxHashRLP` 並將交易傳送給 Kaia。 下面的代碼片段說明瞭這一過程。
+當 `fee payer` 收到 `senderTxHashRLP` 時，`fee payer` 用他們的私人金鑰再次簽署 `senderTxHashRLP` 並將交易傳送給 Kaia。下面的代碼片段說明瞭這一過程。
 
-[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) 方法在傳送交易前，先用給定的付費者私密金鑰簽署交易。 在執行程式碼之前，請以實際值取代 "FEEPAYER_ADDRESS「 和 」PRIVATE_KEY"。
+[ sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) 方法在傳送交易前，先用給定的付費者私密金鑰簽署交易。在執行程式碼之前，請以實際值取代 "FEEPAYER_ADDRESS「 和 」PRIVATE_KEY"。
 
 請注意，當付費者代表寄件者向 Kaia 提交交易時，`senderTxHashRLP` 類型必須是`FeeDelegatedValueTransfer` 類型的交易。
 
@@ -229,7 +229,7 @@ console.log("Fee delegate service started ...");
 
 服務器監聽端口為 `1337`。
 
-當有 "數據 "傳入時，它會用 "付費者私鑰 "對 "數據 "進行簽名，並將其發送到 Kaia 區塊鏈。 它假設 `data` 是 `sender_client.js` 中的 `senderTxHashRLP`。
+當有 "數據 "傳入時，它會用 "付費者私鑰 "對 "數據 "進行簽名，並將其發送到 Kaia 區塊鏈。它假設 `data` 是 `sender_client.js` 中的 `senderTxHashRLP`。
 
 ## 4. 運行示例<a href="#4-run-example" id="4-run-example"></a>
 
@@ -271,11 +271,11 @@ senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc
 從伺服器接收資料：This is fee delegating, serviceFee payer is 0x88311cD55B656D2502b50f62E83F8279c1641e70
 ```
 
-它將用 "發送方 "私鑰簽署交易，並將簽署後的交易發送到費用委託服務（即費用支付方的服務器）。 然後，它會收到來自費用委託服務的回應，包括 `Fee payer` 位址、`Tx hash`. `Tx hash` 是提交給 Kaia 網路的交易的哈希值。
+它將用 "發送方 "私鑰簽署交易，並將簽署後的交易發送到費用委託服務（即費用支付方的服務器）。然後，它會收到來自費用委託服務的回應，包括 `Fee payer` 位址、`Tx hash`. `Tx hash` 是提交給 Kaia 網路的交易的哈希值。
 
 ### 4.3 檢查 `feepayer_server.js`<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-在伺服器的主控台上，您會看到以下輸出。 它會列印 Kaia 的交易收據。
+在伺服器的主控台上，您會看到以下輸出。它會列印 Kaia 的交易收據。
 
 ```bash
 $ node feepayer_server.js
