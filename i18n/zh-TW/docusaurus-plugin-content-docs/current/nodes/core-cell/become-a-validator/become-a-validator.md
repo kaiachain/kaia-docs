@@ -4,13 +4,13 @@
 
 :::info 無授權階段 1
 
-本指南說明在 \*\* 無授權階段 1\*\* 期間，現有 GC 如何透過驗證器管理入口網站管理其驗證器。 開放任何人透過無權限網路參與，將於\*\*第二階段（預定於九月底）\*\*進行，屆時將更新本指南。 詳情請參閱 [Permissionless Implementation Overview](https://govforum.kaia.io/t/permissionless-implementation-overview/1218) 和 [PGT Roadmap](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447) 。
+本指南說明在 \*\* 無授權階段 1\*\* 期間，現有 GC 如何透過驗證器管理入口網站管理其驗證器。開放任何人透過無權限網路參與，將於\*\*第二階段（預定於九月底）\*\*進行，屆時將更新本指南。詳情請參閱 [Permissionless Implementation Overview](https://govforum.kaia.io/t/permissionless-implementation-overview/1218) 和 [PGT Roadmap](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447) 。
 
 :::
 
-Kaia 提供 [Validator Management Portal](https://portal.kaia.io/validators) 用來註冊和管理驗證器資訊。 本指南將介紹驗證者如何使用入口網站加入 Kaia 網路。
+Kaia 提供 [Validator Management Portal](https://portal.kaia.io/validators) 用來註冊和管理驗證器資訊。本指南將介紹驗證者如何使用入口網站加入 Kaia 網路。
 
-由於驗證器操作所需的資訊必須記錄在鏈上合約中，因此任何驗證器都可以使用入口網站來傳送寫入或更新該資訊的交易。 當新的驗證員加入 Kaia 網路或現有的驗證員離開 Kaia 網路時，入口網站也可讓驗證員管理他們所擁有的鑄造合約。
+由於驗證器操作所需的資訊必須記錄在鏈上合約中，因此任何驗證器都可以使用入口網站來傳送寫入或更新該資訊的交易。當新的驗證員加入 Kaia 網路或現有的驗證員離開 Kaia 網路時，入口網站也可讓驗證員管理他們所擁有的鑄造合約。
 
 入口網站目前支援下列功能。
 
@@ -25,7 +25,7 @@ Kaia 提供 [Validator Management Portal](https://portal.kaia.io/validators) 用
 
 :::note
 
-testnet 也支援上述所有功能。 我們建議先在 testnet 上執行任何測試作業。
+testnet 也支援上述所有功能。我們建議先在 testnet 上執行任何測試作業。
 
 :::
 
