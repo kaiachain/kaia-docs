@@ -76,7 +76,7 @@ tx hash:  b'y\xe4+\xff\x8b\xed\x11D\xd9N\x85\xd4\x0f3\r\x82+\x8d\xc4$3\xaek\xc0\
 
 ---
 
-从**web3py_ext**导入**extend**，将 web3 扩展到 kaia web3。 在这种情况下，如果要使用**kaia 专用**工具，如**Web3.to_peb**，则应扩展
+从**web3py_ext**导入**extend**，将 web3 扩展到 kaia web3。在这种情况下，如果要使用**kaia 专用**工具，如**Web3.to_peb**，则应扩展
 
 ```py txTypeLegacyTransaction.py focus=1,2
 
@@ -150,7 +150,7 @@ web3_legacy_value_transfer_sign_recover()
 
 ---
 
-只用 **from**、**to**、**value** 字段定义 **legacy tx**。 使用单位转换器 **Web3.to_peb**
+只用 **from**、**to**、**value** 字段定义 **legacy tx**。使用单位转换器 **Web3.to_peb**
 
 ```python txTypeLegacyTransaction.py focus=15:19
 
@@ -227,7 +227,7 @@ decoded transaction: {
 
 ---
 
-向区块链发送 tx。 它将返回 tx 哈希值，用于等待接收
+向区块链发送 tx。它将返回 tx 哈希值，用于等待接收
 
 ```python txTypeLegacyTransaction.py focus=31
 
