@@ -107,7 +107,7 @@ Current contract value 1750125336184n
 
 ---
 
-使用 **createPublicClient** 建立一個 **publicClient**，設定為透過 **HTTP** 傳輸 (`http()`)，與 **Kaia Kairos testnet** (`kairos`)互動。 公共用戶端用於**只讀操作**，例如**查詢區塊鏈**或**讀取智慧契約狀態**，**不需要私鑰或簽署功能**。
+使用 **createPublicClient** 建立一個 **publicClient**，設定為透過 **HTTP** 傳輸 (`http()`)，與 **Kaia Kairos testnet** (`kairos`)互動。公共用戶端用於**只讀操作**，例如**查詢區塊鏈**或**讀取智慧契約狀態**，**不需要私鑰或簽署功能**。
 
 ```js smartContractExecution.js focus=9:12
 ```
@@ -135,7 +135,7 @@ Current contract value 1750125336184n
 
 ---
 
-使用 **prepareTransactionRequest** 建立**執行智慧型契約**的交易請求。 指定交易類型 **(TxType.smartContractExecution)**
+使用 **prepareTransactionRequest** 建立**執行智慧型契約**的交易請求。指定交易類型 **(TxType.smartContractExecution)**
 
 <CH.Code>
 ```js smartContractExecution.js focus=29:36
@@ -173,7 +173,7 @@ preparedTx {
 
 ---
 
-將 tx 傳送至區塊鏈。 函式 `sendTransaction` 內部會以帳戶的私密金鑰簽章，然後傳送到區塊鏈網路。
+將 tx 傳送至區塊鏈。函式 `sendTransaction` 內部會以帳戶的私密金鑰簽章，然後傳送到區塊鏈網路。
 
 <CH.Code>
 ```js smartContractExecution.js focus=38:39
