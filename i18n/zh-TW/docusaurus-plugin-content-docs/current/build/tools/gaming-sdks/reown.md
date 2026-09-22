@@ -2,7 +2,7 @@
 
 ## 介紹
 
-[Reown](https://docs.reown.com/overview)讓建置者能夠建立安全、人性化且具備豐富洞察力的錢包與應用程式 UX。 提供所有工具，讓您以更快的速度推出產品，並更聰明地擴充規模。 有了 Unity 上的 **Reown AppKit**，您可以輕鬆地將 onchain 生態系統連接到您的遊戲，實現流暢的錢包互動，讓玩家感覺自然。
+[Reown](https://docs.reown.com/overview)讓建置者能夠建立安全、人性化且具備豐富洞察力的錢包與應用程式 UX。提供所有工具，讓您以更快的速度推出產品，並更聰明地擴充規模。有了 Unity 上的 **Reown AppKit**，您可以輕鬆地將 onchain 生態系統連接到您的遊戲，實現流暢的錢包互動，讓玩家感覺自然。
 
 在本教程中，您將學習如何逐步將 Reown AppKit 整合到以 Kaia 為基礎的 Unity 遊戲中，讓您的玩家可以直接在遊戲中與 Web3 互動。
 
@@ -19,7 +19,7 @@
 
 ## 開始
 
-在本指南中，您將學習如何使用 Kaia 上的 Reown AppKit 將錢包功能整合到您的 Unity 遊戲中。 到最後，您將擁有一個可讓玩家進行以下工作的設定：
+在本指南中，您將學習如何使用 Kaia 上的 Reown AppKit 將錢包功能整合到您的 Unity 遊戲中。到最後，您將擁有一個可讓玩家進行以下工作的設定：
 
 - 連接和斷開他們的錢包
 - 檢視他們的本幣餘額和代幣餘額
@@ -33,7 +33,7 @@
 
 - 導覽到 \*\* 專案\*\* 索引標籤、
 - 按一下 \*\* 新專案\*\* 按鈕。
-- 選擇所有範本。 我們將採用**3D 模版**、
+- 選擇所有範本。我們將採用**3D 模版**、
 - 按一下 \*\* 建立\*\*專案。
 
 ![](/img/build/tools/gaming-sdks/rg-unity-create-project.png)
@@ -82,7 +82,7 @@
 
 ### 載入場景
 
-- 在 Assets > Scenes 下，按兩下 SampleScene。 這將是我們所有 Claim SBT 功能所在的地方。
+- 在 Assets > Scenes 下，按兩下 SampleScene。這將是我們所有 Claim SBT 功能所在的地方。
 
 ### 新增 Reown AppKit Prefab
 
@@ -102,7 +102,7 @@
 
 ### 建立我們的應用程式介面
 
-在本節中，我們將建立 Soul Bound Token 領取功能的使用者介面元件。 為此，我們將建立一個主面板和 3 個子面板及其對應的子元件。
+在本節中，我們將建立 Soul Bound Token 領取功能的使用者介面元件。為此，我們將建立一個主面板和 3 個子面板及其對應的子元件。
 
 **主面板**\*
 
@@ -124,29 +124,29 @@
 建立 **StatusPanel** 元件、
 
 - 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TestMeshPro，然後將文字物件重新命名為 WalletStatusText。
-  - 確保填滿文字物件。 例如「狀態：未連線"
+  - 確保填滿文字物件。例如「狀態：未連線"
 - 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TestMeshPro 並將文字物件重新命名為 AccountText
-  - 確保填滿文字物件。 例如 「連線位址：」
+  - 確保填滿文字物件。例如 「連線位址：」
 - 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TextMeshPro，然後將文字物件重新命名為 KaiaBalanceText。
-  - 確保填滿文字物件。 例如 「KAIA 結餘 :-」
+  - 確保填滿文字物件。例如 「KAIA 結餘 :-」
 - 在 StatusPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TextMeshPro，然後將文字物件重新命名為 UsdtBalanceText。
-  - 確保填滿文字物件。 例如 「USDT 結餘 :-」
+  - 確保填滿文字物件。例如 「USDT 結餘 :-」
 
 建立 **ButtonPanel** 元件、
 
 - 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將文字物件重新命名為 ConnectWallet。
-  - 確保填滿文字物件。 例如 「連接錢包」
+  - 確保填滿文字物件。例如 「連接錢包」
 - 在 ButtonPanel 上按一下滑鼠右鍵，按一下 UI → Button - TextMeshPro，然後將文字物件重新命名為 DisconnectWallet。
-  - 確保填滿文字物件。 例如 「中斷 Wallet」。
+  - 確保填滿文字物件。例如 「中斷 Wallet」。
 
 建立 **ClaimPanel** 元件、
 
 - 在 ClaimPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TextMeshPro，然後將文字物件重新命名為 ClaimLabel。
-  - 確保填滿文字物件。 例如 "Claim Soul Bound NFT:"。
+  - 確保填滿文字物件。例如 "Claim Soul Bound NFT:"。
 - 在 ClaimPanel 上按一下滑鼠右鍵，按一下 UI → 按鈕 - TextMeshPro，然後將文字物件重新命名為 ClaimButton。
-  - 確保填滿文字物件。 例如 「索賠」
+  - 確保填滿文字物件。例如 「索賠」
 - 在 ClaimPanel 上按一下滑鼠右鍵，按一下 UI → 文字 - TextMeshPro，然後將文字物件重新命名為 ClaimBalanceText。
-  - 確保填滿文字物件。 例如 「餘額：」
+  - 確保填滿文字物件。例如 「餘額：」
 
 :::note
 建立所有元件後，使用「移動工具」將它們整齊地排列在場景中。
@@ -196,7 +196,7 @@ contract SoulBoundToken is KIP17, Ownable {
     - 按一下「確認」以部署到 Kaia Mainnet。
 
 :::note
-複製並儲存已部署的合約位址。 您在稍後的教學中會用到它。
+複製並儲存已部署的合約位址。您在稍後的教學中會用到它。
 :::
 
 ## 執行 SBTManager Script
@@ -586,7 +586,7 @@ public class SBTManager : MonoBehaviour
 
 ## 測試和執行 Unity 應用程式
 
-在本節中，我們將測試 unity 應用程式中的各種功能。 若要瞭解實際操作，請遵循以下步驟：
+在本節中，我們將測試 unity 應用程式中的各種功能。若要瞭解實際操作，請遵循以下步驟：
 
 - 建立並執行專案：導覽至檔案 → 建立並執行
 
@@ -606,4 +606,4 @@ public class SBTManager : MonoBehaviour
 
 ## 總結
 
-在本教程中，您將學習如何在 Kaia 上將 Reown AppKit 套件整合到您的 Unity 遊戲中。 如需更深入的 Reown Unity 遊戲 SDK 使用指南，請參考 [Reown AppKit on Unity Guide](https://docs.reown.com/appkit/unity/core/installation)。
+在本教程中，您將學習如何在 Kaia 上將 Reown AppKit 套件整合到您的 Unity 遊戲中。如需更深入的 Reown Unity 遊戲 SDK 使用指南，請參考 [Reown AppKit on Unity Guide](https://docs.reown.com/appkit/unity/core/installation)。
