@@ -53,9 +53,9 @@ RPC_URL="http://localhost:8551"
 ./analyze.sh --network-only --rpc-endpoint $IPC_URL --bin-path $BIN_PATH
 ```
 
-## ３． 出力をエクスポートする
+## ３．出力をエクスポートする
 
-結果は出力フォルダに保存される。 出力ディレクトリをzipファイルに圧縮することができます。
+結果は出力フォルダに保存される。出力ディレクトリをzipファイルに圧縮することができます。
 
 ```bash
 ./analyze.sh --compress-output
