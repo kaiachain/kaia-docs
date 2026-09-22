@@ -34,16 +34,16 @@
 ![獎勵地址 & 投票人](/img/nodes/become-a-validator/image28.png)
 
 7. \*\* 獎勵位址\*\* - 如果已停用公開委託，您可以變更獎勵位址。
-8. **選民與投票追蹤器** - 變更 GC 投票所使用的選民地址。 更新 Staking Tracker 時，您也可以變更 Staking Tracker 位址。
+8. **選民與投票追蹤器** - 變更 GC 投票所使用的選民地址。更新 Staking Tracker 時，您也可以變更 Staking Tracker 位址。
 
 ## 再授權<a id="redelegation"></a>
 
 ![Redelegation](/img/nodes/become-a-validator/image29.png)
 
-9. **Redelegation** - 啟用或停用 Redelegation 功能，此功能可免除 7 天的取消認股期，並立即在認股合約之間移動 KAIA。 來源和目的地釣魚合約都必須啟用再轉授。 詳情請參閱 [KIP-163](https://kips.kaia.io/KIPs/kip-163)。
+9. **Redelegation** - 啟用或停用 Redelegation 功能，此功能可免除 7 天的取消認股期，並立即在認股合約之間移動 KAIA。來源和目的地釣魚合約都必須啟用再轉授。詳情請參閱 [KIP-163](https://kips.kaia.io/KIPs/kip-163)。
 
 ## 多重登入請求<a id="multisig-requests"></a>
 
 ![Multisig 請求](/img/nodes/become-a-validator/image30.png)
 
-10. \*\* 多重認證請求\*\* - 當多重認證臨界值為 2 或以上時，執行 1-9 項中的任何動作都需要釣魚合約管理員的確認。 對於尚未收集足夠確認的請求，每位管理員都可以透過此畫面登入，並執行確認流程。 一旦收集到足夠的確認，變更請求就會被執行。
+10. \*\* 多重認證請求\*\* - 當多重認證臨界值為 2 或以上時，執行 1-9 項中的任何動作都需要釣魚合約管理員的確認。對於尚未收集足夠確認的請求，每位管理員都可以透過此畫面登入，並執行確認流程。一旦收集到足夠的確認，變更請求就會被執行。
