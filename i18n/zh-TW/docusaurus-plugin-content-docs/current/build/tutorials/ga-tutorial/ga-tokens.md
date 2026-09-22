@@ -10,7 +10,7 @@
 
 ## 3.2 目前支援的代幣
 
-無瓦斯交易目前支援下列代幣。 未來可能會納入其他 CL 代幣和穩定幣。
+無瓦斯交易目前支援下列代幣。未來可能會納入其他 CL 代幣和穩定幣。
 
 - **USDT**
 - **博拉**
@@ -35,7 +35,7 @@
 1. 前往 [KaiaScan](https://kaiascan.io/) (或 [kairos.kaiascan.io](https://kairos.kaiascan.io/) 的測試網路)。
 2. 搜尋 `GaslessSwapRouter` 位址。
 3. 導覽到 **Contract** 索引標籤，然後選擇 **Read Contract**。
-4. 找到`getSupportedTokens()`函數，然後按一下 **查詢**。 這將會傳回支援的 ERC20 原始碼地址陣列。
+4. 找到`getSupportedTokens()`函數，然後按一下 **查詢**。這將會傳回支援的 ERC20 原始碼地址陣列。
 
 ### 程式化查詢
 
