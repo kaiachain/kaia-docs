@@ -4,7 +4,7 @@
 
 :::info
 
-この文書では、カイア移行前に発生したハードフォークをリストアップしている。 移行後のハードフォークについては、[Kaia Hard Fork History](kaia-history.md)を参照してください。
+この文書では、カイア移行前に発生したハードフォークをリストアップしている。移行後のハードフォークについては、[Kaia Hard Fork History](kaia-history.md)を参照してください。
 
 :::
 
@@ -28,7 +28,7 @@
 
 ### 概要
 
-イーサリアムのCancunハードフォーク項目は、[v1.12.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.12.0)で導入された。 具体的な情報については、リリースノートをご覧ください。 さらに、[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) で導入された AccessList トランザクション・タイプが完全にサポートされた ([#1955](https://github.com/klaytn/klaytn/pull/1955))。
+イーサリアムのCancunハードフォーク項目は、[v1.12.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.12.0)で導入された。具体的な情報については、リリースノートをご覧ください。さらに、[EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) で導入された AccessList トランザクション・タイプが完全にサポートされた ([#1955](https://github.com/klaytn/klaytn/pull/1955))。
 
 ## 上海
 
@@ -39,7 +39,7 @@
 
 ### 概要
 
-イーサリアムの上海ハードフォーク項目は[v1.11.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)で導入された。 イーサリアム上海のハードフォーク([#1883](https://github.com/klaytn/klaytn/pull/1883), [#1861](https://github.com/klaytn/klaytn/pull/1861), [#1888](https://github.com/klaytn/klaytn/pull/1888))と同等の機能が含まれており、EOAを上書きして新しいコントラクトアカウントを作成できるように修正されている([#1904](https://github.com/klaytn/klaytn/pull/1904))。
+イーサリアムの上海ハードフォーク項目は[v1.11.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)で導入された。イーサリアム上海のハードフォーク([#1883](https://github.com/klaytn/klaytn/pull/1883), [#1861](https://github.com/klaytn/klaytn/pull/1861), [#1888](https://github.com/klaytn/klaytn/pull/1888))と同等の機能が含まれており、EOAを上書きして新しいコントラクトアカウントを作成できるように修正されている([#1904](https://github.com/klaytn/klaytn/pull/1904))。
 
 ## KIP-103<a id="kip-103"></a>
 
@@ -70,7 +70,7 @@ KIP-103ハードフォークが[v1.10.2リリース](https://github.com/klaytn/k
 
 ### 概要
 
-コレハードフォークは[v1.10.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)で導入された。 これは、オンチェーンガバナンス投票法([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)、新しいGC報酬構造([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)、およびEVMの変更の実装である。
+コレハードフォークは[v1.10.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.10.0)で導入された。これは、オンチェーンガバナンス投票法([KIP-81](https://kips.klaytn.foundation/KIPs/kip-81)、新しいGC報酬構造([KIP-82](https://kips.klaytn.foundation/KIPs/kip-82)、およびEVMの変更の実装である。
 
 ## マグマ<a id="magma"></a>
 
@@ -81,7 +81,7 @@ KIP-103ハードフォークが[v1.10.2リリース](https://github.com/klaytn/k
 
 ### 概要
 
-Magmaハードフォークは[v1.9.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)で導入された。 ダイナミック・ガス料金メカニズム、[#1493](https://github.com/klaytn/klaytn/pull/1493)を含み、[KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)を実装している。）
+Magmaハードフォークは[v1.9.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.9.0)で導入された。ダイナミック・ガス料金メカニズム、[#1493](https://github.com/klaytn/klaytn/pull/1493)を含み、[KIP-71](https://kips.klaytn.foundation/KIPs/kip-71)を実装している。）
 
 ## EthTxType<a id="eth-tx-type"></a>
 
@@ -92,7 +92,7 @@ Magmaハードフォークは[v1.9.0リリース](https://github.com/klaytn/klay
 
 ### 概要
 
-イーサリアムのEthTxTypeの変更は[v1.8.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.8.0)で導入されました。 これには、イーサリアムのトランザクションタイプをサポートする新しいトランザクションタイプが含まれる：TxTypeEthereumAccessList と TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158))。
+イーサリアムのEthTxTypeの変更は[v1.8.0リリース](https://github.com/klaytn/klaytn/releases/tag/v1.8.0)で導入されました。これには、イーサリアムのトランザクションタイプをサポートする新しいトランザクションタイプが含まれる：TxTypeEthereumAccessList と TxTypeEthereumDynamicFee ([#1142](https://github.com/klaytn/klaytn/pull/1142), [#1158](https://github.com/klaytn/klaytn/pull/1158))。
 
 ## ロンドンEVM<a id="london-evm"></a>
 
