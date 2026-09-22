@@ -213,7 +213,7 @@ preparedTx {
 
 ---
 
-发送者使用 "klay_sendRawTransaction "向 Kaia 区块链提交交易，并记录结果（通常是交易哈希值）。 汇款人支付交易费用。
+发送者使用 "klay_sendRawTransaction "向 Kaia 区块链提交交易，并记录结果（通常是交易哈希值）。汇款人支付交易费用。
 
 <CH.Code>
 ```js writeWithFeeDelegation.js focus=49:53
@@ -229,7 +229,7 @@ contract interaction tx 0x67e3975188a4e7c221ac823450b51a4ac8064ddeb35523defd890b
 
 ---
 
-准备一个费用委托事务（"FeeDelegatedSmartContractExecution"），以调用合同上相同的 "setNumber "函数。 设置与非收费委托交易类似，但收费人在交易上签字，以\*\*支付费用。
+准备一个费用委托事务（"FeeDelegatedSmartContractExecution"），以调用合同上相同的 "setNumber "函数。设置与非收费委托交易类似，但收费人在交易上签字，以\*\*支付费用。
 
 ```js writeWithFeeDelegation.js focus=56:62
 ```
