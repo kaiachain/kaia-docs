@@ -11,7 +11,7 @@ Hardhat 是一個智能合約開發環境，它將為您提供幫助：
 - 開發和編譯智能合約。
 - 調試、測試和部署智能合約和 dApp。
 
-Soulbound tokens(SBTs) 是不可轉讓的 NFT。 也就是說，一旦獲得，就不得出售或轉讓給其他用戶。 要了解有關 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 發表的這篇 [參考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
+Soulbound tokens(SBTs) 是不可轉讓的 NFT。也就是說，一旦獲得，就不得出售或轉讓給其他用戶。要了解有關 SBT、其工作原理和使用案例的更多信息，可以查看 Vitalik Buterin 發表的這篇 [參考文章](https://vitalik.eth.limo/general/2022/01/26/soulbound.html)。
 
 完成本指南後，您將能夠
 
@@ -33,7 +33,7 @@ Soulbound tokens(SBTs) 是不可轉讓的 NFT。 也就是說，一旦獲得，�
 
 ## 設置開發環境
 
-要使用 hardhat，我們需要建立開發環境並安裝 hardhat。 讓我們按以下步驟來做：
+要使用 hardhat，我們需要建立開發環境並安裝 hardhat。讓我們按以下步驟來做：
 
 **第 1**步創建項目目錄
 
@@ -69,7 +69,7 @@ npm install dotenv @kaiachain/contracts
 **第 4 步**：初始化硬頭盔項目：
 
 :::note
-本指南使用 Hardhat v2。 如果您偏好使用 Hardhat v3，請參考此<a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">設定指南 </a>的設定指示
+本指南使用 Hardhat v2。如果您偏好使用 Hardhat v3，請參考此<a href="https://docs.kaia.io/build/cookbooks/secure-wallet-cookbook/#33-recipe-securely-managing-accounts-in-a-hardhat-project" target="_self">設定指南 </a>的設定指示
 :::
 
 運行以下命令啟動硬頭盔項目
@@ -98,7 +98,7 @@ npx hardhat --init
 
 **步驟 5**：建立`.env`檔案
 
-現在在專案資料夾中建立您的 `.env` 檔案。 此檔案可協助我們將 `.env` 檔案中的環境變數載入 process.env。
+現在在專案資料夾中建立您的 `.env` 檔案。此檔案可協助我們將 `.env` 檔案中的環境變數載入 process.env。
 
 - 在終端機中貼上此指令以建立`.env`檔案
 
@@ -142,7 +142,7 @@ module.exports = {
 
 ## 創建 SBT 智能合約
 
-在本節中，您將使用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)：這是一個建立在社區驗證代碼堅實基礎上的安全智能合約開發庫。 它是開放式齊柏林合同的分叉。
+在本節中，您將使用 [Kaia Contracts](https://github.com/kaiachain/kaia-contracts)：這是一個建立在社區驗證代碼堅實基礎上的安全智能合約開發庫。它是開放式齊柏林合同的分叉。
 
 > 注意：您已在 "設置開發環境 "一節的第 3\*\* 步安裝了該庫。
 
@@ -184,9 +184,9 @@ contract SoulBoundToken is KIP17, Ownable {
 
 **代碼演練**
 
-這就是你的智能合約。 **第 1** 行顯示 Hardhat 使用的是 0.8.7 或更高版本的 Solidity。 除此之外，它還導入了 KIP17.sol 和其他輔助合同。 從第6-12\*\*行開始，創建了一個繼承KIP17的智能合約。 此外，構造函數中還傳遞了標記名稱和符號。
+這就是你的智能合約。**第 1** 行顯示 Hardhat 使用的是 0.8.7 或更高版本的 Solidity。除此之外，它還導入了 KIP17.sol 和其他輔助合同。從第6-12\*\*行開始，創建了一個繼承KIP17的智能合約。此外，構造函數中還傳遞了標記名稱和符號。
 
-如上代碼所示，令牌名稱和符號已分別設置為 **SoulBoundToken** 和 **SBT**。 您可以隨意更改令牌名稱和符號。
+如上代碼所示，令牌名稱和符號已分別設置為 **SoulBoundToken** 和 **SBT**。您可以隨意更改令牌名稱和符號。
 
 該合約的一個主要特點是禁止代幣轉讓，這使得發行的代幣成為靈魂債券。
 
@@ -303,7 +303,7 @@ npx 硬帽測試 test/sbtTest.js
 
 ## 部署智能合約
 
-Ignition 模組是 JavaScript/Typescript 檔案，可協助您將契約部署到區塊鏈網路。 在本節中，您將為智慧契約建立一個模組。
+Ignition 模組是 JavaScript/Typescript 檔案，可協助您將契約部署到區塊鏈網路。在本節中，您將為智慧契約建立一個模組。
 
 **步驟 1**：在資源總管窗格中，選擇 **ignition/module** 資料夾，然後按一下「新增檔案」按鈕，建立一個名為 `sbtDeploy.js` 的新檔案。
 
@@ -334,19 +334,19 @@ npx hardhat ignition deploy ./ignition/modules/sbtDeploy.js --network kairos
 
 **步驟 4**：開啟 [KaiaScan](https://kairos.kaiascan.io/) 檢查 SBT 令牌是否已成功部署。
 
-**第 5 步**：在搜索欄中複製並粘貼部署的合同地址，然後按 Enter 鍵。 您應該能看到最近部署的合同。
+**第 5 步**：在搜索欄中複製並粘貼部署的合同地址，然後按 Enter 鍵。您應該能看到最近部署的合同。
 
 ![](/img/build/get-started/hh-deploy-kaiascan.png)
 
 ## 硬帽叉
 
-Hardhat 為開發人員提供了在本地開發網絡中模擬主網（任何給定區塊）的功能。 這一功能的主要好處之一是，它能讓開發人員與已部署的合同進行交互，還能為複雜的案例編寫測試。
+Hardhat 為開發人員提供了在本地開發網絡中模擬主網（任何給定區塊）的功能。這一功能的主要好處之一是，它能讓開發人員與已部署的合同進行交互，還能為複雜的案例編寫測試。
 
-要使該功能有效運行，您需要連接到存檔節點。 您可在 [此處](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 閱讀有關此功能的更多信息。
+要使該功能有效運行，您需要連接到存檔節點。您可在 [此處](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks#forking-other-networks) 閱讀有關此功能的更多信息。
 
 ### 分叉主網
 
-現在，我們已經建立了 Hardhat 項目，讓我們使用 Hardhat fork Kaia 主網。  打開終端，運行以下命令
+現在，我們已經建立了 Hardhat 項目，讓我們使用 Hardhat fork Kaia 主網。打開終端，運行以下命令
 
 ```bash
 npx hardhat node --fork<YOUR ARCHIVE NODE URL>
@@ -370,9 +370,9 @@ networks: {
 
 ![](/img/build/get-started/hh2-fork-instance.png)
 
-成功運行該命令後，您的終端看起來就像上圖一樣。  您將擁有 20 個開發賬戶，這些賬戶預存了 10,000 個測試代幣。
+成功運行該命令後，您的終端看起來就像上圖一樣。您將擁有 20 個開發賬戶，這些賬戶預存了 10,000 個測試代幣。
 
-分叉鏈的 RPC 服務器正在`http://127.0.0.1:8545/`監聽。  您可以通過查詢最新的區塊編號來驗證分叉網絡。 讓我們嘗試使用 cURL 訪問 RPC，以獲取區塊編號。  打開一個新的終端窗口，使用以下命令：
+分叉鏈的 RPC 服務器正在`http://127.0.0.1:8545/`監聽。您可以通過查詢最新的區塊編號來驗證分叉網絡。讓我們嘗試使用 cURL 訪問 RPC，以獲取區塊編號。打開一個新的終端窗口，使用以下命令：
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -382,11 +382,11 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 ![](/img/build/get-started/hh2-forked-ins-i.png)
 
-輸出結果為十六進制，如上圖所示。 要從十六進制中獲取塊編號，請使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 將十六進制轉換為十進制。 您應該從分叉網絡時獲得最新的區塊編號。 您可以在 [KaiaScan](https://kaiascan.io/) 上確認區塊號碼。
+輸出結果為十六進制，如上圖所示。要從十六進制中獲取塊編號，請使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 將十六進制轉換為十進制。您應該從分叉網絡時獲得最新的區塊編號。您可以在 [KaiaScan](https://kaiascan.io/) 上確認區塊號碼。
 
 ### 在街區分叉
 
-使用硬頭盔，您可以在特定區塊分叉主網。  在這種情況下，讓我們在區塊編號 "105701850 "處分叉鏈。
+使用硬頭盔，您可以在特定區塊分叉主網。在這種情況下，讓我們在區塊編號 "105701850 "處分叉鏈。
 
 ```bash
 npx hardhat node --fork<YOUR ARCHIVE NODE URL> --fork-block-number 105701850
@@ -404,4 +404,4 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 輸出返回十六進制，使用此 [工具](https://www.rapidtables.com/convert/number/hex-to-decimal.html) 轉換後應等於 `105701850`。
 
-有關 Hardhat 的更深入指南，請參閱 [Hardhat 文檔](https://hardhat.org/hardhat-runner/docs/getting-started)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) 上找到本指南的完整代碼實現。
+有關 Hardhat 的更深入指南，請參閱 [Hardhat 文檔](https://hardhat.org/hardhat-runner/docs/getting-started)。此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/hardhat/soulbound-tokens) 上找到本指南的完整代碼實現。
