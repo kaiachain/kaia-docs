@@ -5,7 +5,7 @@ import Editor from '@site/src/components/Editor'
 
 <Editor module="/src/pages/viem-ext/basic-transaction/SmartContractExecutions.tsx" route={RoutePath.ViemExt_SmartContract_Execution} />
 
-**TxTypeSmartContractExecution** 使用给定数据执行智能合约。 只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
+**TxTypeSmartContractExecution** 使用给定数据执行智能合约。只有当 "to "是智能合约账户时，才接受**TxTypeSmartContractExecution**。
 
 这种类型的交易可以创建账户、转移代币、部署智能合约、执行智能合约，或执行上述交易的组合。
 
@@ -107,7 +107,7 @@ Current contract value 1750125336184n
 
 ---
 
-使用**createPublicClient**创建一个**publicClient**，配置为通过**HTTP**传输（`http()`）与**Kaia Kairos testnet**（`kairos`）交互。 公共客户端用于**只读操作**，如**查询区块链**或**读取智能合约状态**，**无需私钥或签名功能**。
+使用**createPublicClient**创建一个**publicClient**，配置为通过**HTTP**传输（`http()`）与**Kaia Kairos testnet**（`kairos`）交互。公共客户端用于**只读操作**，如**查询区块链**或**读取智能合约状态**，**无需私钥或签名功能**。
 
 ```js smartContractExecution.js focus=9:12
 ```
@@ -135,7 +135,7 @@ Current contract value 1750125336184n
 
 ---
 
-使用**prepareTransactionRequest**为**执行智能合约**创建交易请求。 指定交易类型\*\*（TxType.smartContractExecution）\*\*
+使用**prepareTransactionRequest**为**执行智能合约**创建交易请求。指定交易类型\*\*（TxType.smartContractExecution）\*\*
 
 <CH.Code>
 ```js smartContractExecution.js focus=29:36
@@ -173,7 +173,7 @@ preparedTx {
 
 ---
 
-向区块链发送 tx。 函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
+向区块链发送 tx。函数 "sendTransaction "使用账户的私钥进行内部签名，然后将其传输到区块链网络。
 
 <CH.Code>
 ```js smartContractExecution.js focus=38:39
