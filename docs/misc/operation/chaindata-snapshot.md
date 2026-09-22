@@ -35,24 +35,30 @@ Before start, prepare enough disk space to accommodate both compressed file and 
 
 ## Download the File
 
-Download a compressed file to the new directory. URLs can be found at the bottom of this page.
+Every published snapshot is listed at [snapshots.node.kaia.io](https://snapshots.node.kaia.io/), and each network publishes the newest one's URL as a one-line `latest.txt`. Read it into a variable and the commands below need no editing when a new snapshot is published.
+
+```sh
+# mainnet; for Kairos, replace mainnet with kairos
+URL=$(curl -s https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt)
+echo "$URL"
+```
 
 - Option 1. curl
   ```sh
-  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O "$URL"
   ```
 - Option 2. wget
   ```sh
-  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget "$URL"
   ```
 - Option 3. axel
   ```sh
   # Amazon Linux installation example
   sudo amazon-linux-extras install epel
-  sudo yum install axel pigz
+  sudo yum install axel
 
   # Multi-threaded download and print status bar
-  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  axel -n8 "$URL" | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
   ```
 - Option 4. aria2
   ```sh
@@ -60,22 +66,29 @@ Download a compressed file to the new directory. URLs can be found at the bottom
   sudo yum install epel-release aria2
 
   # Lightweight, multi-connection download
-  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  aria2c "$URL"
   ```
 
 ## Decompress the File
 
+Snapshots are compressed with [zstd](https://github.com/facebook/zstd) and named `.tar.zst`. The archive holds a `klay/chaindata` directory, so extract it into the data directory itself.
+
 - Option 1. tar
   ```sh
-  tar -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  tar --zstd -xvf kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -C /var/kend/data
   ```
-- Option 2. tar and pigz
+- Option 2. zstd, then tar
   ```sh
-  # Amazon Linux & Rocky Linux installation example
-  sudo yum install pigz
+  # For a tar built without --zstd. Amazon Linux & Rocky Linux installation example
+  sudo yum install zstd
 
-  # Multi-threaded decompression
-  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  zstd -d kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -o out.tar
+  tar -xf out.tar -C /var/kend/data
+  ```
+- Option 3. Download and extract in one pass
+  ```sh
+  # No room for both the archive and the directory it expands into
+  curl -s "$URL" | tar --zstd -xf - -C /var/kend/data
   ```
 
 ## Swap the data directory
@@ -96,16 +109,22 @@ Download a compressed file to the new directory. URLs can be found at the bottom
     ```
 - Option 2. Change the path in the node configuration
   - Change `DATA_DIR` value in the `kend.conf` file.
-- Optionally delete old data and tar.gz file.
+- Optionally delete old data and the `.tar.zst` file.
 - Finally, start the node.
 
 ## Downloads
 
-For efficiency, only batch pruned (state migrated) or live pruned database are provided. Read [Storage Optimization](../../learn/storage/storage-optimization.md) for their concepts. If you want a full database without neither pruning, or even archive data, perform a fresh full sync from genesis.
+Snapshots are published at **[snapshots.node.kaia.io](https://snapshots.node.kaia.io/)**, which lists every snapshot with its size and checksum. Alongside the page, each network publishes two files for scripts: `latest.txt`, the newest snapshot's URL on one line, and `manifest.json`, every snapshot with its size, checksum and creation time.
 
-| network | sync options | download |
-|-|-|-|
-| mainnet | state migrated | https://packages.kaia.io/mainnet/chaindata/ |
-| mainnet | live pruning | https://packages.kaia.io/mainnet/pruning-chaindata/ |
-| kairos | state migrated | https://packages.kaia.io/kairos/chaindata/ |
-| kairos | live pruning | https://packages.kaia.io/kairos/pruning-chaindata/ |
+| network | sync options | download | for scripts |
+|-|-|-|-|
+| mainnet | live pruning | https://snapshots.node.kaia.io/#mainnet-pruning | [latest.txt](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/manifest.json) |
+| kairos | live pruning | https://snapshots.node.kaia.io/#kairos-pruning | [latest.txt](https://snapshots.node.kaia.io/kairos/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/kairos/pruning-chaindata/manifest.json) |
+
+Only live-pruned databases are published. Read [Storage Optimization](../../learn/storage/storage-optimization.md) for the concept. Batch-pruned (state migrated) snapshots are no longer produced, and neither are full or archive databases: for those, perform a fresh full sync from genesis, or write to devops@kaia.io.
+
+:::note
+
+The `https://packages.kaia.io/<network>/chaindata/` and `.../pruning-chaindata/` URLs this page used to list are no longer updated. Anything reading `latest.txt` or `manifest.json` under them should read the URLs in the table above instead.
+
+:::
