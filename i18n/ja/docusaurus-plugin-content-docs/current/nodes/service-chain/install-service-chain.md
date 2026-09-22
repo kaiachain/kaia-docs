@@ -17,7 +17,7 @@ ServiceChainは、価値移転、セキュリティ、高性能、カスタマ�
 
 ![](/img/nodes/sc-overview.png)
 
-ServiceChainの詳細については、[Kaia Scaling Solution](../../learn/scaling-solutions.md)をお読みください。 また、以下のビデオはカイアServiceChainを理解するのに役立ちます。
+ServiceChainの詳細については、[Kaia Scaling Solution](../../learn/scaling-solutions.md)をお読みください。また、以下のビデオはカイアServiceChainを理解するのに役立ちます。
 
 - [カイアにおけるサービスチェーンによる水平展開｜TXGX2019】(https://www.youtube.com/watch?v=8yQc5FQysJc)
 - [カイア・サービスチェーンの高可用性アーキテクチャ｜TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
@@ -76,7 +76,7 @@ Kaia Linuxパッケージは、以下のような構造の実行バイナリと�
 
 このページでは、コンセンサスネットワークを形成するためのSCNの構成について説明する。
 
-アーカイブディストリビューションをインストールした場合は、アーカイブを解凍したディレクトリにバイナリと設定ファイルがあります。 以下はコマンドの実行例である。
+アーカイブディストリビューションをインストールした場合は、アーカイブを解凍したディレクトリにバイナリと設定ファイルがあります。以下はコマンドの実行例である。
 
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
@@ -88,7 +88,7 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 
 ### ジェネシスファイルの作成<a id="creation-of-a-genesis-file"></a>
 
-まず、自分のサービスチェーン用のgenesisファイルとnodekeyファイルを作成する。 以下のようにhomiを使って作ることができる。
+まず、自分のサービスチェーン用のgenesisファイルとnodekeyファイルを作成する。以下のようにhomiを使って作ることができる。
 
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
@@ -137,17 +137,13 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-genesisファイルのchainIDを変更してください。 リプレイ攻撃を防ぐため、自分の番号を使用する。
-(カイアメインネット(8217)とカイロス(1001)で同じchainIDを使用しないでください)
+genesisファイルのchainIDを変更してください。リプレイ攻撃を防ぐため、自分の番号を使用する。(カイアメインネット(8217)とカイロス(1001)で同じchainIDを使用しないでください)
 
-必要であれば、genesisファイルの`"alloc"`を編集することで、事前に資金を提供するアドレスを変更することができる。
-(詳しくは[Genesis JSON](../service-chain/configure/genesis.md)をご覧ください）。
+必要であれば、genesisファイルの`"alloc"`を編集することで、事前に資金を提供するアドレスを変更することができる。(詳しくは[Genesis JSON](../service-chain/configure/genesis.md)をご覧ください）。
 
 ### SCNデータディレクトリの作成<a id="scn-data-directory-creation"></a>
 
-カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。
-データ・ディレクトリは好きなパスに作成できる。
-このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成する。
+カイア・ブロックチェーンのデータサイズが増加し続けているという事実を考慮すると、十分な大きさのストレージを使用することをお勧めします。データ・ディレクトリは好きなパスに作成できる。このドキュメントでは、データディレクトリとして `~/kscnd_home` を作成する。
 
 ```bash
 $ mkdir -p ~/kscnd_home
@@ -155,8 +151,7 @@ $ mkdir -p ~/kscnd_home
 
 #### ジェネシス・ブロックの初期化<a id="initialization-of-a-genesis-block"></a>
 
-その後、genesisファイルでデータ・ディレクトリを初期化することができる。
-サービスチェーンノードを開始する前に、`kscn`と`genesis.json`を使用してサービスチェーンネットワークのgenesisブロックを初期化する必要がある。
+その後、genesisファイルでデータ・ディレクトリを初期化することができる。サービスチェーンノードを開始する前に、`kscn`と`genesis.json`を使用してサービスチェーンネットワークのgenesisブロックを初期化する必要がある。
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -192,8 +187,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 
 kscnd.conf\` は SCN の設定ファイルです。
 
-SCNはデフォルトのポートを使用し、大規模パーティションを `~/kscnd_home` にマウントすると仮定します。
-デフォルトの `kscnd.conf` ファイルでは、`SC_SUB_BRIDGE` オプションは無効になっていて、`DATA_DIR` は空になっている。
+SCNはデフォルトのポートを使用し、大規模パーティションを `~/kscnd_home` にマウントすると仮定します。デフォルトの `kscnd.conf` ファイルでは、`SC_SUB_BRIDGE` オプションは無効になっていて、`DATA_DIR` は空になっている。
 
 ```
 # Configuration file for the kscnd
@@ -204,8 +198,7 @@ DATA_DIR=
 ...
 ```
 
-SC_SUB_BRIDGE\`を有効にすることで、アンカリング/バリュー転送機能を使用することができます。
-また、DATA_DIRを以下のように設定してください。
+SC_SUB_BRIDGE\`を有効にすることで、アンカリング/バリュー転送機能を使用することができます。また、DATA_DIRを以下のように設定してください。
 
 ```
 # Configuration file for the kscnd
@@ -216,8 +209,7 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-必要であれば、さらに他のオプションを変更してサービスチェーンをカスタマイズすることもできます。
-そうでなければ、これでコンフィギュレーションを終了し、デフォルト・コンフィギュレーションを使ってサービス・チェーンを実行する準備ができたことになる。
+必要であれば、さらに他のオプションを変更してサービスチェーンをカスタマイズすることもできます。そうでなければ、これでコンフィギュレーションを終了し、デフォルト・コンフィギュレーションを使ってサービス・チェーンを実行する準備ができたことになる。
 
 ## SCNの起動／停止<a id="starting-stopping-scn"></a>
 
@@ -295,7 +287,7 @@ kscnd is running
 
 ### 過去ログ<a id="logs"></a>
 
-ログは `kscnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kscnd.out` ファイルに保存される。 ノードが正常に動作すると、各ブロックが以下のように1秒ごとにインポートされるのがわかる。
+ログは `kscnd.conf` ファイルの `LOG_DIR` フィールドで定義されたパスにある `kscnd.out` ファイルに保存される。ノードが正常に動作すると、各ブロックが以下のように1秒ごとにインポートされるのがわかる。
 
 例
 
@@ -318,7 +310,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscnコンソール<a id="kscn-console"></a>
 
-KaiaはCLIクライアント `kscn console` を提供している。 クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は SCN の `DATA_DIR` パスにあります。
+KaiaはCLIクライアント `kscn console` を提供している。クライアントを使うもう一つの方法は、IPC（プロセス間通信）を介してプロセスに接続することである。 IPC ファイル `klay.ipc` は SCN の `DATA_DIR` パスにあります。
 
 以下のコマンドを実行し、結果を確認してください。
 
