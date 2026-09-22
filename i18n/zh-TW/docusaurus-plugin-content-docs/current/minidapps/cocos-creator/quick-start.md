@@ -14,7 +14,7 @@
 
 ## 設定 Cocos Creator 的開發環境<a id="setting-up-dev-environment"></a>
 
-在我們開始之前，先確保您的開發環境已設定妥當。 我們先安裝並驗證 Cocos Dashboard。
+在我們開始之前，先確保您的開發環境已設定妥當。我們先安裝並驗證 Cocos Dashboard。
 
 ### 步驟 1：安裝並驗證 Cocos Dashboard<a id="install-and-verify"></a>
 
