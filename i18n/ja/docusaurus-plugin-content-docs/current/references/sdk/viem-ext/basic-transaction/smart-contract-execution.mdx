@@ -107,7 +107,7 @@ web3にkaiaの機能を追加するために\*\*@kaiachain/viem-ext\*\*パッケ
 
 ---
 
-createPublicClient**を使用して**publicClient**を作成し、**HTTP**トランスポート(`http()`)を介して**Kaia Kairos testnet\*\* (`kairos`)と対話するように設定します。 パブリック・クライアントは、**ブロックチェーンへの問い合わせ**や**スマート・コントラクトの状態の読み取り**など、**読み取り専用の操作**に使用され、**秘密鍵や署名機能**を必要としない。
+createPublicClient**を使用して**publicClient**を作成し、**HTTP**トランスポート(`http()`)を介して**Kaia Kairos testnet\*\* (`kairos`)と対話するように設定します。パブリック・クライアントは、**ブロックチェーンへの問い合わせ**や**スマート・コントラクトの状態の読み取り**など、**読み取り専用の操作**に使用され、**秘密鍵や署名機能**を必要としない。
 
 ```js smartContractExecution.js focus=9:12
 ```
@@ -135,7 +135,7 @@ createWalletClient**を使用してウォレットクライアントをセット
 
 ---
 
-prepareTransactionRequest\*\*を使用して、**スマート・コントラクトを実行する**トランザクション・リクエストを作成する。 トランザクションタイプを指定する **(TxType.smartContractExecution)** 。
+prepareTransactionRequest\*\*を使用して、**スマート・コントラクトを実行する**トランザクション・リクエストを作成する。トランザクションタイプを指定する **(TxType.smartContractExecution)** 。
 
 <CH.Code>
 ```js smartContractExecution.js focus=29:36
@@ -173,7 +173,7 @@ preparedTx {
 
 ---
 
-ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
+ブロックチェーンに送信する。関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js smartContractExecution.js focus=38:39
