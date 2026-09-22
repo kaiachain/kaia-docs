@@ -2,10 +2,10 @@
 
 ## カイロス・テストネットとFaucet<a id="kairos-testnet-and-faucet"></a>
 
-FaucetはKairosネットワーク上で動作します。 FaucetはKairosネットワーク上で動作します。 このFaucetは[Kairos Kaia Faucet](https://faucet.kaia.io)からアクセスできる。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。
+FaucetはKairosネットワーク上で動作します。 FaucetはKairosネットワーク上で動作します。 このFaucetは[Kairos Kaia Faucet](https://faucet.kaia.io)からアクセスできる。 テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。テストネットKAIAを受信するには、有効なKaiaアカウントが必要です。
 
 - アカウントアドレス\*\*入力フィールドにあなたのウォレットアドレスを貼り付けます。
-- Run Faucet\`ボタンをクリックすると、50個のテストネットKAIAが送られてくる。 なお、各アカウントのFaucetは24時間に1回だけ動かすことができる。
+- Run Faucet\`ボタンをクリックすると、50個のテストネットKAIAが送られてくる。なお、各アカウントのFaucetは24時間に1回だけ動かすことができる。
 
 ## KAIA交換リスト<a id="kaia-exchange-list"></a>
 
