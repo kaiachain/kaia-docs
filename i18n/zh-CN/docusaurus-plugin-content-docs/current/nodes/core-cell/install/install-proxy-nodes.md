@@ -10,7 +10,7 @@
 
 存档文件由可执行二进制文件和配置文件组成，结构如下。
 
-**注意**：请勿更改文件结构或文件名。 如果更改，节点可能无法正常运行。
+**注意**：请勿更改文件结构或文件名。如果更改，节点可能无法正常运行。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf kpn-vX.X.X-linux-amd64.tar.gz
 $ tar zxf kpn-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `kpn-linux-amd64/bin` 路径，以便全局运行 `kpn` 和 `kpnd`。 举个例子
+**注意**：建议在环境变量 `$PATH` 中添加解压缩目录 `kpn-linux-amd64/bin` 路径，以便全局运行 `kpn` 和 `kpnd`。举个例子
 
 ```bash
 $ export PATH=$PATH:~/downloaded/path/kpn-linux-amd64/bin
@@ -94,7 +94,7 @@ PN 配置是在配置文件 `kpnd.conf` 中创建一个数据目录并设置几�
 
 ### 创建 PN 数据目录<a id="pn-data-directory-creation"></a>
 
-考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。 您可能需要在所需路径上创建该目录。
+考虑到 Kaia 区块链数据的大小一直在增加，建议使用足够大的存储空间。您可能需要在所需路径上创建该目录。
 
 ```bash
 $ mkdir -p /var/kpnd/data
@@ -102,7 +102,7 @@ $ mkdir -p /var/kpnd/data
 
 ### 安装节点密钥<a id="install-node-key"></a>
 
-要操作 PN，需要一个 "节点密钥"。 如果您没有 KPN 二进制文件，KPN 将为您创建一个新文件。 如果您有，则需要将您的 `nodekey` 放入 PN 数据目录。 创建 "节点密钥 "的方法在"[安装前](./before-you-install.md) "部分。 以下命令行会将 `nodekey` 复制到 PN 数据目录。
+要操作 PN，需要一个 "节点密钥"。如果您没有 KPN 二进制文件，KPN 将为您创建一个新文件。如果您有，则需要将您的 `nodekey` 放入 PN 数据目录。创建 "节点密钥 "的方法在"[安装前](./before-you-install.md) "部分。以下命令行会将 `nodekey` 复制到 PN 数据目录。
 
 ```bash
 $ cp nodekey /var/kpnd/data
@@ -110,7 +110,7 @@ $ cp nodekey /var/kpnd/data
 
 ### 安装 \`static-nodes.json<a id="install-static-nodes-json"></a>
 
-应通过 PN 操作符创建 `static-nodes.json` 文件。 它包含 PN 所连接的地址。 建议添加地址，包括您的 CN 和另一个核心单元的 PN。 如需了解更多详情，请联系 Kaia 官方邮箱（"bootstrap@klaytn.com "为主网邮箱或 "baobab@klaytn.com "为 Kairos\ 邮箱）。
+应通过 PN 操作符创建 `static-nodes.json` 文件。它包含 PN 所连接的地址。建议添加地址，包括您的 CN 和另一个核心单元的 PN。如需了解更多详情，请联系 Kaia 官方邮箱（"bootstrap@klaytn.com "为主网邮箱或 "baobab@klaytn.com "为 Kairos\ 邮箱）。
 
 **static-nodes.json**
 
@@ -146,7 +146,7 @@ DATA_DIR=/var/kpnd/data
 
 ### (可选）下载 Chaindata 快照
 
-从创世区块进行同步非常耗时。 您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
+从创世区块进行同步非常耗时。您可以使用 [Chaindata Snapshot](../../../misc/operation/chaindata-snapshot.md) 跳过 [Full Sync](../../../learn/storage/block-sync.md#full-sync) 过程。
 
 ## 启动 PN<a id="startup-the-pn"></a>
 
@@ -232,7 +232,7 @@ kpnd is running
 
 ### 日志<a id="logs"></a>
 
-日志存储在 `kpnd.out` 文件中，该文件位于 `kpnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。 当节点正常运行时，可以看到每秒创建的每个区块如下所示。
+日志存储在 `kpnd.out` 文件中，该文件位于 `kpnd.conf` 文件中 `LOG_DIR` 字段定义的路径下。当节点正常运行时，可以看到每秒创建的每个区块如下所示。
 
 例如
 
@@ -252,7 +252,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work                    number=115
 
 ### kpn 控制台<a id="kcn-console-kpn-console"></a>
 
-Kaia 提供一个 CLI 客户端：`kpn console`。 不过，出于安全考虑，PN 可能会禁用客户端的 RPC 接口。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
+Kaia 提供一个 CLI 客户端：`kpn console`。不过，出于安全考虑，PN 可能会禁用客户端的 RPC 接口。使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。
 
 IPC 文件 `klay.ipc` 位于 PN 上的 `DATA_DIR` 路径中。
 
