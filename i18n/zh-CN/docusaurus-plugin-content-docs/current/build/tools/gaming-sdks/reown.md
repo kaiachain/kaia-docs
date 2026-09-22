@@ -2,7 +2,7 @@
 
 ## 介绍
 
-[Reown](https://docs.reown.com/overview) 使构建者能够创建安全、用户友好和富有洞察力的钱包和应用程序用户体验。 提供所有工具，以更快地启动和更智能地扩展。 利用 Unity 上的**Reown AppKit**，您可以轻松地将链上生态系统与您的游戏连接起来，实现流畅的钱包互动，让玩家感觉自然。
+[Reown](https://docs.reown.com/overview) 使构建者能够创建安全、用户友好和富有洞察力的钱包和应用程序用户体验。提供所有工具，以更快地启动和更智能地扩展。利用 Unity 上的**Reown AppKit**，您可以轻松地将链上生态系统与您的游戏连接起来，实现流畅的钱包互动，让玩家感觉自然。
 
 在本教程中，您将逐步了解如何将 Reown AppKit 集成到基于 Kaia 的 Unity 游戏中，以便玩家可以直接在游戏中与 Web3 互动。
 
@@ -19,7 +19,7 @@
 
 ## 开始
 
-在本指南中，您将学习如何使用 Kaia 上的 Reown AppKit 将钱包功能集成到 Unity 游戏中。 最后，您将拥有一个工作设置，让玩家可以
+在本指南中，您将学习如何使用 Kaia 上的 Reown AppKit 将钱包功能集成到 Unity 游戏中。最后，您将拥有一个工作设置，让玩家可以
 
 - 连接和断开他们的钱包
 - 查看本币余额和代币余额
@@ -33,7 +33,7 @@
 
 - 导航至**项目**选项卡、
 - 点击**新建项目**按钮。
-- 选择所有模板。 我们将使用**3D 模板**、
+- 选择所有模板。我们将使用**3D 模板**、
 - 点击**创建**项目。
 
 ![](/img/build/tools/gaming-sdks/rg-unity-create-project.png)
@@ -82,7 +82,7 @@
 
 ### 加载场景
 
-- 在 "资产">"场景 "下，双击 "样本场景"。 我们所有的 SBT Claim 功能都在这里。
+- 在 "资产">"场景 "下，双击 "样本场景"。我们所有的 SBT Claim 功能都在这里。
 
 ### 添加 Reown AppKit 预制件
 
@@ -102,7 +102,7 @@
 
 ### 构建我们的应用程序界面
 
-在本节中，我们将为灵魂绑定令牌申领功能创建用户界面组件。 为此，我们将创建一个主面板和 3 个子面板及其相应的子组件。
+在本节中，我们将为灵魂绑定令牌申领功能创建用户界面组件。为此，我们将创建一个主面板和 3 个子面板及其相应的子组件。
 
 **主面板**
 
@@ -124,29 +124,29 @@
 创建 **StatusPanel** 组件、
 
 - 右键单击 StatusPanel，单击用户界面 → 文本 - TestMeshPro，然后将文本对象重命名为 WalletStatusText
-  - 确保填充文本对象。 例如 "状态：未连接"
+  - 确保填充文本对象。例如 "状态：未连接"
 - 右键单击 StatusPanel，单击用户界面 → 文本 - TestMeshPro，然后将文本对象重命名为 AccountText
-  - 确保填充文本对象。 例如 "连接地址："
+  - 确保填充文本对象。例如 "连接地址："
 - 右键单击 StatusPanel，单击用户界面 → 文本 - TextMeshPro，然后将文本对象重命名为 KaiaBalanceText
-  - 确保填满文本对象。 例如 "KAIA 余额：-"。
+  - 确保填满文本对象。例如 "KAIA 余额：-"。
 - 右键单击 StatusPanel，单击用户界面 → 文本 - TextMeshPro，然后将文本对象重命名为 UsdtBalanceText
-  - 确保填满文本对象。 例如 "USDT 余额：-"。
+  - 确保填满文本对象。例如 "USDT 余额：-"。
 
 创建 **ButtonPanel** 组件、
 
 - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro 并将文本对象重命名为 ConnectWallet
-  - 确保填满文本对象。 例如 "连接钱包
+  - 确保填满文本对象。例如 "连接钱包
 - 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将文本对象重命名为 DisconnectWallet
-  - 确保填满文本对象。 例如 "断开钱包连接"。
+  - 确保填满文本对象。例如 "断开钱包连接"。
 
 创建**ClaimPanel**组件、
 
 - 右键单击 ClaimPanel，单击用户界面 → 文本 - TextMeshPro，然后将文本对象重命名为 ClaimLabel
-  - 确保填满文本对象。 例如 "申请灵魂绑定 NFT："
+  - 确保填满文本对象。例如 "申请灵魂绑定 NFT："
 - 右键单击 ClaimPanel，单击 UI → Button - TextMeshPro 并将文本对象重命名为 ClaimButton
-  - 确保填满文本对象。 例如 "索赔"
+  - 确保填满文本对象。例如 "索赔"
 - 右键单击 ClaimPanel，单击用户界面 → 文本 - TextMeshPro，然后将文本对象重命名为 ClaimBalanceText
-  - 确保填满文本对象。 例如 "余额："
+  - 确保填满文本对象。例如 "余额："
 
 :::note
 创建所有组件后，使用 "移动工具 "将它们整齐地排列在场景中。
@@ -196,7 +196,7 @@ contract SoulBoundToken is KIP17, Ownable {
     - 单击 "确认 "将其部署到 Kaia Mainnet。
 
 :::note
-复制并保存已部署的合同地址。 稍后的教程中会用到它。
+复制并保存已部署的合同地址。稍后的教程中会用到它。
 :::
 
 ## 执行 SBTManager 脚本
@@ -586,7 +586,7 @@ public class SBTManager : MonoBehaviour
 
 ## 测试和运行 Unity 应用程序
 
-在本节中，我们将测试 unity 应用程序中的各种功能。 要了解具体操作，请按照以下步骤进行：
+在本节中，我们将测试 unity 应用程序中的各种功能。要了解具体操作，请按照以下步骤进行：
 
 - 构建并运行项目导航至文件 → 生成并运行
 
@@ -606,4 +606,4 @@ public class SBTManager : MonoBehaviour
 
 ## 结论
 
-在本教程中，您将学习如何在 Kaia 上将 Reown AppKit 软件包集成到 Unity 游戏中。 有关 Reown Unity 游戏 SDK 及其工作原理的更多深入指南，请参阅 [Reown AppKit on Unity Guide](https://docs.reown.com/appkit/unity/core/installation)
+在本教程中，您将学习如何在 Kaia 上将 Reown AppKit 软件包集成到 Unity 游戏中。有关 Reown Unity 游戏 SDK 及其工作原理的更多深入指南，请参阅 [Reown AppKit on Unity Guide](https://docs.reown.com/appkit/unity/core/installation)
