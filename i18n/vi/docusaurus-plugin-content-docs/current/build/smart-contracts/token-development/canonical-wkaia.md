@@ -14,3 +14,7 @@ Hợp đồng WKAIA chuẩn được đề xuất dựa trên tiêu chuẩn WETH
 - Mạng thử nghiệm (Kairos) — 0x043c471bEe060e00A56CcD02c0Ca286808a5A436
 
 Để biết thêm thông tin, vui lòng tham khảo kho lưu trữ GitHub tại [https://github.com/kaiachain/canonical-wkaia].
+
+## Khám phá WKAIA
+
+Để chuyển đổi WKAIA trở lại thành KAIA, hãy sử dụng dịch vụ hoán đổi trong hệ sinh thái Kaia hoặc gọi trực tiếp hợp đồng từ trình khám phá khối. Nếu bạn đang nắm giữ số dư trong wrapper WKLAY cũ, không chính thức tại địa chỉ `0xfd844c2fca5e595004b17615f891620d1cb9bbb2`, vui lòng tham khảo [Hướng dẫn chuyển đổi WKLAY cũ sang KAIA](../../tutorials/unwrap-legacy-wklay.md).
