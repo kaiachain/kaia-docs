@@ -26,7 +26,7 @@
 
 ## 使用 thirdweb 儀錶板創建和部署市場合同<a id="creating-and-deploying-thirdweb-dashboard"></a>
 
-在本節中，我們將使用 thirdweb 面板創建並部署市場合同。 為此，請按照以下步驟操作：
+在本節中，我們將使用 thirdweb 面板創建並部署市場合同。為此，請按照以下步驟操作：
 
 1. 前往 [thirdweb dashboard](https://thirdweb.com/dashboard?ref=blog.thirdweb.com)，從合同列表中選擇 **MarketPlace** 合同。
 
@@ -48,7 +48,7 @@
 
 ## 使用 thirdweb CLI 創建和部署 NFT 收集合同<a id="creating-deploying-using-thirdweb-cli"></a>
 
-在本節中，我們將使用 [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)創建和部署將在 Marketplace 中列出的 NFT 程序集。 為此，請按照以下步驟操作：
+在本節中，我們將使用 [thirdweb CLI](https://portal.thirdweb.com/cli?ref=blog.thirdweb.com)創建和部署將在 Marketplace 中列出的 NFT 程序集。為此，請按照以下步驟操作：
 
 ### 創建合同<a id="creating-the-contract"></a>
 
@@ -66,7 +66,7 @@ npx thirdweb create --contract
 
    iii. 為智能合約命名
 
-   iv. 選擇基本合同類型：**空**、**ERC20**、**ERC721** 或 **ERC1155**。 添加任何所需的**擴展名**。 在本教程中，我們將選擇 ERC721，並將擴展名設置為 "無"。
+   iv. 選擇基本合同類型：**空**、**ERC20**、**ERC721** 或 **ERC1155**。添加任何所需的**擴展名**。在本教程中，我們將選擇 ERC721，並將擴展名設置為 "無"。
 
 ![](/img/build/get-started/thirdweb-cli-info.png)
 
@@ -97,7 +97,7 @@ contract nftcollection is ERC721Base {
 }
 ```
 
-上述合約演示了[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) 的基本功能。 它導入並繼承了 **ERC721Base** 合約，還實現了所需的方法，包括構造函數及其從屬參數。
+上述合約演示了[ERC721Base](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) 的基本功能。它導入並繼承了 **ERC721Base** 合約，還實現了所需的方法，包括構造函數及其從屬參數。
 
 您可以根據自己需要的自定義邏輯修改合同，一旦完成，您的合同就可以部署了。
 
@@ -126,13 +126,13 @@ npx thirdweb deploy
 
 ![](/img/build/get-started/nft-collection-deploy.png)
 
-4. 智能合約部署完成後，您可以通過其儀錶板管理其他設置和功能。 例如，您可以上傳 NFT、配置權限和訪問控制以及添加新功能。
+4. 智能合約部署完成後，您可以通過其儀錶板管理其他設置和功能。例如，您可以上傳 NFT、配置權限和訪問控制以及添加新功能。
 
 有關 thirdweb 部署命令的更多信息，請參閱 [deploy guide](https://portal.thirdweb.com/deploy/getting-started) 。
 
 ## 與已部署的合同互動<a id="interacting-with-deployed-contracts"></a>
 
-在本節中，我們將分別使用**mint**和**transferfrom**函數鑄造一個 NFT 並將其轉入另一個賬戶。 讓我們按以下步驟來瞭解一下：
+在本節中，我們將分別使用**mint**和**transferfrom**函數鑄造一個 NFT 並將其轉入另一個賬戶。讓我們按以下步驟來瞭解一下：
 
 ### 鑄幣廠<a id="minting-nft"></a>
 
@@ -146,7 +146,7 @@ npx thirdweb deploy
 ![](/img/build/get-started/puppy-mint-details.png)
 
 4. 核對輸入內容，然後點擊 **Mint NFT** 按鈕。
-5. 確認交易，等待交易完成。 完成後，您會看到儀錶板上添加了 NFT，如下圖所示：
+5. 確認交易，等待交易完成。完成後，您會看到儀錶板上添加了 NFT，如下圖所示：
 
 ![](/img/build/get-started/puppy-minted.png)
 
@@ -162,7 +162,7 @@ npx thirdweb deploy
 
 ## 結論<a id="conclusion"></a>
 
-祝賀你 如果您讀到了本指南的結尾。 如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/) 或聯繫 [官方第三網絡支持](https://support.thirdweb.com/)。 不過，以下是您在 Kaia 上進一步使用 Thirdweb 時可能需要的有用資源列表。
+祝賀你如果您讀到了本指南的結尾。如果您有任何問題，請訪問 [Kaia 論壇](https://devforum.kaia.io/) 或聯繫 [官方第三網絡支持](https://support.thirdweb.com/)。不過，以下是您在 Kaia 上進一步使用 Thirdweb 時可能需要的有用資源列表。
 
 - [Thirdweb文檔](https://portal.thirdweb.com/)
 - [如何使用 Thirdweb 構建 dApp](https://blog.thirdweb.com/guides/how-to-build-a-dapp/)
