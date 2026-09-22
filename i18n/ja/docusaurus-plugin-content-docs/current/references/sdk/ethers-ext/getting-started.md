@@ -10,7 +10,7 @@
 
 ## エーテルV6に関する注意事項
 
-`kaiachain/ethers-ext`はethers v5とv6の両方をサポートしている。 ただし、各 `ethers` バージョンで指定されている正しいパッケージを使用する必要がある。 そのため、ethers v5は`@kaiachain/ethers-ext/v5`のパッケージと使用する必要があり、ethers v6は`@kaiachain/ethers-ext/v6`とのみ互換性がある。
+`kaiachain/ethers-ext`はethers v5とv6の両方をサポートしている。ただし、各 `ethers` バージョンで指定されている正しいパッケージを使用する必要がある。そのため、ethers v5は`@kaiachain/ethers-ext/v5`のパッケージと使用する必要があり、ethers v6は`@kaiachain/ethers-ext/v6`とのみ互換性がある。
 
 > **_NOTE:_**
 > インポートパスにバージョンのサブパス(`@kaiachain/ethers-ext`)がない場合、ethers v5がデフォルトで使用されます。
