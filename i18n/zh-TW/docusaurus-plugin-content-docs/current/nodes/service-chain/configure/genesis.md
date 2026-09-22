@@ -8,14 +8,14 @@
 
 | 字段名稱       | 說明                                                     |
 | ---------- | ------------------------------------------------------ |
-| config     | blokchain 配置。 請參閱 [配置](#config) 部分。                    |
+| config     | blokchain 配置。請參閱 [配置](#config) 部分。                     |
 | nonce      | (已廢棄）該字段源於以太坊，但不用於 Kaia。            |
 | timestamp  | 塊創建時的 unix 時間。                                         |
 | extraData  | 數據組合字段，用於簽名者虛榮和 RLP 編碼的伊斯坦布爾額外數據，其中包含驗證者列表、提議者封印和提交封印。 |
 | gasLimit   | 區塊中使用的最大氣體量。                                           |
 | difficulty | (已廢棄）該字段源於以太坊，但不用於 Kaia。            |
 | mixhash    | (已廢棄）該字段源於以太坊，但不用於 Kaia。            |
-| coinbase   | 礦工領取獎勵的地址。 該字段僅用於 Clique 共識引擎。                         |
+| coinbase   | 礦工領取獎勵的地址。該字段僅用於 Clique 共識引擎。                          |
 | alloc      | 預定義賬戶。                                                 |
 | number     | 區塊編號字段。                                                |
 | gasUsed    | 一個區塊使用的氣體量。                                            |
@@ -25,14 +25,14 @@
 
 配置 "字段存儲與鏈相關的信息。
 
-| 字段名稱                    | 說明                             |
-| ----------------------- | ------------------------------ |
-| chainId                 | 它能識別當前鏈，用於防止重放攻擊。              |
-| istanbulCompatibleBlock | 適用伊斯坦布爾變更的區塊編號。                |
-| istanbul, clique        | 共識引擎的類型。                       |
-| unitPrice               | 單位價格。                          |
-| deriveShaImpl           | 定義生成交易哈希值和收據哈希值的方法。            |
-| governance              | 網絡管理信息。 參見 [治理](#governance)部分 |
+| 字段名稱                    | 說明                            |
+| ----------------------- | ----------------------------- |
+| chainId                 | 它能識別當前鏈，用於防止重放攻擊。             |
+| istanbulCompatibleBlock | 適用伊斯坦布爾變更的區塊編號。               |
+| istanbul, clique        | 共識引擎的類型。                      |
+| unitPrice               | 單位價格。                         |
+| deriveShaImpl           | 定義生成交易哈希值和收據哈希值的方法。           |
+| governance              | 網絡管理信息。參見 [治理](#governance)部分 |
 
 ### extraData <a id="extradata"></a>
 
@@ -41,8 +41,8 @@
 - 建議者虛名是 32 字節數據，包含任意建議者虛名數據。
 - 其餘數據為 RLP 編碼的伊斯坦布爾額外數據，包含
   - 驗證器：按升序排列的驗證器列表。
-  - 印章：提案人在頁眉上的簽名。 對於 `genesis.json`，它是一個以 65 `0x0`初始化的字節數組。
-  - CommittedSeal：作為共識證明的承諾簽名印章列表。 對於 `genesis.json`，它是一個空數組。
+  - 印章：提案人在頁眉上的簽名。對於 `genesis.json`，它是一個以 65 `0x0`初始化的字節數組。
+  - CommittedSeal：作為共識證明的承諾簽名印章列表。對於 `genesis.json`，它是一個空數組。
 
 **舉例**
 
@@ -65,7 +65,7 @@ With this function, the output `extraData` for this example is 0x000000000000000
 
 ## 共識引擎<a id="consensus-engine"></a>
 
-Kaia 網絡可用的共識引擎有 Clique 和 Istanbul。 每個引擎的說明如下。
+Kaia 網絡可用的共識引擎有 Clique 和 Istanbul。每個引擎的說明如下。
 
 ### Clique <a id="clique"></a>
 
@@ -93,22 +93,22 @@ istanbul "字段存儲基於伊斯坦布爾的密封配置。
 | 字段             | 說明                                                                                                                                              |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | governanceMode | 三種治理模式之一。 [`none`, `single`, `ballot`]                                                      |
-| governingNode  | 指定管理節點的地址。 只有當治理模式為 "單一 "時，它才會起作用。                                                                                                              |
+| governingNode  | 指定管理節點的地址。只有當治理模式為 "單一 "時，它才會起作用。                                                                                                               |
 | reward         | It stores the reward configuration. 請參閱 [獎勵](#reward）部分。 |
 
 ### Reward <a id="reward"></a>
 
 獎勵 "字段存儲有關網絡代幣經濟的信息。
 
-| 字段                     | 說明                                        |
-| ---------------------- | ----------------------------------------- |
-| mintingAmount          | 生成區塊時鑄造的金幣數量。 數值需要雙引號。                    |
-| ratio                  | 用"/"分隔的 "CN/KIR/PoC "的分配率。 所有值的總和必須是 100。 |
-| useGiniCoeff           | 是否使用 GINI 係數                              |
-| deferredTxFee          | 分配區塊 TX 費用的方法。                            |
-| stakingUpdateInterval  | 更新定標信息的時間間隔（塊高度）。                         |
-| proposerUpdateInterval | 更新提案人信息的時間間隔（塊高度）。                        |
-| minimumStake           | 加入核心單元操作員的最低金額。                           |
+| 字段                     | 說明                                       |
+| ---------------------- | ---------------------------------------- |
+| mintingAmount          | 生成區塊時鑄造的金幣數量。數值需要雙引號。                    |
+| ratio                  | 用"/"分隔的 "CN/KIR/PoC "的分配率。所有值的總和必須是 100。 |
+| useGiniCoeff           | 是否使用 GINI 係數                             |
+| deferredTxFee          | 分配區塊 TX 費用的方法。                           |
+| stakingUpdateInterval  | 更新定標信息的時間間隔（塊高度）。                        |
+| proposerUpdateInterval | 更新提案人信息的時間間隔（塊高度）。                       |
+| minimumStake           | 加入核心單元操作員的最低金額。                          |
 
 ## 示例<a id="example"></a>
 
