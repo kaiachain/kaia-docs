@@ -6,9 +6,9 @@
 
 Kaia 为度量衡输出提供了以下标记：
 
-- `-metric`：启用度量记录。 该标记通常与 `--prometheus` 标记一起使用。
-- `--prometheus`：启用将记录的指标导出到 Prometheus 服务器。 该标记通常与 `--metric` 标记一起使用。
-- `--prometheusport`：指定 Prometheus 指标的端口。 默认为 `61001`。
+- `-metric`：启用度量记录。该标记通常与 `--prometheus` 标记一起使用。
+- `--prometheus`：启用将记录的指标导出到 Prometheus 服务器。该标记通常与 `--metric` 标记一起使用。
+- `--prometheusport`：指定 Prometheus 指标的端口。默认为 `61001`。
 
 要启用度量和 Prometheus 输出，请在 `.conf` 文件中将 `METRICS` 和 `PROMETHEUS` 都设为 `1`：
 
@@ -33,9 +33,9 @@ PROMETHEUS=1
 
 ### 2.1 安装普罗米修斯
 
-以下步骤概述了 Prometheus 的手动安装过程。 请选择您的操作系统，了解具体说明。 有关 Prometheus 安装的更多信息，请参阅 [Prometheus 官方文档](https://prometheus.io/docs/prometheus/latest/getting_started/)。
+以下步骤概述了 Prometheus 的手动安装过程。请选择您的操作系统，了解具体说明。有关 Prometheus 安装的更多信息，请参阅 [Prometheus 官方文档](https://prometheus.io/docs/prometheus/latest/getting_started/)。
 
-1. 从 Prometheus 官方下载页面下载适合你的体系结构的最新 Prometheus 版本（如 darwin-amd64）。 本指南以 2.53.3 版为例。
+1. 从 Prometheus 官方下载页面下载适合你的体系结构的最新 Prometheus 版本（如 darwin-amd64）。本指南以 2.53.3 版为例。
 
 ```bash
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.53.3/prometheus-2.53.3.darwin-arm64.tar.gz
@@ -84,11 +84,11 @@ source ~/.bashrc
 
 :::info[Prometheus 配置]
 
-`prometheus.yml`文件用于配置 Prometheus。  主要章节包括
+`prometheus.yml`文件用于配置 Prometheus。主要章节包括
 
 - **`global`**：  设置全局配置参数，如 `evaluation_interval` （Prometheus 评估规则的频率）和 `scrape_interval` （Prometheus 搜刮目标的频率）。  15 秒是两者的合理起点，但要根据自己的需要和区块时间进行调整。
 
-- **`scrape_configs`**：定义 Prometheus 监控的目标。  工作名称 "用于标识目标组。  `static_configs` 列出目标地址。  将 `<ip>` 替换为 Kaia 节点的 IP 地址，并确保正确配置了端口（默认为 `61001`）。
+- **`scrape_configs`**：定义 Prometheus 监控的目标。工作名称 "用于标识目标组。  `static_configs` 列出目标地址。将 `<ip>` 替换为 Kaia 节点的 IP 地址，并确保正确配置了端口（默认为 `61001`）。
 
 有关更多高级配置，请参阅 [Prometheus 文档](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)。
 
@@ -96,7 +96,7 @@ source ~/.bashrc
 
 1. 用文本编辑器打开位于 `prometheus/prometheus.yml` 的 `prometheus.yml` 文件。
 
-2. 确保 `scrape_configs` 部分包含 Kaia 节点。 下面是一个配置示例：
+2. 确保 `scrape_configs` 部分包含 Kaia 节点。下面是一个配置示例：
 
 ```yaml
 global:
@@ -126,7 +126,7 @@ prometheus --config.file=prometheus/prometheus.yml
 
 ### 2.3 使用宏脚本设置 Prometheus（macOS）
 
-该脚本可在 macOS 上自动执行 Prometheus 安装和配置过程。 根据需要为其他 Prometheus 版本和操作系统进行调整。
+该脚本可在 macOS 上自动执行 Prometheus 安装和配置过程。根据需要为其他 Prometheus 版本和操作系统进行调整。
 
 ```sh
 rm -rf prometheus
@@ -166,7 +166,7 @@ Grafana 允许您通过可定制的仪表盘将 Prometheus 收集到的指标可
 
 ### 3.1 安装 Grafana
 
-使用适合您操作系统的方法下载并安装 Grafana。 例如，你可以 [在 macOS 上使用 Hombrew](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) 安装 Grafana（`brew install grafana`）。 详细说明请参阅 [Grafana 官方安装指南](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)。
+使用适合您操作系统的方法下载并安装 Grafana。例如，你可以 [在 macOS 上使用 Hombrew](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) 安装 Grafana（`brew install grafana`）。详细说明请参阅 [Grafana 官方安装指南](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)。
 
 ### 3.2 配置 Grafana
 
@@ -181,7 +181,7 @@ brew services start grafana
 
 关于其他操作系统，请参阅 [Grafana 官方文档](https://grafana.com/docs/grafana/latest/setup-grafana/start-restart-grafana/)。
 
-2. 打开网络浏览器，导航至 `http://localhost:3000`。 使用默认凭据（admin/admin）登录。
+2. 打开网络浏览器，导航至 `http://localhost:3000`。使用默认凭据（admin/admin）登录。
 
 3. 将 Prometheus 添加为数据源。
 
@@ -202,13 +202,13 @@ brew services start grafana
 
 :::note[Additional Kaia 仪表板］
 
-有关完整的预配置仪表板和自动供应设置，请参阅 [kaiaspray 存储库](https://github.com/kaiachain/kaiaspray/tree/main/roles/monitor-init/files/grafana/dashboards)。 该资源库包含用于预建仪表盘的 JSON 文件和用于配置数据源的配置文件。
+有关完整的预配置仪表板和自动供应设置，请参阅 [kaiaspray 存储库](https://github.com/kaiachain/kaiaspray/tree/main/roles/monitor-init/files/grafana/dashboards)。该资源库包含用于预建仪表盘的 JSON 文件和用于配置数据源的配置文件。
 
 :::
 
 ### 3.3 使用宏脚本设置 Grafana（macOS）
 
-此脚本可在 macOS 上自动执行 Grafana 安装过程。 根据需要为其他 Grafana 版本和操作系统进行调整。
+此脚本可在 macOS 上自动执行 Grafana 安装过程。根据需要为其他 Grafana 版本和操作系统进行调整。
 
 ```sh
 # Remove any existing Grafana installation
@@ -254,7 +254,7 @@ cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
 - **普罗米修斯界面**
 
   - **URL:** `http://localhost:9090`
-  - **验证：** 在浏览器中导航至此 URL。 您将看到 Prometheus 网络界面。 使用**图**选项卡执行示例查询，确保正在采集指标。
+  - **验证：** 在浏览器中导航至此 URL。您将看到 Prometheus 网络界面。使用**图**选项卡执行示例查询，确保正在采集指标。
 
 - **格拉法纳界面**
 
@@ -262,4 +262,4 @@ cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
   - **默认证书：**
     - **用户名：** `admin`
     - **密码：** \`admin
-  - **验证：** 首次登录时，系统会提示您更改默认密码。 登录后，确保 Prometheus 数据源配置正确，Kaia 面板显示指标。
+  - **验证：** 首次登录时，系统会提示您更改默认密码。登录后，确保 Prometheus 数据源配置正确，Kaia 面板显示指标。

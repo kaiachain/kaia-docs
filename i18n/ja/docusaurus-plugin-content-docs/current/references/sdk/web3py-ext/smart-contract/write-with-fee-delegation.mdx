@@ -160,7 +160,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 
 ---
 
-デプロイチュートリアルでデプロイしたコントラクトアドレスを設定します（**カウンターコントラクト**）。 デプロイされたTXの領収書に住所が記載されています。
+デプロイチュートリアルでデプロイしたコントラクトアドレスを設定します（**カウンターコントラクト**）。デプロイされたTXの領収書に住所が記載されています。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=18
 
@@ -192,7 +192,7 @@ number before:  294
 
 ---
 
-パラメータとして渡されたフィールドと共にtxインスタンスを返す**build_transaction**でtxを作成する。 料金支払者への料金委任を要求するには、**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**タイプを設定する必要があります。
+パラメータとして渡されたフィールドと共にtxインスタンスを返す**build_transaction**でtxを作成する。料金支払者への料金委任を要求するには、**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**タイプを設定する必要があります。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=26:29
 
@@ -208,7 +208,7 @@ number before:  294
 
 ---
 
-**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。 この行以降のすべてのフィールドを印刷することができる。
+**fill_transaction**を使用して、**gas limit**、**Nonce**などのようなトランザクションの**残りのフィールド**を追加する。この行以降のすべてのフィールドを印刷することができる。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
 
@@ -224,7 +224,7 @@ number before:  294
 
 ---
 
-**fee payer**として、料金委任者の鍵でトランザクションに署名する。 料金支払者の住所も伝える必要がある。
+**fee payer**として、料金委任者の鍵でトランザクションに署名する。料金支払者の住所も伝える必要がある。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
 

@@ -4,7 +4,7 @@
 
 **答案**
 
-您可以在数据目录下找到日志文件。 例如，安装 `kcnd` RPM 软件包时，`kcnd` 的默认日志位置是 `/var/log/kcnd/kcnd.out`。
+您可以在数据目录下找到日志文件。例如，安装 `kcnd` RPM 软件包时，`kcnd` 的默认日志位置是 `/var/log/kcnd/kcnd.out`。
 
 ## Kaia 节点无法与网络连接，出现 "Protocol istanbul/64 failed "和 "Genesis block mismatch "错误信息，如下所示。 <a id="kaia-node-can-not-connect-to-network-with-protocol-istanbul-64-failed-and-gene"></a>
 
@@ -14,8 +14,7 @@ ERROR[01/27,17:11:33 +09] [33] Protocol istanbul/64 failed               id=b106
 
 **答案**
 
-当 `genesis.json` 不同时，可能会出现此错误。
-请停止 Kaia 节点并删除数据目录。 然后使用正确的 `genesis.json` 再次运行 `ken init` 如下。
+当 `genesis.json` 不同时，可能会出现此错误。请停止 Kaia 节点并删除数据目录。然后使用正确的 `genesis.json` 再次运行 `ken init` 如下。
 
 例如，数据目录为 `/var/kend/data`。
 
@@ -77,8 +76,7 @@ INFO[02/20,12:35:38 Z] [21] [Dial] Add dial candidate from static nodes  id=7eaa
 
 **答案**
 
-当 `genesis.json` 和 nodekey/validator 信息不同时，可能会出现这种情况。
-请再次检查 nodekey/validator 和 `genesis.json` 文件。
+当 `genesis.json` 和 nodekey/validator 信息不同时，可能会出现这种情况。请再次检查 nodekey/validator 和 `genesis.json` 文件。
 
 ## Kaia 节点无法启动，出现以下错误日志信息。 <a id="kaia-node-can-t-start-with-following-error-log-message"></a>
 
@@ -88,7 +86,7 @@ Fatal: Error starting protocol stack: listen unix /Users/username/some_directory
 
 **答案**
 
-如果在日志文件中看到上述协议栈错误信息，则表示 Kaia 启动失败，原因是当前工作目录的全路径名太长。 请使用较短的完整数据目录启动 Kaia 节点。 路径名的最大允许长度取决于操作系统。
+如果在日志文件中看到上述协议栈错误信息，则表示 Kaia 启动失败，原因是当前工作目录的全路径名太长。请使用较短的完整数据目录启动 Kaia 节点。路径名的最大允许长度取决于操作系统。
 
 ## EN 无法连接 CC，日志信息如下。 <a id="en-can-t-connect-to-cc-with-following-log-message"></a>
 
@@ -98,7 +96,7 @@ ERROR[01/28,06:20:07 Z] [23] Protocol istanbul/64 failed id=845f596536450bad con
 
 **答案**
 
-当主链和服务链的起源不同时，就可能出现这种情况。 请检查两条链的起源是否相同。
+当主链和服务链的起源不同时，就可能出现这种情况。请检查两条链的起源是否相同。
 
 ## 头部状态丢失错误<a id="head-state-missing-error"></a>
 
@@ -108,4 +106,4 @@ Fatal: Error starting protocol stack: rewound to block number 0, but repair fail
 ```
 
 \*\* 答案\*\*
-由于兼容性问题，我们强烈建议运行旧版本（`<=` v0.8.2）的用户将 EN 的二进制文件升级到 v0.9.6。 如果您是第一次将 EN 升级到 v0.9.x，并希望从旧版本迁移数据，则必须在安装新版本时在配置文件中指定选项 \`ADDITIONAL="--db.num-statetrie-partitions 1"。
+由于兼容性问题，我们强烈建议运行旧版本（`<=` v0.8.2）的用户将 EN 的二进制文件升级到 v0.9.6。如果您是第一次将 EN 升级到 v0.9.x，并希望从旧版本迁移数据，则必须在安装新版本时在配置文件中指定选项 \`ADDITIONAL="--db.num-statetrie-partitions 1"。

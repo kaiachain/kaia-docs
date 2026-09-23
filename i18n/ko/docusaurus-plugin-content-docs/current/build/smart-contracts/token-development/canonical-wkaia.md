@@ -14,3 +14,7 @@
 - 테스트넷(카이로스) - 0x043c471bEe060e00A56CcD02c0Ca286808a5A436
 
 자세한 내용은 [GitHub 리포지토리](https://github.com/kaiachain/canonical-wkaia)를 참조하세요.
+
+## WKAIA의 실체 파헤치기
+
+WKAIA를 다시 KAIA로 전환하려면 Kaia 생태계의 스왑 서비스를 이용하거나, 블록 탐색기를 통해 계약 주소에 직접 요청하십시오. `0xfd844c2fca5e595004b17615f891620d1cb9bbb2`에 있는 구형 비표준 WKLAY 래퍼에 잔액이 있는 경우, [구형 WKLAY를 KAIA로 변환하기](../../tutorials/unwrap-legacy-wklay.md)를 참조하십시오.

@@ -4,7 +4,7 @@
 
 ## 快速概览
 
-Kaia 是一种与 EVM 兼容的区块链，设计用于提高速度、安全性和可扩展性。 它使用 Kaia 虚拟机（KVM），与以太坊工具完全兼容，并支持 Solidity 智能合约。 如果你来自以太坊，你会发现过渡非常简单--你现有的大部分代码和工作流程只需[最小的改动](../tutorials/migrating-ethereum-app-to-kaia.mdx)就能正常工作。
+Kaia 是一种与 EVM 兼容的区块链，设计用于提高速度、安全性和可扩展性。它使用 Kaia 虚拟机（KVM），与以太坊工具完全兼容，并支持 Solidity 智能合约。如果你来自以太坊，你会发现过渡非常简单--你现有的大部分代码和工作流程只需[最小的改动](../tutorials/migrating-ethereum-app-to-kaia.mdx)就能正常工作。
 
 有关 Kaia 架构的更多详情，请查阅 [Why Build on Kaia](../../learn/why-kaia.md) 和 [Consensus Mechanism](../../learn/consensus-mechanism.md) 。
 
@@ -12,8 +12,8 @@ Kaia 是一种与 EVM 兼容的区块链，设计用于提高速度、安全性�
 
 Kaia 有两个主要网络：
 
-- **Kairos Testnet**：用于测试和开发。 连锁编号：1001。 用它来做实验，无需实际成本。
-- **主网**：用于生产。 连锁编号：8217。
+- **Kairos Testnet**：用于测试和开发。连锁编号：1001。用它来做实验，无需实际成本。
+- **主网**：用于生产。连锁编号：8217。
 
 使用这些 RPC 端点配置您的钱包或工具：
 
@@ -24,7 +24,7 @@ Kaia 有两个主要网络：
 
 ## 开发工具
 
-Kaia 支持流行的以太坊工具，并对其功能进行了一些扩展。 关键资源：
+Kaia 支持流行的以太坊工具，并对其功能进行了一些扩展。关键资源：
 
 - **[SDKs](../../references/sdk/sdk.md)**：使用 [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) （etherthers.js 的扩展）、[web3js-ext](../../references/sdk/web3js-ext/getting-started.md) 或其他工具与网络交互。
 - **[公共 RPC 端点](../../references/public-en.md)**：通过公共 RPC 端点访问。

@@ -3,8 +3,7 @@
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
 **AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
-署名された公開鍵の加重和が閾値より大きいこと。
-無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
+署名された公開鍵の加重和が閾値より大きいこと。無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -289,7 +288,7 @@ web3_account_update_multisig()
 
 ---
 
-アカウント更新TXタイプに署名する。 ロードした３個のアカウントすべてで署名する必要があります
+アカウント更新TXタイプに署名する。ロードした３個のアカウントすべてで署名する必要があります
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=51:55

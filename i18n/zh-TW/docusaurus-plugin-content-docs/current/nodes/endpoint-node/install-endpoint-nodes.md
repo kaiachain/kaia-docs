@@ -10,7 +10,7 @@
 
 存檔文件由可執行二進制文件和配置文件組成，結構如下。
 
-**注意**：請勿更改文件結構或文件名。 如果更改，節點可能無法正常運行。
+**注意**：請勿更改文件結構或文件名。如果更改，節點可能無法正常運行。
 
 ```text
 - bin
@@ -38,7 +38,7 @@ $ tar zxf ken-vX.X.X-linux-amd64.tar.gz
 $ tar zxf ken-baobab-vX.X.X-linux-amd64.tar.gz
 ```
 
-**注意**：建議在環境變量 `$PATH` 中添加解壓縮目錄 `ken-linux-amd64/bin` 路徑，以便全局運行 `ken` 和 `kend`。 舉個例子
+**注意**：建議在環境變量 `$PATH` 中添加解壓縮目錄 `ken-linux-amd64/bin` 路徑，以便全局運行 `ken` 和 `kend`。舉個例子
 
 ```text
 $ export PATH=$PATH:~/downloaded/path/ken-linux-amd64/bin
@@ -92,7 +92,7 @@ EN 配置是創建一個數據目錄，並在配置文件 `kend.conf` 中設置�
 
 ### EN 數據目錄創建<a id="en-data-directory-creation"></a>
 
-考慮到 Kaia 區塊鏈數據的大小不斷增加，建議使用足夠大的存儲空間。 您需要在所需路徑上創建目錄。
+考慮到 Kaia 區塊鏈數據的大小不斷增加，建議使用足夠大的存儲空間。您需要在所需路徑上創建目錄。
 
 ```text
 $ sudo mkdir -p /var/kend/data
@@ -115,7 +115,7 @@ DATA_DIR=/var/kend/data
 
 ### (可選）下載 Chaindata 快照
 
-從 genesis 區塊進行同步處理非常耗時。 您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳過 [Full Sync](../../learn/storage/block-sync.md#full-sync) 過程。
+從 genesis 區塊進行同步處理非常耗時。您可以使用 [Chaindata Snapshot](../../misc/operation/chaindata-snapshot.md) 跳過 [Full Sync](../../learn/storage/block-sync.md#full-sync) 過程。
 
 ## 啟動 EN<a id="startup-the-en"></a>
 
@@ -183,7 +183,7 @@ kend 正在運行
 
 ### 日誌<a id="logs"></a>
 
-日誌存儲在位於`kend.conf`文件中`LOG_DIR`字段所定義路徑下的`kend.out`文件中。 當節點正常工作時，可以看到每個區塊每秒的導入情況如下。
+日誌存儲在位於`kend.conf`文件中`LOG_DIR`字段所定義路徑下的`kend.out`文件中。當節點正常工作時，可以看到每個區塊每秒的導入情況如下。
 
 例如
 
@@ -205,7 +205,7 @@ INFO[02/13,07:02:27 Z] [35] Commit new mining work
 
 #### 控制檯<a id="ken-console"></a>
 
-Kaia 提供一個 CLI 客戶端："ken console"。 使用客戶端的另一種方法是通過 IPC（進程間通信）連接進程。 IPC 文件 `klay.ipc` 位於 EN 的 `DATA_DIR` 路徑下。
+Kaia 提供一個 CLI 客戶端："ken console"。使用客戶端的另一種方法是通過 IPC（進程間通信）連接進程。 IPC 文件 `klay.ipc` 位於 EN 的 `DATA_DIR` 路徑下。
 
 請執行以下命令並查看結果。
 

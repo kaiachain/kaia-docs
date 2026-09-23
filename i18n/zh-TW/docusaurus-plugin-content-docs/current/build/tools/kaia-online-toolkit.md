@@ -2,7 +2,7 @@
 
 ## 什麼是 Kaia 工具包？
 
-[**Kaia Toolkit**](https://toolkit.kaia.io) 提供開發人員友善的程式碼範例和互動式網路工具，以簡化與 Kaia 區塊鏈的整合。 它既是學習資源，也是建立分散式應用程式的實用工具套件。
+[**Kaia Toolkit**](https://toolkit.kaia.io) 提供開發人員友善的程式碼範例和互動式網路工具，以簡化與 Kaia 區塊鏈的整合。它既是學習資源，也是建立分散式應用程式的實用工具套件。
 
 ![Kaia Toolkit](/img/build/tools/klaytn-online-toolkit.png)
 

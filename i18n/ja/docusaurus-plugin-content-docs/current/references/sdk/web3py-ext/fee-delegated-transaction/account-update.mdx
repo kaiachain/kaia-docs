@@ -301,7 +301,7 @@ web3_fee_delegated_account_update_role_based()
 
 ---
 
-秘密鍵から**transaction**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。 トランザクションの署名に使用できる
+秘密鍵から**transaction**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。トランザクションの署名に使用できる
 
 ```py web3_fee_delegated_account_update_role_based.py focus=21
 
@@ -309,7 +309,7 @@ web3_fee_delegated_account_update_role_based()
 
 ---
 
-秘密鍵から**update**鍵をロードし、それを**更新ロール鍵**として使用する。 この口座の口座更新取引に署名するために使用できます。 つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
+秘密鍵から**update**鍵をロードし、それを**更新ロール鍵**として使用する。この口座の口座更新取引に署名するために使用できます。つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
 z
 
 ```py web3_fee_delegated_account_update_role_based.py focus=22
@@ -318,7 +318,7 @@ z
 
 ---
 
-秘密鍵から**fee payer**鍵をロードし、**fee payer role key**として使用する。 手数料の支払い者として取引に署名するために使用できる。
+秘密鍵から**fee payer**鍵をロードし、**fee payer role key**として使用する。手数料の支払い者として取引に署名するために使用できる。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=23
 
@@ -350,7 +350,7 @@ z
 
 ---
 
-この場合、更新するアカウント・キーは**role-based**キーであり、各ロールは**pubkey**タイプを持っている。 各ロールはパブキーまたはマルチシグを持つことができる。
+この場合、更新するアカウント・キーは**role-based**キーであり、各ロールは**pubkey**タイプを持っている。各ロールはパブキーまたはマルチシグを持つことができる。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=30,32:33,36:37,40:41
 
@@ -358,7 +358,7 @@ z
 
 ---
 
-それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。 圧縮された公開鍵を鍵から抽出する。
+それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。圧縮された公開鍵を鍵から抽出する。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=34,38,42
 
@@ -417,7 +417,7 @@ z
 
 ---
 
-アカウント更新TXタイプに署名する。 アカウント "0x5bd2...cea "はすでにロールベースのアカウントであるため、このアカウントを更新するには、**update role key**で署名する必要があります。
+アカウント更新TXタイプに署名する。アカウント "0x5bd2...cea "はすでにロールベースのアカウントであるため、このアカウントを更新するには、**update role key**で署名する必要があります。
 
 <CH.Code>
 ```py web3_fee_delegated_account_update_role_based.py focus=50:52

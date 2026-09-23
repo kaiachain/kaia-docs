@@ -1,6 +1,6 @@
 # 公共账户密钥
 
-**AccountKeyPublic** 用于有一个公钥的账户。 如果账户有一个 AccountKeyPublic 对象，交易验证过程如下：
+**AccountKeyPublic** 用于有一个公钥的账户。如果账户有一个 AccountKeyPublic 对象，交易验证过程如下：
 
 <CH.Spotlight>
 <CH.Code>
@@ -160,7 +160,7 @@ web3_account_update_pubkey()
 
 ---
 
-创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_account_update_pubkey.py focus=6:7,10,25
 
@@ -184,7 +184,7 @@ web3_account_update_pubkey()
 
 ---
 
-您可以使用 **compressed_key** 工具来设置密钥。 它将从密钥中提取压缩公钥
+您可以使用 **compressed_key** 工具来设置密钥。它将从密钥中提取压缩公钥
 
 ```py web3_account_update_pubkey.py focus=30
 
@@ -240,7 +240,7 @@ web3_account_update_pubkey()
 
 ---
 
-签署账户更新 tx 类型。 您必须使用已加载的账户签署
+签署账户更新 tx 类型。您必须使用已加载的账户签署
 
 <CH.Code>
 ```py web3_account_update_pubkey.py focus=22,36:38

@@ -2,10 +2,10 @@
 
 ## 概述
 
-**Kaia Eliza Plugin** 是與 **ElizaOS** 整合的重要擴充，可與 **Kaia Mainnet** 和 **Kairos Testnet** 進行無縫互動。 此外掛程式提供一套強大的功能，包括 **KAIA 代幣轉移、錢包餘額查詢，以及可替代與不可替代代幣 (FTs/NFTs) 的擷取**。 它專為開發人員設計，可簡化錢包管理，並增強**ElizaOS 框架**內 Kaia 生態系統的應用程式功能。
+**Kaia Eliza Plugin** 是與 **ElizaOS** 整合的重要擴充，可與 **Kaia Mainnet** 和 **Kairos Testnet** 進行無縫互動。此外掛程式提供一套強大的功能，包括 **KAIA 代幣轉移、錢包餘額查詢，以及可替代與不可替代代幣 (FTs/NFTs) 的擷取**。它專為開發人員設計，可簡化錢包管理，並增強**ElizaOS 框架**內 Kaia 生態系統的應用程式功能。
 
 :::note
-Kaia Eliza 外掛程式在引擎蓋下使用 Kaia Agent Kit。 這表示所有的上鏈動作，例如傳送代幣或檢查餘額，都是由 Kaia Agent Kit 安全可靠的工具所提供。
+Kaia Eliza 外掛程式在引擎蓋下使用 Kaia Agent Kit。這表示所有的上鏈動作，例如傳送代幣或檢查餘額，都是由 Kaia Agent Kit 安全可靠的工具所提供。
 :::
 
 \*\* 主要特色\*\*
@@ -29,7 +29,7 @@ cp .env.example .env
 
 ### 2. 設定環境變數
 
-要整合 Kaia 外掛程式，開發人員必須設定環境變數和秘密。 外掛程式可透過 **agent.json.secret** 存取這些設定，或在執行時直接存取。
+要整合 Kaia 外掛程式，開發人員必須設定環境變數和秘密。外掛程式可透過 **agent.json.secret** 存取這些設定，或在執行時直接存取。
 
 現在，設定 `.env` 檔案和 `kaiaagent.character.json` 值。
 
@@ -41,7 +41,7 @@ GOOGLE_GENERATIVE_AI_API_KEY= # Gemini API Key
 ```
 
 :::note
-若要使用任何 **LLM 提供者**，請在 `.env` 中設定相關的 API 金鑰。 根據提供的金鑰，更新字元檔案中的 **modelProvider** 設定。
+若要使用任何 **LLM 提供者**，請在 `.env` 中設定相關的 API 金鑰。根據提供的金鑰，更新字元檔案中的 **modelProvider** 設定。
 :::
 
 **kaiaagent.character.json:**
@@ -120,7 +120,7 @@ pnpm run start:client
 一旦使用者介面準備就緒，應該可以在 **http://localhost:5173** 上取得。
 
 :::note
-確保與設定的私密金鑰相關的帳號有足夠資金在 **Kaia Testnet** 或 **Mainnet** 上執行鏈上交易。 測試代用幣可向 [Kaia Faucet](https://faucet.kaia.io) 索取。
+確保與設定的私密金鑰相關的帳號有足夠資金在 **Kaia Testnet** 或 **Mainnet** 上執行鏈上交易。測試代用幣可向 [Kaia Faucet](https://faucet.kaia.io) 索取。
 :::
 
 ## 示範
@@ -201,7 +201,7 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 ## 參與
 
-我們歡迎開發人員社群的貢獻。 若要探索更多關於 Kaia 區塊鏈的資訊，請造訪：
+我們歡迎開發人員社群的貢獻。若要探索更多關於 Kaia 區塊鏈的資訊，請造訪：
 
 - [Kaia Documentation](https://docs.kaia.io/)
 - [Kaia 開發者入口網站](https://www.kaia.io/developers)
@@ -211,6 +211,6 @@ Assistant: "The latest block number for Kaia is 176629207"
 
 ## 總結
 
-**Kaia Eliza Plugin** 與 **ElizaOS AI 代理框架**無縫整合，可與 **Kaia Mainnet** 和 **Kairos Testnet** 進行智慧且有效率的互動。 憑藉其強大的錢包、交易和代幣管理功能，它可讓開發人員建立更聰明、反應更迅速的分散式應用程式，同時簡化區塊鏈互動。
+**Kaia Eliza Plugin** 與 **ElizaOS AI 代理框架**無縫整合，可與 **Kaia Mainnet** 和 **Kairos Testnet** 進行智慧且有效率的互動。憑藉其強大的錢包、交易和代幣管理功能，它可讓開發人員建立更聰明、反應更迅速的分散式應用程式，同時簡化區塊鏈互動。
 
-準備好增強您的 AI 驅動的區塊鏈體驗了嗎？ 立即將 Kaia 外掛程式整合至 **ElizaOS** 並開啟新的可能性！
+準備好增強您的 AI 驅動的區塊鏈體驗了嗎？立即將 Kaia 外掛程式整合至 **ElizaOS** 並開啟新的可能性！

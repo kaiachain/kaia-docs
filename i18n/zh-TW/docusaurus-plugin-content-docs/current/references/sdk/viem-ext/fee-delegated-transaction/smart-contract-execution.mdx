@@ -212,7 +212,7 @@ preparedTx {
 
 ---
 
-寄件者使用 `klay_sendRawTransaction` 將交易提交給 Kaia 區塊鏈，並記錄結果 (通常是交易哈希值)。 寄件者支付交易費用。
+寄件者使用 `klay_sendRawTransaction` 將交易提交給 Kaia 區塊鏈，並記錄結果 (通常是交易哈希值)。寄件者支付交易費用。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=46:50
@@ -228,7 +228,7 @@ contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d221282
 
 ---
 
-準備一個費用授權交易 (`FeeDelegatedSmartContractExecution`)，在合約上呼叫相同的 `setNumber` 函式。 設定與非費用委託交易類似，但費用支付者簽署交易以\*\*費用。
+準備一個費用授權交易 (`FeeDelegatedSmartContractExecution`)，在合約上呼叫相同的 `setNumber` 函式。設定與非費用委託交易類似，但費用支付者簽署交易以\*\*費用。
 
 ```js FeeDelegatedSmartContractExecution.js focus=53:59
 ```

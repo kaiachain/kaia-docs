@@ -5,12 +5,6 @@ sidebar_label: Tổng quan về Safe Wallet
 
 # Tổng quan về Safe Wallet
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Nếu bạn đã có tài khoản Safe, hãy xem [Chuyển sang Safe Global](./migrate-to-safe-global.md).
-
-:::
-
 [Safe Wallet](https://app.safe.global) là giao diện chính thức của Safe Global dành cho [Safe Smart Accounts](https://docs.safe.global/home/what-is-safe). Tài khoản Safe Smart là một ví hợp đồng thông minh: thay vì chỉ có một khóa riêng kiểm soát số tiền, mỗi giao dịch phải được một nhóm người ký phê duyệt theo ngưỡng xác nhận quy định. Kaia Mainnet và Kairos Testnet hiện đều đã sẵn sàng — hãy kết nối ví chủ sở hữu, chọn mạng, sau đó tạo hoặc mở một Safe.
 
 ## Các khái niệm chính
@@ -68,9 +62,9 @@ Hãy chọn mạng từ công cụ chuyển đổi chuỗi trong Safe Wallet tr�
 
 ## Hướng dẫn dành riêng cho Kaia
 
-- [Chuyển sang Safe Global](./migrate-to-safe-global.md) — chuyển một tài khoản Safe hiện có sang Safe Wallet
 - [Tạo và quản lý ví an toàn](./use-safe-wallet.md) — tạo ví an toàn trên Kaia, thêm tài sản, gửi giao dịch
 - [Tương tác với hợp đồng](./contract-interaction.md) — gọi hợp đồng từ Safe trên Kaia
 - [Trình tạo giao dịch](./tx-builder.md) và [Airdrop CSV](./csv-airdrop.md) — xử lý theo lô trên Kaia
 - [Bộ công cụ API](./safe-wallet-api-kit.md) — Dịch vụ giao dịch an toàn với ID chuỗi Kaia
 - [Câu hỏi thường gặp](./faqs.md)
+- [Chuyển sang Safe Global](./migrate-to-safe-global.md) — từ `safe.kaia.io` (đã ngừng hoạt động)

@@ -1,6 +1,6 @@
 # 4ノードのサービスチェーンを設置する
 
-このセクションでは、マルチノードServiceChainのセットアップ方法について説明します。 下図の青い枠で囲んだように、`chainID` 1002 で 4-consensus-node ServiceChain をセットアップする。
+このセクションでは、マルチノードServiceChainのセットアップ方法について説明します。下図の青い枠で囲んだように、`chainID` 1002 で 4-consensus-node ServiceChain をセットアップする。
 
 ![](/img/nodes/sc-4scn-arch.png)
 
@@ -14,7 +14,7 @@
 
 ## ステップ 0: 全ノードに SCN をインストール<a id="install-scn"></a>
 
-インストールとは、ダウンロードしたパッケージを解凍することである。 各サーバで SCN アーカイブを展開します。
+インストールとは、ダウンロードしたパッケージを解凍することである。各サーバで SCN アーカイブを展開します。
 
 ```console
 $ tar xvf kscn-vX.X.X-XXXXX-amd64.tar.gz
@@ -26,13 +26,13 @@ x kscn-XXXXX-amd64/bin/kscnd
 x kscn-XXXXX-amd64/bin/kscn
 ```
 
-便宜上、バイナリパスを $PATHに追加する。 ノードの実際のパスを使用してください。
+便宜上、バイナリパスを $PATHに追加する。ノードの実際のパスを使用してください。
 
 ```console
 $ export PATH=$PATH:~/path/to/kscn-XXXXX-amd64/bin
 ```
 
-SCNはまた、RHEL、CentOS、Fedoraのような様々なRPMディストリビューションを提供している。 詳しくは[インストール](../install-service-chain.md#installation)をご参照ください。
+SCNはまた、RHEL、CentOS、Fedoraのような様々なRPMディストリビューションを提供している。詳しくは[インストール](../install-service-chain.md#installation)をご参照ください。
 
 ```console
 $ curl -o /etc/yum.repos.d/kaia.repo https://packages.kaia.io/config/rhel/7/prod.repo
@@ -74,7 +74,7 @@ x homi-XXXXX-amd64/bin/homi
 
 `bin`フォルダに移動し、以下のオプションを指定して`homi`を実行し、ファイルを生成する。
 `homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output`
-Kairosの`chainID`は1001なので、便宜上、この例で構築したServiceChainの`chainID`は1002とする。 実際のサービスを立ち上げてブロックチェーンを運用する場合は、他のServiceChainとchainIDが重ならないように、https://chainlist.defillama.com/、新しいchainID値を登録してから利用することを推奨する。 ServiceChainのポートはデフォルトの22323に設定されている。
+Kairosの`chainID`は1001なので、便宜上、この例で構築したServiceChainの`chainID`は1002とする。実際のサービスを立ち上げてブロックチェーンを運用する場合は、他のServiceChainとchainIDが重ならないように、https://chainlist.defillama.com/、新しいchainID値を登録してから利用することを推奨する。 ServiceChainのポートはデフォルトの22323に設定されている。
 
 ```console
 $ ./homi setup --gen-type local --cn-num 4 --test-num 1 --servicechain --chainID 1002 --p2p-port 22323 -o homi-output
@@ -102,8 +102,7 @@ Created :  homi-output/Kaia_txpool.json
 
 ## ステップ2： static-nodes.jsonのカスタマイズ<a id="step-2-customize-static-nodes-json"></a>
 
-`homi-output/scripts/static-nodes.json`をテキストエディタで開き、IPアドレスとポートをノードの実際の値で更新する。
-この例では、ServiceChain内の各SCNノードのIPが下図のようになっているものとする。 ここで割り当てたポートは、後のステップ4で使用するので覚えておいてください。
+`homi-output/scripts/static-nodes.json`をテキストエディタで開き、IPアドレスとポートをノードの実際の値で更新する。この例では、ServiceChain内の各SCNノードのIPが下図のようになっているものとする。ここで割り当てたポートは、後のステップ4で使用するので覚えておいてください。
 
 ![](/img/nodes/sc-4scn-ip.png)
 
@@ -116,7 +115,7 @@ Created :  homi-output/Kaia_txpool.json
 ]
 ```
 
-`static-nodes.json`を更新したら、出力フォルダ（`homi-output`）をすべてのSCNにアップロードします。 この例では SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 ノード。
+`static-nodes.json`を更新したら、出力フォルダ（`homi-output`）をすべてのSCNにアップロードします。この例では SCN-L2-01、SCN-L2-02、SCN-L2-03、SCN-L2-04 ノード。
 
 ```console
 $ scp -r path/to/homi-output/ user@192.168.0.1:~/
@@ -127,10 +126,7 @@ $ scp -r path/to/homi-output/ user@192.168.0.4:~/
 
 ## ステップ3：ノードの初期化<a id="step-3-node-initialization"></a>
 
-次に、genesisファイルを使って各ノードを初期化する。 各ノードで以下のコマンドを実行する。
-チェーンデータとログを保存するデータフォルダがホームディレクトリに作成されます。
-データフォルダは `--datadir` ディレクティブを使って変更できる。
-この例では、データフォルダを `~/data` に設定する。
+次に、genesisファイルを使って各ノードを初期化する。各ノードで以下のコマンドを実行する。チェーンデータとログを保存するデータフォルダがホームディレクトリに作成されます。データフォルダは `--datadir` ディレクティブを使って変更できる。この例では、データフォルダを `~/data` に設定する。
 
 ```console
 $ kscn --datadir ~/data init ~/homi-output/scripts/genesis.json
@@ -147,9 +143,7 @@ SCNごとに `static-nodes.json` を data フォルダにコピーします。
 $ cp ~/homi-output/scripts/static-nodes.json ~/data/
 ```
 
-ステップ1では、4つのノードキーを生成した。
-各ノードキーを SCN に割り当て、一致する `nodekey` を各 SCN のデータフォルダにコピーします。
-例えば、SCN-L2-01(192.168.0.1) には `nodekey1` を使用し、SCN-L2-02(192.168.0.2)、SCN-L2-03(192.168.0.3)、SCN-L2-04(192.168.0.4) にはそれぞれ `nodekey2`、`nodekey3`、`nodekey4` を使用します。
+ステップ1では、4つのノードキーを生成した。各ノードキーを SCN に割り当て、一致する `nodekey` を各 SCN のデータフォルダにコピーします。例えば、SCN-L2-01(192.168.0.1) には `nodekey1` を使用し、SCN-L2-02(192.168.0.2)、SCN-L2-03(192.168.0.3)、SCN-L2-04(192.168.0.4) にはそれぞれ `nodekey2`、`nodekey3`、`nodekey4` を使用します。
 
 ```console
 $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
@@ -159,7 +153,7 @@ $ cp ~/homi-output/keys/nodekey{1..4} ~/data/klay/nodekey
 
 ## ステップ 5: ノードの設定<a id="step-5-configure-nodes"></a>
 
-各 SCN で kscn のインストールフォルダに移動し、`conf/kscnd.conf` を以下のように編集します。 `PORT`は`homi`をセットアップする際に使用するポートで、`SC_SUB_BRIDGE`は次のセクションでブリッジを接続する際に必要となる。 とりあえず、0にしておいてください。 DATA_DIR\`には、ステップ3で使用したデータフォルダを入力する。
+各 SCN で kscn のインストールフォルダに移動し、`conf/kscnd.conf` を以下のように編集します。 `PORT`は`homi`をセットアップする際に使用するポートで、`SC_SUB_BRIDGE`は次のセクションでブリッジを接続する際に必要となる。とりあえず、0にしておいてください。 DATA_DIR\`には、ステップ3で使用したデータフォルダを入力する。
 
 ```
 ...
@@ -180,7 +174,7 @@ $ kscnd start
 Starting kscnd: OK
 ```
 
-ブロックの生成状況は `kaia.blockNumber` を見ることで確認できる。 この数値が0でなければ、ノードは正常に動作している。
+ブロックの生成状況は `kaia.blockNumber` を見ることで確認できる。この数値が0でなければ、ノードは正常に動作している。
 
 ```console
 $ kscn attach --datadir ~/data
@@ -192,7 +186,7 @@ $ kscn attach --datadir ~/data
 
 ## (例）価値移転取引の作成と確認<a id="example-creation-and-confirmation-of-a-value-transfer-transaction"></a>
 
-これで4ノードのServiceChainが稼働した。 インストールを確認するために、ServiceChainで価値移転トランザクションを実行します。
+これで4ノードのServiceChainが稼働した。インストールを確認するために、ServiceChainで価値移転トランザクションを実行します。
 
 ![](/img/nodes/sc-4scn-test.png)
 
@@ -231,10 +225,8 @@ true
 
 :::note
 
-ServiceChainの最も単純な形は、1つのSCNを持つことである。
-このチュートリアルで説明するServiceChainは4ノードのServiceChainです。 ただし、シングルノードのServiceChainをセットアップすることも可能です。
-ステップ1:genesis.jsonとnodekeysの作成」で、`--cn-num 4`の代わりに`--cn-num 1`をhomiに渡すだけです。
+ServiceChainの最も単純な形は、1つのSCNを持つことである。このチュートリアルで説明するServiceChainは4ノードのServiceChainです。ただし、シングルノードのServiceChainをセットアップすることも可能です。ステップ1:genesis.jsonとnodekeysの作成」で、`--cn-num 4`の代わりに`--cn-num 1`をhomiに渡すだけです。
 
-ビザンチン障害を許容するためには、少なくとも4ノードが必要である。 したがって、BFTアルゴリズムで高可用性を達成するためのSCNの最小数は4である。 2つのSCNノードがあるだけでは不十分で、1つのSCNが故障した場合、もう1つのSCNは単独でコンセンサスに達することができないからだ。
+ビザンチン障害を許容するためには、少なくとも4ノードが必要である。したがって、BFTアルゴリズムで高可用性を達成するためのSCNの最小数は4である。 2つのSCNノードがあるだけでは不十分で、1つのSCNが故障した場合、もう1つのSCNは単独でコンセンサスに達することができないからだ。
 
 :::

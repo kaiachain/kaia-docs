@@ -9,7 +9,7 @@ Foundry 是一个用 Rust 编写的智能合约开发框架，开发人员可以
 Foundry 由四个主要 CLI 工具组成，可实现快速、模块化的智能合约开发，它们是
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)：  您可以使用 Forge 部署、测试和编译智能合约。
-- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：Cast 使与 EVM 智能合约的交互变得简单。 这包括获取链数据、发送交易等。
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：Cast 使与 EVM 智能合约的交互变得简单。这包括获取链数据、发送交易等。
 - [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：您需要启动本地节点吗？ Anvil 是 Foundry 提供的本地节点环境。
 - [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel)：快速、实用、冗长的 solidity REPL。
 
@@ -42,7 +42,7 @@ forge -V
 
 ![](/img/build/get-started/forge-version.png)
 
-成功安装 Foundry 后，您现在可以使用 Foundry 中的 CLI 工具（锻造、铸造、铁砧、凿子）。 让我们按以下步骤建立一个代工厂项目：
+成功安装 Foundry 后，您现在可以使用 Foundry 中的 CLI 工具（锻造、铸造、铁砧、凿子）。让我们按以下步骤建立一个代工厂项目：
 
 **步骤 1**：要启动一个新项目，请运行以下命令：
 
@@ -74,7 +74,7 @@ cd foundry_example
 kairos_rpc_url=paste_rpc_url
 ```
 
-接下来是编辑 `foundry.toml` 文件。 在脚手架之后的项目根目录中应该已经有一个了。
+接下来是编辑 `foundry.toml` 文件。在脚手架之后的项目根目录中应该已经有一个了。
 
 在文件末尾添加以下几行：
 
@@ -227,7 +227,7 @@ forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_R
 
 ## Interacting with the contract
 
-成功部署智能合约后，下一步通常是通过调用和执行其功能与之交互。 让我们直接使用 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) 与 Kaia Kairos Network 上部署的合约进行交互。
+成功部署智能合约后，下一步通常是通过调用和执行其功能与之交互。让我们直接使用 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) 与 Kaia Kairos Network 上部署的合约进行交互。
 
 In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
 
@@ -426,7 +426,7 @@ Error：事务失败：0xa0de3dac1dae4d86f2ba8344bc5f7d816714a6abdc4555ae46ca21d
 
 ![](/img/build/get-started/gas-estimation-err.png)
 
-出现这种情况通常是因为在部署过程中对气体的估计不准确。 在 Kaia 网络上，Foundry 的默认气体估算算法（默认乘数为 130%）有时会出现不足，导致部署在完成前就耗尽气体。
+出现这种情况通常是因为在部署过程中对气体的估计不准确。在 Kaia 网络上，Foundry 的默认气体估算算法（默认乘数为 130%）有时会出现不足，导致部署在完成前就耗尽气体。
 
 当实际气体需求量超过估算量时，交易将在合同部署过程中耗尽气体，从而导&#x81F4;_&#x5408;同创建代码存储气体耗&#x5C3D;_&#x9519;误。
 
@@ -452,14 +452,14 @@ forge script --chain 1001 script/NFT.s.sol:NFTScript --rpc-url $KAIROS_RPC_URL -
 ```
 
 :::note
-气体估算倍增器 "标志设置了所有气体估算值乘以的相对百分比。 将其设置为 200，就等于将气体估算值提高了一倍，从而为成功完成合同部署提供了足够的余地。
+气体估算倍增器 "标志设置了所有气体估算值乘以的相对百分比。将其设置为 200，就等于将气体估算值提高了一倍，从而为成功完成合同部署提供了足够的余地。
 :::
 
 ![](/img/build/get-started/gas-estimation-fixed.png)
 
 ## 结论
 
-如果您读完了本指南，恭喜您。 如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。 不过，以下是您在 Kaia 上使用 Foundry 进一步构建时可能需要的有用资源列表。
+如果您读完了本指南，恭喜您。如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。不过，以下是您在 Kaia 上使用 Foundry 进一步构建时可能需要的有用资源列表。
 
 - [Foundry Docs](https://book.getfoundry.sh/)
 - [Cyfrin Foundry Fundamentals](https://updraft.cyfrin.io/courses/foundry)

@@ -8,7 +8,7 @@ sidebar_label: Goldsky
 
 ## 導言
 
-[Goldsky](https://goldsky.com) 是一款高性能的資料索引器，專為簡化鏈上資料的抽取、轉換和載入 (ETL) 而設計。 它能讓開發人員更快地建立和運送即時分析及區塊鏈整合應用程式。
+[Goldsky](https://goldsky.com) 是一款高性能的資料索引器，專為簡化鏈上資料的抽取、轉換和載入 (ETL) 而設計。它能讓開發人員更快地建立和運送即時分析及區塊鏈整合應用程式。
 
 Goldsky 提供兩種核心產品：
 
@@ -74,7 +74,7 @@ Goldsky 支援三種部署子圖的方法：
 
 - 按一下 Contract（合約）索引標籤，找到 Contract ABI（合約 ABI）部分。
 
-  > 注意：USDT 是一種代理合約。 請務必擷取執行合約 ABI。
+  > 注意：USDT 是一種代理合約。請務必擷取執行合約 ABI。
 
 - 複製並貼上合約 ABI，並將其儲存為 [abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json) 到您的工作目錄中。
 
@@ -94,17 +94,17 @@ Goldsky 支援三種部署子圖的方法：
 
 #### 版本號碼
 
-這是 Goldsky 配置檔案格式的版本號碼，而不是您的子圖形的版本號碼。 請參考此 [reference](https://docs.goldsky.com/subgraphs/reference/instant-subgraph#version-1) 以取得最新版本號碼。
+這是 Goldsky 配置檔案格式的版本號碼，而不是您的子圖形的版本號碼。請參考此 [reference](https://docs.goldsky.com/subgraphs/reference/instant-subgraph#version-1) 以取得最新版本號碼。
 
 #### 組態名稱
 
-這是您自選的名稱，可協助您瞭解此組態的用途。 它只用於內部除錯。 在本指南中，我們將使用 _usdt-demo_
+這是您自選的名稱，可協助您瞭解此組態的用途。它只用於內部除錯。在本指南中，我們將使用 _usdt-demo_
 
 #### ABI、鏈和合約實例
 
 這三個部分是相互聯繫的。
 
-- 命名您的 ABI，並輸入您先前儲存的 ABI 檔案路徑 (相對於此設定檔的位置)。 在本例中，是 `usdtabi` 和 `abi.json`。
+- 命名您的 ABI，並輸入您先前儲存的 ABI 檔案路徑 (相對於此設定檔的位置)。在本例中，是 `usdtabi` 和 `abi.json`。
 
 - 寫出契約實例，參考您之前命名的 ABI、部署的位址、所處的連結、開始區塊。
 
@@ -152,9 +152,9 @@ Goldsky 會自動產生所需的子圖代碼，以您的名義部署，並提供
 
 ### 查詢子圖
 
-恭喜你 您已成功部署子圖。
+恭喜你您已成功部署子圖。
 
-在查詢之前，您可能需要等待索引器完全同步，這取決於您設定檔中定義的 startBlock 值。 您可以直接在 Goldsky 面板中監控同步進度。
+在查詢之前，您可能需要等待索引器完全同步，這取決於您設定檔中定義的 startBlock 值。您可以直接在 Goldsky 面板中監控同步進度。
 
 ![Goldsky同步索引器](/img/build/tools/goldsky-synced-indexer.png)
 

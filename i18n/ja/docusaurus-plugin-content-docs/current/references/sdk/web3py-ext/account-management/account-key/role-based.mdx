@@ -1,6 +1,6 @@
 # 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
+**AccountKeyRoleBased**はロールベースのキーを表す。アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -227,7 +227,7 @@ web3_account_update_role_based()
 
 ---
 
-それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。 圧縮された公開鍵を鍵から抽出する。
+それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。圧縮された公開鍵を鍵から抽出する。
 
 ```py web3_account_update_role_based.py focus=35,39,43
 
@@ -283,7 +283,7 @@ web3_account_update_role_based()
 
 ---
 
-アカウント更新TXタイプに署名する。 ロードされた**update_role**アカウントで署名する必要があります。
+アカウント更新TXタイプに署名する。ロードされた**update_role**アカウントで署名する必要があります。
 
 <CH.Code>
 ```py web3_account_update_role_based.py focus=22,51:53

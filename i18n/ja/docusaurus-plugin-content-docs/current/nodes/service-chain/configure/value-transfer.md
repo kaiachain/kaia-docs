@@ -1,7 +1,6 @@
 # トランスファーヴァリュー
 
-カイアのデザイン・セクションで説明したように、サービス・チェーンは、親チェーンと子チェーン間の価値（KAIA、ERC-20、ERC-721）の移転をサポートします。
-このページでは、SCNでバリュー・トランスファー機能を有効にする方法を説明します。
+カイアのデザイン・セクションで説明したように、サービス・チェーンは、親チェーンと子チェーン間の価値（KAIA、ERC-20、ERC-721）の移転をサポートします。このページでは、SCNでバリュー・トランスファー機能を有効にする方法を説明します。
 
 EN と SCN を設定した後、チェーン間のバリュー・トランスファーを有効にするには、以下の手順が必要です。
 
@@ -27,18 +26,13 @@ EN と SCN を設定した後、チェーン間のバリュー・トランスフ
 
 ## ブリッジ・オペレーター・アカウント<a id="bridge-operator-account"></a>
 
-ServiceChainには、親チェーンブリッジのオペレータアカウントとサービスチェーンブリッジのオペレータアカウントの2つのオペレータアカウントがあります。 各オペレーター・アカウントは、取引の署名に使用される。
-トランザクションがバリューを親チェーンに移動させる場合、親チェーンのブリッジオペレー ターアカウントがトランザクションに署名する。 子チェーンには、子チェーン・ブリッジのオペレーター・アカウントが使われる。
-利用者が「リクエストヴァリュートランスファー」トランザクションを提出した場合、サブブリッジはブリッジ運営者アカウントによって署名された「価値移転ハンドル」トランザクションを作成する。
+ServiceChainには、親チェーンブリッジのオペレータアカウントとサービスチェーンブリッジのオペレータアカウントの2つのオペレータアカウントがあります。各オペレーター・アカウントは、取引の署名に使用される。トランザクションがバリューを親チェーンに移動させる場合、親チェーンのブリッジオペレー ターアカウントがトランザクションに署名する。子チェーンには、子チェーン・ブリッジのオペレーター・アカウントが使われる。利用者が「リクエストヴァリュートランスファー」トランザクションを提出した場合、サブブリッジはブリッジ運営者アカウントによって署名された「価値移転ハンドル」トランザクションを作成する。
 Therefore, the parent chain bridge operator needs enough KLAY in their balance to pay the transaction fee to the parent chain.
 If the service chain's gas price is set to non-zero, the service chain bridge operator should have KLAY in their balance as well.
 
 ### キーストアとパスワードファイル<a id="keystore-and-password-file"></a>
 
-SCN が起動されると、親/子オペレータの鍵が存在しない場合、その鍵ストアファイルとパスワードファイルが自動的に生成されます。
-特定のアカウントをオペレーターとして使いたい場合は、そのキーを指定することができる。 SCN を起動する前に、以下のファイルを指定のパスに置きます。
-パスワード・ファイルは、キーストア・ファイルのパスワード文字列を持つべきである。
-パスワード・ファイル名は、対応するキーストア・ファイルのアカウント・アドレスでなければならない。
+SCN が起動されると、親/子オペレータの鍵が存在しない場合、その鍵ストアファイルとパスワードファイルが自動的に生成されます。特定のアカウントをオペレーターとして使いたい場合は、そのキーを指定することができる。 SCN を起動する前に、以下のファイルを指定のパスに置きます。パスワード・ファイルは、キーストア・ファイルのパスワード文字列を持つべきである。パスワード・ファイル名は、対応するキーストア・ファイルのアカウント・アドレスでなければならない。
 
 **ファイル**
 
@@ -129,8 +123,7 @@ Users can request a KLAY transfer to the bridge contract to send their KLAY to t
 
 ### 配備<a id="deployment"></a>
 
-サブブリッジはブリッジ契約展開APIを提供する。 ブリッジ・コントラクトは、以下のように1回のRPCコールで両方のチェーンにデプロイできる。
-その前に、メインブリッジとサブブリッジを接続しておく必要がある。 ブリッジ設定](bridge-configuration.md)を参照してください。
+サブブリッジはブリッジ契約展開APIを提供する。ブリッジ・コントラクトは、以下のように1回のRPCコールで両方のチェーンにデプロイできる。その前に、メインブリッジとサブブリッジを接続しておく必要がある。ブリッジ設定](bridge-configuration.md)を参照してください。
 
 ```javascript
 $ kscn attach --datadir ~/kscnd_home
@@ -154,12 +147,11 @@ Kaia JavaScript コンソールへようこそ！
 
 詳しくは[subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/deploy-bridge/)を参照されたい。
 
-`subbridge_listBridge`はブリッジのコントラクトアドレスとサブスクリプションステータスを表示します。
-サブブリッジは、ブリッジ契約アドレスのリストをファイルに保存する。 再起動時に、サブブリッジはブリッジ契約リストをファイルからリロードする。
+`subbridge_listBridge`はブリッジのコントラクトアドレスとサブスクリプションステータスを表示します。サブブリッジは、ブリッジ契約アドレスのリストをファイルに保存する。再起動時に、サブブリッジはブリッジ契約リストをファイルからリロードする。
 
 ### 購読<a id="subscribing"></a>
 
-ブリッジ・コントラクトをデプロイした後、サブブリッジをデプロイされたブリッジ・コントラクトにサブスクライブさせ、値の転送を可能にする必要があります。 これは、別の RPC API 呼び出しである `subbridge_subscribeBridge` を使って行うことができる。
+ブリッジ・コントラクトをデプロイした後、サブブリッジをデプロイされたブリッジ・コントラクトにサブスクライブさせ、値の転送を可能にする必要があります。これは、別の RPC API 呼び出しである `subbridge_subscribeBridge` を使って行うことができる。
 
 ```javascript
 > subbridge.subscribeBridge("0x27caeba831d98b5fbb1d81ce0ed20801702f443a", "0x22c41ae528627b790233d2e59ea520be12350eb5")
@@ -175,11 +167,9 @@ null
 
 ### ステータス確認<a id="checking-status"></a>
 
-加入すると、SCNはユーザーの「リクエスト・バリュー・トランスファー」取引を自動的に処理する。
-ブリッジの契約状況を確認する方法を説明します。
+加入すると、SCNはユーザーの「リクエスト・バリュー・トランスファー」取引を自動的に処理する。ブリッジの契約状況を確認する方法を説明します。
 
-ブリッジコンタクトでは、`requestNonce`と`handleNonce`の2つのnonceがある。
-インチェーントランザクションとは異なり、サブブリッジは上位のnonceリクエストを下位のものより先に処理することができる。
+ブリッジコンタクトでは、`requestNonce`と`handleNonce`の2つのnonceがある。インチェーントランザクションとは異なり、サブブリッジは上位のnonceリクエストを下位のものより先に処理することができる。
 
 - requestNonce : このブリッジ契約に対して行われたユーザーの「クロスチェーン・バリュー転送」リクエストの数。
 - handleNonce : サブブリッジが処理した最高nonce。
@@ -202,8 +192,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Parent -> Child Chain                request=
 INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=7894 handle=4207 lowerHandle=4207 pending=3687
 ```
 
-このログは、リクエスト、ハンドル、lowerHandle、保留中のnoncesを示す。
-それぞれの値は以下のような意味である。
+このログは、リクエスト、ハンドル、lowerHandle、保留中のnoncesを示す。それぞれの値は以下のような意味である。
 
 - request : サブスクライブされたすべてのブリッジ契約のバリュー転送リクエ ストNonceの合計。
 - handle : 加入しているすべてのブリッジ契約の上位ハンドル nonce の合計。
@@ -212,8 +201,7 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 
 ### RPC API <a id="rpc-api"></a>
 
-ブリッジの契約状況は以下のように確認できます。
-詳しくは[subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/)を参照されたい。
+ブリッジの契約状況は以下のように確認できます。詳しくは[subbridge API](https://docs.kaia.io/references/json-rpc/subbridge/get-bridge-information/)を参照されたい。
 
 ```javascript
 > subbridge.getBridgeInformation("0x27caeba831d98b5fbb1d81ce0ed20801702f443a")
@@ -231,16 +219,14 @@ INFO[10/16,19:37:40 +09] [45] VT : Child -> Parent Chain                request=
 
 ## トークン契約（ERC-20/721）<a id="token-contract-erc-20-721"></a>
 
-サービス・チェーンはERC-20/721による価値移転もサポートしている。
-これらをサポートするには、サービスチェーン互換のERC-20/721トークンコントラクトを親チェーンと子チェーンの両方に導入する必要がある。
+サービス・チェーンはERC-20/721による価値移転もサポートしている。これらをサポートするには、サービスチェーン互換のERC-20/721トークンコントラクトを親チェーンと子チェーンの両方に導入する必要がある。
 ERC-20/721トークンコントラクトコードについては、
 [Token standard](../../../build/smart-contracts/token-development/token-standard.md)を参照することができます。
 
 ### 配備 <a id="deployment"></a>
 
-SCNはまだERC-20/721トークンをデプロイするAPIをサポートしていません。 トークンはKaia SDKs経由でデプロイする必要があります。
-ERC-20/721契約を展開する際には、正しいブリッジ・オペレーター・アカウントを使用する必要があります。 メインチェーンのデプロイには親オペレーターのアカウントを使用し、サービスチェーンのデプロイには子オペレーターを使用する。
-トークンコントラクトが間違ったアカウントでデプロイされた場合、価値の移転は機能しないため、正しいアカウントでトークンコントラクトを再度デプロイする必要があります。
+SCNはまだERC-20/721トークンをデプロイするAPIをサポートしていません。トークンはKaia SDKs経由でデプロイする必要があります。
+ERC-20/721契約を展開する際には、正しいブリッジ・オペレーター・アカウントを使用する必要があります。メインチェーンのデプロイには親オペレーターのアカウントを使用し、サービスチェーンのデプロイには子オペレーターを使用する。トークンコントラクトが間違ったアカウントでデプロイされた場合、価値の移転は機能しないため、正しいアカウントでトークンコントラクトを再度デプロイする必要があります。
 
 ### 登録 <a id="register"></a>
 
@@ -251,7 +237,7 @@ ERC-20/721契約を展開する際には、正しいブリッジ・オペレー�
 null
 ```
 
-このコマンドは、子チェーントークン（"0x376b72abe1b29cace831bd3f5acdfa967814c9d"）を子チェーンブリッジコントラクト（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）に登録する。 そして、親チェーントークン（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）と親チェーンブリッジコントラクト（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
+このコマンドは、子チェーントークン（"0x376b72abe1b29cace831bd3f5acdfa967814c9d"）を子チェーンブリッジコントラクト（"0x27caeba831d98b5fbb1d81ce0ed20801702f443a"）に登録する。そして、親チェーントークン（"0x53160735f7cc6ff75e48619f368bb94daff66a1b"）と親チェーンブリッジコントラクト（"0x22c41ae528627b790233d2e59ea520be12350eb5"）。
 
 詳しくは[Service Chain API](https://docs.kaia.io/references/json-rpc/subbridge/register-token/)を参照してください。
 
@@ -311,8 +297,7 @@ function requestERC721Transfer(address _tokenAddress, address _to, uint256 _toke
 
 #### ERC-721契約による1ステップリクエスト<a id="1-step-request-via-erc-721-contract"></a>
 
-ユーザーは、承認することなく、以下の方法で**ERC-721契約**に直接「価値譲渡要求」取引を行うことができます。
-それなら、ERC-721契約はその機能を実装しているはずだ。
+ユーザーは、承認することなく、以下の方法で**ERC-721契約**に直接「価値譲渡要求」取引を行うことができます。それなら、ERC-721契約はその機能を実装しているはずだ。
 
 ```solidity
 function requestValueTransfer(uint256 _uid, address _to) external
@@ -328,8 +313,7 @@ onERC721Received()`は`safeTransferFrom()`関数と連動するが、現在の�
 ## 価値移転の回復
 
 価値移譲のリクエストは、さまざまな理由で失敗する可能性がある。 Say you requested KLAY transfer from subbridge to mainbridge or from mainbridge to subbridge.
-In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. もしそうでなければ、エラー通知なしに転送は失敗する。
-つまり、失敗したトランザクションは、相手ブリッジがそのイベントを正常に処理できるようになったときに、再び成功させることができる。
+In that case, the bridge contract on the receiver side must have enough KLAY than the requested amount of KLAY. もしそうでなければ、エラー通知なしに転送は失敗する。つまり、失敗したトランザクションは、相手ブリッジがそのイベントを正常に処理できるようになったときに、再び成功させることができる。
 In case of the above example, the failed transaction would be eventually handled by value transfer recovery when the counterpart bridge has enough KLAY.
 値転送回復をデフォルトとして設定するには、2つのプロパティを設定する必要があります：
 
@@ -348,8 +332,7 @@ In ServiceChain, there is a fee collecting feature for KLAY/ERC-20 transfers.
 
 ## ブリッジ契約のカスタマイズ <a id="customizing-your-bridge-contract"></a>
 
-ServiceChainでは、オリジナルのBridgeコントラクトを継承し、独自にカスタマイズしたBridgeコントラクトを独自のサービスに使用することができます。
-このセクションでは、ブリッジのコントラクトをカスタマイズする方法を説明し、サンプルコードを示します。
+ServiceChainでは、オリジナルのBridgeコントラクトを継承し、独自にカスタマイズしたBridgeコントラクトを独自のサービスに使用することができます。このセクションでは、ブリッジのコントラクトをカスタマイズする方法を説明し、サンプルコードを示します。
 
 **まもなく更新されます。**
 

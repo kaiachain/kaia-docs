@@ -1,6 +1,6 @@
 # Why Build on Kaia
 
-Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模的項目提供強大的基礎設施，引領 Web3 的應用。 本文件根據 Kaia 的主要設計原則和價值主張，解釋了 Kaia 的與眾不同之處。
+Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模的項目提供強大的基礎設施，引領 Web3 的應用。本文件根據 Kaia 的主要設計原則和價值主張，解釋了 Kaia 的與眾不同之處。
 
 ## 廣泛的用戶基礎
 
@@ -12,7 +12,7 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 ## 豐富的流動性支持
 
-1. **真實世界資產（RWA）鏈接**：Kaia 區塊鏈擁有各種現實世界資產，如黃金、船舶和房地產。 未來的計劃包括上鍊法幣支持的穩定幣和債券，擴大開發者可用的資產範圍。
+1. **真實世界資產（RWA）鏈接**：Kaia 區塊鏈擁有各種現實世界資產，如黃金、船舶和房地產。未來的計劃包括上鍊法幣支持的穩定幣和債券，擴大開發者可用的資產範圍。
 
 2. **大規模生態系統基金**：Kaia 生態系統基金以 KAIA 代幣為基礎，支持各種需要流動性的行業，如 DeFi 和 GameFi。
 
@@ -26,7 +26,7 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 2. **以太坊兼容性**：
    - 100% 的兼容性確保基於 EVM 的 dApp 無需修改即可上載。
-   - 開發工具、EVM 和 API 等同於以太坊，可實現無縫集成，使兩個生態系統互惠互利。 請參閱 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md)，以及 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)。
+   - 開發工具、EVM 和 API 等同於以太坊，可實現無縫集成，使兩個生態系統互惠互利。請參閱 [Solidity-Smart Contract Language](../build/smart-contracts/fundamentals/solidity-smart-contract-language.md)，以及 [Migrating Ethereum App to Kaia](../build/tutorials/migrating-ethereum-app-to-kaia.mdx)。
 
 3. **方便的賬戶模式**：可為賬戶分配各種密鑰，加強安全性並改善用戶體驗。
 
@@ -34,7 +34,7 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 ## 成本低，用戶體驗更好
 
-1. **負擔得起的交易費用**：最終用戶無需承擔高昂的交易費用。 成本穩定，由交易複雜程度決定。 See [Affordable Smart Contract Execution Cost](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) and [Transaction Fees](transaction-fees/transaction-fees.md).
+1. **負擔得起的交易費用**：最終用戶無需承擔高昂的交易費用。成本穩定，由交易複雜程度決定。 See [Affordable Smart Contract Execution Cost](./smart-contracts/smart-contracts.md#benefits-of-smart-contracts-on-kaia) and [Transaction Fees](transaction-fees/transaction-fees.md).
 
 2. **Fee Delegation**: Applications can cover users' transaction fees, allowing for flexible business models and lowering user acquisition barriers.
 
@@ -52,4 +52,4 @@ Kaia Blockchain 的目標是成為亞洲第一區塊鏈，通過為各種規模�
 
 2. **去中心化治理**：Kaia 治理委員會（GC）包括傳統企業、DAO 和建設者，形成了一個擁有數百名參與者的獨特治理結構。
 
-總之，Kaia 在提供這些增強功能的同時，還保持了區塊鏈的透明度、安全性和去中心化等核心特性。 該協議保持穩定，利益相關者堅定不移，為建設者實現 Web3 創新理念創造了理想的環境。
+總之，Kaia 在提供這些增強功能的同時，還保持了區塊鏈的透明度、安全性和去中心化等核心特性。該協議保持穩定，利益相關者堅定不移，為建設者實現 Web3 創新理念創造了理想的環境。

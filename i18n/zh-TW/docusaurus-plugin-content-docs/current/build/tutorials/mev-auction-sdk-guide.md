@@ -1,12 +1,12 @@
 # Kaia MEV 拍賣 SDK 搜尋者指南
 
-[Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 推出 MEV Auction 系統，讓搜尋者能參與公平、透明的 MEV 機會拍賣。 本指南提供使用 Kaia MEV Auction SDK 的搜尋器工作流程的全面演練。
+[Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 推出 MEV Auction 系統，讓搜尋者能參與公平、透明的 MEV 機會拍賣。本指南提供使用 Kaia MEV Auction SDK 的搜尋器工作流程的全面演練。
 
 :::warning 服務通知 - MEV 拍賣基礎設施暫時停用
 
 為了配合目前的使用模式進行作業優化，MEV 拍賣基礎架構 - 包括 **Auctioneer** 和 **MEV Explorer** - 已在 \*\* Mainnet 和 Kairos\*\* 上暫停。 Auctioneer 端點 (`auctioneer.kaia.io`、`auctioneer-kairos.kaia.io`) 和 MEV Explorer 端點 (`mev.kaia.io`、`mev-kairos.kaia.io`) 目前無法使用。
 
-此暫停並不會\***終止 Kaia 的 MEV 架構或搜尋器生態系統。 CN 層級的 MEV 功能仍然**啟用。 當生態系統條件與搜尋者需求需要恢復積極的 MEV 拍賣作業時，該基礎設施將重新上線。 復工日期尚未確定。
+此暫停並不會\***終止 Kaia 的 MEV 架構或搜尋器生態系統。 CN 層級的 MEV 功能仍然**啟用。當生態系統條件與搜尋者需求需要恢復積極的 MEV 拍賣作業時，該基礎設施將重新上線。復工日期尚未確定。
 
 :::
 
@@ -57,7 +57,7 @@
 
 搜尋者可透過以下方式識別有利可圖的交易
 
-- **訂閱拍賣商的待定交易 API**：此 API 可直接從 Consensus 節點串流交易，讓您即時偵測 MEV 機會。 請參閱下面的 [訂閱待處理交易](#step-3-subscribe-to-pending-transactions) 章節。
+- **訂閱拍賣商的待定交易 API**：此 API 可直接從 Consensus 節點串流交易，讓您即時偵測 MEV 機會。請參閱下面的 [訂閱待處理交易](#step-3-subscribe-to-pending-transactions) 章節。
 - \*\* 獨立監控網路 mempool\*\*：透過訂閱待定 tx 來實作您自己的 MEV 機會偵測邏輯。
 
 :::
@@ -66,7 +66,7 @@
 
 ![](/img/build/tutorials/searcher-guide-2.png)
 
-AuctionDepositVault 儲存您的競投餘額。 您的保證金必須涵蓋您的出價金額和執行出價的預估瓦斯費。
+AuctionDepositVault 儲存您的競投餘額。您的保證金必須涵蓋您的出價金額和執行出價的預估瓦斯費。
 
 ### 瞭解存款要求
 
@@ -87,7 +87,7 @@ AuctionDepositVault 儲存您的競投餘額。 您的保證金必須涵蓋您�
 
 **方法 1: `deposit()`**
 
-使用寄件者的餘額存款。 存款會存入寄件者的帳戶。
+使用寄件者的餘額存款。存款會存入寄件者的帳戶。
 
 ```bash
 # Deploy deposit of 200 KAIA
@@ -96,7 +96,7 @@ cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863
 
 **方法 2：`depositFor(位址搜尋器)`**\*
 
-代表另一個帳戶存款。 有助於從單一來源為多個搜尋器地址提供資金。
+代表另一個帳戶存款。有助於從單一來源為多個搜尋器地址提供資金。
 
 ```bash
 cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc "depositFor(address)" <SEARCHER_ADDRESS> --rpc-url "https://public-en-kairos.node.kaia.io" --confirmations 0 --value 200000000000000000000
@@ -116,7 +116,7 @@ cast call 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc "depositBalances(address)(u
 
 ![](/img/build/tutorials/searcher-guide-3.png)
 
-一旦發現有利可圖的交易，請向拍賣官提交出價。 出價是密封的（在拍賣結束前隱藏），並根據出價金額進行競爭。
+一旦發現有利可圖的交易，請向拍賣官提交出價。出價是密封的（在拍賣結束前隱藏），並根據出價金額進行競爭。
 
 ### 投標架構
 
@@ -139,20 +139,20 @@ type AuctionBid struct {
 
 :::info
 
-在您提交出價之後，拍賣官會驗證並加入自己的簽章 (`AuctioneerSignature`)，然後才會將中標出價轉寄給 Consensus 節點。 您只需要提供 `SearcherSig` (您的 EIP-712 簽章)。
+在您提交出價之後，拍賣官會驗證並加入自己的簽章 (`AuctioneerSignature`)，然後才會將中標出價轉寄給 Consensus 節點。您只需要提供 `SearcherSig` (您的 EIP-712 簽章)。
 
 :::
 
 ### 提交投標
 
-SDK 在 [`example/submitbid.go`](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 提供了一個完整的工作範例。 範例說明：
+SDK 在 [`example/submitbid.go`](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 提供了一個完整的工作範例。範例說明：
 
 - 與拍賣官建立 HTTPS 連線
 - 從 EN 端點偵測新區塊
 - 產生目標交易和相對應的出價
 - 向拍賣官提交出價
 
-\*\* 必須採取的行動\*\*：執行程式碼前，請先在程式碼中更換您的私人密碼匙。 檢查原始碼中的「TODO:」註解。
+\*\* 必須採取的行動\*\*：執行程式碼前，請先在程式碼中更換您的私人密碼匙。檢查原始碼中的「TODO:」註解。
 
 執行範例：
 
@@ -163,13 +163,13 @@ go run example/submitbid.go
 
 ### 出價驗證
 
-拍賣商、投標者和智慧型契約各自對出價執行特定的驗證檢查。 主要驗證規則包括
+拍賣商、投標者和智慧型契約各自對出價執行特定的驗證檢查。主要驗證規則包括
 
 - \*\* 區塊號碼\*\*：必須是 currentBlockNumber + 1 或 currentBlockNumber + 2
 - \*\* 出價金額\*\*：必須大於 0 且小於或等於您的可用存款餘額
 - **呼叫資料大小**：不得超過 `BidTxMaxDataSize` (64KB)
 - **呼叫瓦斯限制**：不得超過 `BidTxMaxCallGasLimit` (10,000,000)
-- **Nonce**：必須符合您目前在 `AuctionEntryPoint` 中的 nonce。 查詢它：
+- **Nonce**：必須符合您目前在 `AuctionEntryPoint` 中的 nonce。查詢它：
   ```bash
   cast call 0x2fF66A8b9f133ca4774bEAd723b8a92fA1e28480 "nonces(address)(uint256)" <YOUR_ADDRESS> --rpc-url "https://public-en-kairos.node.kaia.io"
   ```
@@ -184,7 +184,7 @@ go run example/submitbid.go
 
 ![](/img/build/tutorials/searcher-guide-4.png)
 
-Auctioneer 提供 WebSocket 訂閱服務，可直接從 Consensus 節點串流待處理的交易。 這可讓搜尋人員即時偵測到 MEV 機會。
+Auctioneer 提供 WebSocket 訂閱服務，可直接從 Consensus 節點串流待處理的交易。這可讓搜尋人員即時偵測到 MEV 機會。
 
 SDK 在 [example/subscribe_pendingtx.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/subscribe_pendingtx.go) 中提供了一個完整的範例。
 
@@ -201,7 +201,7 @@ SDK 在 [example/subscribe_pendingtx.go](https://github.com/kaiachain/auctioneer
 go run example/subscribe_pendingtx.go
 ```
 
-當偵測到待處理交易時，訂閱會持續列印交易切細值。 您可以擴充本範例以實作您自己的 MEV 檢測邏輯。
+當偵測到待處理交易時，訂閱會持續列印交易切細值。您可以擴充本範例以實作您自己的 MEV 檢測邏輯。
 
 ## 步驟 4：了解執行
 
@@ -284,13 +284,13 @@ Auctioneer 為搜尋者提供兩個主要的 API：
 
 ### 常見問題
 
-| 問題類別            | 症狀        | 原因                                                    | 解決方案                                                                                                                                    |
-| --------------- | --------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **餘額不足**        | 被拍賣官拒絕的出價 | 押金餘額不包括出價金額 + 預估汽油費                                   | 使用 `depositBalances()` 檢查餘額，並存入更多 KAIA                                                                                                  |
-| **Nonce 錯配**    | 投標被拒或執行失敗 | Nonce 與 `AuctionEntryPoint` 中的目前 nonce 不相符            | 在每次出價前使用 `nonces()` 查詢目前的 nonce。 請記住：nonces 只會在執行時遞增，不會在提交時遞增。                                                                          |
-| \*\* 區塊號碼範圍\*\* | 被拍賣官拒絕的出價 | 目標區塊超出允許範圍`[current+1, current+allowFutureBlock]`     | 確保區塊號碼在範圍之內（通常為 +1 或 +2）。 有關雙重提交策略，請參閱常見問題                                                                                              |
-| \*\* 無效簽名\*\*   | 被拍賣官拒絕的出價 | 不正確的 EIP-712 簽名結構                                     | 驗證網域分隔符和類型切細值。 請參考 [submitbid.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 以取得正確的執行方式 |
-| \*\* 氣體限制問題\*\* | 執行失敗或出價被拒 | CallGasLimit」過低或超過最大值 (10,000,000) | 在 testnet 上測試 backrun 邏輯，以測量實際瓦斯消耗量                                                                                                     |
+| 問題類別            | 症狀        | 原因                                                    | 解決方案                                                                                                                                   |
+| --------------- | --------- | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **餘額不足**        | 被拍賣官拒絕的出價 | 押金餘額不包括出價金額 + 預估汽油費                                   | 使用 `depositBalances()` 檢查餘額，並存入更多 KAIA                                                                                                 |
+| **Nonce 錯配**    | 投標被拒或執行失敗 | Nonce 與 `AuctionEntryPoint` 中的目前 nonce 不相符            | 在每次出價前使用 `nonces()` 查詢目前的 nonce。請記住：nonces 只會在執行時遞增，不會在提交時遞增。                                                                          |
+| \*\* 區塊號碼範圍\*\* | 被拍賣官拒絕的出價 | 目標區塊超出允許範圍`[current+1, current+allowFutureBlock]`     | 確保區塊號碼在範圍之內（通常為 +1 或 +2）。有關雙重提交策略，請參閱常見問題                                                                                              |
+| \*\* 無效簽名\*\*   | 被拍賣官拒絕的出價 | 不正確的 EIP-712 簽名結構                                     | 驗證網域分隔符和類型切細值。請參考 [submitbid.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 以取得正確的執行方式 |
+| \*\* 氣體限制問題\*\* | 執行失敗或出價被拒 | CallGasLimit」過低或超過最大值 (10,000,000) | 在 testnet 上測試 backrun 邏輯，以測量實際瓦斯消耗量                                                                                                    |
 
 ## 常見問題
 
@@ -302,13 +302,13 @@ Auctioneer 為搜尋者提供兩個主要的 API：
 
 \*\*問：訂閱連線的有效期為多久？
 
-答：連線會在 24 小時後自動關閉。 請注意，如果正在進行滾動更新，連線可能會提前於 24 小時關閉。
+答：連線會在 24 小時後自動關閉。請注意，如果正在進行滾動更新，連線可能會提前於 24 小時關閉。
 
 ### API 效能與延遲
 
 \*\*問：在提交出價時，如何盡量減少 API 延遲？
 
-答：拍賣官使用 HTTPS 通訊協定的 L7 負載平衡器。 初始握手耗費的時間取決於網路狀態。 若要在傳送後續出價 API 時繞過這個初始延遲，強烈建議建立保持連線。
+答：拍賣官使用 HTTPS 通訊協定的 L7 負載平衡器。初始握手耗費的時間取決於網路狀態。若要在傳送後續出價 API 時繞過這個初始延遲，強烈建議建立保持連線。
 
 \*\*問：我應該注意 API 的速率限制嗎？
 
@@ -316,17 +316,17 @@ Auctioneer 為搜尋者提供兩個主要的 API：
 
 \*\*問：地理位置是否會影響延遲？
 
-答：是的。 Auctioneer 伺服器在 GCP KR (Seoul) 區域執行。 建議您將基礎結構託管在地理位置接近的區域，以盡量減少延遲並降低地理延遲。
+答：是的。 Auctioneer 伺服器在 GCP KR (Seoul) 區域執行。建議您將基礎結構託管在地理位置接近的區域，以盡量減少延遲並降低地理延遲。
 
 ### 出價時間與區塊目標
 
 \*\*問：為什麼我的出價有時會瞄準錯誤的區塊號碼？
 
-答：您提交出價的時間對 CN（共識節點）的開採時間高度敏感。 如果拍賣開始得較晚（接近挖礦時間），出價交易會插入下一個區塊之後（區塊號碼 +2 而不是 +1）。 這表示您應該將目標區塊號碼設定為 +2。
+答：您提交出價的時間對 CN（共識節點）的開採時間高度敏感。如果拍賣開始得較晚（接近挖礦時間），出價交易會插入下一個區塊之後（區塊號碼 +2 而不是 +1）。這表示您應該將目標區塊號碼設定為 +2。
 
 \*\*問：如何提高我的出價包含率？
 
-答：目標區塊編號本質上對 CN 挖礦時間表很敏感：如果您的目標區塊為 +2，但交易因處理時間較早而在區塊 +1 插入，則出價將會失敗。 因此，建議透過兩次傳送您的出價交易來最大化納入機率：一次目標區塊號碼為 +1，另一次目標區塊號碼為 +2。
+答：目標區塊編號本質上對 CN 挖礦時間表很敏感：如果您的目標區塊為 +2，但交易因處理時間較早而在區塊 +1 插入，則出價將會失敗。因此，建議透過兩次傳送您的出價交易來最大化納入機率：一次目標區塊號碼為 +1，另一次目標區塊號碼為 +2。
 
 ## 最佳實務
 

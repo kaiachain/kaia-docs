@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem'
 
 ## はじめに<a href="#introduction" id="introduction" />
 
-Scaffold-ETH 2は、EthereumやKaiaのような他のEVM互換ブロックチェーン上で分散型アプリケーション（dApps）を構築するためのオープンソースのツールキットです。 開発者はScaffold-ETH 2により、Solidityスマートコントラクトを簡単にデプロイし、ReactフロントエンドでdAppを起動することができます。
+Scaffold-ETH 2は、EthereumやKaiaのような他のEVM互換ブロックチェーン上で分散型アプリケーション（dApps）を構築するためのオープンソースのツールキットです。開発者はScaffold-ETH 2により、Solidityスマートコントラクトを簡単にデプロイし、ReactフロントエンドでdAppを起動することができます。
 
-Scaffold-ETH 2ツールキットは、Next.js、RainbowKit、Hardhat、Foundry、Wagmi、TypeScriptを使って構築された。 開発者は、HardhatやFoundryを使ってスマート・コントラクトを簡単に作成、テスト、デプロイでき、Next.jsを使ってReactフロントエンドを構築することもできる。
+Scaffold-ETH 2ツールキットは、Next.js、RainbowKit、Hardhat、Foundry、Wagmi、TypeScriptを使って構築された。開発者は、HardhatやFoundryを使ってスマート・コントラクトを簡単に作成、テスト、デプロイでき、Next.jsを使ってReactフロントエンドを構築することもできる。
 
 このチュートリアルでは、Scaffold-ETH 2を使用してKaia上でデプロイ、コントラクトの実行、dAppの構築を行う方法を学びます。
 
@@ -40,7 +40,7 @@ npx create-eth@latest
 
 **プロジェクト名**：プロジェクト名の入力: プロジェクト名を入力してください。
 
-\*\*どのsolidityフレームワークを使用しますか？お好みのsolidityフレームワーク(Hardhat、Foundry)を選択してください。 このガイドでは、**Hardhat**フレームワークを使用する。
+\*\*どのsolidityフレームワークを使用しますか？お好みのsolidityフレームワーク(Hardhat、Foundry)を選択してください。このガイドでは、**Hardhat**フレームワークを使用する。
 
 \*\*パッケージをインストールしますか？yes（デフォルト・オプション）の場合はEnterを押すか、nと入力してnoの場合はEnterを押す
 セットアップが完了したら、プロジェクト・ディレクトリに移動します。
@@ -64,7 +64,7 @@ Scaffold-ETH 2を使ったプロジェクト開発のプロセスは以下のよ
 6. packages/nextjs/scaffold.config.ts\*\*ファイルで、Kaiaをターゲットとするフロントエンドを設定します。
 7. packages/nextjs/pages\*\*ディレクトリで、必要に応じてフロントエンドを編集してください。
 
-このガイドでは、Scaffold-ETH 2のインストール後に利用できるデフォルトのサンプルコントラクトとフロントエンドを使用します。 必要なのは、これらのコンポーネントをカイア用に変更することだけだ。 その場合、コンフィギュレーションを**Hardhat**と**Next.js**に分割する。
+このガイドでは、Scaffold-ETH 2のインストール後に利用できるデフォルトのサンプルコントラクトとフロントエンドを使用します。必要なのは、これらのコンポーネントをカイア用に変更することだけだ。その場合、コンフィギュレーションを**Hardhat**と**Next.js**に分割する。
 
 ## ハードハットの構成
 
@@ -105,7 +105,7 @@ Scaffold-ETH 2を使ったプロジェクト開発のプロセスは以下のよ
 
 \*\*ステップ2：新しいアカウントを作成するか、契約を展開するアカウントを追加します。
 
-次にすることは、アカウントを設定することです。  を実行することで、ランダムなアカウント／秘密鍵を生成することができる：
+次にすることは、アカウントを設定することです。を実行することで、ランダムなアカウント／秘密鍵を生成することができる：
 
 ```bash
 yarn generate 
@@ -114,7 +114,7 @@ yarn generate
 暗号化された秘密鍵（DEPLOYER_PRIVATE_KEY_ENCRYPTED）が自動的に `.env `ファイルに追加される。
 
 :::note
-秘密鍵の暗号化に使用するパスワードの入力を求められます。 このパスワードは、今後のデプロイやアカウント照会に必要になりますので、忘れないようにしてください。
+秘密鍵の暗号化に使用するパスワードの入力を求められます。このパスワードは、今後のデプロイやアカウント照会に必要になりますので、忘れないようにしてください。
 :::
 
 秘密鍵をインポートしたい場合は、以下を実行する：
@@ -123,7 +123,7 @@ yarn generate
 yarn account:import
 ```
 
-秘密鍵を貼り付け、暗号化パスワードを設定するようプロンプトが表示されます。 暗号化された秘密鍵は `.env` ファイルに保存される。
+秘密鍵を貼り付け、暗号化パスワードを設定するようプロンプトが表示されます。暗号化された秘密鍵は `.env` ファイルに保存される。
 
 設定された（生成またはインポートされた）口座と残高は、以下の方法で確認できます：
 
@@ -176,7 +176,7 @@ deploying "YourContract" (tx: 0x90d0587fcbbfd34057c9bc8c77a3ae56807bcee20c19b278
 
 ### 派遣契約の確認<a href="#verify-deployed-contract" id="verify-deployed-contract" />
 
-すでにデプロイされたコントラクトを検証するために、hardhat verifyプラグインを使おう。 必要なのは、以下の設定を**hardhat.config.ts**のhardhat-verify etherscan設定オブジェクトの下に追加することだけです。
+すでにデプロイされたコントラクトを検証するために、hardhat verifyプラグインを使おう。必要なのは、以下の設定を**hardhat.config.ts**のhardhat-verify etherscan設定オブジェクトの下に追加することだけです。
 
 <Tabs>
   <TabItem value="カイア" label="カイア・メインネット" default>
@@ -234,7 +234,7 @@ yarn hardhat-verify --network kairos 0xb1ea8476debb6d3021cC3a179B9eC21e01742d82
  "0xDe75f893078D25fBA2eE090A3971baF832F15A88"
 ```
 
-上で見たように、コントラクトを検証するには、ネットワーク名、コントラクトのアドレス、コンストラクタの引数（もしあれば）を渡す必要がある。 しばらく待つと、コンソールに検証結果が表示され、成功した場合はKaiaScan上で検証されたコントラクトへのURLが提供されます。
+上で見たように、コントラクトを検証するには、ネットワーク名、コントラクトのアドレス、コンストラクタの引数（もしあれば）を渡す必要がある。しばらく待つと、コンソールに検証結果が表示され、成功した場合はKaiaScan上で検証されたコントラクトへのURLが提供されます。
 
 **アウトプット**：
 
@@ -255,7 +255,7 @@ Hardhat Verifyプラグインを使用したKaia上でのスマートコント�
 
 ## Next.jsの設定<a href="#nextjs-configuration" id="nextjs-configuration" />
 
-このセクションでは、**packages/nextjs**フォルダの下にあるKairos Testnet（スマートコントラクトがデプロイされた場所）をターゲットとするように、Next.jsの設定を変更します。 このフォルダでは、**scaffold.config.ts**ファイルのscaffoldConfigオブジェクト内の**targetNetwork**配列を変更する予定です。
+このセクションでは、**packages/nextjs**フォルダの下にあるKairos Testnet（スマートコントラクトがデプロイされた場所）をターゲットとするように、Next.jsの設定を変更します。このフォルダでは、**scaffold.config.ts**ファイルのscaffoldConfigオブジェクト内の**targetNetwork**配列を変更する予定です。
 
 ### targetNetwork配列を変更する<a href="#modify-targetnetwork-array" id="modify-targetnetwork-array" />
 
@@ -263,7 +263,7 @@ Hardhat Verifyプラグインを使用したKaia上でのスマートコント�
 targetNetworks: [chains.kaia, chains.kairos],
 ```
 
-以上でNext.jsの設定は完了です！ 次に、ローカルホストでdAppを起動する。
+以上でNext.jsの設定は完了です！次に、ローカルホストでdAppを起動する。
 
 ### ローカルホストでdAppを起動する<a href="#launch-dapp-in-localhost" id="launch-dapp-in-localhost" />
 
@@ -275,7 +275,7 @@ targetNetworks: [chains.kaia, chains.kairos],
 yarn start
 ```
 
-これで、http://localhost:3000/、ReactベースのdAppフロントエンドにアクセスできるようになるはずだ。 ウォレットに接続したり、コントラクトデバッガーのページをチェックしたりして、自由にdAppとやりとりしてください。
+これで、http://localhost:3000/、ReactベースのdAppフロントエンドにアクセスできるようになるはずだ。ウォレットに接続したり、コントラクトデバッガーのページをチェックしたりして、自由にdAppとやりとりしてください。
 
 スカフォールドdApp](/img/build/tutorials/scaffold-5.png)
 

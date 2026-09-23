@@ -20,7 +20,7 @@ GAの機能は、ethers.jsとweb3.jsの機能を拡張する`-ext`SDKの中に�
 
 ## 5.2. JSON-RPC API
 
-kaia_sendRawTransactions\`は、_typeバイ&#x30C8;_&#x304C;イーサリアムファミリー（0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob）のいずれかである、署名されRLPエンコードされたロートランザクションの**配列**を受け取る。  通常のEVMタイプであるGAペア**ApproveTx + SwapTx**に使用する。
+kaia_sendRawTransactions\`は、_typeバイ&#x30C8;_&#x304C;イーサリアムファミリー（0x00 Legacy、0x01 EIP-2930、0x02 EIP-1559、0x04 Blob）のいずれかである、署名されRLPエンコードされたロートランザクションの**配列**を受け取る。通常のEVMタイプであるGAペア**ApproveTx + SwapTx**に使用する。
 
 0x30\*\* (Smart-Contract Execution)のようなカイア固有の型は、古いシングルxメソッド `klay_sendRawTransaction` でブロードキャストしなければなりません。
 

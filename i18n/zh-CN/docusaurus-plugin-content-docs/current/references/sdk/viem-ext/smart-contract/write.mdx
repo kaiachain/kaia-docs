@@ -98,7 +98,7 @@ Current contract value 123n
 
 ---
 
-写合约 "方法用于调用合约上的 **setNumber** 函数，参数为 Date.now()（当前时间戳，以毫秒为单位）。 这将创建并发送一个事务来更新合同的 **number** 变量。
+写合约 "方法用于调用合约上的 **setNumber** 函数，参数为 Date.now()（当前时间戳，以毫秒为单位）。这将创建并发送一个事务来更新合同的 **number** 变量。
 
 <CH.Code>
 ```js smartContractWrite.js focus=24:30
@@ -112,7 +112,7 @@ tx hash 0xf890d27d3cb4670755391257477c4f942ecb3fd0974e1863c2cd0bc72bfae0d4
 
 ---
 
-使用公共客户端从合约中查询 **number** 函数（一个不修改状态的视图函数）。 这将检索数字变量的当前值，该值应反映上一个事务（如果成功）所设置的时间戳。
+使用公共客户端从合约中查询 **number** 函数（一个不修改状态的视图函数）。这将检索数字变量的当前值，该值应反映上一个事务（如果成功）所设置的时间戳。
 
 <CH.Code>
 ```js smartContractWrite.js focus=31:36

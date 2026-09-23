@@ -6,8 +6,8 @@
 
 - `--log.rotate`：このフラグを設定すると、ログローテーションが有効になり、他のログローテーションオプションが適用されます。
 - `--log.maxsize`：バックアップファイル作成のトリガーとなるファイルサイズをMB単位で指定する。
-- `--log.maxbackups`：保存できるバックアップファイルの最大数を決定する。 この制限に達すると、古いログは削除されます。
-- `--log.maxage`：ログファイルを保持する最大日数を表す。 例えば、30に設定すると、バックアップファイルは30日後に削除されます。
+- `--log.maxbackups`：保存できるバックアップファイルの最大数を決定する。この制限に達すると、古いログは削除されます。
+- `--log.maxage`：ログファイルを保持する最大日数を表す。例えば、30に設定すると、バックアップファイルは30日後に削除されます。
 - `--log.compress`：このフラグを設定すると、バックアップログをgz形式で圧縮する。
 
 例
@@ -27,7 +27,7 @@ LOG_MAXAGE=30 # maximum number of days to retain a log file
 LOG_COMPRESS=1 # setting 1 to compress the backup logs in gz format
 ```
 
-v1.0.0以上のパッケージをダウンロードして使用することを推奨します。 リリースノートのバイナリセクションからダウンロードできます（例：[v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)）。 次の3つのファイルがv1.0.0以上であることを確認してください：設定ファイル、デーモン、バイナリ。 そうでなければ、うまくいかない。
+v1.0.0以上のパッケージをダウンロードして使用することを推奨します。リリースノートのバイナリセクションからダウンロードできます（例：[v1.11.0 release note](https://github.com/klaytn/klaytn/releases/tag/v1.11.0)）。次の3つのファイルがv1.0.0以上であることを確認してください：設定ファイル、デーモン、バイナリ。そうでなければ、うまくいかない。
 
 ## 通常ログステータス
 
@@ -41,7 +41,7 @@ v1.0.0以上のパッケージをダウンロードして使用することを�
 | Error                                                       | Fasthttp Err                                                                                                                                                                                                                                                                               | 接続処理時のエラー：何も読み取れないままタイムアウト                                                                                                                                                        | low |
 | Error                                                       | Fasthttp Err                                                                                                                                                                                                                                                                               | 接続処理時のエラー: リクエストヘッダ読み込み時のエラー: "\x16…で http リクエストメソッドが見つかりません。                                                                                     | low |
 | Warn                                                        | hash=b1b26c…6b220a err="insufficient balance for transfer"                                                                                                                                                                                                                                 | このログは、処理されたトランザクション(通常はマイニング)が「from account」の残高不足のために実行できない場合に発生する(理論的には、トランザクションが作成されtxpoolに入った時点では残高が十分であったが、実際に実行された時点では残高がなかった場合に発生する)。 | low |
-| ERROR                                                       | ERROR\[06/06,23:23:46 Z] \[7] decode anchor payload err="rlp: expected input list for types.AnchoringDataLegacy" | アンカリングtxのデータフィールドには、どのようなタイプの値でも含めることができる。 しかし、誤ったタイプの値が入力された場合、エラーログがノードに出力される。                                                                                                  |     |
+| ERROR                                                       | ERROR\[06/06,23:23:46 Z] \[7] decode anchor payload err="rlp: expected input list for types.AnchoringDataLegacy" | アンカリングtxのデータフィールドには、どのようなタイプの値でも含めることができる。しかし、誤ったタイプの値が入力された場合、エラーログがノードに出力される。                                                                                                   |     |
 | Proposer : `Successfully wrote mined block` |                                                                                                                                                                                                                                                                                            |                                                                                                                                                                                   |     |
 
 非提案者 `新しいブロックを挿入しました`。

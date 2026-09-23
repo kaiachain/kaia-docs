@@ -4,7 +4,7 @@
 
 ## 概要<a href="#overview" id="overview"></a>
 
-Remixは、Solidityコントラクトを開発するためのブラウザベースのIDE（統合開発環境）です。 このガイドでは、その方法を学ぶことができる： このガイドでは、その方法を学ぶことができる：
+Remixは、Solidityコントラクトを開発するためのブラウザベースのIDE（統合開発環境）です。 このガイドでは、その方法を学ぶことができる：このガイドでは、その方法を学ぶことができる：
 
 - Remix IDEで事前に構築されたスマートコントラクトを作成し、アップロードします。
 - スマート・コントラクトをコンパイルする。
@@ -15,7 +15,7 @@ Remixは、Solidityコントラクトを開発するためのブラウザベー�
 - MetaMaskを使ってKaiaとRemixを接続
 - スマートコントラクトをデプロイする。
 
-スマート・コントラクトをコンパイルする。 これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
+スマート・コントラクトをコンパイルする。これはカイアとのリミックスをカバーするものだ。 Remixの使い方については、[Remix docs](https://remix-ide.readthedocs.io/en/latest/)または[Remix IDE](https://remix.ethereum.org/)を参照してください。
 
 ## Remixでファイルを作成する<a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
@@ -85,7 +85,7 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 
 - アカウントの横にあるプラスボタンをクリックします。
 - 次に秘密鍵またはキーストアを挿入する。
-- feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。 秘密鍵にしか対応していない。
+- feePayerのキーをインポートすることもできます。 秘密鍵にしか対応していない。秘密鍵にしか対応していない。
 
 ![](/img/build/smart-contracts/kg-import-account.png)
 
@@ -110,11 +110,11 @@ RemixのIDE上でKaiaプラグインに接続するには、こちらの[Kaia Pl
 
 ## スマートコントラクトのデプロイ<a href="#deploying-contract" id="deploying-contract"></a>
 
-このセクションでは、Kaia Walletを使って`KaiaGreeter.sol`コントラクトをデプロイする。 このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
+このセクションでは、Kaia Walletを使って`KaiaGreeter.sol`コントラクトをデプロイする。このセクションでは、Kaia Walletを使ってKaiaGreeter.solコントラクトをデプロイします。 コンパイルセクションでコントラクトをコンパイルしたら、以下のデプロイプロセスに従ってください：
 
 - デプロイメント環境を[Injected Provider - Kaia Wallet]に設定します。 Remixへのすべての接続プロンプトを確認してください。
 - CONTRACTフィールドでデプロイしたいコントラクトを選択します。
-- Deployボタンをクリックします。 Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！ 取引を確認するだけです！
+- Deployボタンをクリックします。 Deployボタンをクリックします。 この場合、Kaia Walletのポップアップが表示され、取引の確認が必要となります。 取引を確認するだけです！取引を確認するだけです！
 
 ![](/img/build/smart-contracts/kg-deployed.png)
 

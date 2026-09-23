@@ -4,7 +4,7 @@
 
 ---
 
-您可以在 `kcn` 或 `kpn` 配置中查看 Kaia 目錄。 配置文件位於 `/etc/kcnd/conf` 或 `/etc/kpnd/conf` 下。
+您可以在 `kcn` 或 `kpn` 配置中查看 Kaia 目錄。配置文件位於 `/etc/kcnd/conf` 或 `/etc/kpnd/conf` 下。
 
 ```bash
 cat /etc/kcnd/conf/kcnd.conf (or /etc/kpnd/conf/kpnd.conf)

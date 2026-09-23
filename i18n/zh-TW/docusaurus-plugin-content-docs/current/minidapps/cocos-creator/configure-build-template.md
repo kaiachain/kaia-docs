@@ -1,6 +1,6 @@
 # Mini Dapp SDK 整合
 
-在本節中，我們將確保在遊戲中載入 Mini Dapp SDK。 要做到這一點，Cocos Creator 的 build-templates 目錄允許自訂網頁平台的遊戲建置方式，使其成為遊戲開始前預先載入 SDK 的必要工具。
+在本節中，我們將確保在遊戲中載入 Mini Dapp SDK。要做到這一點，Cocos Creator 的 build-templates 目錄允許自訂網頁平台的遊戲建置方式，使其成為遊戲開始前預先載入 SDK 的必要工具。
 
 透過在 **build-templates/web-desktop** 中建立自訂範本，我們可以在每次建立時自動包含 SDK，簡化開發與部署。
 
@@ -48,7 +48,7 @@ cp build/web-desktop/index.html build-templates/web-desktop/
 
 ## 步驟 6：建立與預覽專案<a id="build-preview-project"></a>
 
-完成設定後，按一下 Cocos Creator 編輯器上方的 _Play on Device_。 您的遊戲應該會在新的瀏覽器標籤中開啟。
+完成設定後，按一下 Cocos Creator 編輯器上方的 _Play on Device_。您的遊戲應該會在新的瀏覽器標籤中開啟。
 
 ![](/img/minidapps/cocos-creator/cp-play-game-r.png)
 
@@ -56,7 +56,7 @@ cp build/web-desktop/index.html build-templates/web-desktop/
 
 # 將 Web 建立路由至 Localhost:3000<a id="route-web-build"></a>
 
-為了安全和開發目的，Mini Dapp SDK 目前在 localhost:3000 上運作。 目前，預設的 Unity WebGL 建置使用隨機連接埠 (如 7457)，為了讓我們的應用程式能有效運作，我們需要設定我們的 Unity WebGL 建置開啟於 localhost:3000。
+為了安全和開發目的，Mini Dapp SDK 目前在 localhost:3000 上運作。目前，預設的 Unity WebGL 建置使用隨機連接埠 (如 7457)，為了讓我們的應用程式能有效運作，我們需要設定我們的 Unity WebGL 建置開啟於 localhost:3000。
 
 若要執行，請遵循下列步驟：
 

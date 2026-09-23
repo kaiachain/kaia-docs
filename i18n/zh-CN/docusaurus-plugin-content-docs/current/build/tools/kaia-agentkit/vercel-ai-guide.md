@@ -2,7 +2,7 @@
 
 ## 概述
 
-Kaia Agent Kit 集成了多个流行的人工智能框架，使您能够使用自己喜欢的开发工具构建支持区块链的代理。 在本指南中，您将了解如何使用 Vercel AI SDK 创建人工智能代理，并将 Kaia Agent Kit 集成到链上操作中。
+Kaia Agent Kit 集成了多个流行的人工智能框架，使您能够使用自己喜欢的开发工具构建支持区块链的代理。在本指南中，您将了解如何使用 Vercel AI SDK 创建人工智能代理，并将 Kaia Agent Kit 集成到链上操作中。
 
 ## 先决条件
 
@@ -24,15 +24,15 @@ Kaia Agent Kit 集成了多个流行的人工智能框架，使您能够使用�
 
 ### 了解人工智能代理堆栈
 
-要建立一个强大的链上人工智能代理，我们需要合适的工具。 本指南利用 Vercel AI SDK 实现人工智能功能，并利用 Kaia Agent Kit 实现区块链交互。
+要建立一个强大的链上人工智能代理，我们需要合适的工具。本指南利用 Vercel AI SDK 实现人工智能功能，并利用 Kaia Agent Kit 实现区块链交互。
 
 **Vercel 人工智能 SDK - 人工智能引擎**
 
-Vercel AI SDK 是一个 TypeScript 工具包，可让您使用 React、Next.js、Vue、Svelte 和 Node.js 等框架轻松构建人工智能驱动的应用程序和代理。 它支持多种人工智能模型，在本指南中，我们将使用 [Google Generative AI](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai) 作为模型提供者。
+Vercel AI SDK 是一个 TypeScript 工具包，可让您使用 React、Next.js、Vue、Svelte 和 Node.js 等框架轻松构建人工智能驱动的应用程序和代理。它支持多种人工智能模型，在本指南中，我们将使用 [Google Generative AI](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai) 作为模型提供者。
 
 **Kaia代理工具包--利用Onchain工具为人工智能代理增效**
 
-Kaia Agent Kit 为人工智能代理带来了链上工具，使他们能够与 Kaia 区块链无缝互动。 这将使代理能够在链上执行操作、获取链上信息、验证交易并与智能合约动态交互。
+Kaia Agent Kit 为人工智能代理带来了链上工具，使他们能够与 Kaia 区块链无缝互动。这将使代理能够在链上执行操作、获取链上信息、验证交易并与智能合约动态交互。
 
 利用 Vercel AI SDK 和 Kaia Agent Kit，我们将创建一个能够进行自主推理、行动和区块链交互的 AI 代理。
 
@@ -40,7 +40,7 @@ Kaia Agent Kit 为人工智能代理带来了链上工具，使他们能够与 K
 
 ### Vercel AI SDK
 
-首先创建一个新的 Next.js 应用程序。 此命令将创建一个名为 kaia-agent-kit-vercel-ai-example 的新目录，并在其中建立一个基本的 Next.js 应用程序。
+首先创建一个新的 Next.js 应用程序。此命令将创建一个名为 kaia-agent-kit-vercel-ai-example 的新目录，并在其中建立一个基本的 Next.js 应用程序。
 
 ```bash
  pnpm create next-app@latest kaia-agent-kit-vercel-ai-example
@@ -74,7 +74,7 @@ pnpm add ai @ai-sdk/react @ai-sdk/google zod dotenv
 
 ### 配置 Google Generative AI API 密钥
 
-在项目根目录下创建一个 `.env` 文件，并添加 Google Generative AI API Key。 此密钥用于在 Google Generative AI 服务中验证您的应用程序。
+在项目根目录下创建一个 `.env` 文件，并添加 Google Generative AI API Key。此密钥用于在 Google Generative AI 服务中验证您的应用程序。
 
 ```bash
 touch .env
@@ -109,7 +109,7 @@ export async function POST(req: Request) {
 
 **代码演练：**
 
-这段代码定义了一个 API 路由处理程序（POST /api/chat），通过 Vercel 的 AI SDK 使用谷歌的双子座人工智能模型处理聊天机器人信息。 事情是这样的
+这段代码定义了一个 API 路由处理程序（POST /api/chat），通过 Vercel 的 AI SDK 使用谷歌的双子座人工智能模型处理聊天机器人信息。事情是这样的
 
 - **提取对话历史记录**：处理程序会读取接收到的请求，并检索包含聊天记录的信息。
 - **生成人工智能回复**：它会使用 Google 的 Gemini 1.5 Pro 模型调用 streamText()，并传递聊天历史记录作为上下文。
@@ -120,8 +120,7 @@ export async function POST(req: Request) {
 
 ### 连接用户界面
 
-有了能查询 LLM 的路由处理程序后，就该设置前端了。 AI SDK 的 [UI](https://sdk.vercel.ai/docs/ai-sdk-ui) 软件包将聊天界面的复杂性抽象为一个钩子，即 [useChat](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat)。
-用以下代码更新根页面（app/page.tsx），以显示聊天信息列表并提供用户信息输入：
+有了能查询 LLM 的路由处理程序后，就该设置前端了。 AI SDK 的 [UI](https://sdk.vercel.ai/docs/ai-sdk-ui) 软件包将聊天界面的复杂性抽象为一个钩子，即 [useChat](https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat)。用以下代码更新根页面（app/page.tsx），以显示聊天信息列表并提供用户信息输入：
 
 ```tsx
 'use client';
@@ -151,7 +150,7 @@ export default function Chat() {
 
 **代码演练：**
 
-此 React 组件使用 Vercel AI SDK 中的 useChat() 钩子创建了一个简单的聊天界面。 它的作用是
+此 React 组件使用 Vercel AI SDK 中的 useChat() 钩子创建了一个简单的聊天界面。它的作用是
 
 - **管理聊天状态**：useChat() 钩子提供
   - 消息聊天记录（包括 ID、角色和内容）。
@@ -165,19 +164,19 @@ export default function Chat() {
 
 ### 运行应用程序
 
-这样，您就构建了聊天机器人所需的一切！ 要启动应用程序，请使用以下命令：
+这样，您就构建了聊天机器人所需的一切！要启动应用程序，请使用以下命令：
 
 ```bash
 pnpm run dev
 ```
 
-前往浏览器，打开 `http://localhost:3000`。 你会看到一个输入框。 输入信息进行测试，看看人工智能聊天机器人的实时回复！ 人工智能 SDK 使使用 Next.js 构建人工智能聊天界面变得快速而简单。
+前往浏览器，打开 `http://localhost:3000`。你会看到一个输入框。输入信息进行测试，看看人工智能聊天机器人的实时回复！人工智能 SDK 使使用 Next.js 构建人工智能聊天界面变得快速而简单。
 
 现在我们已经设置好了聊天机器人，让我们使用 Kaia Agent Kit 添加使用链上工具执行区块链交易等功能。
 
 ## 使用 Kaia 代理工具包利用链上工具扩展代理
 
-到目前为止，我们已经构建了一个功能强大的人工智能聊天机器人，它可以处理对话并生成回复。 现在，让我们使用 Kaia 代理工具包为它增添链上功能。  这样，我们的聊天机器人就从一个简单的对话式人工智能发展成为一个强大的链上代理，可以在区块链上实时行动。
+到目前为止，我们已经构建了一个功能强大的人工智能聊天机器人，它可以处理对话并生成回复。现在，让我们使用 Kaia 代理工具包为它增添链上功能。这样，我们的聊天机器人就从一个简单的对话式人工智能发展成为一个强大的链上代理，可以在区块链上实时行动。
 
 ### 安装依赖项
 
@@ -242,14 +241,14 @@ export async function POST(req: Request) {
 
 **代码演练**
 
-这个更新的 `route.ts` 文件使用 Kaia Agent Kit、Viem 和 Vercel AI SDK 将区块链功能集成到我们的人工智能代理中。 以下是详细情况：
+这个更新的 `route.ts` 文件使用 Kaia Agent Kit、Viem 和 Vercel AI SDK 将区块链功能集成到我们的人工智能代理中。以下是详细情况：
 
 - **设置区块链工具和钱包**
   - 导入 Viem、Kaia Agent Kit 和其他工具，以便将链上工具与 Vercel AI SDK 连接起来。
   - 使用 privateKeyToAccount 通过环境变量（WALLET_PRIVATE_KEY）创建钱包账户。
   - 初始化 Viem 的钱包客户端，以便使用 RPC 提供者与 Kaia 区块链交互。
 - **加载链上工具**
-  - 使用 getOnChainTools 加载 Kaia 代理工具包的链上工具。 请注意，您可以通过配置软件包数组并传递以下任一值来限制人工智能代理对特定工具的访问：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。 留空时，默认启用所有软件包。
+  - 使用 getOnChainTools 加载 Kaia 代理工具包的链上工具。请注意，您可以通过配置软件包数组并传递以下任一值来限制人工智能代理对特定工具的访问：PackagesEnum.WEB3、PackagesEnum.KAIASCAN、PackagesEnum.DGSWAP。留空时，默认启用所有软件包。
 - **整合人工智能和区块链能力**
   - 流文本的调用条件是
     - 谷歌双子星 1.5 Pro 作为 LLM 模型

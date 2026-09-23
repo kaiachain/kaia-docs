@@ -5,12 +5,6 @@ sidebar_label: 자주 묻는 질문
 
 # 자주 묻는 질문
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다.
-
-:::
-
 ## Safe Global로 이전하면 기존 Safe 계정에 영향을 미치나요? <a id="Does moving to Safe Global affect my existing Safe"></a>
 
 아니요. 'Your Safe'는 온체인 스마트 계정입니다. Safe Global은 동일한 계약에 대한 다른 **UI**입니다. 사용자의 Safe 주소, 소유자, 한도 및 자산은 변경되지 않았습니다. 금고를 다시 생성하거나 자금을 이체할 필요는 없습니다.
@@ -21,7 +15,7 @@ sidebar_label: 자주 묻는 질문
 
 대부분의 경우 그렇습니다. 소유자 지갑을 연결하면 기존 ‘Safe’가 목록에 표시되며, 해당 네트워크(**Kaia** 또는 **Kairos**)가 함께 표시됩니다. 만약 표시되지 않는다면, [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)로 이동하여 **목록 관리**를 클릭하면 연결된 지갑과 연동된 세이프를 확인할 수 있습니다.
 
-주소록과 별명은 기존 인터페이스에 로컬로 저장되어 있으므로, `safe.kaia.io` (**설정 → 데이터 → 데이터 내보내기**)에서 한 번만 내보낸 다음, [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)의 **Safe 데이터 가져오기** 섹션에서 업로드해야 합니다. 이는 온체인 소유권이나 잔액에는 영향을 미치지 않습니다.
+주소록과 별명은 온체인에 저장된 것이 아니라 더 이상 사용되지 않는 `safe.kaia.io` 인터페이스에 로컬로 저장되어 있었기 때문에 이전되지 않았습니다. Safe Wallet의 **주소록**에서 다시 입력해 주세요. 이는 라벨에만 영향을 미치며, 온체인 소유권이나 잔액에는 영향을 미치지 않습니다. [Safe Global로 마이그레이션](./migrate-to-safe-global.md#address-book-labels)을 참조하십시오.
 
 ## 금고를 생성한 후에도 새로운 소유자를 추가할 수 있나요? <a id="Can i add new owners after creating a safe"></a>
 
@@ -48,7 +42,7 @@ Safe Wallet이 발전함에 따라 UI 레이블은 약간 달라질 수 있습�
 - 다른 사람이 나를 소유자로 지정한 금고와 상호작용하기
 - 읽기 전용 모드로 금고 보기
 
-연결 후 Safe가 표시되지 않으면 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)로 이동하여 **목록 관리**를 클릭하세요. `safe.kaia.io`에서 주소록을 내보낸 경우, 동일한 페이지에서 **Safe 데이터 가져오기** 기능을 이용할 수 있습니다. 자세한 내용은 [Safe Global로 마이그레이션하기](./migrate-to-safe-global.md#export-your-address-book)를 참조하세요.
+연결 후 Safe가 표시되지 않으면 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)로 이동하여 **목록 관리**를 클릭하세요.
 
 ## 일반적인 Safe 설정 요령
 

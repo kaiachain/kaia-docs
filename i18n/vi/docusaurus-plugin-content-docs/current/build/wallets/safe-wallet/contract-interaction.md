@@ -5,12 +5,6 @@ sidebar_label: Tương tác hợp đồng
 
 # Tương tác với các hợp đồng
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
-
-:::
-
 Trong phần này, bạn sẽ tương tác với một hợp đồng đơn giản trên Kairos bằng cách sử dụng tài khoản Safe được quản lý trong Safe Wallet.
 
 **Điều kiện tiên quyết**

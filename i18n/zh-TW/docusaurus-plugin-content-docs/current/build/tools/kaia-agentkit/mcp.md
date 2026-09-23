@@ -2,7 +2,7 @@
 
 ## 概述
 
-Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的開發工具建立具備區塊鏈功能的代理程式。 在本指南中，您將學習如何使用 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) 伺服器建立 AI Agent，該伺服器使用 Kaia Agent Kit 進行 onchain 動作，並使用 Claude Desktop 等 MCP 主機。
+Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的開發工具建立具備區塊鏈功能的代理程式。在本指南中，您將學習如何使用 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) 伺服器建立 AI Agent，該伺服器使用 Kaia Agent Kit 進行 onchain 動作，並使用 Claude Desktop 等 MCP 主機。
 
 ## 先決條件
 
@@ -27,15 +27,15 @@ Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的�
 
 \*\*什麼是 MCP？
 
-MCP 是一個通用且開放的標準，可讓 AI 系統與資料來源和外部工具互動，進而提供所需的資料。  MCP 核心採用用戶端伺服器架構，主機應用程式可連線至數個伺服器。 一方面，MCP 伺服器可作為閘道，揭露特定功能：例如透過標準化的 Model Context Protocol 進行區塊鏈互動；另一方面，我們將在本指南中使用的 MCP 主機 (例如 Claude Desktop)，可作為希望透過 MCP 存取資料的工具。
+MCP 是一個通用且開放的標準，可讓 AI 系統與資料來源和外部工具互動，進而提供所需的資料。  MCP 核心採用用戶端伺服器架構，主機應用程式可連線至數個伺服器。一方面，MCP 伺服器可作為閘道，揭露特定功能：例如透過標準化的 Model Context Protocol 進行區塊鏈互動；另一方面，我們將在本指南中使用的 MCP 主機 (例如 Claude Desktop)，可作為希望透過 MCP 存取資料的工具。
 
-此外，MCP 伺服器負責處理來自用戶端、主機的傳入要求，並傳回適當的回應資料。 在這種情況下，它們使用 MCP 通訊協定，以標準通道 (stdio、HTTP 或套接字) 與 LLM 進行通訊，並傳回結構佳的輸出。 MCP 通訊協定的設計具有擴充性，允許開發人員隨時新增 [工具](https://modelcontextprotocol.io/docs/concepts/tools)、[資源](https://modelcontextprotocol.io/docs/concepts/resources)、[提示](https://modelcontextprotocol.io/docs/concepts/prompts)。
+此外，MCP 伺服器負責處理來自用戶端、主機的傳入要求，並傳回適當的回應資料。在這種情況下，它們使用 MCP 通訊協定，以標準通道 (stdio、HTTP 或套接字) 與 LLM 進行通訊，並傳回結構佳的輸出。 MCP 通訊協定的設計具有擴充性，允許開發人員隨時新增 [工具](https://modelcontextprotocol.io/docs/concepts/tools)、[資源](https://modelcontextprotocol.io/docs/concepts/resources)、[提示](https://modelcontextprotocol.io/docs/concepts/prompts)。
 
 在本指南中，我們將在 MCP 伺服器工具中加入 onchain 功能，以便使用 Kaia Agent Kit 與 Kaia 區塊鏈互動。
 
 **Kaia 代理套件**
 
-另一方面，Kaia Agent Kit 是一種工具，可將上鏈工具插入 AI 代理，讓它們與 Kaia 區塊鏈進行無縫互動。 這將使代理能夠自主執行鏈上動作、獲取鏈上資訊、驗證交易。
+另一方面，Kaia Agent Kit 是一種工具，可將上鏈工具插入 AI 代理，讓它們與 Kaia 區塊鏈進行無縫互動。這將使代理能夠自主執行鏈上動作、獲取鏈上資訊、驗證交易。
 
 ## 專案設定
 
@@ -192,7 +192,7 @@ pnpm build
 
 **3. 設定 Claude 桌面**
 
-我們需要為您要使用的 MCP 伺服器設定 Claude for Desktop。 若要執行此動作，請以文字編輯器開啟您的 Claude for Desktop App 設定，位於 `~/Library/Application Support/Claude/claude_desktop_config.json`。
+我們需要為您要使用的 MCP 伺服器設定 Claude for Desktop。若要執行此動作，請以文字編輯器開啟您的 Claude for Desktop App 設定，位於 `~/Library/Application Support/Claude/claude_desktop_config.json`。
 
 執行下列指令開啟您的 claude_desktop_config.json 檔案：
 
@@ -200,7 +200,7 @@ pnpm build
 code ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
-然後，您會在 mcpServers 金鑰中加入您的伺服器。 在這種情況下，我們會如下所示加入我們的 kaia-agent 伺服器：
+然後，您會在 mcpServers 金鑰中加入您的伺服器。在這種情況下，我們會如下所示加入我們的 kaia-agent 伺服器：
 
 ```json
 {
@@ -223,7 +223,7 @@ code ~/Library/Application\ Support/Claude/claude_desktop_config.json
 - 將 **kaiascan-api-key** 替換為您的 Kaiascan API 金鑰
 - 將 **/absolute-path-to** 改為專案目錄的絕對路徑 (例如：/Users/username/ai-agent/mcp/kaia-agentkit-mcp-example/build/index.js)。
 
-儲存檔案，並重新啟動 Claude Desktop。 您的 MCP 伺服器工具現在應該可以在 Claude Desktop 中使用。
+儲存檔案，並重新啟動 Claude Desktop。您的 MCP 伺服器工具現在應該可以在 Claude Desktop 中使用。
 
 ![](/img/build/tools/kaia-agent-kit/kaia-mcp-claude-tool.gif)
 

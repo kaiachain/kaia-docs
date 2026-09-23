@@ -1,12 +1,12 @@
 # 以太坊兼容性
 
-Kaia 提供封裝的交易類型，以支持以太坊兼容性。 除了名為 "EthereumTxTypeEnvelope "的單字節類型分隔符外，Kaia 中的以太坊交易類型具有與以太坊設計相同的屬性和 RLP 編碼方案。 因此，用戶可以在 Kaia 上成功部署以太坊開發工具生成的交易。 當用戶使用 `eth` 命名空間 API 時，類型分隔符也會被省略，因此他們可以像使用以太坊一樣使用 Kaia。 使用 `kaia` 命名空間 API，用戶可以將以太坊格式化的交易作為 Kaia 交易類型進行部署和檢索，而不會與現有的 Kaia 交易類型混淆。
+Kaia 提供封裝的交易類型，以支持以太坊兼容性。除了名為 "EthereumTxTypeEnvelope "的單字節類型分隔符外，Kaia 中的以太坊交易類型具有與以太坊設計相同的屬性和 RLP 編碼方案。因此，用戶可以在 Kaia 上成功部署以太坊開發工具生成的交易。當用戶使用 `eth` 命名空間 API 時，類型分隔符也會被省略，因此他們可以像使用以太坊一樣使用 Kaia。使用 `kaia` 命名空間 API，用戶可以將以太坊格式化的交易作為 Kaia 交易類型進行部署和檢索，而不會與現有的 Kaia 交易類型混淆。
 
 ## EthereumTxTypeEnvelope <a id="ethereumtxtypeenvelope"></a>
 
-EthereumTxTypeEnvelope 是原始交易的單字節前綴，表示以太坊交易類型。 以太坊採用了[EIP-2718](https://eips.ethereum.org/EIPS/eip-2718)中的可擴展交易類型方案，它使用的類型編號系統與 Kaia 的衝突。 為了解決兩種不同交易類型方案之間的衝突，Kaia 引入了 "EthereumTxTypeEnvelope"，允許未來以太坊交易類型的分離和擴展。
+EthereumTxTypeEnvelope 是原始交易的單字節前綴，表示以太坊交易類型。以太坊採用了[EIP-2718](https://eips.ethereum.org/EIPS/eip-2718)中的可擴展交易類型方案，它使用的類型編號系統與 Kaia 的衝突。為了解決兩種不同交易類型方案之間的衝突，Kaia 引入了 "EthereumTxTypeEnvelope"，允許未來以太坊交易類型的分離和擴展。
 
-EthereumTxTypeEnvelope "是一個額外的類型分隔符，僅用於原始交易和類型編號。 它不用於交易哈希或簽名哈希。 為此，使用了 EIPs 中定義的 "EthereumTransactionType"。
+EthereumTxTypeEnvelope "是一個額外的類型分隔符，僅用於原始交易和類型編號。它不用於交易哈希或簽名哈希。為此，使用了 EIPs 中定義的 "EthereumTransactionType"。
 
 - EthereumTxTypeEnvelope: `0x78`
 - TxHashRLP : EthereumTransactionType || TransactionPayload
@@ -14,7 +14,7 @@ EthereumTxTypeEnvelope "是一個額外的類型分隔符，僅用於原始交�
 
 ## TxTypeEthereumAccessList <a id="txtypeethereumaccesslist"></a>
 
-TxTypeEthereumAccessList "代表 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中指定的以太坊交易類型。 該事務類型包含一個訪問列表，即該事務要訪問的地址和存儲密鑰列表。 由於該交易類型的存在是為了支持兼容性，因此只適用於與[AccountKeyLegacy]相關的 EOA。 與其他賬戶密鑰類型相關的 EOA 應使用其他交易類型，如 "TxTypeValueTransfer"、"TxTypeSmartContractExecution "等。 這種交易類型可以創建賬戶、轉移代幣、部署/執行智能合約或混合使用上述交易類型。
+TxTypeEthereumAccessList "代表 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930) 中指定的以太坊交易類型。該事務類型包含一個訪問列表，即該事務要訪問的地址和存儲密鑰列表。由於該交易類型的存在是為了支持兼容性，因此只適用於與[AccountKeyLegacy]相關的 EOA。與其他賬戶密鑰類型相關的 EOA 應使用其他交易類型，如 "TxTypeValueTransfer"、"TxTypeSmartContractExecution "等。這種交易類型可以創建賬戶、轉移代幣、部署/執行智能合約或混合使用上述交易類型。
 
 :::note
 
@@ -24,24 +24,24 @@ Kaia 網絡可在 "EthTxTypeCompatibleBlock "之後處理該交易類型。
 
 :::note
 
-注意：此交易類型只支持以太坊交易類型的格式。 與 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)不同，使用訪問列表不會帶來交易費用方面的好處。
+注意：此交易類型只支持以太坊交易類型的格式。與 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)不同，使用訪問列表不會帶來交易費用方面的好處。
 
 :::
 
 ### 屬性<a id="attributes"></a>
 
-| 屬性         | 類型                                                         | 說明                                                                                                                                                                                                                    |
-| :--------- | :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumAccessList` 和 `EthereumTransactionType` 連接而成的 `TxTypeEthereumAccessList` 類型。 必須為 0x7801。                                                                                                     |
-| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                                                                                               |
-| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。 如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                                                                                                   |
-| gasPrice   | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。 發送方將支付的代幣數量通過 `gas` \* `gasPrice` 計算得出。 例如，如果 gas 為 10，gasPrice 為 10^18，發件人將支付 10 KAIA 的交易費。 See [Unit of KAIA](../../learn/token-economics/kaia-native-token.md#units-of-kaia). |
-| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                                                                                                       |
-| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                                                                                          |
-| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                                                                                               |
-| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                                                                                                      |
-| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                                                                                                  |
-| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                                                                                              |
+| 屬性         | 類型                                                         | 說明                                                                                                                                                                                                                  |
+| :--------- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type       | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumAccessList` 和 `EthereumTransactionType` 連接而成的 `TxTypeEthereumAccessList` 類型。必須為 0x7801。                                                                                                    |
+| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                                                                                             |
+| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                                                                                                  |
+| gasPrice   | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。發送方將支付的代幣數量通過 `gas` \* `gasPrice` 計算得出。例如，如果 gas 為 10，gasPrice 為 10^18，發件人將支付 10 KAIA 的交易費。 See [Unit of KAIA](../../learn/token-economics/kaia-native-token.md#units-of-kaia). |
+| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                                                                                                     |
+| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                                                                                        |
+| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                                                                                             |
+| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                                                                                                    |
+| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                                                                                                |
+| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                                                                                            |
 
 ### 簽名的 RLP 編碼<a id="rlp-encoding-for-signature"></a>
 
@@ -182,7 +182,7 @@ kaia_getTransactionByHash\` 的返回值
 
 ## TxTypeEthereumDynamicFee <a id="txtypeethereumdynamicfee"></a>
 
-TxTypeEthereumDynamicFee "代表 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) 中指定的一種以太坊交易類型。 該交易類型包含 "gasTipCap "和 "gasFeeCap"，而不是 "gasPrice"。 由於該交易類型的存在是為了支持兼容性，因此只適用於與[AccountKeyLegacy]相關的 EOA。 與其他賬戶密鑰類型相關的 EOA 應使用其他交易類型，如 "TxTypeValueTransfer"、"TxTypeSmartContractExecution "等。 這種類型的交易可以創建賬戶、轉移代幣、部署/執行智能合約，也可以是上述交易的混合體。
+TxTypeEthereumDynamicFee "代表 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) 中指定的一種以太坊交易類型。該交易類型包含 "gasTipCap "和 "gasFeeCap"，而不是 "gasPrice"。由於該交易類型的存在是為了支持兼容性，因此只適用於與[AccountKeyLegacy]相關的 EOA。與其他賬戶密鑰類型相關的 EOA 應使用其他交易類型，如 "TxTypeValueTransfer"、"TxTypeSmartContractExecution "等。這種類型的交易可以創建賬戶、轉移代幣、部署/執行智能合約，也可以是上述交易的混合體。
 
 :::note
 
@@ -192,7 +192,7 @@ TxTypeEthereumDynamicFee "代表 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1
 
 :::note
 
-目前，這種類型的交易只支持以太坊交易類型的格式。 與 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)不同，使用訪問列表不會帶來交易費用方面的好處。
+目前，這種類型的交易只支持以太坊交易類型的格式。與 [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930)不同，使用訪問列表不會帶來交易費用方面的好處。
 
 :::
 
@@ -204,19 +204,19 @@ TxTypeEthereumDynamicFee "代表 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1
 
 ### 屬性<a id="attributes"></a>
 
-| 屬性         | 類型                                                         | 說明                                                                                                                                            |
-| :--------- | :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| type       | uint8\(Go\)                           | TxTypeEthereumDynamicFee "的類型，由 "EthereumTxTypeEnvelope "和 "EthereumTransactionType "連接而成。 必須是 `0x7802`。                                      |
-| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                       |
-| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。 如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                           |
-| gasTipCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人除了支付 `baseFee` 以外還要支付多少費用。 由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。                      |
-| gasFeeCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。 發送方將支付的代幣數量通過 `gas` \* `gasFeeCap` 計算。 由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。 |
-| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                               |
-| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                  |
-| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                       |
-| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                              |
-| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                          |
-| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                      |
+| 屬性         | 類型                                                         | 說明                                                                                                                                          |
+| :--------- | :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| type       | uint8\(Go\)                           | TxTypeEthereumDynamicFee "的類型，由 "EthereumTxTypeEnvelope "和 "EthereumTransactionType "連接而成。必須是 `0x7802`。                                     |
+| chainId    | \*big.Int （ Go\)                          | 目標鏈 ID。                                                                                                                                     |
+| nonce      | uint64 \(Go\)                         | 用於唯一標識發件人交易的值。如果一個發送方生成了兩個具有相同 nonce 的交易，則只執行其中一個。                                                                                          |
+| gasTipCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人除了支付 `baseFee` 以外還要支付多少費用。由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。                     |
+| gasFeeCap  | \*big.Int （ Go\)                          | 一個乘數，用於計算發件人將支付多少代幣。發送方將支付的代幣數量通過 `gas` \* `gasFeeCap` 計算。由於 Kaia 有固定的Gas 價格，因此 `gasTipCap` 和 `gasFeeCap` 應採用相應網絡的Gas 價格，在編寫本報告時為 250 Gkei。 |
+| gas        | uint64 \(Go\)                         | 交易允許使用的最高交易費金額。                                                                                                                             |
+| to         | \*common.Address（Go\）                      | 接收轉賬金額的賬戶地址。                                                                                                                                |
+| value      | \*big.Int （ Go\)                          | 以 `kei` 為單位的 KAIA 轉賬金額。                                                                                                                     |
+| data       | \byte （去）                                                  | 附屬於事務的數據，用於執行事務。                                                                                                                            |
+| accessList | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的地址和存儲密鑰列表。                                                                                        |
+| v, r, s    | \*big.Int （ Go\)                          | 發送方為讓接收方獲取發送方地址而生成的加密簽名。                                                                                                                    |
 
 ### 簽名的 RLP 編碼<a id="rlp-encoding-for-signature"></a>
 
@@ -359,7 +359,7 @@ kaia_getTransactionByHash\` 的返回值
 
 ## TxTypeEthereumBlob<a id="txtypeethereumblob"></a>
 
-TxTypeEthereumBlob」代表 [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) 和 [KIP-279](https://kips.kaia.io/KIPs/kip-279) 中指定的 Ethereum 交易類型。 此交易類型可攜帶二進位大型物件 (blob) 資料，為 Kaia 上的第 2 層捲動提供具成本效益的資料可用性層。 透過將 blob 資料與永久 calldata 儲存分離，rollup 可以透過獨立的 blob 費用市場，以較低的成本發佈資料。 EVM 無法存取 blob 資料本身；只有「blobVersionedHashes」承諾可在鏈上存取。 由於此交易類型的存在是為了支援相容性，因此它只適用於與 [AccountKeyLegacy] 相關聯的 EOA。 此交易類型不能用來建立契約 - `to` 欄位不能為零。
+TxTypeEthereumBlob」代表 [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844) 和 [KIP-279](https://kips.kaia.io/KIPs/kip-279) 中指定的 Ethereum 交易類型。此交易類型可攜帶二進位大型物件 (blob) 資料，為 Kaia 上的第 2 層捲動提供具成本效益的資料可用性層。透過將 blob 資料與永久 calldata 儲存分離，rollup 可以透過獨立的 blob 費用市場，以較低的成本發佈資料。 EVM 無法存取 blob 資料本身；只有「blobVersionedHashes」承諾可在鏈上存取。由於此交易類型的存在是為了支援相容性，因此它只適用於與 [AccountKeyLegacy] 相關聯的 EOA。此交易類型不能用來建立契約 - `to` 欄位不能為零。
 
 :::note
 
@@ -369,7 +369,7 @@ Kaia 網路可以在 `OsakaCompatibleBlock` 之後處理此交易類型。
 
 :::note
 
-Kaia 的 Blob Gas 參數是針對 1 秒的區塊調整的。 每個區塊只允許 \*\* 一個 blob。 只接受 [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) 副檔格式 (V1) - 拒絕 V0 副檔。 Blob sidecars 會保留 1,814,400 個區塊（約 21 天）。
+Kaia 的 Blob Gas 參數是針對 1 秒的區塊調整的。每個區塊只允許 \*\* 一個 blob。只接受 [EIP-7594](https://eips.ethereum.org/EIPS/eip-7594) 副檔格式 (V1) - 拒絕 V0 副檔。 Blob sidecars 會保留 1,814,400 個區塊（約 21 天）。
 
 :::
 
@@ -381,21 +381,21 @@ Kaia 的 Blob Gas 參數是針對 1 秒的區塊調整的。 每個區塊只允�
 
 ### 屬性<a id="attributes"></a>
 
-| 屬性                                                 | 類型                                                         | 說明                                                                                                     |
-| :------------------------------------------------- | :--------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
-| 類型                                                 | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumBlob` 和 `EthereumTransactionType` 組成的 `TxTypeEthereumBlob` 類型。 這必須是 `0x7803`。 |
-| chainId                                            | \*big.Int\(Go\)       | 目的地鏈 ID。                                                                                               |
-| 扣球                                                 | uint64 \(Go\)                         | 用來唯一識別寄件者交易的值。 如果寄件者產生兩個具有相同 nonce 的交易，則只會執行其中一個。                                                      |
-| maxPriorityFeePerGas (每瓦斯最高優先費) | \*big.Int\(Go\)       | 一個乘數，用來取得寄件者在 `baseFee` 以外要支付的金額。 由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                    |
-| maxFeePerGas                                       | \*big.Int\(Go\)       | 寄件人願意為每單位瓦斯支付的最高金額。 由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                                  |
-| 氣體                                                 | uint64 \(Go\)                         | 交易允許使用的最高交易費用。                                                                                         |
-| 至                                                  | \*common.Address （Go\）                     | 接收轉移值的帳戶地址。 不得為 nil - blob 交易無法建立契約。                                                                   |
-| 價值                                                 | \*big.Int\(Go\)       | 要轉移的 KAIA `kei` 金額。                                                                                    |
-| 資料                                                 | \byte \(Go\)                          | 附加到交易的資料，用於交易執行。                                                                                       |
-| 存取清單                                               | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的位址和儲存金鑰清單。                                                   |
-| maxFeePerBlobGas (每桶瓦斯最高收費)     | \*big.Int\(Go\)       | 寄件者願意支付的每單位 Blob Gas 的最高費用。 Blob 瓦斯的價格獨立於一般瓦斯。                                                         |
-| blobVersionedHashes                                | \common.Hash (Go\)     | 與此交易相關的 Blob 的版本化雜湊清單。 每個散列必須使用版本前綴 `0x01`。 至少需要一個哈希值。                                                 |
-| v, r, s                                            | \*big.Int\(Go\)       | 寄件者為了讓接收者取得寄件者的地址而產生的加密簽章。                                                                             |
+| 屬性                                                 | 類型                                                         | 說明                                                                                                    |
+| :------------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| 類型                                                 | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumBlob` 和 `EthereumTransactionType` 組成的 `TxTypeEthereumBlob` 類型。這必須是 `0x7803`。 |
+| chainId                                            | \*big.Int\(Go\)       | 目的地鏈 ID。                                                                                              |
+| 扣球                                                 | uint64 \(Go\)                         | 用來唯一識別寄件者交易的值。如果寄件者產生兩個具有相同 nonce 的交易，則只會執行其中一個。                                                      |
+| maxPriorityFeePerGas (每瓦斯最高優先費) | \*big.Int\(Go\)       | 一個乘數，用來取得寄件者在 `baseFee` 以外要支付的金額。由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                    |
+| maxFeePerGas                                       | \*big.Int\(Go\)       | 寄件人願意為每單位瓦斯支付的最高金額。由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                                  |
+| 氣體                                                 | uint64 \(Go\)                         | 交易允許使用的最高交易費用。                                                                                        |
+| 至                                                  | \*common.Address （Go\）                     | 接收轉移值的帳戶地址。不得為 nil - blob 交易無法建立契約。                                                                   |
+| 價值                                                 | \*big.Int\(Go\)       | 要轉移的 KAIA `kei` 金額。                                                                                   |
+| 資料                                                 | \byte \(Go\)                          | 附加到交易的資料，用於交易執行。                                                                                      |
+| 存取清單                                               | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的位址和儲存金鑰清單。                                                  |
+| maxFeePerBlobGas (每桶瓦斯最高收費)     | \*big.Int\(Go\)       | 寄件者願意支付的每單位 Blob Gas 的最高費用。 Blob 瓦斯的價格獨立於一般瓦斯。                                                        |
+| blobVersionedHashes                                | \common.Hash (Go\)     | 與此交易相關的 Blob 的版本化雜湊清單。每個散列必須使用版本前綴 `0x01`。至少需要一個哈希值。                                                  |
+| v, r, s                                            | \*big.Int\(Go\)       | 寄件者為了讓接收者取得寄件者的地址而產生的加密簽章。                                                                            |
 
 ### 簽名的 RLP 編碼<a id="rlp-encoding-for-signature"></a>
 
@@ -542,7 +542,7 @@ eth_getTransactionByHash\` 的回傳值
 
 ## TxTypeEthereumSetCode<a id="txtypeethereumsetcode"></a>
 
-TxTypeEthereumSetCode」代表 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 和 [KIP-228](https://kips.kaia.io/KIPs/kip-228) 中指定的 Ethereum 交易類型。 此交易類型允許對已存在的 EOA 進行帳戶抽象，從而改善了用戶體驗。 在此之前，尋求智慧型帳戶功能的 EOA 擁有人必須建立新的智慧型帳戶，並遷移所有資產和權限。 透過 SetCode 交易，使用者可以就地將代碼附加到現有的 EOA，省去了成本高昂的移轉過程。 `authorizationList` 指定了由應設定其代碼的帳戶簽署的 `(chainId、address、nonce)` 元組清單，使批次交易、瓦斯贊助和範圍授權等模式成為可能。 該委託會持續存在，直到另一個 SetCode 交易明確地變更或移除為止。 由於此交易類型的存在是為了支援相容性，因此它只適用於與 [AccountKeyLegacy] 相關聯的 EOA。 此交易類型不可用於建立合約 - `目的地`欄位不可為零。
+TxTypeEthereumSetCode」代表 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 和 [KIP-228](https://kips.kaia.io/KIPs/kip-228) 中指定的 Ethereum 交易類型。此交易類型允許對已存在的 EOA 進行帳戶抽象，從而改善了用戶體驗。在此之前，尋求智慧型帳戶功能的 EOA 擁有人必須建立新的智慧型帳戶，並遷移所有資產和權限。透過 SetCode 交易，使用者可以就地將代碼附加到現有的 EOA，省去了成本高昂的移轉過程。 `authorizationList` 指定了由應設定其代碼的帳戶簽署的 `(chainId、address、nonce)` 元組清單，使批次交易、瓦斯贊助和範圍授權等模式成為可能。該委託會持續存在，直到另一個 SetCode 交易明確地變更或移除為止。由於此交易類型的存在是為了支援相容性，因此它只適用於與 [AccountKeyLegacy] 相關聯的 EOA。此交易類型不可用於建立合約 - `目的地`欄位不可為零。
 
 :::note
 
@@ -552,32 +552,32 @@ Kaia 網路可在「PragueCompatibleBlock」之後處理此交易類型。
 
 :::note
 
-只有具有 `AccountKeyLegacy` 的 EOA 才能透過授權元組來指定代碼。 會跳過引用其他 key 類型帳號的授權元組。 一旦 EOA 已設定代碼，標準的 `TxTypeValueTransfer ` 交易就無法以它為目標，而 `TxTypeAccountUpdate ` 交易也無法從它產生。
+只有具有 `AccountKeyLegacy` 的 EOA 才能透過授權元組來指定代碼。會跳過引用其他 key 類型帳號的授權元組。一旦 EOA 已設定代碼，標準的 `TxTypeValueTransfer ` 交易就無法以它為目標，而 `TxTypeAccountUpdate ` 交易也無法從它產生。
 
 :::
 
 :::note
 
-根據 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 的規定，每個授權元組都會透過 `keccak256(MAGIC || rlp([chainId,地址,nonce]))`獨立簽署，其中 `MAGIC = 0x05`。 至少需要一個授權元組。
+根據 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) 的規定，每個授權元組都會透過 `keccak256(MAGIC || rlp([chainId,地址,nonce]))`獨立簽署，其中 `MAGIC = 0x05`。至少需要一個授權元組。
 
 :::
 
 ### 屬性<a id="attributes-1"></a>
 
-| 屬性                                                 | 類型                                                         | 說明                                                                                                           |
-| :------------------------------------------------- | :--------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------- |
-| 類型                                                 | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumSetCode` 和 `EthereumTransactionType` 組成的 `TxTypeEthereumSetCode` 類型。 這必須是 `0x7804`。 |
-| chainId                                            | \*big.Int\(Go\)       | 目的地鏈 ID。                                                                                                     |
-| 扣球                                                 | uint64 \(Go\)                         | 用來唯一識別寄件者交易的值。 如果寄件者產生兩個具有相同 nonce 的交易，則只會執行其中一個。                                                            |
-| maxPriorityFeePerGas (每瓦斯最高優先費) | \*big.Int\(Go\)       | 一個乘數，用來取得寄件者在 `baseFee` 以外要支付的金額。 由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                          |
-| maxFeePerGas                                       | \*big.Int\(Go\)       | 寄件人願意為每單位瓦斯支付的最高金額。 由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                                        |
-| 氣體                                                 | uint64 \(Go\)                         | 交易允許使用的最高交易費用。                                                                                               |
-| 目的地                                                | \*common.Address （Go\）                     | 接收轉移值的帳戶地址。 不得為 nil - SetCode 交易無法建立契約。                                                                      |
-| 價值                                                 | \*big.Int\(Go\)       | 要轉移的 KAIA `kei` 金額。                                                                                          |
-| 資料                                                 | \byte \(Go\)                          | 附加到交易的資料，用於交易執行。                                                                                             |
-| 存取清單                                               | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的位址和儲存金鑰清單。                                                         |
-| 授權清單                                               | \授權(Go\)                               | 授權元組清單，每個元組的形式為 `[chainId、address、nonce、yParity、r、s]`，其中 `address` 為簽署權限委託其代碼的契約，而元組則由權限簽署。 至少需要一個元組。        |
-| v, r, s                                            | \*big.Int\(Go\)       | 寄件者為了讓接收者取得寄件者的地址而產生的加密簽章。                                                                                   |
+| 屬性                                                 | 類型                                                         | 說明                                                                                                          |
+| :------------------------------------------------- | :--------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- |
+| 類型                                                 | uint8\(Go\)                           | 由 `EthereumTxTypeEthereumSetCode` 和 `EthereumTransactionType` 組成的 `TxTypeEthereumSetCode` 類型。這必須是 `0x7804`。 |
+| chainId                                            | \*big.Int\(Go\)       | 目的地鏈 ID。                                                                                                    |
+| 扣球                                                 | uint64 \(Go\)                         | 用來唯一識別寄件者交易的值。如果寄件者產生兩個具有相同 nonce 的交易，則只會執行其中一個。                                                            |
+| maxPriorityFeePerGas (每瓦斯最高優先費) | \*big.Int\(Go\)       | 一個乘數，用來取得寄件者在 `baseFee` 以外要支付的金額。由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                          |
+| maxFeePerGas                                       | \*big.Int\(Go\)       | 寄件人願意為每單位瓦斯支付的最高金額。由於 Kaia 有固定的瓦斯價格，因此這應該是各個網路的瓦斯價格。                                                        |
+| 氣體                                                 | uint64 \(Go\)                         | 交易允許使用的最高交易費用。                                                                                              |
+| 目的地                                                | \*common.Address （Go\）                     | 接收轉移值的帳戶地址。不得為 nil - SetCode 交易無法建立契約。                                                                      |
+| 價值                                                 | \*big.Int\(Go\)       | 要轉移的 KAIA `kei` 金額。                                                                                         |
+| 資料                                                 | \byte \(Go\)                          | 附加到交易的資料，用於交易執行。                                                                                            |
+| 存取清單                                               | type.AccessList\(Go\) | 由 \[\](common.Address,\[]common.Hash)組成的位址和儲存金鑰清單。                                                        |
+| 授權清單                                               | \授權(Go\)                               | 授權元組清單，每個元組的形式為 `[chainId、address、nonce、yParity、r、s]`，其中 `address` 為簽署權限委託其代碼的契約，而元組則由權限簽署。至少需要一個元組。        |
+| v, r, s                                            | \*big.Int\(Go\)       | 寄件者為了讓接收者取得寄件者的地址而產生的加密簽章。                                                                                  |
 
 ### 簽名的 RLP 編碼<a id="rlp-encoding-for-signature-1"></a>
 

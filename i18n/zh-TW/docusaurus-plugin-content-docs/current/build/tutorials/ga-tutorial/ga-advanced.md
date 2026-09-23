@@ -1,6 +1,6 @@
 # 6. 進階主題與常見問題
 
-本節涵蓋進階的整合技術、最佳實務、疑難排解技巧，以及有關 Kaia 的 Gas Abstraction (GA) 功能的常見問題。 它專為想要優化實作並確保順暢使用者體驗的開發人員所設計。
+本節涵蓋進階的整合技術、最佳實務、疑難排解技巧，以及有關 Kaia 的 Gas Abstraction (GA) 功能的常見問題。它專為想要優化實作並確保順暢使用者體驗的開發人員所設計。
 
 ## 6.1 最佳實務
 
@@ -18,7 +18,7 @@
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \*\* 從未開採過\*\*                                   | a) `token` **未列入白名單**。 <br/>b) `minAmountOut`太緊，整個捆綁會被還原。                                                     | - 先檢查支援\*\*：在簽署前\*\*： `await router.dexAddress(token)` (若不支援則會還原) **或** `getSupportedTokens().includes(token)` \*\*。<br/>- 增加 `slippageBps` 或及時重新引用 `amountIn` 。 |
 | **`INSUFFICIENT_OUTPUT_AMOUNT` 回復**              | 價格在報價與執行之間改變，因此 GSR 檢查 `amountReceived >= minAmountOut` 失敗。                                                   | 使用目前的池儲備重新執行 `getAmountIn()` ，然後以較高的 `minAmountOut` 或較寬的滑動區重建 `SwapTx`。                                                                                                             |
-| **節點拒絕傳送 (「資金不足」)**           | 只傳送了 **GaslessApproveTx**。 由於跳過了餘額檢查，而且遺失了配對的 **SwapTx**，提案者從未注入 **LendTx**，因此交易花費了它沒有的 KAIA。                 | 永遠透過 `kaia_sendRawTransactions` 在同一批次\*\*中提交 \*\*ApproveTx & SwapTx，或確保 `approveRequired == false` 以便您可以傳送 2-tx 包。                                              |
+| **節點拒絕傳送 (「資金不足」)**           | 只傳送了 **GaslessApproveTx**。由於跳過了餘額檢查，而且遺失了配對的 **SwapTx**，提案者從未注入 **LendTx**，因此交易花費了它沒有的 KAIA。                  | 永遠透過 `kaia_sendRawTransactions` 在同一批次\*\*中提交 \*\*ApproveTx & SwapTx，或確保 `approveRequired == false` 以便您可以傳送 2-tx 包。                                              |
 | \*\* 綑綁內的錯誤配對\*\*                                | 外部 dApp 在 GA bundle 開採之前，會傳送一個消耗下一個 nonce 的普通 tx。                                                             | 在簽署前查詢 `getTransactionCount()`；如果 nonce 已經移動，則重建兩個 tx 物件。                                                                                                                           |
 | `klay_sendRawTransactions → "undefined tx type"` | 您嘗試透過 **kaia_…** 端點批次傳送 Kaia 特定的 tx 類型 (例如 0x30)，而該端點只支援 Ethereum 類型。 | 使用 `kaia_sendRawTransactions` 傳送 GA 包，然後用 `klay_sendRawTransaction` 廣播 0x30 AppTx。                                                                                                  |
 
@@ -30,7 +30,7 @@
 
 ### 如果使用者沒有足夠的代幣進行交換，會發生什麼情況？
 
-SwapTx 會在鏈上失敗，但由於 \*\*KIP-245 的原子捆綁 \*\*，整個捆綁會被還原並從區塊中排除。 使用者不會損失任何資金，而且他們在鏈上的狀態保持不變 - 他們為失敗的嘗試支付零瓦斯費。
+SwapTx 會在鏈上失敗，但由於 \*\*KIP-245 的原子捆綁 \*\*，整個捆綁會被還原並從區塊中排除。使用者不會損失任何資金，而且他們在鏈上的狀態保持不變 - 他們為失敗的嘗試支付零瓦斯費。
 
 ### 我該如何檢查哪些代用幣以及有多少被換成瓦斯？
 
@@ -44,15 +44,15 @@ SwapTx 會在鏈上失敗，但由於 \*\*KIP-245 的原子捆綁 \*\*，整個�
 
 ### GA 可以被節點停用嗎？
 
-個別節點可以停用 GA，但預設是\*\*啟用的。 如果一個節點停用了它，交易最終會由其他支援 GA 的節點處理。
+個別節點可以停用 GA，但預設是\*\*啟用的。如果一個節點停用了它，交易最終會由其他支援 GA 的節點處理。
 
 ### 瓦斯抽取會減慢區塊的速度嗎？
 
-沒有 KIP-245 免除了捆綁對每塊 250 毫秒 \* 執行超時 \* 檢查的限制，因此 EVM 一旦開始就允許完成整個捆綁的處理。 GA 交易僅限於眾所皆知的 ERC20 核准與 GSR 交換作業，因此其執行時間相當合理。 因此，GA bundle 不會危及鏈的區塊時間預算。
+沒有 KIP-245 免除了捆綁對每塊 250 毫秒 \* 執行超時 \* 檢查的限制，因此 EVM 一旦開始就允許完成整個捆綁的處理。 GA 交易僅限於眾所皆知的 ERC20 核准與 GSR 交換作業，因此其執行時間相當合理。因此，GA bundle 不會危及鏈的區塊時間預算。
 
 ### 我在哪裡可以看到無瓦斯交易的實況？
 
-您可以在 Kairos testnet explorer 上檢視它們。 這些區塊顯示串接執行的完整 bundle：
+您可以在 Kairos testnet explorer 上檢視它們。這些區塊顯示串接執行的完整 bundle：
 
 - \*\* 3-tx 綑綁範例 (借出 + 批准 + 交換):\*\* [Block 189826352 on Kairos KaiaScan](https://kairos.kaiascan.io/block/189826352?tabId=blockTransactions&page=1)
 - \*\* 2-tx 綑綁範例 (借出 + 交換):\*\* [Block 189826547 on Kairos KaiaScan](https://kairos.kaiascan.io/block/189826547?tabId=blockTransactions)

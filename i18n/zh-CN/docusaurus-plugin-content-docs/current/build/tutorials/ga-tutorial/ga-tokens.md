@@ -10,7 +10,7 @@
 
 ## 3.2 目前支持的令牌
 
-无燃气交易目前支持以下代币。 未来可能会纳入更多的 CL 代币和稳定币。
+无燃气交易目前支持以下代币。未来可能会纳入更多的 CL 代币和稳定币。
 
 - **USDT**
 - **博拉**
@@ -35,7 +35,7 @@
 1. 请访问 [KaiaScan](https://kaiascan.io/) （或 [kairos.kaiascan.io](https://kairos.kaiascan.io/) 测试网）。
 2. 搜索 `GaslessSwapRouter` 地址。
 3. 导航至 "**合同**"选项卡并选择 "**阅读合同**"。
-4. 找到 "getSupportedTokens() "函数，然后单击**查询**。 这将返回一个受支持的 ERC20 令牌地址数组。
+4. 找到 "getSupportedTokens() "函数，然后单击**查询**。这将返回一个受支持的 ERC20 令牌地址数组。
 
 ### 计划查询
 

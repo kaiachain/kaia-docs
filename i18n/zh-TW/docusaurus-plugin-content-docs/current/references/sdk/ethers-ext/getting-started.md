@@ -10,7 +10,7 @@
 
 ## ethers v6 注意事項
 
-`@kaiachain/ethers-ext` 同時支持 ethers v5 和 v6。 不過，您需要使用為每個 `ethers` 版本指定的正確軟件包。 因此，ethers v5 必須與 `@kaiachain/ethers-ext/v5` 中的軟件包一起使用，而 ethers v6 只能與 `@kaiachain/ethers-ext/v6`兼容。
+`@kaiachain/ethers-ext` 同時支持 ethers v5 和 v6。不過，您需要使用為每個 `ethers` 版本指定的正確軟件包。因此，ethers v5 必須與 `@kaiachain/ethers-ext/v5` 中的軟件包一起使用，而 ethers v6 只能與 `@kaiachain/ethers-ext/v6`兼容。
 
 > **_NOTE:_**
 > 如果導入路徑沒有版本子路徑（`@kaiachain/ethers-ext`），則默認使用 ethers v5。
@@ -114,7 +114,7 @@
 
 ### 瀏覽器：
 
-不建議在生產中使用 CDN，但可以在下面使用 CDN 進行快速原型開發。 醚 v5 使用 `ethers-ext.buldle.js` ，醚 v6 使用`ethers-ext.v6.bundle.js`。
+不建議在生產中使用 CDN，但可以在下面使用 CDN 進行快速原型開發。醚 v5 使用 `ethers-ext.buldle.js` ，醚 v6 使用`ethers-ext.v6.bundle.js`。
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@kaiachain/ethers-ext@latest/dist/ethers-ext.bundle.js"></script>

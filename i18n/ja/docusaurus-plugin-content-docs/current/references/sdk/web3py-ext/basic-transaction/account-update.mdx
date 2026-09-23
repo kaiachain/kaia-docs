@@ -242,7 +242,7 @@ web3_account_update_role_based()
 
 ---
 
-秘密鍵から**transaction**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。 トランザクションの署名に使用できる
+秘密鍵から**transaction**鍵をロードし、それを**トランザクション・ロール・キー**として使用する。トランザクションの署名に使用できる
 
 ```py web3_account_update_multisig.py focus=23
 
@@ -250,7 +250,7 @@ web3_account_update_role_based()
 
 ---
 
-秘密鍵から**update**鍵をロードし、それを**更新ロール鍵**として使用する。 この口座の口座更新取引に署名するために使用できます。 つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
+秘密鍵から**update**鍵をロードし、それを**更新ロール鍵**として使用する。この口座の口座更新取引に署名するために使用できます。つまり、このキーを持っている人だけが、このアカウントを更新できるということだ。
 
 ```py web3_account_update_multisig.py focus=24
 
@@ -258,7 +258,7 @@ web3_account_update_role_based()
 
 ---
 
-秘密鍵から**fee payer**鍵をロードし、**fee payer role key**として使用する。 手数料の支払い者として取引に署名するために使用できる。
+秘密鍵から**fee payer**鍵をロードし、**fee payer role key**として使用する。手数料の支払い者として取引に署名するために使用できる。
 
 ```py web3_account_update_multisig.py focus=25
 
@@ -282,7 +282,7 @@ web3_account_update_role_based()
 
 ---
 
-この場合、更新するアカウント・キーは**role-based**キーであり、各ロールは**pubkey**タイプを持っている。 各ロールはパブキーまたはマルチシグを持つことができる。
+この場合、更新するアカウント・キーは**role-based**キーであり、各ロールは**pubkey**タイプを持っている。各ロールはパブキーまたはマルチシグを持つことができる。
 
 ```py web3_account_update_multisig.py focus=31,33:34,37:38,41:42
 
@@ -290,7 +290,7 @@ web3_account_update_role_based()
 
 ---
 
-それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。 圧縮された公開鍵を鍵から抽出する。
+それぞれのロール・キーを設定するには、**compressed_key** utilを使用します。圧縮された公開鍵を鍵から抽出する。
 
 ```py web3_account_update_multisig.py focus=35,39,43
 
@@ -346,7 +346,7 @@ web3_account_update_role_based()
 
 ---
 
-アカウント更新TXタイプに署名する。 アカウント "0x5bd2...cea "はすでにロールベースのアカウントであるため、このアカウントを更新するには、**update role key**で署名する必要があります。
+アカウント更新TXタイプに署名する。アカウント "0x5bd2...cea "はすでにロールベースのアカウントであるため、このアカウントを更新するには、**update role key**で署名する必要があります。
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=52:53

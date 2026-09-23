@@ -1,6 +1,6 @@
 # Smart Contract Execution
 
-**TxTypeSmartContractExecution** 使用給定數據執行智能合約。 只有當 "to "是智能合約賬戶時，才接受**TxTypeSmartContractExecution**。
+**TxTypeSmartContractExecution** 使用給定數據執行智能合約。只有當 "to "是智能合約賬戶時，才接受**TxTypeSmartContractExecution**。
 
 <CH.Spotlight>
 <CH.Code>
@@ -105,7 +105,7 @@ receipt {
 
 ---
 
-使用指定的 **kairos** 測試網 URL 設置提供程序。 以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
+使用指定的 **kairos** 測試網 URL 設置提供程序。以太坊中的提供者是訪問區塊鏈數據的只讀抽象。
 
 ```js FeeDelegatedSmartContractExecution.js focus=10
 ```
@@ -182,7 +182,7 @@ main();
 
 ---
 
-使用 **ethers.Contract**創建合同實例，填寫參數 **contractAddr**、**abi**、**provider**。 您可以通過該實例讀寫合約
+使用 **ethers.Contract**創建合同實例，填寫參數 **contractAddr**、**abi**、**provider**。您可以通過該實例讀寫合約
 
 ```js FeeDelegatedSmartContractExecution.js focus=18
 ```
@@ -226,7 +226,7 @@ senderTxHashRLP 0x31f8a6820355850ba43b7400830116379495be48607498109030592c08adc9
 
 ---
 
-使用付費者的錢包將交易發送到區塊鏈上。 函數 "sendTransactionAsFeePayer "會在發送者的簽名上添加一個帶有 FeePayer 私鑰的簽名，並將其傳輸到區塊鏈網絡。
+使用付費者的錢包將交易發送到區塊鏈上。函數 "sendTransactionAsFeePayer "會在發送者的簽名上添加一個帶有 FeePayer 私鑰的簽名，並將其傳輸到區塊鏈網絡。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=34:36

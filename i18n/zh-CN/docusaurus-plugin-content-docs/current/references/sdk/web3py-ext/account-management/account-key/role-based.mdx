@@ -1,6 +1,6 @@
 # 基于角色的账户密钥
 
-**AccountKeyRoleBased** 表示基于角色的密钥。 如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**except account update**，那么验证过程将根据每个角色进行，如下所示：
+**AccountKeyRoleBased** 表示基于角色的密钥。如果账户有一个** AccountKeyRoleBased**对象，且交易类型为**except account update**，那么验证过程将根据每个角色进行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -203,7 +203,7 @@ web3_account_update_role_based()
 
 ---
 
-创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_account_update_role_based.py focus=6:7,10,27
 
@@ -227,7 +227,7 @@ web3_account_update_role_based()
 
 ---
 
-您可以使用 **compressed_key** 工具来设置每个角色的密钥。 它将从密钥中提取压缩公钥
+您可以使用 **compressed_key** 工具来设置每个角色的密钥。它将从密钥中提取压缩公钥
 
 ```py web3_account_update_role_based.py focus=35,39,43
 
@@ -283,7 +283,7 @@ web3_account_update_role_based()
 
 ---
 
-签署账户更新 tx 类型。 您必须使用已加载的 **update_role** 账户签署它
+签署账户更新 tx 类型。您必须使用已加载的 **update_role** 账户签署它
 
 <CH.Code>
 ```py web3_account_update_role_based.py focus=22,51:53

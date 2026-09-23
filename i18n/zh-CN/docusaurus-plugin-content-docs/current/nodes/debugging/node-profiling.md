@@ -1,6 +1,6 @@
 # 轮廓节点数据
 
-剖析是了解和优化 Kaia 节点性能的重要工具。 本教程将指导您利用 Kaia 的调试 API 和 `net/http/pprof` Go 软件包，学习 Kaia 节点操作员可用的各种剖析技术。
+剖析是了解和优化 Kaia 节点性能的重要工具。本教程将指导您利用 Kaia 的调试 API 和 `net/http/pprof` Go 软件包，学习 Kaia 节点操作员可用的各种剖析技术。
 
 ## 先决条件
 
@@ -10,7 +10,7 @@
 
 - \*\* 访问节点控制台：\*\* 您需要通过 [节点控制台](../endpoint-node/ken-cli-commands.md#javascript-console) 与节点交互。
 
-- **工具：** 在系统中安装 Go，以便使用 `go tool pprof` 和 `go tool trace`。 您可以通过运行
+- **工具：** 在系统中安装 Go，以便使用 `go tool pprof` 和 `go tool trace`。您可以通过运行
 
 ```bash
 go version
@@ -18,7 +18,7 @@ go version
 
 ## 1\. 管理剖析：如何启动、停止和检查状态
 
-Kaia 节点提供了一个 "debug "API，可提供多种剖析方法。 您可以通过节点控制台或[JSON-RPC API 调用](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/) 与这些方法交互。
+Kaia 节点提供了一个 "debug "API，可提供多种剖析方法。您可以通过节点控制台或[JSON-RPC API 调用](https://docs.kaia.io/references/json-rpc/debug/start-p-prof/) 与这些方法交互。
 
 ### 1.1 启动 pprof HTTP 服务器
 
@@ -99,12 +99,12 @@ pprof 服务器运行后，您可以使用多种方法收集各种配置文件�
 
 - `allocs`：过去所有内存分配的抽样。
 - `block `：导致同步原语阻塞的堆栈跟踪。
-- `goroutine`：当前所有 goroutine 的堆栈跟踪。 使用 `debug=2` 作为查询参数，以与未恢复的恐慌相同的格式导出。
-- `heap`: 堆实时对象的内存分配采样。 您可以指定 `gc` GET 参数，以便在提取堆样本之前运行垃圾回收。
+- `goroutine`：当前所有 goroutine 的堆栈跟踪。使用 `debug=2` 作为查询参数，以与未恢复的恐慌相同的格式导出。
+- `heap`: 堆实时对象的内存分配采样。您可以指定 `gc` GET 参数，以便在提取堆样本之前运行垃圾回收。
 - `mutex`：争用代理持有者的堆栈跟踪。
-- `profile`：CPU 配置文件。 您可以在 `seconds` GET 参数中指定持续时间。 获取配置文件后，使用 `go tool pprof` 命令来研究配置文件。
+- `profile`：CPU 配置文件。您可以在 `seconds` GET 参数中指定持续时间。获取配置文件后，使用 `go tool pprof` 命令来研究配置文件。
 - `threadcreate`: 线程创建导致创建新操作系统线程的堆栈跟踪。
-- `trace`: 跟踪当前程序的执行轨迹。 您可以在 `seconds` GET 参数中指定持续时间。 获取跟踪文件后，使用 `go tool trace` 命令调查跟踪。
+- `trace`: 跟踪当前程序的执行轨迹。您可以在 `seconds` GET 参数中指定持续时间。获取跟踪文件后，使用 `go tool trace` 命令调查跟踪。
 
 #### 使用 `go tool pprof` 收集配置文件
 
@@ -197,7 +197,7 @@ scp <user>@<node_ip>:memory_profile memory_profile
 
 ## 3\. 内存剖析
 
-如前所述，内存剖析指的是 go pprof 提供的堆信息。 也可以通过 Kaia 节点提供的调试命名空间中的 writeMemProfile 来收集。
+如前所述，内存剖析指的是 go pprof 提供的堆信息。也可以通过 Kaia 节点提供的调试命名空间中的 writeMemProfile 来收集。
 
 ```bash
 # Using go tool pprof
@@ -206,11 +206,11 @@ scp <user>@<node_ip>:memory_profile memory_profile
 > debug.writeMemProfile("mem.profile")
 ```
 
-内存剖析对于分析内存泄漏等内存相关问题至关重要。 要控制内存剖析的粒度，调整 `MemProfileRate` 变量会对这一过程有所帮助。 应在节点执行过程中尽早设置（例如，在 `main` 函数开始时）。
+内存剖析对于分析内存泄漏等内存相关问题至关重要。要控制内存剖析的粒度，调整 `MemProfileRate` 变量会对这一过程有所帮助。应在节点执行过程中尽早设置（例如，在 `main` 函数开始时）。
 
 :::note
 
-Kaia 提供的 `--memprofilerate` 标志可以轻松设置 `MemProfileRate` 变量。 因此，由于它只能作为标志使用，因此必须在启动节点时设置，并且不能通过 API 调用进行更改。
+Kaia 提供的 `--memprofilerate` 标志可以轻松设置 `MemProfileRate` 变量。因此，由于它只能作为标志使用，因此必须在启动节点时设置，并且不能通过 API 调用进行更改。
 
 :::
 
@@ -278,4 +278,4 @@ go tool pprof cpu.profile
 
 ## 5\. 结论
 
-通过本剖析教程，Kaia 节点操作员可以有效地识别和解决性能瓶颈，优化资源使用，确保节点平稳高效地运行。 定期剖析，再加上强大的监控和日志记录实践，将大大有助于维护区块链网络中 Kaia 节点的可靠性和性能。
+通过本剖析教程，Kaia 节点操作员可以有效地识别和解决性能瓶颈，优化资源使用，确保节点平稳高效地运行。定期剖析，再加上强大的监控和日志记录实践，将大大有助于维护区块链网络中 Kaia 节点的可靠性和性能。

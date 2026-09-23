@@ -1,6 +1,6 @@
 # Kaiabridge
 
-Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代幣交換為 Kaia 網絡上的 KAIA 代幣。 這種交換由一套智能合約和程序（統稱為 Kaiabridge）進行調解。
+Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代幣交換為 Kaia 網絡上的 KAIA 代幣。這種交換由一套智能合約和程序（統稱為 Kaiabridge）進行調解。
 
 您可以在我們的 [線上工具包](https://toolkit.kaia.io/kaiaBridge) 中存取並使用 Kaiabridge。
 
@@ -21,7 +21,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 #### 使用恢復詞組
 
-如果您的帳戶只能以復原片語匯出，請從復原片語計算原始私密金鑰。 您可以使用任何支援 BIP-39 派生路徑的工具。 這些工具包括 [ethers.js](https://docs.ethers.org/v6/api/wallet/#HDNodeWallet)、[viem](https://viem.sh/docs/accounts/local/hdKeyToAccount)、[Foundry](https://getfoundry.sh/cast/reference/wallet/)，以及 [BIP39 Tool](https://github.com/iancoleman/bip39)。 Finschia 錢包通常使用 "m/44'/438'/0'/0/0" 路徑 (根據 [SLIP-044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)) 作為預設的衍生路徑。 如果您的 Finschia 錢包有多個帳號或使用不同的設定，您可能需要使用其他衍生路徑。
+如果您的帳戶只能以復原片語匯出，請從復原片語計算原始私密金鑰。您可以使用任何支援 BIP-39 派生路徑的工具。這些工具包括 [ethers.js](https://docs.ethers.org/v6/api/wallet/#HDNodeWallet)、[viem](https://viem.sh/docs/accounts/local/hdKeyToAccount)、[Foundry](https://getfoundry.sh/cast/reference/wallet/)，以及 [BIP39 Tool](https://github.com/iancoleman/bip39)。 Finschia 錢包通常使用 "m/44'/438'/0'/0/0" 路徑 (根據 [SLIP-044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)) 作為預設的衍生路徑。如果您的 Finschia 錢包有多個帳號或使用不同的設定，您可能需要使用其他衍生路徑。
 
 計算出私密金鑰後，請依照上一節 [使用原始私密金鑰](#with-raw-private-key) 的指示操作。
 
@@ -43,7 +43,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 :::note[Example 使用 Foundry 工具]
 
 1. 安裝 [Foundry](https://getfoundry.sh/)。
-2. 在 `--mnemonic` 中輸入以下命令，並輸入您的復原短語。 原始私密金鑰將會被列印出來。
+2. 在 `--mnemonic` 中輸入以下命令，並輸入您的復原短語。原始私密金鑰將會被列印出來。
    ```
    cast wallet private-key --mnemonic "test test test test test test test test junk" --mnemonic-derivation-path "m/44'/438'/0'/0/0"
    ```
@@ -58,7 +58,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 ### 3. 為您的帳戶加油
 
-您需要瓦斯來發送交換的交易。 詳細說明請參閱 [Get KAIA](https://docs.kaia.io/build/get-started/getting-kaia/) 。
+您需要瓦斯來發送交換的交易。詳細說明請參閱 [Get KAIA](https://docs.kaia.io/build/get-started/getting-kaia/) 。
 
 我們建議您至少準備 0.1 KAIA 的汽油費。
 
@@ -66,8 +66,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 :::warning[This 交換是不可逆的]
 
-備付金與索賠請求只能處理一次，且不能還原。
-在您遵循這些指示之前，請仔細閱讀。
+備付金與索賠請求只能處理一次，且不能還原。在您遵循這些指示之前，請仔細閱讀。
 
 :::
 
@@ -79,8 +78,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 <p align="center"><img src="/img/misc/kaiabridge_connect_metamask.png" alt="Connect MetaMask" width="30%"/></p>
 
-檢查「帳戶」是否顯示您的地址。
-如果沒有，請開啟 MetaMask 擴充套件，看看它是否顯示您未連接到頁面。 如果是，請按「連結帳戶」按鈕。
+檢查「帳戶」是否顯示您的地址。如果沒有，請開啟 MetaMask 擴充套件，看看它是否顯示您未連接到頁面。如果是，請按「連結帳戶」按鈕。
 
 <p align="center"><img src="/img/misc/kaiabridge_connect_account.png" alt="Connect Account" width="30%"/></p>
 
@@ -94,11 +92,11 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 #### 2. 切換至 Kaia 主網路
 
-檢查您是否已將網路正確設定為「Kaia Mainnet」或「Mainnet」。 如果沒有，請切換至 Kaia Mainnet。 如果您使用的是 MetaMask，而您沒有在 MetaMask 中加入 Kaia Mainnet 網路，請參考 [檢查您的網路](#2-check-your-network)。
+檢查您是否已將網路正確設定為「Kaia Mainnet」或「Mainnet」。如果沒有，請切換至 Kaia Mainnet。如果您使用的是 MetaMask，而您沒有在 MetaMask 中加入 Kaia Mainnet 網路，請參考 [檢查您的網路](#2-check-your-network)。
 
 #### 3. 衍生 Finschia 地址
 
-按一下「衍生 Finschia 位址」。 出現簽署訊息的提示時，按一下「確認」或「簽署」。
+按一下「衍生 Finschia 位址」。出現簽署訊息的提示時，按一下「確認」或「簽署」。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_sign_metamask.png" alt="Sign message in MetaMask" style={{width: "30%"}} />
@@ -126,7 +124,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 #### 4. 要求提供
 
-按一下「請求提供」。 出現簽署訊息和傳送交易的提示時，按一下「確認」。
+按一下「請求提供」。出現簽署訊息和傳送交易的提示時，按一下「確認」。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_confirm_provision_metamask.png" alt="Confirm provision transaction request in MetaMask" style={{width: "30%"}} />
@@ -134,8 +132,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 </div>
 
 <br/><br/>
-此過程應該只需要幾秒鐘。 等待交易完成。
-您可以在頁面中檢查結果。
+此過程應該只需要幾秒鐘。等待交易完成。您可以在頁面中檢查結果。
 
 <p align="center"><img src="/img/misc/kaiabridge_provision_success.png" alt="Provision request successful" width="80%"/></p>
 
@@ -144,7 +141,7 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 
 #### 5. 要求索賠
 
-按一下「請求索賠」。 出現傳送交易的提示時，按一下「確認」。
+按一下「請求索賠」。出現傳送交易的提示時，按一下「確認」。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_confirm_claim_metamask.png" alt="Confirm claim transaction request in MetaMask" style={{width: "30%"}} />
@@ -152,10 +149,9 @@ Finschia 用戶可以按固定交換率將其在 Finshia 網絡上的 FNSA 代�
 </div>
 
 <br/><br/>
-此過程應該只需要幾秒鐘。 等待交易完成。
-您可以在頁面中檢查結果。
+此過程應該只需要幾秒鐘。等待交易完成。您可以在頁面中檢查結果。
 
 <p align="center"><img src="/img/misc/kaiabridge_claim_success.png" alt="Claim request successful" width="80%"/></p>
 
 <br/>
-檢查您的最新餘額。 索賠金額應為 (您的 cony 結餘) * (兌換率，約 148) [kei](https://docs.kaia.io/learn/token-economics/kaia-native-token/#units-of-kaia-)。
+檢查您的最新餘額。索賠金額應為 (您的 cony 結餘) * (兌換率，約 148) [kei](https://docs.kaia.io/learn/token-economics/kaia-native-token/#units-of-kaia-)。

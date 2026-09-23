@@ -8,8 +8,7 @@ import Editor from '@site/src/components/Editor'
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
 **AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
-署名された公開鍵の加重和が閾値より大きいこと。
-無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
+署名された公開鍵の加重和が閾値より大きいこと。無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -119,7 +118,7 @@ ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiac
 
 ---
 
-指定された**Kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
+指定された**Kairos** testnet URLでプロバイダを設定します。エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js SignTxWithMultiSigExample.js focus=12
 ```

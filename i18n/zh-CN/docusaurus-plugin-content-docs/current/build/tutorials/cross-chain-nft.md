@@ -2,9 +2,9 @@
 
 ## 介绍
 
-NFT 已成为区块链技术最广为人知的用例之一，能够创建独一无二、可验证的数字资产。 然而，传统的 NFT 实现方式被束缚在单个区块链上。 这种限制降低了灵活性，使资产无法在社区、流动性和效用可能不同的生态系统中自由流动。
+NFT 已成为区块链技术最广为人知的用例之一，能够创建独一无二、可验证的数字资产。然而，传统的 NFT 实现方式被束缚在单个区块链上。这种限制降低了灵活性，使资产无法在社区、流动性和效用可能不同的生态系统中自由流动。
 
-跨链 NFT 允许 NFT 在区块链之间无缝移动，同时保留其唯一性和出处，从而解决了这一难题。 借助 Chainlink 的跨链互操作性协议 (CCIP)，开发人员可以使用标准化的安全消息框架在链之间建立可靠的桥梁。
+跨链 NFT 允许 NFT 在区块链之间无缝移动，同时保留其唯一性和出处，从而解决了这一难题。借助 Chainlink 的跨链互操作性协议 (CCIP)，开发人员可以使用标准化的安全消息框架在链之间建立可靠的桥梁。
 
 在本指南中，您将使用 "先烧后铸 "模式构建和部署跨链 NFT。 NFT 将在源链上刻录，并以相同的 tokenId 和元数据在目标链上重新铸模，确保任何时候都只存在一个有效副本。
 
@@ -28,15 +28,15 @@ NFT 已成为区块链技术最广为人知的用例之一，能够创建独一�
 
 ## 跨链 NFT 如何工作？
 
-NFT 是记录在单一区块链上的唯一数字代币。 其核心行为，包括铸币、转让和所有权，由与该链绑定的智能合约定义。 正因为如此，如果没有额外的机制，NFT 无法自然地在区块链之间移动。 为了实现互操作性，开发人员会在多个链上部署配套合约，并通过跨链消息传递将它们连接起来。 这就是跨链 NFT：存在于不同区块链上的等价代币，但在任何时候都只有一个副本处于活动状态。
+NFT 是记录在单一区块链上的唯一数字代币。其核心行为，包括铸币、转让和所有权，由与该链绑定的智能合约定义。正因为如此，如果没有额外的机制，NFT 无法自然地在区块链之间移动。为了实现互操作性，开发人员会在多个链上部署配套合约，并通过跨链消息传递将它们连接起来。这就是跨链 NFT：存在于不同区块链上的等价代币，但在任何时候都只有一个副本处于活动状态。
 
 跨链 NFT 通常有三种实现方式：
 
 - **焚烧和铸币**：在源链上烧制 NFT，然后在目的链上铸造等价物。
 
-- **锁定和铸币**：在源链上锁定 NFT，并在目标链上铸造副本。 返回时需要烧毁复制品才能解锁原件。
+- **锁定和铸币**：在源链上锁定 NFT，并在目标链上铸造副本。返回时需要烧毁复制品才能解锁原件。
 
-- **锁定和解锁**：在多个链上部署相同的集合。 所有者锁定一条链上的 NFT，就能解锁另一条链上的对应 NFT，确保一次只能使用一个副本。
+- **锁定和解锁**：在多个链上部署相同的集合。所有者锁定一条链上的 NFT，就能解锁另一条链上的对应 NFT，确保一次只能使用一个副本。
 
 在本指南中，我们将在跨链 NFT 中使用燃烧和薄荷模型。 NFT 将从一条链上移除，然后在另一条链上重新创建，整个过程由 Chainlink CCIP 提供动力。
 
@@ -84,7 +84,7 @@ npm init -y
 npx hardhat --init 
 ```
 
-出现提示时，选择包含 Node.js 测试运行器和ether 的示例项目。 在当前目录下对其进行初始化，并安装所有需要的依赖项。
+出现提示时，选择包含 Node.js 测试运行器和ether 的示例项目。在当前目录下对其进行初始化，并安装所有需要的依赖项。
 
 ### 安装所需合同
 
@@ -108,9 +108,9 @@ npm i @openzeppelin/contracts --save-dev
 
 ## 配置 NFT 元数据
 
-在撰写合同之前，让我们先确定一下我们要铸造的 NFT 的规格。 每个 NFT 都需要描述其名称、说明和图像的元数据，这些数据存储在一个 JSON 文件中，并托管在 IPFS 上。
+在撰写合同之前，让我们先确定一下我们要铸造的 NFT 的规格。每个 NFT 都需要描述其名称、说明和图像的元数据，这些数据存储在一个 JSON 文件中，并托管在 IPFS 上。
 
-在本指南中，我们将使用 Filebase 来存储图像和元数据。 如果您想创建自己的 NFT，请通过 Filebase 将图像和元数据 JSON 文件上传到 IPFS。 上传后，单击 "文件 "选项卡中的文件名并复制 IPFS URL。 它看起来类似于这样：
+在本指南中，我们将使用 Filebase 来存储图像和元数据。如果您想创建自己的 NFT，请通过 Filebase 将图像和元数据 JSON 文件上传到 IPFS。上传后，单击 "文件 "选项卡中的文件名并复制 IPFS URL。它看起来类似于这样：
 
 ```bash
 https://disastrous-turquoise-parakeet.myfilebase.com/ipfs/QmY1LZF8JHo2r3h4X5VzLLXtJujqnBFGTyo2aqR9joXnt8 
@@ -318,17 +318,17 @@ contract CrosschainNFT is ERC721, ERC721URIStorage, ERC721Burnable, IAny2EVMMess
 
 ### 代码演练
 
-CrosschainNFT 是一种 ERC-721 合约，它集成了 Chainlink CCIP，可在区块链之间传输 NFT。 它会在源链上刻录 NFT，并用相同的 tokenId 和 tokenURI 在目标链上重新刻录。 该合约通过 enableChain 维护经批准的目标链注册表，依靠 Chainlink 路由器（IRouterClient）进行跨链消息传递，并支持以本地天然气代币或 LINK 支付费用。
+CrosschainNFT 是一种 ERC-721 合约，它集成了 Chainlink CCIP，可在区块链之间传输 NFT。它会在源链上刻录 NFT，并用相同的 tokenId 和 tokenURI 在目标链上重新刻录。该合约通过 enableChain 维护经批准的目标链注册表，依靠 Chainlink 路由器（IRouterClient）进行跨链消息传递，并支持以本地天然气代币或 LINK 支付费用。
 
 主要功能
 
 - 启用链
 
-允许合约所有者注册目标区块链。 它会在 s_chains 映射中存储对应的 NFT 合约地址和 CCIP 参数，将链作为有效的传输目标列入白名单。 设置完成后，会发出 ChainEnabled 事件。
+允许合约所有者注册目标区块链。它会在 s_chains 映射中存储对应的 NFT 合约地址和 CCIP 参数，将链作为有效的传输目标列入白名单。设置完成后，会发出 ChainEnabled 事件。
 
 - 交叉链转移从
 
-执行 NFT 跨链转移。 它首先检查目标链是否已启用，然后检索 NFT 元数据（tokenURI）并在源链上刻录令牌。 然后，它将建立一个包含转账详情的 CCIP 报文，计算所需费用，并以 LINK 或本地天然气支付。 一旦信息通过路由器发送，就会发出 CrossChainSent 事件来记录传输过程。
+执行 NFT 跨链转移。它首先检查目标链是否已启用，然后检索 NFT 元数据（tokenURI）并在源链上刻录令牌。然后，它将建立一个包含转账详情的 CCIP 报文，计算所需费用，并以 LINK 或本地天然气支付。一旦信息通过路由器发送，就会发出 CrossChainSent 事件来记录传输过程。
 
 现在，"CrosschainNFT.sol "的核心流程已经清楚，让我们进入下一步。
 
@@ -346,7 +346,7 @@ npx hardhat build
 
 ### 使用加密密钥库
 
-Hardhat 3 的优势之一是能将私钥和 RPC URL 等敏感值存储在加密的密钥库中，而不是纯文本文件中。 在本指南中，我们将为 Sepolia 和 Kairos 的 _PRIVATE_KEY_ 和 _RPC URL_ 加密。
+Hardhat 3 的优势之一是能将私钥和 RPC URL 等敏感值存储在加密的密钥库中，而不是纯文本文件中。在本指南中，我们将为 Sepolia 和 Kairos 的 _PRIVATE_KEY_ 和 _RPC URL_ 加密。
 
 **添加私人密钥**
 
@@ -354,7 +354,7 @@ Hardhat 3 的优势之一是能将私钥和 RPC URL 等敏感值存储在加密�
 npx hardhat keystore set PRIVATE_KEY
 ```
 
-第一次运行该命令时，Hardhat 会提示你为密钥存储创建一个密码。 每次添加或更新值时都需要这个密码。
+第一次运行该命令时，Hardhat 会提示你为密钥存储创建一个密码。每次添加或更新值时都需要这个密码。
 
 **为每个网络添加 RPC URL**
 
@@ -423,7 +423,7 @@ export default config;
 - CCIP 路由器地址
 - LINK 令牌地址
 
-您的部署脚本将需要这些值。 接下来，导航到项目中&#x7684;_&#x69;gnition/module&#x73;_&#x6587;件夹，创建一个名为 "deployEthereumSepolia.ts "的新文件，并粘贴以下代码：
+您的部署脚本将需要这些值。接下来，导航到项目中&#x7684;_&#x69;gnition/module&#x73;_&#x6587;件夹，创建一个名为 "deployEthereumSepolia.ts "的新文件，并粘贴以下代码：
 
 ```typescript
 // This setup uses Hardhat Ignition to manage smart contract deployments.
@@ -454,7 +454,7 @@ npx hardhat ignition deploy ignition/modules/deployEthereumSepolia.ts --network 
 - CCIP 路由器地址
 - LINK 令牌地址
 
-您的部署脚本将需要这些值。 然后，导航到项目中的 _ignition/modules_ 文件夹，创建一个名为 `deployKairosTestnet.ts` 的新文件，并粘贴以下代码：
+您的部署脚本将需要这些值。然后，导航到项目中的 _ignition/modules_ 文件夹，创建一个名为 `deployKairosTestnet.ts` 的新文件，并粘贴以下代码：
 
 ```typescript
 // This setup uses Hardhat Ignition to manage smart contract deployments.
@@ -594,7 +594,7 @@ npx hardhat run scripts/enableChainKairos.ts --network KairosTestnet
 
 ### 第 3 步：在以太坊 Sepolia 上使用 LINK 为合约提供资金
 
-为支付 CCIP 费用，请使用 LINK 为部署在以太坊 Sepolia（crosschainNFTAddressEthereumSepolia）上的 CrosschainNFT 合约提供资金。 您可以从提供的 [水龙头](https://faucets.chain.link/sepolia) 中获取测试 LINK。 在本指南中，发送 3 个 LINK 即可。
+为支付 CCIP 费用，请使用 LINK 为部署在以太坊 Sepolia（crosschainNFTAddressEthereumSepolia）上的 CrosschainNFT 合约提供资金。您可以从提供的 [水龙头](https://faucets.chain.link/sepolia) 中获取测试 LINK。在本指南中，发送 3 个 LINK 即可。
 
 ![](/img/build/tutorials/cc-ccip-fund-link.png)
 

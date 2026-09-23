@@ -1,6 +1,6 @@
 # 取消
 
-**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。 当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
+**TxTypeCancel** 取消事务池中具有相同 nonce 的事务的执行。当已提交的交易在一定时间内似乎未得到处理时，这种交易类型就很有用。
 
 <CH.Spotlight>
 <CH.Code>
@@ -186,7 +186,7 @@ web3_cancel_sign_recover()
 
 ---
 
-创建一个**TxType.CANCEL**类型的空事务。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+创建一个**TxType.CANCEL**类型的空事务。您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py cancel_example.py focus=4,5,8,29
 
@@ -202,7 +202,7 @@ web3_cancel_sign_recover()
 
 ---
 
-使 **nonce** 与之前发送的 **value transfer tx** 相同。 您需要设置要取消的**相同的 tx nonce**。
+使 **nonce** 与之前发送的 **value transfer tx** 相同。您需要设置要取消的**相同的 tx nonce**。
 
 ```python cancel_example.py focus=4,6,8,32
 
@@ -277,7 +277,7 @@ decoded transaction: {
 
 ---
 
-将**tx**发送到区块链。 它将返回 tx 哈希值，用于等待接收
+将**tx**发送到区块链。它将返回 tx 哈希值，用于等待接收
 
 ```python cancel_example.py focus=46
 

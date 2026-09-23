@@ -27,7 +27,7 @@
 | PN                                           | 8コア/16スレッド  | 64 GB |
 | PN (with Live Pruning DB) | 4コア/8スレッド   | 32 GB |
 
-ライブ刈り込みDBを使用するには、ライブ刈り込みオプションを使用し、適用することができます。 詳細はhttps://docs.kaia.io/learn/storage/live-pruning/。 ただし、ライブ・プルーニング仕様はCNには推奨されていないが、将来的には変更される可能性がある。
+ライブ刈り込みDBを使用するには、ライブ刈り込みオプションを使用し、適用することができます。詳細はhttps://docs.kaia.io/learn/storage/live-pruning/。ただし、ライブ・プルーニング仕様はCNには推奨されていないが、将来的には変更される可能性がある。
 
 ### クラウドVM<a id="cloud-vm"></a>
 
@@ -72,4 +72,4 @@ Assuming 100 TPS in average, 300 bytes average transaction size, and 1-second bl
 ## オペレーティングシステム<a id="operating-system"></a>
 
 推奨環境はRHEL（7.8以降）です。
-KaiaのバイナリはAmazon Linux 2で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。 開発用にmacOSのバイナリも提供されている。
+KaiaのバイナリはAmazon Linux 2で完全にテストされていますが、他のLinuxベースの環境でも動作するはずです。開発用にmacOSのバイナリも提供されている。

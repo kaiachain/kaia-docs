@@ -2,7 +2,7 @@
 
 ## 概述<a id="overview"></a>
 
-Kaia 團隊在 [http://node.kaia.io:3000](http://node.kaia.io:3000)提供了一個監測 Kaia CCN 的網站。 CC 的每個 CN/PN 都安裝了 "telegraf "監控代理，以收集指標並將其發送到監控服務器。 安裝完成後，您可以訪問監控站點，查看 Kaia CC 的指標。
+Kaia 團隊在 [http://node.kaia.io:3000](http://node.kaia.io:3000)提供了一個監測 Kaia CCN 的網站。 CC 的每個 CN/PN 都安裝了 "telegraf "監控代理，以收集指標並將其發送到監控服務器。安裝完成後，您可以訪問監控站點，查看 Kaia CC 的指標。
 
 安裝過程如下：
 
@@ -91,5 +91,5 @@ $ systemctl restart telegraf
 
 [http://node.kaia.io:3000](http://node.kaia.io:3000)
 
-作為 CC 操作員，您可以在 Slack 頻道中提供公司名稱和電子郵件地址，申請一個賬戶。 請注意，只有 CC 操作員才能申請 Grafana 帳戶。
+作為 CC 操作員，您可以在 Slack 頻道中提供公司名稱和電子郵件地址，申請一個賬戶。請注意，只有 CC 操作員才能申請 Grafana 帳戶。
 

@@ -1,16 +1,16 @@
 # 签名电文标准
 
-钱包私钥主要用于签署交易，但同一密钥也可用于签署任何应用程序特定的信息。 用户可以使用签名信息对操作进行加密授权。 这些链外签名可以节省气体，减少区块链上的交易次数。
+钱包私钥主要用于签署交易，但同一密钥也可用于签署任何应用程序特定的信息。用户可以使用签名信息对操作进行加密授权。这些链外签名可以节省气体，减少区块链上的交易次数。
 
-信息签名有多种技术方法或标准。 当然，数字签名是 ECDSA 的基本功能。 尽管如此，为了将信息签名与事务签名分开，并提高应用程序之间的互操作性，还是制定了一些标准。 如果没有签名标准，报文签名功能就可以签署任意哈希值，这样用户就会签署伪装成报文的恶意交易哈希值。 为防止这种情况发生，信息签名标准会修改信息，使签名不能用于其他目的。
+信息签名有多种技术方法或标准。当然，数字签名是 ECDSA 的基本功能。尽管如此，为了将信息签名与事务签名分开，并提高应用程序之间的互操作性，还是制定了一些标准。如果没有签名标准，报文签名功能就可以签署任意哈希值，这样用户就会签署伪装成报文的恶意交易哈希值。为防止这种情况发生，信息签名标准会修改信息，使签名不能用于其他目的。
 
 不同的钱包和 SDK 支持这些标准的范围各不相同，因此您应选择适合自己应用的方法。
 
 ## 签署原始信息
 
-按原样签署信息是最简单的方法。 由于上述原因，这种方法风险很大，如今已很少使用。
+按原样签署信息是最简单的方法。由于上述原因，这种方法风险很大，如今已很少使用。
 
-在生态系统工具中，MetaMask 支持在用户明确同意后通过 `eth_sign` 方法进行原始信息签名。 保留该功能只是为了向后兼容，不得在新项目中使用。 值得一读的文章 [什么是 "eth sign"，为什么会有风险？](https://support.metamask.io/privacy-and-security/what-is-eth_sign-and-why-is-it-a-risk/)
+在生态系统工具中，MetaMask 支持在用户明确同意后通过 `eth_sign` 方法进行原始信息签名。保留该功能只是为了向后兼容，不得在新项目中使用。值得一读的文章 [什么是 "eth sign"，为什么会有风险？](https://support.metamask.io/privacy-and-security/what-is-eth_sign-and-why-is-it-a-risk/)
 
 ```js
 window.ethereum.request({ method: "eth_requestAccounts" })
@@ -19,7 +19,7 @@ window.ethereum.request({ method："eth_sign", params：["0xbC7d1aBe33E6EC19cA87
 
 ## KIP-97 Klaytn 签名信息
 
-一些 Kaia 节点和 SDK 提供了一种方法，在签署消息之前在消息前加上`"\x19Klaytn Signed Message：\n" + len(message)` 前缀。 详情请参阅 [KIP-97](https://kips.kaia.io/KIPs/kip-97)。 使用 Klaytn- 前缀可以减少跨链的签名重放，但仅靠前缀并不能完全防止重放攻击。 应用程序必须采用重放保护机制，包括随机挑战或时间戳，以抵御应用程序内的重放攻击。
+一些 Kaia 节点和 SDK 提供了一种方法，在签署消息之前在消息前加上`"\x19Klaytn Signed Message：\n" + len(message)` 前缀。详情请参阅 [KIP-97](https://kips.kaia.io/KIPs/kip-97)。使用 Klaytn- 前缀可以减少跨链的签名重放，但仅靠前缀并不能完全防止重放攻击。应用程序必须采用重放保护机制，包括随机挑战或时间戳，以抵御应用程序内的重放攻击。
 
 支持 KIP-97 签名的有：
 
@@ -46,7 +46,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 ## EIP-191 以太坊签名消息
 
-在以太坊和一些 EVM 链中，广泛使用的做法是在消息前加上`"\x19Ethereum Signed Message：\n" + len(message)` 前缀。 详情请参阅 [EIP-191](https://eips.ethereum.org/EIPS/eip-191)。 Kaia 节点和 SDK 支持此功能。 与 KIP-97 一样，EIP-191 也要求应用程序实施重放保护机制。 不过，使用 EIP-191 可确保与其他生态系统工具兼容，并简化信息处理逻辑，而无需 EIP/KIP 分支。
+在以太坊和一些 EVM 链中，广泛使用的做法是在消息前加上`"\x19Ethereum Signed Message：\n" + len(message)` 前缀。详情请参阅 [EIP-191](https://eips.ethereum.org/EIPS/eip-191)。 Kaia 节点和 SDK 支持此功能。与 KIP-97 一样，EIP-191 也要求应用程序实施重放保护机制。不过，使用 EIP-191 可确保与其他生态系统工具兼容，并简化信息处理逻辑，而无需 EIP/KIP 分支。
 
 支持 EIP-191 签名的有：
 
@@ -83,7 +83,7 @@ kaia.recoverFromMessage('0xbc7d1abe33e6ec19ca873a3042a4dcf49149bc7a', '0x6162636
 
 ## EIP-712 类型化结构数据
 
-EIP-191 和 KIP-97 是签署单个字符串的标准，而 EIP-712 则是签署 JSON 格式结构的应用程序数据的标准。 这种格式更便于人类阅读，在 EVM 上处理也更有效率。 详情请参阅 [EIP-712](https://eips.ethereum.org/EIPS/eip-712)。 请注意，该标准无法完全防止重放攻击。 与其他标准一样，应用程序必须注意重放保护机制。 您可以在这里[here](https://docs.metamask.io/wallet/concepts/signing-methods/)找到更多关于应用程序编程接口的信息，如`eth_signTypedData_v1`、`eth_signTypedData_v3`和`eth_signTypedData_v4`。
+EIP-191 和 KIP-97 是签署单个字符串的标准，而 EIP-712 则是签署 JSON 格式结构的应用程序数据的标准。这种格式更便于人类阅读，在 EVM 上处理也更有效率。详情请参阅 [EIP-712](https://eips.ethereum.org/EIPS/eip-712)。请注意，该标准无法完全防止重放攻击。与其他标准一样，应用程序必须注意重放保护机制。您可以在这里[here](https://docs.metamask.io/wallet/concepts/signing-methods/)找到更多关于应用程序编程接口的信息，如`eth_signTypedData_v1`、`eth_signTypedData_v3`和`eth_signTypedData_v4`。
 
 支持 EIP-712 签名的有：
 

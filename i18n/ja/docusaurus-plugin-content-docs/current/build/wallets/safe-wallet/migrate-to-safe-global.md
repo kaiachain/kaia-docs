@@ -5,61 +5,38 @@ sidebar_label: Safe Global への移行
 
 # Safe Global への移行
 
-:::caution 日没に関するお知らせ
+Kaiaは以前、Gnosis Safeのホスト型フォークである**Kaia Safe**（`safe.kaia.io`）を運営していました。そのインターフェースは**2026年8月31日**に廃止され、現在は利用できなくなっています。
 
-`safe.kaia.io` は **2026年8月31日** にサービス終了となります。 今後、Kaiaのアカウントを管理する際は、[app.safe.global](https://app.safe.global) の**Safe Wallet**をご利用ください。
+KaiaメインネットおよびKairosテストネットは、[Safe Global](https://app.safe.global)でネイティブにサポートされています。 [app.safe.global](https://app.safe.global) の「Safe Wallet」を利用して、Kaia上でセーフを作成・管理できます。
 
-:::
+## 現在お持ちのSafeアカウントには影響はありません
 
-## 何が変わったのでしょうか？
+「Your Safe」は、Kaia上のスマートコントラクトです。 Kaiaがホストするインターフェースの廃止により変更されたのは、**ウェブフロントエンド**のみであり、オンチェーンのアカウントには影響がありません。
 
-Kaiaは以前、Gnosis Safeのホスト型フォークである**Kaia Safe**（`safe.kaia.io`）を提供していました。
-
-**Kaiaメインネット**および**Kairosテストネット**が、[Safe Global](https://app.safe.global)でネイティブにサポートされるようになりました。 Kaia上のセーフの作成および管理は、KaiaがホストするUIではなく、[app.safe.global](https://app.safe.global)の「Safe Wallet」を通じて行ってください。
-
-## これは、私が現在利用しているSafeアカウントに影響しますか？
-
-**いいえ。** お客様のSafeアカウントは、Kaia上のスマートコントラクトです。 Safe Global への移行により変更されるのは **ウェブインターフェース** のみであり、オンチェーン上の Safe には影響しません。
-
-**変更なし**
+変更なし：
 
 - 安全な住所
 - 所有者と確認の閾値
 - 資産（KAIA、トークン、NFT）
 - オンチェーンの取引履歴
 
-**更新すべき項目**
+再デプロイや再作成を行う必要は**ありません**。また、資金を新しいセーフに移動する必要もありません。 Kaia Safe を通じて作成されたセーフは、所有者のウォレットを接続するとすぐに Safe Global に表示されます。
 
-- `safe.kaia.io` の代わりに [app.safe.global](https://app.safe.global) を使用してください
-- 依然として `safe.kaia.io` を指しているブックマークを更新してください
-- 保存済みの名前やラベルを引き続き利用したい場合は、有効期限が切れる前に[アドレス帳をエクスポート](#export-your-address-book)してください。
-
-これは確認済みです：Kaia Safe を通じて作成された既存のセーフは、所有者のウォレットを接続すると「Safe Global」に表示されます。 再デプロイや再作成を行う必要は**ありません**。また、資金を新しいセーフに移動する必要もありません。
-
-## Safe Globalで既存のセーフを開く方法
+## Safe Global で既存のセーフを開く
 
 1. [app.safe.global](https://app.safe.global) を開きます。
 2. ご自身のセーフの**所有者**であるウォレット（例：Kaia Wallet や MetaMask）を接続してください。
-3. 現在お使いの「Safe」が表示され、そのネットワーク名（**Kaia** または **Kairos**）が表示されます。 表示されない場合は、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、**リストの管理**をクリックして、接続済みのウォレットに関連付けられているセーフを確認してください。
+3. 「セーフ」が表示され、そのネットワーク名（**Kaia** または **Kairos**）が表示されているはずです。表示されない場合は、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、**リストの管理**をクリックして、接続済みのウォレットに関連付けられているセーフを確認してください。
 
-## アドレス帳をエクスポートする
+## アドレス帳のラベル
 
-「アドレス帳」（アドレスに保存した名前やラベル）は、オンチェーンではなく、`safe.kaia.io` インターフェースにローカルで保存されています。 これは、自動的に引き継がれない**唯一**の項目ですので、引き続き利用したい場合は、有効期限までにエクスポートしてください。
+アドレス帳（アドレスとして保存した名前やラベル）は、オンチェーン上ではなく`safe.kaia.io`インターフェースにローカルで保存されていたため、唯一自動的に引き継がれなかったものでした。そのインターフェースは廃止されたため、保存済みのラベルはエクスポートできなくなり、Safe Wallet&#x306E;****アドレス帳****&#x3067;再度入力する必要があります。
 
-1. `safe.kaia.io` で、**[設定] → [データ] → [データのエクスポート]** に移動し、ファイルをダウンロードしてください。
-2. [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、**「Safeデータのインポート」** の項目からそのファイルをアップロードしてください。
-
-この手順は任意であり、オンチェーン上の所有権や残高には影響しません。
-
-## 簡単な回答
-
-- **新しい「セーフ」を作成する必要がありますか？** いいえ。
-- **資金や所有者に変更はありますか？** いいえ。
-- **`safe.kaia.io` は引き続き利用できますか？** **2026年8月31日**までです。 今すぐ [app.safe.global](https://app.safe.global) に切り替えてください。
-- **さらにサポートを受けたい場合は？** [Safe Wallet ヘルプセンター](https://help.safe.global) および [よくある質問](./faqs.md) をご覧ください。
+これはラベルにのみ影響します。所有権、残高、取引履歴はすべてオンチェーンに記録されており、影響を受けません。
 
 ## 今後の手順
 
 - [KaiaでSafe Walletを使用する](./use-safe-wallet.md) — Safeを作成し、資産を追加し、取引を送信する
 - [Safe Walletの概要](./overview.md) — ネットワークおよびSafe Globalのリソース
 - [よくある質問](./faqs.md) — アカウント管理に関するその他の質問
+- [Safe Wallet ヘルプセンター](https://help.safe.global) — Safe Wallet アプリ自体に関するヘルプ

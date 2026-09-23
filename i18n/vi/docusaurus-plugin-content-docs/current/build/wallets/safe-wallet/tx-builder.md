@@ -5,12 +5,6 @@ sidebar_label: Trình tạo giao dịch
 
 # Sử dụng Trình tạo giao dịch
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng Safe Wallet dành cho Kaia Network tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới. Các Tài khoản Safe hiện có của bạn sẽ tự động tương thích với Safe Wallet.
-
-:::
-
 **Transaction Builder** gộp nhiều thao tác — chuyển token, phê duyệt và gọi hợp đồng — thành một giao dịch Safe duy nhất. Thay vì xác nhận từng thao tác riêng lẻ, bạn tạo một lô, sau đó xác nhận và thực thi lô đó một lần duy nhất. Lô thao tác này có tính nguyên tử: nếu một thao tác bị hoàn tác, toàn bộ lô thao tác sẽ bị hoàn tác.
 
 Để nhận trợ giúp về sản phẩm dựa trên giao diện người dùng (UI) mới nhất, vui lòng tham khảo [Trung tâm Trợ giúp Safe Wallet](https://help.safe.global).

@@ -1,10 +1,7 @@
 # 预编合同
 
-Kaia 提供了几种有用的预编译合同，这些合同都不会改变国家。
-这些合约作为原生实现在平台本身中实施，这意味着它们是 Kaia 客户端规范的一部分。
-从地址 0x01 到 0x0A 的预编译合约与以太坊中的合约相同。
-预编译的功用可分为四大类：
-。 椭圆曲线数字签名恢复
+Kaia 提供了几种有用的预编译合同，这些合同都不会改变国家。这些合约作为原生实现在平台本身中实施，这意味着它们是 Kaia 客户端规范的一部分。从地址 0x01 到 0x0A 的预编译合约与以太坊中的合约相同。预编译的功用可分为四大类：
+。椭圆曲线数字签名恢复
 . 哈希方法
 . 存储器复制
 . 为 zk 证明启用椭圆曲线数学的方法。
@@ -17,13 +14,13 @@ Kaia 还实现了从 0x3FD 到 0x3FF 的预编译合约，以支持新的 Kaia �
 - 情况 1）Kairos 中块号为 `#75373310` 的合约将 0x09、0x0a 和 0x0b 分别作为 vmLog、feePayer 和 validateSender 的地址，因此无法使用 blake2f。
 - 案例 2）Kairos 中块号为 `#75373314` 的合约将 0x09 识别为 blake2f 的地址，并将 0x3fd、0x3fe 和 0xff 识别为 vmLog、feePayer 和 validateSender 的地址。
 
-预编译的合同相关硬分叉变更可在本页底部找到。 转到 [Hardfork Changes](#hardfork-changes)。
+预编译的合同相关硬分叉变更可在本页底部找到。转到 [Hardfork Changes](#hardfork-changes)。
 
 :::
 
 ## 地址 0x01: ecrecover\(hash, v, r, s\)<a id="address-0x-01-ecrecover-hash-v-r-s"></a>
 
-地址 0x01 实现了 ecrecover。 它通过计算 ECDSA 的恢复函数来返回给定签名的地址。 它是唯一带有 solidity 封装的预编译器。 其功能原型如下
+地址 0x01 实现了 ecrecover。它通过计算 ECDSA 的恢复函数来返回给定签名的地址。它是唯一带有 solidity 封装的预编译器。其功能原型如下
 
 ```text
 function ecRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view returns (address) {
@@ -34,7 +31,7 @@ function ecRecover(bytes32 hash, uint8 v, bytes32 r, bytes32 s) public view retu
 
 ## 地址 0x02: sha256\(data\)<a id="address-0x-02-sha-256-data"></a>
 
-地址 0x02 实现了 SHA256 散列。 它根据给定数据返回 SHA256 哈希值。 它主要用于比特币和 Zcash，而以太坊则使用 Keccak256。 其功能原型如下
+地址 0x02 实现了 SHA256 散列。它根据给定数据返回 SHA256 哈希值。它主要用于比特币和 Zcash，而以太坊则使用 Keccak256。其功能原型如下
 
 ```text
 function sha256(uint256 numberToHash) public view returns (bytes32 hash) {
@@ -62,7 +59,7 @@ function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
 
 ## 地址 0x03: ripemd160\(data\)<a id="address-0x-03-ripemd-160-data"></a>
 
-地址 0x03 实现了 RIPEMD160 哈希算法。 它根据给定数据返回 RIPEMD160 哈希值。 其功能原型如下
+地址 0x03 实现了 RIPEMD160 哈希算法。它根据给定数据返回 RIPEMD160 哈希值。其功能原型如下
 
 ```text
 函数 RIPEMD160(bytes calldata data) 公共视图返回 (bytes20 h) {
@@ -74,7 +71,7 @@ function sha256Yul(uint256 numberToHash) public view returns (bytes32) {
 
 ## 地址 0x04: datacopy\(data\)<a id="address-0x-04-datacopy-data"></a>
 
-地址 0x04 实现了数据复制（即身份识别功能）。 它直接返回输入数据，不做任何修改。 Solidity 编译器不支持这种预编译合同。 可以使用以下带有内联程序集的代码来调用这个预编译合同。
+地址 0x04 实现了数据复制（即身份识别功能）。它直接返回输入数据，不做任何修改。 Solidity 编译器不支持这种预编译合同。可以使用以下带有内联程序集的代码来调用这个预编译合同。
 
 ```text
 function callDatacopy(bytes memory data) public returns (bytes memory) {
@@ -92,7 +89,7 @@ function callDatacopy(bytes memory data) public returns (bytes memory) {
 
 ## 地址 0x05： bigModExp\(base, exp, mod\)<a id="address-0x05-bigmodexp-base-exp-mod"></a>
 
-地址 0x05 实现了公式`base**exp%mod`。 它根据给定数据返回结果。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。 请注意，尽管预编译合同支持任意长度的输入，但下面的代码以固定长度的输入为例。
+地址 0x05 实现了公式`base**exp%mod`。它根据给定数据返回结果。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。请注意，尽管预编译合同支持任意长度的输入，但下面的代码以固定长度的输入为例。
 
 ```text
 function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public returns (bytes32 result) {
@@ -124,7 +121,7 @@ function callBigModExp(bytes32 base, bytes32 exponent, bytes32 modulus) public r
 
 ## 地址 0x06： bn256Add\(ax, ay, bx, by\)<a id="address-0x-06-bn-256-add-ax-ay-bx-by"></a>
 
-地址 0x06 实现了本地椭圆曲线点加法。 它返回一个代表 `(ax, ay) + (bx, by)` 的椭圆曲线点，这样 \(ax, ay\) 和 \(bx, by\) 是曲线 bn256 上的有效点。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x06 实现了本地椭圆曲线点加法。它返回一个代表 `(ax, ay) + (bx, by)` 的椭圆曲线点，这样 \(ax, ay\) 和 \(bx, by\) 是曲线 bn256 上的有效点。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public returns (bytes32[2] memory result) {
@@ -145,7 +142,7 @@ function callBn256Add(bytes32 ax, bytes32 ay, bytes32 bx, bytes32 by) public ret
 
 ## 地址 0x07： bn256ScalarMul\(x, y, scalar\)<a id="address-0x-07-bn-256-scalarmul-x-y-scalar"></a>
 
-地址 0x07 实现了与标量值的本地椭圆曲线乘法。 它返回一个代表 `scalar * (x, y)`，并且 \(x, y\) 是 bn256 曲线上一个有效曲线点的椭圆曲线点。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x07 实现了与标量值的本地椭圆曲线乘法。它返回一个代表 `scalar * (x, y)`，并且 \(x, y\) 是 bn256 曲线上一个有效曲线点的椭圆曲线点。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns (bytes32[2] memory result) {
@@ -165,7 +162,7 @@ function callBn256ScalarMul(bytes32 x, bytes32 y, bytes32 scalar) public returns
 
 ## 地址 0x08： bn256Pairing\(a1, b1, a2, b2, a3, b3, ..., ak, bk\)<a id="address-0x-08-bn-256-pairing-a-1-b-1-a-2-b-2-a-3-b-3-ak-bk"></a>
 
-地址 0x08 实现了椭圆曲线解析操作，以执行 zkSNARK 验证。 更多信息，请参见 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x08 实现了椭圆曲线解析操作，以执行 zkSNARK 验证。更多信息，请参见 [EIP-197](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-197.md)。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
@@ -187,7 +184,7 @@ function callBn256Pairing(bytes memory input) public returns (bytes32 result) {
 
 ## Address 0x09: blake2F\(rounds, h, m, t, f\) <a id="address-0x-09-blake2F-rounds-h-m-t-f"></a>
 
-地址 0x09 实现了 BLAKE2b F 压缩功能。 更多信息，请参阅 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x09 实现了 BLAKE2b F 压缩功能。更多信息，请参阅 [EIP-152](https://eips.ethereum.org/EIPS/eip-152)。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, bytes8[2] memory t, bool f) public view returns (bytes32[2] memory) {
@@ -207,7 +204,7 @@ function callBlake2F(uint32 rounds, bytes32[2] memory h, bytes32[4] memory m, by
 
 ## Address 0x0A: kzg\(data\) <a id="address-0x-0a-kzg-data"></a>
 
-地址 0x0A 实现了 KZG 验证，在给定点验证到给定值。 更多信息，请参阅 [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844)。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0A 实现了 KZG 验证，在给定点验证到给定值。更多信息，请参阅 [EIP-4844](https://eips.ethereum.org/EIPS/eip-4844)。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callKzg(bytes memory data) public returns (bytes memory) {
@@ -224,8 +221,8 @@ function callKzg(bytes memory data) public returns (bytes memory) {
 
 ## 地址 0x0B：bls12381G1Add\(input\)<a id="address-0x-0b-bls12381G1Add-input"></a>
 
-地址 0x0B 实现了 BLS12381 G1 添加选项操作。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0B 实现了 BLS12381 G1 添加选项操作。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381add() public returns (bytes memory) {
@@ -238,8 +235,8 @@ function bls12381add() public returns (bytes memory) {
 
 ## 地址 0x0C：bls12381G1MultiExp\(input\)<a id="address-0x-0c-bls12381G1MultiExp-input"></a>
 
-地址 0x0C 实现了 BLS12381 G1 的乘法运算。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0C 实现了 BLS12381 G1 的乘法运算。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381mul() public returns (bytes memory) {
@@ -259,8 +256,8 @@ function bls12381multiexp() public returns (bytes memory) {
 
 ## 地址 0x0D：bls12381G2Add\(input\)<a id="address-0x-0d-bls12381G2Add-input"></a>
 
-地址 0x0D 实现 BLS12381 G2 加法运算。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0D 实现 BLS12381 G2 加法运算。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381g2add() public returns (bytes memory) {
@@ -273,8 +270,8 @@ function bls12381g2add() public returns (bytes memory) {
 
 ## 地址 0x0E：bls12381G2MultiExp\(input\)<a id="address-0x-0e-bls12381G2MultiExp-input"></a>
 
-地址 0x0E 实现了 BLS12381 G2 的乘法运算。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0E 实现了 BLS12381 G2 的乘法运算。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381g2mul() public returns (bytes memory) {
@@ -294,8 +291,8 @@ function bls12381g2multiexp() public returns (bytes memory) {
 
 ## 地址 0x0F: bls12381Pairing\(input\)<a id="address-0x-0f-bls12381Pairing-input"></a>
 
-地址 0x0F 实现 BLS12381 配对操作。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x0F 实现 BLS12381 配对操作。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381pairing() public returns (bytes memory) {
@@ -308,8 +305,8 @@ function bls12381pairing() public returns (bytes memory) {
 
 ## 地址 0x10: bls12381MapG1\(input\)<a id="address-0x-10-bls12381MapG1-input"></a>
 
-地址 0x10 实现 BLS12381 Map G1 操作。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x10 实现 BLS12381 Map G1 操作。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381mapg1() public returns (bytes memory) {
@@ -322,8 +319,8 @@ function bls12381mapg1() public returns (bytes memory) {
 
 ## 地址 0x11: bls12381MapG2\(input\)<a id="address-0x-11-bls12381MapG2-input"></a>
 
-地址 0x11 实现 BLS12381 Map G2 操作。 更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
-Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x11 实现 BLS12381 Map G2 操作。更多信息，请参阅 [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537)。
+Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function bls12381mapg2() public returns (bytes memory) {
@@ -336,7 +333,7 @@ function bls12381mapg2() public returns (bytes memory) {
 
 ## 地址 0x3fd: vmLog\(str\)<a id="address-0x-3fc-vmlog-str"></a>
 
-地址 0x3FD 将指定的字符串 `str` 打印到特定文件或传递给日志记录器模块。 更多信息，请参阅 [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target)。 请注意，该预编译合约只能用于调试目的，并且需要在 Kaia 节点启动时启用 `--vmlog` 选项。 此外，Kaia 节点的日志级别应为 4 或更高，以便查看 vmLog 的输出。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x3FD 将指定的字符串 `str` 打印到特定文件或传递给日志记录器模块。更多信息，请参阅 [debug_setVMLogTarget](../../references/json-rpc/debug/set-vm-log-target)。请注意，该预编译合约只能用于调试目的，并且需要在 Kaia 节点启动时启用 `--vmlog` 选项。此外，Kaia 节点的日志级别应为 4 或更高，以便查看 vmLog 的输出。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function callVmLog(bytes memory str) public {
@@ -346,7 +343,7 @@ function callVmLog(bytes memory str) public {
 
 ## 地址 0x3fe: feePayer\(\)<a id="address-0x-3fd-feepayer"></a>
 
-地址 0x3FE 返回执行交易的付费方。 Solidity 编译器不支持这种预编译合同。 下面的代码可以用来调用这个预编译合同。
+地址 0x3FE 返回执行交易的付费方。 Solidity 编译器不支持这种预编译合同。下面的代码可以用来调用这个预编译合同。
 
 ```text
 function feePayer() internal returns (address addr) {
@@ -363,13 +360,13 @@ function feePayer() internal returns (address addr) {
 
 ## 地址 0x3ff: validateSender\(\)<a id="address-0x-3fe-validatesender"></a>
 
-地址 0x3FF 验证发件人与报文的签名。 由于 Kaia [将密钥对与地址解耦](../accounts.md#decoupling-key-pairs-from-addresses)，因此需要验证签名是否由相应的发送方正确签名。 为此，这份预编译合同会收到三个参数：
+地址 0x3FF 验证发件人与报文的签名。由于 Kaia [将密钥对与地址解耦](../accounts.md#decoupling-key-pairs-from-addresses)，因此需要验证签名是否由相应的发送方正确签名。为此，这份预编译合同会收到三个参数：
 
 - 用于获取公钥的发件人地址
 - 用于生成签名的信息哈希值
 - 由发送者私钥和给定信息哈希值签名的签名
 
-预编译合同验证给定签名是否由发送者的私钥正确签名。 请注意，Kaia 本机支持多签名，这意味着可以有多个签名。 签名长度必须为 65 字节。
+预编译合同验证给定签名是否由发送者的私钥正确签名。请注意，Kaia 本机支持多签名，这意味着可以有多个签名。签名长度必须为 65 字节。
 
 ```text
 function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public returns (bool) {
@@ -402,7 +399,7 @@ function ValidateSender(address sender, bytes32 msgHash, bytes sigs) public retu
 | 硬叉        | 新项目                                     | 变化                                                                                                                       |
 | --------- | :-------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
 | 坎昆 EVM    | kzg (0x0a) 预编译合同     |                                                                                                                          |
-| 韩国        |                                         | modExp (0x05) 预编译合同使用新的气体<br/>计算逻辑。 计算成本也受到影响。 <br/>更加准确。                                             |
+| 韩国        |                                         | modExp (0x05) 预编译合同使用新的气体<br/>计算逻辑。计算成本也受到影响。<br/>更加准确。                                               |
 | 伊斯坦布尔 EVM | blake2f (0x09) 预编译合同 | <br/>kaia 预编译合同地址已从 0x09,0x0A,0x0B移动<br/>至 0x3FD,0x3FE,0x3FF。详情请参见下面的 [预编译合同地址更改表](#precomiled-contract-address-change)。 |
 
 ### 预编合同地址变更<a id="precompiled-contract-address-change"></a>

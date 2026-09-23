@@ -5,14 +5,6 @@ sidebar_label: 안전한 지갑
 
 # 안전한 지갑
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로 계정을 관리하시려면 [app.safe.global](https://app.safe.global)에서 Kaia용 **Safe Wallet**을 이용해 주시기 바랍니다.
-
-이미 Kaia Safe를 사용하고 계신가요? \*\*[Safe Global로 이전하기](./migrate-to-safe-global.md)\*\*를 참조하세요. 기존 Safe 계정은 영향을 받지 않으며 Safe Wallet에서 계속 사용할 수 있습니다.
-
-:::
-
 ## 서론
 
 [Safe](https://safe.global) (Safe Global)은 EVM 네트워크를 위한 업계 표준 멀티시그 스마트 계정 스택을 제공합니다. **Safe Wallet**은 이러한 계정을 생성하고 관리하기 위한 Safe의 웹 앱으로, [app.safe.global](https://app.safe.global)에서 이용할 수 있습니다.
@@ -51,7 +43,7 @@ Kaia의 일반적인 설정에서, 대부분의 사용자는 Kaia Wallet이나 M
 
 ## 다음 단계
 
-- [Safe Global로 이전하기](./migrate-to-safe-global.md) — `safe.kaia.io`에서 전환하기 (기존 계정은 그대로 유지됩니다)
 - [Kaia에서 Safe Wallet 사용하기](./use-safe-wallet.md) — Safe 생성, 자산 추가, 거래 전송
 - [개요](./overview.md) — 네트워크 및 Safe Global 리소스
-- [자주 묻는 질문](./faqs.md) — 이전 및 계정 관리 관련 문의
+- [자주 묻는 질문](./faqs.md) — 계정 관리 관련 질문
+- [Safe Global로 이전하기](./migrate-to-safe-global.md) — 더 이상 사용되지 않는 `safe.kaia.io`에서 오셨나요? 귀하의 계정에는 변경 사항이 없습니다.

@@ -2,7 +2,7 @@
 
 ## 概述
 
-Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的開發工具，建立能自主執行 onchain 動作的代理程式。 在本指南中，您將學習如何使用[LangChain](https://www.langchain.com/agents)建立一個 AI Agent，並使用[Kaia Agent Kit](https://github.com/kaiachain/kaia-agent-kit)進行上鏈動作。 .
+Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的開發工具，建立能自主執行 onchain 動作的代理程式。在本指南中，您將學習如何使用[LangChain](https://www.langchain.com/agents)建立一個 AI Agent，並使用[Kaia Agent Kit](https://github.com/kaiachain/kaia-agent-kit)進行上鏈動作。 .
 
 ## 先決條件
 
@@ -26,11 +26,11 @@ Kaia Agent Kit 整合了多種流行的 AI 框架，讓您可以使用偏好的�
 
 **LangChain**
 
-LangChain 是一個功能強大的框架，用於建立由大型語言模型 (LLM) 驅動的應用程式。 它提供的代理體架構可讓語言模型使用外部工具並作出決策，記憶體管理可讓代理體在多重互動中感知情境，而推理與行動模式則可讓代理體在採取步驟之前先思考資訊。
+LangChain 是一個功能強大的框架，用於建立由大型語言模型 (LLM) 驅動的應用程式。它提供的代理體架構可讓語言模型使用外部工具並作出決策，記憶體管理可讓代理體在多重互動中感知情境，而推理與行動模式則可讓代理體在採取步驟之前先思考資訊。
 
 **Kaia 代理套件**
 
-另一方面，Kaia Agent Kit 是一種工具，可將上鏈工具插入 AI 代理，讓它們與 Kaia 區塊鏈進行無縫互動。 這將使代理能夠自主執行鏈上動作、獲取鏈上資訊、驗證交易。
+另一方面，Kaia Agent Kit 是一種工具，可將上鏈工具插入 AI 代理，讓它們與 Kaia 區塊鏈進行無縫互動。這將使代理能夠自主執行鏈上動作、獲取鏈上資訊、驗證交易。
 
 ## 專案設定
 
@@ -69,7 +69,7 @@ KAIASCAN_API_KEY=your_kaiascan_api
 ```
 
 :::warning
-切勿將您的 .env 檔案或私人金鑰提交至公開 repo，並請保留您在開發中使用的金鑰 - 不要與任何實際資金相關聯。 最後，將 .env 加入您的 .gitignore 檔案。
+切勿將您的 .env 檔案或私人金鑰提交至公開 repo，並請保留您在開發中使用的金鑰 - 不要與任何實際資金相關聯。最後，將 .env 加入您的 .gitignore 檔案。
 :::
 
 \*\* 專案結構\*\*
@@ -199,7 +199,7 @@ const walletClient = createWalletClient({
 
 ## 執行代理程式
 
-設定完成。 若要執行代理程式，請在終端機執行下列指令：
+設定完成。若要執行代理程式，請在終端機執行下列指令：
 
 ```bash
 pnpm tsx agent.ts

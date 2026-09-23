@@ -2,7 +2,7 @@
 
 公開暴露的 JSON-RPC 端點允許您測試和運行您的區塊鏈產品，提供與 Kaia 網絡的交互，而無需運行自己的節點。
 
-運行自己的 Kaia 端點節點 (EN) 並不簡單，它需要專業技術、監控和計算資源。 它需要維護存儲、網絡帶寬，還需要佔用工程時間和資源；節點必須保持更新，並定期進行健康檢查。
+運行自己的 Kaia 端點節點 (EN) 並不簡單，它需要專業技術、監控和計算資源。它需要維護存儲、網絡帶寬，還需要佔用工程時間和資源；節點必須保持更新，並定期進行健康檢查。
 
 因此，使用現有公共 EN 的主要好處是，它可以讓您只專注於構建和測試您的區塊鏈產品，而無需分心維護與 Kaia 網絡連接和交互的基礎設施。
 
@@ -18,7 +18,7 @@
 
 :::info[Outdated 終端停止工作]
 
-請注意，以下網址已於 2024 年 9 月底停止使用。 我們建議您相應更新配置，以確保服務不中斷：
+請注意，以下網址已於 2024 年 9 月底停止使用。我們建議您相應更新配置，以確保服務不中斷：
 
 **主網**
 
@@ -34,8 +34,7 @@
 
 ### 主網公共 JSON-RPC 端點
 
-請記住，這些端點是提供給社區用於測試和開發目的的。
-由於我們無法保證端點的正常運行時間和穩定性，因此請勿將其用於商業目的。
+請記住，這些端點是提供給社區用於測試和開發目的的。由於我們無法保證端點的正常運行時間和穩定性，因此請勿將其用於商業目的。
 
 **HTTPS**
 
@@ -80,11 +79,19 @@
 
 ## RPC 服務提供商
 
+:::caution 日落條款公告
+
+**Ankr** 對 Kaia 的支援將於 **2026 年 10 月 16 日** 結束。自該日期起，所有指向 Kaia 鏈的 Ankr RPC 端點將被停用並停止回應。
+
+若您的應用程式會向 Ankr 發送 Kaia RPC 呼叫，請在停用日期前依照 **[從 Ankr 遷移](./migrate-from-ankr.md)** 的指引進行操作。對於大多數專案而言，這只需對終點進行一行修改即可。
+
+:::
+
 以下是 Kaia 的公共節點提供商列表。
 
 ### Kaia API 服務 (KAS)
 
-KAS 提供各種應用程序接口，以支持更簡單、更快速的區塊鏈應用程序開發。 您可以大大縮短開發時間，運行穩定的服務，並節約成本。
+KAS 提供各種應用程序接口，以支持更簡單、更快速的區塊鏈應用程序開發。您可以大大縮短開發時間，運行穩定的服務，並節約成本。
 
 #### 特點
 
@@ -100,7 +107,7 @@ KAS 提供各種應用程序接口，以支持更簡單、更快速的區塊鏈�
 
 ### 鏈條堆疊
 
-[Chainstack](https://chainstack.com/) 領先的 Web3 基礎架構提供者，為 Kaia 提供免費和付費的端點。 免費開發人員方案的起始條件為每月 3 百萬次要求和每秒 25 次要求 (RPS)。 您可以使用付費方案輕鬆擴展規模。
+[Chainstack](https://chainstack.com/) 領先的 Web3 基礎架構提供者，為 Kaia 提供免費和付費的端點。免費開發人員方案的起始條件為每月 3 百萬次要求和每秒 25 次要求 (RPS)。您可以使用付費方案輕鬆擴展規模。
 
 若要開始使用免費的開發人員計劃端點，只需使用電子郵件或任何社交帳戶註冊，例如 GitHub 或 X (Twitter)。
 
@@ -123,6 +130,23 @@ KAS 提供各種應用程序接口，以支持更簡單、更快速的區塊鏈�
 - [Docs](https://chainstack.com/build-better-with-kaia/)
 - [Subscription](https://chainstack.com/pricing/)
 - [Website](https://chainstack.com/)
+
+### 煉金術
+
+Alchemy 提供為 Kaia 打造的託管 RPC 基礎架構，包含託管式端點，以及開發者工具、儀表板和使用量分析功能。
+
+#### 特點
+
+- Kaia 的託管 HTTPS 與 WebSocket 端點
+- 使用情況儀表板與請求分析
+- 提供免費方案，並有付費方案可滿足更高吞吐量需求
+- 有關 Kaia 上可用的 API 介面，請參閱 Alchemy 的文件
+
+#### 參考資料
+
+- [凱亞談煉金術](https://www.alchemy.com/rpc/kaia)
+- [文件](https://www.alchemy.com/docs)
+- [網站](https://www.alchemy.com/)
 
 ### All That Node
 
@@ -150,14 +174,14 @@ All That Node 的目標是成為 Web3 基礎設施的可靠網關，讓構建者
 
 ### Tatum
 
-Tatum 是構建、測試和運行區塊鏈應用程序的最快方式。 我們為開發人員提供最靈活的平臺，讓他們快速將區塊鏈創意變為現實。
+Tatum 是構建、測試和運行區塊鏈應用程序的最快方式。我們為開發人員提供最靈活的平臺，讓他們快速將區塊鏈創意變為現實。
 
 #### 特點
 
 - 免費計劃每秒 5 個請求，付費計劃（開始、基本）每秒 200 個請求
 - 社區支持
 
-#### 參考資料
+#### 參考文獻
 
 - [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
 - [定價](https://tatum.io/pricing)
@@ -165,9 +189,9 @@ Tatum 是構建、測試和運行區塊鏈應用程序的最快方式。 我們�
 
 ### BlockPI
 
-BlockPI Network旨在提供優質、穩健和高效的RPC服務。 為了避免單點故障和可擴展性的限制，網絡被設計成分佈式結構，具有可擴展的 RPC 節點。
+BlockPI Network旨在提供優質、穩健和高效的RPC服務。為了避免單點故障和可擴展性的限制，網絡被設計成分佈式結構，具有可擴展的 RPC 節點。
 
-BlockPI 為 Kaia 社區提供免費的公共端點，併為付費用戶提供高級功能。  BlockPI 設計了兩種付費套餐，並支持 "即用即付"，以滿足用戶的靈活需求。 您可以查看每個套餐的定價詳情 (https://docs.blockpi.io/documentations/pricing) 以及 Kaia 的單項方法費用 (https://docs.blockpi.io/documentations/request-unit-ru)
+BlockPI 為 Kaia 社區提供免費的公共端點，併為付費用戶提供高級功能。  BlockPI 設計了兩種付費套餐，並支持 "即用即付"，以滿足用戶的靈活需求。您可以查看每個套餐的定價詳情 (https://docs.blockpi.io/documentations/pricing) 以及 Kaia 的單項方法費用 (https://docs.blockpi.io/documentations/request-unit-ru)
 
 #### 特點
 
@@ -212,22 +236,6 @@ Grove 支援 50 多個區塊鏈，而且還在不斷增加。
 - [Pocket Network 網站](https://pocket.network)
 - [Grove Portal](https://portal.grove.city)
 
-### ANKR
-
-Ankr 的分佈式節點網絡產生了強大的協同效應，使開發人員能夠輕鬆、安全地連接到公共端點。 通過優化資源使用的微調緩存，Ankr 保證了快速 RPC 請求和低延遲性能，從而在構建去中心化應用程序時實現卓越的效率。
-
-#### 特點
-
-- 免費計劃每秒 500 個請求，高級計劃每秒 1 500 個請求。 可根據要求進行升級。
-- 免費計劃有 Discord 和支持門戶，高級計劃有專門的支持。
-- 高級計劃可使用 WebSocket。
-
-#### 參考資料
-
-- [文件](https://www.ankr.com/docs/build-blockchain/overview)
-- [訂閱](https://www.ankr.com/rpc/pricing/)
-- [Website](https://www.ankr.com/rpc/)
-
 ### NodeReal
 
 NodeReal 是一家區塊鏈基礎設施和服務提供商。 NodeReal 以最可靠的解決方案幫助開發人員和投資者探索區塊鏈。
@@ -247,7 +255,7 @@ NodeReal 是一家區塊鏈基礎設施和服務提供商。 NodeReal 以最可�
 
 ### Nodit
 
-Nodit 旨在提供企業級 Web3 基礎設施，供所有人使用。 通過以合理的價格提供正常運行時間達 99.9% 的強大節點基礎設施和可靠的可隨時查詢的區塊鏈數據，我們為開發人員進入 Web3 世界提供了便利。
+Nodit 旨在提供企業級 Web3 基礎設施，供所有人使用。通過以合理的價格提供正常運行時間達 99.9% 的強大節點基礎設施和可靠的可隨時查詢的區塊鏈數據，我們為開發人員進入 Web3 世界提供了便利。
 
 #### 特點
 
@@ -271,11 +279,11 @@ Nodit 旨在提供企業級 Web3 基礎設施，供所有人使用。 通過以�
 
 ### GetBlock
 
-GetBlock 為包括 Kaia 在內的 50 多個主要區塊鏈網絡的完整 RPC 節點提供快速、可靠的 API 訪問。 通過處理節點維護，GetBlock 使開發人員和企業能夠專注於構建 dApp 和區塊鏈解決方案，而無需為基礎設施頭疼。
+GetBlock 為包括 Kaia 在內的 50 多個主要區塊鏈網絡的完整 RPC 節點提供快速、可靠的 API 訪問。通過處理節點維護，GetBlock 使開發人員和企業能夠專注於構建 dApp 和區塊鏈解決方案，而無需為基礎設施頭疼。
 
 #### 特點
 
-- 每天有 40k 個免費試用請求，RPS 高達 60。 它還提供入門計劃和無限計劃，以獲得更好的性能和支持。
+- 每天有 40k 個免費試用請求，RPS 高達 60。它還提供入門計劃和無限計劃，以獲得更好的性能和支持。
 - 99.9%+ 正常運行時間
 - 免費訪問 50 多個帶有 RPC 節點的區塊鏈協議
 - 高級監控和統計
@@ -288,7 +296,7 @@ GetBlock 為包括 Kaia 在內的 50 多個主要區塊鏈網絡的完整 RPC �
 
 ### QuickNode
 
-Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動力。 他們提供構建者創建令人難以置信的產品所需的所有工具和資源，所有這些都有無與倫比的全球平衡基礎設施、有保障的可靠性和安全性、用戶友好的界面以及端到端的客戶支持作為後盾。
+Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動力。他們提供構建者創建令人難以置信的產品所需的所有工具和資源，所有這些都有無與倫比的全球平衡基礎設施、有保障的可靠性和安全性、用戶友好的界面以及端到端的客戶支持作為後盾。
 
 #### 特點
 
@@ -306,7 +314,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 
 ### dRPC
 
-為 Kaia、Ethereum、Polygon、Arbitrum 等提供去中心化 RPC 節點。 您值得信賴的 Web3 基礎設施合作伙伴。
+為 Kaia、Ethereum、Polygon、Arbitrum 等提供去中心化 RPC 節點。您值得信賴的 Web3 基礎設施合作伙伴。
 
 #### 特點
 
@@ -321,6 +329,32 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - [網站](https://drpc.org/)
 - [文檔](https://drpc.org/docs)
 
+### ANKR
+
+:::caution 日落通知
+
+**Ankr** 對 Kaia 的支援將於 **2026 年 10 月 16 日** 結束。自該日期起，所有指向 Kaia 鏈的 Ankr RPC 端點將被停用並停止回應。
+
+若您的應用程式會向 Ankr 發出 Kaia RPC 呼叫，請在停用日期前依照 **[從 Ankr 遷移](./migrate-from-ankr.md)** 的步驟進行操作。對於大多數專案而言，這只需修改一行程式的終點即可。
+
+:::
+
+Ankr 的分佈式節點網絡產生了強大的協同效應，使開發人員能夠輕鬆、安全地連接到公共端點。通過優化資源使用的微調緩存，Ankr 保證了快速 RPC 請求和低延遲性能，從而在構建去中心化應用程序時實現卓越的效率。
+
+Kaia 的支援服務將提供至 **2026 年 10 月 16 日**。
+
+#### 特色
+
+- 免費計劃每秒 500 個請求，高級計劃每秒 1 500 個請求。可根據要求進行升級。
+- 免費計劃有 Discord 和支持門戶，高級計劃有專門的支持。
+- 高級計劃可使用 WebSocket。
+
+#### 參考文獻
+
+- [文件](https://www.ankr.com/docs/build-blockchain/overview)
+- [訂閱](https://www.ankr.com/rpc/pricing/)
+- [Website](https://www.ankr.com/rpc/)
+
 ## 實用資源
 
 - 錢包：[Kaia Wallet](../build/wallets/overview/kaia-wallet.md) 是 Kaia Network 的瀏覽器延伸錢包。
@@ -331,5 +365,5 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 
 - ChainID : Kairos: 1001 (0x3E9), Mainnet：8217 (0x2019)
 
-- Gas價格：在 [25, 750] 範圍內動態調整。 該範圍可通過鏈上管理進行更改。 更多信息，請參閱 [治理](https://docs.kaia.io/references/json-rpc/governance/chain-config/) 和
+- Gas價格：在 [25, 750] 範圍內動態調整。該範圍可通過鏈上管理進行更改。更多信息，請參閱 [治理](https://docs.kaia.io/references/json-rpc/governance/chain-config/) 和
   [交易費用](../learn/transaction-fees/transaction-fees.md)

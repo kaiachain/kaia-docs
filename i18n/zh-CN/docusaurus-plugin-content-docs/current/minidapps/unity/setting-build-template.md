@@ -1,6 +1,6 @@
 # WebGL 构建设置
 
-在本节中，我们将为网络配置 dApp！ 这将配置 Unity 与 Web3 兼容，并为 Kaia 集成创建自定义模板。
+在本节中，我们将为网络配置 dApp！这将配置 Unity 与 Web3 兼容，并为 Kaia 集成创建自定义模板。
 
 ## 步骤 1：切换到 WebGL 平台
 
@@ -15,7 +15,7 @@
 
 ## 步骤 2：创建自定义 WebGL 模板
 
-我们需要一个自定义模板来集成 Web3 功能。 这是我们的文件夹结构：
+我们需要一个自定义模板来集成 Web3 功能。这是我们的文件夹结构：
 
 ```code
 Assets/
@@ -30,7 +30,7 @@ Assets/
 
 \*\*为什么要定制模板？
 
-默认的 Unity 模板不支持 Web3。 我们的定制模板将
+默认的 Unity 模板不支持 Web3。我们的定制模板将
 
 - 加载必要的 Web3 库。
 - 启用 Kaia 钱包集成。
@@ -228,7 +228,7 @@ Assets/
 ## 步骤 4：设置 Mini Dapp SDK
 
 1. 访问：https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. 将内容保存到您的 `scripts/dapp-portal-sdk.js` 中。 使用本地 Mini Dapp SDK 文件可提高加载时间和可靠性。
+2. 将内容保存到您的 `scripts/dapp-portal-sdk.js` 中。使用本地 Mini Dapp SDK 文件可提高加载时间和可靠性。
 
 :::note
 或者，您也可以直接将 Mini Dapp SDK 的链接作为 `src` 添加到您的 `index.html` 中的 `script` 标签中。
@@ -282,7 +282,7 @@ minidapp/
 
 ## 第 8 步：将 WebGL 构建路由至 Localhost:3000
 
-出于安全和开发目的，Mini Dapp SDK 目前在 localhost:3000 上运行。 目前，默认的 Unity WebGL 编译使用随机端口（如 61445），为了让我们的应用程序高效运行，我们需要将 Unity WebGL 编译配置为在 localhost:3000 上打开。
+出于安全和开发目的，Mini Dapp SDK 目前在 localhost:3000 上运行。目前，默认的 Unity WebGL 编译使用随机端口（如 61445），为了让我们的应用程序高效运行，我们需要将 Unity WebGL 编译配置为在 localhost:3000 上打开。
 
 为此，请按照以下步骤操作：
 

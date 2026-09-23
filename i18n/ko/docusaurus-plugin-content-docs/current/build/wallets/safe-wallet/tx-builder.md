@@ -5,12 +5,6 @@ sidebar_label: 트랜잭션 빌더
 
 # 트랜잭션 빌더 사용
 
-:::caution 일몰 공고
-
-`safe.kaia.io`는 **2026년 8월 31일**에 서비스가 종료됩니다. 앞으로는 [app.safe.global](https://app.safe.global)에서 Kaia Network용 Safe Wallet을 사용하여 계정을 관리해 주시기 바랍니다. 기존의 ‘Safe Accounts’는 ‘Safe Wallet’과 자동으로 호환됩니다.
-
-:::
-
 **트랜잭션 빌더**는 토큰 전송, 승인, 계약 호출 등 여러 작업을 하나의 Safe 트랜잭션으로 묶어줍니다. 각 작업을 개별적으로 확인하는 대신, 일괄 처리를 구성한 다음 한 번에 확인하고 실행합니다. 배치는 원자적입니다. 즉, 하나의 작업이 롤백되면 전체 배치가 롤백됩니다.
 
 최신 UI를 반영한 제품 관련 도움말은 [Safe Wallet 도움말 센터](https://help.safe.global)를 참조하세요.

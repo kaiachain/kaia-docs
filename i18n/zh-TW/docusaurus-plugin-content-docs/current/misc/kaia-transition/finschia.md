@@ -1,6 +1,6 @@
 # Finschia檔案
 
-本頁面為現有 Finschia 用戶（包括 FNSA 令牌持有者、DApp 構建者和節點操作員）提供信息存檔。 由於 Finschia 與 Klaytn 整合形成了 Kaia，本資源現在作為有關 Finschia 的關鍵信息摘要和更廣泛的 Kaia 文檔的子集而存在。
+本頁面為現有 Finschia 用戶（包括 FNSA 令牌持有者、DApp 構建者和節點操作員）提供信息存檔。由於 Finschia 與 Klaytn 整合形成了 Kaia，本資源現在作為有關 Finschia 的關鍵信息摘要和更廣泛的 Kaia 文檔的子集而存在。
 
 ## 關於Finschia
 
@@ -26,7 +26,7 @@ Finschia 同時運行 Mainnet 和 Testnet 環境，每個環境的規格如下�
 
 ## Finschia 開發人員資源
 
-有關Finschia的技術信息，請參閱以下鏈接。 該清單可根據需要進行更新。
+有關Finschia的技術信息，請參閱以下鏈接。該清單可根據需要進行更新。
 
 如果您無法在這些鏈接中找到所需的信息，或需要更詳細的信息，請聯繫 contact@kaia.io。
 

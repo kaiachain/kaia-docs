@@ -4,7 +4,7 @@
 
 ### この料理本が向いている人<a id="who-is-this-cookbook-for"></a>
 
-カイア セキュア ウォレット クックブックへようこそ。 このガイドは、開発者、エンジニア、Kaiaブロックチェーン上で構築するチームのために書かれています。 初めての分散型アプリケーション（dApp）の作成、自動化されたサービスのデプロイ、あるいは国庫の管理など、このクックブックには、セキュリティ第一の考え方で暗号鍵とウォレットを扱うための不可欠なレシピが掲載されている。
+カイア セキュア ウォレット クックブックへようこそ。このガイドは、開発者、エンジニア、Kaiaブロックチェーン上で構築するチームのために書かれています。初めての分散型アプリケーション（dApp）の作成、自動化されたサービスのデプロイ、あるいは国庫の管理など、このクックブックには、セキュリティ第一の考え方で暗号鍵とウォレットを扱うための不可欠なレシピが掲載されている。
 
 ### このクックブックの使い方<a id="how-to-use-this-cookbook"></a>
 
@@ -13,11 +13,11 @@
 - \*\*パート1](#part-1-foundational-concepts--security-principles)\*\*は、あなたが理解する必要があるセキュリティの基礎を確立します。
 - \*\*パート2](#part-2-practical-recipes-for-wallet-management)\*\*は、基本的なシナリオから高度なシナリオまで、実践的なレシピを提供します。
 
-各レシピは、前のセクションのコンセプトに基づいている。 Web3セキュリティは初めてですか？ 第1章](#chapter-1-the-principles-of-private-key-security)から始めよう。 経験豊富な開発者ですか？ ユースケースに合ったレシピにジャンプ
+各レシピは、前のセクションのコンセプトに基づいている。 Web3セキュリティは初めてですか？第1章](#chapter-1-the-principles-of-private-key-security)から始めよう。経験豊富な開発者ですか？ユースケースに合ったレシピにジャンプ
 
 ### 基本理念安全第一<a id="core-philosophy-security-first"></a>
 
-Web3では、"not your keys, not your crypto "というフレーズが基本的な真理である。 開発者にとっては、これはソフトウェア開発ライフサイクルのあらゆる部分に及ぶ。 たった一つの漏洩した鍵が、ユーザーにもプロジェクトにも致命的な損失をもたらす可能性がある。 このガイドの基本理念は、**セキュリティ・ファースト**である。 すべてのレシピと推奨事項は、デフォルトで堅牢で安全なシステムを構築し、攻撃面を最小限に抑え、その日から資産を保護できるように設計されています。
+Web3では、"not your keys, not your crypto "というフレーズが基本的な真理である。開発者にとっては、これはソフトウェア開発ライフサイクルのあらゆる部分に及ぶ。たった一つの漏洩した鍵が、ユーザーにもプロジェクトにも致命的な損失をもたらす可能性がある。このガイドの基本理念は、**セキュリティ・ファースト**である。すべてのレシピと推奨事項は、デフォルトで堅牢で安全なシステムを構築し、攻撃面を最小限に抑え、その日から資産を保護できるように設計されています。
 
 ### 前提条件 <a id="prerequisites"></a>
 
@@ -25,49 +25,49 @@ Web3では、"not your keys, not your crypto "というフレーズが基本的�
 
 ## パート1：基礎概念とセキュリティ原則 <a id="part-i-foundational-concept-and-security-principles"></a>
 
-このパートでは、安全な財布管理の背後にある「なぜ」に焦点を当てる。 コードを書く前に必要な核となる知識を確立する。
+このパートでは、安全な財布管理の背後にある「なぜ」に焦点を当てる。コードを書く前に必要な核となる知識を確立する。
 
 ### 第1章 秘密鍵セキュリティの原則<a id="chapter-1-the-principles-of-private-key-security"></a>
 
 #### 1.1. キー・ペアを理解する：アカウントの核心 <a id="understanding-key-pairs-the-heart-of-your-account"></a>
 
-カイアでは、他のEVM対応チェーンと同様、アカウントはユーザー名とパスワードではない。 これは、**公開鍵**と**秘密鍵**の暗号鍵ペアである。 公開鍵は、あなたの銀行口座番号のようなもので、共有しても安全です。 秘密鍵は、取引やメッセージへの署名など、アカウントからのすべてのアクションを承認する秘密鍵です。 守るべき最も重要な情報なのだ。 あなたの秘密鍵を所有する者は、あなたのアカウントとその資産を完全かつ不可逆的に管理することができます。
+カイアでは、他のEVM対応チェーンと同様、アカウントはユーザー名とパスワードではない。これは、**公開鍵**と**秘密鍵**の暗号鍵ペアである。公開鍵は、あなたの銀行口座番号のようなもので、共有しても安全です。秘密鍵は、取引やメッセージへの署名など、アカウントからのすべてのアクションを承認する秘密鍵です。守るべき最も重要な情報なのだ。あなたの秘密鍵を所有する者は、あなたのアカウントとその資産を完全かつ不可逆的に管理することができます。
 
 #### 1.2. 安全な鍵の生成：カイアのベストプラクティス <a id="secure-key-generation-best-practices-for-kaia"></a>
 
-安全な鍵とは、ランダムに生成された鍵のことである。 あなたのアカウントのセキュリティは、誰かがあなたの秘密鍵を推測することが数学的に不可能であることに依存しています。 鍵の生成には、`ethers-ext` に組み込まれているものや、このガイドで説明するツールのような、十分に検証された標準的な暗号ライブラリを常に使用してください。 これは、秘密鍵のランダム性を著しく低下させ、推測されやすくするためである。
+安全な鍵とは、ランダムに生成された鍵のことである。あなたのアカウントのセキュリティは、誰かがあなたの秘密鍵を推測することが数学的に不可能であることに依存しています。鍵の生成には、`ethers-ext` に組み込まれているものや、このガイドで説明するツールのような、十分に検証された標準的な暗号ライブラリを常に使用してください。これは、秘密鍵のランダム性を著しく低下させ、推測されやすくするためである。
 
 #### 1.3. 安全な鍵保管：ローカル・キーストアからプロダクション・ボールトへ <a id="secure-key-storage-from-local-keystores-to-prodduction-vaults"></a>
 
-秘密鍵をどのように保管するかは、秘密鍵の生成方法と同じくらい重要だ。 秘密鍵を平文ファイルに保存することは、銀行のパスワードを付箋に書いてモニターに貼っておくのと同じことだ。
+秘密鍵をどのように保管するかは、秘密鍵の生成方法と同じくらい重要だ。秘密鍵を平文ファイルに保存することは、銀行のパスワードを付箋に書いてモニターに貼っておくのと同じことだ。
 
 :::warning
-**警告：秘密鍵は決して平文で保存してはならない** `.env`ファイル。 開発には便利だが、.envファイルが誤ってバージョン管理にコミットされ、キーが公開され、即座に資金が盗まれることがよくある。
+**警告：秘密鍵は決して平文で保存してはならない** `.env`ファイル。開発には便利だが、.envファイルが誤ってバージョン管理にコミットされ、キーが公開され、即座に資金が盗まれることがよくある。
 :::
 
-安全なローカル・ストレージの標準は、**暗号化されたキーストア・ファイル**（JSONキーストアと呼ばれることもある）である。 このファイルにはあなたの秘密鍵が含まれていますが、あなたが選んだ強力なパスワードで暗号化されています。 キーを使用するには、キーストア・ファイルと、それを復号化するためのパスワードをメモリ上に用意する必要がある。 本番システムでは、AWS KMSやGoogle Cloud KMSのような専用の**シークレットマネージャー**を使うのがベストプラクティスだ。
+安全なローカル・ストレージの標準は、**暗号化されたキーストア・ファイル**（JSONキーストアと呼ばれることもある）である。このファイルにはあなたの秘密鍵が含まれていますが、あなたが選んだ強力なパスワードで暗号化されています。キーを使用するには、キーストア・ファイルと、それを復号化するためのパスワードをメモリ上に用意する必要がある。本番システムでは、AWS KMSやGoogle Cloud KMSのような専用の**シークレットマネージャー**を使うのがベストプラクティスだ。
 
 #### 1.4. メモリ内のキーの扱い：ランタイム中のキー露出の最小化 <a id="handling-keys-in-memory-minimizing-exposure-during-runtime"></a>
 
-安全なソースからロードされた場合でも、トランザクションに署名するためには、アプリケーションのメモリ内に秘密鍵が存在しなければならない。 この露出を最小限に抑えることが重要だ。 優れたアプリケーション設計は、キーが可能な限り短い時間メモリに保持され、使用後直ちにクリアされることを保証する。 この料理本のライブラリーとレシピは、この原則に従って作られている。
+安全なソースからロードされた場合でも、トランザクションに署名するためには、アプリケーションのメモリ内に秘密鍵が存在しなければならない。この露出を最小限に抑えることが重要だ。優れたアプリケーション設計は、キーが可能な限り短い時間メモリに保持され、使用後直ちにクリアされることを保証する。この料理本のライブラリーとレシピは、この原則に従って作られている。
 
 ### 第2章: カイア・ウォレット・エコシステムをナビゲートする <a id="chapter-2-navigating-the-kaia-wallet-ecosystem"></a>
 
 #### 2.1. カイア・ウォレット
 
-[カイア・ウォレット](https://docs.kaia.io/build/tools/wallets/kaia-wallet)は、カイア・エコシステムのためのネイティブ・ブラウザ拡張ウォレットです。 MetaMaskと多くの機能を共有しているが、独自の取引タイプ、手数料委譲取引、ネットワーク特有のアカウントシステムをサポートすることで、Kaiaに最適化されており、ネットワーク上でシームレスなユーザー体験を提供する。 開発者にとっては、その特定の動作とAPIを理解することが、スムーズなdApp統合を構築する鍵となる。
+[カイア・ウォレット](https://docs.kaia.io/build/tools/wallets/kaia-wallet)は、カイア・エコシステムのためのネイティブ・ブラウザ拡張ウォレットです。 MetaMaskと多くの機能を共有しているが、独自の取引タイプ、手数料委譲取引、ネットワーク特有のアカウントシステムをサポートすることで、Kaiaに最適化されており、ネットワーク上でシームレスなユーザー体験を提供する。開発者にとっては、その特定の動作とAPIを理解することが、スムーズなdApp統合を構築する鍵となる。
 
 #### 2.2. コールドストレージハードウェア・ウォレットの概要
 
-コールド・ストレージとは、インターネットに接続されていないデバイスに秘密鍵を保管することである。 ハードウェア・ウォレット\*\*は、この目的のために作られた物理的なデバイスである。 接続されたコンピューターに秘密鍵を公開することなく、内部でトランザクションに署名する。 そのため、高価値の資産を保護するためのゴールド・スタンダードとなっている。 このガイドでは、公式にサポートされている[DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent)と[SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1)のハードウェアウォレットに焦点を当てます。
+コールド・ストレージとは、インターネットに接続されていないデバイスに秘密鍵を保管することである。ハードウェア・ウォレット\*\*は、この目的のために作られた物理的なデバイスである。接続されたコンピューターに秘密鍵を公開することなく、内部でトランザクションに署名する。そのため、高価値の資産を保護するためのゴールド・スタンダードとなっている。このガイドでは、公式にサポートされている[DCENT](https://docs.kaia.io/build/tools/wallets/hardware-wallets/dcent)と[SafePal](https://docs.kaia.io/build/tools/wallets/hardware-wallets/safepal-s1)のハードウェアウォレットに焦点を当てます。
 
 #### 2.3. マルチシグネチャウォレット：Safe Wallet入門
 
-マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。 例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。 これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 Kaiaでは、[app.safe.global](https://app.safe.global)にある[Safe](https://safe.global)（Safe Global）の**Safe Wallet**をご利用ください。詳細は[Safe Walletガイド](/build/wallets/safe-wallet/use-safe-wallet)をご覧ください。 (`safe.kaia.io`は**2026年8月31日**をもってサービス終了となります。)
+マルチシグネチャ（または「マルチシグ」）ウォレットは、取引を実行する前に複数の秘密鍵が取引を承認することを必要とするスマートコントラクトである。例えば、2-of-3マルチシグでは、3人の指定所有者のうち2人の承認が必要となる。これは、単一障害点を防ぐため、チームの資金、財務、重要なスマート・コントラクトの管理を行うための標準である。 Kaiaでは、[app.safe.global](https://app.safe.global)にある[Safe](https://safe.global)（Safe Global）の**Safe Wallet**をご利用ください。詳細は[Safe Walletガイド](/build/wallets/safe-wallet/use-safe-wallet)をご覧ください。
 
 ## パート2：財布管理の実践レシピ
 
-パート1](#part-1-foundational-concepts--security-principles)で基本的なセキュリティの原則を理解したので、次はそれを実践してみましょう。 このセクションでは、個々の開発セットアップから始まり、プロダクション・グレードのソリューションまで、実際のシナリオに沿ったステップ・バイ・ステップのガイドを提供します。
+パート1](#part-1-foundational-concepts--security-principles)で基本的なセキュリティの原則を理解したので、次はそれを実践してみましょう。このセクションでは、個々の開発セットアップから始まり、プロダクション・グレードのソリューションまで、実際のシナリオに沿ったステップ・バイ・ステップのガイドを提供します。
 
 **あなたは何を構築します：**。
 
@@ -81,7 +81,7 @@ Web3では、"not your keys, not your crypto "というフレーズが基本的�
 
 #### 3.1. レシピ初めてのカイア開発財布
 
-カイアを初めてご利用になる場合、またはカイアウォレットを初めて設定する場合は、[ウォレットを始める](/build/wallets/wallet-config/configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia)セクションを参照することをお勧めします。 ウォレットのインストール、アカウントの作成と安全なバックアップ、アカウントの追加、ウォレットへの資金供給など、重要なステップを網羅しています。
+カイアを初めてご利用になる場合、またはカイアウォレットを初めて設定する場合は、[ウォレットを始める](/build/wallets/wallet-config/configure-wallet-for-kaia-networks.mdx#configure-kaia-wallet-for-kaia)セクションを参照することをお勧めします。ウォレットのインストール、アカウントの作成と安全なバックアップ、アカウントの追加、ウォレットへの資金供給など、重要なステップを網羅しています。
 
 #### 3.2. レシピFoundryプロジェクトにおけるアカウントの安全な管理
 
@@ -113,7 +113,7 @@ cd foundry-encrypted
 cast wallet import your-wallet-name --interactive
 ```
 
-秘密鍵を入力した後、暗号化用のパスワードを設定するよう求められます。 暗号化されたキーは、ローカルのキーストアにデフォルトのパス **~/.foundry/keystore** で保存されます。
+秘密鍵を入力した後、暗号化用のパスワードを設定するよう求められます。暗号化されたキーは、ローカルのキーストアにデフォルトのパス **~/.foundry/keystore** で保存されます。
 
 :::note
 interactiveフラグは、秘密鍵が端末の履歴に保存されないようにするために使用する。
@@ -139,9 +139,9 @@ source .env
 
 ###### ステップ4：スクリプトの実行
 
-ウォレットのインポートを完了し、RPCエンドポイントを設定に追加しました。 これでスクリプトを実行し、契約をデプロイする準備ができた。
+ウォレットのインポートを完了し、RPCエンドポイントを設定に追加しました。これでスクリプトを実行し、契約をデプロイする準備ができた。
 
-デフォルトのFoundryテンプレートには、カウンター契約をデプロイするサンプルスクリプトが含まれています。 独自のウォレット名とRPCエンドポイントを使用するように、このスクリプトを修正する必要があります。
+デフォルトのFoundryテンプレートには、カウンター契約をデプロイするサンプルスクリプトが含まれています。独自のウォレット名とRPCエンドポイントを使用するように、このスクリプトを修正する必要があります。
 
 forge create\* または _forge script_ のいずれかを使用してスクリプトを実行します、
 
@@ -168,7 +168,7 @@ forge script script/Counter.s.sol:CounterScript --rpc-url $KAIROS_RPC_URL --acco
 
 #### 3.3. レシピハードハットプロジェクトにおけるアカウントの安全な管理
 
-[Hardhat 3](https://hardhat.org/docs/getting-started) (現在ベータ版)では、ビルトインのシークレットマネージャによって暗号化されたシークレットを導入しています。 この機能は、秘密鍵やRPC URLのような機密性の高い文字列ベースの秘密や、バージョン管理にコミットされるべきではないAPIキーを安全に保存することをサポートする。
+[Hardhat 3](https://hardhat.org/docs/getting-started) (現在ベータ版)では、ビルトインのシークレットマネージャによって暗号化されたシークレットを導入しています。この機能は、秘密鍵やRPC URLのような機密性の高い文字列ベースの秘密や、バージョン管理にコミットされるべきではないAPIキーを安全に保存することをサポートする。
 
 ##### ステップ1：新しいハードハット・プロジェクトの作成
 
@@ -180,7 +180,7 @@ npm init -y
 npx hardhat --init
 ```
 
-プロンプトに対するデフォルトの答えを受け入れる。 その後、プロジェクトのバージョンを確認するためにHardhatバージョンを実行する：
+プロンプトに対するデフォルトの答えを受け入れる。その後、プロジェクトのバージョンを確認するためにHardhatバージョンを実行する：
 
 ```bash
 npx hardhat --version
@@ -214,7 +214,7 @@ npx hardhat keystore list
 
 暗号化された秘密のリストに `KAIROS_RPC_URL` と `PRIVATE_KEY` が表示されるはずである。
 
-シークレット値を再度取得するには、以下のコマンドを実行する。 復号化するためにマスター・キーを入力するよう促されます。
+シークレット値を再度取得するには、以下のコマンドを実行する。復号化するためにマスター・キーを入力するよう促されます。
 
 ```bash
 npx hardhat keystore get KAIROS_RPC_URL
@@ -224,7 +224,7 @@ npx hardhat keystore get KAIROS_RPC_URL
 
 ##### ステップ4：コンフィグでシークレットを参照する
 
-hardhat.config.ts\`を開き、暗号化された秘密を参照するようにnetworksセクションを更新する。 秘密の名前が異なる場合は、それに応じてエントリーを調整してください。
+hardhat.config.ts\`を開き、暗号化された秘密を参照するようにnetworksセクションを更新する。秘密の名前が異なる場合は、それに応じてエントリーを調整してください。
 
 ```javascript
 import { configVariable } from "hardhat/config";
@@ -242,7 +242,7 @@ module.exports = {
 
 ##### ステップ5：展開スクリプトで暗号化された秘密を使用する
 
-以下のコマンドを使用して、**ignition/modules**の`Counter.ts`モジュールを介してコントラクトをデプロイします。 このモジュールは `Counter.sol` をデプロイし、値 5 で `incBy` 関数を呼び出す。
+以下のコマンドを使用して、**ignition/modules**の`Counter.ts`モジュールを介してコントラクトをデプロイします。このモジュールは `Counter.sol` をデプロイし、値 5 で `incBy` 関数を呼び出す。
 
 ```bash
 npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
@@ -250,7 +250,7 @@ npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
 
 コマンドを実行すると、Hardhatから先に作成したパスワードの入力を求めるプロンプトが表示されます。
 
-これはカイロス・ネットワークがキーストアで構成されているために必要である。 プロンプトが表示されるのは、タスクやスクリプトが暗号化された秘密に依存している場合のみです。 パスワードが入力されると、Hardhatはあなたのコントラクトを展開し、値5で `incBy`関数を実行します。
+これはカイロス・ネットワークがキーストアで構成されているために必要である。プロンプトが表示されるのは、タスクやスクリプトが暗号化された秘密に依存している場合のみです。パスワードが入力されると、Hardhatはあなたのコントラクトを展開し、値5で `incBy`関数を実行します。
 
 ![](/img/build/wallets/hh-encrypted-secrets-deployment.png)
 
@@ -262,7 +262,7 @@ npx hardhat ignition deploy --network kairos ignition/modules/Counter.ts
 
 ##### ステップ1: Safepal S1ウォレットのセットアップ
 
-DApp に接続する前に、SafePal S1 デバイスが正しく設定されていることを確認してください。 まだの場合は、[このセットアップガイド](https://safepalsupport.zendesk.com/hc/en-us/articles/360046051752-How-to-Set-Up-a-S1-Hardware-Wallet)に従ってください。
+DApp に接続する前に、SafePal S1 デバイスが正しく設定されていることを確認してください。まだの場合は、[このセットアップガイド](https://safepalsupport.zendesk.com/hc/en-us/articles/360046051752-How-to-Set-Up-a-S1-Hardware-Wallet)に従ってください。
 
 デバイスがすでに設定されている場合は、この手順を省略できます。
 
@@ -278,17 +278,17 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 このステップでは、WalletConnect を使用して SafePal S1 ハードウェアウォレットを分散型アプリケーション (dApp) に接続します。
 
-このガイドでは、カイアの主要な分散型取引所（DEX）である[DragonSwap](https://dgswap.io)をdAppの例として使用します。 接続は、WalletConnectを使用してブラウザから行われます。
+このガイドでは、カイアの主要な分散型取引所（DEX）である[DragonSwap](https://dgswap.io)をdAppの例として使用します。接続は、WalletConnectを使用してブラウザから行われます。
 
 1. ブラウザにdAppのURLを入力してDragonSwap dAppを起動し、ウェブサイトの右上にある**Connect Wallet**ボタンをクリックします。
 
 ![](/img/build/wallets/sp-hw-dgswap-cw.png)
 
-2. すべての接続オプションの中から、**Wallet Connect**をクリックします。 画面にQRコードが表示されます。
+2. すべての接続オプションの中から、**Wallet Connect**をクリックします。画面にQRコードが表示されます。
 
 ![](/img/build/wallets/sp-hw-dgswap-wc.png)
 
-3. セーフパルアプリでQRコードを読み取ってください。 アプリのメインページの右上にあるスキャンボタンをクリックすると、スキャンプロセスに入ることができます。
+3. セーフパルアプリでQRコードを読み取ってください。アプリのメインページの右上にあるスキャンボタンをクリックすると、スキャンプロセスに入ることができます。
 
 ![](/img/build/wallets/sp-hw-dgswap-sp-app-scan.jpg)
 
@@ -296,7 +296,7 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ![](/img/build/wallets/sp-hw-dgswap-sp-app-connect.jpg)
 
-5. これでブラウザ上でウォレットとDragonSwap dAppの接続が完了しました！ あなたのウォレットアドレスがDragonSwapのコネクトコンポーネントに表示されるはずです。
+5. これでブラウザ上でウォレットとDragonSwap dAppの接続が完了しました！あなたのウォレットアドレスがDragonSwapのコネクトコンポーネントに表示されるはずです。
 
 ![](/img/build/wallets/sp-hw-dgswap-connected.png)
 
@@ -304,11 +304,11 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 このセクションでは、KAIAとUSDTをスワップして取引を実行します。 Swap](https://dgswap.io/swap/) ページに移動します。
 
-1. スワップ注文を記入し、**スワップ**ボタンをクリックします。 取引を続ける前に、スワップを必ず確認してください。
+1. スワップ注文を記入し、**スワップ**ボタンをクリックします。取引を続ける前に、スワップを必ず確認してください。
 
 ![](/img/build/wallets/sp-hw-dgswap-trade.png)
 
-2. セーフパルアプリを開くと、取引確認ページが表示されます。 同意する\*\*をクリックして取引を続行します。
+2. セーフパルアプリを開くと、取引確認ページが表示されます。同意する\*\*をクリックして取引を続行します。
 
 ![](/img/build/wallets/sp-hw-swap-sp-app-agree.jpg)
 
@@ -320,11 +320,11 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ![](/img/build/wallets/sp-hw-swap-pincode.jpg)
 
-5. セーフパルアプリから、S1デバイスに表示されているダイナミックQRコードをスキャンします。 こうすることで、アプリはQRコードに含まれる署名を確実に受け取り、スワップ取引をブロックチェーン（Kaia）にブロードキャストする準備が整う。
+5. セーフパルアプリから、S1デバイスに表示されているダイナミックQRコードをスキャンします。こうすることで、アプリはQRコードに含まれる署名を確実に受け取り、スワップ取引をブロックチェーン（Kaia）にブロードキャストする準備が整う。
 
 ![](/img/build/wallets/sp-hw-scan-swap-sp-app.jpg)
 
-6. 署名が完了すると、取引をブロードキャストするポップアップが表示されます。 その後、**Confirm**をクリックしてください。
+6. 署名が完了すると、取引をブロードキャストするポップアップが表示されます。その後、**Confirm**をクリックしてください。
 
 ![](/img/build/wallets/sp-hw-swap-sp-app-broadcast.jpg)
 
@@ -334,7 +334,7 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ![](/img/build/wallets/sp-hw-after-swap-asset-bal.jpg)
 
-おめでとう。 トランザクションの署名に成功し、walletconnect を介して SafePal ハードウェアウォレットを使用してサードパーティ dApp のブロックチェーンにトランザクションをブロードキャストしました。
+おめでとう。トランザクションの署名に成功し、walletconnect を介して SafePal ハードウェアウォレットを使用してサードパーティ dApp のブロックチェーンにトランザクションをブロードキャストしました。
 
 ### 第4章：アドバンス＆プロダクション・グレードのセットアップ
 
@@ -344,7 +344,7 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 [Safe](https://safe.global) / Safe Global が提供する **Safe Wallet** ([app.safe.global](https://app.safe.global)) を使用すると、開発者は複数の所有者によって管理される Safe スマートアカウントを作成でき、セキュリティが大幅に向上します。
 
-多額の資金やプロトコルの権限、所有権の管理には、決して通常のウォレットを使うべきではありません。 基本的な財布のセキュリティの失敗によって、多くのプロジェクトが危険にさらされてきた。 次の大きなDeFiプロトコルを立ち上げるにせよ、DAOの財務を管理するにせよ、あるいは貴重な資産を保護するにせよ、マルチシグネチャーウォレットは絶対に不可欠です。
+多額の資金やプロトコルの権限、所有権の管理には、決して通常のウォレットを使うべきではありません。基本的な財布のセキュリティの失敗によって、多くのプロジェクトが危険にさらされてきた。次の大きなDeFiプロトコルを立ち上げるにせよ、DAOの財務を管理するにせよ、あるいは貴重な資産を保護するにせよ、マルチシグネチャーウォレットは絶対に不可欠です。
 
 このガイドでは、Safe Wallet を使用して Kaia 上で「Safe」を作成する方法、所有者や承認閾値の設定方法、および基本的なトランザクションの実行方法について解説します。
 
@@ -354,15 +354,15 @@ SafePalアプリは、ブロックチェーンデータを取得し、トラン�
 
 ![](/img/build/wallets/sg-welcome-page.png)
 
-2. \*\*財布をつなぐ 接続したいウォレットの種類を選択してください。 **Kaia メインネット** または **Kairos テストネット** が選択されていることを確認してください。 このガイドでは、カイア・ウォレットを使用します。
+2. \*\*財布をつなぐ接続したいウォレットの種類を選択してください。 **Kaia メインネット** または **Kairos テストネット** が選択されていることを確認してください。このガイドでは、カイア・ウォレットを使用します。
 
 ![](/img/build/wallets/sg-connect-wallet.png)
 
-3. **金庫の名前**。 ウォレットを接続したら、\*\*「アカウントを作成」\*\*をクリックし、Safeに名前を付けてください。
+3. **金庫の名前**。ウォレットを接続したら、\*\*「アカウントを作成」\*\*をクリックし、Safeに名前を付けてください。
 
 ![](/img/build/wallets/sg-add-safe-name.png)
 
-4. **署名者の設定**。 Safeアカウント内の取引が承認されるために必要な署名者の確認回数を設定します。  グッドプラクティスは、全オーナーの51％を閾値とすることである。例えば、以下に示すように、_3人中2人_、_5人中3&#x4EBA;_&#x306A;ど。
+4. **署名者の設定**。 Safeアカウント内の取引が承認されるために必要な署名者の確認回数を設定します。グッドプラクティスは、全オーナーの51％を閾値とすることである。例えば、以下に示すように、_3人中2人_、_5人中3&#x4EBA;_&#x306A;ど。
 
 ![](/img/build/wallets/sg-add-signers.png)
 
@@ -390,17 +390,17 @@ Safeアカウントに十分な残高があることを確認してください�
 
 <video autoPlay loop muted playsInline controls aria-label="Opening New transaction and choosing Send tokens" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-new-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-new-tx.mp4" type="video/mp4" /> </video>
 
-ステップ2：譲渡する資産を選択する。 受取人の住所**と送金するKAIAの金額**を入力してください。
+ステップ2：譲渡する資産を選択する。受取人の住所**と送金するKAIAの金額**を入力してください。
 
 <video autoPlay loop muted playsInline controls aria-label="Send tokens form with the recipient address, token selector, and amount fields" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-send-details.webm" type="video/webm" /> <source src="/img/build/wallets/sg-send-details.mp4" type="video/mp4" /> </video>
 
-ステップ3：取引を確認し、送信する。 取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
+ステップ3：取引を確認し、送信する。取引は署名者ウォレットで署名する必要があり、確認のしきい値に達すると実行されます。
 
 <video autoPlay loop muted playsInline controls aria-label="Reviewing and signing a send transaction, which then waits in the queue for the remaining confirmations" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-review-send-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-review-send-tx.mp4" type="video/mp4" /> </video>
 
 #### 4.2. レシピ：重要なスマートコントラクト操作におけるSafe Walletの統合
 
-このガイドでは、スマートコントラクト内でSafeアカウントを管理者として割り当てる方法について解説します。 また、Safeアカウントを使用して\*\*setTokenPrice()**や**pause()\*\*といった特権機能を実行する方法についても説明します。これにより、承認された署名者のみが特権アクションを実行できるようになります。
+このガイドでは、スマートコントラクト内でSafeアカウントを管理者として割り当てる方法について解説します。また、Safeアカウントを使用して\*\*setTokenPrice()**や**pause()\*\*といった特権機能を実行する方法についても説明します。これにより、承認された署名者のみが特権アクションを実行できるようになります。
 
 ##### 前提条件
 
@@ -412,17 +412,17 @@ Safeアカウントに十分な残高があることを確認してください�
 
 ##### ステップ2：サンプルトークンコントラクトのコンパイルとデプロイ
 
-マルチシグウォレットで特権関数を呼び出す前に、まずコントラクトをデプロイする必要があります。 まず最初に行うべきことは、デプロイ時に、新しく作成した「Safe」アカウントをトークンコントラクトの**initialOwner**として設定することです。
+マルチシグウォレットで特権関数を呼び出す前に、まずコントラクトをデプロイする必要があります。まず最初に行うべきことは、デプロイ時に、新しく作成した「Safe」アカウントをトークンコントラクトの**initialOwner**として設定することです。
 
 ![](/img/build/wallets/ks-succor-deploy.gif)
 
-このサンプルトークン契約には、\*\*setTokenPrice()**や**pause()\*\*といった、Safeアカウントからのみ呼び出し可能な特権関数が含まれています。 次にやりたいことは、これらのアクションを適宜実行することだ。 これを行うには、トランザクションビルダーを使用するか、Safe API Kit を使ってプログラムで実装することができます。
+このサンプルトークン契約には、\*\*setTokenPrice()**や**pause()\*\*といった、Safeアカウントからのみ呼び出し可能な特権関数が含まれています。次にやりたいことは、これらのアクションを適宜実行することだ。これを行うには、トランザクションビルダーを使用するか、Safe API Kit を使ってプログラムで実装することができます。
 
 ##### ステップ3：新規取引の開始
 
 ###### トランザクションビルダーの使用
 
-安全なウォレットでスマートコントラクトとやり取りするには、**New Transaction**をクリックします。 このステップを完了するには、前のステップで説明したように、すでにデプロイされている契約アドレスとABIが必要です。
+安全なウォレットでスマートコントラクトとやり取りするには、**New Transaction**をクリックします。このステップを完了するには、前のステップで説明したように、すでにデプロイされている契約アドレスとABIが必要です。
 
 ![](/img/build/wallets/ks-succor-init-tx.gif)
 
@@ -459,7 +459,7 @@ npm init -y
 API-Kitの使用方法は、以下のインストールコマンドを実行するだけです：
 
 ```bash
-npm install --save-dev @safe-global/api-kit@2.4.2 @safe-global/protocol-kit@4.0.2 @safe-global/safe-core-sdk-types@5.0.2
+npm install --save-dev @safe-global/api-kit @safe-global/protocol-kit @safe-global/types-kit
 ```
 
 ```bash
@@ -468,13 +468,12 @@ npm install --save-dev ethers dotenv
 
 \*\*ステップ4：依存関係をインポートする。
 
-app.js`という名前のファイルを作成する。 このインタラクションのためのコード・スニペットはすべてここにある。
-これらの必要なインポートをコピーして、`app.js\`ファイルの先頭に貼り付ける。
+app.js`という名前のファイルを作成する。このインタラクションのためのコード・スニペットはすべてここにある。これらの必要なインポートをコピーして、`app.js\`ファイルの先頭に貼り付ける。
 
 ```js
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 ```
@@ -482,6 +481,8 @@ import "dotenv/config";
 **ステップ5：セットアップの設定**」。
 
 API-Kitがどのように機能するかを効率的に説明するために、2人以上の署名者を持つSafeアカウントのセットアップを使用する。
+
+Safeのトランザクションサービスへのリクエストにも、APIキーが必要です。 [Safe 開発者ダッシュボード](https://developer.safe.global/)の**API キー**セクションでキーを 1 つ作成し、`.env` ファイル内で `SAFE_API_KEY` として設定してください。 SafeはチェーンIDからトランザクションサービスのエンドポイントを特定するため、KaiaやKairosでは`txServiceUrl`は必要ありません。
 
 以下をコピーして、`app.js`ファイルのimport文の下に貼り付ける：
 
@@ -492,12 +493,13 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 ```
 
 **ステップ6: 安全な取引の提案、確認、実行**。
 
-このステップでは、Safe API-Kitと複数の所有者を持つSafeアカウントを使用して、スマートコントラクト関数の呼び出しを提案、署名、実行します。 スマート・コントラクトのメソッド\*\*setTokenPrice()**を呼び出すために、あなたのSafeからトランザクションを送信します - しかし、同じ構造は**pause()\*\*のような特権関数にも当てはまります。
+このステップでは、Safe API-Kitと複数の所有者を持つSafeアカウントを使用して、スマートコントラクト関数の呼び出しを提案、署名、実行します。スマート・コントラクトのメソッド\*\*setTokenPrice()**を呼び出すために、あなたのSafeからトランザクションを送信します - しかし、同じ構造は**pause()\*\*のような特権関数にも当てはまります。
 
 以下をコピーして、`app.js`ファイルの初期設定の下に貼り付けます：
 
@@ -513,11 +515,11 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -548,7 +550,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
@@ -577,7 +579,7 @@ console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 
 import SafeApiKit from "@safe-global/api-kit";
 import Safe from "@safe-global/protocol-kit";
-import { OperationType } from "@safe-global/safe-core-sdk-types";
+import { OperationType } from "@safe-global/types-kit";
 import { ethers } from "ethers";
 import "dotenv/config";
 
@@ -588,6 +590,7 @@ const CONTRACT_ADDRESS = "<REPLACE WITH CONTRACT ADDRESS>";
 const OWNER_1_ADDRESS = "<REPLACE WITH OWNER_1 ADDRESS>";
 const OWNER_1_PRIVATE_KEY = process.env.OWNER_ONE_PK;
 const OWNER_2_PRIVATE_KEY = process.env.OWNER_TWO_PK; // OWNER 2 need not have any test KAIA
+const SAFE_API_KEY = process.env.SAFE_API_KEY; // from https://developer.safe.global
 
 // Create interface from ABI
 const contractABI = [
@@ -599,12 +602,12 @@ const iface = new ethers.Interface(contractABI);
 // const pauseData = iface.encodeFunctionData("pause", []);
 const setTokenPriceData = iface.encodeFunctionData("setTokenPrice", [15]);
 
-const apiKit = new SafeApiKit.default({
-  chainId: 1001n,
-  txServiceUrl: "https://docs-safe.kaia.io/txs-baobab/api",
+const apiKit = new SafeApiKit({
+  chainId: 1001n, // 1001 for Kairos, 8217 for Kaia Mainnet
+  apiKey: SAFE_API_KEY,
 });
 
-const protocolKitOwner1 = await Safe.default.init({
+const protocolKitOwner1 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_1_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS,
@@ -636,7 +639,7 @@ const proposeTx = await apiKit.proposeTransaction({
 })
 
 // 3. Confirmation from Owner 2
-const protocolKitOwner2 = await Safe.default.init({
+const protocolKitOwner2 = await Safe.init({
   provider: RPC_URL,
   signer: OWNER_2_PRIVATE_KEY,
   safeAddress: SAFE_ADDRESS
@@ -670,7 +673,7 @@ console.log(`https://kairos.kaiascan.io/tx/${receipt.hash}`)
 7. 取引に必要なすべての署名を確認する
 8. セーフからトランザクションを実行する
 
-では、実際にコードを見てみよう。 ターミナルで`node app.js`を実行すると、次のような出力が表示されるはずだ：
+では、実際にコードを見てみよう。ターミナルで`node app.js`を実行すると、次のような出力が表示されるはずだ：
 
 ```bash
 0xfa537bf8282ae36d933c41d867dee1ced93657094efe60c07180a872bb1388fc
@@ -702,13 +705,13 @@ https://kairos.kaiascan.io/tx/0xad94e0e8fd2d29602825b3815468dedb14221401438a9fbc
 - **暗号化キーストア**：パスワードで暗号化された秘密鍵を含むファイル。
 - **ハードウェア・ウォレット**：オフラインで秘密鍵を保管し、内部でトランザクションに署名する物理的なデバイス。
 - **マルチシグネチャ(Multi-Sig)**：マルチシグネチャ(Multi-Sig) \*\*：一つの取引を承認するために、複数の独立した秘密鍵からの承認を必要とするタイプのウォレット。
-- **秘密鍵**：秘密の英数字の文字列で、所有者は暗号通貨にアクセスし、取引を行うことができる。 決して共有されるべきではない。
-- **公開鍵／アドレス**：資金を受け取るために使用される、一般に共有可能な暗号鍵。 秘密鍵に由来する。
+- **秘密鍵**：秘密の英数字の文字列で、所有者は暗号通貨にアクセスし、取引を行うことができる。決して共有されるべきではない。
+- **公開鍵／アドレス**：資金を受け取るために使用される、一般に共有可能な暗号鍵。秘密鍵に由来する。
 - **シード・フレーズ（またはニーモニック・フレーズ）**\*：暗号ウォレット内の全プライベート鍵のマスター・バックアップとして機能する 12～24 語のリスト。
 
 ### 付録 B: サンプル環境設定
 
-読者がチュートリアルにうまく従い、本ガイドのコード例を再現できるように、実装時に使用する開発環境の構成例を以下に示す。 互換性の問題を避けるために、ローカルセットアップをこれらのバージョンに合わせることをお勧めします。
+読者がチュートリアルにうまく従い、本ガイドのコード例を再現できるように、実装時に使用する開発環境の構成例を以下に示す。互換性の問題を避けるために、ローカルセットアップをこれらのバージョンに合わせることをお勧めします。
 
 **Node.js**
 

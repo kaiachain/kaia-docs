@@ -8,7 +8,7 @@
 
 - 導覽到專案的 **assets** 資料夾。
 - 按一下滑鼠右鍵，然後選取 **Create Folder**。
-- 命名為 **場景**。 (插入圖片)
+- 命名為 **場景**。(插入圖片)
 - 在場景資料夾內，按滑鼠右鍵並選擇 \*\* 建立 → 場景\*\*。
 
 ![](/img/minidapps/cocos-creator/cp-create-scene-r.png)
@@ -84,5 +84,5 @@ Canvas
 ![](/img/minidapps/cocos-creator/cp-ui-view-r.png)
 
 :::note
-若要正確排列元件，請使用 Scene 頂端的對齊工具。 按一下每個元件，並視需要調整其位置
+若要正確排列元件，請使用 Scene 頂端的對齊工具。按一下每個元件，並視需要調整其位置
 :::

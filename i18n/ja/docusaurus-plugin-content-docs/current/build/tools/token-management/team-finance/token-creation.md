@@ -8,7 +8,7 @@
 
 ## はじめに
 
-このチュートリアルでは、Team Finance でトークンを簡単に作成する方法を学びます。 始めよう！
+このチュートリアルでは、Team Finance でトークンを簡単に作成する方法を学びます。始めよう！
 
 1. Team Finance [Token creation](https://app.team.finance/token-creation) タブに移動し、**Create token** をクリックします。
 
@@ -30,16 +30,16 @@
 
 ![](/img/build/tools/token-management/token-creation/tc-step-5.png)
 
-6. トークン作成の詳細を確認し、**Confirm transaction**をクリックして処理を確定します。 ウォレットに移動し、取引に署名して手続きを完了する。
+6. トークン作成の詳細を確認し、**Confirm transaction**をクリックして処理を確定します。ウォレットに移動し、取引に署名して手続きを完了する。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-6.png)
 
-7. 確認後、取引状況を表示するページに移動します。 お取引が確認されるまで、ページからの移動はご遠慮ください。
+7. 確認後、取引状況を表示するページに移動します。お取引が確認されるまで、ページからの移動はご遠慮ください。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7a.png)
 
 ![](/img/build/tools/token-management/token-creation/tc-step-7b.png)
 
-8. おめでとう！ Team Finance を使用してトークンを作成しました。 ダッシュボードでは、作成されたトークンの詳細を表示したり、いくつかのアクションを実行したりできます。
+8. おめでとう！ Team Finance を使用してトークンを作成しました。ダッシュボードでは、作成されたトークンの詳細を表示したり、いくつかのアクションを実行したりできます。
 
 ![](/img/build/tools/token-management/token-creation/tc-step-8.png)

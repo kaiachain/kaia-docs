@@ -6,9 +6,9 @@
 
 Kaiaはメトリック・エクスポート用に以下のフラグを提供しています：
 
-- `--metric`：メトリックの記録を有効にする。 このフラグは通常、`--prometheus`フラグと併用される。
-- `--prometheus`：記録したメトリクスをPrometheusサーバーにエクスポートできるようにする。 このフラグは通常、`--metric`フラグと一緒に使われる。
-- `--prometheusport`：Prometheus メトリクスのポートを指定します。 デフォルトは `61001` である。
+- `--metric`：メトリックの記録を有効にする。このフラグは通常、`--prometheus`フラグと併用される。
+- `--prometheus`：記録したメトリクスをPrometheusサーバーにエクスポートできるようにする。このフラグは通常、`--metric`フラグと一緒に使われる。
+- `--prometheusport`：Prometheus メトリクスのポートを指定します。デフォルトは `61001` である。
 
 メトリクスと Prometheus のエクスポートを有効にするには、`.conf` ファイルで `METRICS` と `PROMETHEUS` の両方を `1` に設定します：
 
@@ -33,9 +33,9 @@ PROMETHEUS=1
 
 ### 2.1 Prometheusのインストール
 
-以下の手順は、Prometheus の手動インストール手順の概要です。 具体的な手順については、お使いのオペレーティングシステムを選択してください。 Prometheusのインストールに関する詳細は、[Prometheus公式ドキュメント](https://prometheus.io/docs/prometheus/latest/getting_started/)を参照してください。
+以下の手順は、Prometheus の手動インストール手順の概要です。具体的な手順については、お使いのオペレーティングシステムを選択してください。 Prometheusのインストールに関する詳細は、[Prometheus公式ドキュメント](https://prometheus.io/docs/prometheus/latest/getting_started/)を参照してください。
 
-1. あなたのアーキテクチャに適した最新のPrometheusリリース（例：darwin-amd64）をPrometheus公式ダウンロードページからダウンロードしてください。 このガイドでは、バージョン2.53.3を例にしています。
+1. あなたのアーキテクチャに適した最新のPrometheusリリース（例：darwin-amd64）をPrometheus公式ダウンロードページからダウンロードしてください。このガイドでは、バージョン2.53.3を例にしています。
 
 ```bash
 curl -LO https://github.com/prometheus/prometheus/releases/download/v2.53.3/prometheus-2.53.3.darwin-arm64.tar.gz
@@ -84,11 +84,11 @@ PrometheusはKaiaノードからメトリクスをスクレイピングするよ
 
 :::info[Prometheus 構成]
 
-`prometheus.yml`ファイルはPrometheusを設定する。  主な項目は以下の通り：
+`prometheus.yml`ファイルはPrometheusを設定する。主な項目は以下の通り：
 
-- \*\*global`**：  evaluation_interval`（Prometheusがルールを評価する頻度）や `scrape_interval`（Prometheusがターゲットをスクレイピングする頻度）のようなグローバルな設定パラメータを設定します。  どちらも15秒が妥当なスタートポイントだが、ニーズやブロックの時間に応じて調整しよう。
+- \*\*global`**：  evaluation_interval`（Prometheusがルールを評価する頻度）や `scrape_interval`（Prometheusがターゲットをスクレイピングする頻度）のようなグローバルな設定パラメータを設定します。どちらも15秒が妥当なスタートポイントだが、ニーズやブロックの時間に応じて調整しよう。
 
-- **`scrape_configs`**：Prometheusが監視するターゲットを定義します。  `job_name`は対象グループを示す。  `static_configs`はターゲットアドレスをリストアップする。  `<ip>`をKaiaノードのIPアドレスに置き換え、ポート（デフォルトでは`61001`）が正しく設定されていることを確認する。
+- **`scrape_configs`**：Prometheusが監視するターゲットを定義します。  `job_name`は対象グループを示す。  `static_configs`はターゲットアドレスをリストアップする。`<ip>`をKaiaノードのIPアドレスに置き換え、ポート（デフォルトでは`61001`）が正しく設定されていることを確認する。
 
 より高度な設定については、[Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)を参照してください。
 
@@ -96,7 +96,7 @@ PrometheusはKaiaノードからメトリクスをスクレイピングするよ
 
 1. `prometheus/prometheus.yml`にある`prometheus.yml`ファイルをテキストエディタで開く。
 
-2. `scrape_configs`セクションにKaiaノードが含まれていることを確認してください。 以下に設定例を示す：
+2. `scrape_configs`セクションにKaiaノードが含まれていることを確認してください。以下に設定例を示す：
 
 ```yaml
 global:
@@ -126,7 +126,7 @@ prometheus --config.file=prometheus/prometheus.yml
 
 ### 2.3 マクロスクリプトを使ったPrometheusの設定（macOS）
 
-このスクリプトは、macOS上でのPrometheusのインストールと設定プロセスを自動化します。 必要に応じて、他のPrometheusのバージョンやオペレーティングシステムに適応させてください。
+このスクリプトは、macOS上でのPrometheusのインストールと設定プロセスを自動化します。必要に応じて、他のPrometheusのバージョンやオペレーティングシステムに適応させてください。
 
 ```sh
 rm -rf prometheus
@@ -166,7 +166,7 @@ Grafanaをセットアップする前に、お使いのシステムが[Grafana�
 
 ### 3.1 Grafanaのインストール
 
-お使いのオペレーティングシステムに適した方法でGrafanaをダウンロードし、インストールする。 例えば、Grafanaを[Hombrewを使ってmacOSに](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) (`brew install grafana`)インストールすることができる。 詳細な手順については、[公式Grafanaインストールガイド](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)を参照してください。
+お使いのオペレーティングシステムに適した方法でGrafanaをダウンロードし、インストールする。例えば、Grafanaを[Hombrewを使ってmacOSに](https://grafana.com/docs/grafana/latest/setup-grafana/installation/mac/) (`brew install grafana`)インストールすることができる。詳細な手順については、[公式Grafanaインストールガイド](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)を参照してください。
 
 ### 3.2 Grafanaの設定
 
@@ -181,7 +181,7 @@ brew services start grafana
 
 その他のOSについては、[Grafana公式ドキュメント](https://grafana.com/docs/grafana/latest/setup-grafana/start-restart-grafana/)を参照してください。
 
-2. ウェブブラウザを開き、`http://localhost:3000`に移動する。 デフォルトの認証情報（admin/admin）を使用してログインする。
+2. ウェブブラウザを開き、`http://localhost:3000`に移動する。デフォルトの認証情報（admin/admin）を使用してログインする。
 
 3. プロメテウスをデータソースとして追加する。
 
@@ -202,13 +202,13 @@ brew services start grafana
 
 :::note[Additional カイア・ダッシュボード］
 
-設定済みのダッシュボードと自動プロビジョニングのセットアップについては、[kaiasprayリポジトリ](https://github.com/kaiachain/kaiaspray/tree/main/roles/monitor-init/files/grafana/dashboards)を参照してください。 このリポジトリには、事前構築されたダッシュボードの JSON ファイルと、データソースをプロビジョニングするための設定ファイルが含まれています。
+設定済みのダッシュボードと自動プロビジョニングのセットアップについては、[kaiasprayリポジトリ](https://github.com/kaiachain/kaiaspray/tree/main/roles/monitor-init/files/grafana/dashboards)を参照してください。このリポジトリには、事前構築されたダッシュボードの JSON ファイルと、データソースをプロビジョニングするための設定ファイルが含まれています。
 
 :::
 
 ### 3.3 マクロスクリプトによるGrafanaの設定（macOS）
 
-このスクリプトは、macOS上でのGrafanaのインストールプロセスを自動化します。 必要に応じて、他のGrafanaのバージョンやオペレーティングシステムに適応させる。
+このスクリプトは、macOS上でのGrafanaのインストールプロセスを自動化します。必要に応じて、他のGrafanaのバージョンやオペレーティングシステムに適応させる。
 
 ```sh
 # Remove any existing Grafana installation
@@ -254,7 +254,7 @@ cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
 - **Prometheusインターフェース**
 
   - **URL:** `http://localhost:9090`
-  - \*\*検証：\*\*ブラウザでこのURLに移動します。 プロメテウスのウェブインターフェイスが表示されるはずです。 **Graph**タブを使用してサンプル・クエリーを実行し、メトリクスがスクレイピングされていることを確認します。
+  - \*\*検証：\*\*ブラウザでこのURLに移動します。プロメテウスのウェブインターフェイスが表示されるはずです。 **Graph**タブを使用してサンプル・クエリーを実行し、メトリクスがスクレイピングされていることを確認します。
 
 - **Grafanaインターフェイス**
 
@@ -262,4 +262,4 @@ cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
   - **デフォルトの認証情報:**。
     - **ユーザー名:** `admin`
     - **パスワード：** `admin`
-  - \*\*確認：\*\*初回ログイン時に、デフォルトパスワードの変更を促すメッセージが表示されます。 ログイン後、Prometheusデータソースが正しく設定され、Kaiaダッシュボードにメトリクスが表示されていることを確認します。
+  - \*\*確認：\*\*初回ログイン時に、デフォルトパスワードの変更を促すメッセージが表示されます。ログイン後、Prometheusデータソースが正しく設定され、Kaiaダッシュボードにメトリクスが表示されていることを確認します。

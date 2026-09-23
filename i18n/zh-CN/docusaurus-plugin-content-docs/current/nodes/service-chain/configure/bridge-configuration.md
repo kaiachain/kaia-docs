@@ -13,7 +13,7 @@ kend.conf "包含以下主桥属性。
 | 名称                                                             | 说明                               |
 | :------------------------------------------------------------- | :------------------------------- |
 | MAIN_BRIDGE                               | 启用网桥服务作为服务链的主网桥。 1 表示启用。         |
-| MAIN_BRIDGE_PORT     | 网桥监听端口。 默认值：50505                |
+| MAIN_BRIDGE_PORT     | 网桥监听端口。默认值：50505                 |
 | MAIN_BRIDGE_INDEXING | 启用服务链事务哈希索引，以便快速访问服务链数据。 1 表示启用。 |
 
 要在 EN 上启用主桥，应按以下步骤操作。
@@ -54,15 +54,15 @@ MAIN_BRIDGE_INDEXING=1
 
 ## 将 SCN 连接到主链<a id="connect-scn-to-the-main-chain"></a>
 
-您需要运行主链的 EN 作为主桥。 您还应确定哪个 SCN（服务链共识节点）作为子桥将与 EN 连接。
+您需要运行主链的 EN 作为主桥。您还应确定哪个 SCN（服务链共识节点）作为子桥将与 EN 连接。
 
 ### 检查 EN（主桥）信息<a id="check-en-(main-bridge)-information"></a>
 
 #### 打开 EN 控制台<a id="open-en-console"></a>
 
-有不同的方法可以附加到 EN 进程中。 您可以在 [ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md)中查看可用命令。 本页介绍通过 IPC（进程间通信）连接进程的方法。 IPC 文件 `klay.ipc` 位于节点上的 `DATA_DIR` 路径中。
+有不同的方法可以附加到 EN 进程中。您可以在 [ken CLI commands](../../../nodes/endpoint-node/ken-cli-commands.md)中查看可用命令。本页介绍通过 IPC（进程间通信）连接进程的方法。 IPC 文件 `klay.ipc` 位于节点上的 `DATA_DIR` 路径中。
 
-请执行以下命令并查看结果。 (如果为 RPC 添加了 `mainbridge` API，则可以像下面这样检查桥接 API。 如果没有 "主桥 "API，则应再次检查 [EN 配置 - 启用主桥](#en-configuration-enable-main-bridge)。 )
+请执行以下命令并查看结果。(如果为 RPC 添加了 `mainbridge` API，则可以像下面这样检查桥接 API。如果没有 "主桥 "API，则应再次检查 [EN 配置 - 启用主桥](#en-configuration-enable-main-bridge)。 )
 
 ```bash
 $ ken attach --datadir ~/kend_home
@@ -77,7 +77,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### 获取 EN's KNI<a id="get-the-ens-kni"></a>
 
-通过 IPC 连接到进程后，可以检查 EN 的主桥 KNI，如下所示。 您可以参考 [Service Chain API](../../../references/json-rpc/subbridge/add-peer)。
+通过 IPC 连接到进程后，可以检查 EN 的主桥 KNI，如下所示。您可以参考 [Service Chain API](../../../references/json-rpc/subbridge/add-peer)。
 
 ```javascript
 > mainbridge.nodeInfo
@@ -115,7 +115,7 @@ at block: 11573551 (Wed, 13 Feb 2019 07:12:52 UTC)
 
 #### 打开 SCN 控制台<a id="open-scn-console"></a>
 
-像下面这样附加到 SCN 流程。 您应该已启用 RPC 的 "subbridge "API，您可以在输出中找到 subbridge 模块。 如果没有 "subbridge "API，则应再次检查[SCN 的配置](../install-service-chain.md#configuration-of-the-scn)。
+像下面这样附加到 SCN 流程。您应该已启用 RPC 的 "subbridge "API，您可以在输出中找到 subbridge 模块。如果没有 "subbridge "API，则应再次检查[SCN 的配置](../install-service-chain.md#configuration-of-the-scn)。
 
 ```bash
 $ kscn attach --datadir ~/kscnd_home

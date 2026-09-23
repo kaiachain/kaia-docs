@@ -4,11 +4,11 @@
 
 #### [Remix Online IDE](https://remix.ethereum.org/)<a href="#remix-ide" id="remix-ide"></a>
 
-Remix Online IDE 是一個功能強大的工具集，用於開發、部署、調試和測試與 EVM 兼容的智能合約。 您可以使用 Kaia Plugin 在 Remix IDE 上編寫、編譯、部署和執行智能合約。
+Remix Online IDE 是一個功能強大的工具集，用於開發、部署、調試和測試與 EVM 兼容的智能合約。您可以使用 Kaia Plugin 在 Remix IDE 上編寫、編譯、部署和執行智能合約。
 
 #### [Kaia 契約精靈](https://wizard.kaia.io)<a href="#kaia-contract-wizard" id="kaia-contract-wizard"></a>
 
-Kaia Contracts Wizard 是一個交互式生成器，用於引導智能合約並瞭解 Kaia Contracts。 它基於 OpenZeppelin 嚮導。
+Kaia Contracts Wizard 是一個交互式生成器，用於引導智能合約並瞭解 Kaia Contracts。它基於 OpenZeppelin 嚮導。
 
 #### [Thirdweb](../deployment-and-verification/deploy/thirdweb.md)<a href="#thirdweb" id="thirdweb"></a>
 
@@ -20,4 +20,4 @@ Kaia 錢包是 Kaia 網絡的瀏覽器擴展錢包。 Kaia 錢包使您能夠存
 
 #### [Kaiascan](https://kaiascan.io/)<a href="#kaiascan" id="kaiascan"></a>
 
-Kaiascan 是 Kaia Network 的區塊探索器。 您可以在瀏覽器上瀏覽和檢查您的交易。
+Kaiascan 是 Kaia Network 的區塊探索器。您可以在瀏覽器上瀏覽和檢查您的交易。

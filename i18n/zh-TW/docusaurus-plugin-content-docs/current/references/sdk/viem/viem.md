@@ -2,7 +2,7 @@
 
 ![](/img/references/kaiaXviem.png)
 
-[Viem](https://viem.sh/)是以太坊的類型碼接口，提供與以太坊和其他 EVM 兼容區塊鏈交互的底層基元。 由於 kaia 支持[Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04)功能，因此 viem 等以太坊工具無需進行任何重大修改即可在 kaia 上使用。
+[Viem](https://viem.sh/)是以太坊的類型碼接口，提供與以太坊和其他 EVM 兼容區塊鏈交互的底層基元。由於 kaia 支持[Ethereum Equivalence](https://medium.com/klaytn/using-ethereum-tools-in-klaytn-dc068d48de04)功能，因此 viem 等以太坊工具無需進行任何重大修改即可在 kaia 上使用。
 
 因此，開發人員可以利用這種兼容性，使用 viem 庫與 kaia 節點進行交互。
 
@@ -34,11 +34,11 @@ cd viem-example
 npm i viem
 ```
 
-在本教程中，我們將創建一系列腳本文件，用於從區塊鏈讀取數據、發送交易以及與現有智能合約交互。 要開始使用，您需要知道如何為每個腳本文件設置 viem。
+在本教程中，我們將創建一系列腳本文件，用於從區塊鏈讀取數據、發送交易以及與現有智能合約交互。要開始使用，您需要知道如何為每個腳本文件設置 viem。
 
 ### 2. 設置公共客戶端和傳輸
 
-首先，您需要用所需的 [Transport](https://viem.sh/docs/clients/intro) 和 [Chain](https://viem.sh/docs/chains/introduction) 設置公共 [客戶端](https://viem.sh/docs/clients/intro)。 公共客戶端是**公共**[JSON-RPC API](https://docs.kaia.io/references/public-en/) 方法的接口，例如通過[公共操作](https://viem.sh/docs/actions/public/introduction)檢索區塊編號、交易、讀取智能合約等。
+首先，您需要用所需的 [Transport](https://viem.sh/docs/clients/intro) 和 [Chain](https://viem.sh/docs/chains/introduction) 設置公共 [客戶端](https://viem.sh/docs/clients/intro)。公共客戶端是**公共**[JSON-RPC API](https://docs.kaia.io/references/public-en/) 方法的接口，例如通過[公共操作](https://viem.sh/docs/actions/public/introduction)檢索區塊編號、交易、讀取智能合約等。
 
 ```ts
 import { createPublicClient, http } from 'viem'
@@ -53,7 +53,7 @@ const client = createPublicClient({
 
 ### 3. 設置錢包客戶端和賬戶
 
-其次，您需要設置一個錢包客戶端與賬戶進行交互。 使用錢包客戶端，您可以通過[錢包操作](https://viem.sh/docs/actions/wallet/introduction)執行檢索賬戶、執行交易、簽署信息等操作。
+其次，您需要設置一個錢包客戶端與賬戶進行交互。使用錢包客戶端，您可以通過[錢包操作](https://viem.sh/docs/actions/wallet/introduction)執行檢索賬戶、執行交易、簽署信息等操作。
 
 ```ts
 import { createWalletClient } from 'viem'
@@ -75,7 +75,7 @@ const account = privateKeyToAccount("PASTE PRIVATE KEY HERE");
 touch read.ts
 ```
 
-創建該文件後，按照上文**設置部分**的步驟設置公共客戶端。 在本節中，您將學習如何從區塊鏈中讀取數據（如 blockNumber、KAIA 餘額）。
+創建該文件後，按照上文**設置部分**的步驟設置公共客戶端。在本節中，您將學習如何從區塊鏈中讀取數據（如 blockNumber、KAIA 餘額）。
 
 要查看實際效果，請在您的 `read.ts` 中粘貼以下代碼。
 
@@ -127,7 +127,7 @@ npx ts-node read.ts
 touch send.ts 
 ```
 
-創建該文件後，按照上文**設置部分**的步驟設置錢包客戶端。 在本節中，您將學習如何向區塊鏈發送交易（例如，向某個地址發送 KAIA）。
+創建該文件後，按照上文**設置部分**的步驟設置錢包客戶端。在本節中，您將學習如何向區塊鏈發送交易（例如，向某個地址發送 KAIA）。
 
 要查看實際效果，請在您的 `send.ts` 中粘貼以下代碼。
 
@@ -178,16 +178,16 @@ npx ts-node send.ts
 touch interact.ts
 ```
 
-創建該文件後，按照上文**設置部分**的步驟設置公共客戶端和錢包客戶端。 在本節中，您將同時使用 viem 和 viem：
+創建該文件後，按照上文**設置部分**的步驟設置公共客戶端和錢包客戶端。在本節中，您將同時使用 viem 和 viem：
 
 - 從合約中讀取；以及
 - 寫入合約。
 
-為編寫本指南，我們在 [Remix IDE](https://remix.ethereum.org/) 上編譯並部署了 simple_storage 合約。 因此，我們將通過調用 `retrieve` 函數從該合約中讀取內容，並通過調用 `store` 函數向該合約發送事務。
+為編寫本指南，我們在 [Remix IDE](https://remix.ethereum.org/) 上編譯並部署了 simple_storage 合約。因此，我們將通過調用 `retrieve` 函數從該合約中讀取內容，並通過調用 `store` 函數向該合約發送事務。
 
 ### 1. 從合約中讀取
 
-為了讀取合約，我們使用了 [readContract](https://viem.sh/docs/contract/readContract#readcontract) 方法，該方法在內部使用 [Public Client](https://viem.sh/docs/clients/public) 調用帶有 [ABI 編碼數據](https://viem.sh/docs/contract/encodeFunctionData) 的 [call action](https://viem.sh/docs/actions/public/call)。 要查看實際效果，請在您的 `interact.js` 中粘貼以下代碼。
+為了讀取合約，我們使用了 [readContract](https://viem.sh/docs/contract/readContract#readcontract) 方法，該方法在內部使用 [Public Client](https://viem.sh/docs/clients/public) 調用帶有 [ABI 編碼數據](https://viem.sh/docs/contract/encodeFunctionData) 的 [call action](https://viem.sh/docs/actions/public/call)。要查看實際效果，請在您的 `interact.js` 中粘貼以下代碼。
 
 ```ts
 import { createPublicClient, http } from 'viem'
@@ -243,7 +243,7 @@ async function readFromContract() {
 
 ### 2. 寫入合約
 
-為了寫入合約，我們使用了 [writeContract](https://viem.sh/docs/contract/writeContract#writecontract) 方法，該方法內部使用 [Wallet Client](https://viem.sh/docs/clients/wallet) 來調用帶有 [ABI 編碼數據](https://viem.sh/docs/contract/encodeFunctionData) 的 [sendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction)。 要查看實際效果，請在您的 `interact.js` 中粘貼以下代碼。
+為了寫入合約，我們使用了 [writeContract](https://viem.sh/docs/contract/writeContract#writecontract) 方法，該方法內部使用 [Wallet Client](https://viem.sh/docs/clients/wallet) 來調用帶有 [ABI 編碼數據](https://viem.sh/docs/contract/encodeFunctionData) 的 [sendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction)。要查看實際效果，請在您的 `interact.js` 中粘貼以下代碼。
 
 ```ts
 import { createWalletClient, http } from 'viem'
@@ -318,7 +318,7 @@ npx ts-node interact.ts
 
 ![](/img/references/viem-interact.png)
 
-有關 viem 的更深入指南，請參閱 [viem docs](https://viem.sh/docs/getting-started)。 此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem) 上找到本指南的完整實現代碼。
+有關 viem 的更深入指南，請參閱 [viem docs](https://viem.sh/docs/getting-started)。此外，您還可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/sdk-and-libraries-for-interacting-with-klaytn-node/viem) 上找到本指南的完整實現代碼。
 
 
 

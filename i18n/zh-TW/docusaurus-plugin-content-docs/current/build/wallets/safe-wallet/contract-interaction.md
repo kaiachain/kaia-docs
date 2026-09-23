@@ -5,12 +5,6 @@ sidebar_label: 合約互動
 
 # 與合約進行互動
 
-:::caution 日落通知
-
-`safe.kaia.io` 將於 **2026 年 8 月 31 日** 停止服務。 今後請使用 [app.safe.global](https://app.safe.global) 上的 Kaia Network 專用 Safe Wallet 來管理您的帳戶。 您現有的「安全帳戶」將自動與「安全錢包」相容。
-
-:::
-
 在本節中，您將使用由 Safe Wallet 管理的 Safe 帳戶，與 Kairos 上的簡單合約進行互動。
 
 **先決條件**
@@ -24,17 +18,17 @@ sidebar_label: 合約互動
 
 **步驟 2：** 編譯並部署一個範例儲存合約（或您自己的合約）。
 
-在從 Safe 進行互動之前，請先部署該合約。 一個典型的範例合約會公開一個 `uint` 變數，您可以透過 `store` 來更新它，並透過 `retrieve` 來讀取它。
+在從 Safe 進行互動之前，請先部署該合約。一個典型的範例合約會公開一個 `uint` 變數，您可以透過 `store` 來更新它，並透過 `retrieve` 來讀取它。
 
 <video autoPlay loop muted playsInline controls aria-label="Compiling and deploying the storage contract in Remix" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-deploy.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-deploy.mp4" type="video/mp4" /> </video>
 
 **步驟 3：** 在 Safe Wallet 中啟動一筆新交易。
 
-點擊 **新交易**。 請輸入已部署的合約地址和 ABI，以便您能選擇方法和參數。
+點擊 **新交易**。請輸入已部署的合約地址和 ABI，以便您能選擇方法和參數。
 
 <video autoPlay loop muted playsInline controls aria-label="Entering the contract address and ABI, then choosing the method and parameters in Safe Wallet" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-init-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-init-tx.mp4" type="video/mp4" /> </video>
 
-**第 4 步：** 檢視並提交。 使用持有者錢包進行簽署；一旦達到確認門檻，交易即會執行。
+**第 4 步：** 檢視並提交。使用持有者錢包進行簽署；一旦達到確認門檻，交易即會執行。
 
 <video autoPlay loop muted playsInline controls aria-label="Reviewing and signing the contract interaction, which executes once the threshold is reached" style={{maxWidth: '100%', borderRadius: '8px'}}> <source src="/img/build/wallets/sg-store-review-tx.webm" type="video/webm" /> <source src="/img/build/wallets/sg-store-review-tx.mp4" type="video/mp4" /> </video>
 

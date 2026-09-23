@@ -1,6 +1,6 @@
 # Role-based Account Key
 
-**AccountKeyRoleBased** 表示基於角色的密鑰。 如果賬戶有一個** AccountKeyRoleBased**對象，且交易類型為**except account update**，那麼驗證過程將根據每個角色進行，如下所示：
+**AccountKeyRoleBased** 表示基於角色的密鑰。如果賬戶有一個** AccountKeyRoleBased**對象，且交易類型為**except account update**，那麼驗證過程將根據每個角色進行，如下所示：
 
 <CH.Spotlight>
 <CH.Code>
@@ -129,7 +129,7 @@ web3_tx_sign_recover_role_based()
 
 ---
 
-創建一個**TxType.VALUE_TRANSFER**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+創建一個**TxType.VALUE_TRANSFER**類型的空事務。您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
 
 ```py web3_role_based_value_transfer_sign_recover.py focus=18
 
@@ -161,7 +161,7 @@ web3_tx_sign_recover_role_based()
 
 ---
 
-使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。 如果您想查看以下內容，可以打印這一行之後的所有字段
+使用 **fill_transaction** 添加交易的**其餘字段**，如**氣量限制**、**Nonce**等。如果您想查看以下內容，可以打印這一行之後的所有字段
 
 ```py web3_role_based_value_transfer_sign_recover.py focus=4,6,24
 

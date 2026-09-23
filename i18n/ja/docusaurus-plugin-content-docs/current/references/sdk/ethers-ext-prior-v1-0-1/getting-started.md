@@ -1,6 +1,5 @@
 > **_NOTE:_**
-> このバージョンは一時的なものです。
-> バージョンをv1.0.1以上にアップグレードしてください。 ethers-ext は ethers v5 または v6 で使用できます。[view](/references/sdk/ethers-ext/getting-started/) を参照してください。
+> このバージョンは一時的なものです。バージョンをv1.0.1以上にアップグレードしてください。 ethers-ext は ethers v5 または v6 で使用できます。[view](/references/sdk/ethers-ext/getting-started/) を参照してください。
 
 # kaia用Ethers.jsエクステンション
 
@@ -14,7 +13,7 @@ kaiaのEthers.js拡張機能：
 
 ## エーテルV6に関する注意事項
 
-`kaiachain/ethers-ext`はethers v5をベースに開発された。 その結果、ethers v6のクラスはethers-extのクラスと互換性がありません。 コードベースでethers v6を使用している場合、ethers v6クラスとethers-extクラスを混在させないでください。 例えば、ethers v6 JsonRpcProviderをethers-ext Walletに提供することはできません。
+`kaiachain/ethers-ext`はethers v5をベースに開発された。その結果、ethers v6のクラスはethers-extのクラスと互換性がありません。コードベースでethers v6を使用している場合、ethers v6クラスとethers-extクラスを混在させないでください。例えば、ethers v6 JsonRpcProviderをethers-ext Walletに提供することはできません。
 
 - **しないでください**：エーテルV6とエーテル・エクステントを混ぜてください。
   ```js

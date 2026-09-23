@@ -5,21 +5,13 @@ sidebar_label: 安全钱包
 
 # 安全钱包
 
-:::caution 日落通知
-
-`safe.kaia.io` 将于 **2026年8月31日** 停止服务。 今后请使用 [app.safe.global](https://app.safe.global) 上的 Kaia 版 **Safe Wallet** 来管理您的账户。
-
-您已经在使用 Kaia Safe 了吗？ 请参阅 **[迁移至 Safe Global](./migrate-to-safe-global.md)** —— 您现有的 Safe 账户不受影响，仍可在 Safe Wallet 上使用。
-
-:::
-
 ## 引言
 
 [Safe](https://safe.global)（Safe Global）为 EVM 网络提供符合行业标准的多签名智能合约账户解决方案。 **Safe Wallet** 是 Safe 推出的一款用于创建和管理此类账户的网页应用——可在 [app.safe.global](https://app.safe.global) 上使用。
 
-Safe Wallet 支持 Kaia 主网和 Kairos 测试网。 连接一个所有者钱包，选择 **Kaia** 或 **Kairos**，然后创建或打开一个保险箱。
+Safe Wallet 支持 Kaia 主网和 Kairos 测试网。连接一个所有者钱包，选择 **Kaia** 或 **Kairos**，然后创建或打开一个保险箱。
 
-在 Kaia 的典型配置中，大多数用户最初都会使用单密钥钱包，例如 Kaia Wallet 或 MetaMask（外部拥有账户，即 EOA）。 这些账户依赖一组密钥，从而形成了单点故障——这不适合组织财务部门使用，例如在[Wintermute黑客事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)中，该组织就因此损失了1.625亿美元。
+在 Kaia 的典型配置中，大多数用户最初都会使用单密钥钱包，例如 Kaia Wallet 或 MetaMask（外部拥有账户，即 EOA）。这些账户依赖一组密钥，从而形成了单点故障——这不适合组织财务部门使用，例如在[Wintermute黑客事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)中，该组织就因此损失了1.625亿美元。
 
 Safe Wallet 消除了这一单点故障：交易执行前，必须由多名所有者根据确认阈值进行签名。
 
@@ -33,7 +25,7 @@ Safe Wallet 消除了这一单点故障：交易执行前，必须由多名所�
 
 多签名钱包是一种数字钱包，它需要来自不同来源的两把、三把或更多把私钥，才能确认并执行加密货币交易。
 
-例如，你可以把多签名钱包想象成一个带有三个锁的保险柜。 这三把钥匙分别由三个人保管，因此必须得到他们的共同同意才能打开它。
+例如，你可以把多签名钱包想象成一个带有三个锁的保险柜。这三把钥匙分别由三个人保管，因此必须得到他们的共同同意才能打开它。
 
 多签名钱包的主要优势：
 
@@ -51,7 +43,7 @@ Safe Wallet 消除了这一单点故障：交易执行前，必须由多名所�
 
 ## 下一步
 
-- [迁移至 Safe Global](./migrate-to-safe-global.md) — 从 `safe.kaia.io` 切换（现有账户保持不变）
 - [在 Kaia 上使用 Safe 钱包](./use-safe-wallet.md) — 创建 Safe、添加资产并发起交易
 - [概述](./overview.md) — 网络与 Safe Global 资源
-- [常见问题解答](./faqs.md) — 有关迁移和账户管理的问题
+- [常见问题解答](./faqs.md) — 账户管理相关问题
+- [迁移至 Safe Global](./migrate-to-safe-global.md) —— 您是从已停用的 `safe.kaia.io` 过来的吗？您的账户信息保持不变

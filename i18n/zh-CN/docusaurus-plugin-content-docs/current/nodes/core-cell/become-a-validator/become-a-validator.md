@@ -4,13 +4,13 @@
 
 :::info 无许可阶段 1
 
-本指南介绍现有全球控制中心如何在**无权限第一阶段**期间通过验证器管理门户管理其验证器。 通过无许可网络向任何人开放参与将在\*\*第二阶段（计划于 9 月下旬）\*\*进行，届时本指南将进行更新。 详见 [无权限实施概述](https://govforum.kaia.io/t/permissionless-implementation-overview/1218) 和 [PGT 路线图](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447)。
+本指南介绍现有全球控制中心如何在**无权限第一阶段**期间通过验证器管理门户管理其验证器。通过无许可网络向任何人开放参与将在\*\*第二阶段（计划于 9 月下旬）\*\*进行，届时本指南将进行更新。详见 [无权限实施概述](https://govforum.kaia.io/t/permissionless-implementation-overview/1218) 和 [PGT 路线图](https://govforum.kaia.io/t/pgt-permissionless-governance-tokenomics-roadmap-introduction/1447)。
 
 :::
 
-Kaia 提供[验证器管理门户](https://portal.kaia.io/validators)，用于注册和管理验证器信息。 本指南将向您介绍验证者如何使用门户网站加入 Kaia 网络。
+Kaia 提供[验证器管理门户](https://portal.kaia.io/validators)，用于注册和管理验证器信息。本指南将向您介绍验证者如何使用门户网站加入 Kaia 网络。
 
-由于验证器操作所需的信息必须记录在链上合约中，因此任何验证器都可以使用门户网站发送写入或更新该信息的交易。 该门户网站还可让验证者在将新验证者加入 Kaia 网络或将现有验证者从 Kaia 网络中撤出时，管理他们拥有的定标合同。
+由于验证器操作所需的信息必须记录在链上合约中，因此任何验证器都可以使用门户网站发送写入或更新该信息的交易。该门户网站还可让验证者在将新验证者加入 Kaia 网络或将现有验证者从 Kaia 网络中撤出时，管理他们拥有的定标合同。
 
 该门户网站目前支持以下功能。
 
@@ -25,7 +25,7 @@ Kaia 提供[验证器管理门户](https://portal.kaia.io/validators)，用于�
 
 :::note
 
-testnet 也支持上述所有功能。 我们建议首先在 testnet 上执行任何测试操作。
+testnet 也支持上述所有功能。我们建议首先在 testnet 上执行任何测试操作。
 
 :::
 

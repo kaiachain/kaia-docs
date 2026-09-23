@@ -9,7 +9,7 @@ Foundry 是一個用 Rust 編寫的智能合約開發框架，開發人員可以
 Foundry 由四個主要 CLI 工具組成，可實現快速、模塊化的智能合約開發，它們是
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)：  您可以使用 Forge 部署、測試和編譯智能合約。
-- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：Cast 使與 EVM 智能合約的交互變得簡單。 這包括獲取鏈數據、發送交易等。
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)：Cast 使與 EVM 智能合約的交互變得簡單。這包括獲取鏈數據、發送交易等。
 - [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)：您需要啟動本地節點嗎？ Anvil 是 Foundry 提供的本地節點環境。
 - [Chisel](https://github.com/foundry-rs/foundry/blob/master/chisel)：快速、實用、冗長的 solidity REPL。
 
@@ -42,7 +42,7 @@ forge -V
 
 ![](/img/build/get-started/forge-version.png)
 
-成功安裝 Foundry 後，您現在可以使用 Foundry 中的 CLI 工具（鍛造、鑄造、鐵砧、鑿子）。 讓我們按以下步驟建立一個代工廠項目：
+成功安裝 Foundry 後，您現在可以使用 Foundry 中的 CLI 工具（鍛造、鑄造、鐵砧、鑿子）。讓我們按以下步驟建立一個代工廠項目：
 
 **步驟 1**：要啟動一個新項目，請運行以下命令：
 
@@ -74,7 +74,7 @@ cd foundry_example
 kairos_rpc_url=paste_rpc_url
 ```
 
-接下來是編輯 `foundry.toml` 檔案。 您應該已經在 Scaffold 之後的專案根目錄中有一個。
+接下來是編輯 `foundry.toml` 檔案。您應該已經在 Scaffold 之後的專案根目錄中有一個。
 
 在檔案末尾加入以下幾行：
 
@@ -227,7 +227,7 @@ forge script --chain 1001 script/Counter.s.sol:CounterScript --rpc-url $KAIROS_R
 
 ## Interacting with the contract
 
-成功部署您的智慧型契約後，下一步通常是透過呼叫並執行其功能來與它互動。 讓我們直接使用 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) 與 Kaia Kairos Network 上已部署的合約互動。
+成功部署您的智慧型契約後，下一步通常是透過呼叫並執行其功能來與它互動。讓我們直接使用 [Cast](https://book.getfoundry.sh/reference/cast/cast-send.html) 與 Kaia Kairos Network 上已部署的合約互動。
 
 In this section, you will learn how to use the [cast call](https://book.getfoundry.sh/reference/cast/cast-call) to execute the `read-only` function and [cast send](https://book.getfoundry.sh/reference/cast/cast-send) to execute `write` functions.
 
@@ -452,14 +452,14 @@ forge script --chain 1001 script/NFT.s.sol:NFTScript --rpc-url $KAIROS_RPC_URL -
 ```
 
 :::note
-氣體估計乘數」旗號設定所有氣體估計乘以的相對百分比。 將其設定為 200，就等於將氣體估計值加倍，讓您的合約部署有足夠的空間順利完成。
+氣體估計乘數」旗號設定所有氣體估計乘以的相對百分比。將其設定為 200，就等於將氣體估計值加倍，讓您的合約部署有足夠的空間順利完成。
 :::
 
 ![](/img/build/get-started/gas-estimation-fixed.png)
 
 ## 總結
 
-如果您成功完成本指南，恭喜您。 如果您有任何問題，請造訪 [Kaia 論壇](https://devforum.kaia.io/)。 不過，以下是您在 Kaia 上使用 Foundry 進一步建置時可能需要的有用資源清單。
+如果您成功完成本指南，恭喜您。如果您有任何問題，請造訪 [Kaia 論壇](https://devforum.kaia.io/)。不過，以下是您在 Kaia 上使用 Foundry 進一步建置時可能需要的有用資源清單。
 
 - [Foundry Docs](https://book.getfoundry.sh/)
 - [Cyfrin Foundry Fundamentals](https://updraft.cyfrin.io/courses/foundry)

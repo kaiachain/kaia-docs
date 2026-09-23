@@ -3,8 +3,7 @@
 **AccountKeyWeightedMultiSig**は、閾値とWeightedPublicKeys（公開鍵とその重みからなるリスト）を含むアカウント鍵タイプである。
 
 **AccountKeyWeightedMultiSig**に関連付けられたアカウントで取引が有効であるためには、 以下の条件を満たす必要がある：
-署名された公開鍵の加重和が閾値より大きいこと。
-無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
+署名された公開鍵の加重和が閾値より大きいこと。無効な署名はトランザクションに含めるべきでない。 \* 署名された公開鍵の数は、weightedPublicKeysの数より少なくなければならない。
 
 <CH.Spotlight>
 <CH.Code>
@@ -105,7 +104,7 @@ Web3jとkaiaライブラリ(`web3j-ext`)から必要なクラスをインポー�
 
 ---
 
-また、デフォルトのプロバイダーを変更することもできる。 例えば、錬金術のプロバイダーを使う。
+また、デフォルトのプロバイダーを変更することもできる。例えば、錬金術のプロバイダーを使う。
 
 ```java SignMsgWithMultiSigExample.java focus=23
 package org.web3j.example.accountKey;
@@ -183,7 +182,7 @@ public class SignMsgWithMultiSigExample implements keySample {
 
 ---
 
-**credentials1**の\*\*アドレスを取得する。 このアドレスは、回収されたアドレスを検証するために使用される。
+**credentials1**の\*\*アドレスを取得する。このアドレスは、回収されたアドレスを検証するために使用される。
 
 ```java SignMsgWithMultiSigExample.java focus=30
 

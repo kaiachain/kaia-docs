@@ -1,6 +1,6 @@
 # WebGL 建立設定
 
-在本節中，我們將為網頁配置我們的 dApp！ 這將設定 Unity 與 Web3 相容，並建立 Kaia 整合的自訂範本。
+在本節中，我們將為網頁配置我們的 dApp！這將設定 Unity 與 Web3 相容，並建立 Kaia 整合的自訂範本。
 
 ## 步驟 1：切換至 WebGL 平台
 
@@ -15,7 +15,7 @@
 
 ## 步驟 2：建立自訂 WebGL 模版
 
-我們需要自訂範本來整合 Web3 功能。 這是我們的資料夾結構：
+我們需要自訂範本來整合 Web3 功能。這是我們的資料夾結構：
 
 ```code
 Assets/
@@ -30,7 +30,7 @@ Assets/
 
 \*\*為何要自訂範本？
 
-預設的 Unity 模版不包含 Web3 支援。 我們的自訂範本將：
+預設的 Unity 模版不包含 Web3 支援。我們的自訂範本將：
 
 - 載入必要的 Web3 函式庫。
 - 啟用 Kaia Wallet 整合。
@@ -228,7 +228,7 @@ Assets/
 ## 步驟 4：設定 Mini Dapp SDK
 
 1. 請造訪：https://static.kaiawallet.io/js/dapp-portal-sdk.js
-2. 將內容儲存到您的 `scripts/dapp-portal-sdk.js` 中。 使用本機 Mini Dapp SDK 檔案可改善載入時間和可靠性。
+2. 將內容儲存到您的 `scripts/dapp-portal-sdk.js` 中。使用本機 Mini Dapp SDK 檔案可改善載入時間和可靠性。
 
 :::note
 另外，您也可以直接將 Mini Dapp SDK 的連結加入您的 `index.html` 中的 `script` 標籤的 `src` 中。
@@ -282,7 +282,7 @@ minidapp/
 
 ## 步驟 8：將 WebGL 建立路由至 Localhost:3000
 
-為了安全和開發目的，Mini Dapp SDK 目前在 localhost:3000 上運作。 目前，預設的 Unity WebGL 建置使用隨機連接埠 (如 61445)，為了讓我們的應用程式能有效運作，我們需要設定我們的 Unity WebGL 建置開啟於 localhost:3000。
+為了安全和開發目的，Mini Dapp SDK 目前在 localhost:3000 上運作。目前，預設的 Unity WebGL 建置使用隨機連接埠 (如 61445)，為了讓我們的應用程式能有效運作，我們需要設定我們的 Unity WebGL 建置開啟於 localhost:3000。
 
 若要執行，請遵循下列步驟：
 

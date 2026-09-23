@@ -80,6 +80,14 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 ## RPC Service Providers
 
+:::caution Thông báo về giờ hoàng hôn
+
+Dịch vụ hỗ trợ Kaia trên **Ankr** sẽ kết thúc vào ngày **16 tháng 10 năm 2026**. Sau ngày đó, tất cả các điểm cuối RPC của Ankr trỏ đến các chuỗi Kaia sẽ ngừng hoạt động và không còn phản hồi nữa.
+
+Nếu ứng dụng của bạn gửi các lệnh RPC Kaia đến Ankr, hãy thực hiện theo hướng dẫn **[Chuyển đổi từ Ankr](./migrate-from-ankr.md)** trước ngày ngừng hỗ trợ. Đối với hầu hết các dự án, đây chỉ là một thay đổi nhỏ ở điểm cuối, chỉ cần một dòng mã.
+
+:::
+
 Below is the list of Kaia’s Public Node Providers.
 
 ### Kaia API Service (KAS)
@@ -124,6 +132,23 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - [Đăng ký](https://chainstack.com/pricing/)
 - [Trang web](https://chainstack.com/)
 
+### Thuật giả kim
+
+Alchemy cung cấp cơ sở hạ tầng RPC được quản lý kèm theo các điểm cuối được lưu trữ dành cho Kaia, cùng với các công cụ dành cho nhà phát triển, bảng điều khiển và phân tích sử dụng.
+
+#### Features
+
+- Các điểm cuối HTTPS và WebSocket được lưu trữ cho Kaia
+- Bảng điều khiển sử dụng và phân tích yêu cầu
+- Có gói miễn phí, cùng với các gói trả phí dành cho băng thông cao hơn
+- Vui lòng tham khảo tài liệu của Alchemy để biết về các giao diện API có sẵn trên Kaia
+
+#### References
+
+- [Kaia nói về thuật giả kim](https://www.alchemy.com/rpc/kaia)
+- [Tài liệu](https://www.alchemy.com/docs)
+- [Trang web](https://www.alchemy.com/)
+
 ### All That Node
 
 All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
@@ -157,7 +182,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 - 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
 - Community support
 
-#### References
+#### Tài liệu tham khảo
 
 - [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
 - [Pricing](https://tatum.io/pricing)
@@ -211,22 +236,6 @@ Grove hỗ trợ hơn 50 blockchain và liên tục bổ sung thêm nhiều bloc
 - [Trang web Grove](https://grove.city/)
 - [Trang web Pocket Network](https://pocket.network)
 - [Cổng Grove](https://portal.grove.city)
-
-### ANKR
-
-Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
-
-#### Features
-
-- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-- Discord and Support Portal for the free plan, and dedicated support for the premium.
-- WebSocket is available for the premium plan.
-
-#### References
-
-- [Docs](https://www.ankr.com/docs/build-blockchain/overview)
-- [Subscription](https://www.ankr.com/rpc/pricing/)
-- [Website](https://www.ankr.com/rpc/)
 
 ### NodeReal
 
@@ -320,6 +329,32 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)
+
+### ANKR
+
+:::caution Thông báo về giờ hoàng hôn
+
+Dịch vụ hỗ trợ Kaia trên **Ankr** sẽ kết thúc vào ngày **16 tháng 10 năm 2026**. Sau ngày đó, tất cả các điểm cuối RPC của Ankr trỏ đến các chuỗi Kaia sẽ ngừng hoạt động và không còn phản hồi nữa.
+
+Nếu ứng dụng của bạn gửi các lệnh RPC Kaia đến Ankr, hãy thực hiện theo hướng dẫn **[Chuyển đổi từ Ankr](./migrate-from-ankr.md)** trước ngày ngừng hỗ trợ. Đối với hầu hết các dự án, đây chỉ là một thay đổi nhỏ ở điểm cuối, chỉ cần một dòng mã.
+
+:::
+
+Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
+
+Dịch vụ hỗ trợ Kaia sẽ được cung cấp **đến ngày 16 tháng 10 năm 2026**.
+
+#### Tính năng
+
+- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
+- Discord and Support Portal for the free plan, and dedicated support for the premium.
+- WebSocket is available for the premium plan.
+
+#### Tài liệu tham khảo
+
+- [Docs](https://www.ankr.com/docs/build-blockchain/overview)
+- [Subscription](https://www.ankr.com/rpc/pricing/)
+- [Website](https://www.ankr.com/rpc/)
 
 ## Useful Resources
 

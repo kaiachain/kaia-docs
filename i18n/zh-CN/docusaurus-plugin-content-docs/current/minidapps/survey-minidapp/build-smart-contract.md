@@ -292,7 +292,7 @@ SurveyFactory 合约是用于部署新调查合约的工厂模式实现。
 
 在本节中，我们将使用 [hardhat-deploy](https://github.com/wighawag/hardhat-deploy) 将我们的合同部署到 localhost 网络；这是一个用于可复制部署和测试的 hardhat 插件。
 
-下一步是在合同文件夹中新建一个名为**deploy**的文件夹，然后单击 "新建文件 "按钮新建一个名为**deploy.ts**的文件。 然后将以下代码复制并粘贴到文件中。
+下一步是在合同文件夹中新建一个名为**deploy**的文件夹，然后单击 "新建文件 "按钮新建一个名为**deploy.ts**的文件。然后将以下代码复制并粘贴到文件中。
 
 ```solidity
 import { HardhatRuntimeEnvironment } from "hardhat/types";

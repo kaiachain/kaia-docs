@@ -16,7 +16,7 @@
    - Premint：100 (初始代幣供應)
    - 功能：檢查 ✅ 可鑄造
 
-在本指南中，我們將調整 mint 函式，使其沒有 onlyOwner 修改器。 要做到這一點，我們必須移除 ownable.sol 的匯入，以及 Ownable 的繼承。 調整後的程式碼應該是這樣的：
+在本指南中，我們將調整 mint 函式，使其沒有 onlyOwner 修改器。要做到這一點，我們必須移除 ownable.sol 的匯入，以及 Ownable 的繼承。調整後的程式碼應該是這樣的：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -60,12 +60,12 @@ contract ExampleTokens is KIP7 {
    - 按一下「確認」以部署到 Kaia Kairos Testnet。
 
 :::important
-複製並儲存已部署的合約位址。 您在稍後的教學中會用到它。
+複製並儲存已部署的合約位址。您在稍後的教學中會用到它。
 :::
 
 ## 建立 Unity-Web3 橋接
 
-現在我們要建立 Unity 與 Web3 功能之間的重要連結。 這是我們將區塊鏈功能帶入您的 Unity 應用程式的地方！
+現在我們要建立 Unity 與 Web3 功能之間的重要連結。這是我們將區塊鏈功能帶入您的 Unity 應用程式的地方！
 
 ### 第 1 部分：建立外掛橋接器 (kaiaPlugin.jslib)
 
@@ -80,7 +80,7 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. 為什麼要使用 .jslib？ 將其視為 Unity 的 C# 與瀏覽器的 JavaScript 之間的轉譯器 - Web3 互動的必要元件！
+2. 為什麼要使用 .jslib？將其視為 Unity 的 C# 與瀏覽器的 JavaScript 之間的轉譯器 - Web3 互動的必要元件！
 
 3. 外掛程式將處理三個核心功能：
    - ConnectWallet() - 處理 Kaia Wallet 連線

@@ -1,6 +1,5 @@
 > **_NOTE:_**
-> 這個版本將是臨時的。
-> 請將版本升級到 v1.0.1 以上。 您可以在 ethers v5 或 v6 中使用 ethers-ext，請參閱 [view](/references/sdk/ethers-ext/getting-started/)。
+> 這個版本將是臨時的。請將版本升級到 v1.0.1 以上。您可以在 ethers v5 或 v6 中使用 ethers-ext，請參閱 [view](/references/sdk/ethers-ext/getting-started/)。
 
 # kaia 的 Ethers.js 擴展
 
@@ -14,7 +13,7 @@ kaia 提供的 Ethers.js 擴展：
 
 ## ethers v6 注意事項
 
-`@kaiachain/ethers-ext` 是基於 ethers v5 開發的。 因此，ethers v6 類與 ethers-ext 類不兼容。 如果在代碼庫中使用 ethers v6，請勿將 ethers v6 類與 ethers-ext 類混合使用。 例如，ether v6 JsonRpcProvider 無法提供給 ethers-ext Wallet。
+`@kaiachain/ethers-ext` 是基於 ethers v5 開發的。因此，ethers v6 類與 ethers-ext 類不兼容。如果在代碼庫中使用 ethers v6，請勿將 ethers v6 類與 ethers-ext 類混合使用。例如，ether v6 JsonRpcProvider 無法提供給 ethers-ext Wallet。
 
 - **請勿**：混合使用 Ethers v6 和 Ethers-ext
   ```js

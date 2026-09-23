@@ -5,21 +5,13 @@ sidebar_label: セーフ・ウォレット
 
 # セーフ・ウォレット
 
-:::caution 日没に関するお知らせ
-
-`safe.kaia.io` は **2026年8月31日** にサービス終了となります。 今後、Kaiaのアカウントを管理する際は、[app.safe.global](https://app.safe.global) の**Safe Wallet**をご利用ください。
-
-すでに「Kaia Safe」をご利用ですか？ **[Safe Global への移行](./migrate-to-safe-global.md)** をご覧ください。既存の Safe アカウントには影響がなく、Safe Wallet で引き続きご利用いただけます。
-
-:::
-
 ## はじめに
 
 [Safe](https://safe.global)（Safe Global）は、EVMネットワーク向けの業界標準となるマルチシグ・スマートアカウント・スタックを提供しています。 **Safe Wallet** は、こうしたアカウントの作成や管理を行うための Safe のウェブアプリです。[app.safe.global](https://app.safe.global) からご利用いただけます。
 
-Safe Walletでは、KaiaメインネットおよびKairosテストネットに対応しています。 オーナーウォレットを接続し、**Kaia** または **Kairos** を選択してから、セーフを作成または開きます。
+Safe Walletでは、KaiaメインネットおよびKairosテストネットに対応しています。オーナーウォレットを接続し、**Kaia** または **Kairos** を選択してから、セーフを作成または開きます。
 
-Kaiaでの一般的な設定では、ほとんどのユーザーは、Kaia WalletやMetaMaskなどのシングルキーウォレット（外部所有アカウント、EOA）から利用を開始します。 こうしたアカウントは1組の鍵ペアに依存しており、単一障害点を生み出してしまう。これは、1億6,250万ドルの損失が出た[Wintermuteハッキング事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)のように、組織の財務部門には不向きである。
+Kaiaでの一般的な設定では、ほとんどのユーザーは、Kaia WalletやMetaMaskなどのシングルキーウォレット（外部所有アカウント、EOA）から利用を開始します。こうしたアカウントは1組の鍵ペアに依存しており、単一障害点を生み出してしまう。これは、1億6,250万ドルの損失が出た[Wintermuteハッキング事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)のように、組織の財務部門には不向きである。
 
 Safe Wallet はこの単一障害点を解消します。取引が実行されるには、確認閾値に従って複数の所有者が署名する必要があります。
 
@@ -51,7 +43,7 @@ Safe Wallet はこの単一障害点を解消します。取引が実行され�
 
 ## 今後の手順
 
-- [Safe Global への移行](./migrate-to-safe-global.md) — `safe.kaia.io` から移行します（既存のアカウントは変更されません）
 - [KaiaでSafe Walletを使用する](./use-safe-wallet.md) — Safeを作成し、資産を追加し、取引を送信する
 - [概要](./overview.md) — ネットワークおよびSafe Globalのリソース
-- [よくある質問](./faqs.md) — 移行およびアカウント管理に関する質問
+- [よくある質問](./faqs.md) — アカウント管理に関する質問
+- [Safe Global への移行](./migrate-to-safe-global.md) — 廃止された `safe.kaia.io` から移行されますか？お客様の口座には変更はありません

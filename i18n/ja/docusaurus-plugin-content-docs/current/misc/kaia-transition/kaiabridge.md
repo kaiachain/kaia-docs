@@ -1,6 +1,6 @@
 # カイアブリッジ
 
-Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaiaネットワーク上のKAIAトークンに固定スワップレートでスワップすることができます。 スワップは、Kaiabridgeと総称される一連のスマートコントラクトとプログラムによって仲介される。
+Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaiaネットワーク上のKAIAトークンに固定スワップレートでスワップすることができます。スワップは、Kaiabridgeと総称される一連のスマートコントラクトとプログラムによって仲介される。
 
 オンラインツールキット](https://toolkit.kaia.io/kaiaBridge)でカイアブリッジにアクセスし、使用することができます。
 
@@ -21,7 +21,7 @@ Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaia
 
 #### リカバリーフレーズ
 
-アカウントが回復フレーズとしてのみエクスポートできる場合は、回復フレーズから生の秘密鍵を計算します。 BIP-39の派生パスをサポートするツールであれば、どのようなものでも使用できます。 そのようなツールには、[ethers.js](https://docs.ethers.org/v6/api/wallet/#HDNodeWallet)、[viem](https://viem.sh/docs/accounts/local/hdKeyToAccount)、[Foundry](https://getfoundry.sh/cast/reference/wallet/)、[BIP39ツール](https://github.com/iancoleman/bip39)などがある。 Finschiaウォレットは、デフォルトの派生パスとして「m/44'/438'/0'/0/0」パス（[SLIP-044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)に基づく）を使用することがよくあります。 Finschiaウォレットに複数のアカウントがある場合、または異なる設定を使用している場合は、他の派生パスを使用する必要がある場合があります。
+アカウントが回復フレーズとしてのみエクスポートできる場合は、回復フレーズから生の秘密鍵を計算します。 BIP-39の派生パスをサポートするツールであれば、どのようなものでも使用できます。そのようなツールには、[ethers.js](https://docs.ethers.org/v6/api/wallet/#HDNodeWallet)、[viem](https://viem.sh/docs/accounts/local/hdKeyToAccount)、[Foundry](https://getfoundry.sh/cast/reference/wallet/)、[BIP39ツール](https://github.com/iancoleman/bip39)などがある。 Finschiaウォレットは、デフォルトの派生パスとして「m/44'/438'/0'/0/0」パス（[SLIP-044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)に基づく）を使用することがよくあります。 Finschiaウォレットに複数のアカウントがある場合、または異なる設定を使用している場合は、他の派生パスを使用する必要がある場合があります。
 
 秘密鍵の計算が完了したら、上記の[生の秘密鍵を使用する場合](#with-raw-private-key)の指示に従ってください。
 
@@ -43,7 +43,7 @@ Finschiaユーザーは、Finshiaネットワーク上のFNSAトークンをKaia
 :::note[Example ファウンドリーツールを使って］
 
 1. Foundry](https://getfoundry.sh/)をインストールする。
-2. リカバリーのフレーズを `--mnemonic` に入れて、以下のコマンドを入力する。 生の秘密鍵が印刷される。
+2. リカバリーのフレーズを `--mnemonic` に入れて、以下のコマンドを入力する。生の秘密鍵が印刷される。
    ```
    cast wallet private-key --mnemonic "test test test test test test test junk" --mnemonic-derivation-path "m/44'/438'/0'/0/0"
    ```
@@ -58,7 +58,7 @@ MetaMaskを使用している場合、Kaia Mainnetを手動でネットワーク
 
 ### 3. アカウントにガソリンを入れる
 
-スワップ取引を行うにはガソリンが必要です。 詳しくは「KAIA取得」(https://docs.kaia.io/build/get-started/getting-kaia/)を参照。
+スワップ取引を行うにはガソリンが必要です。詳しくは「KAIA取得」(https://docs.kaia.io/build/get-started/getting-kaia/)を参照。
 
 ガソリン代として最低でも0.1KAIAを用意することをお勧めする。
 
@@ -66,8 +66,7 @@ MetaMaskを使用している場合、Kaia Mainnetを手動でネットワーク
 
 :::warning[This スワップは不可逆的］
 
-提供および請求のリクエストは一度しか処理できず、取り消すことはできない。
-これらの指示に従う前に、よくお読みください。
+提供および請求のリクエストは一度しか処理できず、取り消すことはできない。これらの指示に従う前に、よくお読みください。
 
 :::
 
@@ -79,8 +78,7 @@ Connect MetaMask "ボタンをクリックする。
 
 <p align="center"><img src="/img/misc/kaiabridge_connect_metamask.png" alt="Connect MetaMask" width="30%"/></p>
 
-アカウント」に自分の住所が表示されているか確認する。
-そうでない場合は、MetaMaskエクステンションを開き、ページに接続されていないと表示されるかどうかを確認する。 もしそうなら、"connect account "ボタンを押してください。
+アカウント」に自分の住所が表示されているか確認する。そうでない場合は、MetaMaskエクステンションを開き、ページに接続されていないと表示されるかどうかを確認する。もしそうなら、"connect account "ボタンを押してください。
 
 <p align="center"><img src="/img/misc/kaiabridge_connect_account.png" alt="Connect Account" width="30%"/></p>
 
@@ -94,11 +92,11 @@ Connect MetaMask "ボタンをクリックする。
 
 #### 2. カイア・メインネットに切り替える
 
-ネットワークを "Kaia Mainnet "または "Mainnet "に正しく設定したか確認してください。 そうでない場合は、カイア・メインネットに切り替えてください。 MetaMaskをご利用で、MetaMaskにKaia Mainnetのネットワークが追加されていない場合は、[ネットワークの確認](#2-check-your-network)をご参照ください。
+ネットワークを "Kaia Mainnet "または "Mainnet "に正しく設定したか確認してください。そうでない場合は、カイア・メインネットに切り替えてください。 MetaMaskをご利用で、MetaMaskにKaia Mainnetのネットワークが追加されていない場合は、[ネットワークの確認](#2-check-your-network)をご参照ください。
 
 #### 3. フィンシャのアドレスを導き出す
 
-Derive Finschia address "をクリックする。 メッセージへの署名を求められたら、"Confirm "または "Sign "をクリックする。
+Derive Finschia address "をクリックする。メッセージへの署名を求められたら、"Confirm "または "Sign "をクリックする。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_sign_metamask.png" alt="Sign message in MetaMask" style={{width: "30%"}} />
@@ -126,7 +124,7 @@ Derive Finschia address "をクリックする。 メッセージへの署名を
 
 #### 4. 要求条項
 
-提供要請」をクリックする。 メッセージへの署名とトランザクションの送信を求められたら、"confirm "をクリックする。
+提供要請」をクリックする。メッセージへの署名とトランザクションの送信を求められたら、"confirm "をクリックする。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_confirm_provision_metamask.png" alt="Confirm provision transaction request in MetaMask" style={{width: "30%"}} />
@@ -134,8 +132,7 @@ Derive Finschia address "をクリックする。 メッセージへの署名を
 </div>
 
 <br/><br/>
-処理には数秒かかるはずだ。 トランザクションが完了するまで待つ。
-結果はページで確認できる。
+処理には数秒かかるはずだ。トランザクションが完了するまで待つ。結果はページで確認できる。
 
 <p align="center"><img src="/img/misc/kaiabridge_provision_success.png" alt="Provision request successful" width="80%"/></p>
 
@@ -144,7 +141,7 @@ Derive Finschia address "をクリックする。 メッセージへの署名を
 
 #### 5. 請求
 
-請求する」をクリックします。 取引送信のプロンプトが表示されたら、"confirm "をクリックします。
+請求する」をクリックします。取引送信のプロンプトが表示されたら、"confirm "をクリックします。
 
 <div style={{display: "flex", justifyContent: "space-evenly"}}>
   <img src="/img/misc/kaiabridge_confirm_claim_metamask.png" alt="Confirm claim transaction request in MetaMask" style={{width: "30%"}} />
@@ -152,10 +149,9 @@ Derive Finschia address "をクリックする。 メッセージへの署名を
 </div>
 
 <br/><br/>
-処理には数秒かかるはずだ。 トランザクションが完了するまで待つ。
-結果はページで確認できる。
+処理には数秒かかるはずだ。トランザクションが完了するまで待つ。結果はページで確認できる。
 
 <p align="center"><img src="/img/misc/kaiabridge_claim_success.png" alt="Claim request successful" width="80%"/></p>
 
 <br/>
-最新の残高をご確認ください。 請求金額は、(あなたのコニー残高) * (換算レート、約148)を[kei](https://docs.kaia.io/learn/token-economics/kaia-native-token/#units-of-kaia-)単位で表したものです。
+最新の残高をご確認ください。請求金額は、(あなたのコニー残高) * (換算レート、約148)を[kei](https://docs.kaia.io/learn/token-economics/kaia-native-token/#units-of-kaia-)単位で表したものです。

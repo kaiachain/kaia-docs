@@ -4,7 +4,7 @@
 
 ## はじめに
 
-[Orakl Network](https://docs.orakl.network)は、スマートコントラクトがオフチェーンのデータやその他のリソースに安全にアクセスできるようにする分散型オラクルネットワークである。 データフィード](https://docs.orakl.network/developers-guide/data-feed)、[VRF](https://docs.orakl.network/developers-guide/vrf)、[リクエスト・レスポンス](https://docs.orakl.network/developers-guide/request-response)、[プルーフ・オブ・リザーブ](https://docs.orakl.network/developers-guide/proof-of-reserve)のソリューションを提供するネイティブ・トークン・オラクルであることを誇りとしている。
+[Orakl Network](https://docs.orakl.network)は、スマートコントラクトがオフチェーンのデータやその他のリソースに安全にアクセスできるようにする分散型オラクルネットワークである。データフィード](https://docs.orakl.network/developers-guide/data-feed)、[VRF](https://docs.orakl.network/developers-guide/vrf)、[リクエスト・レスポンス](https://docs.orakl.network/developers-guide/request-response)、[プルーフ・オブ・リザーブ](https://docs.orakl.network/developers-guide/proof-of-reserve)のソリューションを提供するネイティブ・トークン・オラクルであることを誇りとしている。
 
 Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Networkを使えば、ユーザーはスマートコントラクトに予測不可能で偏りのないランダム性を供給することができる。 Orakl Network [Verifiable Random Function (VRF)](https://docs.orakl.network/developers-guide/vrf#what-is-verifiable-random-function)は、スマートコントラクトが検証可能なランダム値を生成することを可能にし、ランダム性を必要とする様々なdAppsで使用することができる。 オラクルネットワークは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。 Orakl Networkは、2つの異なるアカウントタイプを通じて、開発者にVRFサービスへのアクセスを提供します：[恒久アカウント](https://docs.orakl.network/developers-guide/readme#permanent-account)または[一時アカウント](https://docs.orakl.network/developers-guide/readme#temporary-account)です。
 
@@ -19,11 +19,11 @@ Orakl Networkを使えば、ユーザーはスマートコントラクトに予�
 
 ## はじめに
 
-以下のステップでは、Orakl Networkを使ってスマート・コントラクトにランダムな単語を要求する。 始めよう！ 始めよう！
+以下のステップでは、Orakl Networkを使ってスマート・コントラクトにランダムな単語を要求する。 始めよう！始めよう！
 
 ### ステップ1：契約状態変数の初期化
 
-このステップでは、Cosumerコントラクトを定義し、コントラクト機能に必要なステート変数を初期化する。 私たちのコンシューマ契約は `VRFConsumerBase` 契約に依存しており、この契約は `VRFCoordinator` 契約への呼び出しに使用される `IVRFCoordinator` インターフェースに継承されています。 次に、ランダムワードの結果を格納する変数 `sRandomWord` と、修飾子 `onlyOwner` の内部で使用する変数 `sOwner` を定義する。
+このステップでは、Cosumerコントラクトを定義し、コントラクト機能に必要なステート変数を初期化する。私たちのコンシューマ契約は `VRFConsumerBase` 契約に依存しており、この契約は `VRFCoordinator` 契約への呼び出しに使用される `IVRFCoordinator` インターフェースに継承されています。次に、ランダムワードの結果を格納する変数 `sRandomWord` と、修飾子 `onlyOwner` の内部で使用する変数 `sOwner` を定義する。
 
 ```solidity
 pragma solidity ^0.8.16;
@@ -82,7 +82,7 @@ contract VRFConsumer is VRFConsumerBase {
   }
 ```
 
-この関数は `COORDINATOR` で定義された関数 `requestRandomWords()` を呼び出し、引数として `keyHash`、`callbackGasLimit`、`numWords` および `refundRecipient` を渡す。 サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。 もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。 最終的には、ランダムな単語のリクエストを生成する。 `requestRandomWords`関数の`msg.value`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。 サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。 もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。 最終的には、ランダムな単語のリクエストを生成する。 `requestRandomWords`関数の`msg.value`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。
+この関数は `COORDINATOR` で定義された関数 `requestRandomWords()` を呼び出し、引数として `keyHash`、`callbackGasLimit`、`numWords` および `refundRecipient` を渡す。 サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。 もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。 最終的には、ランダムな単語のリクエストを生成する。 `requestRandomWords`関数の`msg.value`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。サービスに対する支払いは `msg.value` を通して `COORDINATOR` 契約の `requestRandomWords()` に送られる。もし支払いが予定より多かった場合、超過分の支払いは `refundRecipient` アドレスに返される。最終的には、ランダムな単語のリクエストを生成する。 `requestRandomWords`関数の`msg.value`を正確に指定するには、[サービス料金の見積もり方法](https://docs.orakl.network/developers-guide/vrf#get-estimated-service-fee)の説明を参照してください。
 
 ### ステップ4：ランダムな言葉を満たす
 
@@ -118,7 +118,7 @@ function fulfillRandomWords(
 - Remixで、**Compile contract**をクリックします。
 - プラグインをインストールしたら、左側の「Kaia」タブをクリックします。
 - **Environment** > **Injected Provider** - **Kaia Wallet** を選択します。
-- **Contract**で、契約を選択します。 例えば、`VRFConsumer`である。
+- **Contract**で、契約を選択します。例えば、`VRFConsumer`である。
 - コーディネーター契約アドレス `0xDA8c0A00A372503aa6EC80f9b29Cc97C454bE499` (Kairos), `0x3F247f70DC083A2907B8E76635986fd09AA80EFb` (Mainnet) を渡す。
 - **Deploy**をクリックします。
 
@@ -180,7 +180,7 @@ contract VRFConsumer is VRFConsumerBase {
 
 ### スマートコントラクトとの対話
 
-はじめに この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、 `keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRFは、Kaiaチェーンごとに1つのキーハッシュを提供します：
+はじめにこの関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、 `keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRFは、Kaiaチェーンごとに1つのキーハッシュを提供します：
 
 - Kairos: `0xd9af33106d664a53cb9946df5cd81a30695f5b72224ee64e798b278af812779c`
 - Mainnet: `0x6cff5233743b3c0321a19ae11ab38ae0ddc7ddfe1e91b162fa8bb657488fb157`
@@ -191,18 +191,18 @@ contract VRFConsumer is VRFConsumerBase {
 - `numWords`を`1`、そして
 - `refundRecipient`にEOAのアドレスを設定します。
 
-その後、リクエストが満たされると、 `sRandomWord()` 関数を実行することができる。 この `sRandomWord()` 関数はランダムな単語を返す。 多田🎉！ ランダムな単語を要求し、スマート・コントラクトで受け取っただけだ。
+その後、リクエストが満たされると、 `sRandomWord()` 関数を実行することができる。 この `sRandomWord()` 関数はランダムな単語を返す。多田🎉！ ランダムな単語を要求し、スマート・コントラクトで受け取っただけだ。
 
 - **requestRandomWordsDirect()**: Will be sending 1 KLAY to execute this function. 下の画像がそれを示している：
 
 ![](/img/build/tools/orakl-vrf-request.png)
 
-- \*\*sRandomWord()\*\*である：VRFCoordinator`がランダムワードの要求を満たすと、そのレスポンスが `sRandomWord`変数に格納される。 レスポンスを得るには、関数`sRandomWord()\`を呼び出す。 スマート・コントラクトでランダムな単語を要求するには、まず`requestRandomWordsDirect()`関数を実行しなければならない。 この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、`keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash\`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRFは、Kaiaチェーンごとに1つのキーハッシュを提供します：
+- \*\*sRandomWord()\*\*である：VRFCoordinator`がランダムワードの要求を満たすと、そのレスポンスが `sRandomWord`変数に格納される。 レスポンスを得るには、関数`sRandomWord()\`を呼び出す。スマート・コントラクトでランダムな単語を要求するには、まず`requestRandomWordsDirect()`関数を実行しなければならない。 この関数が正常に実行されるためには、ユーザは前述のようにKAIAを送信し(最低1KAIA)、`keyHash`、`callbackGasLimit`、`numWords`、`refundRecipient`パラメータを与える必要がある。 `keyHash\`パラメータは、誰がリクエストを処理できるかを一意に定義する。 Orakl Network VRFは、Kaiaチェーンごとに1つのキーハッシュを提供します：
 
 ![](/img/build/tools/orakl-vrf-response.png)
 
-多田🎉！ ランダムな単語を要求し、スマート・コントラクトで受け取っただけだ。
+多田🎉！ランダムな単語を要求し、スマート・コントラクトで受け取っただけだ。
 
 ## 結論
 
-このチュートリアルでは、Orakl Network VRFソリューションを使用してスマートコントラクトにランダムな単語を生成する方法を学びました。 オラクルネットワークは、データフィード、リクエスト・レスポンス、プルーフ・オブ・リザーブなど、より多くのオラクルサービスを提供する。 オラクルネットワークの詳細および動作については、[オラクルネットワークのドキュメント](https://docs.orakl.network)を参照してください。 オラクルネットワークは、データフィード、リクエスト・レスポンス、プルーフ・オブ・リザーブなど、より多くのオラクルサービスを提供する。 オラクルネットワークの詳細および動作については、[オラクルネットワークのドキュメント](https://docs.orakl.network)を参照してください。
+このチュートリアルでは、Orakl Network VRFソリューションを使用してスマートコントラクトにランダムな単語を生成する方法を学びました。 オラクルネットワークは、データフィード、リクエスト・レスポンス、プルーフ・オブ・リザーブなど、より多くのオラクルサービスを提供する。 オラクルネットワークの詳細および動作については、[オラクルネットワークのドキュメント](https://docs.orakl.network)を参照してください。オラクルネットワークは、データフィード、リクエスト・レスポンス、プルーフ・オブ・リザーブなど、より多くのオラクルサービスを提供する。オラクルネットワークの詳細および動作については、[オラクルネットワークのドキュメント](https://docs.orakl.network)を参照してください。

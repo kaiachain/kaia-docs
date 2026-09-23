@@ -80,6 +80,14 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 
 ## RPC Service Providers
 
+:::caution 일몰 공고
+
+**Ankr**에서의 Kaia 지원은 **2026년 10월 16일**에 종료됩니다. 해당 날짜 이후, 카이아 체인을 가리키는 모든 Ankr RPC 엔드포인트는 서비스가 중단되어 응답하지 않게 됩니다.
+
+앱에서 Ankr로 Kaia RPC 호출을 전송하는 경우, 서비스 종료일 전에 **[Ankr에서 마이그레이션하기](./migrate-from-ankr.md)** 절차를 따르십시오. 대부분의 프로젝트에서 이는 단 한 줄의 엔드포인트 변경만으로 해결됩니다.
+
+:::
+
 Below is the list of Kaia’s Public Node Providers.
 
 ### Kaia API Service (KAS)
@@ -124,6 +132,23 @@ KAS provides various APIs to support easier and quicker blockchain application d
 - [구독](https://chainstack.com/pricing/)
 - [웹사이트](https://chainstack.com/)
 
+### 연금술
+
+Alchemy는 Kaia용 호스팅된 엔드포인트를 갖춘 관리형 RPC 인프라와 더불어 개발자 도구, 대시보드 및 사용량 분석 기능을 제공합니다.
+
+#### Features
+
+- Kaia용 호스팅형 HTTPS 및 WebSocket 엔드포인트
+- 사용 현황 대시보드 및 요청 분석
+- 무료 요금제가 제공되며, 더 높은 처리량을 원하는 경우 유료 요금제를 이용할 수 있습니다.
+- Kaia에서 사용할 수 있는 API 인터페이스에 대해서는 Alchemy의 문서를 참조하십시오.
+
+#### References
+
+- [카이아의 연금술](https://www.alchemy.com/rpc/kaia)
+- [문서](https://www.alchemy.com/docs)
+- [웹사이트](https://www.alchemy.com/)
+
 ### All That Node
 
 All That Node aims to become trusty gateway to Web3 infrastructure allowing builders not to distracted by issues regarding blockchain network. All That Node guarantees fast and robust connection to RPC nodes with the lowest latency performance.
@@ -157,7 +182,7 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 - 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
 - Community support
 
-#### References
+#### 참고 문헌
 
 - [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
 - [Pricing](https://tatum.io/pricing)
@@ -211,22 +236,6 @@ Grove는 50개 이상의 블록체인을 지원하며, 더 많은 블록체인�
 - [Grove 웹사이트](https://grove.city/)
 - [포켓 네트워크 웹사이트](https://pocket.network)
 - [그로브 포털](https://portal.grove.city)
-
-### ANKR
-
-Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
-
-#### Features
-
-- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
-- Discord and Support Portal for the free plan, and dedicated support for the premium.
-- WebSocket is available for the premium plan.
-
-#### References
-
-- [Docs](https://www.ankr.com/docs/build-blockchain/overview)
-- [Subscription](https://www.ankr.com/rpc/pricing/)
-- [Website](https://www.ankr.com/rpc/)
 
 ### NodeReal
 
@@ -320,6 +329,32 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)
+
+### ANKR
+
+:::caution 일몰 공고
+
+**Ankr**에서의 Kaia 지원은 **2026년 10월 16일**에 종료됩니다. 해당 날짜 이후, 카이아 체인을 가리키는 모든 Ankr RPC 엔드포인트는 서비스가 중단되어 응답하지 않게 됩니다.
+
+앱에서 Ankr로 Kaia RPC 호출을 전송하는 경우, 서비스 종료일 전에 **[Ankr에서 마이그레이션하기](./migrate-from-ankr.md)** 절차를 따르십시오. 대부분의 프로젝트에서 이는 단 한 줄의 엔드포인트 변경만으로 해결됩니다.
+
+:::
+
+Ankr's distributed node network creates a powerful synergy, allowing developers to connect easily and securely to public endpoints. With fine-tuned caching that optimizes resource usage, Ankr guarantees fast RPC requests together with low latency performance for superior efficiency when building decentralized applications.
+
+Kaia 지원은 **2026년 10월 16일까지** 제공됩니다.
+
+#### 주요 기능
+
+- 500 requests per second on the free plan, and 1,500 on the premium. It is upgradable on request.
+- Discord and Support Portal for the free plan, and dedicated support for the premium.
+- WebSocket is available for the premium plan.
+
+#### 참고문헌
+
+- [Docs](https://www.ankr.com/docs/build-blockchain/overview)
+- [Subscription](https://www.ankr.com/rpc/pricing/)
+- [Website](https://www.ankr.com/rpc/)
 
 ## Useful Resources
 

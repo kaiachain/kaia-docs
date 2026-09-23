@@ -4,7 +4,7 @@
 
 ## 概述<a href="#overview" id="overview"></a>
 
-Remix 是一个基于浏览器的集成开发环境，用于开发 Solidity 合约。 在本指南中，您将学习如何
+Remix 是一个基于浏览器的集成开发环境，用于开发 Solidity 合约。在本指南中，您将学习如何
 
 - 在 Remix IDE 上创建并上传预构建的智能合约。
 - 编译智能合约
@@ -15,7 +15,7 @@ Remix 是一个基于浏览器的集成开发环境，用于开发 Solidity 合�
 - 使用 MetaMask 将 Kaia 连接到 Remix
 - 部署智能合约。
 
-这将包括与 Kaia 的 Remix 连接。 如果您想进一步了解如何使用 Remix，请参阅 [Remix docs](https://remix-ide.readthedocs.io/en/latest/) 或 [Remix IDE](https://remix.ethereum.org/)。
+这将包括与 Kaia 的 Remix 连接。如果您想进一步了解如何使用 Remix，请参阅 [Remix docs](https://remix-ide.readthedocs.io/en/latest/) 或 [Remix IDE](https://remix.ethereum.org/)。
 
 ## 在 Remix 上创建文件<a href="#creating-a-file-on-remix" id="creating-a-file-on-remix"></a>
 
@@ -63,7 +63,7 @@ contract KaiaGreeter {
 
 - 导航至**插件管理器**选项卡
 - 在搜索栏中输入 Kaia
-- 激活 Kaia 插件。 如果 Kaia 标签出现，则表示您已准备好与 Kaia 互动。
+- 激活 Kaia 插件。如果 Kaia 标签出现，则表示您已准备好与 Kaia 互动。
 
 ![](/img/build/smart-contracts/kg-plugin-manager.png)
 
@@ -85,7 +85,7 @@ contract KaiaGreeter {
 
 - 单击 ACCOUNT 旁边的加号按钮。
 - 然后插入私钥或密钥库。
-- 您还可以为缴费人导入密钥。 它只支持私钥。
+- 您还可以为缴费人导入密钥。它只支持私钥。
 
 ![](/img/build/smart-contracts/kg-import-account.png)
 
@@ -110,11 +110,11 @@ contract KaiaGreeter {
 
 ## 部署智能合约<a href="#deploying-contract" id="deploying-contract"></a>
 
-在本节中，我们将使用 Kaia 钱包部署 `KaiaGreeter.sol` 合约。 在 "编译 "部分编译合同后，请按照以下部署流程进行部署：
+在本节中，我们将使用 Kaia 钱包部署 `KaiaGreeter.sol` 合约。在 "编译 "部分编译合同后，请按照以下部署流程进行部署：
 
-- 将部署环境设置为 [注入式提供程序 - Kaia 钱包]。 确保确认所有与 Remix 的连接提示。
+- 将部署环境设置为 [注入式提供程序 - Kaia 钱包]。确保确认所有与 Remix 的连接提示。
 - 在 CONTRACT（合同）字段中选择要部署的合同。
-- 单击 "部署 "按钮。 这将弹出一个 Kaia 钱包，要求确认交易。 只需确认交易即可！
+- 单击 "部署 "按钮。这将弹出一个 Kaia 钱包，要求确认交易。只需确认交易即可！
 
 ![](/img/build/smart-contracts/kg-deployed.png)
 

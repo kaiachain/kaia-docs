@@ -309,7 +309,7 @@ Load **transaction** key from a private key to use it as **transaction role key*
 
 ---
 
-Load **update** key from a private key to use it as **update role key**. 您可以用它來簽署該賬戶的賬戶更新交易。 這意味著只有擁有此密鑰的人才能更新此賬戶。
+Load **update** key from a private key to use it as **update role key**. 您可以用它來簽署該賬戶的賬戶更新交易。這意味著只有擁有此密鑰的人才能更新此賬戶。
 z
 
 ```py web3_fee_delegated_account_update_role_based.py focus=22
@@ -318,7 +318,7 @@ z
 
 ---
 
-從私人密鑰中加載**繳費人**密鑰，將其用作**繳費人角色密鑰**。 您可以用它作為付費方簽署交易。
+從私人密鑰中加載**繳費人**密鑰，將其用作**繳費人角色密鑰**。您可以用它作為付費方簽署交易。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=23
 
@@ -334,7 +334,7 @@ z
 
 ---
 
-創建**TxType.FEE_DELEGATED_ACCOUNT_UPDATE**類型的空事務。 您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
+創建**TxType.FEE_DELEGATED_ACCOUNT_UPDATE**類型的空事務。您可以使用 **empty_tx** 工具來獲取已填寫默認字段的 tx。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=26
 
@@ -350,7 +350,7 @@ z
 
 ---
 
-在這種情況下，要更新的賬戶密鑰是基於**角色的**密鑰，每個角色都有**公鑰**類型。 每個角色都可以使用發佈密鑰或多重身份驗證。
+在這種情況下，要更新的賬戶密鑰是基於**角色的**密鑰，每個角色都有**公鑰**類型。每個角色都可以使用發佈密鑰或多重身份驗證。
 
 ```py web3_fee_delegated_account_update_role_based.py focus=30,32:33,36:37,40:41
 
@@ -358,7 +358,7 @@ z
 
 ---
 
-您可以使用 **compressed_key** 工具來設置每個角色的密鑰。 它將從密鑰中提取壓縮公鑰
+您可以使用 **compressed_key** 工具來設置每個角色的密鑰。它將從密鑰中提取壓縮公鑰
 
 ```py web3_fee_delegated_account_update_role_based.py focus=34,38,42
 
@@ -417,7 +417,7 @@ z
 
 ---
 
-簽署賬戶更新 tx 類型。 您應使用 ** 更新角色密鑰** 簽名，因為賬戶 "0x5bd2...cea "已是基於角色的賬戶，以更新該賬戶
+簽署賬戶更新 tx 類型。您應使用 ** 更新角色密鑰** 簽名，因為賬戶 "0x5bd2...cea "已是基於角色的賬戶，以更新該賬戶
 
 <CH.Code>
 ```py web3_fee_delegated_account_update_role_based.py focus=50:52

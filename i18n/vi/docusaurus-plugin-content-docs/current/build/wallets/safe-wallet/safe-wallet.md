@@ -5,14 +5,6 @@ sidebar_label: Ví an toàn
 
 # Ví an toàn
 
-:::caution Thông báo về hoàng hôn
-
-`safe.kaia.io` sẽ ngừng hoạt động vào ngày **31 tháng 8 năm 2026**. Vui lòng sử dụng **Safe Wallet** dành cho Kaia tại [app.safe.global](https://app.safe.global) để quản lý các tài khoản của bạn trong thời gian tới.
-
-Bạn đã sử dụng Kaia Safe chưa? Xem **[Chuyển sang Safe Global](./migrate-to-safe-global.md)** — các tài khoản Safe hiện tại của bạn sẽ không bị ảnh hưởng và vẫn có thể sử dụng trên Safe Wallet.
-
-:::
-
 ## Giới thiệu
 
 [Safe](https://safe.global) (Safe Global) cung cấp bộ giải pháp tài khoản thông minh đa chữ ký (multisig) đạt tiêu chuẩn ngành dành cho các mạng EVM. **Safe Wallet** là ứng dụng web của Safe dùng để tạo và quản lý các tài khoản đó — có thể truy cập tại [app.safe.global](https://app.safe.global).
@@ -51,7 +43,7 @@ Những lợi ích chính của ví đa chữ ký:
 
 ## Các bước tiếp theo
 
-- [Chuyển sang Safe Global](./migrate-to-safe-global.md) — chuyển từ `safe.kaia.io` (các tài khoản hiện có vẫn giữ nguyên)
 - [Sử dụng Safe Wallet trên Kaia](./use-safe-wallet.md) — tạo ví Safe, thêm tài sản và thực hiện giao dịch
 - [Tổng quan](./overview.md) — các mạng lưới và các nguồn lực của Safe Global
-- [Câu hỏi thường gặp](./faqs.md) — các câu hỏi về chuyển đổi và quản lý tài khoản
+- [Câu hỏi thường gặp](./faqs.md) — các câu hỏi về quản lý tài khoản
+- [Chuyển sang Safe Global](./migrate-to-safe-global.md) — bạn đang truy cập từ trang `safe.kaia.io` đã ngừng hoạt động? Các tài khoản của quý khách vẫn giữ nguyên

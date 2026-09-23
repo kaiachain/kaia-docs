@@ -22,7 +22,7 @@
 
 ### 啟用新安裝的壓縮功能
 
-從 v2.1.0 開始，預設啟用壓縮。 只需啟動您的節點：
+從 v2.1.0 開始，預設啟用壓縮。只需啟動您的節點：
 
 \*\* 套件安裝：\*\*
 
@@ -53,7 +53,7 @@ ken version
 
 **步驟 2：適用於 v2.1.0 及更新版本**
 
-預設已啟用壓縮功能。 新資料會自動壓縮。 跳至步驟 4 以壓縮現有資料。
+預設已啟用壓縮功能。新資料會自動壓縮。跳至步驟 4 以壓縮現有資料。
 
 **步驟 3：僅適用於 v2.1.0 之前的版本**
 
@@ -89,7 +89,7 @@ kend start
 
 **步驟 4：壓縮現有資料（選擇性但建議）**
 
-透過 RPC 觸發資料庫壓縮。 附加到您的節點控制台：
+透過 RPC 觸發資料庫壓縮。附加到您的節點控制台：
 
 ```bash
 ken attach --datadir /var/kend/data
@@ -108,7 +108,7 @@ null
 - `"allbutstate"`：選擇性壓縮排除狀態 trie (建議用於壓縮)
 - `「自訂」`：為特定資料庫表定義自訂範圍
 
-壓縮在背景中執行。 在節點日誌中監控進度：
+壓縮在背景中執行。在節點日誌中監控進度：
 
 ```bash
 tail -f /var/kend/logs/kend.out | grep -i Compact
@@ -123,7 +123,7 @@ INFO[07/25,12:55:17 Z] [3] Compacting database completed             range=0x48-
 
 節點在壓縮期間會繼續處理區塊。
 
-\*\* 預計持續時間：\*\* 一個 Mainnet 完整節點約需 10 小時 (在 SSD 上有 ~4TB 資料)。 時間長短視硬體和資料大小而定。
+\*\* 預計持續時間：\*\* 一個 Mainnet 完整節點約需 10 小時 (在 SSD 上有 ~4TB 資料)。時間長短視硬體和資料大小而定。
 
 **資源影響：**
 
@@ -133,13 +133,13 @@ INFO[07/25,12:55:17 Z] [3] Compacting database completed             range=0x48-
 
 :::note
 
-雖然節點在壓縮期間仍可運作，但在 I/O 峰值期間，查詢效能可能會受到影響。 對於生產 RPC 節點，請排定在維護視窗或低流量時段進行壓縮。
+雖然節點在壓縮期間仍可運作，但在 I/O 峰值期間，查詢效能可能會受到影響。對於生產 RPC 節點，請排定在維護視窗或低流量時段進行壓縮。
 
 :::
 
 ### 使用預先壓縮的 Chaindata 快照 (TBD)
 
-預先壓縮的 chaindata 快照計劃在未來的版本中推出，但目前尚未提供。 當這些資料可用時，它們將會列在 [Chaindata Snapshot page](https://docs.kaia.io/misc/operation/chaindata-snapshot/) 上。
+預先壓縮的 chaindata 快照計劃在未來的版本中推出，但目前尚未提供。當這些資料可用時，它們將會列在 [Chaindata Snapshot page](https://docs.kaia.io/misc/operation/chaindata-snapshot/) 上。
 
 目前，您必須
 
@@ -166,17 +166,17 @@ grep "compressionType" /var/kend/logs/kend.out
 du -h --max-depth=1 /var/kend/data/klay/chaindata
 ```
 
-比較壓實前和壓實後。 您應該會發現包含區塊正文和收據的目錄中的儲存空間大幅減少。
+比較壓實前和壓實後。您應該會發現包含區塊正文和收據的目錄中的儲存空間大幅減少。
 
 **常見問題：**
 
-1. **壓縮失敗**：確保有足夠的磁碟空間。 壓縮暫時需要額外的空間來重寫資料。
-2. **FlatTrie 無法啟動**：FlatTrie 需要一個空的資料庫。 如果看到關於現有資料的錯誤，請刪除 chaindata 目錄，然後從 genesis 同步。
-3. **Merkle proof API 錯誤**：FlatTrie 不支援 `eth_getProof`。 如果需要此 API，請使用傳統節點。
+1. **壓縮失敗**：確保有足夠的磁碟空間。壓縮暫時需要額外的空間來重寫資料。
+2. **FlatTrie 無法啟動**：FlatTrie 需要一個空的資料庫。如果看到關於現有資料的錯誤，請刪除 chaindata 目錄，然後從 genesis 同步。
+3. **Merkle proof API 錯誤**：FlatTrie 不支援 `eth_getProof`。如果需要此 API，請使用傳統節點。
 
 ## FlatTrie 國家方案 (實驗性)
 
-FlatTrie 是一個實驗性的狀態儲存方案，改編自 Erigon Ethereum 客戶端。 它以平面結構儲存帳戶狀態，並只維護最新區塊的完整 Merkle Patricia Trie (MPT)，可依需求重建歷史試圖。
+FlatTrie 是一個實驗性的狀態儲存方案，改編自 Erigon Ethereum 客戶端。它以平面結構儲存帳戶狀態，並只維護最新區塊的完整 Merkle Patricia Trie (MPT)，可依需求重建歷史試圖。
 
 \*\* 預計節省：\*\*
 
@@ -186,7 +186,7 @@ FlatTrie 是一個實驗性的狀態儲存方案，改編自 Erigon Ethereum 客
 
 :::warning
 
-FlatTrie 是 v2.1.0 中的實驗性功能。 不建議用於生產。 預期在未來的版本中會出現潛在的穩定性問題、效能瓶頸和破壞性變更。 僅用於測試和開發環境。
+FlatTrie 是 v2.1.0 中的實驗性功能。不建議用於生產。預期在未來的版本中會出現潛在的穩定性問題、效能瓶頸和破壞性變更。僅用於測試和開發環境。
 
 :::
 
@@ -234,13 +234,13 @@ ken --state.experimental-flat-trie --kairos
 
 :::note
 
-當 FlatTrie 啟用時，不論 `--gcmode`和 `--state.block-interval`旗標為何，歸檔模式都會自動啟動。 使用 FlatTrie 時，這些標記會被忽略。
+當 FlatTrie 啟用時，不論 `--gcmode`和 `--state.block-interval`旗標為何，歸檔模式都會自動啟動。使用 FlatTrie 時，這些標記會被忽略。
 
 :::
 
 **步驟 3：等待完全同步**
 
-節點會同步所有來自 genesis 的區塊。 這可能需要數週的時間，視您的硬體和網路而定。
+節點會同步所有來自 genesis 的區塊。這可能需要數週的時間，視您的硬體和網路而定。
 
 ### 驗證 FlatTrie 是否活躍
 
@@ -268,16 +268,16 @@ grep -i "flat" /var/kend/logs/kend.out | head -20
 ### 排除 FlatTrie 的故障
 
 \*\* 無法在現有資料庫上啟動 FlatTrie:\*\*
-如果您看到錯誤顯示 FlatTrie 無法在非空資料上啟動，您必須從 genesis 開始。 刪除您的 chaindata 目錄，並使用 `--state.experimental-flat-trie` 標誌執行完全同步。
+如果您看到錯誤顯示 FlatTrie 無法在非空資料上啟動，您必須從 genesis 開始。刪除您的 chaindata 目錄，並使用 `--state.experimental-flat-trie` 標誌執行完全同步。
 
 \*\* Merkle proof API 失敗：\*\*
-FlatTrie 不支援 `eth_getProof` 及相關的 Merkle proof API。 如果您的應用程式需要這些 API，請改用傳統的節點。
+FlatTrie 不支援 `eth_getProof` 及相關的 Merkle proof API。如果您的應用程式需要這些 API，請改用傳統的節點。
 
 \*\* 高記憶體使用量:\*\*
-同步過程中，FlatTrie 節點的記憶體使用量預計約為 30GB。 確保您的系統有足夠的 RAM。 該團隊正在進行優化，以在未來版本中減少這種情況。
+同步過程中，FlatTrie 節點的記憶體使用量預計約為 30GB。確保您的系統有足夠的 RAM。該團隊正在進行優化，以在未來版本中減少這種情況。
 
 \*\* 同步速度慢：\*\*
-使用 FlatTrie 的初始同步速度與傳統節點相當。 如果同步速度明顯變慢，請檢查：
+使用 FlatTrie 的初始同步速度與傳統節點相當。如果同步速度明顯變慢，請檢查：
 
 - 磁碟 I/O 效能 (強烈建議使用 SSD)
 - 網路頻寬
@@ -286,8 +286,8 @@ FlatTrie 不支援 `eth_getProof` 及相關的 Merkle proof API。 如果您的�
 ## 最佳實務
 
 1. **在進行重大變更**之前，請務必先進行備份：尤其是在執行手動壓縮之前。
-2. **監控磁碟空間**：確保壓縮之前有足夠的可用空間。 壓縮暫時需要額外的空間來重寫資料庫檔案。
+2. **監控磁碟空間**：確保壓縮之前有足夠的可用空間。壓縮暫時需要額外的空間來重寫資料庫檔案。
 3. **在低流量時段安排壓縮**：如果執行公共 RPC 端點。
 4. \*\* 使用 SSD 作為生產節點\*\*：壓縮和 FlatTrie 都能從快速隨機 I/O 中獲益。
-5. \*\* 實驗性功能的計劃\*\*：FlatTrie 在 v2.1.x 中是實驗性的。 在生產使用前進行徹底測試。
+5. \*\* 實驗性功能的計劃\*\*：FlatTrie 在 v2.1.x 中是實驗性的。在生產使用前進行徹底測試。
 6. \*\* 保持更新\*\*：請查閱發行說明，以瞭解未來的最佳化，以及 FlatTrie 何時會從實驗狀態畢業。

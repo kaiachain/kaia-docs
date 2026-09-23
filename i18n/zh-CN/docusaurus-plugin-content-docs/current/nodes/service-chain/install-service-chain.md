@@ -17,7 +17,7 @@ ServiceChain 是企业级区块链，可满足企业对价值转移、安全性�
 
 ![](/img/nodes/sc-overview.png)
 
-请阅读 [Kaia 扩展解决方案](../../learn/scaling-solutions.md) 了解有关 ServiceChain 的更多详情。 以下视频将帮助您了解 Kaia ServiceChain。
+请阅读 [Kaia 扩展解决方案](../../learn/scaling-solutions.md) 了解有关 ServiceChain 的更多详情。以下视频将帮助您了解 Kaia ServiceChain。
 
 - [通过 Kaia 服务链实现横向扩展 | TXGX 2019](https://www.youtube.com/watch?v=8yQc5FQysJc)
 - [Kaia 服务链的高可用性架构 | TXGX 2019](https://www.youtube.com/watch?v=HcdhWtXPuR0)
@@ -76,7 +76,7 @@ Kaia Linux 软件包由可执行二进制文件和配置文件组成，结构如
 
 本页介绍如何配置 SCN 以形成共识网络。
 
-如果您安装了存档发行版，您可以在解压存档的目录中找到二进制文件和配置文件。 下面是执行命令的示例。
+如果您安装了存档发行版，您可以在解压存档的目录中找到二进制文件和配置文件。下面是执行命令的示例。
 
 ```bash
 $ homi-darwin-amd64/bin/homi setup ...
@@ -88,7 +88,7 @@ $ vi kscn-darwin-amd64/conf/kscnd.conf
 
 ### 创建创世纪文件<a id="creation-of-a-genesis-file"></a>
 
-首先，你应该为自己的服务链创建一个 genesis 文件和一个 nodekey 文件。 您可以像下面这样使用 homi 创建它们。
+首先，你应该为自己的服务链创建一个 genesis 文件和一个 nodekey 文件。您可以像下面这样使用 homi 创建它们。
 
 ```bash
 $ homi setup --gen-type local --cn-num 1 --servicechain -o ./homi-output
@@ -137,17 +137,13 @@ $ cat homi-output/keys/nodekey1
 0c28c77ce5c2ca9e495b860f190ed7dfe7bd5c1a2e5f816587eb4d3d9566df44
 ```
 
-请更改 genesis 文件中的 chainID。 使用自己的号码，防止重放攻击。
-(请勿在 Kaia Mainnet (8217) 和 Kairos (1001) 中使用相同的链 ID）
+请更改 genesis 文件中的 chainID。使用自己的号码，防止重放攻击。(请勿在 Kaia Mainnet (8217) 和 Kairos (1001) 中使用相同的链 ID）
 
-如果需要，可以通过编辑 genesis 文件中的 `"alloc"`，更改预先资助的地址。
-(您可以在 [Genesis JSON](../service-chain/configure/genesis.md) 中找到更多细节）。
+如果需要，可以通过编辑 genesis 文件中的 `"alloc"`，更改预先资助的地址。(您可以在 [Genesis JSON](../service-chain/configure/genesis.md) 中找到更多细节）。
 
 ### 创建 SCN 数据目录<a id="scn-data-directory-creation"></a>
 
-考虑到 Kaia 区块链数据的大小不断增加，建议使用足够大的存储空间。
-您可以在所需路径上创建数据目录。
-在本文档中，我们创建 `~/kscnd_home` 作为数据目录。
+考虑到 Kaia 区块链数据的大小不断增加，建议使用足够大的存储空间。您可以在所需路径上创建数据目录。在本文档中，我们创建 `~/kscnd_home` 作为数据目录。
 
 ```bash
 $ mkdir -p ~/kscnd_home
@@ -155,8 +151,7 @@ $ mkdir -p ~/kscnd_home
 
 #### 创世区块的初始化<a id="initialization-of-a-genesis-block"></a>
 
-之后，就可以用创世文件初始化数据目录了。
-在启动服务链节点之前，有必要使用 `kscn` 和 `genesis.json` 初始化服务链网络的创世块。
+之后，就可以用创世文件初始化数据目录了。在启动服务链节点之前，有必要使用 `kscn` 和 `genesis.json` 初始化服务链网络的创世块。
 
 ```bash
 $ kscn init --datadir ~/kscnd_home homi-output/scripts/genesis.json
@@ -192,8 +187,7 @@ $ cp homi-output/keys/nodekey1  ~/kscnd_home/klay/nodekey
 
 kscnd.conf "是 SCN 的配置文件。
 
-假设 SCN 使用默认端口，并将大规模分区挂载到 `~/kscnd_home` 上。
-在默认的 `kscnd.conf` 文件中，`SC_SUB_BRIDGE` 选项已禁用，`DATA_DIR` 为空。
+假设 SCN 使用默认端口，并将大规模分区挂载到 `~/kscnd_home` 上。在默认的 `kscnd.conf` 文件中，`SC_SUB_BRIDGE` 选项已禁用，`DATA_DIR` 为空。
 
 ```
 # Configuration file for the kscnd
@@ -204,8 +198,7 @@ DATA_DIR=
 ...
 ```
 
-您可以启用 `SC_SUB_BRIDGE` 来使用锚定/值传输功能。
-此外，还应如下设置 DATA_DIR。
+您可以启用 `SC_SUB_BRIDGE` 来使用锚定/值传输功能。此外，还应如下设置 DATA_DIR。
 
 ```
 # Configuration file for the kscnd
@@ -216,8 +209,7 @@ DATA_DIR=~/kscnd_home
 ...
 ```
 
-如果需要，您还可以进一步修改其他选项，定制您的服务链。
-否则，现在就可以完成配置，使用默认配置运行服务链了。
+如果需要，您还可以进一步修改其他选项，定制您的服务链。否则，现在就可以完成配置，使用默认配置运行服务链了。
 
 ## 启动/停止 SCN<a id="starting-stopping-scn"></a>
 
@@ -295,7 +287,7 @@ kscnd is running
 
 ### 日志<a id="logs"></a>
 
-日志存储在位于 `kscnd.conf` 文件中 `LOG_DIR` 字段定义的路径下的 `kscnd.out` 文件中。 当节点正常工作时，可以看到每个区块每秒的导入情况如下。
+日志存储在位于 `kscnd.conf` 文件中 `LOG_DIR` 字段定义的路径下的 `kscnd.out` 文件中。当节点正常工作时，可以看到每个区块每秒的导入情况如下。
 
 例如
 
@@ -318,7 +310,7 @@ $ tail -F ~/kscnd_home/logs/kscnd.out
 
 #### kscn 控制台<a id="kscn-console"></a>
 
-Kaia 提供一个 CLI 客户端："kscn console"。 使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。 IPC 文件 `klay.ipc` 位于 SCN 上的 `DATA_DIR` 路径中。
+Kaia 提供一个 CLI 客户端："kscn console"。使用客户端的另一种方法是通过 IPC（进程间通信）连接进程。 IPC 文件 `klay.ipc` 位于 SCN 上的 `DATA_DIR` 路径中。
 
 请执行以下命令并查看结果。
 

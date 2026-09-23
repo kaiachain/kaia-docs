@@ -4,7 +4,7 @@
 
 [RedStone](https://redstone.finance/)は、スマートコントラクトに価格フィードを提供するモジュール式のオラクルネットワークです。 Kaia上では、RedStoneが価格情報をオンチェーンに保存する**Push**フィードを公開しており、dAppはChainlink互換の`AggregatorV3Interface`を使用して、これらを読み取ることができます。
 
-RedStone Pushは、設定可能な**偏差**および**ハートビート**の条件に基づき、オンチェーン価格を定期的に更新します。 詳細については、[RedStone Push ドキュメント](https://docs.redstone.finance/docs/dapps/redstone-push/)をご覧ください。また、[Push Feeds UI](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true)で Kaia のライブフィードを閲覧することもできます。
+RedStone Pushは、設定可能な**偏差**および**ハートビート**の条件に基づき、オンチェーン価格を定期的に更新します。詳細については、[RedStone Push ドキュメント](https://docs.redstone.finance/docs/dapps/redstone-push/)をご覧ください。また、[Push Feeds UI](https://app.redstone.finance/push-feeds?networks=kaia&testnets=true)で Kaia のライブフィードを閲覧することもできます。
 
 ## KaiaでのRedStoneの使用
 
@@ -50,7 +50,7 @@ contract RedStoneConsumer {
 }
 ```
 
-必要なアセットのフィードアドレスを指定してください（以下の表を参照）。 常に `updatedAt` を確認し、プロトコルの最新性要件に基づいてデータを調整してください。
+必要なアセットのフィードアドレスを指定してください（以下の表を参照）。常に `updatedAt` を確認し、プロトコルの最新性要件に基づいてデータを調整してください。
 
 ## Kaiaのフィード
 

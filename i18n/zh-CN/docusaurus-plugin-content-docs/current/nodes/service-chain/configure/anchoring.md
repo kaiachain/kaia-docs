@@ -1,17 +1,12 @@
 # 使用数据锚定
 
-如设计部分所述，服务链支持数据锚定功能。
-本页介绍如何启用锚定功能。
-如果启用，SCN 会定期将子链区块数据锚定到父链上，以证明其存在性和不变性。
-这确保了服务链的安全性和可信度。
+如设计部分所述，服务链支持数据锚定功能。本页介绍如何启用锚定功能。如果启用，SCN 会定期将子链区块数据锚定到父链上，以证明其存在性和不变性。这确保了服务链的安全性和可信度。
 
 ## 启用锚定<a id="enable-anchoring"></a>
 
 ### 检查 SCN 的父操作员<a id="check-parent-operator-of-scn"></a>
 
-如果已成功安装并运行 SCN，则应生成父链操作员账户。
-您可以提供要用作父操作符的密钥存储文件，如果没有提供，SCN 将为您生成密钥。
-您可以通过 RPC API "subbridge_parentOperator "检查父操作符地址。
+如果已成功安装并运行 SCN，则应生成父链操作员账户。您可以提供要用作父操作符的密钥存储文件，如果没有提供，SCN 将为您生成密钥。您可以通过 RPC API "subbridge_parentOperator "检查父操作符地址。
 
 ```
 $ kscn attach --datadir ~/kscnd_home
@@ -30,8 +25,7 @@ _`该父操作员账户地址来自$dataDIR/parent_bridge_account` 目录中的�
 
 ### 将 KAIA 加入家长运营商帐户<a id="add-kaia-to-parent-operator-account"></a>
 
-当 SCN 锚定区块数据时，SCN 将作为父操作员进行锚定交易。
-因此，账户需要 KAIA 支付交易费。 您应该为父操作员账户添加足够的 KAIA。
+当 SCN 锚定区块数据时，SCN 将作为父操作员进行锚定交易。因此，账户需要 KAIA 支付交易费。您应该为父操作员账户添加足够的 KAIA。
 
 ### 启用锚定<a id="enable-anchoring"></a>
 
@@ -42,8 +36,7 @@ _`该父操作员账户地址来自$dataDIR/parent_bridge_account` 目录中的�
 1e+50
 ```
 
-然后，您可以通过 RPC API `subbridge.anchoring` 启用锚定功能，如下所示。
-有关详情，请参阅 [subbridge APIs](../../../references/json-rpc/subbridge/anchoring)。
+然后，您可以通过 RPC API `subbridge.anchoring` 启用锚定功能，如下所示。有关详情，请参阅 [subbridge APIs](../../../references/json-rpc/subbridge/anchoring)。
 
 ```
 > subbridge.anchoring(true)
@@ -52,13 +45,11 @@ true
 
 ## 检查锚定数据<a id="check-anchoring-data"></a>
 
-如果启用了锚定功能，SCN 将定期把区块数据锚定到主链上。
-您可以查看下面的锚定数据。
+如果启用了锚定功能，SCN 将定期把区块数据锚定到主链上。您可以查看下面的锚定数据。
 
 ### 分桥<a id="sub-bridge"></a>
 
-在子桥中，您可以查看最新的锚定区块编号，如下所示。
-有关详情，请参阅 [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number)。
+在子桥中，您可以查看最新的锚定区块编号，如下所示。有关详情，请参阅 [subbridge APIs](../../../references/json-rpc/subbridge/latest-anchored-block-number)。
 
 ```javascript
 > subbridge.latestAnchoredBlockNumber
@@ -74,8 +65,7 @@ true
 
 ### 主桥<a id="sub-bridge"></a>
 
-在主桥中，如果启用了链索引选项，就可以通过服务链块哈希值找到锚定 tx 哈希值，如下所示。
-详细信息请参阅 [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) 。
+在主桥中，如果启用了链索引选项，就可以通过服务链块哈希值找到锚定 tx 哈希值，如下所示。详细信息请参阅 [mainbridge APIs](../../../references/json-rpc/mainbridge/convert-child-chain-block-hash-to-parent-chain-tx-hash) 。
 
 ```javascript
 > mainbridge.convertChildChainBlockHashToParentChainTxHash("0xeadc6a3a29a20c13824b5df1ba05cca1ed248d046382a4f2792aac8a6e0d1880")

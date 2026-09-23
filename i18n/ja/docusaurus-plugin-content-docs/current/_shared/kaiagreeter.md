@@ -1,6 +1,6 @@
 # KaiaGreeter
 
-`KaiaGreeter`は挨拶メッセージを返すシンプルなコントラクトである。 挨拶メッセージは契約展開時に設定されます。
+`KaiaGreeter`は挨拶メッセージを返すシンプルなコントラクトである。挨拶メッセージは契約展開時に設定されます。
 
 ## カイアグリーターの作成<a href="#writing-kaiagreeter" id="writing-kaiagreeter"></a>
 

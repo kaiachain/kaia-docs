@@ -292,7 +292,7 @@ ISemaphoreインターフェイスでは、次のようになっている：
 
 このセクションでは、[hardhat-deploy](https://github.com/wighawag/hardhat-deploy) を使って、コントラクトをlocalhostネットワークにデプロイします。hardhatプラグインは、複製可能なデプロイとテストを可能にします。
 
-次に、contractフォルダの中に**deploy**という新しいフォルダを作成し、New Fileボタンをクリックして**deploy.ts**という新しいファイルを作成します。 次に、以下のコードをコピーしてファイル内に貼り付ける。
+次に、contractフォルダの中に**deploy**という新しいフォルダを作成し、New Fileボタンをクリックして**deploy.ts**という新しいファイルを作成します。次に、以下のコードをコピーしてファイル内に貼り付ける。
 
 ```solidity
 import { HardhatRuntimeEnvironment } from "hardhat/types";

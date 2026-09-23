@@ -1,6 +1,6 @@
 # 创建用户界面
 
-在本节中，我们将构建 dApp 的用户界面！ 我们将创建一个结构化的用户界面系统，其中有三个主要面板，分别用于状态更新、操作和铸币功能。
+在本节中，我们将构建 dApp 的用户界面！我们将创建一个结构化的用户界面系统，其中有三个主要面板，分别用于状态更新、操作和铸币功能。
 
 ## 设置主画布
 
@@ -31,20 +31,20 @@
 
 该面板显示所有重要的 Web3 信息：
 
-- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。 确保填写检查器窗格中的 "文本输入 "字段，例如 "状态......"
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 StatusText。确保填写检查器窗格中的 "文本输入 "字段，例如 "状态......"
 
 :::note
 **TextMeshPro（TMP）设置**
 
-首次创建 TextMeshPro 元素时（用户界面 - 文本 - TextMeshPro），Unity 会自动提示您导入 TMP Essentials。 如果不小心跳过此提示，可以通过窗口 > TextMeshPro > 导入 TMP Essentials 手动导入。
+首次创建 TextMeshPro 元素时（用户界面 - 文本 - TextMeshPro），Unity 会自动提示您导入 TMP Essentials。如果不小心跳过此提示，可以通过窗口 > TextMeshPro > 导入 TMP Essentials 手动导入。
 
-我们为什么需要它TextMeshPro 需要核心资源（着色器、默认字体和材质）才能在游戏中正确显示文本。 如果没有这些基本要素，您的文本组件将无法正确渲染，您将在项目中看到着色器/材质错误。 这是文本正常运行所必需的一次性设置。
+我们为什么需要它TextMeshPro 需要核心资源（着色器、默认字体和材质）才能在游戏中正确显示文本。如果没有这些基本要素，您的文本组件将无法正确渲染，您将在项目中看到着色器/材质错误。这是文本正常运行所必需的一次性设置。
 :::
 
 ![](/img/minidapps/unity-minidapp/status_text.png)
 
-- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 AddressText。 确保填写文本对象，例如 "地址文本......"
-- 右键点击 StatusPanel，点击 UI → Text - TextMeshPro，然后重命名为 TokenBalanceText。 确保填写文本对象，例如 "0.0000 ET"
+- 右键单击 StatusPanel，单击 UI → Text - TextMeshPro，然后重命名为 AddressText。确保填写文本对象，例如 "地址文本......"
+- 右键点击 StatusPanel，点击 UI → Text - TextMeshPro，然后重命名为 TokenBalanceText。确保填写文本对象，例如 "0.0000 ET"
 
 ```code
 ├── StatusText (TextMeshPro)
@@ -59,9 +59,9 @@
 
 您的主要互动按钮
 
-- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
+- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 ConnectWalletButton。确保在 "检查器 "窗格的 "文本输入 "字段中填入 "连接钱包"。
 
-- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。 确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
+- 右键单击 ButtonPanel，单击 UI → Button - TextMeshPro，然后将其重命名为 DisconnectWalletButton。确保在 "检查器 "窗格的 "文本输入 "字段中填入 "断开钱包连接"。
 
 ```code
 ButtonPanel
@@ -75,8 +75,8 @@ ButtonPanel
 
 代币铸造界面：
 
-- 右键单击 MintPanel，单击用户界面 → 输入字段 → TextMeshPro，然后重命名为 MintAmountInput。 确保在占位符对象上填写 "输入金额…"
-- 右键单击 MintPanel，单击用户界面 → 按钮 → TextMeshPro，然后重命名为 MintButton。 确保用 "薄荷 "填充文本对象
+- 右键单击 MintPanel，单击用户界面 → 输入字段 → TextMeshPro，然后重命名为 MintAmountInput。确保在占位符对象上填写 "输入金额…"
+- 右键单击 MintPanel，单击用户界面 → 按钮 → TextMeshPro，然后重命名为 MintButton。确保用 "薄荷 "填充文本对象
 
 ```code
 MintPanel

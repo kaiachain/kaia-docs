@@ -8,13 +8,13 @@ sidebar_label: Privy
 
 ## 导言
 
-[Privy](https://docs.privy.io/)是一个简单的钱包工具包，用于在 web3 中进行渐进式身份验证。 有了 Privy，开发人员可以使用传统和 web3 身份验证方法登录用户，实现渐进式登录，提高用户转化率。
+[Privy](https://docs.privy.io/)是一个简单的钱包工具包，用于在 web3 中进行渐进式身份验证。有了 Privy，开发人员可以使用传统和 web3 身份验证方法登录用户，实现渐进式登录，提高用户转化率。
 
 在本指南中，您将使用 Privy 钱包工具包将 Metamask、Coinbase Wallet 等外部钱包以及 Google、Twitter、Email 等社交登录信息整合到您在 Kaia 网络上构建的 dApp 中。
 
 ## 先决条件
 
-- 一个正在运行的 Next.js 项目。 您可以克隆 Privy 提供的 [create-next-app](https://github.com/privy-io/create-next-app) 模板来学习本教程。
+- 一个正在运行的 Next.js 项目。您可以克隆 Privy 提供的 [create-next-app](https://github.com/privy-io/create-next-app) 模板来学习本教程。
 - 来自[Privy 开发者控制台](https://console.privy.io/)的[应用程序ID](https://docs.privy.io/guide/console/api-keys#app-id)
 
 ## 开始
@@ -23,11 +23,11 @@ sidebar_label: Privy
 
 - **index.tsx**：该文件处理用户的登录验证。
 - **app.tsx**：该文件处理 Privy SDK 的初始化，并用 PrivyProvider 封装我们的组件。
-- **dashboard.tsx**：这是用户登录后重定向到的页面。 它可以测试每种登录方法（谷歌、Twitter、电子邮件、钱包）。 对于本指南来说，更重要的是，我们将在使用 MetaMask 等外部钱包连接时执行某些功能。 这些功能包括：获取用户余额、向另一个账户发送 KAIA、部署合约、与智能合约交互。
+- **dashboard.tsx**：这是用户登录后重定向到的页面。它可以测试每种登录方法（谷歌、Twitter、电子邮件、钱包）。对于本指南来说，更重要的是，我们将在使用 MetaMask 等外部钱包连接时执行某些功能。这些功能包括：获取用户余额、向另一个账户发送 KAIA、部署合约、与智能合约交互。
 
 ## 安装
 
-要在 dApp 中使用 Privy，必须先安装所需的库和 SDK。 因此，您需要设置 ethers.js，以及 [Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)。 您可以将 Privy 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 库一起使用，与 Kaia 区块链进行通信。 在本指南中，我们将使用 ethers.js 库。
+要在 dApp 中使用 Privy，必须先安装所需的库和 SDK。因此，您需要设置 ethers.js，以及 [Privy React Auth SDK](https://www.npmjs.com/package/@privy-io/react-auth)。您可以将 Privy 与 [etherthers.js](https://docs.ethers.org/v6/)、[web3.js](https://web3js.readthedocs.io/en/v1.2.8/getting-started.html)、[viem](https://viem.sh/) 库一起使用，与 Kaia 区块链进行通信。在本指南中，我们将使用 ethers.js 库。
 
 打开项目文件夹，运行下面的命令安装所需的库和 SDK：
 
@@ -40,7 +40,7 @@ npm install --save ethers
 
 成功安装所需的库后，接下来就是用[PrivyProvider](https://docs.privy.io/reference/react-auth/modules#privyprovider)来封装组件。
 
-PrivyProvider 应封装任何将使用 Privy SDK 的组件。 为此，请打开 _app.tsx 文件并粘贴下面的代码：
+PrivyProvider 应封装任何将使用 Privy SDK 的组件。为此，请打开 _app.tsx 文件并粘贴下面的代码：
 
 ```tsx
 import '../styles/globals.css';
@@ -70,7 +70,7 @@ export default MyApp;
 
 值得注意的是，特权提供者具有以下属性：
 
-- 您的 `appID` 需要在 .env 文件中更新。 您可以使用 Privy 为测试目的提供的以下 "测试应用程序 ID：clpispdty00ycl80fpueukbhl "开始使用。
+- 您的 `appID` 需要在 .env 文件中更新。您可以使用 Privy 为测试目的提供的以下 "测试应用程序 ID：clpispdty00ycl80fpueukbhl "开始使用。
 - 一个可选的 `onSuccess` 回调，用户成功登录后执行该回调。
 - 一个可选的 "createPrivyWalletOnLogin "布尔值，用于配置是否希望用户在登录时创建嵌入式钱包。
 - 可选配置属性，用于自定义上机体验。
@@ -97,7 +97,7 @@ export default MyApp;
 
 ## 获取账户和余额
 
-通过上面的步骤，你会发现我们是通过连接钱包登录的。 在这一步中，我们将检索用户的相关 Kaia 地址。 此外，您还可以使用 ethers.js 检索其当前余额（以 KAIA 为单位）。
+通过上面的步骤，你会发现我们是通过连接钱包登录的。在这一步中，我们将检索用户的相关 Kaia 地址。此外，您还可以使用 ethers.js 检索其当前余额（以 KAIA 为单位）。
 
 在 dashboard.tsx 文件中，粘贴以下代码：
 
@@ -147,7 +147,7 @@ return (
 ## 断开钱包连接
 
 断开钱包
-用户登录后，可以通过从 usePrivy 派生的 `logout` 方法以编程方式注销用户。 这将断开当前活动会话与 dApp 的连接，使用户返回初始状态。
+用户登录后，可以通过从 usePrivy 派生的 `logout` 方法以编程方式注销用户。这将断开当前活动会话与 dApp 的连接，使用户返回初始状态。
 
 ```tsx
 const { logout } = usePrivy();
@@ -164,7 +164,7 @@ return (
 
 ## 获取用户信息
 
-Privy 为用户提供了使用 web3 钱包和社交登录连接到 dApp 的便利。 如果用户使用自己的社交账户（如 twitter、discord、谷歌账户等）连接到 dApp，您就可以从 `usePrivy` 中调用 `user`，这会返回一个包含用户 ID、电子邮件、钱包地址等关键信息的对象。
+Privy 为用户提供了使用 web3 钱包和社交登录连接到 dApp 的便利。如果用户使用自己的社交账户（如 twitter、discord、谷歌账户等）连接到 dApp，您就可以从 `usePrivy` 中调用 `user`，这会返回一个包含用户 ID、电子邮件、钱包地址等关键信息的对象。
 
 ```tsx
 const  { user }  =  usePrivy();
@@ -449,4 +449,4 @@ return (
 
 ## 下一步工作
 
-有关 Privy 的更深入指南，请参阅[Privy 文档](https://docs.privy.io/) 和[Privy Github 仓库](https://github.com/privy-io)。 此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample) 上找到本指南的完整实现代码。
+有关 Privy 的更深入指南，请参阅[Privy 文档](https://docs.privy.io/) 和[Privy Github 仓库](https://github.com/privy-io)。此外，您还可以在 [GitHub](https://github.com/kaiachain/kaia-dapp-mono/tree/main/examples/tools/wallet-libraries/privy-auth-sample) 上找到本指南的完整实现代码。

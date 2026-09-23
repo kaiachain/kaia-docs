@@ -160,7 +160,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 
 ---
 
-设置在部署教程中部署的合约地址（**计数器合同**）。 您可以在部署 tx 收据中看到地址
+设置在部署教程中部署的合约地址（**计数器合同**）。您可以在部署 tx 收据中看到地址
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=18
 
@@ -168,7 +168,7 @@ contract_interaction_with_fee_delegation_klaytn_type()
 
 ---
 
-设置合约 abi。 使用 remix 或 solc 编译器编译后，可以获得 ABI
+设置合约 abi。使用 remix 或 solc 编译器编译后，可以获得 ABI
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=19
 
@@ -192,7 +192,7 @@ number before:  294
 
 ---
 
-使用 **build_transaction**创建一个 tx，返回 tx 实例和作为参数传递的字段。 您应设置**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**类型，以便向费用支付方申请费用委托。
+使用 **build_transaction**创建一个 tx，返回 tx 实例和作为参数传递的字段。您应设置**TxType.FEE_DELEGATED_SMART_CONTRACT_EXECUTION**类型，以便向费用支付方申请费用委托。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=26:29
 
@@ -208,7 +208,7 @@ number before:  294
 
 ---
 
-使用 **fill_transaction** 添加交易的**其余字段**，如**气量限制**、**Nonce**等。 如果您想查看以下内容，可以打印这一行之后的所有字段
+使用 **fill_transaction** 添加交易的**其余字段**，如**气量限制**、**Nonce**等。如果您想查看以下内容，可以打印这一行之后的所有字段
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=30
 
@@ -224,7 +224,7 @@ number before:  294
 
 ---
 
-使用收费委托人的密钥，以**收费人**的身份签署交易。 您还需要提供缴费人的地址。
+使用收费委托人的密钥，以**收费人**的身份签署交易。您还需要提供缴费人的地址。
 
 ```py contract_interaction_with_fee_delegation_kaia_type.py focus=33:38
 

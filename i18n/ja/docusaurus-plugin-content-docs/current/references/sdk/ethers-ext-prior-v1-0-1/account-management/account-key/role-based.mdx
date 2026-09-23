@@ -1,6 +1,6 @@
 # 役割ベースのアカウント・キー
 
-**AccountKeyRoleBased**はロールベースのキーを表す。 アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
+**AccountKeyRoleBased**はロールベースのキーを表す。アカウントに**AccountKeyRoleBased**オブジェクトがあり、トランザクションタイプが**アカウント更新を除く**ものである場合、以下のようにそれぞれのロールに応じたバリデーション処理が行われます：
 
 <CH.Spotlight>
 <CH.Code>
@@ -99,7 +99,7 @@ ethers.jsにkaiaの機能を追加するために、**ethers**および **@kaiac
 
 ---
 
-指定された**Kairos** testnet URLでプロバイダを設定します。 エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
+指定された**Kairos** testnet URLでプロバイダを設定します。エーテルにおけるプロバイダーとは、ブロックチェーンのデータにアクセスするための読み取り専用の抽象化されたものである。
 
 ```js AccountUpdateWithRoleBased.js focus=13
 ```
@@ -189,7 +189,7 @@ main().catch(console.error);
 
 ---
 
-ブロックチェーンに送信する。 関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
+ブロックチェーンに送信する。関数 `sendTransaction` は内部的にアカウントの秘密鍵で署名し、ブロックチェーンネットワークに送信する。
 
 <CH.Code>
 ```js AccountUpdateWithRoleBased.js focus=36:37

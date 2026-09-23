@@ -14,7 +14,7 @@
 
 ## 为 Cocos Creator 设置开发环境<a id="setting-up-dev-environment"></a>
 
-在开始之前，让我们确保您的开发环境已正确设置。 我们先安装并验证 Cocos 控制面板。
+在开始之前，让我们确保您的开发环境已正确设置。我们先安装并验证 Cocos 控制面板。
 
 ### 步骤 1：安装并验证 Cocos 控制面板<a id="install-and-verify"></a>
 

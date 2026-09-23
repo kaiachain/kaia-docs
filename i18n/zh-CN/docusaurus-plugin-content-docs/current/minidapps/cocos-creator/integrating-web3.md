@@ -1,6 +1,6 @@
 # Web3 集成
 
-在本节中，我们将通过创建代币合约、编写与之交互的脚本以及利用 Mini Dapp SDK 进行钱包连接、代币铸造和余额检索，把 Web3 功能集成到我们的 Cocos Creator 项目中。 最后，您的 dApp 将与区块链无缝互动，在游戏中实现流畅的 Web3 互动。
+在本节中，我们将通过创建代币合约、编写与之交互的脚本以及利用 Mini Dapp SDK 进行钱包连接、代币铸造和余额检索，把 Web3 功能集成到我们的 Cocos Creator 项目中。最后，您的 dApp 将与区块链无缝互动，在游戏中实现流畅的 Web3 互动。
 
 ## 创建和部署 KIP7 智能合约<a id="creating-and-deploying-smart-contract"></a>
 
@@ -16,7 +16,7 @@
   - Premint：100（初始代币供应）
   - 特点检查 ✅ 可造币
 
-在本指南中，我们将调整 mint 函数，使其不包含 onlyOwner 修饰符。 为此，我们必须删除 ownable.sol 导入和 Ownable 继承。 调整后的代码现在应该是这样的：
+在本指南中，我们将调整 mint 函数，使其不包含 onlyOwner 修饰符。为此，我们必须删除 ownable.sol 导入和 Ownable 继承。调整后的代码现在应该是这样的：
 
 ```
 // SPDX-License-Identifier: MIT
@@ -60,7 +60,7 @@ contract ExampleTokens is KIP7 {
    - 单击 "确认 "将其部署到 Kaia Kairos Testnet。
 
 :::note
-复制并保存已部署的合同地址。 稍后的教程中会用到它。
+复制并保存已部署的合同地址。稍后的教程中会用到它。
 :::
 
 ## 创建脚本文件<a id="creating-script-file"></a>

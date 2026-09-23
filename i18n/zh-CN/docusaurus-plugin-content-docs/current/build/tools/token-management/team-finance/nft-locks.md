@@ -6,7 +6,7 @@ Team Finance 的 NFT 锁定功能允许创建者将个人或团队分配的 NFT 
 
 ## 入门
 
-在本教程中，您将学习如何使用 Team Finance 锁定 NFT。 让我们开始吧！
+在本教程中，您将学习如何使用 Team Finance 锁定 NFT。让我们开始吧！
 
 1. 导航至团队财务 [NFT 锁](https://app.team.finance/nft-locks) 选项卡，然后单击 **创建 NFT 锁**。
 
@@ -34,14 +34,14 @@ Team Finance 的 NFT 锁定功能允许创建者将个人或团队分配的 NFT 
 
 > 这将提示您签署授权交易。
 
-7. 验证您的 NFT 锁详细信息，然后点击 **确认交易**。 系统会提示您的钱包签署交易，以完成交易过程。
+7. 验证您的 NFT 锁详细信息，然后点击 **确认交易**。系统会提示您的钱包签署交易，以完成交易过程。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-7.png)
 
-8. 确认后，您将被重新引导到一个页面，该页面将显示交易状态。 在交易确认之前，请不要离开页面。
+8. 确认后，您将被重新引导到一个页面，该页面将显示交易状态。在交易确认之前，请不要离开页面。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-8.png)
 
-9. 祝贺你 您已使用财务团队成功创建了 NFT 锁。 您可以在仪表板上查看锁的详细信息并跟踪其进度。
+9. 祝贺你您已使用财务团队成功创建了 NFT 锁。您可以在仪表板上查看锁的详细信息并跟踪其进度。
 
 ![](/img/build/tools/token-management/nft-locks/nl-step-9.png)

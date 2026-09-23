@@ -242,7 +242,7 @@ web3_account_update_role_based()
 
 ---
 
-从私人密钥加载**交易**密钥，将其用作**交易角色密钥**。 您可以用它来签署交易
+从私人密钥加载**交易**密钥，将其用作**交易角色密钥**。您可以用它来签署交易
 
 ```py web3_account_update_multisig.py focus=23
 
@@ -250,7 +250,7 @@ web3_account_update_role_based()
 
 ---
 
-从私人密钥加载**更新**密钥，将其用作**更新角色密钥**。 您可以用它来签署该账户的账户更新交易。 这意味着只有拥有此密钥的人才能更新此账户。
+从私人密钥加载**更新**密钥，将其用作**更新角色密钥**。您可以用它来签署该账户的账户更新交易。这意味着只有拥有此密钥的人才能更新此账户。
 
 ```py web3_account_update_multisig.py focus=24
 
@@ -258,7 +258,7 @@ web3_account_update_role_based()
 
 ---
 
-从私人密钥中加载**缴费人**密钥，将其用作**缴费人角色密钥**。 您可以用它作为付费方签署交易。
+从私人密钥中加载**缴费人**密钥，将其用作**缴费人角色密钥**。您可以用它作为付费方签署交易。
 
 ```py web3_account_update_multisig.py focus=25
 
@@ -266,7 +266,7 @@ web3_account_update_role_based()
 
 ---
 
-创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。 您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
+创建一个**TxType.ACCOUNT_UPDATE**类型的空交易。您可以使用 **empty_tx** 工具来获取已填写默认字段的 tx。
 
 ```py web3_account_update_multisig.py focus=6:7,10,27
 
@@ -282,7 +282,7 @@ web3_account_update_role_based()
 
 ---
 
-在这种情况下，要更新的账户密钥是基于**role-based**密钥，每个角色都有** pubkey**类型。 每个角色都可以使用pubkey或多重身份验证。
+在这种情况下，要更新的账户密钥是基于**role-based**密钥，每个角色都有** pubkey**类型。每个角色都可以使用pubkey或多重身份验证。
 
 ```py web3_account_update_multisig.py focus=31,33:34,37:38,41:42
 
@@ -290,7 +290,7 @@ web3_account_update_role_based()
 
 ---
 
-您可以使用 **compressed_key** 工具来设置每个角色的密钥。 它将从密钥中提取压缩公钥
+您可以使用 **compressed_key** 工具来设置每个角色的密钥。它将从密钥中提取压缩公钥
 
 ```py web3_account_update_multisig.py focus=35,39,43
 
@@ -346,7 +346,7 @@ web3_account_update_role_based()
 
 ---
 
-签署账户更新 tx 类型。 您应使用 **update role key** 签名，因为账户 "0x5bd2...cea "已是基于角色的账户，以更新该账户
+签署账户更新 tx 类型。您应使用 **update role key** 签名，因为账户 "0x5bd2...cea "已是基于角色的账户，以更新该账户
 
 <CH.Code>
 ```py web3_account_update_multisig.py focus=52:53

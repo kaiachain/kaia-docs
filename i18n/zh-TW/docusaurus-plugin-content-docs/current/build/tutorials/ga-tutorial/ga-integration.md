@@ -1,6 +1,6 @@
 # 4. 在您的 dApp 或錢包中整合瓦斯抽象
 
-在本頁中，您將學習如何將氣體抽象 (GA) 功能整合到您的錢包中。 在本指南中，您將使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) (ethers-ext) 在 Kaia 鏈上實作 GA 功能。
+在本頁中，您將學習如何將氣體抽象 (GA) 功能整合到您的錢包中。在本指南中，您將使用 [Kaia SDK](https://github.com/kaiachain/kaia-sdk) (ethers-ext) 在 Kaia 鏈上實作 GA 功能。
 
 ## 先決條件
 
@@ -8,7 +8,7 @@
 
 ## 開始使用
 
-本指南專為想要在 Kaia 上實作 Gas Abstraction (GA) 的錢包開發人員所設計。 您將參考真實世界的使用案例 - 執行應用程式層級的交易，使用者在不持有任何原生 KAIA 的情況下，要求空投 ERC20 代幣以支付汽油費用。
+本指南專為想要在 Kaia 上實作 Gas Abstraction (GA) 的錢包開發人員所設計。您將參考真實世界的使用案例 - 執行應用程式層級的交易，使用者在不持有任何原生 KAIA 的情況下，要求空投 ERC20 代幣以支付汽油費用。
 
 您將學習如何
 
@@ -16,7 +16,7 @@
 - 使用 GA 支援的代幣為帳戶提供資金
 - 使用瓦斯抽取建構並執行核准與交換交易
 
-此實作可在 **Kaia Mainnet** 和 **Kairos Testnet** 上無縫運作。 若要跟隨，您需要在任一網路中取得一些 GA 支援的 ERC-20 代幣：
+此實作可在 **Kaia Mainnet** 和 **Kairos Testnet** 上無縫運作。若要跟隨，您需要在任一網路中取得一些 GA 支援的 ERC-20 代幣：
 
 - 在 Kaia 主網路上，我們會使用 [USDT](https://kaiascan.io/address/0xd077a400968890eacc75cdc901f0356c943e4fdb?tabId=txList&page=1)
 - 在 Kairos Testnet 上，我們會使用 [TEST](https://kairos.kaiascan.io/address/0xcb00ba2cab67a3771f9ca1fa48fda8881b457750?tabId=txList&page=1) 代幣
@@ -90,12 +90,12 @@ const wallet = new Wallet(senderPriv, provider);
 ```
 
 :::note
-步驟 2 至 6 共同組成一個完整的可執行流程。 依序將每個區塊複製到相同的檔案中。  
+步驟 2 至 6 共同組成一個完整的可執行流程。依序將每個區塊複製到相同的檔案中。  
 :::
 
 ## 步驟 3：配置合約以估算索賠費用和代幣支援
 
-在這個步驟中，我們會估算執行 claimAirdrop 交易的成本，以便使用代幣交換來彌補。 此估算成本稱為 **AppTxFee**--寄件者需要從交換中收到的 KAIA（Wei）金額，以便為後續的應用程式層級交易（在本例中為空投索賠）提供資金。  
+在這個步驟中，我們會估算執行 claimAirdrop 交易的成本，以便使用代幣交換來彌補。此估算成本稱為 **AppTxFee**--寄件者需要從交換中收到的 KAIA（Wei）金額，以便為後續的應用程式層級交易（在本例中為空投索賠）提供資金。  
 我們也會準備和設定所有必要的合約實體，以便：
 
 - 確認 **GaslessSwapRouter** 支援所選的 ERC20 令牌。
@@ -307,20 +307,20 @@ async function main() {
 在這個步驟中，我們準備了兩個重要的交易，透過代幣轉換實現瓦斯抽象：
 
 **ApproveTx**  
-在智慧契約花費使用者的 ERC20 代幣之前，必須先透過核准來授予其權限。 在此，我們會檢查寄件者是否已經批准 GaslessSwapRouter 使用他們的代幣。
+在智慧契約花費使用者的 ERC20 代幣之前，必須先透過核准來授予其權限。在此，我們會檢查寄件者是否已經批准 GaslessSwapRouter 使用他們的代幣。
 
 - 如果允許額度為零，我們會產生一個 ApproveTx。
 - 如果備用金已存在且足夠，我們會跳過此步驟，以節省汽油。
 
 **SwapTx**  
-處理核准後，我們會準備 SwapTx。 這是將 ERC20 代幣轉換成 KAIA 的交易，以支付最終索賠交易的瓦斯費用。  
+處理核准後，我們會準備 SwapTx。這是將 ERC20 代幣轉換成 KAIA 的交易，以支付最終索賠交易的瓦斯費用。  
 我們計算出三個關鍵值：
 
 - **amountRepay** 是支付所有相關交易（包括掉期本身）所需的 KAIA 準確金額
 - **minAmountOut** 是在計入應用程式交易費用和路由器佣金後，預期從掉期中獲得的最低 KAIA 金額。
 - **amountIn** 是接收 minAmountOut 所需的 ERC20 代幣金額，其中已計入滑點。
 
-如果寄件者的代幣餘額不足以支付 amountIn，執行將會停止，並提示使用者為其帳戶注資。 這兩個交易，即 ApproveTx 和 SwapTx，會加入到交易清單中，我們會在接下來的步驟中看到這些交易會一起提交。
+如果寄件者的代幣餘額不足以支付 amountIn，執行將會停止，並提示使用者為其帳戶注資。這兩個交易，即 ApproveTx 和 SwapTx，會加入到交易清單中，我們會在接下來的步驟中看到這些交易會一起提交。
 
 Kaia
 
@@ -474,7 +474,7 @@ const gasPrice = Number((await provider.getFeeData()).gasPrice);
 
 現在 **ApproveTx** 和 **SwapTx** 都已經準備好並加到交易清單中，我們可以使用 Kaia 的 gas abstraction 功能一起執行它們。
 
-wallet.sendTransactions(txs) 函式會透過批次提交交易來處理此程序。 在引擎蓋下，它利用 **kaia_sendRawTransactions** RPC 方法，接受符合 Ethereum 交易類型的已簽署、RLP 編碼交易陣列。
+wallet.sendTransactions(txs) 函式會透過批次提交交易來處理此程序。在引擎蓋下，它利用 **kaia_sendRawTransactions** RPC 方法，接受符合 Ethereum 交易類型的已簽署、RLP 編碼交易陣列。
 
 這使得它非常適合在單一原子作業中同時提交 ApproveTx 和 SwapTx。
 
@@ -592,7 +592,7 @@ console.log(`${ethers.formatUnits(await goldToken.balanceOf(senderAddr), tokenDe
 
 完整代碼：
 
-想要直接執行完整範例嗎？ 複製以下結合所有步驟的完整腳本。
+想要直接執行完整範例嗎？複製以下結合所有步驟的完整腳本。
 
 Kaia
 
@@ -1079,6 +1079,6 @@ main().catch(console.error);
 
 ## 總結
 
-您剛剛完成了在 Kaia 上執行瓦斯抽取交易的完整演練。 從建立帳戶、使用支援的代幣提供資金，到建立和提交交易，一切都不需要使用者持有原生的 KAIA。 您也看到一個真實的流程，使用者可以完全無氣地接收並領取空投。
+您剛剛完成了在 Kaia 上執行瓦斯抽取交易的完整演練。從建立帳戶、使用支援的代幣提供資金，到建立和提交交易，一切都不需要使用者持有原生的 KAIA。您也看到一個真實的流程，使用者可以完全無氣地接收並領取空投。
 
 透過使用 Kaia 的氣體抽象功能，您現在可以使用零本機代碼登入使用者 - 消除摩擦並為 Web3 應用程式創造更順暢的體驗。

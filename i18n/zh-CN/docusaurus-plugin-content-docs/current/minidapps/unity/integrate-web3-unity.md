@@ -16,7 +16,7 @@
    - Premint：100（初始代币供应）
    - 特点检查 ✅ 可造币
 
-在本指南中，我们将调整 mint 函数，使其不包含 onlyOwner 修饰符。 为此，我们必须删除 ownable.sol 导入和 Ownable 继承。 调整后的代码现在应该是这样的：
+在本指南中，我们将调整 mint 函数，使其不包含 onlyOwner 修饰符。为此，我们必须删除 ownable.sol 导入和 Ownable 继承。调整后的代码现在应该是这样的：
 
 ```js
 // SPDX-License-Identifier: MIT
@@ -60,12 +60,12 @@ contract ExampleTokens is KIP7 {
    - 单击 "确认 "将其部署到 Kaia Kairos Testnet。
 
 :::important
-复制并保存已部署的合同地址。 稍后的教程中会用到它。
+复制并保存已部署的合同地址。稍后的教程中会用到它。
 :::
 
 ## 构建团结网-Web3 桥梁
 
-现在，我们将创建 Unity 和 Web3 功能之间的重要连接。 这就是我们将区块链功能引入您的 Unity 应用程序的地方！
+现在，我们将创建 Unity 和 Web3 功能之间的重要连接。这就是我们将区块链功能引入您的 Unity 应用程序的地方！
 
 ### 第 1 部分：创建插件桥（kaiaPlugin.jslib）
 
@@ -80,7 +80,7 @@ Assets/
         └── KaiaPlugin.jslib    // We'll create this file
 ```
 
-2. 为什么要使用 .jslib？ 可以将其视为 Unity 的 C# 和浏览器的 JavaScript 之间的翻译器，这对于 Web3 交互至关重要！
+2. 为什么要使用 .jslib？可以将其视为 Unity 的 C# 和浏览器的 JavaScript 之间的翻译器，这对于 Web3 交互至关重要！
 
 3. 该插件将处理三个核心功能：
    - ConnectWallet() - 处理 Kaia 钱包连接

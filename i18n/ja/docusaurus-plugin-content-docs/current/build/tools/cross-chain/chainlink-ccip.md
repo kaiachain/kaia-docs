@@ -34,7 +34,7 @@
 
 ### プロジェクトの作成
 
-このセクションでは、[Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/foundry)を使用して開発環境をセットアップします。 新しいFoundryプロジェクトを作成するには、まず新しいディレクトリを作成します：
+このセクションでは、[Foundry](https://docs.kaia.io/build/smart-contracts/deployment-and-verification/deploy/foundry)を使用して開発環境をセットアップします。新しいFoundryプロジェクトを作成するには、まず新しいディレクトリを作成します：
 
 ```bash
 mkdir kaia-foundry-ccip-example
@@ -371,7 +371,7 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
 }
 ```
 
-上のコードは、オーナー・ゲート・コントロール、LINK、またはネイティブな料金支払いで、許可リストに登録されたチェーン間で文字列メッセージを送受信する双方向のCCIPコントラクトである。 この契約で使う主な関数を見てみよう：
+上のコードは、オーナー・ゲート・コントロール、LINK、またはネイティブな料金支払いで、許可リストに登録されたチェーン間で文字列メッセージを送受信する双方向のCCIPコントラクトである。この契約で使う主な関数を見てみよう：
 
 \*\*1. アロリスト
 
@@ -380,14 +380,14 @@ contract Messenger is CCIPReceiver, OwnerIsCreator {
 - **allowlistedSenders[address]（allowlistSender(addr,allowed)を経由する）**：メッセージが到着したときに、送信元チェーン上のどの送信者アドレスが信頼されるかを制限する。
 
 :::note
-テストの前に、両端にこれをセットする。 送信元は送信者とチェーンを信頼しなければならない。 送信先もallowlistedでなければならない。
+テストの前に、両端にこれをセットする。送信元は送信者とチェーンを信頼しなければならない。送信先もallowlistedでなければならない。
 :::
 
 \*\*2. メッセージの送信
 
-**sendMessagePayLINK(selector, receiver, text)**：メッセージを送信し、CCIP料金をLINKで支払う。 これはメッセージを作成し、料金を提示し、LINK残高をチェックし、ルータを承認し、そしてccipSendを実行する。 完了すると、送信されたメッセージに関連する一意のIDが返される。
+**sendMessagePayLINK(selector, receiver, text)**：メッセージを送信し、CCIP料金をLINKで支払う。これはメッセージを作成し、料金を提示し、LINK残高をチェックし、ルータを承認し、そしてccipSendを実行する。完了すると、送信されたメッセージに関連する一意のIDが返される。
 
-**sendMessagePayNative(selector, receiver, text)**：メッセージを送信し、ネイティブ・トークンでCCIP料金を支払う。 これはメッセージを作成し、料金を提示し、ネイティブの残高をチェックし、そしてccipSend(value: fees)を実行する。 完了すると、送信されたメッセージに関連する一意のIDが返される。
+**sendMessagePayNative(selector, receiver, text)**：メッセージを送信し、ネイティブ・トークンでCCIP料金を支払う。これはメッセージを作成し、料金を提示し、ネイティブの残高をチェックし、そしてccipSend(value: fees)を実行する。完了すると、送信されたメッセージに関連する一意のIDが返される。
 
 \*\*3. メッセージの構築
 
@@ -400,7 +400,7 @@ _buildCCIPMessage(receiver, text, feeTokenAddress) -> EVM2AnyMessage
 
 \*\*4. メッセージの受信
 
-CCIPは_ccipReceive(...)を呼び出す。 をデスティネーションチェーンに追加する。 契約だ：
+CCIPは_ccipReceive(...)を呼び出す。をデスティネーションチェーンに追加する。契約だ：
 
 - 送信元チェーンと送信者を許可リストに照らして検証する。
 - 文字列をデコードする
@@ -420,7 +420,7 @@ forge build
 
 ### デプロイヤーとしてウォレットを設定する
 
-スマートコントラクトをネットワークにデプロイする前に、デプロイ先となるウォレットをセットアップする必要がある。 そのためには、[cast wallet import](https://book.getfoundry.sh/reference/cast/cast-wallet-import) コマンドを使って、ウォレットの秘密鍵をFoundryの安全に暗号化されたキーストアにインポートします：
+スマートコントラクトをネットワークにデプロイする前に、デプロイ先となるウォレットをセットアップする必要がある。そのためには、[cast wallet import](https://book.getfoundry.sh/reference/cast/cast-wallet-import) コマンドを使って、ウォレットの秘密鍵をFoundryの安全に暗号化されたキーストアにインポートします：
 
 ```bash
 cast wallet import deployer --interactive
@@ -457,7 +457,7 @@ source .env
 
 コントラクトがコンパイルされ、環境がセットアップされれば、スマート・コントラクトをデプロイする準備は完了だ。
 
-Foundryを使用してスマート・コントラクトをデプロイするには、forge createコマンドを使用します。 このコマンドでは、デプロイしたいスマート・コントラクト、デプロイ先のネットワークのRPC URL、デプロイするアカウントを指定する必要がある。
+Foundryを使用してスマート・コントラクトをデプロイするには、forge createコマンドを使用します。このコマンドでは、デプロイしたいスマート・コントラクト、デプロイ先のネットワークのRPC URL、デプロイするアカウントを指定する必要がある。
 
 ### Kairos TestnetへのSender契約の展開
 
@@ -473,13 +473,13 @@ forge create --rpc-url $KAIROS_RPC_URL --account deployer --broadcast src/Messen
 
 #### イーサリアム・セポリア上のレシーバー・コントラクトにCCIPメッセージを送信するコントラクトを有効にする
 
-まず、取引先チェーンの許可リストステータスを更新する必要がある。 そのためには、以下のコマンドを実行する：
+まず、取引先チェーンの許可リストステータスを更新する必要がある。そのためには、以下のコマンドを実行する：
 
 ```bash
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistDestinationChain(uint64, bool)" $ETH_SEPOLIA_CHAIN_SELECTOR true --account deployer
 ```
 
-上記のコードでは、\*allowlistDestinationChain()\*を呼び出して、Senderコントラクトで許可するデスティネーションチェーンセレクタを設定している。 各チェーンセレクターは[CCIPディレクトリ](https://docs.chain.link/ccip/directory)に掲載されている。
+上記のコードでは、\*allowlistDestinationChain()\*を呼び出して、Senderコントラクトで許可するデスティネーションチェーンセレクタを設定している。各チェーンセレクターは[CCIPディレクトリ](https://docs.chain.link/ccip/directory)に掲載されている。
 
 ### Ethereum SepoliaへのReceiverコントラクトのデプロイ
 
@@ -495,13 +495,13 @@ forge create --rpc-url $ETH_SEPOLIA_RPC_URL --account deployer --broadcast src/M
 
 #### Kairos TestnetのSender ContractからCCIPメッセージを受信できるようにする。
 
-まず、トランザクションのソース・チェーンの許可リスト・ステータスを更新する必要がある。 そのためには、以下のコマンドを実行する：
+まず、トランザクションのソース・チェーンの許可リスト・ステータスを更新する必要がある。そのためには、以下のコマンドを実行する：
 
 ```bash
 cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistSourceChain(uint64, bool)" $KAIROS_CHAIN_SELECTOR true --account deployer
 ```
 
-上記のコードでは、_allowlistSourceChain()_ を呼び出して、Receiver 契約で許可されるソース・ チェーン・セレクタを設定します。 各チェーンセレクターは[CCIPディレクトリ](https://docs.chain.link/ccip/directory)に掲載されている。
+上記のコードでは、_allowlistSourceChain()_ を呼び出して、Receiver 契約で許可されるソース・ チェーン・セレクタを設定します。各チェーンセレクターは[CCIPディレクトリ](https://docs.chain.link/ccip/directory)に掲載されている。
 
 #### Kairos TestnetのSender契約からCCIPメッセージを受信できるようにする。
 
@@ -512,7 +512,7 @@ cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistS
 ```
 
 :::note
-この時点で、あなたはKairos Testnet上の1つの送信者契約とEthereum Sepolia上の1つの受信者契約を持っています。 セキュリティ対策として、Ethereum SepoliaにCCIPメッセージを送信する送信者コントラクトと、送信者とKairos TestnetからCCIPメッセージを受信する受信者コントラクトを有効にしました。
+この時点で、あなたはKairos Testnet上の1つの送信者契約とEthereum Sepolia上の1つの受信者契約を持っています。セキュリティ対策として、Ethereum SepoliaにCCIPメッセージを送信する送信者コントラクトと、送信者とKairos TestnetからCCIPメッセージを受信する受信者コントラクトを有効にしました。
 :::
 
 ## スマートコントラクトの資金調達
@@ -549,15 +549,15 @@ Senderスマートコントラクトの\*sendMessagePayLINK(uint64, address, str
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "sendMessagePayLINK(uint64, address, string)" $ETH_SEPOLIA_CHAIN_SELECTOR `RECEIVER_DEPLOYED_ADDRESS` "gKaia builders" --account deployer
 ```
 
-上のコマンドは、\*sendMessagePayLINK(uint64, address, string)\*を呼び出してメッセージを送信している。 メソッドに渡されるパラメータは以下の通り：送信先チェーンへのチェーンセレクタ（Ethereum Sepolia）、Receiverコントラクトアドレス、メッセージに含まれるテキストデータ（Hello Builders）。
+上のコマンドは、\*sendMessagePayLINK(uint64, address, string)\*を呼び出してメッセージを送信している。メソッドに渡されるパラメータは以下の通り：送信先チェーンへのチェーンセレクタ（Ethereum Sepolia）、Receiverコントラクトアドレス、メッセージに含まれるテキストデータ（Hello Builders）。
 
 コマンドを実行すると、一意な messageId が返されるはずである。
 
-トランザクションが確定すると、CCIPがEthereum Sepoliaにデータを配信し、ReceiverコントラクトのccipReceive関数を呼び出すのに数分かかる。 クロスチェーン取引を確認するには、[CCIPエクスプローラー](https://ccip.chain.link)を開き、取引ハッシュを使って検索します。
+トランザクションが確定すると、CCIPがEthereum Sepoliaにデータを配信し、ReceiverコントラクトのccipReceive関数を呼び出すのに数分かかる。クロスチェーン取引を確認するには、[CCIPエクスプローラー](https://ccip.chain.link)を開き、取引ハッシュを使って検索します。
 
 ![](/img/build/tools/ccip-kaia-eth.png)
 
-次にすべきことは、デスティネーションチェーンのレシーバー契約をチェックすることだ。 そのためには、以下のコマンドを実行して _getLastReceivedMessageDetails()_ を呼び出す：
+次にすべきことは、デスティネーションチェーンのレシーバー契約をチェックすることだ。そのためには、以下のコマンドを実行して _getLastReceivedMessageDetails()_ を呼び出す：
 
 ```bash
 cast call `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "getLastReceivedMessageDetails()" 
@@ -588,9 +588,9 @@ cast to-utf8 e48656c6c6f206275696c64657273000000000000000000000000000000000000
 
 ### データを送信し、ネイティブで支払う
 
-このセクションでは、CCIPでテキストメッセージを送信し、ネイティブトークンで料金を支払います。 イーサリアム・セポリアからKaia（Kairos Testnet）に送金します。 つまり、セポリアの契約は送り手として機能し、カイロスの契約は受け手として機能する。
+このセクションでは、CCIPでテキストメッセージを送信し、ネイティブトークンで料金を支払います。イーサリアム・セポリアからKaia（Kairos Testnet）に送金します。つまり、セポリアの契約は送り手として機能し、カイロスの契約は受け手として機能する。
 
-まず、イーサリアム・セポリア上のETHで送信者コントラクトに資金を供給する必要がある。 そのためには、以下のキャスト・コマンドを実行する：
+まず、イーサリアム・セポリア上のETHで送信者コントラクトに資金を供給する必要がある。そのためには、以下のキャスト・コマンドを実行する：
 
 ```bash
 cast send --rpc-url $ETH_SEPOLIA_RPC_URL `SENDER_DEPLOYED_ADDRESS` --value 300000000000000000 --account deployer
@@ -602,13 +602,13 @@ cast send --rpc-url $ETH_SEPOLIA_RPC_URL `SENDER_DEPLOYED_ADDRESS` --value 30000
 SENDER_DEPLOYED_ADDRESSを送信者の契約アドレスに置き換える。
 :::
 
-次に、イーサリアム・セポリア上の送信者コントラクトから送信先チェーンを許可する。 そのためには、以下のコマンドを実行する：
+次に、イーサリアム・セポリア上の送信者コントラクトから送信先チェーンを許可する。そのためには、以下のコマンドを実行する：
 
 ```bash
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "allowlistDestinationChain(uint64, bool)" $KAIROS_CHAIN_SELECTOR true --account deployer
 ```
 
-次に、Kairos Testnetのレシーバー契約からソースチェーンを許可する。 そのためには、以下のコマンドを実行する：
+次に、Kairos Testnetのレシーバー契約からソースチェーンを許可する。そのためには、以下のコマンドを実行する：
 
 ```bash
 cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistSourceChain(uint64, bool)" $ETH_SEPOLIA_CHAIN_SELECTOR true --account deployer
@@ -626,15 +626,15 @@ cast send `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "allowlistSender
 cast send `SENDER_DEPLOYED_ADDRESS` --rpc-url $ETH_SEPOLIA_RPC_URL "sendMessagePayNative(uint64, address, string)" $KAIROS_CHAIN_SELECTOR 0x12798F1E2013A110E3C8B23aC1f36c00B8DFD4d9 "gKaia Builders" --account deployer
 ```
 
-上のコマンドは、\*sendMessagePayNative(uint64, address, string)\*を呼び出してメッセージを送信している。 メソッドに渡されるパラメータは以下の通り：送信先のチェーンセレクタ（Kairos Testnet）、受信契約アドレス、メッセージに含まれるテキストデータ（gKaia Builders）。
+上のコマンドは、\*sendMessagePayNative(uint64, address, string)\*を呼び出してメッセージを送信している。メソッドに渡されるパラメータは以下の通り：送信先のチェーンセレクタ（Kairos Testnet）、受信契約アドレス、メッセージに含まれるテキストデータ（gKaia Builders）。
 
 コマンドを実行すると、一意な messageId が返されるはずである。
 
-トランザクションが確定すると、CCIPがKairos Testnetにデータを配信し、ReceiverコントラクトのccipReceive関数を呼び出すのに数分かかります。 クロスチェーン取引を確認するには、[CCIPエクスプローラー](https://ccip.chain.link)を開き、取引ハッシュを使って検索します。
+トランザクションが確定すると、CCIPがKairos Testnetにデータを配信し、ReceiverコントラクトのccipReceive関数を呼び出すのに数分かかります。クロスチェーン取引を確認するには、[CCIPエクスプローラー](https://ccip.chain.link)を開き、取引ハッシュを使って検索します。
 
 ![](/img/build/tools/ccip-eth-kaia.png)
 
-次にすべきことは、デスティネーションチェーンのレシーバー契約をチェックすることだ。 そのためには、以下のコマンドを実行して _getLastReceivedMessageDetails()_ を呼び出す：
+次にすべきことは、デスティネーションチェーンのレシーバー契約をチェックすることだ。そのためには、以下のコマンドを実行して _getLastReceivedMessageDetails()_ を呼び出す：
 
 ```bash
 cast call `RECEIVER_DEPLOYED_ADDRESS` --rpc-url $KAIROS_RPC_URL "getLastReceivedMessageDetails()" 

@@ -18,7 +18,7 @@
 
 ## 1. はじめに<a href="#1-introduction" id="1-introduction"></a>
 
-このチュートリアルは、Caver-js SDKを使用して、Kaiaにおける料金委譲トランザクションがどのように機能するかを説明する、簡単なサーバ・クライアントの例を書くのに役立ちます。 チュートリアルとサンプルコードはKairos testnetでテストされています。
+このチュートリアルは、Caver-js SDKを使用して、Kaiaにおける料金委譲トランザクションがどのように機能するかを説明する、簡単なサーバ・クライアントの例を書くのに役立ちます。チュートリアルとサンプルコードはKairos testnetでテストされています。
 
 ## 2. Fee Delegationの仕組み<a href="#2-how-fee-delegation-works" id="2-how-fee-delegation-works"></a>
 
@@ -54,13 +54,13 @@ console.log("senderTxHashRLP", senderTxHashRLP)；
 
 エラーがなければ、`senderTxHashRLP` は `senderPrivateKey` によって署名されたトランザクションを持つ。
 
-次に、`senderTxHashRLP` を料金支払者に送信する必要がある。 これを実装するには様々な方法があります。 このチュートリアルでは、`senderTxHashRLP` を料金支払者に送信する例として、簡単なサーバ・クライアントコードを提供します。
+次に、`senderTxHashRLP` を料金支払者に送信する必要がある。これを実装するには様々な方法があります。このチュートリアルでは、`senderTxHashRLP` を料金支払者に送信する例として、簡単なサーバ・クライアントコードを提供します。
 
 ### 2.2 料金支払者による取引署名<a href="#2-2-transaction-signing-by-the-fee-payer" id="2-2-transaction-signing-by-the-fee-payer"></a>
 
-フィー支払者は `senderRawTransaction` を受け取ると、秘密鍵で `senderRawTransaction` に再度署名し、Kaia にトランザクションを送信する。 以下のコード・スニペットはそのプロセスを示している。
+フィー支払者は `senderRawTransaction` を受け取ると、秘密鍵で `senderRawTransaction` に再度署名し、Kaia にトランザクションを送信する。以下のコード・スニペットはそのプロセスを示している。
 
-[sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) メソッドは、トランザクションを送信する前に、与えられた料金支払者の秘密鍵でトランザクションに署名する。 コードを実行する前に、`"FEEPAYER_ADDRESS"` と `"PRIVATE_KEY"` を実際の値に置き換えてください。
+[sendTransactionAsFeePayer](https://docs.kaia.io/references/sdk/ethers-ext/v6/fee-delegated-transaction/value-transfer/) メソッドは、トランザクションを送信する前に、与えられた料金支払者の秘密鍵でトランザクションに署名する。コードを実行する前に、`"FEEPAYER_ADDRESS"` と `"PRIVATE_KEY"` を実際の値に置き換えてください。
 
 料金支払者が送信者に代わってKaiaにトランザクションを送信する場合、`senderTxHashRLP` タイプは `FeeDelegatedValueTransfer` タイプのトランザクションでなければならないことに注意すること。
 
@@ -274,11 +274,11 @@ senderTxHashRLP0x09f88681ca85066720b30082cd14943a388d3fd71a0d9722c525e17007ddccc
 サーバーからデータを受信：これは手数料の委任であり、サービス手数料の支払者は 0x88311cD55B656D2502b50f62E83F8279c1641e70 です。
 ```
 
-送信者」の秘密鍵でトランザクションに署名し、署名されたトランザクションを料金支払者 のサーバーに送信する。 次に、`Fee payer` アドレス、`Tx hash` を含む、fee delegate サービスからの応答を受信する。 Txハッシュ\`はKaiaネットワークに送信されたトランザクションのハッシュである。
+送信者」の秘密鍵でトランザクションに署名し、署名されたトランザクションを料金支払者 のサーバーに送信する。次に、`Fee payer` アドレス、`Tx hash` を含む、fee delegate サービスからの応答を受信する。 Txハッシュ\`はKaiaネットワークに送信されたトランザクションのハッシュである。
 
 ### 4.3 `feepayer_server.js` のチェック<a href="#4-3-check-feepayer_server-js" id="4-3-check-feepayer_server-js"></a>
 
-サーバーのコンソールには、以下のような出力が表示される。 カイアからの取引レシートを印刷する。
+サーバーのコンソールには、以下のような出力が表示される。カイアからの取引レシートを印刷する。
 
 ```bash
 $ node feepayer_server.js

@@ -366,7 +366,7 @@ GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
 
 ---
 
-根據 approveRequired 標誌檢查是否需要核准交易。 產生 ERC20 核准交易，允許 GaslessSwapRouter 使用寄件者的代幣。
+根據 approveRequired 標誌檢查是否需要核准交易。產生 ERC20 核准交易，允許 GaslessSwapRouter 使用寄件者的代幣。
 
 ```js Gasless.js focus=44:49
 ```
@@ -448,14 +448,14 @@ GaslessSwapRouter address: 0x4b41783732810b731569E4d944F59372F411BEa2
 
 ---
 
-產生交換交易，以指定數量的 ERC20 代幣交換至少最低數量的 KAIA，並結合無瓦斯還款邏輯。 將 swap 交易加入 txs 陣列，以便批次執行。
+產生交換交易，以指定數量的 ERC20 代幣交換至少最低數量的 KAIA，並結合無瓦斯還款邏輯。將 swap 交易加入 txs 陣列，以便批次執行。
 
 ```js Gasless.js focus=77:87
 ```
 
 ---
 
-使用寄件者的錢包傳送 txs 陣列中的所有交易。 迭代已傳送的交易，以記錄其詳細資訊。
+使用寄件者的錢包傳送 txs 陣列中的所有交易。迭代已傳送的交易，以記錄其詳細資訊。
 
 <CH.Code>
 

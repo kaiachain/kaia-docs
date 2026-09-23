@@ -212,7 +212,7 @@ preparedTx {
 
 ---
 
-送信者は `klay_sendRawTransaction` を使ってKaiaブロックチェーンにトランザクションを送信し、その結果（通常はトランザクションハッシュ）が記録される。 送金者は取引手数料を支払う。
+送信者は `klay_sendRawTransaction` を使ってKaiaブロックチェーンにトランザクションを送信し、その結果（通常はトランザクションハッシュ）が記録される。送金者は取引手数料を支払う。
 
 <CH.Code>
 ```js FeeDelegatedSmartContractExecution.js focus=46:50
@@ -228,7 +228,7 @@ contract interaction tx 0xf92b2450cfe8bb10cdb02f01c99a391be835d94435fd042d221282
 
 ---
 
-契約に同じ `setNumber` 関数を呼び出すために、フィー委譲トランザクション (`FeeDelegatedSmartContractExecution`) を準備する。 この設定は、手数料を支払わない取引と似ているが、手数料の支払者は、**手数料をカバーする**ために取引に署名する。
+契約に同じ `setNumber` 関数を呼び出すために、フィー委譲トランザクション (`FeeDelegatedSmartContractExecution`) を準備する。この設定は、手数料を支払わない取引と似ているが、手数料の支払者は、**手数料をカバーする**ために取引に署名する。
 
 ```js FeeDelegatedSmartContractExecution.js focus=53:59
 ```

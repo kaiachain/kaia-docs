@@ -1,12 +1,12 @@
 # Kaia MEV 拍卖 SDK 搜索指南
 
-[Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 引入了 MEV 拍卖系统，使搜索者能够参与公平、透明的 MEV 机会拍卖。 本指南全面介绍了使用 Kaia MEV 拍卖 SDK 的搜索工作流程。
+[Kaia v2.1.0](https://github.com/kaiachain/kaia/releases/tag/v2.1.0) 引入了 MEV 拍卖系统，使搜索者能够参与公平、透明的 MEV 机会拍卖。本指南全面介绍了使用 Kaia MEV 拍卖 SDK 的搜索工作流程。
 
 :::warning 服务通知 - MEV 拍卖基础设施暂时中止
 
 作为根据当前使用模式进行的运营优化的一部分，MEV 拍卖基础设施（包括**Auctioneer**和**MEV Explorer**）已在**主网和 Kairos**上暂时中止。 Auctioneer 端点（`auctioneer.kaia.io`, `auctioneer-kairos.kaia.io`）和 MEV Explorer 端点（`mev.kaia.io`, `mev-kairos.kaia.io`）目前不可用。
 
-这种暂停不会\***终止 Kaia 的 MEV 框架或搜索器生态系统。 CN 级 MEV 功能仍**启用\*\*。 当生态系统条件和搜索者的需求要求恢复活跃的 MEV 拍卖业务时，基础设施将重新上线。 恢复日期尚未确定。
+这种暂停不会\***终止 Kaia 的 MEV 框架或搜索器生态系统。 CN 级 MEV 功能仍**启用\*\*。当生态系统条件和搜索者的需求要求恢复活跃的 MEV 拍卖业务时，基础设施将重新上线。恢复日期尚未确定。
 
 :::
 
@@ -57,7 +57,7 @@
 
 搜索者可以通过以下方式识别有利可图的交易
 
-- **订阅拍卖商的待处理交易 API**：该应用程序接口可直接从共识节点流式传输交易，使您能够实时检测 MEV 机会。 请参阅下文[订阅待处理交易](#step-3-subscribe-to-pending-transactions) 部分。
+- **订阅拍卖商的待处理交易 API**：该应用程序接口可直接从共识节点流式传输交易，使您能够实时检测 MEV 机会。请参阅下文[订阅待处理交易](#step-3-subscribe-to-pending-transactions) 部分。
 - **独立监控网络 mempool**：通过订阅待处理 tx，实现自己的 MEV 机会检测逻辑。
 
 :::
@@ -66,7 +66,7 @@
 
 ![](/img/build/tutorials/searcher-guide-2.png)
 
-拍卖保证金金库 "保存着您的竞拍余额。 您的保证金必须包括投标金额和执行投标所需的预计燃气费。
+拍卖保证金金库 "保存着您的竞拍余额。您的保证金必须包括投标金额和执行投标所需的预计燃气费。
 
 ### 了解存款要求
 
@@ -87,7 +87,7 @@
 
 **方法 1："存款() "**\*
 
-使用发件人的余额存款。 存款记入汇款人账户。
+使用发件人的余额存款。存款记入汇款人账户。
 
 ```bash
 # Deploy deposit of 200 KAIA
@@ -96,7 +96,7 @@ cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863
 
 **方法 2："depositFor（地址搜索器）"**\*
 
-代表另一个账户存款。 用于从单一来源资助多个搜索者地址。
+代表另一个账户存款。用于从单一来源资助多个搜索者地址。
 
 ```bash
 cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc "depositFor(address)" <SEARCHER_ADDRESS> --rpc-url "https://public-en-kairos.node.kaia.io" --confirmations 0 --value 200000000000000000000
@@ -116,7 +116,7 @@ cast call 0x2A168bCdeB9006eC6E71f44B7686c9a9863C1FBc "depositBalances(address)(u
 
 ![](/img/build/tutorials/searcher-guide-3.png)
 
-一旦发现有利可图的交易，请向拍卖师提交竞标书。 出价是密封的（在拍卖结束前隐藏），并根据出价金额进行竞争。
+一旦发现有利可图的交易，请向拍卖师提交竞标书。出价是密封的（在拍卖结束前隐藏），并根据出价金额进行竞争。
 
 ### 投标结构
 
@@ -139,20 +139,20 @@ type AuctionBid struct {
 
 :::info
 
-您提交出价后，拍卖师会验证并添加自己的签名（"AuctioneerSignature"），然后将中标出价转发给共识节点。 您只需提供 `SearcherSig`（您的 EIP-712 签名）。
+您提交出价后，拍卖师会验证并添加自己的签名（"AuctioneerSignature"），然后将中标出价转发给共识节点。您只需提供 `SearcherSig`（您的 EIP-712 签名）。
 
 :::
 
 ### 提交投标书
 
-SDK 在 [`example/submitbid.go`](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 中提供了一个完整的工作示例。 示例说明
+SDK 在 [`example/submitbid.go`](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) 中提供了一个完整的工作示例。示例说明
 
 - 与拍卖商建立 HTTPS 连接
 - 从 EN 端点检测新区块
 - 生成目标交易和相应出价
 - 向拍卖师提交标书
 
-**需要采取的行动**：运行代码前，请在代码中替换您的私人密钥。 检查源代码中的 "TODO: "注释。
+**需要采取的行动**：运行代码前，请在代码中替换您的私人密钥。检查源代码中的 "TODO: "注释。
 
 运行示例：
 
@@ -163,13 +163,13 @@ go run example/submitbid.go
 
 ### 投标验证
 
-拍卖人、投标人和智能合约各自对出价进行特定的验证检查。 主要验证规则包括
+拍卖人、投标人和智能合约各自对出价进行特定的验证检查。主要验证规则包括
 
 - **区块编号**：必须为 currentBlockNumber + 1 或 currentBlockNumber + 2
 - **出价金额**：必须大于 0 且小于或等于您的可用存款余额
 - **调用数据大小**：不得超过 `BidTxMaxDataSize` (64KB)
 - **呼叫气体限制**：不得超过 `BidTxMaxCallGasLimit` (10,000,000)
-- **nonce**：必须与您在 `AuctionEntryPoint` 中的当前 nonce 匹配。 查询时使用
+- **nonce**：必须与您在 `AuctionEntryPoint` 中的当前 nonce 匹配。查询时使用
   ```bash
   cast call 0x2fF66A8b9f133ca4774bEAd723b8a92fA1e28480 "nonces(address)(uint256)" <YOUR_ADDRESS> --rpc-url "https://public-en-kairos.node.kaia.io"
   ```
@@ -184,7 +184,7 @@ go run example/submitbid.go
 
 ![](/img/build/tutorials/searcher-guide-4.png)
 
-Auctioneer 提供 WebSocket 订阅服务，可直接从共识节点流式传输待处理交易。 这样，搜索人员就能实时发现 MEV 机会。
+Auctioneer 提供 WebSocket 订阅服务，可直接从共识节点流式传输待处理交易。这样，搜索人员就能实时发现 MEV 机会。
 
 SDK 在 [example/subscribe_pendingtx.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/subscribe_pendingtx.go) 中提供了一个完整的示例。
 
@@ -201,7 +201,7 @@ SDK 在 [example/subscribe_pendingtx.go](https://github.com/kaiachain/auctioneer
 go run example/subscribe_pendingtx.go
 ```
 
-当检测到待处理交易时，订阅会持续打印交易哈希值。 您可以扩展本示例，实现自己的 MEV 检测逻辑。
+当检测到待处理交易时，订阅会持续打印交易哈希值。您可以扩展本示例，实现自己的 MEV 检测逻辑。
 
 ## 步骤 4：了解执行
 
@@ -284,13 +284,13 @@ cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863
 
 ### 常见问题
 
-| 问题类别       | 症状         | 原因                                               | 解决方案                                                                                                                           |
-| ---------- | ---------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| **余额不足**   | 被拍卖商拒绝的出价  | 押金余额不包括出价金额 + 预计汽油费                              | 使用 `depositBalances()` 查看余额并存入更多 KAIA                                                                                          |
-| **不匹配**    | 投标被拒绝或执行失败 | Nonce 与 `AuctionEntryPoint` 中的当前 nonce 不匹配       | 在每次出价前使用 `nonces()` 查询当前的 nonce。 记住：非ces 只在执行时递增，而不是在提交时递增                                                                     |
-| **街区编号范围** | 被拍卖商拒绝的出价  | 目标块超出允许范围`[current+1, current+allowFutureBlock]` | 确保区块编号在范围内（通常为 +1 或 +2）。 请参阅常见问题，了解双重提交战略                                                                                      |
-| **无效签名**   | 被拍卖商拒绝的出价  | 不正确的 EIP-712 签名结构                                | 验证域分隔符和类型散列。 正确执行请参考 [submitbid.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) |
-| **气体限值问题** | 执行失败或投标被拒绝 | 调用气体上限 "过低或超过上限 (10,000,000)  | 在测试网上测试反向运行逻辑，以测量实际耗气量                                                                                                         |
+| 问题类别       | 症状         | 原因                                               | 解决方案                                                                                                                          |
+| ---------- | ---------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| **余额不足**   | 被拍卖商拒绝的出价  | 押金余额不包括出价金额 + 预计汽油费                              | 使用 `depositBalances()` 查看余额并存入更多 KAIA                                                                                         |
+| **不匹配**    | 投标被拒绝或执行失败 | Nonce 与 `AuctionEntryPoint` 中的当前 nonce 不匹配       | 在每次出价前使用 `nonces()` 查询当前的 nonce。记住：非ces 只在执行时递增，而不是在提交时递增                                                                     |
+| **街区编号范围** | 被拍卖商拒绝的出价  | 目标块超出允许范围`[current+1, current+allowFutureBlock]` | 确保区块编号在范围内（通常为 +1 或 +2）。请参阅常见问题，了解双重提交战略                                                                                      |
+| **无效签名**   | 被拍卖商拒绝的出价  | 不正确的 EIP-712 签名结构                                | 验证域分隔符和类型散列。正确执行请参考 [submitbid.go](https://github.com/kaiachain/auctioneer-sdk/blob/dev/example/submitbid.go) |
+| **气体限值问题** | 执行失败或投标被拒绝 | 调用气体上限 "过低或超过上限 (10,000,000)  | 在测试网上测试反向运行逻辑，以测量实际耗气量                                                                                                        |
 
 ## 常见问题
 
@@ -302,13 +302,13 @@ cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863
 
 \*\*问：订阅连接的有效期有多长？
 
-答：连接在 24 小时后自动关闭。 请注意，如果正在进行滚动更新，连接可能会提前 24 小时关闭。
+答：连接在 24 小时后自动关闭。请注意，如果正在进行滚动更新，连接可能会提前 24 小时关闭。
 
 ### 应用程序接口性能和延迟
 
 \*\*问：在提交投标时，如何尽量减少应用程序接口延迟？
 
-答：拍卖商使用的是带有 HTTPS 协议的 L7 负载平衡器。 初始握手耗时取决于网络状态。 要绕过发送后续竞标 API 时的初始延迟，强烈建议建立保持连接。
+答：拍卖商使用的是带有 HTTPS 协议的 L7 负载平衡器。初始握手耗时取决于网络状态。要绕过发送后续竞标 API 时的初始延迟，强烈建议建立保持连接。
 
 \*\*问：我是否应该注意 API 速率限制？
 
@@ -316,17 +316,17 @@ cast send --private-key <YOUR_PRIVATE_KEY> 0x2A168bCdeB9006eC6E71f44B7686c9a9863
 
 \*\*问：地理位置是否会影响延迟？
 
-答：是的。 拍卖师服务器在 GCP KR（首尔）地区运行。 建议您将基础架构托管在地理位置较近的区域，以最大限度地减少延迟和地理延迟。
+答：是的。拍卖师服务器在 GCP KR（首尔）地区运行。建议您将基础架构托管在地理位置较近的区域，以最大限度地减少延迟和地理延迟。
 
 ### 竞价时机和区块目标
 
 \*\*问：为什么我的投标有时会针对错误的区块编号？
 
-答：您提交投标的时间对 CN（共识节点）的开采时间非常敏感。 如果拍卖开始较晚（接近开采时间），出价交易将被插入下一个区块之后（区块编号 +2 而不是 +1）。 这意味着您应该将目标块编号设置为 +2。
+答：您提交投标的时间对 CN（共识节点）的开采时间非常敏感。如果拍卖开始较晚（接近开采时间），出价交易将被插入下一个区块之后（区块编号 +2 而不是 +1）。这意味着您应该将目标块编号设置为 +2。
 
 \*\*问：如何提高投标包含率？
 
-答：目标区块编号对 CN 挖矿时间表有固有的敏感性：如果您的目标区块编号是 +2，但由于处理时间较早，交易插入的区块编号是 +1，那么竞标就会失败。 因此，建议通过两次发送竞价交易来最大限度地提高包含概率：一次目标区块编号为 +1，另一次目标区块编号为 +2。
+答：目标区块编号对 CN 挖矿时间表有固有的敏感性：如果您的目标区块编号是 +2，但由于处理时间较早，交易插入的区块编号是 +1，那么竞标就会失败。因此，建议通过两次发送竞价交易来最大限度地提高包含概率：一次目标区块编号为 +1，另一次目标区块编号为 +2。
 
 ## 最佳做法
 
