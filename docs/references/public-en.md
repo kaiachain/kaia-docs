@@ -358,6 +358,21 @@ Kaia support is available **until October 16, 2026**.
 * [Subscription](https://www.ankr.com/rpc/pricing/)
 * [Website](https://www.ankr.com/rpc/)
 
+### SwiftNodes
+
+[SwiftNodes](https://swiftnodes.io/kaia-rpc) is a flat-rate multi-chain RPC provider serving Kaia mainnet over HTTPS and WebSocket.
+
+#### Features
+
+- Kaia mainnet (chain ID 8217), `eth_*` namespace, HTTPS and WebSocket (`eth_subscribe`)
+- Archive-depth historical state; `debug_traceCall` supported
+- Flat monthly pricing with a free tier; one API key across 86 networks
+
+#### References
+
+- [Kaia RPC endpoint](https://swiftnodes.io/kaia-rpc)
+- [Documentation](https://swiftnodes.io/docs/getting-started)
+
 ## Useful Resources 
 
 - Wallet: [Kaia Wallet](../build/wallets/overview/kaia-wallet.md) is a browser extension wallet for the Kaia Network.
