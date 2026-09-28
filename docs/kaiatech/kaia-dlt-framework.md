@@ -95,3 +95,7 @@ The consensus process consists of the following three stages:
 - Kaia Blockchain adopts a multi-channel approach to deal with network congestion. By allocating separate propagation channels to transactions and blocks, the Kaia network can propagate newly created blocks in a timely manner even when the network faces severe congestion due to a large number of transactions. In turn, Kaia guarantees the dApps on the network to continue responding to end-user requests despite intermittent network traffic surges.
 
 - Kaia chain deploys the network monitoring for all the validators in the blockchain.
+
+## DLT Framework document
+
+- [Kaia DLT Foundation — DLT Framework v1.0 (PDF)](pathname:///files/kaia-dlt-framework-v1.0.pdf)
