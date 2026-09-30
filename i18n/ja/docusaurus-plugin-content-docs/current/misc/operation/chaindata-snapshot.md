@@ -35,47 +35,60 @@
 
 ## ファイルをダウンロードする
 
-新しいディレクトリに圧縮ファイルをダウンロードする。 URLはこのページの下にあります。
+公開されたスナップショットはすべて [snapshots.node.kaia.io](https://snapshots.node.kaia.io/) に一覧表示されており、各ネットワークは最新のスナップショットのURLを1行の `latest.txt` として公開しています。変数に読み込んでおけば、新しいスナップショットが公開された際、以下のコマンドを編集する必要がなくなります。
+
+```sh
+# mainnet; Kairosの場合は、mainnetをkairosに置き換えてください
+URL=$(curl -s https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt)
+echo "$URL"
+```
 
 - オプション1。 curl
   ```sh
-  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O "$URL"
   ```
 - オプション2。 wget
   ```sh
-  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget "$URL"
   ```
 - オプション3。 axel
   ```sh
-  # Amazon Linux インストール例
+  # Amazon Linux のインストール例
   sudo amazon-linux-extras install epel
-  sudo yum install axel pigz
+  sudo yum install axel
 
-  # マルチスレッドダウンロードとステータスバーの表示
-  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/[/{printf "%s'$'\r''", $0}'.
+  # マルチスレッドでのダウンロードおよびステータスバーの表示
+  axel -n8 "$URL" | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
   ```
 - オプション4。 aria2
   ```sh
-  # Rocky Linux インストール例
+  # Rocky Linux のインストール例
   sudo yum install epel-release aria2
 
-  # 軽量、マルチコネクションダウンロード
-  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  # 軽量でマルチ接続に対応したダウンロード
+  aria2c "$URL"
   ```
 
 ## ファイルを解凍する
 
+スナップショットは [zstd](https://github.com/facebook/zstd) で圧縮され、ファイル名は `.tar.zst` となります。アーカイブには `klay/chaindata` ディレクトリが含まれているため、これをデータディレクトリ自体に解凍してください。
+
 - オプション1。 tar
   ```sh
-  tar -xvf kaia-mainnet-chaindata-xxxxxxxxxx.tar.gz
+  tar --zstd -xvf kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -C /var/kend/data
   ```
-- オプション2。 tar and pigz
+- オプション2。 zstd、その後tar
   ```sh
-  # Amazon Linux & Rocky Linux インストール例
-  sudo yum install pigz
+  # --zstd オプションなしでビルドされた tar の場合。 Amazon Linux および Rocky Linux のインストール例
+  sudo yum install zstd
 
-  # マルチスレッド解凍
-  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxx.tar.gz
+  zstd -d kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -o out.tar
+  tar -xf out.tar -C /var/kend/data
+  ```
+- 選択肢 3. ダウンロードと解凍を一度に行う
+  ```sh
+  # アーカイブと、それが展開されるディレクトリの両方を格納するスペースがない
+  curl -s "$URL" | tar --zstd -xf - -C /var/kend/data
   ```
 
 ## データ・ディレクトリを入れ替える
@@ -96,16 +109,22 @@
     ```
 - オプション2。ノード・コンフィギュレーションでパスを変更する
   - `kend.conf` ファイルの `DATA_DIR` の値を変更する。
-- オプションで古いデータとtar.gzファイルを削除する。
+- 必要に応じて、古いデータと `.tar.zst` ファイルを削除してください。
 - 最後にノードをスタートさせる。
 
 ## ダウンロード
 
-効率化のため、バッチ・プルーニング（状態移行）またはライブ・プルーニングされたデータベースのみが提供される。その概念については、[ストレージの最適化](../../learn/storage/storage-optimization.md)を読んでほしい。プルーニングもアーカイブデータもない完全なデータベースが必要な場合は、ジェネシスから新たに完全同期を実行してください。
+スナップショットは **[snapshots.node.kaia.io](https://snapshots.node.kaia.io/)** に公開されており、そこにはすべてのスナップショットとそのサイズ、チェックサムが一覧表示されています。このページに加えて、各ネットワークはスクリプト用の2つのファイルを公開しています。1つは`latest.txt`で、1行に最新のスナップショットのURLが記載されています。もう1つは`manifest.json`で、すべてのスナップショットとそのサイズ、チェックサム、作成日時が記載されています。
 
-| ネットワーク | 同期オプション | ダウンロード                                                                                              |
-| ------ | ------- | --------------------------------------------------------------------------------------------------- |
-| メインネット | 移行状態    | https://packages.kaia.io/mainnet/chaindata/         |
-| メインネット | 生剪定     | https://packages.kaia.io/mainnet/pruning-chaindata/ |
-| カイロス   | 移行状態    | https://packages.kaia.io/kairos/chaindata/          |
-| カイロス   | 生剪定     | https://packages.kaia.io/kairos/pruning-chaindata/  |
+| ネットワーク | 同期オプション | ダウンロード                                                                                                          | スクリプト用                                                                                                                                                                                                      |
+| ------ | ------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| メインネット | 生剪定     | https://snapshots.node.kaia.io/#mainnet-pruning | [latest.txt](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/manifest.json) |
+| カイロス   | 生剪定     | https://snapshots.node.kaia.io/#kairos-pruning  | [latest.txt](https://snapshots.node.kaia.io/kairos/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/kairos/pruning-chaindata/manifest.json)   |
+
+公開されるのは、ライブ剪定されたデータベースのみです。その概念については、[ストレージの最適化](../../learn/storage/storage-optimization.md)をご覧ください。バッチプリューン（状態移行）されたスナップショットは生成されなくなり、フルデータベースやアーカイブデータベースも生成されなくなりました。これらについては、ジェネシスから新たにフル同期を実行するか、devops@kaia.io に書き込んでください。
+
+:::note
+
+このページで以前掲載されていた `https://packages.kaia.io/<network>/chaindata/` および `.../pruning-chaindata/` という URL は、現在更新されていません。それらのディレクトリにある `latest.txt` や `manifest.json` を参照するものはすべて、代わりに上記の表に記載されている URL を参照するようにしてください。
+
+:::

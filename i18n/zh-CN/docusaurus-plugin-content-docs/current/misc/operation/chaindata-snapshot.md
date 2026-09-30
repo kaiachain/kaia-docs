@@ -35,24 +35,30 @@
 
 ## 下载文件
 
-将压缩文件下载到新目录。 URL 位于本页底部。
+每个已发布的快照都会列在 [snapshots.node.kaia.io](https://snapshots.node.kaia.io/) 上，每个网络都会将最新快照的 URL 作为单行文件 `latest.txt` 发布。将其读入一个变量中，这样在发布新快照时，下面的命令就无需修改了。
+
+```sh
+# 主网；对于 Kairos，请将 mainnet 替换为 kairos
+URL=$(curl -s https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt)
+echo "$URL"
+```
 
 - 方案 1. curl
   ```sh
-  curl -O https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  curl -O "$URL"
   ```
 - 方案 2. wget
   ```sh
-  wget https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  wget "$URL"
   ```
 - 方案 3. axel
   ```sh
-  # 亚马逊 Linux 安装示例
+  # Amazon Linux 安装示例
   sudo amazon-linux-extras install epel
-  sudo yum install axel pigz
+  sudo yum install axel
 
-  # 多线程下载并打印状态栏
-  axel -n8 https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
+  # 多线程下载和打印状态栏
+  axel -n8 "$URL" | awk -W interactive '$0~/\[/{printf "%s'$'\r''", $0}'
   ```
 - 方案 4. 咏叹调2
   ```sh
@@ -60,22 +66,29 @@
   sudo yum install epel-release aria2
 
   # 轻量级、多连接下载
-  aria2c https://storage.googleapis.com/kaia-chaindata/mainnet/kaia-mainnet-chaindata-xxxxxxxxxxxxxx.tar.gz
+  aria2c "$URL"
   ```
 
 ## 解压文件
 
+快照使用 [zstd](https://github.com/facebook/zstd) 进行压缩，并命名为 `.tar.zst`。该存档中包含一个 `klay/chaindata` 目录，因此请将其解压到 data 目录中。
+
 - 方案 1. tar
   ```sh
-  tar -xvf kaia-mainnet-chaindata-xxxxxxxxxxxx.tar.gz
+  tar --zstd -xvf kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -C /var/kend/data
   ```
-- 方案 2. tar and pigz
+- 方案 2. zstd，然后是tar
   ```sh
-  # Amazon Linux 和 Rocky Linux 安装示例
-  sudo yum install pigz
+  # 适用于未使用 --zstd 选项构建的 tar。 Amazon Linux 和 Rocky Linux 安装示例
+  sudo yum install zstd
 
-  # 多线程解压缩
-  tar -I pigz -xvf kaia-mainnet-chaindata-xxxxxxxxxxxx.tar.gz
+  zstd -d kaia-mainnet-pruning-chaindata-xxxxxxxxxxxxxx.tar.zst -o out.tar
+  tar -xf out.tar -C /var/kend/data
+  ```
+- 选项 3。一键下载并解压
+  ```sh
+  # 没有足够的空间同时容纳归档文件及其解压后的目录
+  curl -s "$URL" | tar --zstd -xf - -C /var/kend/data
   ```
 
 ## 交换数据目录
@@ -96,16 +109,22 @@
     ```
 - 方案 2. 更改节点配置中的路径
   - 更改 `kend.conf` 文件中的 `DATA_DIR` 值。
-- 可选择删除旧数据和 tar.gz 文件。
+- 可选：删除旧数据和 `.tar.zst` 文件。
 - 最后，启动节点。
 
 ## 下载
 
-为提高效率，只提供批量剪枝（状态迁移）或实时剪枝数据库。请阅读 [Storage Optimization](../../learn/storage/storage-optimization.md) 了解它们的概念。如果你想要一个完整的数据库，既不需要剪枝，也不需要存档数据，那就从创世中执行一次全新的完整同步。
+快照发布在 **[snapshots.node.kaia.io](https://snapshots.node.kaia.io/)**，该页面列出了所有快照及其大小和校验和。除了该页面外，每个网络还会发布两个用于脚本的文件：`latest.txt`（每行包含一个最新快照的 URL）和 `manifest.json`（列出了所有快照及其大小、校验和和创建时间）。
 
-| 网络 | 同步选项           | 下载                                                                                                  |
-| -- | -------------- | --------------------------------------------------------------------------------------------------- |
-| 主网 | state migrated | https://packages.kaia.io/mainnet/chaindata/         |
-| 主网 | 现场修剪           | https://packages.kaia.io/mainnet/pruning-chaindata/ |
-| 启示 | state migrated | https://packages.kaia.io/kairos/chaindata/          |
-| 启示 | 现场修剪           | https://packages.kaia.io/kairos/pruning-chaindata/  |
+| 网络 | 同步选项 | 下载                                                                                                              | 用于脚本                                                                                                                                                                                                        |
+| -- | ---- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 主网 | 现场修剪 | https://snapshots.node.kaia.io/#mainnet-pruning | [latest.txt](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/mainnet/pruning-chaindata/manifest.json) |
+| 启示 | 现场修剪 | https://snapshots.node.kaia.io/#kairos-pruning  | [latest.txt](https://snapshots.node.kaia.io/kairos/pruning-chaindata/latest.txt) · [manifest.json](https://snapshots.node.kaia.io/kairos/pruning-chaindata/manifest.json)   |
+
+仅发布经过实时修剪的数据库。请阅读《[存储优化]》(../../learn/storage/storage-optimization.md) 以了解相关概念。不再生成批量精简（状态迁移）快照，也不再生成完整数据库或归档数据库：对于此类情况，请从创世区块开始执行一次全新的完整同步，或向 devops@kaia.io 提交请求。
+
+:::note
+
+本页面以前列出的 `https://packages.kaia.io/<network>/chaindata/` 和 `.../pruning-chaindata/` 这些 URL 现已不再更新。任何读取这些文件夹下 `latest.txt` 或 `manifest.json` 的程序，都应改读上表中的 URL。
+
+:::
