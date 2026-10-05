@@ -315,6 +315,24 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 * [Website](https://www.quicknode.com/)
 * [Docs](https://www.quicknode.com/docs/welcome)
 
+### NOWNodes
+
+NOWNodes provides API access to Kaia through hosted blockchain nodes, allowing developers to read chain data and broadcast transactions without running or maintaining their own infrastructure. Developers can create an API key in the NOWNodes dashboard, select Kaia, and connect their application using the NOWNodes Kaia documentation.
+
+#### Features
+
+- API key-based access to Kaia nodes
+- JSON-RPC support for reading chain state and broadcasting transactions
+- Trace and Debug API support
+- Free plan available for testing and development
+- Dedicated node options for projects that need custom infrastructure
+- Dashboard for API key management and usage monitoring
+
+#### References
+
+* [Docs](https://docs.nownodes.io/kaia/)
+* [Website](https://nownodes.io/)
+
 ### dRPC
 
 Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
