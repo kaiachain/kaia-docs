@@ -313,11 +313,29 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 - [Website](https://www.quicknode.com/)
 - [Docs](https://www.quicknode.com/docs/welcome)
 
+### NOWNodes
+
+NOWNodes cung cấp quyền truy cập API vào Kaia thông qua các nút blockchain được lưu trữ trên đám mây, cho phép các nhà phát triển đọc dữ liệu trên chuỗi và phát sóng các giao dịch mà không cần phải vận hành hay bảo trì cơ sở hạ tầng riêng. Các nhà phát triển có thể tạo khóa API trong bảng điều khiển NOWNodes, chọn Kaia và kết nối ứng dụng của mình bằng cách tham khảo tài liệu hướng dẫn về Kaia của NOWNodes.
+
+#### Features
+
+- Quyền truy cập vào các nút Kaia dựa trên khóa API
+- Hỗ trợ JSON-RPC để đọc trạng thái chuỗi và phát sóng giao dịch
+- Hỗ trợ API theo dõi và gỡ lỗi
+- Có gói miễn phí dành cho thử nghiệm và phát triển
+- Các tùy chọn máy chủ chuyên dụng dành cho các dự án cần cơ sở hạ tầng tùy chỉnh
+- Bảng điều khiển để quản lý khóa API và theo dõi việc sử dụng
+
+#### References
+
+- [Tài liệu](https://docs.nownodes.io/kaia/)
+- [Trang web](https://nownodes.io/)
+
 ### dRPC
 
 Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
 
-#### Features
+#### Tính năng
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
@@ -325,7 +343,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 - AI-driven load balancer
 - Insightful analytics.
 
-#### References
+#### Tài liệu tham khảo
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)
@@ -355,6 +373,21 @@ Dịch vụ hỗ trợ Kaia sẽ được cung cấp **đến ngày 16 tháng 10
 - [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 - [Subscription](https://www.ankr.com/rpc/pricing/)
 - [Website](https://www.ankr.com/rpc/)
+
+### SwiftNodes
+
+[SwiftNodes](https://swiftnodes.io/kaia-rpc) là nhà cung cấp dịch vụ RPC đa chuỗi với mức phí cố định, hỗ trợ mạng chính Kaia qua HTTPS và WebSocket.
+
+#### Tính năng
+
+- Mạng chính Kaia (ID chuỗi 8217), không gian tên `eth_*`, HTTPS và WebSocket (`eth_subscribe`)
+- Trạng thái lịch sử ở mức độ lưu trữ; hỗ trợ `debug_traceCall`
+- Mức giá cố định hàng tháng kèm gói miễn phí; một khóa API duy nhất áp dụng cho 86 mạng
+
+#### Tài liệu tham khảo
+
+- [Điểm cuối RPC của Kaia](https://swiftnodes.io/kaia-rpc)
+- [Tài liệu](https://swiftnodes.io/docs/getting-started)
 
 ## Useful Resources
 
