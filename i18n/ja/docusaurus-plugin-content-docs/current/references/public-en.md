@@ -312,11 +312,29 @@ Quicknodeは、安全で分散型のイノベーションを促進するブロ�
 - [ウェブサイト](https://www.quicknode.com/)
 - [ドキュメント](https://www.quicknode.com/docs/welcome)
 
+### NOWNodes
+
+NOWNodesは、ホスト型ブロックチェーンノードを通じてKaiaへのAPIアクセスを提供しており、開発者は独自のインフラを運用・維持することなく、チェーンデータの読み取りやトランザクションの送信を行うことができます。開発者は、NOWNodesダッシュボードでAPIキーを作成し、「Kaia」を選択して、NOWNodesのKaiaドキュメントに従ってアプリケーションを接続することができます。
+
+#### 特徴
+
+- APIキーによるKaiaノードへのアクセス
+- チェーン状態の読み取りおよびトランザクションのブロードキャストに対するJSON-RPCのサポート
+- APIのトレースおよびデバッグ機能のサポート
+- テストや開発用に無料プランをご利用いただけます
+- カスタムインフラストラクチャを必要とするプロジェクト向けの専用ノードオプション
+- APIキーの管理および使用状況の監視を行うダッシュボード
+
+#### 参考文献
+
+- [ドキュメント](https://docs.nownodes.io/kaia/)
+- [ウェブサイト](https://nownodes.io/)
+
 ### dRPC
 
 Kaia、Ethereum、Polygon、Arbitrumなどへの分散型RPCノードプロバイダ。信頼できるWeb3のインフラパートナーです。
 
-#### 特徴
+#### 特長
 
 - GeneralサポートのPublicノードはリクエスト制限なし。
 - 高性能ノード向けには、グロースプランとエンタープライズプランもご用意しています。
@@ -354,6 +372,21 @@ Kaiaのサポートは**2026年10月16日まで**ご利用いただけます。
 - [ドキュメント](https://www.ankr.com/docs/build-blockchain/overview)
 - [購読](https://www.ankr.com/rpc/pricing/)
 - [ウェブサイト](https://www.ankr.com/rpc/)
+
+### SwiftNodes
+
+[SwiftNodes](https://swiftnodes.io/kaia-rpc) は、HTTPS および WebSocket 経由で Kaia メインネットにサービスを提供する、定額制のマルチチェーン RPC プロバイダーです。
+
+#### 特長
+
+- Kaiaメインネット（チェーンID 8217）、`eth_*` ネームスペース、HTTPS および WebSocket (`eth_subscribe`)
+- アーカイブの深さに基づく履歴状態；`debug_traceCall` に対応
+- 月額定額制で無料利用枠あり。86のネットワークで1つのAPIキーが利用可能
+
+#### 参考文献
+
+- [Kaia RPCエンドポイント](https://swiftnodes.io/kaia-rpc)
+- [ドキュメント](https://swiftnodes.io/docs/getting-started)
 
 ## 有用なリソース
 

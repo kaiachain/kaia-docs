@@ -312,11 +312,29 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - [Website](https://www.quicknode.com/)
 - [文件](https://www.quicknode.com/docs/welcome)
 
+### NOWNodes
+
+NOWNodes 透過託管式區塊鏈節點提供對 Kaia 的 API 存取服務，讓開發者無需自行運作或維護基礎設施，即可讀取鏈上資料並發送交易。開發者可在 NOWNodes 控制台建立 API 金鑰，選擇 Kaia，並依照 NOWNodes Kaia 文件將其應用程式進行連線。
+
+#### 特點
+
+- 透過 API 金鑰存取 Kaia 節點
+- 支援透過 JSON-RPC 讀取鏈狀態及廣播交易
+- 追蹤與除錯 API 支援
+- 提供免費方案供測試與開發使用
+- 適用於需要自訂基礎架構的專案之專用節點選項
+- 用於 API 金鑰管理與使用狀況監控的儀表板
+
+#### 參考資料
+
+- [文件](https://docs.nownodes.io/kaia/)
+- [網站](https://nownodes.io/)
+
 ### dRPC
 
 為 Kaia、Ethereum、Polygon、Arbitrum 等提供去中心化 RPC 節點。您值得信賴的 Web3 基礎設施合作伙伴。
 
-#### 特點
+#### 特色
 
 - 一般支持的公共節點無申請限制。
 - 高性能節點還可選擇增長計劃和企業計劃。
@@ -324,7 +342,7 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - 人工智能驅動的負載平衡器
 - 富有洞察力的分析。
 
-#### 參考資料
+#### 參考文獻
 
 - [網站](https://drpc.org/)
 - [文檔](https://drpc.org/docs)
@@ -354,6 +372,21 @@ Kaia 的支援服務將提供至 **2026 年 10 月 16 日**。
 - [文件](https://www.ankr.com/docs/build-blockchain/overview)
 - [訂閱](https://www.ankr.com/rpc/pricing/)
 - [Website](https://www.ankr.com/rpc/)
+
+### SwiftNodes
+
+[SwiftNodes](https://swiftnodes.io/kaia-rpc) 是一個採用固定費率的多鏈 RPC 服務提供商，透過 HTTPS 和 WebSocket 為 Kaia 主網提供服務。
+
+#### 特色
+
+- Kaia 主網（鏈 ID 8217）、`eth_*` 命名空間、HTTPS 及 WebSocket（`eth_subscribe`）
+- 存檔深度為歷史狀態；支援 `debug_traceCall`
+- 每月固定費率，附帶免費額度；單一 API 金鑰即可適用於 86 個網路
+
+#### 參考文獻
+
+- [Kaia RPC 端點](https://swiftnodes.io/kaia-rpc)
+- [文件](https://swiftnodes.io/docs/getting-started)
 
 ## 實用資源
 
