@@ -313,11 +313,29 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 - [Website](https://www.quicknode.com/)
 - [Docs](https://www.quicknode.com/docs/welcome)
 
+### NOWNodes
+
+NOWNodes는 호스팅형 블록체인 노드를 통해 Kaia에 대한 API 접근을 제공함으로써, 개발자들이 자체 인프라를 운영하거나 유지 관리할 필요 없이 체인 데이터를 조회하고 트랜잭션을 전송할 수 있도록 합니다. 개발자는 NOWNodes 대시보드에서 API 키를 생성하고, Kaia를 선택한 다음, NOWNodes Kaia 설명서를 참고하여 자신의 애플리케이션을 연결할 수 있습니다.
+
+#### Features
+
+- API 키를 통한 Kaia 노드 접근
+- 체인 상태 읽기 및 트랜잭션 브로드캐스팅을 위한 JSON-RPC 지원
+- API 추적 및 디버깅 지원
+- 테스트 및 개발용으로 무료 요금제 제공
+- 맞춤형 인프라가 필요한 프로젝트를 위한 전용 노드 옵션
+- API 키 관리 및 사용 현황 모니터링을 위한 대시보드
+
+#### References
+
+- [문서](https://docs.nownodes.io/kaia/)
+- [웹사이트](https://nownodes.io/)
+
 ### dRPC
 
 Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others. Your trusted Web3 infrastructure partner.
 
-#### Features
+#### 주요 기능
 
 - No request limits on Public nodes with General support.
 - Growth and Enterprise plan are also available for High performance nodes.
@@ -325,7 +343,7 @@ Decentralized RPC node provider to Kaia, Ethereum, Polygon, Arbitrum and others.
 - AI-driven load balancer
 - Insightful analytics.
 
-#### References
+#### 참고문헌
 
 - [Website](https://drpc.org/)
 - [Docs](https://drpc.org/docs)
@@ -355,6 +373,21 @@ Kaia 지원은 **2026년 10월 16일까지** 제공됩니다.
 - [Docs](https://www.ankr.com/docs/build-blockchain/overview)
 - [Subscription](https://www.ankr.com/rpc/pricing/)
 - [Website](https://www.ankr.com/rpc/)
+
+### SwiftNodes
+
+[SwiftNodes](https://swiftnodes.io/kaia-rpc)는 HTTPS 및 WebSocket을 통해 Kaia 메인넷 서비스를 제공하는 정액제 멀티체인 RPC 제공업체입니다.
+
+#### 주요 기능
+
+- Kaia 메인넷(체인 ID 8217), `eth_*` 네임스페이스, HTTPS 및 WebSocket (`eth_subscribe`)
+- 아카이브 수준의 상세 기록 상태; `debug_traceCall` 지원
+- 무료 이용 한도가 포함된 정액제 월 요금제; 86개 네트워크에서 하나의 API 키로 이용 가능
+
+#### 참고문헌
+
+- [Kaia RPC 엔드포인트](https://swiftnodes.io/kaia-rpc)
+- [문서](https://swiftnodes.io/docs/getting-started)
 
 ## Useful Resources
 
