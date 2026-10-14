@@ -313,6 +313,24 @@ Quicknode offers blockchain infrastructure powering secure, decentralized innova
 - [Website](https://www.quicknode.com/)
 - [Docs](https://www.quicknode.com/docs/welcome)
 
+### OnFinality
+
+OnFinality cung cấp dịch vụ RPC được quản lý cho Kaia, giúp nhà phát triển truy vấn dữ liệu blockchain và gửi giao dịch mà không cần tự vận hành node.
+
+#### Tính năng
+
+- Endpoint công khai cho mainnet Kaia qua HTTPS và WebSocket
+- Có gói miễn phí và các gói trả phí đáp ứng nhu cầu thông lượng cao hơn
+- Phân tích mức sử dụng và hiệu suất API
+- Node Kaia chuyên dụng cho các tác vụ cần tài nguyên riêng biệt
+
+#### Tài liệu tham khảo
+
+- [Kaia RPC](https://onfinality.io/en/networks/klaytn)
+- [Tài liệu](https://documentation.onfinality.io/support/)
+- [Bảng giá](https://onfinality.io/en/pricing/rpc)
+- [Trang web](https://onfinality.io/)
+
 ### NOWNodes
 
 NOWNodes cung cấp quyền truy cập API vào Kaia thông qua các nút blockchain được lưu trữ trên đám mây, cho phép các nhà phát triển đọc dữ liệu trên chuỗi và phát sóng các giao dịch mà không cần phải vận hành hay bảo trì cơ sở hạ tầng riêng. Các nhà phát triển có thể tạo khóa API trong bảng điều khiển NOWNodes, chọn Kaia và kết nối ứng dụng của mình bằng cách tham khảo tài liệu hướng dẫn về Kaia của NOWNodes.

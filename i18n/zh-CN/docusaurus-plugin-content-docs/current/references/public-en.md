@@ -312,6 +312,24 @@ Quicknode 提供区块链基础设施，为安全的去中心化创新提供动�
 - [Website](https://www.quicknode.com/)
 - [文件](https://www.quicknode.com/docs/welcome)
 
+### OnFinality
+
+OnFinality 为 Kaia 提供托管 RPC 服务，让开发者无需自行运行节点，即可查询区块链数据和发送交易。
+
+#### 特点
+
+- 支持 HTTPS 和 WebSocket 的 Kaia 主网公共端点
+- 提供免费方案，以及满足更高吞吐量需求的付费方案
+- API 使用量和性能分析
+- 为需要独立资源的工作负载提供 Kaia 专用节点
+
+#### 参考资料
+
+- [Kaia RPC](https://onfinality.io/en/networks/klaytn)
+- [文档](https://documentation.onfinality.io/support/)
+- [定价](https://onfinality.io/en/pricing/rpc)
+- [网站](https://onfinality.io/)
+
 ### NOWNodes
 
 NOWNodes 通过托管区块链节点提供对 Kaia 的 API 访问，使开发者无需运行或维护自己的基础设施，即可读取链上数据并广播交易。开发者可以在 NOWNodes 控制台中创建 API 密钥，选择 Kaia，并按照 NOWNodes Kaia 文档的说明将应用程序连接到 Kaia。

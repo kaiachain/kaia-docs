@@ -312,6 +312,24 @@ Quicknodeは、安全で分散型のイノベーションを促進するブロ�
 - [ウェブサイト](https://www.quicknode.com/)
 - [ドキュメント](https://www.quicknode.com/docs/welcome)
 
+### OnFinality
+
+OnFinalityはKaia向けのマネージドRPCサービスを提供しており、開発者は独自のノードを運用することなく、ブロックチェーンデータの照会やトランザクションの送信を行うことができます。
+
+#### 特徴
+
+- HTTPSおよびWebSocketに対応したKaiaメインネットの公開エンドポイント
+- 無料プランと、より高いスループットに対応する有料プラン
+- API使用状況およびパフォーマンスの分析
+- 独立したリソースが必要なワークロード向けのKaia専用ノード
+
+#### 参考文献
+
+- [Kaia RPC](https://onfinality.io/en/networks/klaytn)
+- [ドキュメント](https://documentation.onfinality.io/support/)
+- [料金](https://onfinality.io/en/pricing/rpc)
+- [ウェブサイト](https://onfinality.io/)
+
 ### NOWNodes
 
 NOWNodesは、ホスト型ブロックチェーンノードを通じてKaiaへのAPIアクセスを提供しており、開発者は独自のインフラを運用・維持することなく、チェーンデータの読み取りやトランザクションの送信を行うことができます。開発者は、NOWNodesダッシュボードでAPIキーを作成し、「Kaia」を選択して、NOWNodesのKaiaドキュメントに従ってアプリケーションを接続することができます。
