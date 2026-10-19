@@ -5,6 +5,12 @@ sidebar_label: Create and manage Safes
 
 # Use Safe Wallet on Kaia
 
+:::info
+
+Safe Wallet's core features are free. [Safe Pro](https://safe.global/pricing) is an optional team subscription and is not required for anything in this guide. See [Pricing](./overview.md#pricing) in the Safe Wallet overview for details.
+
+:::
+
 ## Create a Safe
 
 Here is how to create a Safe smart account on Kaia with Safe Wallet.
@@ -13,7 +19,7 @@ Here is how to create a Safe smart account on Kaia with Safe Wallet.
 
 :::tip
 
-Managing a treasury with several Safes and a team of reviewers? [Workspace](./overview.md#workspace) adds a shared dashboard, a shared address book, and email login for members who need visibility but should not hold a signing key. You can create Safes first and organise them into a workspace later.
+Managing a treasury with several Safes and a team of reviewers? [Workspace](./overview.md#workspace-safe-pro) adds a shared dashboard, a shared address book, and email login for members who need visibility but should not hold a signing key. It is part of the paid Safe Pro plan and is optional—you can create Safes for free first and organise them into a Workspace later if you need it.
 
 :::
 

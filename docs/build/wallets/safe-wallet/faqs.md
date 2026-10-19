@@ -11,6 +11,10 @@ No. Your Safe is an on-chain smart account. Safe Global is a different **UI** fo
 
 See **[Migrate to Safe Global](./migrate-to-safe-global.md)** for full details.
 
+## Do I need to pay for Safe Pro to use Safe Wallet on Kaia? <a id="Do i need to pay for safe pro"></a>
+
+No. Creating a Safe, managing signers, and signing transactions are free in Safe Wallet. [Safe Pro](https://safe.global/pricing) is an optional paid subscription that adds a team Workspace, Security Hub, activity log, shared address book, and policies. If you do not need those, keep using Safe Wallet as a standalone account at no cost beyond gas. See [Pricing](./overview.md#pricing) in the Safe Wallet overview.
+
 ## Will my Safe appear automatically on app.safe.global? <a id="Will my Safe appear automatically"></a>
 
 In most cases, yes: connect an owner wallet and your existing Safe appears in the list, labeled with its network (**Kaia** or **Kairos**). If it does not show up, go to [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) and click **Manage list** to see the Safes associated with your connected wallet.
