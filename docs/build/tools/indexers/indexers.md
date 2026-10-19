@@ -15,5 +15,6 @@ The following providers have integrated with Kaia to deliver blockchain indexing
 | [Goldsky](./goldsky.md) | Mainnet, Kairos | Managed subgraphs plus Mirror data streaming. Compatible with the subgraph spec, so existing subgraphs migrate with a single CLI command. |
 | [SubQuery](./subquery.md) | Mainnet, Kairos | Multi-chain indexing in a single project, with managed and decentralized network hosting. |
 | The Graph | — | No longer available on Kaia as of August 31, 2026. See [Migrate from The Graph](./migrate-from-the-graph.md). |
+| [Envio](https://envio.dev/?utm_source=kaia&utm_medium=partner-docs) | Mainnet | HyperIndex framework that turns contract events into a GraphQL API. Kaia is supported as RPC-only, so you supply your own RPC endpoint as the data source. Managed hosting on Envio Cloud or self-hosted. |
 
 You can also run [graph-node](https://github.com/graphprotocol/graph-node) yourself against a Kaia archive RPC endpoint if you would rather operate your own indexing infrastructure.
