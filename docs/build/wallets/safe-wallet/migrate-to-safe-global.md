@@ -9,6 +9,12 @@ Kaia previously ran **Kaia Safe** (`safe.kaia.io`), a hosted fork of Gnosis Safe
 
 Kaia Mainnet and Kairos Testnet are supported natively on [Safe Global](https://app.safe.global). Create and manage Safes on Kaia through Safe Wallet at [app.safe.global](https://app.safe.global).
 
+:::info
+
+Safe Wallet's core features are free, just as Kaia Safe was. [Safe Pro](https://safe.global/pricing) is an optional team subscription and is not required to open, manage, or transact with your migrated Safe. See [Pricing](./overview.md#pricing) in the Safe Wallet overview for details.
+
+:::
+
 ## Your existing Safe accounts are unaffected
 
 Your Safe is a smart contract on Kaia. Retiring the Kaia-hosted interface changed only the **web front end**, not your on-chain account.

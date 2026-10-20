@@ -19,16 +19,26 @@ sidebar_label: Safe Wallet overview
 
 For the full picture of how the account works on-chain, read [How do Safe Smart Accounts work?](https://docs.safe.global/advanced/smart-account-overview).
 
-## Workspace
+## Pricing
 
-[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) is Safe Global's environment for teams that run more than one Safe. It sits on top of the same smart accounts—it changes how a team coordinates, not how transactions execute or who holds keys.
+:::info Safe Wallet is free to use on Kaia
+
+Everything covered in these guides works on the free tier of Safe Wallet: creating a Safe, managing signers and threshold, signing and executing transactions, and using Safe Apps such as Transaction Builder and CSV Airdrop. You only pay Kaia network gas.
+
+[Safe Pro](https://safe.global/pricing) is an optional paid subscription for teams that want a shared Workspace with features like Security Hub, activity log, shared address book, and spending policies. You do not need Safe Pro to use your Safe on Kaia, and an unpaid or expired Workspace never locks the Safe itself. See Safe's [Plans at a glance](https://help.safe.global/articles/1569083243-plans-at-a-glance) for current details.
+
+:::
+
+### Workspace (Safe Pro)
+
+[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) is Safe Global's paid environment for teams that run more than one Safe. It sits on top of the same smart accounts—it changes how a team coordinates, not how transactions execute or who holds keys.
 
 * **Unified dashboard** — balances and pending transactions across every account in the space, in one view.
 * **[Security Hub](https://safe.global/blog/workspace-security-hub)** — signers, threshold, modules, guards, recovery options, and Safe version for each account, plus automated checks against its on-chain configuration.
 * **Shared address book** — one set of labelled addresses for the whole team instead of a per-browser local list.
 * **Email login** — teammates can sign in with an email one-time passcode or Google to view balances, follow pending transactions, and manage contacts without holding a key. Signing still requires an owner wallet.
 
-That last point is useful for finance, compliance, and operations reviewers on Kaia who need visibility into a treasury Safe but should never be signers on it.
+That last point is useful for finance, compliance, and operations reviewers on Kaia who need visibility into a treasury Safe but should never be signers on it. Workspace features require a [Safe Pro](https://safe.global/pricing) plan; standalone Safes outside a Workspace stay free.
 
 ## Safe Global documentation
 

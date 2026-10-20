@@ -11,6 +11,12 @@ sidebar_label: Safe Wallet
 
 Kaia Mainnet and Kairos Testnet are supported in Safe Wallet. Connect an owner wallet, select **Kaia** or **Kairos**, then create or open a Safe.
 
+:::info
+
+Safe Wallet's core features are free. [Safe Pro](https://safe.global/pricing) is an optional team subscription and is not required for anything in this guide. See [Pricing](./overview.md#pricing) in the Safe Wallet overview for details.
+
+:::
+
 In a typical setup on Kaia, most users start with single-key wallets such as Kaia Wallet or MetaMask (externally owned accounts, or EOAs). Those accounts rely on one key pair and create a single point of failure—unsuitable for organisational treasuries, as in the [Wintermute hack](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-), where $162.5 million was lost.
 
 Safe Wallet removes that single point of failure: multiple owners must sign according to a confirmation threshold before a transaction executes.
