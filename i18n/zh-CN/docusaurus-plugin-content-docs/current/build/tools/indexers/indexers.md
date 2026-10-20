@@ -10,10 +10,11 @@
 
 以下供应商已与 Kaia 集成，提供区块链索引服务：
 
-| 服务提供商                     | Kaia 网络   | 注释                                                                            |
-| ------------------------- | --------- | ----------------------------------------------------------------------------- |
-| [Goldsky](./goldsky.md)   | 主网，Kairos | 托管子图加上 Mirror 数据流。符合子图规范，因此只需一条 CLI 命令即可迁移现有子图。                               |
-| [SubQuery](./subquery.md) | 主网，Kairos | 在单个项目中实现多链索引，同时支持托管式和去中心化网络托管。                                                |
-| The Graph                 | —         | 自2026年8月31日起，该商品将不再在Kaia上架。请参阅 [从 The Graph 迁移](./migrate-from-the-graph.md)。 |
+| 服务提供商                                                                  | Kaia 网络   | 注释                                                                                                         |
+| ---------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| [Goldsky](./goldsky.md)                                                | 主网，Kairos | 托管子图加上 Mirror 数据流。符合子图规范，因此只需一条 CLI 命令即可迁移现有子图。                                                            |
+| [SubQuery](./subquery.md)                                              | 主网，Kairos | 在单个项目中实现多链索引，同时支持托管式和去中心化网络托管。                                                                             |
+| The Graph                                                              | —         | 自2026年8月31日起，该商品将不再在Kaia上架。请参阅 [从 The Graph 迁移](./migrate-from-the-graph.md)。                              |
+| [提交](https://envio.dev/?utm_source=kaia&utm_medium=partner-docs) | 主网        | HyperIndex 框架，可将合约事件转换为 GraphQL API。 Kaia 仅支持 RPC 模式，因此您需要提供自己的 RPC 端点作为数据源。在 Envio Cloud 上使用托管主机服务，或自行托管。 |
 
 如果您更希望自行运营索引基础设施，也可以直接在 Kaia 归档 RPC 端点上运行 [graph-node](https://github.com/graphprotocol/graph-node)。
