@@ -5,6 +5,12 @@ sidebar_label: 금고 생성 및 관리
 
 # Kaia에서 Safe Wallet 사용하기
 
+:::info
+
+Safe Wallet의 핵심 기능은 무료로 이용할 수 있습니다. [Safe Pro](https://safe.global/pricing)는 선택적 팀 구독 서비스이며, 이 가이드의 어떤 내용도 이를 이용하지 않고도 진행할 수 있습니다. 자세한 내용은 Safe Wallet 개요의 [요금](./overview.md#pricing)을 참조하세요.
+
+:::
+
 ## 금고 만들기
 
 다음은 Safe Wallet을 사용하여 Kaia에서 Safe 스마트 계정을 생성하는 방법입니다.
@@ -13,7 +19,7 @@ sidebar_label: 금고 생성 및 관리
 
 :::tip
 
-여러 개의 ‘Safe’와 검토 담당자 팀을 갖춘 재무 부서를 관리하고 계신가요? [Workspace](./overview.md#workspace)는 정보 접근 권한은 필요하지만 서명 키를 보유해서는 안 되는 구성원을 위해 공유 대시보드, 공유 주소록 및 이메일 로그인 기능을 제공합니다. 먼저 세이프를 생성한 다음, 나중에 이를 작업 공간으로 정리할 수 있습니다.
+여러 개의 ‘Safe’와 검토 담당자 팀을 갖춘 재무 부서를 관리하고 계신가요? [Workspace](./overview.md#workspace-safe-pro)는 정보 접근 권한은 필요하지만 서명 키를 보유해서는 안 되는 구성원을 위해 공유 대시보드, 공유 주소록 및 이메일 로그인 기능을 제공합니다. 이는 유료 ‘Safe Pro’ 플랜의 일부이며, 선택 사항입니다. 먼저 무료로 ‘Safe’를 생성한 다음, 필요하면 나중에 이를 ‘Workspace’로 정리할 수 있습니다.
 
 :::
 
