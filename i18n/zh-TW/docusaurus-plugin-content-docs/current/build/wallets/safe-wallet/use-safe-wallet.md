@@ -5,6 +5,12 @@ sidebar_label: 建立與管理「保險箱」
 
 # 在 Kaia 上使用 Safe Wallet
 
+:::info
+
+Safe Wallet 的核心功能均為免費。 [Safe Pro](https://safe.global/pricing) 是一項可選的團隊訂閱服務，本指南中的任何內容均無需使用此服務。詳情請參閱「Safe Wallet」概覽中的 [定價](./overview.md#pricing)。
+
+:::
+
 ## 創建安全
 
 以下是在 Kaia 上使用 Safe Wallet 建立 Safe 智慧帳戶的方法。
@@ -13,7 +19,7 @@ sidebar_label: 建立與管理「保險箱」
 
 :::tip
 
-管理一個擁有數個「保險箱」及一支審核團隊的財務部門？ [Workspace](./overview.md#workspace) 為那些需要查看資訊但無需持有簽署金鑰的成員，新增了共享儀表板、共享通訊錄以及電子郵件登入功能。您可以先建立「保險箱」，稍後再將它們整理到工作區中。
+管理一個擁有數個「保險箱」及一支審核團隊的財務部門？ [Workspace](./overview.md#workspace-safe-pro) 為那些需要查看資訊但無需持有簽署金鑰的成員，新增了共享儀表板、共享通訊錄以及電子郵件登入功能。此功能屬於付費的「Safe Pro」方案的一部分，且為選用功能——您可以先免費建立「Safe」，日後若有需要，再將它們整理到「工作區」中。
 
 :::
 
