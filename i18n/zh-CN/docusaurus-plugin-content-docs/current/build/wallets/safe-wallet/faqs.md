@@ -11,6 +11,10 @@ sidebar_label: 常见问题解答
 
 详情请参阅 **[迁移至 Safe Global](./migrate-to-safe-global.md)**。
 
+## 我在 Kaia 上使用 Safe Wallet 是否需要付费订阅 Safe Pro？ <a id="Do i need to pay for safe pro"></a>
+
+不。在 Safe Wallet 中，创建安全钱包、管理签名人以及签署交易均免费。 [Safe Pro](https://safe.global/pricing) 是一项可选的付费订阅服务，可提供团队工作区、安全中心、活动日志、共享通讯录和策略等功能。如果您不需要这些功能，请继续将 Safe Wallet 作为独立账户使用，除 gas 费外无需支付任何费用。请参阅“安全钱包”概述中的[定价](./overview.md#pricing)。
+
 ## 我的“保险箱”会自动显示在 app.safe.global 上吗？ <a id="Will my Safe appear automatically"></a>
 
 在大多数情况下，是的：连接一个所有者钱包后，您现有的“保险箱”就会出现在列表中，并标注其所属网络（**Kaia** 或 **Kairos**）。如果未显示，请访问 [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts)，然后点击 **管理列表**，查看与您已连接的钱包关联的 Safes。
