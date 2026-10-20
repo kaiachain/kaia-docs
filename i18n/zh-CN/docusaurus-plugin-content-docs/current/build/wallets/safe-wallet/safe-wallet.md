@@ -11,6 +11,12 @@ sidebar_label: 安全钱包
 
 Safe Wallet 支持 Kaia 主网和 Kairos 测试网。连接一个所有者钱包，选择 **Kaia** 或 **Kairos**，然后创建或打开一个保险箱。
 
+:::info
+
+Safe Wallet 的核心功能均免费。 [Safe Pro](https://safe.global/pricing) 是一项可选的团队订阅服务，本指南中的任何内容均无需使用该服务。详情请参阅“安全钱包”概述中的[定价](./overview.md#pricing)部分。
+
+:::
+
 在 Kaia 的典型配置中，大多数用户最初都会使用单密钥钱包，例如 Kaia Wallet 或 MetaMask（外部拥有账户，即 EOA）。这些账户依赖一组密钥，从而形成了单点故障——这不适合组织财务部门使用，例如在[Wintermute黑客事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)中，该组织就因此损失了1.625亿美元。
 
 Safe Wallet 消除了这一单点故障：交易执行前，必须由多名所有者根据确认阈值进行签名。
