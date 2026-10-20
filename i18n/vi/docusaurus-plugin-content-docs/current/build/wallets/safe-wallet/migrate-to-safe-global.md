@@ -9,6 +9,12 @@ Trước đây, Kaia đã vận hành **Kaia Safe** (`safe.kaia.io`), một phi�
 
 Kaia Mainnet và Kairos Testnet được hỗ trợ sẵn trên [Safe Global](https://app.safe.global). Tạo và quản lý các ví Safes trên Kaia thông qua ứng dụng Safe Wallet tại [app.safe.global](https://app.safe.global).
 
+:::info
+
+Các tính năng cốt lõi của Safe Wallet đều miễn phí, giống như Kaia Safe trước đây. [Safe Pro](https://safe.global/pricing) là gói đăng ký dành cho nhóm mang tính tùy chọn và không bắt buộc để mở, quản lý hoặc thực hiện giao dịch với tài khoản Safe đã được chuyển đổi của bạn. Xem phần [Giá cả](./overview.md#pricing) trong phần tổng quan về Safe Wallet để biết thêm chi tiết.
+
+:::
+
 ## Các tài khoản Safe hiện tại của bạn sẽ không bị ảnh hưởng
 
 Your Safe là một hợp đồng thông minh trên Kaia. Việc ngừng sử dụng giao diện do Kaia cung cấp chỉ ảnh hưởng đến **giao diện web**, chứ không ảnh hưởng đến tài khoản trên chuỗi của bạn.
