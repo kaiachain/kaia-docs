@@ -9,6 +9,12 @@ Kaia 此前运营过 **Kaia Safe**（`safe.kaia.io`），这是一个基于 Gnos
 
 [Safe Global](https://app.safe.global) 原生支持 Kaia 主网和 Kairos 测试网。通过 [app.safe.global](https://app.safe.global) 上的 Safe Wallet，在 Kaia 上创建和管理保险库。
 
+:::info
+
+Safe Wallet 的核心功能是免费的，就像 Kaia Safe 一样。 [Safe Pro](https://safe.global/pricing) 是一项可选的团队订阅服务，并非必须的，您无需订阅该服务即可开启、管理或对已迁移的 Safe 进行交易。详情请参阅“安全钱包”概述中的[定价](./overview.md#pricing)部分。
+
+:::
+
 ## 您现有的Safe账户不受影响
 
 “Your Safe” 是 Kaia 上的一个智能合约。停用由 Kaia 托管的界面仅更改了 **Web 前端**，并未影响您的链上账户。
