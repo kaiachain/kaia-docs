@@ -11,6 +11,12 @@ sidebar_label: セーフ・ウォレット
 
 Safe Walletでは、KaiaメインネットおよびKairosテストネットに対応しています。オーナーウォレットを接続し、**Kaia** または **Kairos** を選択してから、セーフを作成または開きます。
 
+:::info
+
+Safe Walletの主要機能は無料でご利用いただけます。 [Safe Pro](https://safe.global/pricing) はオプションのチーム向けサブスクリプションであり、このガイドの内容を実行する上で必須ではありません。詳細については、Safe Walletの概要にある[料金](./overview.md#pricing)をご覧ください。
+
+:::
+
 Kaiaでの一般的な設定では、ほとんどのユーザーは、Kaia WalletやMetaMaskなどのシングルキーウォレット（外部所有アカウント、EOA）から利用を開始します。こうしたアカウントは1組の鍵ペアに依存しており、単一障害点を生み出してしまう。これは、1億6,250万ドルの損失が出た[Wintermuteハッキング事件](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)のように、組織の財務部門には不向きである。
 
 Safe Wallet はこの単一障害点を解消します。取引が実行されるには、確認閾値に従って複数の所有者が署名する必要があります。
