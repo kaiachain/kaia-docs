@@ -312,11 +312,29 @@ Quicknode 提供區塊鏈基礎設施，為安全的去中心化創新提供動�
 - [Website](https://www.quicknode.com/)
 - [文件](https://www.quicknode.com/docs/welcome)
 
+### OnFinality
+
+OnFinality 提供對 Kaia 的託管式 RPC 存取服務，讓開發者無需自行運行節點，即可查詢區塊鏈資料並發送交易。
+
+#### 特點
+
+- 透過 HTTPS 和 WebSocket 存取 Public Kaia 主網端點
+- 提供免費方案，另有付費方案可滿足更高吞吐量需求
+- API 使用與效能分析
+- 專用於需要隔離資源的工作負載的 Kaia 專用節點
+
+#### 參考資料
+
+- [Kaia RPC](https://onfinality.io/en/networks/klaytn)
+- [文件](https://documentation.onfinality.io/support/)
+- [定價](https://onfinality.io/en/pricing/rpc)
+- [網站](https://onfinality.io/)
+
 ### NOWNodes
 
 NOWNodes 透過託管式區塊鏈節點提供對 Kaia 的 API 存取服務，讓開發者無需自行運作或維護基礎設施，即可讀取鏈上資料並發送交易。開發者可在 NOWNodes 控制台建立 API 金鑰，選擇 Kaia，並依照 NOWNodes Kaia 文件將其應用程式進行連線。
 
-#### 特點
+#### 特色
 
 - 透過 API 金鑰存取 Kaia 節點
 - 支援透過 JSON-RPC 讀取鏈狀態及廣播交易
@@ -325,7 +343,7 @@ NOWNodes 透過託管式區塊鏈節點提供對 Kaia 的 API 存取服務，讓
 - 適用於需要自訂基礎架構的專案之專用節點選項
 - 用於 API 金鑰管理與使用狀況監控的儀表板
 
-#### 參考資料
+#### 參考文獻
 
 - [文件](https://docs.nownodes.io/kaia/)
 - [網站](https://nownodes.io/)
