@@ -10,10 +10,11 @@
 
 以下供應商已與 Kaia 集成，提供區塊鏈索引服務：
 
-| 供應商                       | Kaia 網路   | 註釋                                                                                    |
-| ------------------------- | --------- | ------------------------------------------------------------------------------------- |
-| [Goldsky](./goldsky.md)   | 主網，Kairos | 受管子圖加上 Mirror 資料串流。符合子圖規格，因此現有的子圖只需透過單一 CLI 指令即可完成遷移。                                 |
-| [SubQuery](./subquery.md) | 主網，Kairos | 在單一專案中實現多鏈索引，並採用託管與去中心化網路託管模式。                                                        |
-| 《The Graph》               | —         | 自 2026 年 8 月 31 日起，此商品將不再於 Kaia 上架。請參閱 [從 The Graph 遷移](./migrate-from-the-graph.md)。 |
+| 供應商                                                                    | Kaia 網路   | 註釋                                                                                                     |
+| ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| [Goldsky](./goldsky.md)                                                | 主網，Kairos | 受管子圖加上 Mirror 資料串流。符合子圖規格，因此現有的子圖只需透過單一 CLI 指令即可完成遷移。                                                  |
+| [SubQuery](./subquery.md)                                              | 主網，Kairos | 在單一專案中實現多鏈索引，並採用託管與去中心化網路託管模式。                                                                         |
+| 《The Graph》                                                            | —         | 自 2026 年 8 月 31 日起，此商品將不再於 Kaia 上架。請參閱 [從 The Graph 遷移](./migrate-from-the-graph.md)。                  |
+| [提交](https://envio.dev/?utm_source=kaia&utm_medium=partner-docs) | 主網        | HyperIndex 框架，可將合約事件轉換為 GraphQL API。 Kaia 僅支援 RPC 模式，因此您需自行提供 RPC 端點作為資料來源。使用 Envio Cloud 的託管服務，或自行架設。 |
 
 如果您希望自行架設索引基礎架構，也可以直接在 Kaia 存檔的 RPC 端點上執行 [graph-node](https://github.com/graphprotocol/graph-node)。
