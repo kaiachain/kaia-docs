@@ -9,6 +9,12 @@ sidebar_label: Safe Global로 이전하기
 
 [Safe Global](https://app.safe.global)에서는 Kaia 메인넷과 Kairos 테스트넷을 기본적으로 지원합니다. [app.safe.global](https://app.safe.global)의 ‘Safe Wallet’을 통해 Kaia에서 세이프를 생성하고 관리하세요.
 
+:::info
+
+Safe Wallet의 핵심 기능은 Kaia Safe와 마찬가지로 무료로 제공됩니다. [Safe Pro](https://safe.global/pricing)는 선택적 팀 구독 서비스이며, 이전된 Safe 계정을 개설, 관리하거나 거래를 진행하는 데 필수적인 것은 아닙니다. 자세한 내용은 Safe Wallet 개요의 [요금](./overview.md#pricing)을 참조하세요.
+
+:::
+
 ## 기존의 Safe 계정은 영향을 받지 않습니다.
 
 Your Safe는 Kaia상의 스마트 계약입니다. Kaia에서 호스팅하는 인터페이스를 중단함으로써 변경된 것은 **웹 프론트엔드**뿐이며, 사용자의 온체인 계정은 변경되지 않았습니다.
