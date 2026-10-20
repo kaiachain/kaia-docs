@@ -9,6 +9,12 @@ Kaiaは以前、Gnosis Safeのホスト型フォークである**Kaia Safe**（`
 
 KaiaメインネットおよびKairosテストネットは、[Safe Global](https://app.safe.global)でネイティブにサポートされています。 [app.safe.global](https://app.safe.global) の「Safe Wallet」を利用して、Kaia上でセーフを作成・管理できます。
 
+:::info
+
+Safe Walletの主要機能は、Kaia Safeと同様、無料で利用できます。 [Safe Pro](https://safe.global/pricing) はオプションのチーム向けサブスクリプションであり、移行済みの Safe を開設、管理、または取引を行うために必須ではありません。詳細については、Safe Walletの概要にある[料金](./overview.md#pricing)をご覧ください。
+
+:::
+
 ## 現在お持ちのSafeアカウントには影響はありません
 
 「Your Safe」は、Kaia上のスマートコントラクトです。 Kaiaがホストするインターフェースの廃止により変更されたのは、**ウェブフロントエンド**のみであり、オンチェーンのアカウントには影響がありません。
