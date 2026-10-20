@@ -11,6 +11,12 @@ sidebar_label: Ví an toàn
 
 Safe Wallet hỗ trợ mạng chính Kaia và mạng thử nghiệm Kairos. Kết nối ví chủ sở hữu, chọn **Kaia** hoặc **Kairos**, sau đó tạo hoặc mở một Safe.
 
+:::info
+
+Các tính năng cốt lõi của Safe Wallet đều miễn phí. [Safe Pro](https://safe.global/pricing) là gói đăng ký dành cho đội tùy chọn và không bắt buộc phải có để thực hiện bất kỳ bước nào trong hướng dẫn này. Xem phần [Giá cả](./overview.md#pricing) trong phần tổng quan về Safe Wallet để biết thêm chi tiết.
+
+:::
+
 Trong một cấu hình điển hình trên Kaia, hầu hết người dùng đều bắt đầu với các ví chỉ sử dụng một khóa như Kaia Wallet hoặc MetaMask (tài khoản thuộc sở hữu bên ngoài, hay còn gọi là EOA). Các tài khoản này dựa trên một cặp khóa và tạo ra một điểm lỗi duy nhất — không phù hợp với các quỹ tài chính của tổ chức, như trong vụ [tấn công Wintermute](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-), nơi đã gây thiệt hại 162,5 triệu đô la.
 
 Safe Wallet loại bỏ điểm lỗi duy nhất đó: nhiều chủ sở hữu phải ký xác nhận theo ngưỡng xác nhận nhất định trước khi giao dịch được thực hiện.

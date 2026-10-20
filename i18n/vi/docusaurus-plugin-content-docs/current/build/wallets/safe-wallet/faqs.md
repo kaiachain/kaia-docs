@@ -11,6 +11,10 @@ Không. Your Safe là một tài khoản thông minh trên chuỗi khối. Safe 
 
 Xem **[Chuyển sang Safe Global](./migrate-to-safe-global.md)** để biết thêm chi tiết.
 
+## Tôi có cần phải trả phí cho Safe Pro để sử dụng Safe Wallet trên Kaia không? <a id="Do i need to pay for safe pro"></a>
+
+Không. Việc tạo ví Safe, quản lý người ký và ký các giao dịch đều miễn phí trong Safe Wallet. [Safe Pro](https://safe.global/pricing) là gói đăng ký trả phí tùy chọn, cung cấp thêm không gian làm việc nhóm (Workspace), Trung tâm bảo mật (Security Hub), nhật ký hoạt động, danh bạ chung và các chính sách. Nếu bạn không cần những tính năng đó, hãy tiếp tục sử dụng Safe Wallet như một tài khoản độc lập mà không phải trả thêm chi phí nào ngoài phí gas. Xem [Bảng giá](./overview.md#pricing) trong phần tổng quan về Safe Wallet.
+
 ## Tài khoản Safe của tôi có tự động xuất hiện trên app.safe.global không? <a id="Will my Safe appear automatically"></a>
 
 Trong hầu hết các trường hợp, câu trả lời là có: chỉ cần kết nối ví chủ sở hữu, ví Safe hiện có của bạn sẽ xuất hiện trong danh sách, kèm theo tên mạng tương ứng (**Kaia** hoặc **Kairos**). Nếu nó không hiển thị, hãy truy cập [app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) và nhấp vào **Quản lý danh sách** để xem các Safes được liên kết với ví đã kết nối của bạn.

@@ -19,16 +19,26 @@ sidebar_label: Tổng quan về Safe Wallet
 
 Để có cái nhìn toàn diện về cách tài khoản này hoạt động trên chuỗi khối, hãy đọc bài viết [Tài khoản Safe Smart hoạt động như thế nào?](https://docs.safe.global/advanced/smart-account-overview).
 
-## Không gian làm việc
+## Giá cả
 
-[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) là môi trường của Safe Global dành cho các nhóm vận hành nhiều hơn một hệ thống Safe. Nó được xây dựng dựa trên chính các tài khoản thông minh đó — nó thay đổi cách thức phối hợp của một nhóm, chứ không phải cách thức thực hiện giao dịch hay ai là người nắm giữ khóa.
+:::info Safe Wallet miễn phí khi sử dụng trên Kaia
+
+Tất cả các nội dung được đề cập trong các hướng dẫn này đều có thể thực hiện trên gói miễn phí của Safe Wallet: tạo Safe, quản lý người ký và ngưỡng, ký và thực hiện giao dịch, cũng như sử dụng các ứng dụng Safe như Transaction Builder và CSV Airdrop. Bạn chỉ phải trả phí gas của mạng Kaia.
+
+[Safe Pro](https://safe.global/pricing) là gói đăng ký trả phí tùy chọn dành cho các nhóm muốn có một Không gian làm việc chung với các tính năng như Trung tâm bảo mật, nhật ký hoạt động, danh bạ chung và chính sách chi tiêu. Bạn không cần Safe Pro để sử dụng Safe trên Kaia, và một Workspace chưa thanh toán hoặc đã hết hạn sẽ không bao giờ khóa Safe. Xem mục [Tổng quan về các gói dịch vụ](https://help.safe.global/articles/1569083243-plans-at-a-glance) của Safe để biết thông tin chi tiết mới nhất.
+
+:::
+
+### Không gian làm việc (Safe Pro)
+
+[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) là môi trường trả phí của Safe Global dành cho các nhóm vận hành nhiều hơn một hệ thống Safe. Nó được xây dựng dựa trên chính các tài khoản thông minh đó — nó thay đổi cách thức phối hợp của một nhóm, chứ không phải cách thức thực hiện giao dịch hay ai là người nắm giữ khóa.
 
 - **Bảng điều khiển tổng hợp** — hiển thị số dư và các giao dịch đang chờ xử lý trên tất cả các tài khoản trong hệ sinh thái, chỉ trong một giao diện duy nhất.
 - **[Trung tâm bảo mật](https://safe.global/blog/workspace-security-hub)** — người ký, ngưỡng, mô-đun, cơ chế bảo vệ, tùy chọn khôi phục và phiên bản Safe cho từng tài khoản, cùng với các kiểm tra tự động đối với cấu hình trên chuỗi của tài khoản đó.
 - **Sổ địa chỉ chung** — một danh sách địa chỉ được gắn nhãn duy nhất cho toàn bộ nhóm, thay vì danh sách cục bộ trên từng trình duyệt.
 - **Đăng nhập bằng email** — các thành viên trong nhóm có thể đăng nhập bằng mã xác thực một lần qua email hoặc tài khoản Google để xem số dư, theo dõi các giao dịch đang chờ xử lý và quản lý danh bạ mà không cần mang theo chìa khóa. Việc ký vẫn cần có ví của chủ sở hữu.
 
-Điểm cuối cùng này rất hữu ích cho các chuyên viên kiểm tra về tài chính, tuân thủ và vận hành trên Kaia, những người cần có cái nhìn tổng quan về một tài khoản Safe thuộc bộ phận quản lý tài chính nhưng tuyệt đối không bao giờ được là người ký duyệt trên tài khoản đó.
+Điểm cuối cùng này rất hữu ích cho các chuyên viên kiểm tra về tài chính, tuân thủ và vận hành trên Kaia, những người cần có cái nhìn tổng quan về một tài khoản Safe thuộc bộ phận quản lý tài chính nhưng tuyệt đối không bao giờ được là người ký duyệt trên tài khoản đó. Các tính năng của Workspace yêu cầu gói [Safe Pro](https://safe.global/pricing); các tài khoản Safe độc lập bên ngoài Workspace vẫn miễn phí.
 
 ## Tài liệu hướng dẫn an toàn toàn cầu
 

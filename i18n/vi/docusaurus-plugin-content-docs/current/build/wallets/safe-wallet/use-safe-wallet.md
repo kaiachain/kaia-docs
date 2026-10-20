@@ -5,6 +5,12 @@ sidebar_label: Tạo và quản lý két sắt
 
 # Sử dụng Safe Wallet trên Kaia
 
+:::info
+
+Các tính năng cốt lõi của Safe Wallet đều miễn phí. [Safe Pro](https://safe.global/pricing) là gói đăng ký dành cho đội nhóm mang tính tùy chọn và không bắt buộc phải có để thực hiện bất kỳ bước nào trong hướng dẫn này. Xem phần [Giá cả](./overview.md#pricing) trong phần tổng quan về Safe Wallet để biết thêm chi tiết.
+
+:::
+
 ## Create a Safe
 
 Dưới đây là hướng dẫn cách tạo tài khoản thông minh Safe trên Kaia bằng Safe Wallet.
@@ -13,7 +19,7 @@ Dưới đây là hướng dẫn cách tạo tài khoản thông minh Safe trên
 
 :::tip
 
-Quản lý bộ phận tài chính với nhiều két sắt và một đội ngũ nhân viên kiểm tra? [Workspace](./overview.md#workspace) cung cấp bảng điều khiển chung, sổ địa chỉ chung và tính năng đăng nhập qua email cho các thành viên cần quyền truy cập thông tin nhưng không được phép nắm giữ khóa ký. Bạn có thể tạo các Safes trước, sau đó sắp xếp chúng vào một không gian làm việc.
+Quản lý bộ phận tài chính với nhiều két sắt và một đội ngũ nhân viên kiểm tra? [Workspace](./overview.md#workspace-safe-pro) cung cấp bảng điều khiển chung, sổ địa chỉ chung và tính năng đăng nhập qua email cho các thành viên cần quyền truy cập thông tin nhưng không được phép nắm giữ khóa ký. Tính năng này nằm trong gói Safe Pro trả phí và là tùy chọn — bạn có thể tạo các Safe miễn phí trước, sau đó sắp xếp chúng vào một Workspace nếu cần.
 
 :::
 

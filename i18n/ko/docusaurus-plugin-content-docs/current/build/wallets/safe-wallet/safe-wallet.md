@@ -11,6 +11,12 @@ sidebar_label: 안전한 지갑
 
 Safe Wallet에서는 Kaia 메인넷과 Kairos 테스트넷을 지원합니다. 소유자 지갑을 연결하고, **Kaia** 또는 **Kairos**를 선택한 다음, 세이프를 생성하거나 열어주세요.
 
+:::info
+
+Safe Wallet의 핵심 기능은 무료로 이용할 수 있습니다. [Safe Pro](https://safe.global/pricing)는 선택적 팀 구독 서비스이며, 이 가이드의 어떤 내용도 이를 이용하지 않고도 진행할 수 있습니다. 자세한 내용은 Safe Wallet 개요의 [요금](./overview.md#pricing)을 참조하세요.
+
+:::
+
 Kaia의 일반적인 설정에서, 대부분의 사용자는 Kaia Wallet이나 MetaMask와 같은 단일 키 지갑(외부 소유 계정, EOA)으로 시작합니다. 이러한 계정은 하나의 키 쌍에 의존하기 때문에 단일 장애 지점을 초래하며, 1억 6,250만 달러의 손실이 발생한 [윈터뮤트 해킹 사건](https://www.certik.com/resources/blog/uGiY0j3hwOzQOMcDPGoz9-wintermute-hack-)과 같이 조직의 자금 관리에는 부적합합니다.
 
 세이프 월렛은 이러한 단일 장애 지점을 제거합니다. 거래가 실행되기 전에 여러 소유자가 확인 기준치에 따라 서명해야 합니다.

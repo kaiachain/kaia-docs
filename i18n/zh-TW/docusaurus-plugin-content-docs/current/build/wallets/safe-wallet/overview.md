@@ -19,16 +19,26 @@ sidebar_label: Safe Wallet 概覽
 
 若要全面了解該帳戶在區塊鏈上的運作方式，請閱讀 [「安全智慧帳戶」如何運作？](https://docs.safe.global/advanced/smart-account-overview)。
 
-## 工作區
+## 定價
 
-[工作區](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) 是 Safe Global 為同時運行多個 Safe 的團隊所提供的環境。它建立在相同的智慧帳戶之上——它改變的是團隊的協調方式，而非交易如何執行或誰持有金鑰。
+:::info 在 Kaia 上使用 Safe Wallet 是免費的
+
+這些指南中所述的所有內容，皆可在 Safe Wallet 的免費方案中使用：建立 Safe、管理簽署者與閾值、簽署及執行交易，以及使用 Safe Apps（例如 Transaction Builder 和 CSV Airdrop）。您只需支付 Kaia 網路的手續費。
+
+[Safe Pro](https://safe.global/pricing) 是一項可選的付費訂閱服務，專為希望建立共享工作區的團隊設計，該工作區具備「安全中心」、活動日誌、共享通訊錄及支出政策等功能。您無需使用 Safe Pro 即可在 Kaia 上使用您的「保險箱」，且未付費或已過期的「工作區」絕不會鎖定「保險箱」本身。請參閱 Safe 的 [方案一覽](https://help.safe.global/articles/1569083243-plans-at-a-glance) 以了解最新詳情。
+
+:::
+
+### 工作區 (Safe Pro)
+
+[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams) 是 Safe Global 為運行多個 Safe 的團隊所提供的付費環境。它建立在相同的智慧帳戶之上——它改變的是團隊的協調方式，而非交易如何執行或誰持有金鑰。
 
 - **統一儀表板** — 將該領域內所有帳戶的餘額與待處理交易，整合於單一畫面中。
 - **[安全中心](https://safe.global/blog/workspace-security-hub)** — 包含各帳戶的簽署者、門檻、模組、保護機制、恢復選項及 Safe 版本，並會針對其鏈上配置進行自動檢查。
 - **共用通訊錄** — 為整個團隊提供一套標有標籤的通訊錄，而非每個瀏覽器各自的本地清單。
 - **電子郵件登入** — 團隊成員可透過電子郵件一次性驗證碼或 Google 帳號登入，無需持有實體鑰匙即可查看餘額、追蹤待處理交易，並管理聯絡人。簽署仍需使用所有者錢包。
 
-這最後一點對於 Kaia 平台上的財務、合規及營運審核人員非常有用，他們需要能查看財務「保險箱」的內容，但絕不應成為該「保險箱」的簽署人。
+這最後一點對於 Kaia 平台上的財務、合規及營運審核人員非常有用，他們需要能查看財務「保險箱」的內容，但絕不應成為該「保險箱」的簽署人。工作區功能需訂閱 [Safe Pro](https://safe.global/pricing) 方案；位於工作區外的獨立 Safe 則仍可免費使用。
 
 ## Safe Global 文件
 

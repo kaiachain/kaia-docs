@@ -5,6 +5,12 @@ sidebar_label: 创建和管理保险箱
 
 # 在 Kaia 上使用 Safe Wallet
 
+:::info
+
+Safe Wallet 的核心功能均免费。 [Safe Pro](https://safe.global/pricing) 是一项可选的团队订阅服务，本指南中的任何内容均无需使用该服务。详情请参阅“安全钱包”概述中的[定价](./overview.md#pricing)部分。
+
+:::
+
 ## 创建安全
 
 以下是在 Kaia 上使用 Safe Wallet 创建 Safe 智能账户的方法。
@@ -13,7 +19,7 @@ sidebar_label: 创建和管理保险箱
 
 :::tip
 
-管理一个拥有多个“保险箱”和一支审核团队的资金池？[工作区](./overview.md#workspace) 为那些需要查看信息但不应持有签名密钥的成员提供了共享仪表盘、共享通讯录以及电子邮件登录功能。您可以先创建“保险箱”，稍后再将其整理到工作区中。
+管理一个拥有多个“保险箱”和一支审核团队的资金池？ [Workspace](./overview.md#workspace-safe-pro) 为那些需要查看信息但不应持有签名密钥的成员提供了共享仪表盘、共享通讯录以及电子邮件登录功能。这是付费版“Safe Pro”计划的一部分，属于可选功能——您可以先免费创建“保险箱”，如有需要，稍后再将其整理到“工作区”中。
 
 :::
 

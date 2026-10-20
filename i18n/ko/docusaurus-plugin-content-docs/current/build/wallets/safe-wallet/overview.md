@@ -19,16 +19,26 @@ sidebar_label: 세이프 월렛 개요
 
 해당 계정이 온체인에서 어떻게 작동하는지에 대한 전체적인 내용을 확인하려면 [Safe 스마트 계정은 어떻게 작동하나요?](https://docs.safe.global/advanced/smart-account-overview)를 참고하세요.
 
-## 작업 공간
+## 가격
 
-[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams)는 두 개 이상의 Safe를 운영하는 팀을 위한 Safe Global의 환경입니다. 이는 동일한 스마트 계정을 기반으로 하며, 거래가 실행되는 방식이나 키를 누가 보유하는지가 아니라 팀의 협업 방식을 변화시킵니다.
+:::info Safe Wallet은 Kaia에서 무료로 이용할 수 있습니다.
+
+이 가이드에서 다루는 모든 내용은 Safe Wallet의 무료 요금제에서도 사용할 수 있습니다. 여기에는 세이프 생성, 서명자 및 임계값 관리, 거래 서명 및 실행, 그리고 Transaction Builder 및 CSV Airdrop과 같은 Safe 앱 사용 등이 포함됩니다. 카이아 네트워크의 가스비만 지불하면 됩니다.
+
+[Safe Pro](https://safe.global/pricing)는 Security Hub, 활동 로그, 공유 주소록, 지출 정책 등의 기능을 갖춘 공유 작업 공간을 원하는 팀을 위한 선택적 유료 구독 서비스입니다. Kaia에서 금고를 사용하기 위해 Safe Pro가 필요하지 않으며, 요금이 미납되었거나 만료된 워크스페이스라고 해도 금고 자체는 잠기지 않습니다. 최신 정보는 Safe의 [요약 안내](https://help.safe.global/articles/1569083243-plans-at-a-glance)를 참조하십시오.
+
+:::
+
+### 작업 공간 (Safe Pro)
+
+[Workspace](https://safe.global/blog/introducing-workspace-the-onchain-operating-environment-for-treasury-teams)는 두 개 이상의 Safe를 운영하는 팀을 위한 Safe Global의 유료 환경입니다. 이는 동일한 스마트 계정을 기반으로 하며, 거래가 실행되는 방식이나 키를 누가 보유하는지가 아니라 팀의 협업 방식을 변화시킵니다.
 
 - **통합 대시보드** — 해당 플랫폼 내 모든 계좌의 잔액과 처리 대기 중인 거래 내역을 한 화면에서 한눈에 확인할 수 있습니다.
 - **[보안 허브](https://safe.global/blog/workspace-security-hub)** — 각 계정의 서명자, 임계값, 모듈, 가드, 복구 옵션 및 Safe 버전 정보와 더불어, 해당 계정의 온체인 구성에 대한 자동 점검 기능.
 - **공유 주소록** — 브라우저별로 저장된 로컬 목록 대신, 팀 전체가 공유하는 하나의 라벨이 지정된 주소 목록입니다.
 - **이메일 로그인** — 팀원들은 이메일 일회용 인증코드나 Google 계정으로 로그인하여 키를 소지하지 않아도 잔액을 확인하고, 처리 대기 중인 거래 내역을 조회하며, 연락처를 관리할 수 있습니다. 서명에는 여전히 소유자 지갑이 필요합니다.
 
-이 마지막 사항은 Kaia에서 재무, 규정 준수 및 운영 담당 검토자들이 재무부 ‘Safe’에 대한 접근 권한은 필요하지만, 해당 ‘Safe’의 서명권자는 절대 되어서는 안 되는 경우에 유용합니다.
+이 마지막 사항은 Kaia에서 재무, 규정 준수 및 운영 담당 검토자들이 재무부 ‘Safe’에 대한 접근 권한은 필요하지만, 해당 ‘Safe’의 서명권자는 절대 되어서는 안 되는 경우에 유용합니다. 워크스페이스 기능을 이용하려면 [Safe Pro](https://safe.global/pricing) 요금제가 필요합니다. 워크스페이스 외부에서 단독으로 사용하는 Safe는 무료로 이용할 수 있습니다.
 
 ## Safe Global 문서
 
