@@ -11,6 +11,10 @@ sidebar_label: よくある質問
 
 詳細については、**[Safe Global への移行](./migrate-to-safe-global.md)** をご覧ください。
 
+## KaiaでSafe Walletを利用するには、Safe Proの料金を支払う必要がありますか？ <a id="Do i need to pay for safe pro"></a>
+
+いいえ。 Safe Walletでは、「Safe」の作成、署名者の管理、および取引への署名がすべて無料です。 [Safe Pro](https://safe.global/pricing) は、チーム用ワークスペース、セキュリティハブ、アクティビティログ、共有アドレス帳、およびポリシーを追加する、オプションの有料サブスクリプションです。それらが不要な場合は、ガス代以外の費用はかからず、Safe Walletを単独のアカウントとして引き続きご利用ください。 「Safe Wallet」の概要にある [料金](./overview.md#pricing) をご覧ください。
+
 ## 自分の「Safe」は app.safe.global に自動的に表示されますか？ <a id="Will my Safe appear automatically"></a>
 
 ほとんどの場合、その通りです。オーナーウォレットを接続すると、既存の「Safe」がリストに表示され、そのネットワーク名（**Kaia** または **Kairos**）がラベルとして付いています。表示されない場合は、[app.safe.global/welcome/accounts](https://app.safe.global/welcome/accounts) にアクセスし、**リストの管理**をクリックして、接続済みのウォレットに関連付けられているセーフを確認してください。
