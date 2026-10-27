@@ -374,4 +374,4 @@ console.log('Transaction executed:');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-実行可能なプロジェクト一式（`app.js`、`.env.example`、および `package.json`）は、[kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit) にあります。メソッドの一覧については、[APIキットリファレンス](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。
+実行可能なプロジェクト一式（`app.js`、`.env.example`、および `package.json`）は、[wallets/safe-api-kit](https://github.com/kaiachain/kaia-examples/tree/main/wallets/safe-api-kit) にあります。メソッドの一覧については、[APIキットリファレンス](https://docs.safe.global/sdk/api-kit/reference)をご覧ください。
