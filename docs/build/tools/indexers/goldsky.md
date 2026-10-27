@@ -79,7 +79,7 @@ So for this section you will only be needing the :
 
     > Note: USDT is a proxy contract. Be sure to retrieve the implementation contract ABI.
   
-- Copy and paste the Contract ABI and save it as [abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json) in your working directory.
+- Copy and paste the Contract ABI and save it as [abi.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/abi.json) in your working directory.
 - Record the contract’s deployment block number.
 
 ### Creating the Configuration File 
@@ -109,7 +109,7 @@ These three sections are interconnected.
 
 - Write out the contract instance, referencing the ABI you named earlier, address it’s deployed at, chain it’s on, the start block.
 
-**Example: [usdt-demo-config.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-demo-config-json)**
+**Example: [usdt-demo-config.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/usdt-demo-config.json)**
 
 
 ```json

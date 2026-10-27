@@ -374,4 +374,4 @@ console.log('Transaction executed:');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-The complete runnable project—`app.js`, `.env.example`, and `package.json`—is at [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit). See the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for the full method list.
+The complete runnable project—`app.js`, `.env.example`, and `package.json`—is at [wallets/safe-api-kit](https://github.com/kaiachain/kaia-examples/tree/main/wallets/safe-api-kit). See the [API Kit Reference](https://docs.safe.global/sdk/api-kit/reference) for the full method list.

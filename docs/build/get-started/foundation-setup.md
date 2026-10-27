@@ -26,5 +26,5 @@ Kaia supports popular Ethereum tools with some extensions for its features. Key 
 - **[SDKs](../../references/sdk/sdk.md)**: Use [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) (extension of ethers.js), [web3js-ext](../../references/sdk/web3js-ext/getting-started.md), or others for interacting with the network.
 - **[Public RPC Endpoints](../../references/public-en.md)**: Access via Public RPC Endpoints.
 - **[Solidity](https://github.com/ethereum/solidity)**: Write contracts in Solidity--Kaia is fully compatible.
-- **[Kaia Contracts Wizard](https://wizard.kaia.io/)**: An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
+- **[Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard)**: An interactive generator to bootstrap your smart contract and learn about Kaia Contracts.
 - Other tools: [Remix IDE with Kaia Plugin](https://ide.kaia.io/), [Hardhat](https://v2.hardhat.org/hardhat-runner/docs/getting-started), [Foundry](https://getfoundry.sh/), and [Thirdweb](https://portal.thirdweb.com/).

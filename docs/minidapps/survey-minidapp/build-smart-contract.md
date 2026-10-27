@@ -2,7 +2,7 @@
 
 In this section, you will build a smart contract that leverages Semaphore to ensure privacy and accuracy in survey management.
 
-Select the contracts folder in the Explorer pane and update the folder as seen with all the contracts in this [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
+Select the contracts folder in the Explorer pane and update the folder as seen with all the contracts in this [repo](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts).
 
 Now that you have your contracts created, let’s break down the major dependent contracts. 
 

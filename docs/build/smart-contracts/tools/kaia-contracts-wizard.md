@@ -53,7 +53,7 @@ Let’s get started!
 
 To follow along in this tutorial, the prerequisites are highlighted below:
 * Make sure to have [foundry](https://book.getfoundry.sh/getting-started/installation) installed. 
-* Clone the [kaia-foundry-starterkit](https://github.com/ayo-klaytn/kaia-foundry-starterkit) code.
+* Clone the [foundry-starterkit](https://github.com/kaiachain/kaia-examples/tree/main/smart-contracts/foundry-starterkit) code.
 * [MetaMask](../../tutorials/connecting-metamask.mdx#install-metamask): used to deploy the contracts, sign transactions and interact with the contracts.
 * RPC Endpoint: you can get this from one of the supported [endpoint providers](../../../references/public-en.md).
 * Test KAIA from [Faucet](https://faucet.kaia.io): fund your account with sufficient KAIA.
@@ -67,7 +67,7 @@ This guide walks you through a simple implementation of an airdrop contract for 
 
 You need to customize your KIP7 contract before modifying it to an airdrop contract. To do that, follow the steps below: 
 
-1. Navigate to [wizard.kaia.io](https://wizard.kaia.io).
+1. Navigate to [Kaia Toolkit Contracts Wizard](https://toolkit.kaia.io/contracts-wizard).
 2. On the **Contracts** tab select **KIP7**
 3. Next is to fill the name (KIP7 Token Airdrop) and symbol (KTA) in the **SETTINGS** tab. The pre-mint field is left empty
 4. Subsequently on the **FEATURES** tab, tick the **Mintable** feature box, it then automatically selects the Ownable feature in **ACCESS CONTROL** tab. 
@@ -143,7 +143,7 @@ Now that we have our KIP7 airdrop contract code ready, the next step is to creat
 
 You need to customize your KIP17 contract before modifying it to an airdrop contract. To do that, follow the steps below: 
 
-1. Navigate to [wizard.kaia.io](https://wizard.kaia.io/). 
+1. Navigate to [Kaia Toolkit Contracts Wizard](https://toolkit.kaia.io/contracts-wizard). 
 2. On the **Contracts** tab select **KIP17**
 3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
 4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 
@@ -241,7 +241,7 @@ Now that we have our KIP17 airdrop contract code ready, the next step is to crea
 
 Because KIP37 supports batch minting, we will only customize the contract and use it as it is. To customize our KIP37Contract, follow the steps below: 
 
-1. Navigate to [wizard.kaia.io](https://wizard.kaia.io) 
+1. Navigate to [Kaia Toolkit Contracts Wizard](https://toolkit.kaia.io/contracts-wizard) 
 2. On the **Contracts** tab select **KIP37**
 3. Next is to fill the name (KIP7 NFT Airdrop) and symbol (KNA) in the **SETTINGS** tab.  The Base URI field is to be left empty. 
 4. Subsequently on the **FEATURES** tab, tick the **Mintable**, **Auto-increment Ids**, and **Enumerable** feature box. You will notice that the Ownable feature in **ACCESS CONTROL** tab has been automatically selected. 

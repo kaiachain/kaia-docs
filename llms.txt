@@ -66,8 +66,8 @@ Information about supported wallets on Kaia and how to configure them.
   - [Smart Contract Security Best Practices](https://docs.kaia.io/build/smart-contracts/fundamentals/best-practices-for-smart-contract-security/): Guide for best practices to ensure the security of smart contracts on Kaia.
 
 - Tools
-  - [IDE and Tools](https://docs.kaia.io/build/smart-contracts/ide-and-tools): Guide for list of development tools that is available to help smart contract development on Kaia.
-  - [Kaia Contract Wizard](https://docs.kaia.io/build/tools/kaia-contracts-wizard): Guide on using Kaia Contract Wizard
+  - [IDE and Tools](https://docs.kaia.io/build/smart-contracts/tools/ide-and-tools/): Guide for list of development tools that is available to help smart contract development on Kaia.
+  - [Kaia Contracts Wizard](https://docs.kaia.io/build/smart-contracts/tools/kaia-contracts-wizard/): Guide on using the Kaia Contracts Wizard (https://toolkit.kaia.io/contracts-wizard)
 
 - Token Development
   - [Kaia Compatible Tokens (KCTs)](https://docs.kaia.io/build/smart-contracts/token-development/token-standard/): Guide for understanding Kaia Compatible Tokens (KCTs) and their standards.

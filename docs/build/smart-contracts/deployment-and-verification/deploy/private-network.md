@@ -4,7 +4,7 @@
 
 ## Introduction <a id="introduction"></a>
 
-In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
+In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/klaytn/hardhat-utils). By following this guide, you'll learn how to:
 
 - Set up a Hardhat project.
 - Launch a private network simulating the Kairos Testnet.
@@ -368,14 +368,14 @@ async function getCode(ca) {
 }
 
 async function greet(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
-    const tx = await klaytnGreeter.greet();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
+    const tx = await kaiaGreeter.greet();
     console.log( tx);
 }
 
 async function getTotalGreetings(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
-    const value = await klaytnGreeter.getTotalGreetings();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
+    const value = await kaiaGreeter.getTotalGreetings();
     console.log(value.toString());
 }
 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-For a more in-depth guide on hardhat-utils, please refer to [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example)
+For a more in-depth guide on hardhat-utils, please refer to [hardhat-utils github](https://github.com/klaytn/hardhat-utils). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/smart-contracts/hardhat-utils-private-network)

@@ -8,7 +8,7 @@ First, we'll use Kaia Contract Wizard to generate our smart contract.
 
 ### Step 1: Using Kaia Contract Wizard <a id="using-kaia-contract-wizard"></a>
 
-- Navigate to Kaia Contract Wizard.
+- Navigate to [Kaia Contract Wizard](https://toolkit.kaia.io/contracts-wizard).
 - Select KIP7 (Kaia's token standard, similar to ERC20).
 - Configure your token:
   - Name: ExampleTestToken (or something else!)

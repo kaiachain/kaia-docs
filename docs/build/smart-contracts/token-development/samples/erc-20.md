@@ -50,6 +50,12 @@ In this section, you'll create and  deploy your ERC20 token contract using Remix
 
 ![](/img/build/smart-contracts/oz-erc20-setup.png)
 
+:::tip
+
+You can also generate this contract with the [Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard) in Kaia Toolkit. It is built on the OpenZeppelin Wizard and also supports Kaia token standards such as KIP-7.
+
+:::
+
 ### Step 2: Deploy ERC20 token contract <a id="deploy-erc20-token-contract"></a>
 
 **Remix IDE**
