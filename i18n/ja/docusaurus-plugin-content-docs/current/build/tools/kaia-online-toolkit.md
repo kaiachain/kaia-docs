@@ -17,6 +17,7 @@
   - ウォレットの統合（KaiaWallet、MetaMask、RainbowKit、OKX）
   - アカウント管理（ベーシック／ニーモニック／キーストア）
   - トークン操作（KIP-7、KIP-17、KIP-37）
+  - KIP-7、KIP-17、KIP-37、ERC-20、ERC-721、およびERC-1155のコントラクトを生成するための[コントラクトウィザード](https://toolkit.kaia.io/contracts-wizard)
   - ブロックチェーンユーティリティ（RLPエンコーダー、単位変換、署名検証）
 
 ## 開発者向けリソース
@@ -25,6 +26,7 @@
 
 - [GitHubリポジトリ](https://github.com/kaiachain/kaia-online-toolkit)
 - [ツールキットページ](https://toolkit.kaia.io)
+- [契約ウィザード](https://toolkit.kaia.io/contracts-wizard) ([ガイド](../smart-contracts/tools/kaia-contracts-wizard.md))
 - [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
 - [Web3js-ext ドキュメント](../../references/sdk/web3js-ext/getting-started.md)
 - [ヴィエム・ドキュメント](../../references/sdk/viem/viem.md)
