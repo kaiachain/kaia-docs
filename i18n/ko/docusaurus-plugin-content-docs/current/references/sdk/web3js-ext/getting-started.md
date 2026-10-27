@@ -74,18 +74,18 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 - 다음 함수는 서로 다른 RPC를 호출하고 Klaytn TxTypes를 처리합니다. src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts) 참조
   ```js
-
+  // klay_protocolVersion을 시도하고, 실패 시 eth_protocolVersion으로 대체
   web3.eth.getProtocolVersion()
 
-  // klay_protocolVersion을 시도하고, 그렇지 않으면 eth_protocolVersion으로 되돌림 // klay_sendTransaction if Klaytn TxType, 그렇지 않으면 eth_sendTransaction
-  // Kaikas 호환성을 위한 추가 처리
+  // Klaytn TxType인 경우 klay_sendTransaction, 그렇지 않은 경우 eth_sendTransaction
+  // Kaia 지갑 호환성을 위한 추가 처리
   web3.eth.sendTransaction(obj)
 
-  // Klaytn TxType이면 klay_sendRawTransaction, 그렇지 않으면 eth_sendRawTransaction
+  // Klaytn TxType인 경우 klay_sendRawTransaction, 그렇지 않은 경우 eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction이면 eth_signTransaction
-  // Kaikas 호환성을 위한 추가 처리
+  // Klaytn TxType인 경우 klay_signTransaction, 그렇지 않은 경우 eth_signTransaction
+  // Kaia 지갑 호환성을 위한 추가 처리
   web3.eth.signTransaction(obj)
   ```
 
