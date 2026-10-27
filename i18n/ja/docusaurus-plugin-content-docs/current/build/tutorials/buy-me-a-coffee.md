@@ -884,6 +884,6 @@ Fleekは、IPFS上にモダンなサイトやアプリを構築するための�
 
 ここまで来たなら、おめでとう！このチュートリアルでは、Solidity、NextJs、Web3Onboard、Fleek を使用してフルスタックの Buy Me A Coffee dApp を作成する方法を学びました。 これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。これは、分散型プラットフォーム上でホストされる分散型アプリケーションを作成するための最初のステップである。
 
-ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。 [github](https://github.com/ayo-klaytn/buy-me-a-coffee)にあるコードベース全体にアクセスすることができ、この[リンク](https://spring-fog-0605.on.fleek.co/)を使ってウェブサイトをテストすることもできる。
+ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/dapps/buy-me-a-coffee)からコードベース全体にアクセスできるほか、この[リンク](https://spring-fog-0605.on.fleek.co/)からウェブサイトをテストすることもできます。
 
 より詳しい情報は、[Kaia Docs](https://docs.kaia.io)、[Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react)、[Fleek Docs](https://docs.fleek.co/tutorials/hosting/)をご覧ください。ここから、1 KAIAを静的に送信する以外に、送信するコーヒーの量のための新しい入力フィールドを追加するなど、フロントエンドで他のオプションを検討することもできます。
