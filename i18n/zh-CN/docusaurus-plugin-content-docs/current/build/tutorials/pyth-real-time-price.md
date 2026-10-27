@@ -6,7 +6,7 @@ Pyth 是一个去中心化的神谕网络，它在主要由推式神谕驱动的
 
 在本指南中，您将学习如何使用 Pyth 的实时价格馈送来读取法定货币 IDR 的价值。您的 Solidity 智能合约将使用 [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity) 从 Pyth 获取美元/印尼盾价格，您将使用 [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js) 更新并获取最新价格。
 
-为了快速入门，您可以在 [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example) 上找到本教程的完整代码。这为您提供了随时可用的参考资料，帮助您更快地设置项目和安装。
+若想快速入门，您可以在 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat) 上找到本教程的完整代码。这为您提供了随时可用的参考资料，帮助您更快地设置项目和安装。
 
 ## 要求
 
