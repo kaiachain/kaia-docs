@@ -29,5 +29,5 @@ Kaia에는 두 가지 주요 네트워크가 있습니다:
 - **[SDK](../../references/sdk/sdk.md)**: ethers-ext](../../references/sdk/ethers-ext/getting-started.md)(ethers.js의 확장자), [web3js-ext](../../references/sdk/web3js-ext/getting-started.md) 등을 사용하여 네트워크와 상호 작용합니다.
 - **[공용 RPC 엔드포인트](../../references/public-en.md)**: 공용 RPC 엔드포인트를 통해 액세스합니다.
 - **[솔리디티](https://github.com/ethereum/solidity)**: 솔리디티에서 계약서 작성하기-Kaia는 완벽하게 호환됩니다.
-- **[카이아 컨트랙트 마법사](https://wizard.kaia.io/)**: 스마트 컨트랙트를 부트스트랩하고 카이아 컨트랙트에 대해 알아볼 수 있는 대화형 생성기입니다.
+- **[Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard)**: 스마트 계약을 초기 설정하고 Kaia Contracts에 대해 배울 수 있는 대화형 생성기입니다.
 - 기타 도구: [Remix IDE with Kaia 플러그인](https://ide.kaia.io/), [하드햇](https://v2.hardhat.org/hardhat-runner/docs/getting-started), [파운드리](https://getfoundry.sh/), [써드웹](https://portal.thirdweb.com/).
