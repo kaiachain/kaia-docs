@@ -74,18 +74,18 @@ example](https://github.com/kaiachain/kaia-sdk/tree/main/web3js-ext/example)と[
 
 - 以下の関数は異なる RPC を呼び出し、Klaytn TxTypes を処理する。 src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts) を参照。
   ```js
-  // try klay_protocolVersion, falls back to eth_protocolVersion
+  // klay_protocolVersion を試み、失敗した場合は eth_protocolVersion にフォールバック
   web3.eth.getProtocolVersion()
 
-  // klay_sendTransaction if Klaytn TxType, otherwise eth_sendTransaction
-  // Kaikas互換性のための追加処理
-  web3.eth.sendTransaction(obj) // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction web3.eth.sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransactionsendTransaction(obj)
+  // Klaytn の TxType の場合は klay_sendTransaction、それ以外は eth_sendTransaction
+  // Kaia Wallet との互換性確保のための追加処理
+  web3.eth.sendTransaction(obj)
 
-  // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction
+  // Klaytn TxType の場合は klay_sendRawTransaction、それ以外は eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction if Klaytn TxType, otherwise eth_signTransaction
-  // Kaikas互換性のための追加処理
+  // Klaytn TxType の場合は klay_signTransaction、それ以外は eth_signTransaction
+  // Kaia Wallet との互換性のための追加処理
   web3.eth.signTransaction(obj)
   ```
 
