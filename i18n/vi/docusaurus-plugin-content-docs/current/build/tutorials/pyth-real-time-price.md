@@ -6,7 +6,7 @@ Pyth là một mạng lưới oracle phi tập trung có cách tiếp cận đ�
 
 Trong hướng dẫn này, bạn sẽ học cách sử dụng nguồn dữ liệu giá thời gian thực của Pyth để đọc giá trị của IDR, một loại tiền tệ fiat. Hợp đồng thông minh Solidity của bạn sẽ lấy giá USD/IDR từ Pyth bằng cách sử dụng [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity), và bạn sẽ cập nhật và lấy giá mới nhất bằng cách sử dụng [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js).
 
-Để bắt đầu nhanh chóng, bạn có thể tìm thấy mã nguồn đầy đủ cho hướng dẫn này trên [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example). Điều này cung cấp một tài liệu tham khảo sẵn sàng sử dụng và giúp bạn thiết lập dự án và cài đặt nhanh chóng hơn.
+Để bắt đầu nhanh, bạn có thể tìm thấy mã nguồn đầy đủ của bài hướng dẫn này trên [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat). Điều này cung cấp một tài liệu tham khảo sẵn sàng sử dụng và giúp bạn thiết lập dự án và cài đặt nhanh chóng hơn.
 
 ## Điều kiện tiên quyết
 
