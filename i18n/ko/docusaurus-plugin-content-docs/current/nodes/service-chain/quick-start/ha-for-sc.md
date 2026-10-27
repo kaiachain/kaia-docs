@@ -75,20 +75,53 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-브리지 컨트랙트에서 추가 브리지 추가에 대한 정보를 업데이트해야 합니다. 추가한 브리지의 자식 오퍼레이터와 부모 오퍼레이터 정보를 [서비스체인-가치-전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에 작성하고 `node erc20-addOperator4HA.js`를 실행합니다.
+브리지 컨트랙트에서 추가 브리지 추가에 대한 정보를 업데이트해야 합니다. [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer)의 [`erc20/erc20-addOperator4HA.js`](https://github.com/kaiachain/kaia-examples/blob/main/service-chain/value-transfer/erc20/erc20-addOperator4HA.js) 스크립트는 [Cross-Chain Value Transfer](value-transfer.md)에 배포된 브리지 계약에 추가 브리지의 연산자를 등록합니다.
+
+먼저, SCN-L2-02에 있는 추가 브리지의 운영자 주소를 확인한 다음, 이를 `common/bridge_info.json` 파일의 `bridges`에 추가하십시오.
 
 ```
-// register operator
-await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x2ed72a9d7fe5da7672fd21567e07302431649b0b"
+> subbridge.parentOperator
+"0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5"
 ```
 
-여러 개의 브리지가 있는 경우 임계값을 설정하면 보다 안전하게 값 전송을 제공할 수 있습니다. 임계값을 초과하는 오퍼레이터가 정상적으로 값 전송을 요청하는 경우에만 값 전송을 활성화할 수 있습니다. 예를 들어, 현재 예시와 같이 브리지 쌍이 2개이고 임계값을 2로 설정하면 두 개 모두 정상적으로 요청이 들어올 때만 값 전송을 제공할 수 있습니다. 즉, 하나의 브리지가 공격을 받아 비정상적인 요청을 보내더라도 이를 방지할 수 있습니다. 임계값의 기본값은 1입니다. [서비스체인-가치전송-예시](https://github.com/klaytn/servicechain-value-transfer-examples)의 `erc20/erc20-addOperator4HA.js` 파일에서 아래 코드를 주석 처리하고 임계값을 설정한 후 실행하여 브리지 컨트랙트에 대한 임계값을 변경합니다.
+```
+    "bridges": [
+        {
+            "child": { "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce" },
+            "parent": { "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca" }
+        },
+        {
+            "child": { "operator": "0x2ed72a9d7fe5da7672fd21567e07302431649b0b" },
+            "parent": { "operator": "0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5" }
+        }
+    ]
+```
+
+교량 계약의 소유자만이 운영자를 등록할 수 있습니다. `erc20-deploy.js`는 브리지 계약의 소유권을 SCN-L2-01 운영자에게 이전했으므로, 이 스크립트는 해당 운영자의 키로 서명되어야 합니다. SCN-L2-01은 이들을 `~/data/child_bridge_account`와 `~/data/parent_bridge_account`에 저장하며, 각 디렉터리에는 키스토어 파일과 해당 비밀번호 파일이 포함되어 있습니다. 이 두 디렉터리를 스크립트가 실행되는 컴퓨터로 복사한 다음, 해당 경로를 스크립트에 전달하십시오. `erc20-deploy.js`에 의해 `transfer_conf.json` 파일이 생성된 `erc20` 디렉터리에서 스크립트를 실행하십시오.
 
 ```
-// // set threshold
-// await conf.child.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-// await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ cd erc20
+$ CHILD_OWNER_KEYSTORE=/path/to/child_bridge_account \
+  PARENT_OWNER_KEYSTORE=/path/to/parent_bridge_account \
+  node erc20-addOperator4HA.js
+```
+
+:::warning
+
+브리지 계정 디렉토리에는 운영자 키스토어와 해당 평문 비밀번호가 포함되어 있어, 이를 통해 운영자 계정에 대한 완전한 제어 권한을 얻을 수 있습니다. 스크립트를 실행한 후 복사본을 삭제하십시오.
+
+:::
+
+여러 개의 브리지가 있는 경우 임계값을 설정하면 보다 안전하게 값 전송을 제공할 수 있습니다. 임계값을 초과하는 오퍼레이터가 정상적으로 값 전송을 요청하는 경우에만 값 전송을 활성화할 수 있습니다. 예를 들어, 현재 예시와 같이 브리지 쌍이 2개이고 임계값을 2로 설정하면 두 개 모두 정상적으로 요청이 들어올 때만 값 전송을 제공할 수 있습니다. 즉, 하나의 브리지가 공격을 받아 비정상적인 요청을 보내더라도 이를 방지할 수 있습니다. 이 스크립트는 `bridge_info.json`에 있는 교량 수를 임계값으로 설정합니다. 다른 값을 사용하려면 실행 시 `THRESHOLD`를 설정하십시오. 예: `THRESHOLD=1 node erc20-addOperator4HA.js`.
+
+이 스크립트는 SCN-L2-01의 운영자 계정에서 노드 외부로 트랜잭션을 전송합니다. 작업이 완료된 후, SCN-L2-01에서 kscn을 재시작하여 해당 서브브릿지가 운영자 계정의 논스를 다시 불러오도록 하십시오.
+
+```
+SCN-L2-01$ kscnd stop
+SCN-L2-01$ kscnd start
 ```
 
 등록이 완료되면 아래 그림과 같이 EN-02와 SCN-L2-02에 모두 브리지 컨트랙트가 등록되어 HA를 구성합니다.
