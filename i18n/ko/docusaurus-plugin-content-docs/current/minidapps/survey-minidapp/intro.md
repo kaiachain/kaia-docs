@@ -9,7 +9,7 @@
 - 스마트 컨트랙트 개발 환경 설정하기.
 - 프론트엔드 통합 및 배포.
 
-빠르게 시작하려면 이 튜토리얼의 전체 코드를 [깃허브](https://github.com/kjeom/ExampleMiniDapp)에서 확인할 수 있습니다. 이렇게 하면 따라하면서 애플리케이션의 내부 작동 방식을 살펴볼 수 있습니다.
+빠르게 시작하시려면, 이 튜토리얼의 전체 코드를 [Github](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp)에서 확인하실 수 있습니다. 이렇게 하면 따라하면서 애플리케이션의 내부 작동 방식을 살펴볼 수 있습니다.
 
 ## 전제 조건 <a id="prerequisite"></a>
 
@@ -32,13 +32,13 @@
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-그런 다음 디렉터리를 복제된 폴더로 변경하고 다음 명령어로 npm을 사용하여 로컬에 프로젝트를 설치합니다:
+다음으로, 프로젝트 폴더로 이동한 후 다음 명령어를 사용하여 npm을 통해 프로젝트를 로컬에 설치하세요:
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 
