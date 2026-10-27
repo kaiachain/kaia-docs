@@ -17,6 +17,7 @@
   - Tích hợp ví (KaiaWallet, MetaMask, RainbowKit, OKX)
   - Quản lý tài khoản (Cơ bản/Mnemonic/Keystore)
   - Hoạt động mã thông báo (KIP-7, KIP-17, KIP-37)
+  - [Trình hướng dẫn tạo hợp đồng](https://toolkit.kaia.io/contracts-wizard) để tạo các hợp đồng tuân thủ tiêu chuẩn KIP-7, KIP-17, KIP-37, ERC-20, ERC-721 và ERC-1155
   - Tiện ích chuỗi khối (bộ mã hóa RLP, bộ chuyển đổi đơn vị, xác minh chữ ký)
 
 ## Tài nguyên dành cho nhà phát triển
@@ -25,6 +26,7 @@ Sau đây là các liên kết tới Kaia Toolkit và các tài nguyên liên qu
 
 - [Kho lưu trữ GitHub](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)
+- [Trình hướng dẫn hợp đồng](https://toolkit.kaia.io/contracts-wizard) ([hướng dẫn](../smart-contracts/tools/kaia-contracts-wizard.md))
 - [Tài liệu Ethers-ext](../../references/sdk/ethers-ext/getting-started.md)
 - [Tài liệu Web3js-ext](../../references/sdk/web3js-ext/getting-started.md)
 - [Tài liệu Viem](../../references/sdk/viem/viem.md)
