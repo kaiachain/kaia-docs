@@ -885,6 +885,6 @@ Voila! We have our BMC dApp deployed and hosted on IPFS.
 
 If you’ve made it this far, congratulations! In this tutorial, you have learned how to create a full stack Buy Me A Coffee dApp using Solidity, NextJs, Web3Onboard and Fleek. This is the first step in creating a decentralized application hosted on a decentralized platform.
 
-From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KAIA statically. You can have access to the full codebase here on [github](https://github.com/ayo-klaytn/buy-me-a-coffee) and also test the website using this [link](https://spring-fog-0605.on.fleek.co/).
+From here, you could  also explore some other options in your frontend like adding a new input field for the amount of coffee to be sent other than sending 1 KAIA statically. Bạn có thể truy cập toàn bộ mã nguồn tại đây trên [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/dapps/buy-me-a-coffee) và cũng có thể thử nghiệm trang web qua [liên kết](https://spring-fog-0605.on.fleek.co/) này.
 
 Nếu bạn muốn biết thêm thông tin, hãy truy cập [Kaia Docs](https://docs.kaia.io), [Web3Onboard Docs](https://onboard.blocknative.com/docs/modules/react) và [Fleek Docs](https://docs.fleek.co/tutorials/hosting/). If you have any questions, visit [Kaia Forum](https://devforum.kaia.io/).
