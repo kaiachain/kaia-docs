@@ -6,7 +6,7 @@ Pythは分散型オラクルネットワークであり、プッシュ型オラ�
 
 このガイドでは、Pythのリアルタイム価格フィードを使って、不換紙幣であるIDRの価値を読み取る方法を学びます。 Solidityスマートコントラクトは[pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)を使用してPythからUSD/IDR価格を取得し、[hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js)を使用して最新の価格を更新して取得します。
 
-手始めに、このチュートリアルの完全なコードを[GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example)でご覧ください。これは、すぐに使えるリファレンスを提供し、プロジェクトとインストールをより迅速にセットアップするのに役立ちます。
+すぐに始めたい方は、このチュートリアルの完全なコードを [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat) でご覧いただけます。これは、すぐに使えるリファレンスを提供し、プロジェクトとインストールをより迅速にセットアップするのに役立ちます。
 
 ## 前提条件
 
