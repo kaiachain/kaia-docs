@@ -79,7 +79,7 @@ Goldsky는 두 가지 핵심 제품을 제공합니다:
 
   > 참고: USDT는 프록시 계약입니다. 구현 계약 ABI를 반드시 검색하세요.
 
-- 계약 ABI를 복사하여 붙여넣고 작업 디렉터리에 [abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json)으로 저장합니다.
+- 계약 ABI를 복사하여 붙여넣고, 작업 디렉터리에 [abi.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/abi.json)이라는 이름으로 저장하십시오.
 
 - 컨트랙트의 배포 블록 번호를 기록합니다.
 
@@ -111,7 +111,7 @@ Goldsky는 두 가지 핵심 제품을 제공합니다:
 
 - 앞서 지정한 ABI, 배포된 주소, 체인, 시작 블록을 참조하여 컨트랙트 인스턴스를 작성합니다.
 
-**예시: [usdt-demo-config.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-demo-config-json)**
+**예시: [usdt-demo-config.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/usdt-demo-config.json)**
 
 ```json
 {
