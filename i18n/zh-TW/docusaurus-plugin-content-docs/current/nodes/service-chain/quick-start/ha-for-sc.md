@@ -73,20 +73,53 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-在橋樑合同中，應更新有關增加一座橋樑的信息。在 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) 的 `erc20/erc20-addOperator4HA.js` 文件中寫入新增額外橋接器的子操作符和父操作符信息，並執行 `node erc20-addOperator4HA.js`。
+在橋樑合同中，應更新有關增加一座橋樑的信息。 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) 的 [`erc20/erc20-addOperator4HA.js`](https://github.com/kaiachain/kaia-examples/blob/main/service-chain/value-transfer/erc20/erc20-addOperator4HA.js) 腳本，會將額外橋接器的操作員註冊至部署於 [跨鏈價值轉移](value-transfer.md) 中的橋接合約中。
+
+首先，請檢查 SCN-L2-02 上額外橋接器的運作者位址，並將其新增至 `common/bridge_info.json` 中的 `bridges` 欄位。
 
 ```
-// register operator
-await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x2ed72a9d7fe5da7672fd21567e07302431649b0b"
+> subbridge.parentOperator
+"0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5"
 ```
 
-當有多個橋接器時，可以通過設置閾值來更安全地進行價值轉移。只有當閾值以上的操作員正常請求數值轉移時，才能啟用數值轉移。例如，在當前示例中，如果有兩個橋接器對，閾值設置為 2，則只有當兩個橋接器對都正常請求時，才能進行數值傳送。也就是說，即使一座網橋受到攻擊併發送了異常請求，也可以阻止它。閾值的默認值為 1。在 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) 的 `erc20/erc20-addOperator4HA.js` 文件中，取消註釋下面的代碼並設置閾值，然後運行它以更改橋接合約的閾值。
+```
+    "bridges": [
+        {
+            "child": { "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce" },
+            "parent": { "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca" }
+        },
+        {
+            "child": { "operator": "0x2ed72a9d7fe5da7672fd21567e07302431649b0b" },
+            "parent": { "operator": "0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5" }
+        }
+    ]
+```
+
+只有橋接合約的所有者才能註冊操作員。 `erc20-deploy.js` 已將橋接合約的所有權轉移給 SCN-L2-01 的營運商，因此該腳本必須使用他們的金鑰進行簽署。 SCN-L2-01 將它們儲存於 `~/data/child_bridge_account` 和 `~/data/parent_bridge_account` 目錄中，每個目錄內皆包含一個金鑰庫檔案及其對應的密碼檔案。請將這兩個目錄複製到執行該腳本的電腦上，並將其路徑傳遞給該腳本。在 `erc20` 目錄中執行此腳本，該目錄中的 `transfer_conf.json` 檔案是由 `erc20-deploy.js` 所建立的。
 
 ```
-// // set threshold
-// await conf.child.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-// await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ cd erc20
+$ CHILD_OWNER_KEYSTORE=/path/to/child_bridge_account \
+  PARENT_OWNER_KEYSTORE=/path/to/parent_bridge_account \
+  node erc20-addOperator4HA.js
+```
+
+:::warning
+
+橋接帳戶目錄中包含操作員金鑰庫及其明文密碼，這使得攻擊者能夠完全掌控操作員帳戶。執行完腳本後，請刪除這些副本。
+
+:::
+
+當有多個橋接器時，可以通過設置閾值來更安全地進行價值轉移。只有當閾值以上的操作員正常請求數值轉移時，才能啟用數值轉移。例如，在當前示例中，如果有兩個橋接器對，閾值設置為 2，則只有當兩個橋接器對都正常請求時，才能進行數值傳送。也就是說，即使一座網橋受到攻擊併發送了異常請求，也可以阻止它。此腳本將閾值設定為 `bridge_info.json` 中的橋樑數量。若要使用不同的數值，請在執行時設定 `THRESHOLD`，例如：`THRESHOLD=1 node erc20-addOperator4HA.js`。
+
+該腳本會將來自 SCN-L2-01 營運商帳戶的交易傳送至節點之外。完成後，請在 SCN-L2-01 上重新啟動 kscn，以便其子橋接器重新載入操作員帳戶的隨機數。
+
+```
+SCN-L2-01$ kscnd stop
+SCN-L2-01$ kscnd start
 ```
 
 註冊完成後，如下圖所示，將在 EN-02 和 SCN-L2-02 中註冊橋接合同，以配置 HA。
