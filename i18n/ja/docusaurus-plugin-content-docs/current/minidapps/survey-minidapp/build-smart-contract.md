@@ -2,7 +2,7 @@
 
 このセクションでは、Semaphoreを活用して、プライバシーと調査管理の正確性を確保するスマートコントラクトを構築します。
 
-エクスプローラーペインでcontractsフォルダを選択し、この[repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts)内のすべてのcontractsで見たようにフォルダを更新します。
+エクスプローラーペインで「contracts」フォルダを選択し、この [リポジトリ](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts) にあるすべての契約書が表示されるようにフォルダを更新してください。
 
 契約書を作成したところで、依存する主な契約書を分解してみよう。
 
