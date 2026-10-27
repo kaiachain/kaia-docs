@@ -374,4 +374,4 @@ console.log('Transaction executed:');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-실행 가능한 전체 프로젝트(`app.js`, `.env.example`, `package.json`)는 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)에서 확인할 수 있습니다. 전체 메서드 목록은 [API 키트 참조](https://docs.safe.global/sdk/api-kit/reference)를 참조하십시오.
+실행 가능한 전체 프로젝트(`app.js`, `.env.example`, `package.json`)는 [wallets/safe-api-kit](https://github.com/kaiachain/kaia-examples/tree/main/wallets/safe-api-kit)에서 확인할 수 있습니다. 전체 메서드 목록은 [API 키트 참조](https://docs.safe.global/sdk/api-kit/reference)를 참조하십시오.
