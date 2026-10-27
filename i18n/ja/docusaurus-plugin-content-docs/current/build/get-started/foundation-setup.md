@@ -29,5 +29,5 @@ Kaiaは、イーサリアムの一般的なツールをサポートし、その�
 - **SDKs](../../references/sdk/sdk.md)**：ネットワークとの対話には、[ethers-ext](../../references/sdk/ethers-ext/getting-started.md)（ethers.jsの拡張）、[web3js-ext](../../references/sdk/web3js-ext/getting-started.md)などを使用してください。
 - **[パブリックRPCエンドポイント](../../references/public-en.md)**：パブリックRPCエンドポイント経由のアクセス。
 - **[Solidity](https://github.com/ethereum/solidity)**：Solidityでコントラクトを書く--Kaiaは完全に互換性がある。
-- \*\*カイア・コントラクト・ウィザード](https://wizard.kaia.io/)\*\*：スマートコントラクトを起動し、カイアコントラクトについて学ぶためのインタラクティブなジェネレーターです。
+- **[Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard)**：スマートコントラクトの初期設定を行い、Kaia Contractsについて学べる対話型ジェネレーターです。
 - その他のツール[Remix IDE with Kaia Plugin](https://ide.kaia.io/)、[Hardhat](https://v2.hardhat.org/hardhat-runner/docs/getting-started)、[Foundry](https://getfoundry.sh/)、[Thirdweb](https://portal.thirdweb.com/)。
