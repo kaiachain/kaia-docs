@@ -74,18 +74,18 @@ const web3 = new web3_ext.Web3(window.klaytn);
 
 - 以下函数调用不同的 RPC，并处理 Klaytn TxTypes。参见 [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
   ```js
-  // 尝试 klay_protocolVersion，否则返回 eth_protocolVersion
+  // 尝试使用 klay_protocolVersion，若不可用则回退到 eth_protocolVersion
   web3.eth.getProtocolVersion()
 
-  // klay_sendTransaction if Klaytn TxType, otherwise eth_sendTransaction
-  // 为与 Kaikas 兼容而进行的额外处理
-  web3.eth.sendTransaction(obj) // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction sendTransaction(obj)
+  // 若为 Klaytn 交易类型则使用 klay_sendTransaction，否则使用 eth_sendTransaction
+  // 为兼容 Kaia 钱包而进行的额外处理
+  web3.eth.sendTransaction(obj)
 
-  // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction
+  // 若为 Klaytn 交易类型则使用 klay_sendRawTransaction，否则使用 eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction if Klaytn TxType, otherwise eth_signTransaction
-  // 与 Kaikas 兼容的附加处理
+  // 若为 Klaytn 交易类型则使用 klay_signTransaction，否则使用 eth_signTransaction
+  // 为兼容 Kaia 钱包而进行的额外处理
   web3.eth.signTransaction(obj)
   ```
 
