@@ -73,20 +73,53 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-ブリッジ契約では、追加ブリッジに関する情報を更新する必要がある。 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) の `erc20/erc20-addOperator4HA.js` ファイルに、追加したブリッジの子オペレータと親オペレータの情報を記述し、`node erc20-addOperator4HA.js` を実行する。
+ブリッジ契約では、追加ブリッジに関する情報を更新する必要がある。 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) の [`erc20/erc20-addOperator4HA.js`](https://github.com/kaiachain/kaia-examples/blob/main/service-chain/value-transfer/erc20/erc20-addOperator4HA.js) スクリプトは、[Cross-Chain Value Transfer](value-transfer.md) にデプロイされたブリッジ契約に、追加ブリッジのオペレーターを登録します。
+
+まず、SCN-L2-02上の追加ブリッジのオペレータアドレスを確認し、それらを`common/bridge_info.json`内の`bridges`に追加してください。
 
 ```
-// register operator
-await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x2ed72a9d7fe5da7672fd21567e07302431649b0b"
+> subbridge.parentOperator
+"0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5"
 ```
 
-複数のブリッジがある場合、閾値を設定することで、より安全に値の伝達を行うことができる。バリュー・トランスファーは、通常、閾値以上のオペレーターがバリュー・トランスファーを要求した場合にのみ有効にすることができる。例えば、今回の例のように、ブリッジペアが2つあり、閾値が2に設定されている場合、両方が正常に要求された場合にのみ値転送を行うことができる。つまり、1つのブリッジが攻撃を受けて異常なリクエストを送信したとしても、それを防ぐことができる。閾値のデフォルト値は1である。 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples)の`erc20/erc20-addOperator4HA.js`ファイルで、以下のコードをアンコメントして閾値を設定し、ブリッジ契約の閾値を変更するために実行してください。
+```
+    "bridges": [
+        {
+            "child": { "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce" },
+            "parent": { "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca" }
+        },
+        {
+            "child": { "operator": "0x2ed72a9d7fe5da7672fd21567e07302431649b0b" },
+            "parent": { "operator": "0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5" }
+        }
+    ]
+```
+
+ブリッジ契約の所有者のみが、オペレーターを登録することができます。 `erc20-deploy.js` は、ブリッジ契約の所有権を SCN-L2-01 の運営者に譲渡したため、このスクリプトには運営者の鍵で署名する必要があります。 SCN-L2-01 は、これらを `~/data/child_bridge_account` および `~/data/parent_bridge_account` に保存します。各ディレクトリには、キーストアファイルとそのパスワードファイルが含まれています。これら2つのディレクトリを、スクリプトを実行しているマシンにコピーし、そのパスをスクリプトに指定してください。 `erc20-deploy.js` によって `transfer_conf.json` が作成された `erc20` ディレクトリ内で、このスクリプトを実行してください。
 
 ```
-// // set threshold
-// await conf.child.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-// await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ cd erc20
+$ CHILD_OWNER_KEYSTORE=/path/to/child_bridge_account \
+  PARENT_OWNER_KEYSTORE=/path/to/parent_bridge_account \
+  node erc20-addOperator4HA.js
+```
+
+:::warning
+
+ブリッジアカウントのディレクトリには、オペレーターのキーストアとその平文パスワードが含まれており、これらを利用することでオペレーターアカウントを完全に制御することが可能になります。スクリプトの実行後は、コピーを削除してください。
+
+:::
+
+複数のブリッジがある場合、閾値を設定することで、より安全に値の伝達を行うことができる。バリュー・トランスファーは、通常、閾値以上のオペレーターがバリュー・トランスファーを要求した場合にのみ有効にすることができる。例えば、今回の例のように、ブリッジペアが2つあり、閾値が2に設定されている場合、両方が正常に要求された場合にのみ値転送を行うことができる。つまり、1つのブリッジが攻撃を受けて異常なリクエストを送信したとしても、それを防ぐことができる。このスクリプトは、`bridge_info.json` に記載されている橋の数をしきい値として設定します。別の値を使用するには、実行時に `THRESHOLD` を設定してください。例：`THRESHOLD=1 node erc20-addOperator4HA.js`。
+
+このスクリプトは、SCN-L2-01のオペレーターアカウントから、ノード外部へトランザクションを送信します。処理が完了したら、SCN-L2-01上でkscnを再起動し、そのサブブリッジがオペレーターアカウントのノンスを再読み込みするようにしてください。
+
+```
+SCN-L2-01$ kscnd stop
+SCN-L2-01$ kscnd start
 ```
 
 登録が完了すると、下図のようにEN-02とSCN-L2-02の両方にブリッジ契約が登録され、HAが構成されます。
