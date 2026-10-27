@@ -8,7 +8,7 @@
 
 ### ステップ1：カイア契約ウィザードの使用
 
-1. カイア契約ウィザードに移動します。
+1. [Kaia Contract Wizard](https://toolkit.kaia.io/contracts-wizard) にアクセスしてください。
 2. KIP7（ERC20に似たカイアのトークン規格）を選択する。
 3. トークンを設定します：
    - 名前ExampleTestToken (または他の何か!)
