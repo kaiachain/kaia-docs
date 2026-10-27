@@ -3,7 +3,7 @@
 Kaia용 Viem 확장 프로그램 제공:
 
 - 이더리움과 Kaia 거래 유형을 모두 지원합니다.
-- 메타마스크(`window.ethereum`)와 카이카스(`window.klaytn`) 모두에서 작업하세요.
+- MetaMask(`window.ethereum`)와 Kaia Wallet(`window.klaytn`) 모두에서 사용할 수 있습니다.
 
 ## 설치
 
