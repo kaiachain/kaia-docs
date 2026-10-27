@@ -78,14 +78,14 @@ See [DESIGN](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/DESIGN.m
   web3.eth.getProtocolVersion()
 
   // klay_sendTransaction if Klaytn TxType, otherwise eth_sendTransaction
-  // Additional treatment for Kaikas compatibility
+  // Additional treatment for Kaia Wallet compatibility
   web3.eth.sendTransaction(obj)
 
   // klay_sendRawTransaction if Klaytn TxType, otherwise eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
   // klay_signTransaction if Klaytn TxType, otherwise eth_signTransaction
-  // Additional treatment for Kaikas compatibility
+  // Additional treatment for Kaia Wallet compatibility
   web3.eth.signTransaction(obj)
   ```
 

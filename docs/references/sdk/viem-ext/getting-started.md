@@ -3,7 +3,7 @@
 Viem Extension for Kaia offers:
 
 - Supports both Ethereum and kaia transaction types.
-- Work with both MetaMask (`window.ethereum`) and Kaikas (`window.klaytn`)
+- Work with both MetaMask (`window.ethereum`) and Kaia Wallet (`window.klaytn`)
 
 ## Install
 
