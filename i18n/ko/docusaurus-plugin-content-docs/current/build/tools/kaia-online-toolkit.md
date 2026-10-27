@@ -17,6 +17,7 @@
   - 지갑 통합(KaiaWallet, MetaMask, RainbowKit, OKX)
   - 계정 관리(기본/메모닉/키스토어)
   - 토큰 작업(KIP-7, KIP-17, KIP-37)
+  - KIP-7, KIP-17, KIP-37, ERC-20, ERC-721 및 ERC-1155 계약을 생성하기 위한 [계약 마법사](https://toolkit.kaia.io/contracts-wizard)
   - 블록체인 유틸리티(RLP 인코더, 단위 변환기, 서명 확인)
 
 ## 개발자 리소스
@@ -25,6 +26,7 @@ Kaia 툴킷 및 관련 리소스에 대한 링크는 다음과 같습니다:
 
 - [깃허브 리포지토리](https://github.com/kaiachain/kaia-online-toolkit)
 - [Toolkit Page](https://toolkit.kaia.io)
+- [계약 마법사](https://toolkit.kaia.io/contracts-wizard) ([가이드](../smart-contracts/tools/kaia-contracts-wizard.md))
 - [Ethers-ext 문서](../../references/sdk/ethers-ext/getting-started.md)
 - [Web3js-ext 문서](../../references/sdk/web3js-ext/getting-started.md)
 - [Viem 문서](../../references/sdk/viem/viem.md)
