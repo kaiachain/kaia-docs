@@ -8,7 +8,7 @@
 
 ### 步驟 1：使用 Kaia 契約精靈<a id="using-kaia-contract-wizard"></a>
 
-- 導覽至 Kaia Contract Wizard。
+- 請前往 [Kaia 合約精靈](https://toolkit.kaia.io/contracts-wizard)。
 - 選擇 KIP7 (Kaia 的代幣標準，類似 ERC20)。
 - 配置您的令牌：
   - 名稱：ExampleTestToken (或其他名稱!)
