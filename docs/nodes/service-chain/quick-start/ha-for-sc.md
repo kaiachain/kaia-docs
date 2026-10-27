@@ -78,20 +78,53 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-In the bridge contract, information about adding an extra bridge should be updated. Write the child operator and parent operator information of the added extra bridge in the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) and execute `node erc20-addOperator4HA.js`.
+In the bridge contract, information about adding an extra bridge should be updated. The [`erc20/erc20-addOperator4HA.js`](https://github.com/kaiachain/kaia-examples/blob/main/service-chain/value-transfer/erc20/erc20-addOperator4HA.js) script of [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) registers the operators of the extra bridge in the bridge contracts deployed in [Cross-Chain Value Transfer](value-transfer.md).
+
+First, check the operator addresses of the extra bridge on SCN-L2-02 and add them to `bridges` in `common/bridge_info.json`.
 
 ```
-// register operator
-await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x2ed72a9d7fe5da7672fd21567e07302431649b0b"
+> subbridge.parentOperator
+"0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5"
 ```
 
-When there are multiple bridges, value transfer can be provided more safely by setting a threshold. Value transfer can be enabled only when an operator above the threshold normally requests value transfer. For example, as in the current example, if there are two bridge pairs and the threshold is set to 2, value transfer can be provided only when both are normally requested. That is, even if one bridge is attacked and sends an abnormal request, it can be prevented. The default value of threshold is 1. In the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples), uncomment the code below and set the threshold value and then run it to change the threshold for the bridge contract.
+```
+    "bridges": [
+        {
+            "child": { "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce" },
+            "parent": { "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca" }
+        },
+        {
+            "child": { "operator": "0x2ed72a9d7fe5da7672fd21567e07302431649b0b" },
+            "parent": { "operator": "0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5" }
+        }
+    ]
+```
+
+Only the owner of a bridge contract can register operators. `erc20-deploy.js` transferred the ownership of the bridge contracts to the operators of SCN-L2-01, so the script has to be signed with their keys. SCN-L2-01 keeps them in `~/data/child_bridge_account` and `~/data/parent_bridge_account`, each with the keystore file and its password file. Copy these two directories to the machine running the script and pass their paths to it. Run the script in the `erc20` directory, where `transfer_conf.json` was created by `erc20-deploy.js`.
 
 ```
-// // set threshold
-// await conf.child.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-// await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ cd erc20
+$ CHILD_OWNER_KEYSTORE=/path/to/child_bridge_account \
+  PARENT_OWNER_KEYSTORE=/path/to/parent_bridge_account \
+  node erc20-addOperator4HA.js
+```
+
+:::warning
+
+The bridge account directories contain the operator keystores together with their plaintext passwords, which give full control of the operator accounts. Delete the copies after running the script.
+
+:::
+
+When there are multiple bridges, value transfer can be provided more safely by setting a threshold. Value transfer can be enabled only when an operator above the threshold normally requests value transfer. For example, as in the current example, if there are two bridge pairs and the threshold is set to 2, value transfer can be provided only when both are normally requested. That is, even if one bridge is attacked and sends an abnormal request, it can be prevented. The script sets the threshold to the number of bridges in `bridge_info.json`. To use a different value, set `THRESHOLD` when running it, e.g. `THRESHOLD=1 node erc20-addOperator4HA.js`.
+
+The script sends transactions from the operator accounts of SCN-L2-01 outside of the node. After it completes, restart kscn on SCN-L2-01 so that its sub-bridge reloads the nonce of the operator accounts.
+
+```
+SCN-L2-01$ kscnd stop
+SCN-L2-01$ kscnd start
 ```
 
 

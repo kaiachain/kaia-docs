@@ -6,7 +6,7 @@ Pyth is a decentralized oracle network that takes a distinct approach in an ecos
 
 In this guide, you will learn how to use Pyth’s real-time price feeds to read the value of IDR, a fiat currency. Your Solidity smart contract will retrieve the USD/IDR price from Pyth using the [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity), and you will update and fetch the latest price using the [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js).
 
-For a quick start, you can find the complete code for this tutorial on [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example). This provides a ready-to-use reference and helps you set up the project and installation more quickly.
+For a quick start, you can find the complete code for this tutorial on [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat). This provides a ready-to-use reference and helps you set up the project and installation more quickly.
 
 ## Prerequisites
 

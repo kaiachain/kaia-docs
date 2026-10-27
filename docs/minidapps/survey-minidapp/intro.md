@@ -8,7 +8,7 @@ This comprehensive guide covers:
 - Setting up a smart contract development environment.
 - Frontend integration and deployment.
 
-To get started quickly, you'll find the entire code for this tutorial on [Github](https://github.com/kjeom/ExampleMiniDapp). This way, you can explore the application's inner workings as you follow along.
+To get started quickly, you'll find the entire code for this tutorial on [Github](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp). This way, you can explore the application's inner workings as you follow along.
 
 ## Prerequisite <a id="prerequisite"></a> 
 
@@ -31,13 +31,13 @@ To start the project setup and installation quickly, clone this project on Githu
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-Next, change the directory into the cloned folder and install the project locally using npm with the following command:
+Next, change the directory into the project folder and install the project locally using npm with the following command:
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 
