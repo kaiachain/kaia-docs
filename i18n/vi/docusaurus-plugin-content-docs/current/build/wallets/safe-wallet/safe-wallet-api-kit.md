@@ -374,4 +374,4 @@ console.log('Giao dịch đã được thực hiện:');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-Dự án hoàn chỉnh và có thể chạy được — bao gồm `app.js`, `.env.example` và `package.json` — có tại [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit). Xem [Tài liệu tham khảo Bộ công cụ API](https://docs.safe.global/sdk/api-kit/reference) để xem danh sách đầy đủ các phương thức.
+Dự án hoàn chỉnh và có thể chạy được — bao gồm các tệp `app.js`, `.env.example` và `package.json` — có tại [wallets/safe-api-kit](https://github.com/kaiachain/kaia-examples/tree/main/wallets/safe-api-kit). Xem [Tài liệu tham khảo Bộ công cụ API](https://docs.safe.global/sdk/api-kit/reference) để xem danh sách đầy đủ các phương thức.
