@@ -74,18 +74,18 @@ Xem [THIẾT KẾ](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/DE
 
 - Các hàm sau gọi các RPC khác nhau và xử lý Klaytn TxTypes. Xem [src/eth/index.ts](https://github.com/kaiachain/kaia-sdk/blob/main/web3js-ext/src/eth/index.ts)
   ```js
-  // Thử klay_protocolVersion, chuyển về eth_protocolVersion
+  // Thử dùng klay_protocolVersion, nếu không được thì chuyển sang eth_protocolVersion
   web3.eth.getProtocolVersion()
 
-  // klay_sendTransaction nếu Klaytn TxType, nếu không thì eth_sendTransaction
-  // Xử lý bổ sung cho khả năng tương thích Kaikas
+  // klay_sendTransaction nếu là loại giao dịch Klaytn (TxType), nếu không thì dùng eth_sendTransaction
+  // Xử lý bổ sung để tương thích với ví Kaia
   web3.eth.sendTransaction(obj)
 
-  // klay_sendRawTransaction nếu Klaytn TxType, nếu không thì eth_sendRawTransaction
+  // klay_sendRawTransaction nếu là loại giao dịch Klaytn, nếu không thì dùng eth_sendRawTransaction
   web3.eth.sendSignedTransaction(rlp)
 
-  // klay_signTransaction nếu Klaytn TxType, nếu không thì eth_signTransaction
-  // Xử lý bổ sung cho khả năng tương thích Kaikas
+  // klay_signTransaction nếu là loại giao dịch Klaytn, nếu không thì dùng eth_signTransaction
+  // Xử lý bổ sung để tương thích với ví Kaia
   web3.eth.signTransaction(obj)
   ```
 
