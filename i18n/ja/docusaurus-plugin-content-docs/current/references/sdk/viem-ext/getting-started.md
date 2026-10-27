@@ -3,7 +3,7 @@
 カイアのヴィーム・エクステンションが提案する：
 
 - イーサリアムとカイアの両方のトランザクションタイプをサポート。
-- MetaMask (`window.ethereum`) と Kaikas (`window.klaytn`) の両方で動作する。
+- MetaMask (`window.ethereum`) と Kaia Wallet (`window.klaytn`) の両方に対応しています
 
 ## インストール
 

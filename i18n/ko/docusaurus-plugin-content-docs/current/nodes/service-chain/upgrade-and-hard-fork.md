@@ -39,7 +39,7 @@ $ kscnd start
 2. 서비스체인 바이너리를 하드포크를 지원하는 버전으로 업그레이드합니다.
 3. 서비스체인에서 하드포크 블록 번호를 설정합니다.
 
-### 1) 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. 1) 하드포크에 적합한 블록 번호 선택 <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 서비스체인의 JavaScript 콘솔에서 아래와 같이 현재 블록 번호를 확인할 수 있습니다.
 

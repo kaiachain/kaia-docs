@@ -39,7 +39,7 @@ $ kscnd start
 2. 将 ServiceChain 二进制版本升级到支持硬分叉的版本
 3. 在服务链中设置硬分叉区块编号
 
-### 1) 为硬分叉选择一个合适的区块编号<a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. 为硬分叉选择一个合适的区块编号<a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 在 ServiceChain 的 Javascript 控制台中，您可以检查当前的区块编号，如下图所示。
 

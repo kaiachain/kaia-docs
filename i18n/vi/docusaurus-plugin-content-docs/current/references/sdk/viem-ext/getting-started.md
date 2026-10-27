@@ -3,7 +3,7 @@
 Tiện ích mở rộng Viem dành cho Kaia cung cấp:
 
 - Hỗ trợ cả loại giao dịch Ethereum và kaia.
-- Làm việc với cả MetaMask (`window.ethereum`) và Kaikas (`window.klaytn`)
+- Hỗ trợ cả MetaMask (`window.ethereum`) và Kaia Wallet (`window.klaytn`)
 
 ## Cài đặt
 

@@ -374,4 +374,4 @@ console.log('交易已执行：');
 console.log(`${EXPLORER_TX_URL || 'https://kairos.kaiascan.io/tx/'}${receipt?.transactionHash}`);
 ```
 
-完整的可运行项目——`app.js`、`.env.example` 和 `package.json`——位于 [kaia-safe-api-kit](https://github.com/praveen-kaia/kaia-safe-api-kit)。完整的方法列表请参阅 [API 工具包参考](https://docs.safe.global/sdk/api-kit/reference)。
+完整的可运行项目——`app.js`、`.env.example` 和 `package.json`——位于 [wallets/safe-api-kit](https://github.com/kaiachain/kaia-examples/tree/main/wallets/safe-api-kit)。完整的方法列表请参阅 [API 工具包参考](https://docs.safe.global/sdk/api-kit/reference)。

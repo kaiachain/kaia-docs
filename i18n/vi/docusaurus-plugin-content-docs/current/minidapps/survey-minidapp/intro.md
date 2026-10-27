@@ -9,7 +9,7 @@ Hướng dẫn toàn diện này bao gồm:
 - Thiết lập môi trường phát triển hợp đồng thông minh.
 - Tích hợp và triển khai giao diện người dùng.
 
-Để bắt đầu nhanh chóng, bạn sẽ tìm thấy toàn bộ mã cho hướng dẫn này trên [Github](https://github.com/kjeom/ExampleMiniDapp). Bằng cách này, bạn có thể khám phá cách thức hoạt động bên trong của ứng dụng khi thực hiện theo.
+Để bắt đầu nhanh chóng, bạn có thể tìm thấy toàn bộ mã nguồn của bài hướng dẫn này trên [Github](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp). Bằng cách này, bạn có thể khám phá cách thức hoạt động bên trong của ứng dụng khi thực hiện theo.
 
 ## Điều kiện tiên quyết <a id="prerequisite"></a>
 
@@ -32,13 +32,13 @@ Hướng dẫn toàn diện này bao gồm:
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-Tiếp theo, hãy thay đổi thư mục thành thư mục đã sao chép và cài đặt dự án cục bộ bằng npm với lệnh sau:
+Tiếp theo, hãy chuyển thư mục hiện tại sang thư mục dự án và cài đặt dự án tại máy bằng npm thông qua lệnh sau:
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 

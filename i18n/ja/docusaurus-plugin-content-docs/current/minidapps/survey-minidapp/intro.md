@@ -9,7 +9,7 @@ Survey Mini dAppはプライバシーに焦点を当てた分散型アプリケ�
 - スマート・コントラクト開発環境の構築
 - フロントエンドの統合と展開
 
-すぐに始められるように、このチュートリアルのコード全体は[Github](https://github.com/kjeom/ExampleMiniDapp)にあります。こうすることで、アプリケーションの内部構造を調べながら進むことができる。
+すぐに始められるよう、このチュートリアルのコード全体は [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp) に公開されています。こうすることで、アプリケーションの内部構造を調べながら進むことができる。
 
 ## 前提条件<a id="prerequisite"></a>
 
@@ -32,13 +32,13 @@ Survey Mini dAppはプライバシーに焦点を当てた分散型アプリケ�
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-次に、クローンしたフォルダにディレクトリを変更し、以下のコマンドでnpmを使ってプロジェクトをローカルにインストールする：
+次に、プロジェクトフォルダにディレクトリを切り替え、以下のコマンドを使用して npm を通じてプロジェクトをローカルにインストールします：
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 

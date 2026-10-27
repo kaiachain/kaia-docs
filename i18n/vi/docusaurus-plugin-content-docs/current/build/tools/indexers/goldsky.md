@@ -79,7 +79,7 @@ Vì vậy, trong phần này, bạn chỉ cần sử dụng:
 
   > Lưu ý: USDT là hợp đồng đại diện. Hãy chắc chắn rằng bạn đã lấy được hợp đồng triển khai ABI.
 
-- Sao chép và dán tệp Contract ABI và lưu nó dưới dạng [abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json) trong thư mục làm việc của bạn.
+- Sao chép và dán mã ABI của Hợp đồng, sau đó lưu tệp dưới tên [abi.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/abi.json) trong thư mục làm việc của bạn.
 
 - Ghi lại số khối triển khai của hợp đồng.
 
@@ -111,7 +111,7 @@ Ba phần này có mối liên hệ chặt chẽ với nhau.
 
 - Viết ra bản hợp đồng, tham chiếu đến ABI mà bạn đã đặt tên trước đó, địa chỉ nơi nó được triển khai, chuỗi khối mà nó nằm trên, và khối bắt đầu.
 
-**Ví dụ: [usdt-demo-config.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-demo-config-json)**
+**Ví dụ: [usdt-demo-config.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/usdt-demo-config.json)**
 
 ```json
 {

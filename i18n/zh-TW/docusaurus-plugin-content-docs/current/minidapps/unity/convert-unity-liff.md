@@ -289,8 +289,8 @@ LINE mini dApps 的強大之處在於其多功能性和易用性。無論您是�
 
 ### 附錄 A<a id="appendix-a"></a>
 
-[KaiaPlugin.jslib源代碼](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-kaiaplugin-jslib)
+[KaiaPlugin.jslib 原始碼](https://github.com/kaiachain/kaia-examples/blob/main/minidapps/unity-liff/Assets/Plugins/KaiaPlugin.jslib)
 
 ### 附錄 B<a id="appendix-b"></a>
 
-[Web3Manager.cs源代碼](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
+[Web3Manager.cs 原始碼](https://github.com/kaiachain/kaia-examples/blob/main/minidapps/unity-liff/Assets/Scripts/Web3Manager.cs)

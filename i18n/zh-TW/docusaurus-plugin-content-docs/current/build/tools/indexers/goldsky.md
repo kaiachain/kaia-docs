@@ -76,7 +76,7 @@ Goldsky 支援三種部署子圖的方法：
 
   > 注意：USDT 是一種代理合約。請務必擷取執行合約 ABI。
 
-- 複製並貼上合約 ABI，並將其儲存為 [abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json) 到您的工作目錄中。
+- 請複製並貼上合約 ABI，並將其儲存為 [abi.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/abi.json) 檔案，存放於您的工作目錄中。
 
 - 記錄合約的部署區塊編號。
 
@@ -108,7 +108,7 @@ Goldsky 支援三種部署子圖的方法：
 
 - 寫出契約實例，參考您之前命名的 ABI、部署的位址、所處的連結、開始區塊。
 
-**範例：[usdt-demo-config.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-demo-config-json)**
+**範例：[usdt-demo-config.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/usdt-demo-config.json)**
 
 ```json
 {

@@ -6,7 +6,7 @@ Pyth는 주로 푸시 기반 오라클로 구동되는 생태계에서 독특한
 
 이 가이드에서는 Pyth의 실시간 가격 피드를 사용하여 법정 화폐인 IDR의 가치를 읽는 방법을 알아보세요. 솔리디티 스마트 컨트랙트는 [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity)를 사용하여 Pyth에서 USD/IDR 가격을 검색하고, [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js)를 사용하여 최신 가격을 업데이트하고 가져옵니다.
 
-빠르게 시작하려면 이 튜토리얼의 전체 코드를 [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example)에서 확인할 수 있습니다. 이는 바로 사용할 수 있는 참조를 제공하며 프로젝트와 설치를 더 빠르게 설정하는 데 도움이 됩니다.
+빠르게 시작하고 싶으시다면, 이 튜토리얼의 전체 코드를 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat)에서 확인하실 수 있습니다. 이는 바로 사용할 수 있는 참조를 제공하며 프로젝트와 설치를 더 빠르게 설정하는 데 도움이 됩니다.
 
 ## 전제 조건
 

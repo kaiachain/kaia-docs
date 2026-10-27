@@ -75,20 +75,53 @@ null
 
 ![](/img/nodes/sc-ha-before-register2.png)
 
-In the bridge contract, information about adding an extra bridge should be updated. Write the child operator and parent operator information of the added extra bridge in the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) and execute `node erc20-addOperator4HA.js`.
+In the bridge contract, information about adding an extra bridge should be updated. Tập lệnh [`erc20/erc20-addOperator4HA.js`](https://github.com/kaiachain/kaia-examples/blob/main/service-chain/value-transfer/erc20/erc20-addOperator4HA.js) của [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) đăng ký các toán tử của cầu nối bổ sung vào các hợp đồng cầu nối đã được triển khai trong [Chuyển giao giá trị xuyên chuỗi](value-transfer.md).
+
+Trước tiên, hãy kiểm tra các địa chỉ nhà điều hành của cầu nối bổ sung trên SCN-L2-02 và thêm chúng vào `bridges` trong tệp `common/bridge_info.json`.
 
 ```
-// register operator
-await conf.child.newInstanceBridge.methods.registerOperator("0xCHILD_BRIDGE_ADDR").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-await conf.parent.newInstanceBridge.methods.registerOperator("0xPARENT_BRIDGE_ADDR").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ kscn attach --datadir ~/data
+> subbridge.childOperator
+"0x2ed72a9d7fe5da7672fd21567e07302431649b0b"
+> subbridge.parentOperator
+"0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5"
 ```
 
-When there are multiple bridges, value transfer can be provided more safely by setting a threshold. Value transfer can be enabled only when an operator above the threshold normally requests value transfer. For example, as in the current example, if there are two bridge pairs and the threshold is set to 2, value transfer can be provided only when both are normally requested. That is, even if one bridge is attacked and sends an abnormal request, it can be prevented. The default value of threshold is 1. In the `erc20/erc20-addOperator4HA.js` file of [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples), uncomment the code below and set the threshold value and then run it to change the threshold for the bridge contract.
+```
+    "bridges": [
+        {
+            "child": { "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce" },
+            "parent": { "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca" }
+        },
+        {
+            "child": { "operator": "0x2ed72a9d7fe5da7672fd21567e07302431649b0b" },
+            "parent": { "operator": "0x5f4d5ac6da5d2d1f0af0e1bd8bc85a43a0ba41c5" }
+        }
+    ]
+```
+
+Chỉ chủ sở hữu hợp đồng cầu mới có quyền đăng ký các nhà khai thác. Tập tin `erc20-deploy.js` đã chuyển quyền sở hữu các hợp đồng cầu nối cho các nhà điều hành của SCN-L2-01, do đó tập lệnh này phải được ký bằng khóa của họ. SCN-L2-01 lưu trữ chúng trong các thư mục `~/data/child_bridge_account` và `~/data/parent_bridge_account`, mỗi thư mục chứa một tệp keystore cùng với tệp mật khẩu tương ứng. Sao chép hai thư mục này vào máy đang chạy tập lệnh và truyền đường dẫn của chúng vào tập lệnh. Chạy tập lệnh trong thư mục `erc20`, nơi tập tin `transfer_conf.json` đã được tạo ra bởi tập lệnh `erc20-deploy.js`.
 
 ```
-// // set threshold
-// await conf.child.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.child.sender, gas: 100000000, value: 0 });
-// await conf.parent.newInstanceBridge.methods.setOperatorThreshold(0, "your threshold number").send({ from: conf.parent.sender, gas: 100000000, value: 0 });
+$ cd erc20
+$ CHILD_OWNER_KEYSTORE=/path/to/child_bridge_account \
+  PARENT_OWNER_KEYSTORE=/path/to/parent_bridge_account \
+  node erc20-addOperator4HA.js
+```
+
+:::warning
+
+Các thư mục tài khoản cầu nối chứa các kho khóa của người vận hành cùng với mật khẩu dạng văn bản thuần túy của chúng, cho phép kiểm soát hoàn toàn các tài khoản người vận hành. Hãy xóa các bản sao sau khi chạy tập lệnh.
+
+:::
+
+When there are multiple bridges, value transfer can be provided more safely by setting a threshold. Value transfer can be enabled only when an operator above the threshold normally requests value transfer. For example, as in the current example, if there are two bridge pairs and the threshold is set to 2, value transfer can be provided only when both are normally requested. That is, even if one bridge is attacked and sends an abnormal request, it can be prevented. Tập lệnh này đặt ngưỡng là số lượng cầu trong tệp `bridge_info.json`. Để sử dụng một giá trị khác, hãy thiết lập `THRESHOLD` khi chạy chương trình, ví dụ: `THRESHOLD=1 node erc20-addOperator4HA.js`.
+
+Tập lệnh này gửi các giao dịch từ các tài khoản nhà điều hành của SCN-L2-01 ra bên ngoài nút. Sau khi hoàn tất, hãy khởi động lại kscn trên SCN-L2-01 để cầu con của nó tải lại giá trị nonce của các tài khoản người vận hành.
+
+```
+SCN-L2-01$ kscnd stop
+SCN-L2-01$ kscnd start
 ```
 
 When registration is completed, a bridge contract is registered in both EN-02 and SCN-L2-02 as shown in the figure below to configure HA.

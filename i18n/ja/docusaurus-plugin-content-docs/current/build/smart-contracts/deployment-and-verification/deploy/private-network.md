@@ -4,7 +4,7 @@
 
 ## はじめに<a id="introduction"></a>
 
-このガイドでは、[Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) を使用して、プライベート Kaia ネットワーク上に Greeter 契約をデプロイする手順を説明します。 このガイドに従うことで、その方法を学ぶことができる：このガイドの通り行うことで、デプロイ方法を学ぶことができる：
+このガイドでは、[Kaia Hardhat Utils](https://github.com/klaytn/hardhat-utils) を使用して、プライベートな Kaia ネットワーク上に Greeter コントラクトをデプロイする手順を順を追って説明します。このガイドの通り行うことで、デプロイ方法を学ぶことができる：
 
 - Hardhatプロジェクトを立ち上げる。
 - Kairos Testnetをシミュレートしたプライベートネットワークを立ち上げる。
@@ -357,7 +357,7 @@ const provider = new JsonRpcProvider("http://127.0.0.1:8545/")
 
 const privKey = process.env.PRIVATE_KEY;
 const signer = new ethers.Wallet(privKey, provider);
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // PASTE DEPLOYED CONTRACT ADDRESS;
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // デプロイ済みのコントラクトアドレスを貼り付けてください。
 
 const KaiaGreeterABI = require("../artifacts/contracts/KaiaGreeter.sol/KaiaGreeter.json").abi;
 
@@ -367,14 +367,14 @@ async function getCode(ca) {
 }
 
 async function greet(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
-    const tx = await klaytnGreeter.greet();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
+    const tx = await kaiaGreeter.greet();
     console.log( tx);
 }
 
 async function getTotalGreetings(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
-    const value = await klaytnGreeter.getTotalGreetings();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
+    const value = await kaiaGreeter.getTotalGreetings();
     console.log(value.toString());
 }
 
@@ -391,4 +391,4 @@ getTotalGreetings(contractAddress);
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-このセクションでは、hardhat-deployプラグインを使ってコントラクトをデプロイする。 hardhat-utilsのより詳細なガイドについては、[hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)を参照してください。 また、このガイドのコードの完全な実装は、[GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) にあります。
+hardhat-utils に関するより詳細なガイドについては、[hardhat-utils GitHub](https://github.com/klaytn/hardhat-utils) をご覧ください。また、このガイドのコードの完全な実装は、[GitHub](https://github.com/kaiachain/kaia-examples/tree/main/smart-contracts/hardhat-utils-private-network)でご覧いただけます。

@@ -8,7 +8,7 @@
 
 ### 步骤 1：使用 Kaia 合同向导<a id="using-kaia-contract-wizard"></a>
 
-- 导航至 Kaia 合同向导。
+- 请访问 [Kaia 合约向导](https://toolkit.kaia.io/contracts-wizard)。
 - 选择 KIP7（Kaia 的令牌标准，类似于 ERC20）。
 - 配置您的令牌：
   - 名称：名称： ExampleTestToken（或其他名称）

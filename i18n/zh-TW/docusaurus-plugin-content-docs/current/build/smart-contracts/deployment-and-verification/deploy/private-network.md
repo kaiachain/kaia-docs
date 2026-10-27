@@ -4,7 +4,7 @@
 
 ## 導言<a id="introduction"></a>
 
-在本指南中，我們將指導您使用 [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils) 在專用 Kaia 網絡上部署 Greeter 合同。通過本指南，您將學會如何
+在本指南中，我們將引導您逐步了解如何使用 [Kaia Hardhat Utils](https://github.com/klaytn/hardhat-utils)，在私有 Kaia 網路中部署 Greeter 合約。通過本指南，您將學會如何
 
 - 設立 "硬頭巾 "項目。
 - 啟動一個模擬啟明星測試網的專用網絡。
@@ -357,7 +357,7 @@ const provider = new JsonRpcProvider("http://127.0.0.1:8545/")
 
 const privKey = process.env.PRIVATE_KEY;
 const signer = new ethers.Wallet(privKey, provider);
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // PASTE DEPLOYED CONTRACT ADDRESS;
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // 貼上已部署的合約地址；
 
 const KaiaGreeterABI = require("../artifacts/contracts/KaiaGreeter.sol/KaiaGreeter.json").abi;
 
@@ -367,14 +367,14 @@ async function getCode(ca) {
 }
 
 async function greet(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
-    const tx = await klaytnGreeter.greet();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
+    const tx = await kaiaGreeter.greet();
     console.log( tx);
 }
 
 async function getTotalGreetings(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
-    const value = await klaytnGreeter.getTotalGreetings();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
+    const value = await kaiaGreeter.getTotalGreetings();
     console.log(value.toString());
 }
 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-有關 hardhat-utils 的更深入指南，請參閱 [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils)。此外，您還可以在 [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example) 上找到本指南的完整代碼實現。
+如需有關 hardhat-utils 的更深入指南，請參閱 [hardhat-utils GitHub 頁面](https://github.com/klaytn/hardhat-utils)。此外，您可以在 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/smart-contracts/hardhat-utils-private-network) 上找到本指南中程式碼的完整實作。

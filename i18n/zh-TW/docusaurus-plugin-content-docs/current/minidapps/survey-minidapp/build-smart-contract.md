@@ -2,7 +2,7 @@
 
 在本節中，您將建構一個利用 Semaphore 的智慧型契約，以確保調查管理的隱私性和準確性。
 
-在資源總管窗格中選擇 contracts 資料夾，並更新資料夾，如圖所示，此 [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts) 中的所有合約。
+在「資源管理員」窗格中選取「contracts」資料夾，並將該資料夾更新為此 [儲存庫](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts) 中所有合約的最新狀態。
 
 現在您已建立合約，讓我們來分解主要的依賴合約。
 

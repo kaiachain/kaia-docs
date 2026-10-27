@@ -50,6 +50,12 @@ Trong phần này, bạn sẽ tạo và triển khai hợp đồng token ERC20 c
 
 ![](/img/build/smart-contracts/oz-erc20-setup.png)
 
+:::tip
+
+Bạn cũng có thể tạo hợp đồng này bằng [Trình hướng dẫn tạo hợp đồng Kaia](https://toolkit.kaia.io/contracts-wizard) trong Kaia Toolkit. Nền tảng này được xây dựng dựa trên OpenZeppelin Wizard và cũng hỗ trợ các tiêu chuẩn token Kaia như KIP-7.
+
+:::
+
 ### Bước 2: Triển khai hợp đồng token ERC20 <a id="deploy-erc20-token-contract"></a>
 
 **Trình chỉnh sửa mã nguồn Remix**

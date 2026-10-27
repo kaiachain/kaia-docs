@@ -2,7 +2,7 @@
 
 在本节中，您将构建一个利用 Semaphore 的智能合约，以确保调查管理的隐私性和准确性。
 
-在资源管理器窗格中选择合同文件夹，更新文件夹，如图所示，该文件夹中包含 [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts) 中的所有合同。
+在“资源管理器”窗格中选择“contracts”文件夹，并更新该文件夹，使其显示此 [仓库](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts) 中的所有合同。
 
 现在您已经创建了合同，让我们来分解主要的从属合同。
 

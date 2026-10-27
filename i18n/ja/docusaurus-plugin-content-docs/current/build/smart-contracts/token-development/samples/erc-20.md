@@ -50,6 +50,12 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 ![](/img/build/smart-contracts/oz-erc20-setup.png)
 
+:::tip
+
+また、Kaia Toolkit の [Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard) を使用して、このコントラクトを生成することもできます。 OpenZeppelin Wizardを基盤としており、KIP-7などのKaiaトークン規格にも対応しています。
+
+:::
+
 ### ステップ2：ERC20トークンコントラクトの導入<a id="deploy-erc20-token-contract"></a>
 
 **リミックス IDE**

@@ -237,14 +237,14 @@ printf "%s\n" "datasources:" \
 ```
 
 ```sh
-# Clone the klaytn-deploy repository if not already cloned
-if [ ! -d "klaytn-deploy" ]; then
-  echo "Cloning klaytn-deploy repository..."
-  git clone https://github.com/klaytn/klaytn-deploy.git
+# Clone the kaiaspray repository if not already cloned
+if [ ! -d "kaiaspray" ]; then
+  echo "Cloning kaiaspray repository..."
+  git clone https://github.com/kaiachain/kaiaspray.git
 fi
 
-# Copy Grafana configuration files from klaytn-deploy
-cp klaytn-deploy/grafana/*.json grafana/conf/provisioning/dashboards/
+# Copy Grafana dashboards from kaiaspray
+cp kaiaspray/roles/monitor-init/files/grafana/dashboards/*.json grafana/conf/provisioning/dashboards/
 ```
 
 ## 4\. 存取服務

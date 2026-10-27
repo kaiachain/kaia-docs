@@ -39,7 +39,7 @@ ServiceChainにハードフォークを適用するには、次のことが必�
 2. ServiceChainのバイナリをハードフォークをサポートするバージョンにアップグレードする。
 3. ServiceChainにハードフォークのブロック番号を設定する
 
-### 1) 1) 1) Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
+### 1. 1) 1) Pick an appropriate block number for the hard fork <a href="#1-pick-an-appropriate-block-number-for-the-hard-fork" id="1-pick-an-appropriate-block-number-for-the-hard-fork"></a>
 
 ServiceChainのJavascriptコンソールでは、以下のように現在のブロック番号を確認できる。
 

@@ -3,7 +3,7 @@
 Kaia 的 Viem Extension 提供：
 
 - 支援 Ethereum 和 kaia 交易類型。
-- 可與 MetaMask (`window.ethereum`)和 Kaikas (`window.klaytn`)搭配使用
+- 同時支援 MetaMask（`window.ethereum`）和 Kaia Wallet（`window.klaytn`）
 
 ## 安裝
 

@@ -6,7 +6,7 @@ Pyth 是一個分散式甲骨文網路，在主要由推式甲骨文驅動的生
 
 在本指南中，您將學習如何使用 Pyth 的即時價格源來讀取法定貨幣 IDR 的價值。您的 Solidity 智慧合約將使用 [pyth-sdk-solidity](https://github.com/pyth-network/pyth-crosschain/tree/main/target_chains/ethereum/sdk/solidity) 從 Pyth 擷取 USD/IDR 價格，您將使用 [hermes-client](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/hermes/client/js) 更新並擷取最新價格。
 
-若要快速入門，您可以在 [GitHub](https://github.com/ayo-klaytn/pyth-kaia-hardhat-example) 上找到本教學的完整程式碼。這可提供即時可用的參考，並協助您更快速地設定專案和安裝。
+若想快速上手，您可以在 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/oracles/pyth-price-feeds-hardhat) 上找到本教學的完整程式碼。這可提供即時可用的參考，並協助您更快速地設定專案和安裝。
 
 ## 要求
 

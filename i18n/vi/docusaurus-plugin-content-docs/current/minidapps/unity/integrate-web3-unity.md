@@ -8,7 +8,7 @@ Trong phần này, chúng ta sẽ xây dựng các phần để tích hợp web3
 
 ### Bước 1: Sử dụng Kaia Contract Wizard
 
-1. Điều hướng đến Kaia Contract Wizard.
+1. Truy cập vào [Trình hướng dẫn hợp đồng Kaia](https://toolkit.kaia.io/contracts-wizard).
 2. Chọn KIP7 (tiêu chuẩn mã thông báo của Kaia, tương tự như ERC20).
 3. Cấu hình mã thông báo của bạn:
    - Tên: ExampleTestToken (hoặc tên khác!)

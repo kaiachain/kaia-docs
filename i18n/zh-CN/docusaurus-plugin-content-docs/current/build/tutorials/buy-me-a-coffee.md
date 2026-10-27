@@ -884,6 +884,6 @@ Fleek 是一种基础设施，使我们能够在 IPFS 上构建现代网站和�
 
 如果您已经走到这一步，那么恭喜您！在本教程中，您将学会如何使用 Solidity、NextJs、Web3Onboard 和 Fleek 创建一个全栈的 Buy Me A Coffee dApp。这是在去中心化平台上创建去中心化应用程序的第一步。
 
-在此基础上，您还可以在前台探索一些其他选项，比如除了静态发送 1 KAIA 咖啡外，还可以添加一个新的输入字段，用于输入要发送的咖啡量。您可以访问 [github](https://github.com/ayo-klaytn/buy-me-a-coffee) 上的完整代码库，也可以使用 [link](https://spring-fog-0605.on.fleek.co/) 测试网站。
+在此基础上，您还可以在前台探索一些其他选项，比如除了静态发送 1 KAIA 咖啡外，还可以添加一个新的输入字段，用于输入要发送的咖啡量。您可以在 [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/dapps/buy-me-a-coffee) 上查看完整的代码库，也可以通过此 [链接](https://spring-fog-0605.on.fleek.co/) 测试该网站。
 
 如果您想了解更多信息，请访问 [Kaia 文档](https://docs.kaia.io)、[Web3Onboard 文档](https://onboard.blocknative.com/docs/modules/react) 和 [Fleek 文档](https://docs.fleek.co/tutorials/hosting/)。如果您有任何问题，请访问 [Kaia 论坛](https://devforum.kaia.io/)。

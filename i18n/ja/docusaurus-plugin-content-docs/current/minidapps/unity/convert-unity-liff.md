@@ -289,8 +289,8 @@ LINE mini dAppsの開発に関するより詳細な情報については、以�
 
 ### 付録A<a id="appendix-a"></a>
 
-[KaiaPlugin.jslibソースコード](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-kaiaplugin-jslib)
+[KaiaPlugin.jslib のソースコード](https://github.com/kaiachain/kaia-examples/blob/main/minidapps/unity-liff/Assets/Plugins/KaiaPlugin.jslib)
 
 ### 付録B<a id="appendix-b"></a>
 
-[Web3Manager.cs ソースコード](https://gist.github.com/ayo-klaytn/2aad97e1e263b00f5403177a7ad1fff1#file-web3manager-cs)
+[Web3Manager.cs のソースコード](https://github.com/kaiachain/kaia-examples/blob/main/minidapps/unity-liff/Assets/Scripts/Web3Manager.cs)

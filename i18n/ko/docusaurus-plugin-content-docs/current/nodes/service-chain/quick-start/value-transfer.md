@@ -7,7 +7,7 @@
 ## 전제 조건 <a id="prerequisites"></a>
 
 - 서비스체인을 설치하고, [Kairos에 연결하기](en-scn-connection.md)의 지침에 따라 서비스체인을 Kairos EN에 연결했다고 가정합니다.
-- 리파지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+- [kaia-examples](https://github.com/kaiachain/kaia-examples) 저장소를 클론하고 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) 예제를 사용하세요.
 - `Node.js`(v14) 및 `npm`을 설치합니다([설치 방법](https://nodejs.org/en/download/package-manager/)).
   - 이 예제에서는 두 가지 패키지인 axios와 caver-js를 활용하며, 두 패키지 모두 v14를 지원합니다.
 
@@ -62,7 +62,7 @@ True
 ### 2단계: 컨트랙트 배포 <a id="step-2-deploy-contracts"></a>
 
 - SCN에 연결하고 컨트랙트 배포를 위한 노드 환경을 준비합니다.
-  리포지토리 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)를 복제합니다.
+  [kaia-examples](https://github.com/kaiachain/kaia-examples) 저장소를 클론하고 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) 예제를 사용하세요.
 
 ![](/img/nodes/sc-vt-deploy.png)
 
@@ -70,34 +70,46 @@ True
 토큰 컨트랙트는 발행/전송 테스트를 위한 것이고, 브리지 컨트랙트는 밸류 전송 요청을 수신/처리하는 데 사용됩니다.
 
 ```bash
-$ git clone https://github.com/klaytn/servicechain-value-transfer-examples
-$ cd servicechain-value-transfer-examples
+$ git clone https://github.com/kaiachain/kaia-examples
+$ cd kaia-examples/service-chain/value-transfer
 $ npm install
 $ cd erc20
 ```
 
 텍스트 편집기에서 아래와 같이 `bridge_info.json`을 편집합니다.
 
-- `child` 섹션의 `url`(서비스체인 네트워크의 SCN 노드)을 `kscnd.conf`의 `RPC_PORT`에서 SCN 노드 IP와 적절한 포트 번호로 바꿉니다.
-- `child.key`를 `homi`가 생성한 `testkey1`로 바꿉니다.
-- `child.operator`를 이전 단계에서 살펴본 `subbridge.childOperator` 주소로 설정합니다.
-- `parent` 섹션(Kairos 네트워크의 EN 노드)의 `url`을 EN 노드 IP로 바꾸고 `kend.conf`의 `RPC_PORT`에서 적절한 포트 번호로 바꿉니다.
-- 부모.key\`를 이전 단계에서 [Kaia 툴킷](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 바꿉니다.
-- `parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
+- `sender.child.key`를 `homi`에서 생성된 `testkey1`로 대체하십시오.
+- `sender.parent.key`를 이전 단계에서 [Kaia Toolkit](https://toolkit.kaia.io/account/)을 사용하여 생성한 테스트 계정의 개인 키로 대체하십시오.
+- `url.child`(ServiceChain 네트워크상의 SCN 노드)를 사용자의 SCN 노드 IP와 `kscnd.conf` 파일의 `RPC_PORT`에 명시된 적절한 포트 번호로 대체하십시오.
+- `url.parent`(Kairos 네트워크상의 EN 노드)를 사용자의 EN 노드 IP와 `kend.conf` 파일 내 `RPC_PORT`에 명시된 적절한 포트 번호로 대체하십시오.
+- `bridges[0].child.operator`를 이전 단계에서 확인했던 `subbridge.childOperator`의 주소로 설정합니다.
+- `bridges[0].parent.operator`를 이전 단계의 `subbridge.parentOperator`로 설정합니다.
 
 ```
 {
-     "child" : {
-         "url": "http://192.168.0.1:7551",
-         "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea",
-         "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
-     },
-     "parent" : {
-         "url": "http://192.168.0.5:8551",
-         "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790",
-         "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
-     }
- }
+    "sender": {
+        "child": {
+            "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea"
+        },
+        "parent": {
+            "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790"
+        }
+    },
+    "url": {
+        "child": "http://192.168.0.1:7551",
+        "parent": "http://192.168.0.5:8551"
+    },
+    "bridges": [
+        {
+            "child": {
+                "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
+            },
+            "parent": {
+                "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
+            }
+        }
+    ]
+}
 ```
 
 `node erc20-deploy.js` 명령을 실행하여 토큰 배포를 수행합니다. 이 스크립트는 브리지 컨트랙트와 토큰 컨트랙트를 모두 배포하며, 브리지 페어를 초기화하기 위한 API 사용량을 출력합니다.
@@ -177,7 +189,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 > ------------------------- kip7-transfer-2step-erc20-interface END -------------------------
 ```
 
-다른 사례는 [서비스 체인 밸류 전송 예시](https://github.com/klaytn/servicechain-value-transfer-examples)를 참조하세요.
+그 외의 경우에는 [서비스 체인/가치 이전](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer)을 참조해 주십시오.
 
 ## KIP-7 및 KIP-17에 대한 네이티브 지원 (구현 예정) <a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
@@ -185,4 +197,4 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## ERC-721, KIP-17, KAIA용 밸류 전송 <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
-ERC-721, KIP-17, KAIA의 워크플로는 위와 동일합니다. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721), [`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17), [`klay`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay) 디렉터리에 해당 예제 소스 코드가 포함되어 있습니다.
+ERC-721, KIP-17, KAIA의 워크플로는 위와 동일합니다. [`erc721`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/erc721), [`kip17`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/kip17), [`kaia`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/klay) 디렉터리에는 각각 해당 예제 소스 코드가 포함되어 있습니다.

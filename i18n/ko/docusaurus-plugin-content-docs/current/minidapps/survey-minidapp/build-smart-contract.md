@@ -2,7 +2,7 @@
 
 이 섹션에서는 설문조사 관리에서 개인정보 보호와 정확성을 보장하기 위해 Semaphore를 활용하는 스마트 컨트랙트를 구축합니다.
 
-탐색기 창에서 계약 폴더를 선택하고 이 [저장소](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts)의 모든 계약과 함께 표시된 대로 폴더를 업데이트합니다.
+탐색기 창에서 ‘contracts’ 폴더를 선택한 다음, 이 [저장소](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts)에 있는 모든 계약서가 표시되도록 폴더를 새로 고침하십시오.
 
 이제 계약이 생성되었으므로 주요 종속 계약을 분석해 보겠습니다.
 

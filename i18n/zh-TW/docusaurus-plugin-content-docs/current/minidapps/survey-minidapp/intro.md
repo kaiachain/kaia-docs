@@ -9,7 +9,7 @@ Survey Mini dApp 是專注於隱私權的分散式應用程式 (dApp)，可讓�
 - 設定智慧型契約開發環境。
 - 前端整合與部署。
 
-若要快速上手，您可以在 [Github](https://github.com/kjeom/ExampleMiniDapp) 上找到本教學的全部程式碼。如此一來，您就可以一邊跟著操作，一邊探索應用程式的內部運作。
+若想快速上手，您可以在 [Github](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp) 上找到本教學的完整程式碼。如此一來，您就可以一邊跟著操作，一邊探索應用程式的內部運作。
 
 ## 先決條件<a id="prerequisite"></a>
 
@@ -32,13 +32,13 @@ Survey Mini dApp 是專注於隱私權的分散式應用程式 (dApp)，可讓�
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-接下來，變更目錄至複製的資料夾，並使用 npm 在本機使用下列指令安裝專案：
+接著，切換至專案資料夾，並使用 npm 執行以下指令，將專案安裝至本機：
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 

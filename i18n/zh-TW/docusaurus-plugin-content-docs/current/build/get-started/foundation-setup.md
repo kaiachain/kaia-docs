@@ -29,5 +29,5 @@ Kaia 支援流行的 Ethereum 工具，並提供一些功能擴充。關鍵資�
 - **[SDKs](../../references/sdk/sdk.md)**：使用 [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) (ethers.js 的擴充)、[web3js-ext](../../references/sdk/web3js-ext/getting-started.md) 或其他工具與網路互動。
 - **[Public RPC Endpoints](../../references/public-en.md)**：透過 Public RPC Endpoints 進行存取。
 - **[Solidity](https://github.com/ethereum/solidity)**：用 Solidity 寫合約--Kaia 完全相容。
-- **[Kaia Contracts Wizard](https://wizard.kaia.io/)**：一個互動式產生器，用來啟動您的智慧型契約並學習 Kaia Contracts。
+- **[Kaia 合約精靈](https://toolkit.kaia.io/contracts-wizard)**：一個互動式生成器，可協助您快速建立智慧合約並了解 Kaia 合約。
 - 其他工具：[Remix IDE with Kaia Plugin](https://ide.kaia.io/)、[Hardhat](https://v2.hardhat.org/hardhat-runner/docs/getting-started)、[Foundry](https://getfoundry.sh/) 和 [Thirdweb](https://portal.thirdweb.com/)。

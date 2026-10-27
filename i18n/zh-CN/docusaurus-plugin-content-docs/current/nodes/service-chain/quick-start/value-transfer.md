@@ -5,7 +5,7 @@
 ## 先决条件<a id="prerequisites"></a>
 
 - 我们假定您已安装了 ServiceChain，并按照[连接至 Kairos](en-scn-connection.md)中的说明将 ServiceChain 连接至 Kairos EN。
-- 克隆存储库 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+- 克隆 [kaia-examples](https://github.com/kaiachain/kaia-examples) 仓库，并使用 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) 示例。
 - 安装 `Node.js` (v14) 和 `npm` ([How to install](https://nodejs.org/en/download/package-manager/))
   - 本示例使用了两个软件包：axios 和 caver-js，它们都支持 v14。
 
@@ -58,41 +58,53 @@ True
 
 ### 步骤 2：部署合同<a id="step-2-deploy-contracts"></a>
 
-- 连接 SCN 并为合同部署准备节点环境。克隆存储库 [servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)。
+- 连接 SCN 并为合同部署准备节点环境。克隆 [kaia-examples](https://github.com/kaiachain/kaia-examples) 仓库，并使用 [service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) 示例。
 
 ![](/img/nodes/sc-vt-deploy.png)
 
 在这一步中，我们将在父链和子链中部署桥接合约和令牌合约。代币合约用于铸币/转移测试，桥接合约用于监听/处理价值转移请求。
 
 ```bash
-$ git clone https://github.com/klaytn/servicechain-value-transfer-examples
-$ cd servicechain-value-transfer-examples
+$ git clone https://github.com/kaiachain/kaia-examples
+$ cd kaia-examples/service-chain/value-transfer
 $ npm install
 $ cd erc20
 ```
 
 用文本编辑器编辑 `bridge_info.json` 如下。
 
-- 将 `child` 部分（ServiceChain 网络上的 SCN 节点）中的 `url` 替换为 SCN 节点 IP 和 `kscnd.conf` 中 `RPC_PORT` 的正确端口号。
-- 用`homi`生成的`testkey1`替换`child.key`。
-- 将 `child.operator` 设置为我们在上一步中查看的 `subbridge.childOperator` 地址。
-- 将 "父节点 "部分（Kairos 网络上的 EN 节点）中的 "url "替换为 EN 节点 IP 和 "kend.conf "中 "RPC_PORT "的正确端口号。
-- 将 `parent.key` 替换为上一步中使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建的测试账户的私人密钥。
-- 将 `parent.operator` 设置为上一步的 \`subbridge.parentOperator'。
+- 将 `sender.child.key` 替换为由 `homi` 生成的 `testkey1`。
+- 将 `sender.parent.key` 替换为上一步中使用 [Kaia Toolkit](https://toolkit.kaia.io/account/) 创建的测试账户的私钥。
+- 将 `url.child`（ServiceChain 网络上的 SCN 节点）替换为您的 SCN 节点 IP 地址，并使用 `kscnd.conf` 文件中 `RPC_PORT` 指定的正确端口号。
+- 将 `url.parent`（Kairos 网络上的 EN 节点）替换为您的 EN 节点 IP 地址以及 `kend.conf` 文件中 `RPC_PORT` 指定的正确端口号。
+- 将 `bridges[0].child.operator` 设置为上一步中分析过的 `subbridge.childOperator` 的地址。
+- 将 `bridges[0].parent.operator` 设置为上一步中的 `subbridge.parentOperator`。
 
 ```
 {
-     "child" : {
-         "url": "http://192.168.0.1:7551",
-         "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea",
-         "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
-     },
-     "parent" : {
-         "url": "http://192.168.0.5:8551",
-         "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790",
-         "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
-     }
- }
+    "sender": {
+        "child": {
+            "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea"
+        },
+        "parent": {
+            "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790"
+        }
+    },
+    "url": {
+        "child": "http://192.168.0.1:7551",
+        "parent": "http://192.168.0.5:8551"
+    },
+    "bridges": [
+        {
+            "child": {
+                "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
+            },
+            "parent": {
+                "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
+            }
+        }
+    ]
+}
 ```
 
 运行命令 `node erc20-deploy.js`，执行令牌部署。该脚本同时部署桥接合约和令牌合约，并输出 API 使用情况以初始化桥接对。
@@ -168,7 +180,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 > ------------------------- kip7-transfer-2step-erc20-interface END -------------------------
 ```
 
-其他情况请参阅 [service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples) 。
+其他情况请参阅 [服务链/价值转移](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer)。
 
 ## 对 KIP-7 和 KIP-17 的本地支持（待实施）<a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
@@ -176,4 +188,4 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## ERC-721、KIP-17 和 KAIA 的价值转移<a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
-ERC-721、KIP-17 和 KAIA 的工作流程与上述相同。 [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721)、[`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17) 和 [`kaia`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay)目录包含相应的示例源代码。
+ERC-721、KIP-17 和 KAIA 的工作流程与上述相同。 [`erc721`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/erc721)、[`kip17`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/kip17) 和 [`kaia`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/klay) 目录中包含相应的示例源代码。

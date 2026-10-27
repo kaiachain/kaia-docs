@@ -6,7 +6,7 @@
   ，涉及 AccountKey 和 TxTypes。
 - 可直接替代 `ethers.providers.JsonRpcProvider` ，提供对以太坊 RPC 和
   Kaia 特定 RPC 的访问。
-- 可直接替换 `ethers.Web3Provider` 以与 MetaMask（`window.ethereum`）和 Kaikas（`window.klaytn`）一起使用
+- 可直接替换 `ethers.Web3Provider`，同时支持 MetaMask（`window.ethereum`）和 Kaia Wallet（`window.klaytn`）
 
 ## ethers v6 注意事项
 

@@ -8,7 +8,7 @@
 
 ### 1단계: Kaia 계약 마법사 사용하기
 
-1. Kaia 계약 마법사로 이동합니다.
+1. [Kaia 계약 마법사](https://toolkit.kaia.io/contracts-wizard)로 이동하세요.
 2. KIP7(ERC20과 유사한 Kaia의 토큰 표준)을 선택합니다.
 3. 토큰을 구성합니다:
    - Name: 예제 토큰 (또는 다른 이름!)

@@ -4,7 +4,7 @@
 
 ## Introduction <a id="introduction"></a>
 
-In this guide, we will walk you through the process of deploying a Greeter contract on a private Kaia network using [Kaia Hardhat Utils](https://github.com/ayo-klaytn/hardhat-utils). By following this guide, you'll learn how to:
+Trong hướng dẫn này, chúng tôi sẽ hướng dẫn bạn từng bước quy trình triển khai hợp đồng Greeter trên mạng Kaia riêng tư bằng cách sử dụng [Kaia Hardhat Utils](https://github.com/klaytn/hardhat-utils). By following this guide, you'll learn how to:
 
 - Set up a Hardhat project.
 - Launch a private network simulating the Kairos Testnet.
@@ -357,7 +357,7 @@ const provider = new JsonRpcProvider("http://127.0.0.1:8545/")
 
 const privKey = process.env.PRIVATE_KEY;
 const signer = new ethers.Wallet(privKey, provider);
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // PASTE DEPLOYED CONTRACT ADDRESS;
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3" // DÁN ĐỊA CHỈ HỢP ĐỒNG ĐÃ TRIỂN KHAI;
 
 const KaiaGreeterABI = require("../artifacts/contracts/KaiaGreeter.sol/KaiaGreeter.json").abi;
 
@@ -367,14 +367,14 @@ async function getCode(ca) {
 }
 
 async function greet(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
-    const tx = await klaytnGreeter.greet();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, signer);
+    const tx = await kaiaGreeter.greet();
     console.log( tx);
 }
 
 async function getTotalGreetings(ca) {
-    const klaytnGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
-    const value = await klaytnGreeter.getTotalGreetings();
+    const kaiaGreeter = new ethers.Contract(ca, KaiaGreeterABI, provider);
+    const value = await kaiaGreeter.getTotalGreetings();
     console.log(value.toString());
 }
 
@@ -391,4 +391,4 @@ node utils/kaia-sdk.js
 
 ![](/img/build/smart-contracts/pn-run-kaia-sdk.png)
 
-For a more in-depth guide on hardhat-utils, please refer to [hardhat-utils github](https://github.com/ayo-klaytn/hardhat-utils). Also, you can find the full implementation of the code for this guide on [GitHub](https://github.com/ayo-klaytn/kaia-hardhat-utils-example)
+Để có hướng dẫn chi tiết hơn về hardhat-utils, vui lòng tham khảo [trang GitHub của hardhat-utils](https://github.com/klaytn/hardhat-utils). Ngoài ra, bạn có thể tìm thấy mã nguồn đầy đủ của hướng dẫn này trên [GitHub](https://github.com/kaiachain/kaia-examples/tree/main/smart-contracts/hardhat-utils-private-network)

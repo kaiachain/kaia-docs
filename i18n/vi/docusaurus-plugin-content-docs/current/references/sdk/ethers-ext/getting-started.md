@@ -6,7 +6,7 @@
   involving AccountKey and TxTypes.
 - Drop-in replacement to `ethers.providers.JsonRpcProvider` that provides accesses to both Ethereum RPCs and
   Kaia-specific RPCs.
-- Thay thế trực tiếp cho `ethers.Web3Provider` để hoạt động với cả MetaMask (`window.ethereum`) và Kaikas (`window.klaytn`)
+- Giải pháp thay thế trực tiếp cho `ethers.Web3Provider` để tương thích với cả MetaMask (`window.ethereum`) và Kaia Wallet (`window.klaytn`)
 
 ## Note for ethers v6
 
