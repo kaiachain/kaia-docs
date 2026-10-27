@@ -17,6 +17,7 @@
   - 錢包整合（KaiaWallet、MetaMask、RainbowKit、OKX）
   - 帳戶管理（基本/助記符/關鍵字庫）
   - 令牌操作 (KIP-7、KIP-17、KIP-37)
+  - [合約精靈](https://toolkit.kaia.io/contracts-wizard)，用於生成 KIP-7、KIP-17、KIP-37、ERC-20、ERC-721 及 ERC-1155 合約
   - 區塊鏈公用程式（RLP 編碼器、單位轉換器、簽名驗證）
 
 ## 開發人員資源
@@ -25,6 +26,7 @@
 
 - [GitHub 儲存庫](https://github.com/kaiachain/kaia-online-toolkit)
 - [工具包頁面](https://toolkit.kaia.io)
+- [合約精靈](https://toolkit.kaia.io/contracts-wizard) ([指南](../smart-contracts/tools/kaia-contracts-wizard.md))
 - [Ethers-ext Documentation](../../references/sdk/ethers-ext/getting-started.md)
 - [Web3js-ext 文件](../../references/sdk/web3js-ext/getting-started.md)
 - [Viem Documentation](../../references/sdk/viem/viem.md)
