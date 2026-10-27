@@ -7,7 +7,7 @@ You will add KLAY to the operator account and deploy bridge and ERC-20 contracts
 ## 前提条件<a id="prerequisites"></a>
 
 - We assume that you installed the ServiceChain, and connected the ServiceChain to the Baobab EN by the instructions in [Connecting to Baobab](en-scn-connection.md).
-- リポジトリ[servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)をクローンします。
+- [kaia-examples](https://github.com/kaiachain/kaia-examples) リポジトリをクローンし、[service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) のサンプルを使用してください。
 - `Node.js` (v14) と `npm` をインストールする ([インストール方法](https://nodejs.org/en/download/package-manager/))
   - この例では、axiosとcaver-jsという2つのパッケージを利用しているが、どちらもv14をサポートしている。
 
@@ -61,41 +61,54 @@ True
 
 ### ステップ2：契約の展開<a id="step-2-deploy-contracts"></a>
 
-- SCN に接続し、契約展開のためのノード環境を準備します。リポジトリ[servicechain-value-transfer-examples](https://github.com/klaytn/servicechain-value-transfer-examples)をクローンします。
+- SCN に接続し、契約展開のためのノード環境を準備します。
+  [kaia-examples](https://github.com/kaiachain/kaia-examples) リポジトリをクローンし、[service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer) のサンプルを使用してください。
 
 ![](/img/nodes/sc-vt-deploy.png)
 
 このステップでは、ブリッジ・コントラクトとトークン・コントラクトの両方を、親チェーンと子チェーンにデプロイする。トークンコントラクトは、鋳造/移転テスト用であり、ブリッジコントラクトは、価値移転リクエストをリッスン/処理するために使用される。
 
 ```bash
-$ git clone https://github.com/klaytn/servicechain-value-transfer-examples
-$ cd servicechain-value-transfer-examples
+$ git clone https://github.com/kaiachain/kaia-examples
+$ cd kaia-examples/service-chain/value-transfer
 $ npm install
 $ cd erc20
 ```
 
 テキストエディタで `bridge_info.json` を以下のように編集する。
 
-- `child` セクションの `url` (ServiceChain ネットワーク上の SCN ノード) を SCN ノードの IP アドレスに、`kscnd.conf` の `RPC_PORT` を適切なポート番号に置き換えてください。
-- `child.key`を`homi`が生成した`testkey1`に置き換える。
-- `child.operator`に、前のステップで調べた`subbridge.childOperator`アドレスを設定する。
-- `parent` セクションの `url` (Kairos ネットワーク上の EN ノード) を EN ノードの IP に、`kend.conf` の `RPC_PORT` を適切なポート番号に置き換えてください。
-- parent.key\`を、前のステップで[Kaia Toolkit](https://toolkit.kaia.io/account/)を使って作成したテストアカウントの秘密鍵に置き換える。
-- `parent.operator`を前のステップの`subbridge.parentOperator`に設定する。
+- `sender.child.key` を、`homi` で生成された `testkey1` に置き換えてください。
+- `sender.parent.key` を、前の手順で [Kaia Toolkit](https://toolkit.kaia.io/account/) を使用して作成したテストアカウントの秘密鍵に置き換えてください。
+- `url.child`（ServiceChain ネットワーク上の SCN ノード）を、ご使用の SCN ノードの IP アドレスと、`kscnd.conf` 内の `RPC_PORT` に指定されている適切なポート番号に置き換えてください。
+- `url.parent`（Kairosネットワーク上のENノード）を、ご自身のENノードのIPアドレスと、`kend.conf`内の`RPC_PORT`に記載されている適切なポート番号に置き換えてください。
+- `bridges[0].child.operator` を、前の手順で確認した `subbridge.childOperator` のアドレスに設定します。
+- `bridges[0].parent.operator` を、前のステップで設定した `subbridge.parentOperator` に設定します。
 
 ```
 {
-     "child" : {
-         "url": "http://192.168.0.1:7551",
-         "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea",
-         "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
-     },
-     "parent" : {
-         "url": "http://192.168.0.5:8551",
-         "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790",
-         "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
-     }
- }
+    "sender": {
+        "child": {
+            "key": "0x66cb283353589a10866b58d388e9d956e5a9c873a8c78fa4411d460c19c494ea"
+        },
+        "parent": {
+            "key": "0x26f4b5ac42ceabcfd3b23a991fdbfc792d10ce700a99582fdf9185a8f163b790"
+        }
+    },
+    "url": {
+        "child": "http://192.168.0.1:7551",
+        "parent": "http://192.168.0.5:8551"
+    },
+    "bridges": [
+        {
+            "child": {
+                "operator": "0x10221f7f9355017cd0c11444e7eecb99621bacce"
+            },
+            "parent": {
+                "operator": "0x3ce216beeafc62d20547376396e89528e1d778ca"
+            }
+        }
+    ]
+}
 ```
 
 コマンド `node erc20-deploy.js` を実行して、トークンのデプロイを実行する。このスクリプトは、ブリッジ・コントラクトとトークン・コントラクトの両方をデプロイし、ブリッジ・ペアを初期化するためのAPIの使用法を出力する。
@@ -173,7 +186,7 @@ $ node kip7-transfer-2step-erc20-interface.js
 > ------------------------- kip7-transfer-2step-erc20-interface END -------------------------
 ```
 
-その他のケースについては、[service-chain-value-transfer-example](https://github.com/klaytn/servicechain-value-transfer-examples)をご参照ください。
+その他のケースについては、[service-chain/value-transfer](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer)をご参照ください。
 
 ## KIP-7およびKIP-17のネイティブ・サポート（実装予定）<a id="native-support-for-kip-7-and-kip-17-to-be-implemented"></a>
 
@@ -181,4 +194,4 @@ $ node kip7-transfer-2step-erc20-interface.js
 
 ## Value Transfer for ERC-721, KIP-17, and KLAY <a id="value-transfer-for-erc721-kip17-and-klay"></a>
 
-The workflow for ERC-721, KIP-17, and KLAY is the same as above. [`erc721`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/erc721)、[`kip17`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/kip17)、[`kaia`](https://github.com/klaytn/servicechain-value-transfer-examples/tree/main/klay)の各ディレクトリには、対応するサンプルソースコードが含まれています。
+The workflow for ERC-721, KIP-17, and KLAY is the same as above. [`erc721`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/erc721)、[`kip17`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/kip17)、および [`kaia`](https://github.com/kaiachain/kaia-examples/tree/main/service-chain/value-transfer/klay) ディレクトリには、それぞれのサンプルソースコードが含まれています。
