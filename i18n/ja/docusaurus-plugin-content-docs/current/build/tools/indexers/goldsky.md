@@ -79,7 +79,7 @@ Goldskyは、サブグラフを展開するための3つの方法をサポート
 
   > 注：USDTは代理契約である。必ず実装契約のABIを取得してください。
 
-- 契約ABIをコピー＆ペーストし、作業ディレクトリに[abi.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-abi-json)として保存する。
+- Contract ABI をコピーして貼り付け、作業ディレクトリに [abi.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/abi.json) という名前で保存してください。
 
 - 契約の配備ブロック番号を記録する。
 
@@ -111,7 +111,7 @@ Goldskyは、サブグラフを展開するための3つの方法をサポート
 
 - コントラクトのインスタンスを書き出し、先ほど指定したABI、デプロイ先のアドレス、チェーン、スタートブロックを参照する。
 
-**例[usdt-demo-config.json](https://gist.github.com/ayo-klaytn/cd53e0c560eb374bdbe981d12b8986f1#file-usdt-demo-config-json)**。
+**例：[usdt-demo-config.json](https://github.com/kaiachain/kaia-examples/blob/main/indexers/goldsky-usdt-subgraph/usdt-demo-config.json)**
 
 ```json
 {
