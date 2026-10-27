@@ -2,7 +2,7 @@
 
 Trong phần này, bạn sẽ xây dựng hợp đồng thông minh tận dụng Semaphore để đảm bảo quyền riêng tư và tính chính xác trong quản lý khảo sát.
 
-Chọn thư mục hợp đồng trong ngăn Explorer và cập nhật thư mục như được thấy với tất cả các hợp đồng trong [repo](https://github.com/kjeom/ExampleMiniDapp/tree/main/contract/contracts).
+Chọn thư mục “contracts” trong khung Explorer và cập nhật thư mục này sao cho hiển thị đầy đủ tất cả các hợp đồng có trong [kho lưu trữ](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp/contract/contracts).
 
 Bây giờ bạn đã tạo xong hợp đồng, chúng ta hãy phân tích các hợp đồng phụ thuộc chính.
 
