@@ -109,11 +109,6 @@ Information about supported wallets on Kaia and how to configure them.
 ### Tools
 
 - [Kaia Toolkit](https://docs.kaia.io/build/tools/kaia-online-toolkit/): Provides developer-friendly code samples and interactive web tools to simplify integration with the Kaia blockchain. It serves as both a learning resource and practical utility suite for building decentralized applications.
-- [Kaia Agent Kit](https://docs.kaia.io/build/tools/kaia-agentkit): Guide for integrating Kaia Agent Kit with various AI frameworks to build autonomous AI agents that can interact with the Kaia blockchain.
-  - [Vercel AI SDK Integration Guide](https://docs.kaia.io/build/tools/kaia-agentkit/vercel-ai-guide): Step-by-step guide for integrating Kaia Agent Kit with Vercel AI SDK to build AI agents that can interact with the Kaia blockchain.
-  - [Elize](https://docs.kaia.io/build/tools/kaia-agentkit/eliza): Step-by-step guide for integrating Kaia Agent Kit with Eliza framework to build AI agents that can interact with the Kaia blockchain.
-  - [LangChain](https://docs.kaia.io/build/tools/kaia-agentkit/langchain): Step-by-step guide for integrating Kaia Agent Kit with LangChain framework to build AI agents that can interact with the Kaia blockchain.
-  - [Model Context Protocol (MCP)](https://docs.kaia.io/build/tools/kaia-agentkit/mcp): Step-by-step guide for integrating Kaia Agent Kit with Model Context Protocol (MCP) server to build AI agents that can interact with the Kaia blockchain.
 - [Oracles](https://docs.kaia.io/build/tools/oracles): Provides information and guide about decentralized oracle providers on Kaia
   - [Orakl Network](https://docs.kaia.io/build/tools/oracles/orakl-network): Guide for using Orakl Network, a decentralized oracle solution on Kaia.
   - [Pyth Network](https://docs.kaia.io/build/tools/oracles/pyth-network): Guide for using Pyth Network, a decentralized oracle solution on Kaia.

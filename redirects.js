@@ -61,6 +61,18 @@ const redirects = [
   // The Graph sunset (Aug 31, 2026) — the Kaia subgraph tutorial was removed
   // after the sunset; send its URL to the migration guide.
   { from: '/build/tools/indexers/thegraph', to: '/build/tools/indexers/migrate-from-the-graph' },
+  // Kaia Agent Kit removed (unmaintained since mid-2025) — send its pages to
+  // the Tools overview.
+  {
+    from: [
+      '/build/tools/kaia-agentkit',
+      '/build/tools/kaia-agentkit/vercel-ai-guide',
+      '/build/tools/kaia-agentkit/eliza',
+      '/build/tools/kaia-agentkit/langchain',
+      '/build/tools/kaia-agentkit/mcp',
+    ],
+    to: '/build/tools',
+  },
   // Safe Wallet rename (kaia-safe → safe-wallet) — renamed page slugs
   // Note: '/build/wallets/kaia-safe' and '/build/tools/wallets/kaia-safe' are
   // intentionally NOT listed here — folderRedirects below already generates
