@@ -6,7 +6,7 @@
   、AccountKeyとTxTypesを含む。
 - `Ethers.providers.JsonRpcProvider` をドロップインで置き換え、Ethereum RPC と
   Kaia 固有の RPC の両方にアクセスできるようにする。
-- MetaMask (`window.ethereum`) と Kaikas (`window.klaytn`) の両方で動作するように `ethers.Web3Provider` をドロップインで置き換える。
+- MetaMask（`window.ethereum`）とKaia Wallet（`window.klaytn`）の両方に対応するための、`ethers.Web3Provider`のそのまま置き換え可能な代替プロバイダー
 
 ## エーテルV6に関する注意事項
 
