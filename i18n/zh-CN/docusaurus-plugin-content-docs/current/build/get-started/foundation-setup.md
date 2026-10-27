@@ -29,5 +29,5 @@ Kaia 支持流行的以太坊工具，并对其功能进行了一些扩展。关
 - **[SDKs](../../references/sdk/sdk.md)**：使用 [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) （etherthers.js 的扩展）、[web3js-ext](../../references/sdk/web3js-ext/getting-started.md) 或其他工具与网络交互。
 - **[公共 RPC 端点](../../references/public-en.md)**：通过公共 RPC 端点访问。
 - **[Solidity](https://github.com/ethereum/solidity)**：用 Solidity 编写合同--Kaia 完全兼容。
-- **[Kaia Contracts Wizard](https://wizard.kaia.io/)**：一个交互式生成器，用于引导您的智能合约并了解 Kaia Contracts。
+- **[Kaia 合约向导](https://toolkit.kaia.io/contracts-wizard)**：一个交互式生成器，可帮助您快速搭建智能合约并了解 Kaia 合约。
 - 其他工具：[Remix IDE with Kaia Plugin](https://ide.kaia.io/)、[Hardhat](https://v2.hardhat.org/hardhat-runner/docs/getting-started)、[Foundry](https://getfoundry.sh/)和[Thirdweb](https://portal.thirdweb.com/)。
