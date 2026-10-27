@@ -346,17 +346,6 @@ const sidebars = {
         'build/tools/kaia-online-toolkit',
         {
           type: 'category',
-          label: 'Kaia Agent Kit',
-          link: { type: 'doc', id: 'build/tools/kaia-agentkit/kaia-agentkit' },
-          items: [
-            'build/tools/kaia-agentkit/vercel-ai-guide',
-            'build/tools/kaia-agentkit/eliza',
-            'build/tools/kaia-agentkit/langchain',
-            'build/tools/kaia-agentkit/mcp',
-          ],
-        },
-        {
-          type: 'category',
           label: 'Oracles',
           link: { type: 'doc', id: 'build/tools/oracles/oracles' },
           items: [
