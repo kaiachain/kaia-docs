@@ -9,7 +9,7 @@ Survey Mini dApp 是一款注重隐私的去中心化应用程序（dApp），�
 - 建立智能合约开发环境
 - 前端集成和部署。
 
-要快速入门，您可以在 [Github](https://github.com/kjeom/ExampleMiniDapp) 上找到本教程的全部代码。通过这种方式，您可以一边跟读，一边探索应用程序的内部工作原理。
+为了快速入门，您可以在 [Github](https://github.com/kaiachain/kaia-examples/tree/main/minidapps/survey-minidapp) 上找到本教程的完整代码。通过这种方式，您可以一边跟读，一边探索应用程序的内部工作原理。
 
 ## 先决条件<a id="prerequisite"></a>
 
@@ -32,13 +32,13 @@ Survey Mini dApp 是一款注重隐私的去中心化应用程序（dApp），�
 
 ```bash
 # clone project
-git clone https://github.com/kjeom/ExampleMiniDapp
+git clone https://github.com/kaiachain/kaia-examples
 ```
 
-接下来，将目录更改为克隆文件夹，并使用 npm 在本地安装项目，命令如下：
+接下来，切换到项目文件夹，并使用 npm 通过以下命令在本地安装该项目：
 
 ```bash
-cd ExampleMiniDapp
+cd kaia-examples/minidapps/survey-minidapp
 npm install
 ```
 
