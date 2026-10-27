@@ -50,6 +50,12 @@ event Approval(address indexed _owner, address indexed _spender, uint256 _value)
 
 ![](/img/build/smart-contracts/oz-erc20-setup.png)
 
+:::tip
+
+您也可以透過 Kaia Toolkit 中的 [Kaia Contracts Wizard](https://toolkit.kaia.io/contracts-wizard) 來生成此合約。它基於 OpenZeppelin Wizard 建構，同時也支援 Kaia 代幣標準，例如 KIP-7。
+
+:::
+
 ### 步驟 2：部署 ERC20 代幣合約<a id="deploy-erc20-token-contract"></a>
 
 **Remix IDE**
