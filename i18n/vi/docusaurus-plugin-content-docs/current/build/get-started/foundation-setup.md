@@ -29,5 +29,5 @@ Kaia hỗ trợ các công cụ phổ biến trên Ethereum cùng với một s�
 - **[SDKs](../../references/sdk/sdk.md)**: Sử dụng [ethers-ext](../../references/sdk/ethers-ext/getting-started.md) (phiên bản mở rộng của ethers.js), [web3js-ext](../../references/sdk/web3js-ext/getting-started.md), hoặc các công cụ khác để tương tác với mạng.
 - **[Điểm cuối RPC công khai](../../references/public-en.md)**: Truy cập qua các điểm cuối RPC công khai.
 - **[Solidity](https://github.com/ethereum/solidity)**: Viết hợp đồng thông minh bằng Solidity -- Kaia hoàn toàn tương thích.
-- **[Kaia Contracts Wizard](https://wizard.kaia.io/)**: Trình tạo hợp đồng thông minh tương tác giúp bạn bắt đầu phát triển hợp đồng thông minh và tìm hiểu về Kaia Contracts.
+- **[Trình hướng dẫn tạo hợp đồng Kaia](https://toolkit.kaia.io/contracts-wizard)**: Một công cụ tạo tương tác giúp bạn khởi tạo hợp đồng thông minh và tìm hiểu về Kaia Contracts.
 - Các công cụ khác: [Remix IDE với plugin Kaia](https://ide.kaia.io/), [Hardhat](https://v2.hardhat.org/hardhat-runner/docs/getting-started), [Foundry](https://getfoundry.sh/), và [Thirdweb](https://portal.thirdweb.com/).
