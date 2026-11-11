@@ -298,7 +298,7 @@ Once you have all that, create a .env file and add the variables. Foundry automa
 
 The .env file should follow this format:
 
-```code
+```text
 KAIROS_RPC_URL=
 // if you want to deploy to mainnet
 MAINNET_RPC_URL=
@@ -306,7 +306,7 @@ PRIVATE_KEY=
 ```
 We now need to edit the `foundry.toml` file. There should already be one in the root of the project. Paste the following lines to the end of the file
 
-```code
+```toml
 [rpc_endpoints]
 kairos = "${KAIROS_RPC_URL}"
 // if you want to deploy to mainnet

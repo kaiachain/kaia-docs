@@ -9,6 +9,10 @@ import 'dotenv/config';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Kaia Docs',
+  future: {
+    v4: { removeLegacyPostBuildHeadAttribute: true }, // required by Faster's SSG worker threads
+    faster: true, // Rspack bundler, SWC, Lightning CSS, SSG worker threads
+  },
   tagline: 'Welcome to the Kaia Docs',
   favicon: 'img/favicon.ico',
   onBrokenLinks: 'ignore',

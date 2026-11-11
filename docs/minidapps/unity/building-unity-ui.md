@@ -46,7 +46,7 @@ Why we need this: TextMeshPro requires core resources (shaders, default fonts, a
 - Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to AddressText. Make sure to fill the text object e.g "Address Text..."
 - Right click on StatusPanel, click on UI → Text - TextMeshPro and then rename to TokenBalanceText. Make sure to fill the text object e.g "0.0000 ET"
 
-```code
+```text
 ├── StatusText (TextMeshPro)
 │   └── Default: "Status..."
 ├── AddressText (TextMeshPro)
@@ -63,7 +63,7 @@ Your main interaction buttons:
 
 - Right click on ButtonPanel, click on UI → Button - TextMeshPro and then rename it to DisconnectWalletButton. Make sure to fill the "Text Input" field in the Inspector pane with “Disconnect Wallet".
 
-```code
+```text
 ButtonPanel
 ├── ConnectWalletButton (Button - TextMeshPro)
 │   └── Text: "Connect Wallet"
@@ -78,7 +78,7 @@ The token minting interface:
 - Right click on MintPanel, click on UI → Input Field → TextMeshPro and then rename to MintAmountInput. Make sure to fill the placeholder object with "Enter Amount…"
 - Right click on MintPanel, click on UI → Button → TextMeshPro and then rename to MintButton. Make sure to fill the text object with "Mint"
 
-```code
+```text
 MintPanel
 ├── MintAmountInput (Input Field - TextMeshPro)
 │   └── Placeholder: "Enter Amount..."
@@ -88,7 +88,7 @@ MintPanel
 
 After creating all components, your hierarchy should look like this:
 
-```code
+```text
 Canvas
 └── Web3UI
     ├── StatusPanel
