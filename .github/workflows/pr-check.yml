@@ -1,0 +1,32 @@
+name: PR checks
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-en:
+    name: Build (English)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Generate JSON-RPC reference
+        env:
+          RPC_SPEC_DIR: ../../web3rpc/yaml
+        run: |
+          git clone --depth 1 -b dev https://github.com/kaiachain/kaia-sdk.git
+          (cd kaia-sdk/documentation && npm install && bash generate-docs.sh split)
+          (cd web3rpc && bash web3rpc.sh)
+      - name: Build English site (no secrets; Algolia is optional)
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: npx docusaurus build --locale en

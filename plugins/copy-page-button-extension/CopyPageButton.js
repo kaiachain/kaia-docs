@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import styles from "./styles.module.css";
+// Import the original package stylesheet explicitly (Rspack resolves relative imports from this file).
+import styles from "docusaurus-plugin-copy-page-button/src/styles.module.css";
 
 // Static selectors for content cleanup
 const SELECTORS_TO_REMOVE = [
