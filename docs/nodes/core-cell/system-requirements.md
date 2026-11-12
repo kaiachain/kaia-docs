@@ -21,7 +21,7 @@ Any physical machine with similar hardware configurations would be sufficient to
 #### Recommended Specifications by Node Type
 | Node Type | Core/Thread | Memory |
 | :--- | :--- | :--- |
-| CN | 24 core / 48 threads | ≥ 64 GB |
+| CN | 12 core / 24 threads | ≥ 64 GB |
 
 ### Cloud VM <a id="cloud-vm"></a>
 
