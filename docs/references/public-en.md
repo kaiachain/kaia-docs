@@ -210,35 +210,6 @@ BlockPI provides free public endpoints to the Kaia community and advanced featur
 * [Subscription](https://dashboard.blockpi.io/wallet/overview)
 * [Website](https://blockpi.io/)
 
-### Grove 🌿 - Built on Pocket Network
-
-Grove is the team of builders and maintainers of Pocket Network. Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
-
-Grove supports 50+ blockchains, with more being added all the time.
-
-#### Features
-
-* Decentralized RPC Protocol and Marketplace
-* 150,000 Requests Per Day Free Tier (up to two applications, with unlimited endpoints)
-* Public Endpoints
-* Unlimited, Pay-As-You-Go-plan (if you need more than 150,000 requests per day)
-* 50+ Blockchains Supported
-* 25,000 + Nodes earning POKT for serving applications
-* Archival Node, Archival Node w/ Tracing Support
-* No Single Point of Failure
-* Zero Downtime
-* Load-Balancing built into the Protocol
-* Infinitely scale the number of requests per day and nodes per hour as you go
-* The most private, censorship-resistant option
-* Hands-on developer support
-
-#### References
-
-* [Docs](https://docs.grove.city/kaia-api/intro)
-* [Grove Website](https://grove.city/)
-* [Pocket Network Website](https://pocket.network)
-* [Grove Portal](https://portal.grove.city) 
-
 ### NodeReal
 
 NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
