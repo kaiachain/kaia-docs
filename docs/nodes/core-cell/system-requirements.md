@@ -6,37 +6,31 @@ The network performance is measured based on the worst hardware specification wi
 
 If you're curious about the rationale of this hardware spec, the medium article [Determining optimal hardware specs for Kaia node operators](https://klaytn.foundation/node-operator-optimal-specs/) would help you understand.
 
-The following sections show the recommended specifications for both CNs and PNs.
+The following sections show the recommended specifications for CNs.
 
 ### Bare-metal Server <a id="bare-metal-server"></a>
 
 #### General Requirements (All Node Types)
 | Category | Specifications | 
 | :--- | :--- |
-| CPU | 2.6 GHz base – 3.4 GHz max frequency or higher (e.g., 3rd Gen Intel® Xeon® Scalable Processors) |
-| Storage | ≥ 4 TB SSD (adjust according to chain data size; please consult the Kaia Team for guidance) |
+| CPU | Intel® 5th Gen Xeon® Scalable Processors ("Emerald Rapids") or newer (e.g., Xeon® Platinum 85xx/86xx series); AMD EPYC™ 9004 Series ("Genoa") or newer, offering comparable performance |
+| Storage | ≥ 3 TB SSD (adjust according to chain data size; please consult the Kaia Team for guidance) |
 
-Any physical machine with similar hardware configurations would be sufficient to operate a CN or a PN.
+Any physical machine with similar hardware configurations would be sufficient to operate a CN.
 
 #### Recommended Specifications by Node Type
 | Node Type | Core/Thread | Memory |
 | :--- | :--- | :--- |
-| CN | 16 core / 32 threads | 128GB |
-| PN | 8 core / 16 threads | 64 GB |
-| PN (with Live Pruning DB) | 4 core / 8 threads | 32 GB | 
-
-You can use and apply a live-pruning option to use live-pruning DB. For more details, please refer https://docs.kaia.io/learn/storage/live-pruning/. However, note that live-pruning spec is not recommended for CNs but this may change in the future.
+| CN | 12 core / 24 threads | ≥ 64 GB |
 
 ### Cloud VM <a id="cloud-vm"></a>
 
 #### Recommended Specification for AWS<a id="recommended-specification-for-aws"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Seoul region, USD/h\) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| CN | m6i.8xlarge  | 32 | 128 | 4,000 (Minimum) | 9,000 | 1.888 |
-| PN | m6i.4xlarge  | 16 | 64 | 4,000 (Minimum) | 9,000 | 0.944 |
-| PN (with Live Pruning DB) | m6i.2xlarge  | 8 | 32 | 3,500 (Minimum) | 9,000 | 0.472 |
-
+| Node Type | Architecture | Model | vCPU | Memory \(GiB\) | Storage size \(GiB\) | Storage speed \(IOPS\) | Price \(Singapore region, USD/h\) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| CN | x86 (Intel) | m8i.8xlarge  | 32 | 128 | 3,000 (Minimum) | 9,000 | 2.117 |
+| CN | Arm (Graviton4) | m8g.8xlarge  | 32 | 128 | 3,000 (Minimum) | 9,000 | 1.795 |
 
 This storage specification is derived from AWS EBS SSD (gp3) specification. 
 
@@ -44,25 +38,25 @@ The information above is from [https://aws.amazon.com/ec2/instance-types/](https
 
 #### Recommended Specification for Azure<a id="recommended-specification-for-azure"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Korea Central, USD/h\) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| CN | D32s v5 | 32 | 128 | P50 (4096) | 7500 | 1.888 |
-| PN | D16s v5 | 16 | 64 | P50 (4096) | 7500 | 0.944 |
-| PN (with Live Pruning DB) | D8s v5 | 8 | 32 | P50 (4096) | 7500 | 0.472 |
+| Node Type | Architecture | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Southeast Asia region, USD/h\) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| CN | x86 (Intel) | D32s v6 | 32 | 128 | 3,000 (Minimum) | 7500 | 2.016 |
+| CN | Arm (Cobalt 100) | D32ps v6 | 32 | 128 | 3,000 (Minimum) | 7500 | 1.398 |
 
-This storage specification is derived from Azure Premium Disk specification. 
+This storage specification is derived from Azure Premium SSD v2 specification. 
 
 The information above is from [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing) and may be changed by Microsoft.
 
 #### Recommended Specification for GCP<a id="recommended-specification-for-gcp"></a>
 
-| Node Type | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(asia-northeast3, USD/h\) |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| CN | c4-standard-32 | 32 | 120 | 4,000 (Minimum) | 7500 | 2.03078256 |
-| PN | n2-standard-16 | 16 | 64 | 4,000 (Minimum) | 7500 | 1.016243 |
-| PN (with Live Pruning DB) | n2-standard-8 | 8 | 32 | 3,500 (Minimum) | 7500 | 0.508121 |
+| Node Type | Architecture | Model | vCPU | Memory \(GiB\) | Storage type \(GiB\) | Storage speed \(IOPS\) | Price \(Singapore region, USD/h\) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| CN | x86 (Intel) | c4-standard-24 | 24 | 90 | 3,000 (Minimum) | 7500 | 1.463 |
+| CN | Arm (Axion) | c4a-standard-32 | 32 | 128 | 3,000 (Minimum) | 7500 | 1.773 |
 
-The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia) and may be changed by Google.
+This storage specification is derived from GCP Hyperdisk Balanced specification. 
+
+The information above is from [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) and [https://cloud.google.com/compute/disks-image-pricing](https://cloud.google.com/compute/disks-image-pricing) and may be changed by Google.
 
 ## Storage Requirements <a id="storage-requirements"></a>
 
