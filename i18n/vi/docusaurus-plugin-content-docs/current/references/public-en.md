@@ -208,35 +208,6 @@ BlockPI provides free public endpoints to the Kaia community and advanced featur
 - [Subscription](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Grove 🌿 - Được xây dựng trên Pocket Network
-
-Grove là nhóm xây dựng và bảo trì Pocket Network. Pocket Network is the TCP/IP of Web3 node infrastructure – a multi-chain relay protocol that incentivizes RPC nodes to provide DApps and their users with unstoppable Web3 access.
-
-Grove hỗ trợ hơn 50 blockchain và liên tục bổ sung thêm nhiều blockchain mới.
-
-#### Features
-
-- Decentralized RPC Protocol and Marketplace
-- Gói miễn phí 150.000 yêu cầu mỗi ngày (tối đa hai ứng dụng, với số điểm cuối không giới hạn)
-- Public Endpoints
-- Gói không giới hạn, trả tiền khi sử dụng (nếu bạn cần hơn 150.000 yêu cầu mỗi ngày)
-- Hỗ trợ hơn 50 Blockchain
-- 25,000 + Nodes earning POKT for serving applications
-- Nút lưu trữ, Nút lưu trữ có hỗ trợ theo dõi
-- No Single Point of Failure
-- Zero Downtime
-- Load-Balancing built into the Protocol
-- Infinitely scale the number of requests per day and nodes per hour as you go
-- The most private, censorship-resistant option
-- Hands-on developer support
-
-#### References
-
-- [Tài liệu](https://docs.grove.city/kaia-api/intro)
-- [Trang web Grove](https://grove.city/)
-- [Trang web Pocket Network](https://pocket.network)
-- [Cổng Grove](https://portal.grove.city)
-
 ### NodeReal
 
 NodeReal is a blockchain infrastructure and services provider. NodeReal helps developers and investors to explore blockchains with the most reliable solutions.
@@ -324,7 +295,7 @@ OnFinality cung cấp quyền truy cập RPC được quản lý vào Kaia, cho 
 - Phân tích việc sử dụng và hiệu suất API
 - Các nút Kaia chuyên dụng dành cho các khối lượng công việc yêu cầu tài nguyên được cách ly
 
-#### References
+#### Tài liệu tham khảo
 
 - [Kaia RPC](https://onfinality.io/en/networks/klaytn)
 - [Tài liệu](https://documentation.onfinality.io/support/)
@@ -335,7 +306,7 @@ OnFinality cung cấp quyền truy cập RPC được quản lý vào Kaia, cho 
 
 NOWNodes cung cấp quyền truy cập API vào Kaia thông qua các nút blockchain được lưu trữ trên đám mây, cho phép các nhà phát triển đọc dữ liệu trên chuỗi và phát sóng các giao dịch mà không cần phải vận hành hay bảo trì cơ sở hạ tầng riêng. Các nhà phát triển có thể tạo khóa API trong bảng điều khiển NOWNodes, chọn Kaia và kết nối ứng dụng của mình bằng cách tham khảo tài liệu hướng dẫn về Kaia của NOWNodes.
 
-#### Tính năng
+#### Features
 
 - Quyền truy cập vào các nút Kaia dựa trên khóa API
 - Hỗ trợ JSON-RPC để đọc trạng thái chuỗi và phát sóng giao dịch
@@ -344,7 +315,7 @@ NOWNodes cung cấp quyền truy cập API vào Kaia thông qua các nút blockc
 - Các tùy chọn máy chủ chuyên dụng dành cho các dự án cần cơ sở hạ tầng tùy chỉnh
 - Bảng điều khiển để quản lý khóa API và theo dõi việc sử dụng
 
-#### Tài liệu tham khảo
+#### References
 
 - [Tài liệu](https://docs.nownodes.io/kaia/)
 - [Trang web](https://nownodes.io/)
