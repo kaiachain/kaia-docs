@@ -205,7 +205,7 @@ To do so,
 - Copy and paste the code below into your newly created scripts file:
 
 
-```C#
+```csharp
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;

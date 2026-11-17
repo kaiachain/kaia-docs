@@ -41,7 +41,7 @@ jobs:
 
       - name: Installing dependencies
         run: |
-          npm install
+          npm ci
       - name: Clone kaia-sdk
         run: |
           git clone -b dev https://github.com/kaiachain/kaia-sdk.git
@@ -72,6 +72,15 @@ jobs:
           S3_BUCKET_PROD: ${{ secrets.S3_BUCKET_PROD }}
           CLOUDFRONT_ID_PROD: ${{ secrets.CLOUDFRONT_ID_PROD }}
         run: |
-          aws s3 sync ./build/ $S3_BUCKET_PROD --delete
+          HASHED=(--exclude "*" --include "assets/*")
+          NOT_HASHED=(--exclude "assets/*")
+          for l in ko ja zh-CN zh-TW vi; do HASHED+=(--include "$l/assets/*"); NOT_HASHED+=(--exclude "$l/assets/*"); done
+          # 1) Content-hashed files (assets/): a filename never changes content, so compare by size
+          #    only (skips re-uploading unchanged files every deploy) and cache them forever.
+          aws s3 sync ./build/ $S3_BUCKET_PROD "${HASHED[@]}" --size-only \
+            --cache-control "public,max-age=31536000,immutable"
+          # 2) Everything else (HTML, sitemap, static img/files): normal sync with --delete.
+          #    Old hashed assets are excluded from --delete so already-cached HTML keeps working.
+          aws s3 sync ./build/ $S3_BUCKET_PROD --delete "${NOT_HASHED[@]}"
           aws s3 cp llms.txt $S3_BUCKET_PROD
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID_PROD --paths "/*"

@@ -1,7 +1,7 @@
 const commonSidebar = [
   {
     type: 'html',
-    value: '<span class="sidebar-divider" />',
+    value: '<span class="sidebar-divider"></span>',
   },
   {
     type: 'category',

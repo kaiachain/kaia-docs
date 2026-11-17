@@ -26,7 +26,7 @@ First, let's set up your app in the LINE ecosystem:
 
 2. Configure LIFF Settings:
 
-```code
+```text
 Size: Choose one of:
 ├── Full (entire screen)
 ├── Tall (75% of screen)

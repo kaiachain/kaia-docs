@@ -17,7 +17,7 @@ This might take a few minutes if it's your first time switching.
 
 We need a custom template to integrate Web3 capabilities. Here's our folder structure:
 
-```code
+```text
 Assets/
 └── WebGLTemplates/
     └── KaiaTemplate/

@@ -12,7 +12,7 @@ Kaia provides the following flags for metric export:
 
 To enable metrics and Prometheus exporting, set both `METRICS` and `PROMETHEUS` to `1` in your `.conf` file:
 
-```conf
+```ini
 METRICS=1
 PROMETHEUS=1
 ```

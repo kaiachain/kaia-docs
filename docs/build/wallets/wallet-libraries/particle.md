@@ -44,7 +44,7 @@ Next, head over to the [Particle dashboard](https://dashboard.particle.network) 
 
 Store these API keys in a `.env` file as follows:
 
-```plaintext
+```text
 NEXT_PUBLIC_PROJECT_ID='PROJECT_ID'
 NEXT_PUBLIC_CLIENT_KEY='CLIENT_KEY'
 NEXT_PUBLIC_APP_ID='APP_ID'

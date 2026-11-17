@@ -38,7 +38,7 @@ For basic web3j usage, you can learn through [Web3j tutorial](https://docs.web3j
 If you want to know more about the concept of fee delegated transaction supported by kaia network, please refer to [kaiadocs](https://docs.klaytn.foundation/content/klaytn/design/transactions).
 
 Check FeeDelegatedValueTransferExample.java file in web3j-ext [examples](https://github.com/kaiachain/kaia-sdk/tree/dev/web3j-ext/web3j-ext/src/main/java/org/web3j/example).
-```file
+```java
 package org.web3j.example;
 
 import java.io.IOException;
@@ -118,7 +118,7 @@ public class FeeDelegatedValueTransferExample implements keySample {
 
 Run examples
 
-```file
+```java
 import org.web3j.example.FeeDelegatedValueTransferExample;
 
 public class quickstart {
