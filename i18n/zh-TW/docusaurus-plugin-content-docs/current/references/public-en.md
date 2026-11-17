@@ -207,35 +207,6 @@ BlockPI 為 Kaia 社區提供免費的公共端點，併為付費用戶提供高
 - [訂閱](https://dashboard.blockpi.io/wallet/overview)
 - [Website](https://blockpi.io/)
 
-### Grove 🌿 - 建於 Pocket 網路
-
-Grove 是 Pocket Network 的建置與維護團隊。 Pocket Network 是 Web3 節點基礎設施的 TCP/IP - 一種多鏈中繼協議，可激勵 RPC 節點為 DApp 及其用戶提供勢不可擋的 Web3 訪問。
-
-Grove 支援 50 多個區塊鏈，而且還在不斷增加。
-
-#### 特點
-
-- 去中心化 RPC 協議和市場
-- 每天 150,000 次請求免費層級（最多兩個應用程式，端點數量不限）
-- 公共端點
-- 無限制、隨用隨付計畫 (如果您每天需要超過 150,000 個請求)
-- 支援 50+ 區塊鏈
-- 25,000 + 個節點為應用程序提供 POKT 服務
-- 存檔節點、支援追蹤的存檔節點
-- 無單點故障
-- 零停機時間
-- 協議內置負載平衡功能
-- 無限擴展每天的請求數和每小時的節點數
-- 最私密、抗審查的選擇
-- 開發人員實踐支持
-
-#### 參考資料
-
-- [Docs](https://docs.grove.city/kaia-api/intro)
-- [Grove 網站](https://grove.city/)
-- [Pocket Network 網站](https://pocket.network)
-- [Grove Portal](https://portal.grove.city)
-
 ### NodeReal
 
 NodeReal 是一家區塊鏈基礎設施和服務提供商。 NodeReal 以最可靠的解決方案幫助開發人員和投資者探索區塊鏈。
@@ -323,7 +294,7 @@ OnFinality 提供對 Kaia 的託管式 RPC 存取服務，讓開發者無需自�
 - API 使用與效能分析
 - 專用於需要隔離資源的工作負載的 Kaia 專用節點
 
-#### 參考資料
+#### 參考文獻
 
 - [Kaia RPC](https://onfinality.io/en/networks/klaytn)
 - [文件](https://documentation.onfinality.io/support/)
@@ -334,7 +305,7 @@ OnFinality 提供對 Kaia 的託管式 RPC 存取服務，讓開發者無需自�
 
 NOWNodes 透過託管式區塊鏈節點提供對 Kaia 的 API 存取服務，讓開發者無需自行運作或維護基礎設施，即可讀取鏈上資料並發送交易。開發者可在 NOWNodes 控制台建立 API 金鑰，選擇 Kaia，並依照 NOWNodes Kaia 文件將其應用程式進行連線。
 
-#### 特色
+#### 特點
 
 - 透過 API 金鑰存取 Kaia 節點
 - 支援透過 JSON-RPC 讀取鏈狀態及廣播交易
@@ -343,7 +314,7 @@ NOWNodes 透過託管式區塊鏈節點提供對 Kaia 的 API 存取服務，讓
 - 適用於需要自訂基礎架構的專案之專用節點選項
 - 用於 API 金鑰管理與使用狀況監控的儀表板
 
-#### 參考文獻
+#### 參考資料
 
 - [文件](https://docs.nownodes.io/kaia/)
 - [網站](https://nownodes.io/)
