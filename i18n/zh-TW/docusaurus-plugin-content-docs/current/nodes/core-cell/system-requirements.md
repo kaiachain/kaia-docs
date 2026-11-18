@@ -6,38 +6,33 @@
 
 如果你想了解這一硬件規格的原理，medium 上的文章[為 Kaia 節點操作員確定最佳硬件規格](https://klaytn.foundation/node-operator-optimal-specs/) 會幫助你理解。
 
-以下各節列出了 CN 和 PN 的建議規格。
+以下各節列出針對 CN 的建議規格。
 
 ### 裸機服務器<a id="bare-metal-server"></a>
 
 #### 一般要求（所有節點類型）
 
-| 類別  | 規格                                                                                           |
-| :-- | :------------------------------------------------------------------------------------------- |
-| CPU | 2.6 GHz 基本頻率 - 3.4 GHz 最大頻率或更高（例如，第 3 代 Intel® Xeon® 可擴充處理器） |
-| 存儲  | ≥ 4 TB SSD (依據連鎖資料大小調整；請洽詢 Kaia 團隊以取得指引)                                  |
+| 類別  | 規格                                                                                                                      |
+| :-- | :---------------------------------------------------------------------------------------------------------------------- |
+| CPU | Intel® 第五代 Xeon® 可擴展處理器（「Emerald Rapids」）或更新版本（例如：Xeon® Platinum 85xx/86xx 系列）；AMD EPYC™ 9004 系列（「Genoa」）或更新版本，且具備相當的效能 |
+| 存儲  | ≥ 3 TB SSD（請根據區塊鏈資料大小進行調整；如需指引，請諮詢 Kaia 團隊）                                                                             |
 
-任何具有類似硬件配置的物理機器都足以運行 CN 或 PN。
+任何具備類似硬體配置的實體機器，皆足以運行 CN。
 
 #### 依節點類型建議的規格
 
-| Node Type                                    | 核心/線程         | 內存    |
-| :------------------------------------------- | :------------ | :---- |
-| CN                                           | 16 核心 / 32 線程 | 128GB |
-| PN                                           | 8 核心 / 16 線程  | 64 GB |
-| PN (with Live Pruning DB) | 4 核心 / 8 線程   | 32 GB |
-
-您可以使用和應用即時修剪選項來使用即時修剪 DB。更多詳情，請參閱 https://docs.kaia.io/learn/storage/live-pruning/。但要注意的是，目前不建議對 CN 進行活體修剪，但這一做法將來可能會改變。
+| Node Type | 核心/線程          | 內存      |
+| :-------- | :------------- | :------ |
+| CN        | 12 核心 / 24 執行緒 | ≥ 64 GB |
 
 ### 雲虛擬機<a id="cloud-vm"></a>
 
 #### AWS 建議規格<a id="recommended-specification-for-aws"></a>
 
-|                   Node Type                  |            Model            | vCPU | 內存（GiB） |                存儲大小                | 存儲速度（IOPS） |     價格（首爾地區，美元/小時）    |
-| :------------------------------------------: | :-------------------------: | :--: | :-----: | :--------------------------------: | :--------: | :-------------------: |
-|                      CN                      | m6i.8xlarge |  32  |   128   | 4,000 (Minimum) |    9,000   | 1.888 |
-|                      PN                      | m6i.4xlarge |  16  |    64   | 4,000 (Minimum) |    9,000   | 0.944 |
-| PN (with Live Pruning DB) | m6i.2xlarge |   8  |    32   | 3,500 (Minimum) |    9,000   | 0.472 |
+| Node Type |       建築       |            Model            | vCPU | 內存（GiB） |    存儲大小   | 存儲速度（IOPS） | 價格 \(新加坡地區，美元／小時\) |
+| :-------: | :------------: | :-------------------------: | :--: | :-----: | :-------: | :--------: | :-------------------------------------: |
+|     CN    |   x86（Intel）   | m8i.8xlarge |  32  |   128   | 3,000（最低） |    9,000   |          2.117          |
+|     CN    | Arm（Graviton4） | m8g.8xlarge |  32  |   128   | 3,000（最低） |    9,000   |          1.795          |
 
 此存儲規範源自 AWS EBS SSD (gp3) 規範。
 
@@ -45,25 +40,25 @@
 
 #### 建議的 "Azure "規範<a id="recommended-specification-for-azure"></a>
 
-|     節點類型     |  Model  | vCPU | 內存（GiB） |          存儲類型 （GiB\）          | 存儲速度（IOPS） |     價格（韓國中部，美元/小時）    |
-| :----------: | :-----: | :--: | :-----: | :---------------------------: | :--------: | :-------------------: |
-|      CN      | D32s v5 |  32  |   128   | P50 (4096) |    7500    | 1.888 |
-|      PN      | D16s v5 |  16  |    64   | P50 (4096) |    7500    | 0.944 |
-| PN（帶即時修剪 DB） |  D8s v5 |   8  |    32   | P50 (4096) |    7500    | 0.472 |
+| 節點類型 |        建築       |   Model  | vCPU | 內存（GiB） | 存儲類型 （GiB\） | 存儲速度（IOPS） | 價格 \(東南亞地區，美元／小時\) |
+| :--: | :-------------: | :------: | :--: | :-----: | :---------: | :--------: | :-------------------------------------: |
+|  CN  |    x86（Intel）   |  D32s v6 |  32  |   128   |  3,000（最低）  |    7500    |          2.016          |
+|  CN  | Arm（Cobalt 100） | D32ps v6 |  32  |   128   |  3,000（最低）  |    7500    |          1.398          |
 
-此存儲規範源自 Azure Premium Disk 規範。
+此儲存規格源自 Azure Premium SSD v2 規格。
 
 以上信息來自 [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) 和 [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing)，微軟可能會對其進行修改。
 
 #### 建議的 GCP 規範<a id="recommended-specification-for-gcp"></a>
 
-|               節點類型              |       模型       | vCPU | 內存（GiB） | 存儲類型 （GiB\） | 存儲速度（IOPS） |      價格（亞洲-東北3，美元/小時）      |
-| :-----------------------------: | :------------: | :--: | :-----: | :---------: | :--------: | :------------------------: |
-|                CN               | c4-standard-32 |  32  |   120   |  4,000（最少）  |    7500    | 2.03078256 |
-|                PN               |    n2- 標準-16   |  16  |    64   |  4,000（最少）  |    7500    |  1.016243  |
-| PN (含活修剪 DB) |    n2- 標準-8    |   8  |    32   |  3,500（最低）  |    7500    |  0.508121  |
+| 節點類型 |     建築     |        模型       | vCPU | 內存（GiB） | 存儲類型 （GiB\） | 存儲速度（IOPS） | 價格 \(新加坡地區，美元／小時\) |
+| :--: | :--------: | :-------------: | :--: | :-----: | :---------: | :--------: | :-------------------------------------: |
+|  CN  | x86（Intel） |  c4-standard-24 |  24  |    90   |  3,000（最低）  |    7500    |          1.463          |
+|  CN  | Arm（Axion） | c4a-standard-32 |  32  |   128   |  3,000（最低）  |    7500    |          1.773          |
 
-以上信息來自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 和 [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia)，谷歌可能會對其進行修改。
+此儲存規格源自 GCP Hyperdisk Balanced 規格。
+
+上述資訊來自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 及 [https://cloud.google.com/compute/disks-image-pricing](https://cloud.google.com/compute/disks-image-pricing)，Google 可能會對其進行變更。
 
 ## 存儲要求<a id="storage-requirements"></a>
 

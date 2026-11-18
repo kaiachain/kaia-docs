@@ -6,38 +6,33 @@
 
 如果你想了解这一硬件规格的原理，medium 上的文章[为 Kaia 节点操作员确定最佳硬件规格](https://klaytn.foundation/node-operator-optimal-specs/) 会帮助你理解。
 
-以下各节列出了 CN 和 PN 的建议规格。
+以下各节列出了对 CN 的推荐规格。
 
 ### 裸机服务器<a id="bare-metal-server"></a>
 
 #### 一般要求（所有节点类型）
 
-| 类别  | 规格                                                                                            |
-| :-- | :-------------------------------------------------------------------------------------------- |
-| CPU | 基本频率 2.6 GHz - 最大频率 3.4 GHz 或更高（例如，第 3 代 Intel® Xeon® 可扩展处理器） |
-| 存储  | ≥ 4 TB SSD（根据链数据大小进行调整；请咨询 Kaia 团队以获得指导）                                                      |
+| 类别  | 规格                                                                                                      |
+| :-- | :------------------------------------------------------------------------------------------------------ |
+| CPU | 英特尔® 第五代至强® 可扩展处理器（“Emerald Rapids”）或更新版本（例如：至强® 白金 85xx/86xx 系列）；AMD EPYC™ 9004 系列（“Genoa”）或更新版本，且性能相当 |
+| 存储  | ≥ 3 TB SSD（请根据链上数据大小进行调整；如需指导，请咨询 Kaia 团队）                                                              |
 
-任何具有类似硬件配置的物理机器都足以运行 CN 或 PN。
+任何硬件配置相似的物理服务器都足以运行一个CN。
 
 #### 按节点类型推荐的规格
 
-| Node Type                                    | 核心/线程      | 内存    |
-| :------------------------------------------- | :--------- | :---- |
-| CN                                           | 16 核/32 线程 | 128GB |
-| PN                                           | 8 核/16 线程  | 64 GB |
-| PN (with Live Pruning DB) | 4 核/8 线程   | 32 GB |
-
-您可以使用和应用实时修剪选项来使用实时修剪 DB。更多详情，请参阅 https://docs.kaia.io/learn/storage/live-pruning/。但要注意的是，目前不建议对 CN 进行活体修剪，但这一做法将来可能会改变。
+| Node Type | 核心/线程      | 内存      |
+| :-------- | :--------- | :------ |
+| CN        | 12核 / 24线程 | ≥ 64 GB |
 
 ### 云虚拟机<a id="cloud-vm"></a>
 
 #### AWS 建议规格<a id="recommended-specification-for-aws"></a>
 
-|                   Node Type                  |            Model            | vCPU | 内存（GiB） |                存储大小                | 存储速度（IOPS） |     价格（首尔地区，美元/小时）    |
-| :------------------------------------------: | :-------------------------: | :--: | :-----: | :--------------------------------: | :--------: | :-------------------: |
-|                      CN                      | m6i.8xlarge |  32  |   128   | 4,000 (Minimum) |    9,000   | 1.888 |
-|                      PN                      | m6i.4xlarge |  16  |    64   | 4,000 (Minimum) |    9,000   | 0.944 |
-| PN (with Live Pruning DB) | m6i.2xlarge |   8  |    32   | 3,500 (Minimum) |    9,000   | 0.472 |
+| Node Type |       建筑       |            Model            | vCPU | 内存（GiB） |    存储大小   | 存储速度（IOPS） | 价格 \(新加坡地区，美元/小时\) |
+| :-------: | :------------: | :-------------------------: | :--: | :-----: | :-------: | :--------: | :-------------------------------------: |
+|     CN    |    x86（英特尔）    | m8i.8xlarge |  32  |   128   | 3,000（最低） |    9,000   |          2.117          |
+|     CN    | Arm（Graviton4） | m8g.8xlarge |  32  |   128   | 3,000（最低） |    9,000   |          1.795          |
 
 此存储规范源自 AWS EBS SSD (gp3) 规范。
 
@@ -45,25 +40,25 @@
 
 #### 建议的 "Azure "规范<a id="recommended-specification-for-azure"></a>
 
-|     节点类型     |  Model  | vCPU | 内存（GiB） |          存储类型 （GiB\）          | 存储速度（IOPS） |     价格（韩国中部，美元/小时）    |
-| :----------: | :-----: | :--: | :-----: | :---------------------------: | :--------: | :-------------------: |
-|      CN      | D32s v5 |  32  |   128   | P50 (4096) |    7500    | 1.888 |
-|      PN      | D16s v5 |  16  |    64   | P50 (4096) |    7500    | 0.944 |
-| PN（带实时修剪 DB） |  D8s v5 |   8  |    32   | P50 (4096) |    7500    | 0.472 |
+| 节点类型 |        建筑       |   Model  | vCPU | 内存（GiB） | 存储类型 （GiB\） | 存储速度（IOPS） | 价格 \(东南亚地区，美元/小时\) |
+| :--: | :-------------: | :------: | :--: | :-----: | :---------: | :--------: | :-------------------------------------: |
+|  CN  |     x86（英特尔）    |  D32s v6 |  32  |   128   |  3,000（最低）  |    7500    |          2.016          |
+|  CN  | Arm（Cobalt 100） | D32ps v6 |  32  |   128   |  3,000（最低）  |    7500    |          1.398          |
 
-此存储规范源自 Azure Premium Disk 规范。
+此存储规范源自 Azure Premium SSD v2 规范。
 
 以上信息来自 [https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) 和 [https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/#pricing)，微软可能会对其进行修改。
 
 #### 建议的 GCP 规范<a id="recommended-specification-for-gcp"></a>
 
-|     节点类型     |       模型       | vCPU | 内存（GiB） | 存储类型 （GiB\） | 存储速度（IOPS） |      价格（亚洲-东北3，美元/小时）      |
-| :----------: | :------------: | :--: | :-----: | :---------: | :--------: | :------------------------: |
-|      CN      | c4-standard-32 |  32  |   120   |  4,000（最少）  |    7500    | 2.03078256 |
-|      PN      |    n2- 标准-16   |  16  |    64   |  4,000（最少）  |    7500    |  1.016243  |
-| PN（带实时修剪 DB） |    n2- 标准-8    |   8  |    32   |  3,500（最低）  |    7500    |  0.508121  |
+| 节点类型 |     建筑     |        模型       | vCPU | 内存（GiB） | 存储类型 （GiB\） | 存储速度（IOPS） | 价格 \(新加坡地区，美元/小时\) |
+| :--: | :--------: | :-------------: | :--: | :-----: | :---------: | :--------: | :-------------------------------------: |
+|  CN  |  x86（英特尔）  |  c4-standard-24 |  24  |    90   |  3,000（最低）  |    7500    |          1.463          |
+|  CN  | Arm（Axion） | c4a-standard-32 |  32  |   128   |  3,000（最低）  |    7500    |          1.773          |
 
-以上信息来自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 和 [https://cloud.google.com/storage/pricing#asia](https://cloud.google.com/storage/pricing#asia)，谷歌可能会对其进行修改。
+此存储规格源自 GCP Hyperdisk Balanced 规格。
+
+以上信息来自 [https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/](https://cloud.google.com/compute/vm-instance-pricing#general-purpose_machine_type_family/) 和 [https://cloud.google.com/compute/disks-image-pricing](https://cloud.google.com/compute/disks-image-pricing)，Google 可能会对其进行修改。
 
 ## 存储要求<a id="storage-requirements"></a>
 
