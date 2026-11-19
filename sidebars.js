@@ -381,6 +381,7 @@ const sidebars = {
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
           items: [
+            'build/tools/cross-chain/kaia-bridge-aggregator',
             'build/tools/cross-chain/chainlink-ccip',
             'build/tools/cross-chain/layerzero',
             'build/tools/cross-chain/wormhole',

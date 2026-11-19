@@ -122,6 +122,7 @@ Information about supported wallets on Kaia and how to configure them.
   - [SubQuery](https://docs.kaia.io/build/tools/indexers/subquery): Guide for using SubQuery, a multi-chain indexing protocol on Kaia.
   - [Migrate from The Graph](https://docs.kaia.io/build/tools/indexers/migrate-from-the-graph): Kaia support on The Graph ended August 31, 2026. Guide for moving Kaia subgraphs to Goldsky, SubQuery, or a self-hosted graph-node.
 - [Crosschain](https://docs.kaia.io/build/tools/cross-chain): Provides information and guide about cross chain protocols supported by Kaia
+  - [Kaia Bridge Aggregator](https://docs.kaia.io/build/tools/cross-chain/kaia-bridge-aggregator): One API to list routes, compare quotes from RhinoFi, Layerswap, RocketX and Chainlink CCIP, and get ready-to-sign transactions for transfers to and from Kaia.
   - [Layerzero](https://docs.kaia.io/build/tools/cross-chain/layerzero): LayerZero lets users build cross-chain apps for data, calls, and tokens with censorship resistance and permissionless smart contract support.
   - [Wormhole](https://docs.kaia.io/build/tools/cross-chain/wormhole): Users can use Wormhole to transfer tokens and data between 30+ linked chains, including Kaia, for cross-chain app building.
   - [Stargate](https://docs.kaia.io/build/tools/cross-chain/stargate): Easily swap native assets like ETH or KAIA across chains in one transaction using Stargate’s LayerZero-powered bridge.

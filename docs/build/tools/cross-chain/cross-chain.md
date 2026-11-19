@@ -22,3 +22,6 @@ Kaia network is currently compatibile with leading cross-chain solutions, enhanc
 
 ### Cross-Chain Bridges:
 - [Stargate](https://stargate.finance/)
+
+### Bridge Aggregators:
+- [Kaia Bridge Aggregator](./kaia-bridge-aggregator.md): one API for quotes and transfers to and from Kaia across RhinoFi, Layerswap, RocketX and Chainlink CCIP
