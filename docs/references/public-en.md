@@ -48,6 +48,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 |[OnFinality](https://onfinality.io/)|`https://klaytn.api.onfinality.io/public`|kaia,klay,eth,net|Full|
 |[GetBlock](https://getblock.io/)|`https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`|kaia,klay,eth,net|Full|
 |[dRPC](https://drpc.org/)|`https://klaytn.drpc.org`|kaia,klay,eth,net|Full|
+|[Tatum](https://tatum.io/chain/kaia)|`https://kaia-mainnet.gateway.tatum.io`|kaia,klay,eth,net|Full|
 
 
 **WebSocket** 
@@ -70,6 +71,7 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 ||`https://archive-en-kairos.node.kaia.io/`|kaia,klay,eth,net|Archive|
 |[QuickNode](https://quicknode.com/)|`https://responsive-green-emerald.kaia-kairos.quiknode.pro/`|kaia,klay,eth,net|Full|
 |[BlockPI Network](https://blockpi.io/)|`https://kaia-kairos.blockpi.network/v1/rpc/public`|kaia,klay,eth,net|Full|
+|[Tatum](https://tatum.io/chain/kaia)|`https://kaia-kairos.gateway.tatum.io`|kaia,klay,eth,net|Full|
 
 **WebSocket** 
 
@@ -181,12 +183,14 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 
 #### Features
 
-* 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
+* Public endpoints for Mainnet and Kairos without an API key (5 requests per minute), listed at [freerpc.com/kaia](https://freerpc.com/kaia)
+* 3 requests per second on the free plan with an API key, higher limits on paid plans
 * Community support
 
 #### References
 
-* [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1\*1dhfv8u\*_ga\*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.\*_ga_BH6F6RKJW6\*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+* [Kaia RPC](https://tatum.io/chain/kaia)
+* [Docs](https://docs.tatum.io/reference/rpc-kaia)
 * [Pricing](https://tatum.io/pricing)
 * [Website](https://tatum.io/)
 
