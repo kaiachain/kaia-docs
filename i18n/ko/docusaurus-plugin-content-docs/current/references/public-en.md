@@ -48,35 +48,37 @@ Since we cannot guarantee uptime and stability of the endpoints, do not use them
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | Full    |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | Full    |
 | [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | Full    |
+| [테이텀](https://tatum.io/chain/kaia)     | `https://kaia-mainnet.gateway.tatum.io`                    | kaia,klay,eth,net | Full    |
 
 **WebSocket**
 
-| Service Provider                       | Endpoints                                                | Namespaces        | Type    |
-| -------------------------------------- | -------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`                        | kaia,klay,eth,net | Full    |
-|                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net | Full    |
-| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | KAIA,KLAY,ETH,NET | 전체      |
+| Service Provider                       | Endpoints                                                | Namespaces           | Type    |
+| -------------------------------------- | -------------------------------------------------------- | -------------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en.node.kaia.io/ws`                        | kaia,klay,eth,net    | Full    |
+|                                        | `wss://archive-en.node.kaia.io/ws`                       | kaia, klay, eth, net | Archive |
+| [QuickNode](https://quicknode.com/)    | `wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/` | kaia,klay,eth,net    | 전체      |
+| [OnFinality](https://onfinality.io/)   | `wss://klaytn.api.onfinality.io/public-ws`               | kaia,klay,eth,net    | Full    |
+| [dRPC](https://drpc.org/)              | `wss://klaytn.drpc.org`                                  | kaia,klay,eth,net    | 전체      |
 
 ### Testnet (Kairos) Public JSON-RPC Endpoints
 
 **HTTPS**
 
-| Service Provider                       | Endpoints                                                    | Namespaces        | Type    |
-| -------------------------------------- | ------------------------------------------------------------ | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net | 전체      |
-|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | Full    |
-| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | KAIA,KLAY,ETH,NET | Full    |
+| Service Provider                       | Endpoints                                                    | Namespaces           | Type    |
+| -------------------------------------- | ------------------------------------------------------------ | -------------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `https://public-en-kairos.node.kaia.io`                      | kaia,klay,eth,net    | Full    |
+|                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia, klay, eth, net | Archive |
+| [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net    | 전체      |
+| [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net    | 전체      |
+| [테이텀](https://tatum.io/chain/kaia)     | `https://kaia-kairos.gateway.tatum.io`                       | kaia,klay,eth,net    | 전체      |
 
 **WebSocket**
 
-| Service Provider                       | Endpoints                                                  | Namespaces        | Type    |
-| -------------------------------------- | ---------------------------------------------------------- | ----------------- | ------- |
-| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net | 전체      |
-|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia,klay,eth,net | Archive |
-| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 전체      |
+| Service Provider                       | Endpoints                                                  | Namespaces           | Type    |
+| -------------------------------------- | ---------------------------------------------------------- | -------------------- | ------- |
+| [Kaia Foundation](https://www.kaia.io) | `wss://public-en-kairos.node.kaia.io/ws`                   | kaia,klay,eth,net    | 전체      |
+|                                        | `wss://archive-en-kairos.node.kaia.io/ws`                  | kaia, klay, eth, net | Archive |
+| [QuickNode](https://quicknode.com/)    | `wss://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia, klay, eth, net | 전체      |
 
 ## RPC Service Providers
 
@@ -179,12 +181,14 @@ Tatum is the fastest way to build, test and run blockchain apps. We offer the mo
 
 #### Features
 
-- 5 requests per second for the free plan, and 200 requests per second for the paid plans (Start, Basic)
+- API 키 없이 사용할 수 있는 메인넷 및 카이로스(Kairos)의 공개 엔드포인트(분당 5회 요청 제한)는 [freerpc.com/kaia](https://freerpc.com/kaia)에 나열되어 있습니다.
+- API 키를 사용하는 무료 요금제의 경우 초당 3건의 요청이 허용되며, 유료 요금제에서는 더 높은 한도가 적용됩니다.
 - Community support
 
 #### 참고 문헌
 
-- [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [Kaia RPC](https://tatum.io/chain/kaia)
+- [문서](https://docs.tatum.io/reference/rpc-kaia)
 - [Pricing](https://tatum.io/pricing)
 - [Website](https://tatum.io/)
 
@@ -373,7 +377,7 @@ Kaia 지원은 **2026년 10월 16일까지** 제공됩니다.
 - 아카이브 수준의 상세 기록 상태; `debug_traceCall` 지원
 - 무료 이용 한도가 포함된 정액제 월 요금제; 86개 네트워크에서 하나의 API 키로 이용 가능
 
-#### 참고문헌
+#### 참고 문헌
 
 - [Kaia RPC 엔드포인트](https://swiftnodes.io/kaia-rpc)
 - [문서](https://swiftnodes.io/docs/getting-started)

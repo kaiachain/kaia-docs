@@ -47,16 +47,17 @@
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
 | [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
+| [塔图姆](https://tatum.io/chain/kaia)     | `https://kaia-mainnet.gateway.tatum.io`                    | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
 | 服务提供商                                | 终点                                                                                                                         | 命名空间              | 类型 |
 | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
 | [Kaia基金会](https://www.kaia.io)       | wss://public-en.node.kaia.io/ws                            | kaia,klay,eth,net | 全部 |
-|                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 档案 |
-| [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
+|                                      | wss://archive-en.node.kaia.io/ws                           | kaia、klay、eth、net | 档案 |
+| [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 完整 |
 | [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
-| [dRPC](https://drpc.org/)            | wss://klaytn.drpc.org                                                      | kaia,klay,eth,net | 全部 |
+| [dRPC](https://drpc.org/)            | wss://klaytn.drpc.org                                                      | kaia、klay、eth、net | 完整 |
 
 ### Testnet（Kairos）公共 JSON-RPC 端点
 
@@ -64,18 +65,19 @@
 
 | 服务提供商                                  | 终点                                                           | 命名空间              | 类型 |
 | -------------------------------------- | ------------------------------------------------------------ | ----------------- | -- |
-| [Kaia基金会](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | kaia、klay、eth、net | 完整 |
+| [Kaia基金会](https://www.kaia.io)         | `https://public-en-kairos.node.kaia.io`                      | kaia、klay、eth、net | 全部 |
 |                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia、klay、eth、net | 档案 |
-| [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 全部 |
+| [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 完整 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 全部 |
+| [塔图姆](https://tatum.io/chain/kaia)     | `https://kaia-kairos.gateway.tatum.io`                       | kaia、klay、eth、net | 全部 |
 
 **WebSocket**
 
 | 服务提供商                               | 终点                                                                                                                           | 命名空间              | 类型 |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- | -- |
-| [Kaia基金会](https://www.kaia.io)      | wss://public-en-kairos.node.kaia.io/ws                       | kaia,klay,eth,net | 全部 |
+| [Kaia基金会](https://www.kaia.io)      | wss://public-en-kairos.node.kaia.io/ws                       | kaia,klay,eth,net | 完整 |
 |                                     | `wss://archive-en-kairos.node.kaia.io/ws`.                                                                   | kaia、klay、eth、net | 档案 |
-| [QuickNode](https://quicknode.com/) | wss://responsive-green-emerald.kaia-kairos.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
+| [QuickNode](https://quicknode.com/) | wss://responsive-green-emerald.kaia-kairos.quiknode.pro/\`\` | kaia、klay、eth、net | 完整 |
 
 ## RPC 服务提供商
 
@@ -178,12 +180,14 @@ Tatum 是构建、测试和运行区块链应用程序的最快方式。我们�
 
 #### 特点
 
-- 免费计划每秒 5 个请求，付费计划（开始、基本）每秒 200 个请求
+- 主网和Kairos的公共端点（无需API密钥，每分钟5次请求），列表见[freerpc.com/kaia](https://freerpc.com/kaia)
+- 使用 API 密钥的免费套餐每秒可发起 3 次请求，付费套餐的限额更高
 - 社区支持
 
 #### 参考文献
 
-- [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [Kaia RPC](https://tatum.io/chain/kaia)
+- [文档](https://docs.tatum.io/reference/rpc-kaia)
 - [定价](https://tatum.io/pricing)
 - [Website](https://tatum.io/)
 
