@@ -47,6 +47,7 @@
 | [OnFinality](https://onfinality.io/)   | `https://klaytn.api.onfinality.io/public`                  | kaia,klay,eth,net | 全部 |
 | [GetBlock](https://getblock.io/)       | `https://go.getblock.io/d7094dbd80ab474ba7042603fe912332`  | kaia,klay,eth,net | 全部 |
 | [dRPC](https://drpc.org/)              | `https://klaytn.drpc.org`                                  | kaia,klay,eth,net | 全部 |
+| [塔圖姆](https://tatum.io/chain/kaia)     | `https://kaia-mainnet.gateway.tatum.io`                    | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
@@ -56,7 +57,7 @@
 |                                      | wss://archive-en.node.kaia.io/ws                           | kaia,klay,eth,net | 檔案 |
 | [QuickNode](https://quicknode.com/)  | wss://alpha-hardworking-orb.kaia-mainnet.quiknode.pro/\`\` | kaia,klay,eth,net | 全部 |
 | [OnFinality](https://onfinality.io/) | wss://klaytn.api.onfinality.io/public-ws                   | kaia,klay,eth,net | 全部 |
-| [dRPC](https://drpc.org/)            | `wss://klaytn.drpc.org`                                                                                                    | kaia,klay,eth,net | 完整 |
+| [dRPC](https://drpc.org/)            | `wss://klaytn.drpc.org`                                                                                                    | kaia,klay,eth,net | 全部 |
 
 ### Testnet（Kairos）公共 JSON-RPC 端點
 
@@ -68,6 +69,7 @@
 |                                        | `https://archive-en-kairos.node.kaia.io/`                    | kaia,klay,eth,net | 檔案 |
 | [QuickNode](https://quicknode.com/)    | `https://responsive-green-emerald.kaia-kairos.quiknode.pro/` | kaia,klay,eth,net | 全部 |
 | [BlockPI Network](https://blockpi.io/) | `https://kaia-kairos.blockpi.network/v1/rpc/public`          | kaia,klay,eth,net | 全部 |
+| [塔圖姆](https://tatum.io/chain/kaia)     | `https://kaia-kairos.gateway.tatum.io`                       | kaia,klay,eth,net | 全部 |
 
 **WebSocket**
 
@@ -178,12 +180,14 @@ Tatum 是構建、測試和運行區塊鏈應用程序的最快方式。我們�
 
 #### 特點
 
-- 免費計劃每秒 5 個請求，付費計劃（開始、基本）每秒 200 個請求
+- 主網（Mainnet）和 Kairos 的公開端點（無需 API 金鑰，每分鐘 5 次請求），清單請參閱 [freerpc.com/kaia](https://freerpc.com/kaia)
+- 使用 API 金鑰的免費方案每秒可發送 3 次請求，付費方案的限制更高
 - 社區支持
 
 #### 參考文獻
 
-- [Docs](https://apidoc.tatum.io/tag/Kaia?_gl=1*1dhfv8u*_ga*MzY5NDMyNzg5LjE2NDQ1NTk1MzA.*_ga_BH6F6RKJW6*MTY2MjAxNDQ0OS4xNy4xLjE2NjIwMTQ2MTQuMjQuMC4w)
+- [Kaia RPC](https://tatum.io/chain/kaia)
+- [文件](https://docs.tatum.io/reference/rpc-kaia)
 - [定價](https://tatum.io/pricing)
 - [Website](https://tatum.io/)
 
