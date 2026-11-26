@@ -381,7 +381,16 @@ const sidebars = {
           label: 'Cross-chain',
           link: { type: 'doc', id: 'build/tools/cross-chain/cross-chain' },
           items: [
-            'build/tools/cross-chain/kaia-bridge-aggregator',
+            {
+              type: 'category',
+              label: 'Kaia Bridge Aggregator',
+              link: { type: 'doc', id: 'build/tools/cross-chain/kaia-bridge-aggregator/kaia-bridge-aggregator' },
+              items: [
+                'build/tools/cross-chain/kaia-bridge-aggregator/widget',
+                'build/tools/cross-chain/kaia-bridge-aggregator/sdk',
+                'build/tools/cross-chain/kaia-bridge-aggregator/http-api',
+              ],
+            },
             'build/tools/cross-chain/chainlink-ccip',
             'build/tools/cross-chain/layerzero',
             'build/tools/cross-chain/wormhole',
