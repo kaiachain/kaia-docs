@@ -2,6 +2,9 @@
 sidebar_label: Use the HTTP API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Use the Kaia Bridge Aggregator HTTP API
 
 Any language can call the API directly. This guide walks through a transfer with `curl`. For every field and response, see the interactive reference at [bridge-aggregator-api.kaia.io/api-docs](https://bridge-aggregator-api.kaia.io/api-docs/); the raw OpenAPI document is at `/api-docs.json` if you want to generate a client. If you write TypeScript or JavaScript, the [SDK](./sdk.md) does these steps for you.
@@ -108,6 +111,94 @@ A commit can be used once. If the user changes anything, get a new quote. The AP
 
 If there's an `approval`, send the token approval first. Then the user signs and sends `transaction` with their wallet.
 
+This Node.js script does both for the offer the user chose: it commits it, approves the token if the allowance is too low, then sends the transfer and waits for it to be mined. Set `KAIA_BRIDGE_API_KEY`, `PRIVATE_KEY` and `RPC_URL` (an RPC for the source chain). In a browser app, use the user's wallet instead of a private key, and send the commit through your backend so the API key stays there.
+
+<Tabs groupId="evm-library">
+  <TabItem value="ethers" label="ethers v6" default>
+
+```js
+// npm install ethers
+import { Contract, JsonRpcProvider, NonceManager, Wallet } from "ethers";
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+
+// A wallet on the source chain (Ethereum in this example). NonceManager keeps the
+// approval and the transfer from reusing a nonce when they're sent back to back.
+const wallet = new NonceManager(new Wallet(process.env.PRIVATE_KEY, new JsonRpcProvider(process.env.RPC_URL)));
+const me = await wallet.getAddress();
+
+// offer: the object the user chose from bridge.allQuotes in step 3.
+const commit = await fetch(`${API}/api/v1/commit`, { method: "POST", headers, body: JSON.stringify(offer) }).then((r) => r.json());
+if (!commit.success) throw new Error(`${commit.error.code}: ${commit.error.message}`);
+
+// 1. Approve the token first, if the provider needs it and the allowance is too low.
+if (commit.approval) {
+  const { token, spender, amount } = commit.approval;
+  const erc20 = new Contract(token, [
+    "function allowance(address owner, address spender) view returns (uint256)",
+    "function approve(address spender, uint256 amount) returns (bool)",
+  ], wallet);
+  if ((await erc20.allowance(me, spender)) < BigInt(amount)) {
+    await (await erc20.approve(spender, amount)).wait();
+  }
+}
+
+// 2. Sign and send the transfer, then wait for it to be mined.
+const { to, data, value } = commit.transaction;
+const tx = await wallet.sendTransaction({ to, data, value: BigInt(value ?? 0) });
+console.log("Sent", tx.hash);
+const receipt = await tx.wait();
+if (receipt.status !== 1) throw new Error(`Reverted: ${tx.hash}`);
+console.log("Confirmed in block", receipt.blockNumber);
+```
+
+  </TabItem>
+  <TabItem value="viem" label="viem">
+
+```js
+// npm install viem
+import { createPublicClient, createWalletClient, erc20Abi, http } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { mainnet } from "viem/chains"; // the source chain (Ethereum in this example)
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+
+const account = privateKeyToAccount(process.env.PRIVATE_KEY);
+const publicClient = createPublicClient({ chain: mainnet, transport: http(process.env.RPC_URL) });
+const walletClient = createWalletClient({ account, chain: mainnet, transport: http(process.env.RPC_URL) });
+
+// offer: the object the user chose from bridge.allQuotes in step 3.
+const commit = await fetch(`${API}/api/v1/commit`, { method: "POST", headers, body: JSON.stringify(offer) }).then((r) => r.json());
+if (!commit.success) throw new Error(`${commit.error.code}: ${commit.error.message}`);
+
+// 1. Approve the token first, if the provider needs it and the allowance is too low.
+if (commit.approval) {
+  const { token, spender, amount } = commit.approval;
+  const allowance = await publicClient.readContract({
+    address: token, abi: erc20Abi, functionName: "allowance", args: [account.address, spender],
+  });
+  if (allowance < BigInt(amount)) {
+    const approveHash = await walletClient.writeContract({
+      address: token, abi: erc20Abi, functionName: "approve", args: [spender, BigInt(amount)],
+    });
+    await publicClient.waitForTransactionReceipt({ hash: approveHash });
+  }
+}
+
+// 2. Sign and send the transfer, then wait for it to be mined.
+const { to, data, value } = commit.transaction;
+const hash = await walletClient.sendTransaction({ to, data, value: BigInt(value ?? 0) });
+console.log("Sent", hash);
+const receipt = await publicClient.waitForTransactionReceipt({ hash });
+if (receipt.status !== "success") throw new Error(`Reverted: ${hash}`);
+console.log("Confirmed in block", receipt.blockNumber);
+```
+
+  </TabItem>
+</Tabs>
+
 Some wallets never report that a transaction was mined. Besides the wallet, poll an RPC you trust for the source chain, and use whichever answers first:
 
 ```bash
@@ -138,6 +229,95 @@ curl -s "$BASE/api/v1/claim" -H "X-API-Key: $KEY" -H "Content-Type: application/
 ```
 
 The response has `chainId` and `transaction` (`to`, `data`, `value`, `chainId`). The user switches their wallet to that chain, then signs and sends it, paying the gas there. Track it with `swap-status` until it's `completed`. The API answers `400` if the transfer isn't signed by Wormhole yet or was already claimed.
+
+This Node.js script waits for the transfer to be ready, gets the claim and sends it. Set `SOURCE_TX_HASH` to the deposit's transaction hash from step 5, and `DESTINATION_RPC_URL` to an RPC for the destination chain: the claim is sent there, not on the source chain. The script stops before sending if that RPC is for another chain.
+
+<Tabs groupId="evm-library">
+  <TabItem value="ethers" label="ethers v6" default>
+
+```js
+// npm install ethers
+import { JsonRpcProvider, Wallet } from "ethers";
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+const swapId = process.env.SOURCE_TX_HASH; // the deposit's transaction hash from step 5
+
+// 1. Wait until Wormhole has signed the transfer (about 1 to 20 minutes).
+for (;;) {
+  const status = await fetch(`${API}/api/v1/swap-status?adaptorId=wormhole&swapId=${swapId}`, { headers }).then((r) => r.json());
+  if (status.success === false) throw new Error(`${status.error.code}: ${status.error.message}`);
+  if (status.status === "ready_to_claim") break;
+  if (status.status === "completed") { console.log("Already claimed"); process.exit(0); }
+  if (status.status === "failed") throw new Error("The transfer failed");
+  await new Promise((r) => setTimeout(r, 15_000));
+}
+
+// 2. Get the claim transaction for the destination chain.
+const claim = await fetch(`${API}/api/v1/claim`, {
+  method: "POST", headers, body: JSON.stringify({ adaptorId: "wormhole", swapId }),
+}).then((r) => r.json());
+if (!claim.success) throw new Error(`${claim.error.code}: ${claim.error.message}`);
+
+// 3. Send it from a wallet on the destination chain, which pays the gas there.
+const wallet = new Wallet(process.env.PRIVATE_KEY, new JsonRpcProvider(process.env.DESTINATION_RPC_URL));
+const { chainId } = await wallet.provider.getNetwork();
+if (Number(chainId) !== claim.chainId) throw new Error(`DESTINATION_RPC_URL must be for chain ${claim.chainId}`);
+
+const { to, data, value } = claim.transaction;
+const tx = await wallet.sendTransaction({ to, data, value: BigInt(value ?? 0) });
+console.log("Claim sent", tx.hash);
+const receipt = await tx.wait();
+if (receipt.status !== 1) throw new Error(`Reverted: ${tx.hash}`);
+console.log("Claimed in block", receipt.blockNumber);
+```
+
+  </TabItem>
+  <TabItem value="viem" label="viem">
+
+```js
+// npm install viem
+import { createPublicClient, createWalletClient, http } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+const swapId = process.env.SOURCE_TX_HASH; // the deposit's transaction hash from step 5
+
+// 1. Wait until Wormhole has signed the transfer (about 1 to 20 minutes).
+for (;;) {
+  const status = await fetch(`${API}/api/v1/swap-status?adaptorId=wormhole&swapId=${swapId}`, { headers }).then((r) => r.json());
+  if (status.success === false) throw new Error(`${status.error.code}: ${status.error.message}`);
+  if (status.status === "ready_to_claim") break;
+  if (status.status === "completed") { console.log("Already claimed"); process.exit(0); }
+  if (status.status === "failed") throw new Error("The transfer failed");
+  await new Promise((r) => setTimeout(r, 15_000));
+}
+
+// 2. Get the claim transaction for the destination chain.
+const claim = await fetch(`${API}/api/v1/claim`, {
+  method: "POST", headers, body: JSON.stringify({ adaptorId: "wormhole", swapId }),
+}).then((r) => r.json());
+if (!claim.success) throw new Error(`${claim.error.code}: ${claim.error.message}`);
+
+// 3. Send it from a wallet on the destination chain, which pays the gas there.
+const transport = http(process.env.DESTINATION_RPC_URL);
+const publicClient = createPublicClient({ transport });
+const walletClient = createWalletClient({ account: privateKeyToAccount(process.env.PRIVATE_KEY), transport });
+if ((await publicClient.getChainId()) !== claim.chainId) {
+  throw new Error(`DESTINATION_RPC_URL must be for chain ${claim.chainId}`);
+}
+
+const { to, data, value } = claim.transaction;
+const hash = await walletClient.sendTransaction({ chain: null, to, data, value: BigInt(value ?? 0) });
+console.log("Claim sent", hash);
+const receipt = await publicClient.waitForTransactionReceipt({ hash });
+if (receipt.status !== "success") throw new Error(`Reverted: ${hash}`);
+console.log("Claimed in block", receipt.blockNumber);
+```
+
+  </TabItem>
+</Tabs>
 
 To show transfers still waiting to be claimed, for example after the user reloads the page or opens your app on another device:
 
