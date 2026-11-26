@@ -358,3 +358,205 @@ Every error has the same shape:
 | 429 | | Too many requests: wait for the number of seconds in `RateLimit-Reset`, then retry. |
 
 Every response has an `X-Request-ID` header. Include it when you report a problem to [ecosystem@kaia.io](mailto:ecosystem@kaia.io).
+
+## Full example {#full-example}
+
+One Node.js script that runs a whole transfer: it checks the route, prints every provider's offer, commits the best one (or the one named in `PROVIDER`), approves the token if needed, sends the transfer, tracks it until it arrives, and claims it on the destination chain if it's a Wormhole transfer. It uses a small amount by default; change `ROUTE` for another route.
+
+<details>
+<summary>Show the full Node.js script</summary>
+
+<Tabs groupId="evm-library">
+  <TabItem value="ethers" label="ethers v6" default>
+
+```js
+// npm install ethers
+// KAIA_BRIDGE_API_KEY=… PRIVATE_KEY=… SOURCE_RPC_URL=… DESTINATION_RPC_URL=… node bridge.mjs
+import { Contract, JsonRpcProvider, NonceManager, Wallet } from "ethers";
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+
+// What to send: 5 USDT from Kaia to Polygon. Change these for another route.
+const ROUTE = {
+  fromChainId: 8217, fromToken: "0xd077a400968890eacc75cdc901f0356c943e4fdb", // USDT on Kaia
+  toChainId: 137, toToken: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT on Polygon
+  amount: "5000000", // 5 USDT (6 decimals)
+};
+const PROVIDER = process.env.PROVIDER; // optional: use this provider's offer instead of the best one
+
+const source = new NonceManager(new Wallet(process.env.PRIVATE_KEY, new JsonRpcProvider(process.env.SOURCE_RPC_URL)));
+const me = await source.getAddress();
+
+async function api(path, body) {
+  const init = body ? { method: "POST", headers, body: JSON.stringify(body) } : { headers };
+  const json = await fetch(`${API}${path}`, init).then((r) => r.json());
+  if (json.success === false) throw new Error(`${path}: ${json.error.code}: ${json.error.message}`);
+  return json;
+}
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 1. Check the route reaches the destination token (match by address, not symbol).
+const { tokens } = await api(`/api/v1/tokens?chainId=${ROUTE.toChainId}&fromChainId=${ROUTE.fromChainId}&fromToken=${ROUTE.fromToken}&limit=200`);
+if (!tokens.some((t) => t.address.toLowerCase() === ROUTE.toToken.toLowerCase())) throw new Error("No route to that token");
+
+// 2. Get every provider's offer and pick one.
+const quote = await api("/api/v1/quote", { ...ROUTE, sourceAddress: me, receiverAddress: me });
+if (quote.kind !== "bridge") throw new Error(`Expected a bridge quote, got ${quote.kind}`);
+const offers = quote.bridge.allQuotes ?? [quote.bridge.quote];
+for (const o of offers) console.log(`${o.adaptorId}: receive ${o.toAmountWei}, fee $${o.feeInUsd}, about ${o.durationSeconds}s`);
+const offer = PROVIDER ? offers.find((o) => o.adaptorId === PROVIDER) : quote.bridge.quote;
+if (!offer) throw new Error(`No offer from ${PROVIDER}`);
+console.log("Using", offer.adaptorId);
+
+// 3. Commit, approve the token if needed, then send the transfer.
+const commit = await api("/api/v1/commit", offer);
+if (commit.approval) {
+  const { token, spender, amount } = commit.approval;
+  const erc20 = new Contract(token, [
+    "function allowance(address owner, address spender) view returns (uint256)",
+    "function approve(address spender, uint256 amount) returns (bool)",
+  ], source);
+  if ((await erc20.allowance(me, spender)) < BigInt(amount)) {
+    await (await erc20.approve(spender, amount)).wait();
+  }
+}
+const tx = await source.sendTransaction({ to: commit.transaction.to, data: commit.transaction.data, value: BigInt(commit.transaction.value ?? 0) });
+console.log("Sent", tx.hash);
+if ((await tx.wait()).status !== 1) throw new Error(`Reverted: ${tx.hash}`);
+
+// 4. Track the transfer. For Wormhole, the status is looked up by the source transaction hash.
+const swapId = offer.adaptorId === "wormhole" ? tx.hash : commit.swapId;
+let status;
+for (;;) {
+  try {
+    status = await api(`/api/v1/swap-status?adaptorId=${offer.adaptorId}&swapId=${swapId}`);
+    console.log("Status:", status.status);
+    if (["completed", "failed", "ready_to_claim"].includes(status.status)) break;
+  } catch (err) {
+    console.log("Status not available yet:", err.message); // e.g. just sent: try again shortly
+  }
+  await sleep(15_000);
+}
+
+// 5. Wormhole only: claim on the destination chain, which pays the gas there.
+if (status.status === "ready_to_claim") {
+  const claim = await api("/api/v1/claim", { adaptorId: "wormhole", swapId });
+  const dest = new Wallet(process.env.PRIVATE_KEY, new JsonRpcProvider(process.env.DESTINATION_RPC_URL));
+  if (Number((await dest.provider.getNetwork()).chainId) !== claim.chainId) {
+    throw new Error(`DESTINATION_RPC_URL must be for chain ${claim.chainId}`);
+  }
+  const c = claim.transaction;
+  const claimTx = await dest.sendTransaction({ to: c.to, data: c.data, value: BigInt(c.value ?? 0) });
+  console.log("Claim sent", claimTx.hash);
+  if ((await claimTx.wait()).status !== 1) throw new Error(`Claim reverted: ${claimTx.hash}`);
+  status.status = "completed";
+}
+console.log(status.status === "completed" ? "Done: the tokens have arrived." : `Transfer ${status.status}`);
+```
+
+  </TabItem>
+  <TabItem value="viem" label="viem">
+
+```js
+// npm install viem
+// KAIA_BRIDGE_API_KEY=… PRIVATE_KEY=… SOURCE_RPC_URL=… DESTINATION_RPC_URL=… node bridge.mjs
+import { createPublicClient, createWalletClient, erc20Abi, http } from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+
+const API = "https://bridge-aggregator-api.kaia.io";
+const headers = { "X-API-Key": process.env.KAIA_BRIDGE_API_KEY, "Content-Type": "application/json" };
+
+// What to send: 5 USDT from Kaia to Polygon. Change these for another route.
+const ROUTE = {
+  fromChainId: 8217, fromToken: "0xd077a400968890eacc75cdc901f0356c943e4fdb", // USDT on Kaia
+  toChainId: 137, toToken: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT on Polygon
+  amount: "5000000", // 5 USDT (6 decimals)
+};
+const PROVIDER = process.env.PROVIDER; // optional: use this provider's offer instead of the best one
+
+const account = privateKeyToAccount(process.env.PRIVATE_KEY);
+const clients = (url) => ({
+  read: createPublicClient({ transport: http(url) }),
+  write: createWalletClient({ account, transport: http(url) }),
+});
+const source = clients(process.env.SOURCE_RPC_URL);
+const me = account.address;
+
+async function api(path, body) {
+  const init = body ? { method: "POST", headers, body: JSON.stringify(body) } : { headers };
+  const json = await fetch(`${API}${path}`, init).then((r) => r.json());
+  if (json.success === false) throw new Error(`${path}: ${json.error.code}: ${json.error.message}`);
+  return json;
+}
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// 1. Check the route reaches the destination token (match by address, not symbol).
+const { tokens } = await api(`/api/v1/tokens?chainId=${ROUTE.toChainId}&fromChainId=${ROUTE.fromChainId}&fromToken=${ROUTE.fromToken}&limit=200`);
+if (!tokens.some((t) => t.address.toLowerCase() === ROUTE.toToken.toLowerCase())) throw new Error("No route to that token");
+
+// 2. Get every provider's offer and pick one.
+const quote = await api("/api/v1/quote", { ...ROUTE, sourceAddress: me, receiverAddress: me });
+if (quote.kind !== "bridge") throw new Error(`Expected a bridge quote, got ${quote.kind}`);
+const offers = quote.bridge.allQuotes ?? [quote.bridge.quote];
+for (const o of offers) console.log(`${o.adaptorId}: receive ${o.toAmountWei}, fee $${o.feeInUsd}, about ${o.durationSeconds}s`);
+const offer = PROVIDER ? offers.find((o) => o.adaptorId === PROVIDER) : quote.bridge.quote;
+if (!offer) throw new Error(`No offer from ${PROVIDER}`);
+console.log("Using", offer.adaptorId);
+
+// 3. Commit, approve the token if needed, then send the transfer.
+const commit = await api("/api/v1/commit", offer);
+if (commit.approval) {
+  const { token, spender, amount } = commit.approval;
+  const allowance = await source.read.readContract({
+    address: token, abi: erc20Abi, functionName: "allowance", args: [me, spender],
+  });
+  if (allowance < BigInt(amount)) {
+    const approveHash = await source.write.writeContract({
+      chain: null, address: token, abi: erc20Abi, functionName: "approve", args: [spender, BigInt(amount)],
+    });
+    await source.read.waitForTransactionReceipt({ hash: approveHash });
+  }
+}
+const hash = await source.write.sendTransaction({
+  chain: null, to: commit.transaction.to, data: commit.transaction.data, value: BigInt(commit.transaction.value ?? 0),
+});
+console.log("Sent", hash);
+if ((await source.read.waitForTransactionReceipt({ hash })).status !== "success") throw new Error(`Reverted: ${hash}`);
+
+// 4. Track the transfer. For Wormhole, the status is looked up by the source transaction hash.
+const swapId = offer.adaptorId === "wormhole" ? hash : commit.swapId;
+let status;
+for (;;) {
+  try {
+    status = await api(`/api/v1/swap-status?adaptorId=${offer.adaptorId}&swapId=${swapId}`);
+    console.log("Status:", status.status);
+    if (["completed", "failed", "ready_to_claim"].includes(status.status)) break;
+  } catch (err) {
+    console.log("Status not available yet:", err.message); // e.g. just sent: try again shortly
+  }
+  await sleep(15_000);
+}
+
+// 5. Wormhole only: claim on the destination chain, which pays the gas there.
+if (status.status === "ready_to_claim") {
+  const claim = await api("/api/v1/claim", { adaptorId: "wormhole", swapId });
+  const dest = clients(process.env.DESTINATION_RPC_URL);
+  if ((await dest.read.getChainId()) !== claim.chainId) {
+    throw new Error(`DESTINATION_RPC_URL must be for chain ${claim.chainId}`);
+  }
+  const c = claim.transaction;
+  const claimHash = await dest.write.sendTransaction({ chain: null, to: c.to, data: c.data, value: BigInt(c.value ?? 0) });
+  console.log("Claim sent", claimHash);
+  if ((await dest.read.waitForTransactionReceipt({ hash: claimHash })).status !== "success") {
+    throw new Error(`Claim reverted: ${claimHash}`);
+  }
+  status.status = "completed";
+}
+console.log(status.status === "completed" ? "Done: the tokens have arrived." : `Transfer ${status.status}`);
+```
+
+  </TabItem>
+</Tabs>
+
+</details>
