@@ -42,7 +42,7 @@ const wallet = createEthersWalletAdapter(await new BrowserProvider(window.ethere
 const wallet = createEthersWalletAdapter(new Wallet(process.env.PRIVATE_KEY!, new JsonRpcProvider(RPC_URL)));
 ```
 
-For viem, wagmi or another library, implement the five methods of `EVMWalletAdapter`: `getChainId`, `getAddress`, `sendTransaction`, `readContract` and `estimateGas`. TON routes use a `TONWalletAdapter` around TON Connect's `sendTransaction`.
+For viem, wagmi or another library, implement the five methods of `EVMWalletAdapter`: `getChainId`, `getAddress`, `sendTransaction`, `readContract` and `estimateGas`.
 
 ## Bridge tokens {#bridge}
 
@@ -95,8 +95,6 @@ const tx = sdk.getEVMTransaction(commit, ETHEREUM); // { chainId, to, value, dat
 // … sign and send tx …
 const final = await sdk.pollUntilComplete(commit.swapId!, commit.adaptorId);
 ```
-
-For a TON source chain, use `sdk.getTONTransaction(commit)` with TON Connect.
 
 ## Claim a Wormhole transfer {#claim}
 
@@ -185,4 +183,4 @@ API errors carry the request's `requestId`. Include it when you contact [ecosyst
 
 - **Show offers as they arrive:** `sdk.streamQuotes(request, { onQuote, onComplete, onError })`.
 - **Full reference:** every method and option is documented in the package (`docs/` folder) and on [npm](https://www.npmjs.com/package/@kaiachain/bridge-aggregator-sdk).
-- **Runnable examples:** the package's `examples/` folder has scripts for discovering routes, Kaia ↔ Polygon, TON ↔ Kaia and swaps on Kaia.
+- **Runnable examples:** the package's `examples/` folder has scripts for discovering routes, Kaia ↔ Polygon and swaps on Kaia.

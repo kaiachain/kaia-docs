@@ -19,7 +19,7 @@ A few rules apply to every call:
 
 - **Amounts** are strings in the token's smallest unit. 25 USDT, which has 6 decimals, is `"25000000"`.
 - **Tokens** are identified by address, never by symbol. Native tokens (ETH, KAIA, BNB, …) use `0x0000000000000000000000000000000000000000`.
-- **Chain IDs**: Kaia is `8217`, Ethereum `1`, BNB Chain `56`, Polygon `137`, Arbitrum `42161`, Base `8453`. TON is `-1`.
+- **Chain IDs**: Kaia is `8217`, Ethereum `1`, BNB Chain `56`, Polygon `137`, Arbitrum `42161`, Base `8453`.
 
 ## 1. List chains {#list-chains}
 
@@ -98,7 +98,7 @@ curl -s "$BASE/api/v1/commit" -H "X-API-Key: $KEY" -H "Content-Type: application
 
 The response contains:
 
-- `transaction`: what to sign on an EVM source chain (`to`, `value`, `data`, `chainId`), or `tonTransaction` for TON;
+- `transaction`: what to sign on the source chain (`to`, `value`, `data`, `chainId`);
 - `approval`: when present, the user must first approve `amount` of `token` for `spender`;
 - `swapId`: the ID to check the transfer's status with (for Wormhole, see step 6).
 

@@ -86,7 +86,7 @@ If you'd rather write the iframe yourself, listen for the widget's height messag
 - **Wormhole routes:** the widget says up front that there are two steps, sending and then claiming on the destination chain, and shows a **Claim** button when the claim is ready. Transfers waiting to be claimed are listed again if the user comes back later.
 - **Swaps on Kaia:** when both sides are Kaia, the widget swaps between Kaia tokens.
 - **Earn:** users can deposit USDT on Kaia into SuperEarn. Withdrawals happen on [superearn.io](https://superearn.io/earn/earnusdt).
-- **Wallets:** browser-extension wallets (MetaMask, Rabby, Kaia Wallet and others), WalletConnect for wallet apps on phones, and TON Connect for TON. On a phone with no wallet in the browser, the widget offers **Open in MetaMask** or **Open in Kaia Wallet**.
+- **Wallets:** browser-extension wallets (MetaMask, Rabby, Kaia Wallet and others), and WalletConnect for wallet apps on phones. On a phone with no wallet in the browser, the widget offers **Open in MetaMask** or **Open in Kaia Wallet**.
 - **No surprise pop-ups:** opening the page never opens the wallet. A returning user whose wallet is unlocked and already approved your site is reconnected quietly.
 - **Clear outcomes:** after the user signs, the widget confirms the transaction through the wallet and through public chain RPCs. If nothing confirms within 10 minutes, it shows "Sent, but not confirmed yet" with an explorer link, instead of inviting a second send.
 

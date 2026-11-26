@@ -12,7 +12,7 @@ With it you can:
 
 - list the chains and tokens that have a live route to or from Kaia;
 - compare offers from every provider: amount received, fee in USD and estimated time;
-- get a ready-to-sign transaction for EVM wallets or TON Connect;
+- get a ready-to-sign transaction for the user's wallet;
 - track a transfer until it arrives, including the claim step for Wormhole.
 
 Every route starts or ends on Kaia. The aggregator never holds funds: users sign each transfer with their own wallet, and the provider they choose moves the tokens.
