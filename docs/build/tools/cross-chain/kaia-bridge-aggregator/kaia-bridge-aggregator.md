@@ -53,13 +53,13 @@ QA uses its own keys. The interactive API reference, with every parameter and re
 
 1. **Pick chains.** List the chains that have a route to or from Kaia.
 2. **Pick tokens.** List the tokens that can leave the source chain, then what the chosen token can become on the destination chain. Only tokens with a live route are listed.
-3. **Get offers.** Ask for a quote. You get the best offer and every provider's offer; let the user choose.
+3. **Get offers.** Ask for a quote. You get every provider's offer in the same shape, best first; let the user choose.
 4. **Commit.** Lock in the chosen offer. You get the transaction to sign, and a token approval first if the provider needs one.
 5. **Sign and send.** The user signs with their wallet.
 6. **Track.** Check the transfer's status until it's `completed` or `failed`.
 7. **Claim (Wormhole only).** A Wormhole transfer stops at `ready_to_claim`. The user then sends a second transaction, the claim, on the destination chain and pays its gas there.
 
-A swap between two tokens on Kaia skips the commit step: the quote already contains the transactions to sign.
+A swap between two tokens on Kaia skips the commit step: the offer already contains the transaction to sign (and the approval, if one is needed).
 
 ## Supported chains {#supported-chains}
 

@@ -4,7 +4,7 @@ sidebar_label: Use the SDK
 
 # Use the Kaia Bridge Aggregator SDK
 
-[`@kaiachain/bridge-aggregator-sdk`](https://www.npmjs.com/package/@kaiachain/bridge-aggregator-sdk) is a typed TypeScript client for the [HTTP API](./http-api.md). Besides the API calls, it handles token approvals, signing, waiting for confirmation, tracking and Wormhole claims, so a whole transfer is one call.
+[`@kaiachain/bridge-aggregator-sdk`](https://www.npmjs.com/package/@kaiachain/bridge-aggregator-sdk) is a typed TypeScript client for the [HTTP API](./http-api.md). Besides the API calls, it handles token approvals, signing, waiting for confirmation, tracking and Wormhole claims, so a whole transfer is one call, the same for every provider.
 
 ## Install {#install}
 
@@ -46,6 +46,8 @@ For viem, wagmi or another library, implement the five methods of `EVMWalletAdap
 
 ## Bridge tokens {#bridge}
 
+Every provider's offer has the same shape, and `execute` runs any of them the same way.
+
 ```ts
 const ETHEREUM = 1;
 const KAIA = 8217;
@@ -57,8 +59,8 @@ const me = await wallet.getAddress();
 const { tokens } = await sdk.getTokens(KAIA, { fromChainId: ETHEREUM, fromToken: ETH_USDT });
 const kaiaUsdt = tokens.find((t) => t.address?.toLowerCase() === KAIA_USDT)!;
 
-// Every provider's offer for 100 USDT (6 decimals, so "100000000")
-const result = await sdk.getQuote({
+// Every provider's offer for 100 USDT (6 decimals, so "100000000"), best first
+const quote = await sdk.getQuote({
   fromChainId: ETHEREUM,
   toChainId: KAIA,
   fromToken: ETH_USDT,
@@ -68,56 +70,63 @@ const result = await sdk.getQuote({
   receiverAddress: me,
 });
 
-if (result.kind === "bridge") {
-  for (const offer of result.bridge.allQuotes ?? [result.bridge.quote]) {
-    console.log(offer.adaptorId, offer.toAmountWei, `$${offer.feeInUsd}`, `${offer.durationSeconds}s`);
-  }
-
-  // Commit → approve if needed → send → track until completed or failed
-  const { finalStatus } = await sdk.executeBridge(result.bridge.quote, wallet, {
-    onApprovalRequired: () => console.log("Approve the token in your wallet"),
-    onTxSent: ({ hash }) => console.log("Sent", hash),
-  });
-  console.log(finalStatus?.status); // "completed"
+for (const offer of quote.offers) {
+  console.log(offer.adaptorId, offer.toAmount, `$${offer.feeUsd}`, `${offer.durationSeconds}s`);
 }
+
+// Commit → approve if needed → send → track until completed or failed
+const result = await sdk.execute(quote, wallet, {
+  onApprovalRequired: () => console.log("Approve the token in your wallet"),
+  onTxSent: ({ hash }) => console.log("Sent", hash),
+});
+console.log(result.finalStatus?.status); // "completed"
 ```
 
-Pass any offer from `allQuotes` to `executeBridge` to use that provider instead of the best one. Before committing, `executeBridge` checks the wallet is on the source chain (`ChainMismatchError` otherwise) and that the transaction won't fail (`GasEstimationError`), so nothing is sent in those cases.
+`execute` runs the best offer, `quote.offers[0]`. To use another provider, pass the one the user chose: `sdk.execute(quote, wallet, { offer })`. Before committing, `execute` checks the wallet is on the source chain (`ChainMismatchError` otherwise), and before sending, that the transaction won't fail (`GasEstimationError`). In both cases nothing is sent.
 
-To sign somewhere else (a custody service, a multisig, your own UI), run the steps yourself:
+A native coin (ETH, KAIA, BNB, …) is `0x0000000000000000000000000000000000000000`. It needs no approval; the amount travels as the transaction's `value`.
+
+Keep `result.transfer` (`{ adaptorId, swapId, txHash }`, also given to `onTxSent`) to check the status later, for example after a reload:
 
 ```ts
-const commit = await sdk.commitQuote(result.bridge.quote); // can be used once
+const status = await sdk.getSwapStatus(result.transfer!);
+```
+
+To sign somewhere else (a custody service, a multisig, your own UI), run the steps yourself. They are the same for every provider:
+
+```ts
+const commit = await sdk.commitOffer(quote.offers[0]); // can be used once
 if (commit.approval) {
   // approve commit.approval.amount of commit.approval.token for commit.approval.spender
 }
-const tx = sdk.getEVMTransaction(commit, ETHEREUM); // { chainId, to, value, data }
-// … sign and send tx …
-const final = await sdk.pollUntilComplete(commit.swapId!, commit.adaptorId);
+// commit.transaction is { to, data, value, chainId }: sign and send it as is
+const txHash = await sendWithYourSigner(commit.transaction);
+const final = await sdk.pollUntilComplete({ adaptorId: commit.adaptorId, swapId: commit.swapId, txHash });
 ```
 
 ## Claim a Wormhole transfer {#claim}
 
-A Wormhole transfer is two transactions: the deposit on the source chain, then a claim on the destination chain once Wormhole has signed it (about a minute from Kaia, BNB Chain or Polygon; about 20 minutes from Ethereum, Arbitrum or Base). The user pays the claim's gas on the destination chain. Before the user commits, show the offer's `claim` (destination chain) and `notices`.
+A Wormhole transfer is two transactions: the deposit on the source chain, then a claim on the destination chain once Wormhole has signed it (about a minute from Kaia, BNB Chain or Polygon; about 20 minutes from Ethereum, Arbitrum or Base). The user pays the claim's gas on the destination chain. Before the user commits, show the offer's `claim` (destination chain and gas estimate) and `notices`.
 
 ```ts
-const { finalStatus, claimRequired } = await sdk.executeBridge(offer, wallet);
+const result = await sdk.execute(quote, wallet, { offer: wormholeOffer });
 
-if (finalStatus?.status === "ready_to_claim" && claimRequired) {
-  await switchChain(claimRequired.chainId); // with your wallet library
-  const { claimTxHash } = await sdk.claim(claimRequired.swapId, "wormhole", wallet);
+if (result.finalStatus?.status === "ready_to_claim") {
+  await switchChain(result.claim!.chainId); // with your wallet library
+  const { claimTxHash } = await sdk.claim(result.transfer!, wallet);
 }
 ```
 
-For Wormhole, the `swapId` is the source transaction hash. To show transfers still waiting to be claimed (after a reload, or on another device):
+To show transfers still waiting to be claimed (after a reload, or on another device), list them and pass any of them to `claim`:
 
 ```ts
 const { claims } = await sdk.getPendingClaims(me);
+await sdk.claim(claims[0], wallet); // the wallet must be on claims[0].claim.chainId
 ```
 
 ## Swap tokens on Kaia {#swap-on-kaia}
 
-When both chain IDs are `8217`, `result.kind` is `"swap"` and there's no commit step. Pass the quotes and the original request to `executeSwap`:
+When both chain IDs are `8217`, the offers are swaps on Kaia. They need no commit, and `execute` runs them the same way:
 
 ```ts
 const request = {
@@ -128,20 +137,18 @@ const request = {
   amount: "1000000000000000000", // 1 KAIA
   sourceAddress: me,
 };
-const result = await sdk.getQuote(request);
-if (result.kind === "swap") {
-  const { txHash } = await sdk.executeSwap(result.swap.quotes, wallet, { request });
-}
+const quote = await sdk.getQuote(request);
+const { txHash } = await sdk.execute(quote, wallet, { request });
 ```
 
-If the token needs an approval first, `executeSwap` sends it, gets a new quote, then swaps.
+If the token needs an approval first, `execute` sends it, gets a new quote with `request`, then swaps with the same provider.
 
 ## Don't leave users waiting {#confirmation}
 
 Some wallets never report that a transaction was mined. Give the SDK RPC endpoints you trust and it also checks the chain itself, so your app doesn't wait on a transaction that already went through:
 
 ```ts
-await sdk.executeBridge(offer, wallet, {
+await sdk.execute(quote, wallet, {
   confirmation: { rpcUrls: { 1: ["https://your-ethereum-rpc"], 8217: ["https://public-en.node.kaia.io"] } },
 });
 ```
@@ -156,7 +163,7 @@ Every error is a typed class you can check with `instanceof`:
 import { TxNotConfirmedError, WalletRejectedError, RateLimitedError } from "@kaiachain/bridge-aggregator-sdk";
 
 try {
-  await sdk.executeBridge(offer, wallet);
+  await sdk.execute(quote, wallet);
 } catch (err) {
   if (err instanceof WalletRejectedError) return; // the user said no; nothing was sent
   if (err instanceof TxNotConfirmedError) return showExplorerLink(err.chainId, err.hash);
@@ -181,6 +188,6 @@ API errors carry the request's `requestId`. Include it when you contact [ecosyst
 
 ## More {#more}
 
-- **Show offers as they arrive:** `sdk.streamQuotes(request, { onQuote, onComplete, onError })`.
+- **Show offers as they arrive:** `sdk.streamQuotes(request, { onOffer, onComplete, onError })`. `onOffer` gets each offer as its provider answers; `onComplete` gets the same response as `getQuote`.
 - **Full reference:** every method and option is documented in the package (`docs/` folder) and on [npm](https://www.npmjs.com/package/@kaiachain/bridge-aggregator-sdk).
 - **Runnable examples:** the package's `examples/` folder has scripts for discovering routes, Kaia ↔ Polygon and swaps on Kaia.
